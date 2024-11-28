@@ -72,7 +72,7 @@ export interface GetBackupLongTermRetentionPolicyResult {
 /**
  * Gets a database's long term retention policy.
  */
-export function getBackupLongTermRetentionPolicyOutput(args: GetBackupLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupLongTermRetentionPolicyResult> {
+export function getBackupLongTermRetentionPolicyOutput(args: GetBackupLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupLongTermRetentionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20170301preview:getBackupLongTermRetentionPolicy", {
         "databaseName": args.databaseName,

@@ -74,7 +74,7 @@ export interface GetGraphQLApiResolverPolicyResult {
 /**
  * Get the policy configuration at the GraphQL API Resolver level.
  */
-export function getGraphQLApiResolverPolicyOutput(args: GetGraphQLApiResolverPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResolverPolicyResult> {
+export function getGraphQLApiResolverPolicyOutput(args: GetGraphQLApiResolverPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGraphQLApiResolverPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getGraphQLApiResolverPolicy", {
         "apiId": args.apiId,

@@ -48,7 +48,7 @@ export interface ListBuildServiceBuilderDeploymentsResult {
 /**
  * List deployments that are using the builder.
  */
-export function listBuildServiceBuilderDeploymentsOutput(args: ListBuildServiceBuilderDeploymentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildServiceBuilderDeploymentsResult> {
+export function listBuildServiceBuilderDeploymentsOutput(args: ListBuildServiceBuilderDeploymentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBuildServiceBuilderDeploymentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231201:listBuildServiceBuilderDeployments", {
         "buildServiceName": args.buildServiceName,

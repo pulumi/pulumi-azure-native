@@ -103,7 +103,7 @@ export interface GetCapacityReservationResult {
 /**
  * The operation that retrieves information about the capacity reservation.
  */
-export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
+export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityReservationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20240301:getCapacityReservation", {
         "capacityReservationGroupName": args.capacityReservationGroupName,

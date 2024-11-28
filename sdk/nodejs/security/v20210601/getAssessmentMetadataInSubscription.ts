@@ -90,7 +90,7 @@ export interface GetAssessmentMetadataInSubscriptionResult {
 /**
  * Get metadata information on an assessment type in a specific subscription
  */
-export function getAssessmentMetadataInSubscriptionOutput(args: GetAssessmentMetadataInSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentMetadataInSubscriptionResult> {
+export function getAssessmentMetadataInSubscriptionOutput(args: GetAssessmentMetadataInSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentMetadataInSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20210601:getAssessmentMetadataInSubscription", {
         "assessmentMetadataName": args.assessmentMetadataName,

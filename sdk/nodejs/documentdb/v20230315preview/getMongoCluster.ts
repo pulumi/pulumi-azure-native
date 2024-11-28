@@ -89,7 +89,7 @@ export interface GetMongoClusterResult {
 /**
  * Gets information about a mongo cluster.
  */
-export function getMongoClusterOutput(args: GetMongoClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoClusterResult> {
+export function getMongoClusterOutput(args: GetMongoClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMongoClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20230315preview:getMongoCluster", {
         "mongoClusterName": args.mongoClusterName,

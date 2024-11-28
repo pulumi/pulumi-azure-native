@@ -91,7 +91,7 @@ export interface GetMachineGroupResult {
  * Returns the specified machine group as it existed during the specified time interval.
  * Azure REST API version: 2015-11-01-preview.
  */
-export function getMachineGroupOutput(args: GetMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineGroupResult> {
+export function getMachineGroupOutput(args: GetMachineGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getMachineGroup", {
         "endTime": args.endTime,

@@ -63,7 +63,7 @@ export interface ListManagedClusterAccessProfileResult {
 /**
  * Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
  */
-export function listManagedClusterAccessProfileOutput(args: ListManagedClusterAccessProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAccessProfileResult> {
+export function listManagedClusterAccessProfileOutput(args: ListManagedClusterAccessProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListManagedClusterAccessProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20200301:listManagedClusterAccessProfile", {
         "resourceGroupName": args.resourceGroupName,

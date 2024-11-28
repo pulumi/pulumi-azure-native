@@ -67,7 +67,7 @@ export interface ListWebAppWorkflowsConnectionsResult {
  *
  * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function listWebAppWorkflowsConnectionsOutput(args: ListWebAppWorkflowsConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppWorkflowsConnectionsResult> {
+export function listWebAppWorkflowsConnectionsOutput(args: ListWebAppWorkflowsConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppWorkflowsConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:listWebAppWorkflowsConnections", {
         "name": args.name,

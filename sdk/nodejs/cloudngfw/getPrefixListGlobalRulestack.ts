@@ -79,7 +79,7 @@ export interface GetPrefixListGlobalRulestackResult {
  *
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
-export function getPrefixListGlobalRulestackOutput(args: GetPrefixListGlobalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListGlobalRulestackResult> {
+export function getPrefixListGlobalRulestackOutput(args: GetPrefixListGlobalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrefixListGlobalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw:getPrefixListGlobalRulestack", {
         "globalRulestackName": args.globalRulestackName,

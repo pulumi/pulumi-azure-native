@@ -79,7 +79,7 @@ export interface GetCacheRuleResult {
 /**
  * Gets the properties of the specified cache rule resource.
  */
-export function getCacheRuleOutput(args: GetCacheRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheRuleResult> {
+export function getCacheRuleOutput(args: GetCacheRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCacheRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230601preview:getCacheRule", {
         "cacheRuleName": args.cacheRuleName,

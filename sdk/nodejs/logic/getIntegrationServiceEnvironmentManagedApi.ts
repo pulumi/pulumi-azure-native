@@ -116,7 +116,7 @@ export interface GetIntegrationServiceEnvironmentManagedApiResult {
  * Gets the integration service environment managed Api.
  * Azure REST API version: 2019-05-01.
  */
-export function getIntegrationServiceEnvironmentManagedApiOutput(args: GetIntegrationServiceEnvironmentManagedApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationServiceEnvironmentManagedApiResult> {
+export function getIntegrationServiceEnvironmentManagedApiOutput(args: GetIntegrationServiceEnvironmentManagedApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationServiceEnvironmentManagedApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:getIntegrationServiceEnvironmentManagedApi", {
         "apiName": args.apiName,

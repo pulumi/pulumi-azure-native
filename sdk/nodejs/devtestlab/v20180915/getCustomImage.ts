@@ -115,7 +115,7 @@ export interface GetCustomImageResult {
 /**
  * Get custom image.
  */
-export function getCustomImageOutput(args: GetCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomImageResult> {
+export function getCustomImageOutput(args: GetCustomImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getCustomImage", {
         "expand": args.expand,

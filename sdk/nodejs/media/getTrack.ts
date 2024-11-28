@@ -69,7 +69,7 @@ export interface GetTrackResult {
  * Get the details of a Track in the Asset
  * Azure REST API version: 2023-01-01.
  */
-export function getTrackOutput(args: GetTrackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackResult> {
+export function getTrackOutput(args: GetTrackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getTrack", {
         "accountName": args.accountName,

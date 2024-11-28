@@ -105,7 +105,7 @@ export interface GetJobResult {
  * Gets a Job.
  * Azure REST API version: 2022-07-01.
  */
-export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
+export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getJob", {
         "accountName": args.accountName,

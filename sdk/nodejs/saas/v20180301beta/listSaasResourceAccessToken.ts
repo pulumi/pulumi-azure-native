@@ -37,7 +37,7 @@ export interface ListSaasResourceAccessTokenResult {
 /**
  * Gets the ISV access token for a SaaS resource.
  */
-export function listSaasResourceAccessTokenOutput(args: ListSaasResourceAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasResourceAccessTokenResult> {
+export function listSaasResourceAccessTokenOutput(args: ListSaasResourceAccessTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSaasResourceAccessTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:saas/v20180301beta:listSaasResourceAccessToken", {
         "resourceId": args.resourceId,

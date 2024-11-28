@@ -95,7 +95,7 @@ export interface GetWorkspaceResult {
  * Gets the properties of the specified machine learning workspace.
  * Azure REST API version: 2019-10-01.
  */
-export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearning:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,

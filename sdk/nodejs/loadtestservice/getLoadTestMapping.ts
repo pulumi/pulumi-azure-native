@@ -67,7 +67,7 @@ export interface GetLoadTestMappingResult {
  * Get a LoadTestMappingResource
  * Azure REST API version: 2023-12-01-preview.
  */
-export function getLoadTestMappingOutput(args: GetLoadTestMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestMappingResult> {
+export function getLoadTestMappingOutput(args: GetLoadTestMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadTestMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:loadtestservice:getLoadTestMapping", {
         "loadTestMappingName": args.loadTestMappingName,

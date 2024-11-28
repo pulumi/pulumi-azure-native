@@ -94,7 +94,7 @@ export interface GetIoTAddonResult {
  * Gets a specific addon by name.
  * Azure REST API version: 2022-03-01.
  */
-export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTAddonResult> {
+export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoTAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge:getIoTAddon", {
         "addonName": args.addonName,

@@ -45,7 +45,7 @@ export interface ListListPendingConnectionResult {
 /**
  * Lists all pending connections for a connection.
  */
-export function listListPendingConnectionOutput(args: ListListPendingConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListPendingConnectionResult> {
+export function listListPendingConnectionOutput(args: ListListPendingConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListPendingConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20231011preview:listListPendingConnection", {
         "connectionName": args.connectionName,

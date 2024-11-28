@@ -46,7 +46,7 @@ export interface GetImportCollectorResult {
  * Get a Import collector.
  * Azure REST API version: 2019-10-01.
  */
-export function getImportCollectorOutput(args: GetImportCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportCollectorResult> {
+export function getImportCollectorOutput(args: GetImportCollectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImportCollectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getImportCollector", {
         "importCollectorName": args.importCollectorName,

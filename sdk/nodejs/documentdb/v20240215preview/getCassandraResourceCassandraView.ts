@@ -73,7 +73,7 @@ export interface GetCassandraResourceCassandraViewResult {
 /**
  * Gets the Cassandra view under an existing Azure Cosmos DB database account.
  */
-export function getCassandraResourceCassandraViewOutput(args: GetCassandraResourceCassandraViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraResourceCassandraViewResult> {
+export function getCassandraResourceCassandraViewOutput(args: GetCassandraResourceCassandraViewOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCassandraResourceCassandraViewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240215preview:getCassandraResourceCassandraView", {
         "accountName": args.accountName,

@@ -108,7 +108,7 @@ export interface GetMachineExtensionResult {
  *
  * Other available API versions: 2023-04-01-preview.
  */
-export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineExtensionResult> {
+export function getMachineExtensionOutput(args: GetMachineExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm:getMachineExtension", {
         "extensionName": args.extensionName,

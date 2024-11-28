@@ -98,7 +98,7 @@ export interface GetDatabasePrincipalAssignmentResult {
  * Gets a Kusto pool database principalAssignment.
  * Azure REST API version: 2021-04-01-preview.
  */
-export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
+export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getDatabasePrincipalAssignment", {
         "databaseName": args.databaseName,

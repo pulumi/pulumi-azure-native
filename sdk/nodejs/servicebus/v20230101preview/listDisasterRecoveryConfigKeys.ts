@@ -72,7 +72,7 @@ export interface ListDisasterRecoveryConfigKeysResult {
 /**
  * Gets the primary and secondary connection strings for the namespace.
  */
-export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {
+export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20230101preview:listDisasterRecoveryConfigKeys", {
         "alias": args.alias,

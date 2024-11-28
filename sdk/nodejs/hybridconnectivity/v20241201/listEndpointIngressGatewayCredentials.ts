@@ -83,7 +83,7 @@ export interface ListEndpointIngressGatewayCredentialsResult {
 /**
  * Gets the ingress gateway endpoint credentials
  */
-export function listEndpointIngressGatewayCredentialsOutput(args: ListEndpointIngressGatewayCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointIngressGatewayCredentialsResult> {
+export function listEndpointIngressGatewayCredentialsOutput(args: ListEndpointIngressGatewayCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointIngressGatewayCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity/v20241201:listEndpointIngressGatewayCredentials", {
         "endpointName": args.endpointName,

@@ -94,7 +94,7 @@ export interface GetADLSGen2FileDataSetResult {
  * Get a DataSet in a share
  * Azure REST API version: 2021-08-01.
  */
-export function getADLSGen2FileDataSetOutput(args: GetADLSGen2FileDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FileDataSetResult> {
+export function getADLSGen2FileDataSetOutput(args: GetADLSGen2FileDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetADLSGen2FileDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:getADLSGen2FileDataSet", {
         "accountName": args.accountName,

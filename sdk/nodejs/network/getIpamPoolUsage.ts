@@ -84,7 +84,7 @@ export interface GetIpamPoolUsageResult {
  *
  * Other available API versions: 2024-05-01.
  */
-export function getIpamPoolUsageOutput(args: GetIpamPoolUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPoolUsageResult> {
+export function getIpamPoolUsageOutput(args: GetIpamPoolUsageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpamPoolUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getIpamPoolUsage", {
         "networkManagerName": args.networkManagerName,

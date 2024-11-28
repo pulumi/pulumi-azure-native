@@ -78,7 +78,7 @@ export interface GetContentKeyPolicyResult {
 /**
  * Get the details of a Content Key Policy in the Media Services account
  */
-export function getContentKeyPolicyOutput(args: GetContentKeyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyResult> {
+export function getContentKeyPolicyOutput(args: GetContentKeyPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentKeyPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getContentKeyPolicy", {
         "accountName": args.accountName,

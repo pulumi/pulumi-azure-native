@@ -55,7 +55,7 @@ export interface GetApplicationResult {
  * Get a specific application for the requested scope by applicationId
  * Azure REST API version: 2022-07-01-preview.
  */
-export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getApplication", {
         "applicationId": args.applicationId,

@@ -71,7 +71,7 @@ export interface GetWebAppDiscoverySiteDataSourcesControllerResult {
 /**
  * Method to get a Web app data source in site.
  */
-export function getWebAppDiscoverySiteDataSourcesControllerOutput(args: GetWebAppDiscoverySiteDataSourcesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDiscoverySiteDataSourcesControllerResult> {
+export function getWebAppDiscoverySiteDataSourcesControllerOutput(args: GetWebAppDiscoverySiteDataSourcesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppDiscoverySiteDataSourcesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20231001preview:getWebAppDiscoverySiteDataSourcesController", {
         "discoverySiteDataSourceName": args.discoverySiteDataSourceName,

@@ -68,7 +68,7 @@ export interface GetFailoverGroupResult {
  *
  * Other available API versions: 2024-01-01, 2024-05-01-preview.
  */
-export function getFailoverGroupOutput(args: GetFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFailoverGroupResult> {
+export function getFailoverGroupOutput(args: GetFailoverGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFailoverGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getFailoverGroup", {
         "failoverGroupName": args.failoverGroupName,

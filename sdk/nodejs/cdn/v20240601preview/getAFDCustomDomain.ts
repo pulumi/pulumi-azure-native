@@ -103,7 +103,7 @@ export interface GetAFDCustomDomainResult {
 /**
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
  */
-export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDCustomDomainResult> {
+export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAFDCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20240601preview:getAFDCustomDomain", {
         "customDomainName": args.customDomainName,

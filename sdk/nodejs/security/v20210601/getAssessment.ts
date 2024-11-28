@@ -82,7 +82,7 @@ export interface GetAssessmentResult {
 /**
  * Get a security assessment on your scanned resource
  */
-export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
+export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20210601:getAssessment", {
         "assessmentName": args.assessmentName,

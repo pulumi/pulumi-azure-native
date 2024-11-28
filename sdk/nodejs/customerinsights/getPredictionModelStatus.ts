@@ -85,7 +85,7 @@ export interface GetPredictionModelStatusResult {
  * Gets model status of the prediction.
  * Azure REST API version: 2017-04-26.
  */
-export function getPredictionModelStatusOutput(args: GetPredictionModelStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionModelStatusResult> {
+export function getPredictionModelStatusOutput(args: GetPredictionModelStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPredictionModelStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getPredictionModelStatus", {
         "hubName": args.hubName,

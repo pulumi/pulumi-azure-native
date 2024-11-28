@@ -67,7 +67,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Get a specific private endpoint connection for Power BI by private endpoint name.
  */
-export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:powerbi/v20200601:getPrivateEndpointConnection", {
         "azureResourceName": args.azureResourceName,

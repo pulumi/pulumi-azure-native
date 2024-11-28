@@ -57,7 +57,7 @@ export interface GetMonitoringSettingResult {
 /**
  * Get the Monitoring Setting and its properties.
  */
-export function getMonitoringSettingOutput(args: GetMonitoringSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringSettingResult> {
+export function getMonitoringSettingOutput(args: GetMonitoringSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoringSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230501preview:getMonitoringSetting", {
         "resourceGroupName": args.resourceGroupName,

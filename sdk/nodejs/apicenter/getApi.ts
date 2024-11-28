@@ -109,7 +109,7 @@ export interface GetApiResult {
  *
  * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
  */
-export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
+export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apicenter:getApi", {
         "apiName": args.apiName,

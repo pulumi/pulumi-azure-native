@@ -68,7 +68,7 @@ export interface GetDomainTopicResult {
  *
  * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
-export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
+export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid:getDomainTopic", {
         "domainName": args.domainName,

@@ -69,7 +69,7 @@ export interface GetInstanceDetailsResult {
 /**
  * Gets details about the specified instances.
  */
-export function getInstanceDetailsOutput(args: GetInstanceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceDetailsResult> {
+export function getInstanceDetailsOutput(args: GetInstanceDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dynamics365fraudprotection/v20210201preview:getInstanceDetails", {
         "instanceName": args.instanceName,

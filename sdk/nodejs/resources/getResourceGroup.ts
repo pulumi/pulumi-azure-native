@@ -66,7 +66,7 @@ export interface GetResourceGroupResult {
  *
  * Other available API versions: 2018-02-01, 2023-07-01, 2024-03-01, 2024-07-01.
  */
-export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
+export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getResourceGroup", {
         "resourceGroupName": args.resourceGroupName,

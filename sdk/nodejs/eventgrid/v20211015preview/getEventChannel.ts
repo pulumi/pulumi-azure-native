@@ -88,7 +88,7 @@ export interface GetEventChannelResult {
 /**
  * Get properties of an event channel.
  */
-export function getEventChannelOutput(args: GetEventChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventChannelResult> {
+export function getEventChannelOutput(args: GetEventChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20211015preview:getEventChannel", {
         "eventChannelName": args.eventChannelName,

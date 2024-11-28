@@ -78,7 +78,7 @@ export interface GetWorkloadNetworkVMGroupResult {
 /**
  * Get a WorkloadNetworkVMGroup
  */
-export function getWorkloadNetworkVMGroupOutput(args: GetWorkloadNetworkVMGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkVMGroupResult> {
+export function getWorkloadNetworkVMGroupOutput(args: GetWorkloadNetworkVMGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadNetworkVMGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getWorkloadNetworkVMGroup", {
         "privateCloudName": args.privateCloudName,

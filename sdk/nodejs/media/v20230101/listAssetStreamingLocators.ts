@@ -46,7 +46,7 @@ export interface ListAssetStreamingLocatorsResult {
 /**
  * Lists Streaming Locators which are associated with this asset.
  */
-export function listAssetStreamingLocatorsOutput(args: ListAssetStreamingLocatorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetStreamingLocatorsResult> {
+export function listAssetStreamingLocatorsOutput(args: ListAssetStreamingLocatorsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAssetStreamingLocatorsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20230101:listAssetStreamingLocators", {
         "accountName": args.accountName,

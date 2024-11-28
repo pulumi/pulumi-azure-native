@@ -188,7 +188,7 @@ export interface GetBareMetalMachineResult {
  *
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
-export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineResult> {
+export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBareMetalMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud:getBareMetalMachine", {
         "bareMetalMachineName": args.bareMetalMachineName,

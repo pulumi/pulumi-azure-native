@@ -74,7 +74,7 @@ export interface GetTableResourceTableRoleAssignmentResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Table Role Assignment with the given Id.
  */
-export function getTableResourceTableRoleAssignmentOutput(args: GetTableResourceTableRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResourceTableRoleAssignmentResult> {
+export function getTableResourceTableRoleAssignmentOutput(args: GetTableResourceTableRoleAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResourceTableRoleAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20241201preview:getTableResourceTableRoleAssignment", {
         "accountName": args.accountName,

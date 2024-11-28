@@ -72,7 +72,7 @@ export interface ListEventHubKeysResult {
 /**
  * Gets the ACS and SAS connection strings for the Event Hub.
  */
-export function listEventHubKeysOutput(args: ListEventHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEventHubKeysResult> {
+export function listEventHubKeysOutput(args: ListEventHubKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEventHubKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub/v20221001preview:listEventHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,

@@ -85,7 +85,7 @@ export interface GetAutomationResult {
 /**
  * Retrieves information about the model of a security automation.
  */
-export function getAutomationOutput(args: GetAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationResult> {
+export function getAutomationOutput(args: GetAutomationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutomationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20231201preview:getAutomation", {
         "automationName": args.automationName,

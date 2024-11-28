@@ -95,7 +95,7 @@ export interface GetJobDefinitionResult {
 /**
  * This method gets job definition object by name.
  */
-export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
+export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybriddata/v20190601:getJobDefinition", {
         "dataManagerName": args.dataManagerName,

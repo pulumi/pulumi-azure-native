@@ -94,7 +94,7 @@ export interface GetAssetResult {
 /**
  * Get the details of an Asset in the Media Services account
  */
-export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
+export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getAsset", {
         "accountName": args.accountName,

@@ -104,7 +104,7 @@ export interface GetPrivateStoreCollectionOfferResult {
  * Gets information about a specific offer.
  * Azure REST API version: 2023-01-01.
  */
-export function getPrivateStoreCollectionOfferOutput(args: GetPrivateStoreCollectionOfferOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionOfferResult> {
+export function getPrivateStoreCollectionOfferOutput(args: GetPrivateStoreCollectionOfferOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateStoreCollectionOfferResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:marketplace:getPrivateStoreCollectionOffer", {
         "collectionId": args.collectionId,

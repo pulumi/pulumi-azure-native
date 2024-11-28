@@ -80,7 +80,7 @@ export interface GetMTPDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getMTPDataConnectorOutput(args: GetMTPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMTPDataConnectorResult> {
+export function getMTPDataConnectorOutput(args: GetMTPDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMTPDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getMTPDataConnector", {
         "dataConnectorId": args.dataConnectorId,

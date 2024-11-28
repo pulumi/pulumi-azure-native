@@ -133,7 +133,7 @@ export interface GetServerGroupResult {
 /**
  * Gets information about a server group.
  */
-export function getServerGroupOutput(args: GetServerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerGroupResult> {
+export function getServerGroupOutput(args: GetServerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup", {
         "resourceGroupName": args.resourceGroupName,

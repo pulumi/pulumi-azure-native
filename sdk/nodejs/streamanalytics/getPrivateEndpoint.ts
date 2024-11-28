@@ -72,7 +72,7 @@ export interface GetPrivateEndpointResult {
  *
  * Other available API versions: 2020-03-01-preview.
  */
-export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointResult> {
+export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:streamanalytics:getPrivateEndpoint", {
         "clusterName": args.clusterName,

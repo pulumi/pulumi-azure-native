@@ -61,7 +61,7 @@ export interface GetSkusNestedResourceTypeFirstResult {
 /**
  * Gets the sku details for the given resource type and sku name.
  */
-export function getSkusNestedResourceTypeFirstOutput(args: GetSkusNestedResourceTypeFirstOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeFirstResult> {
+export function getSkusNestedResourceTypeFirstOutput(args: GetSkusNestedResourceTypeFirstOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSkusNestedResourceTypeFirstResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:providerhub/v20210901preview:getSkusNestedResourceTypeFirst", {
         "nestedResourceTypeFirst": args.nestedResourceTypeFirst,

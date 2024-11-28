@@ -53,7 +53,7 @@ export interface ListIpamPoolAssociatedResourcesResult {
  *
  * Other available API versions: 2024-05-01.
  */
-export function listIpamPoolAssociatedResourcesOutput(args: ListIpamPoolAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIpamPoolAssociatedResourcesResult> {
+export function listIpamPoolAssociatedResourcesOutput(args: ListIpamPoolAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIpamPoolAssociatedResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:listIpamPoolAssociatedResources", {
         "networkManagerName": args.networkManagerName,

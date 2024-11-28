@@ -162,7 +162,7 @@ export interface GetContentTemplateResult {
 /**
  * Gets a template byt its identifier.
  */
-export function getContentTemplateOutput(args: GetContentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTemplateResult> {
+export function getContentTemplateOutput(args: GetContentTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230901preview:getContentTemplate", {
         "resourceGroupName": args.resourceGroupName,

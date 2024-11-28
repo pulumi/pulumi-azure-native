@@ -95,7 +95,7 @@ export interface GetRemoteRenderingAccountResult {
  *
  * Other available API versions: 2021-03-01-preview.
  */
-export function getRemoteRenderingAccountOutput(args: GetRemoteRenderingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemoteRenderingAccountResult> {
+export function getRemoteRenderingAccountOutput(args: GetRemoteRenderingAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteRenderingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mixedreality:getRemoteRenderingAccount", {
         "accountName": args.accountName,

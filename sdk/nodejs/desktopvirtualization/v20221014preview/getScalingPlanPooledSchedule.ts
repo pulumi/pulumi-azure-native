@@ -126,7 +126,7 @@ export interface GetScalingPlanPooledScheduleResult {
 /**
  * Get a ScalingPlanPooledSchedule.
  */
-export function getScalingPlanPooledScheduleOutput(args: GetScalingPlanPooledScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanPooledScheduleResult> {
+export function getScalingPlanPooledScheduleOutput(args: GetScalingPlanPooledScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScalingPlanPooledScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20221014preview:getScalingPlanPooledSchedule", {
         "resourceGroupName": args.resourceGroupName,

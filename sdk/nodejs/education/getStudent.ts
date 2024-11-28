@@ -109,7 +109,7 @@ export interface GetStudentResult {
  * Get the details for a specific student in the specified lab by student alias
  * Azure REST API version: 2021-12-01-preview.
  */
-export function getStudentOutput(args: GetStudentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudentResult> {
+export function getStudentOutput(args: GetStudentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStudentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:education:getStudent", {
         "billingAccountName": args.billingAccountName,

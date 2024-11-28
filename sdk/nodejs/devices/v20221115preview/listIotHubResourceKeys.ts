@@ -45,7 +45,7 @@ export interface ListIotHubResourceKeysResult {
 /**
  * Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
  */
-export function listIotHubResourceKeysOutput(args: ListIotHubResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotHubResourceKeysResult> {
+export function listIotHubResourceKeysOutput(args: ListIotHubResourceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIotHubResourceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices/v20221115preview:listIotHubResourceKeys", {
         "resourceGroupName": args.resourceGroupName,

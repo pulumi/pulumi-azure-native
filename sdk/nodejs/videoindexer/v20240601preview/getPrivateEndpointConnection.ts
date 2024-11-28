@@ -74,7 +74,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Get the specified private endpoint connection associated with the Video Indexer account.
  */
-export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:videoindexer/v20240601preview:getPrivateEndpointConnection", {
         "accountName": args.accountName,

@@ -42,7 +42,7 @@ export interface ListSpatialAnchorsAccountKeysResult {
 /**
  * List Both of the 2 Keys of a Spatial Anchors Account
  */
-export function listSpatialAnchorsAccountKeysOutput(args: ListSpatialAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSpatialAnchorsAccountKeysResult> {
+export function listSpatialAnchorsAccountKeysOutput(args: ListSpatialAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSpatialAnchorsAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mixedreality/v20210101:listSpatialAnchorsAccountKeys", {
         "accountName": args.accountName,

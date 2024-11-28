@@ -97,7 +97,7 @@ export interface GetOpenShiftClusterResult {
 /**
  * The operation returns properties of a OpenShift cluster.
  */
-export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftClusterResult> {
+export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenShiftClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:redhatopenshift/v20220904:getOpenShiftCluster", {
         "resourceGroupName": args.resourceGroupName,

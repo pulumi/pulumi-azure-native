@@ -72,7 +72,7 @@ export interface GetPrivateEndpointConnectionsForMIPPolicySyncResult {
  * Gets the specified private endpoint connection associated with the service.
  * Azure REST API version: 2021-03-25-preview.
  */
-export function getPrivateEndpointConnectionsForMIPPolicySyncOutput(args: GetPrivateEndpointConnectionsForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForMIPPolicySyncResult> {
+export function getPrivateEndpointConnectionsForMIPPolicySyncOutput(args: GetPrivateEndpointConnectionsForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionsForMIPPolicySyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsForMIPPolicySync", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

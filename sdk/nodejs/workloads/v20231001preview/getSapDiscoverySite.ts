@@ -81,7 +81,7 @@ export interface GetSapDiscoverySiteResult {
 /**
  * Gets a SAP Migration discovery site resource.
  */
-export function getSapDiscoverySiteOutput(args: GetSapDiscoverySiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapDiscoverySiteResult> {
+export function getSapDiscoverySiteOutput(args: GetSapDiscoverySiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapDiscoverySiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getSapDiscoverySite", {
         "resourceGroupName": args.resourceGroupName,

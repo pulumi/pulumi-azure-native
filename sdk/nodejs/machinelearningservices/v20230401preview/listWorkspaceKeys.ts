@@ -39,7 +39,7 @@ export interface ListWorkspaceKeysResult {
 /**
  * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
  */
-export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
+export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230401preview:listWorkspaceKeys", {
         "resourceGroupName": args.resourceGroupName,

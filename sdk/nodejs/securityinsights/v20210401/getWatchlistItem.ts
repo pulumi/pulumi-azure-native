@@ -112,7 +112,7 @@ export interface GetWatchlistItemResult {
 /**
  * Get a watchlist item.
  */
-export function getWatchlistItemOutput(args: GetWatchlistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatchlistItemResult> {
+export function getWatchlistItemOutput(args: GetWatchlistItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWatchlistItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210401:getWatchlistItem", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

@@ -91,7 +91,7 @@ export interface GetVirtualNetworkResult {
  *
  * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
  */
-export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
+export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm:getVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,

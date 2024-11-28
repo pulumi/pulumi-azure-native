@@ -79,7 +79,7 @@ export interface GetDiskAccessResult {
  *
  * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
  */
-export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessResult> {
+export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiskAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute:getDiskAccess", {
         "diskAccessName": args.diskAccessName,

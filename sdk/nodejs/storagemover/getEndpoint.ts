@@ -68,7 +68,7 @@ export interface GetEndpointResult {
  *
  * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
  */
-export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
+export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagemover:getEndpoint", {
         "endpointName": args.endpointName,

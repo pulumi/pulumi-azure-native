@@ -66,7 +66,7 @@ export interface GetDpsCertificateResult {
 /**
  * Get the certificate from the provisioning service.
  */
-export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsCertificateResult> {
+export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDpsCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices/v20230301preview:getDpsCertificate", {
         "certificateName": args.certificateName,

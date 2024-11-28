@@ -75,7 +75,7 @@ export interface GetDnsResolverPolicyResult {
  * Gets properties of a DNS resolver policy.
  * Azure REST API version: 2023-07-01-preview.
  */
-export function getDnsResolverPolicyOutput(args: GetDnsResolverPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverPolicyResult> {
+export function getDnsResolverPolicyOutput(args: GetDnsResolverPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsResolverPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getDnsResolverPolicy", {
         "dnsResolverPolicyName": args.dnsResolverPolicyName,

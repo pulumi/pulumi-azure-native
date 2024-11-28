@@ -99,7 +99,7 @@ export interface GetInboundNatRuleResult {
 /**
  * Gets the specified load balancer inbound nat rule.
  */
-export function getInboundNatRuleOutput(args: GetInboundNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInboundNatRuleResult> {
+export function getInboundNatRuleOutput(args: GetInboundNatRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInboundNatRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20190601:getInboundNatRule", {
         "expand": args.expand,

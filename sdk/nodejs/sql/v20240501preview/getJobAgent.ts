@@ -78,7 +78,7 @@ export interface GetJobAgentResult {
 /**
  * Gets a job agent.
  */
-export function getJobAgentOutput(args: GetJobAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobAgentResult> {
+export function getJobAgentOutput(args: GetJobAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getJobAgent", {
         "jobAgentName": args.jobAgentName,

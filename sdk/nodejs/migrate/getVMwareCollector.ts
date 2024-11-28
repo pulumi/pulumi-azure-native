@@ -46,7 +46,7 @@ export interface GetVMwareCollectorResult {
  * Get a VMware collector.
  * Azure REST API version: 2019-10-01.
  */
-export function getVMwareCollectorOutput(args: GetVMwareCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMwareCollectorResult> {
+export function getVMwareCollectorOutput(args: GetVMwareCollectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVMwareCollectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getVMwareCollector", {
         "projectName": args.projectName,

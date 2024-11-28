@@ -60,7 +60,7 @@ export interface GetSubscriptionNetworkManagerConnectionResult {
 /**
  * Get a specified connection created by this subscription.
  */
-export function getSubscriptionNetworkManagerConnectionOutput(args: GetSubscriptionNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionNetworkManagerConnectionResult> {
+export function getSubscriptionNetworkManagerConnectionOutput(args: GetSubscriptionNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionNetworkManagerConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getSubscriptionNetworkManagerConnection", {
         "networkManagerConnectionName": args.networkManagerConnectionName,

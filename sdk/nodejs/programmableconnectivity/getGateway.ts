@@ -75,7 +75,7 @@ export interface GetGatewayResult {
  * Get a Gateway resource by name.
  * Azure REST API version: 2024-01-15-preview.
  */
-export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:programmableconnectivity:getGateway", {
         "gatewayName": args.gatewayName,

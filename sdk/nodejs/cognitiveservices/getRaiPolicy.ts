@@ -76,7 +76,7 @@ export interface GetRaiPolicyResult {
  *
  * Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
  */
-export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiPolicyResult> {
+export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRaiPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices:getRaiPolicy", {
         "accountName": args.accountName,

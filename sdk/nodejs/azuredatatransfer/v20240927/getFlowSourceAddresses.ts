@@ -43,7 +43,7 @@ export interface GetFlowSourceAddressesResult {
 /**
  * Get the source addresses for the specified flow.
  */
-export function getFlowSourceAddressesOutput(args: GetFlowSourceAddressesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowSourceAddressesResult> {
+export function getFlowSourceAddressesOutput(args: GetFlowSourceAddressesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowSourceAddressesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240927:getFlowSourceAddresses", {
         "connectionName": args.connectionName,

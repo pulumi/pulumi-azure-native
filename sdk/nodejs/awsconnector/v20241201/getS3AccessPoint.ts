@@ -65,7 +65,7 @@ export interface GetS3AccessPointResult {
 /**
  * Get a S3AccessPoint
  */
-export function getS3AccessPointOutput(args: GetS3AccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3AccessPointResult> {
+export function getS3AccessPointOutput(args: GetS3AccessPointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetS3AccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getS3AccessPoint", {
         "name": args.name,

@@ -80,7 +80,7 @@ export interface GetDataNetworkResult {
  *
  * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
  */
-export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataNetworkResult> {
+export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork:getDataNetwork", {
         "dataNetworkName": args.dataNetworkName,

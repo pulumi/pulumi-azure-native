@@ -113,7 +113,7 @@ export interface GetDiskResult {
 /**
  * Get disk.
  */
-export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskResult> {
+export function getDiskOutput(args: GetDiskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getDisk", {
         "expand": args.expand,

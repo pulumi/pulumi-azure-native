@@ -106,7 +106,7 @@ export interface GetEventHubResult {
 /**
  * Gets an Event Hubs description for the specified Event Hub.
  */
-export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubResult> {
+export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub/v20240501preview:getEventHub", {
         "eventHubName": args.eventHubName,

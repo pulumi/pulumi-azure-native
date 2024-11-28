@@ -111,7 +111,7 @@ export interface GetWebAppSiteContainerSlotResult {
 /**
  * Container of a site
  */
-export function getWebAppSiteContainerSlotOutput(args: GetWebAppSiteContainerSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteContainerSlotResult> {
+export function getWebAppSiteContainerSlotOutput(args: GetWebAppSiteContainerSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSiteContainerSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getWebAppSiteContainerSlot", {
         "containerName": args.containerName,

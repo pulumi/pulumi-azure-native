@@ -51,7 +51,7 @@ export interface ListConnectionConsentLinksResult {
 /**
  * Lists the consent links of a connection
  */
-export function listConnectionConsentLinksOutput(args: ListConnectionConsentLinksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionConsentLinksResult> {
+export function listConnectionConsentLinksOutput(args: ListConnectionConsentLinksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectionConsentLinksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20160601:listConnectionConsentLinks", {
         "connectionName": args.connectionName,

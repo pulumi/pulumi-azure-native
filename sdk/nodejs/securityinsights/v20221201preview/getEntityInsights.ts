@@ -70,7 +70,7 @@ export interface GetEntityInsightsResult {
 /**
  * Execute Insights for an entity.
  */
-export function getEntityInsightsOutput(args: GetEntityInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityInsightsResult> {
+export function getEntityInsightsOutput(args: GetEntityInsightsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntityInsightsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20221201preview:getEntityInsights", {
         "addDefaultExtendedTimeRange": args.addDefaultExtendedTimeRange,

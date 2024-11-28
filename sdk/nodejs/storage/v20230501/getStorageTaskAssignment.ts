@@ -58,7 +58,7 @@ export interface GetStorageTaskAssignmentResult {
 /**
  * Get the storage task assignment properties
  */
-export function getStorageTaskAssignmentOutput(args: GetStorageTaskAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTaskAssignmentResult> {
+export function getStorageTaskAssignmentOutput(args: GetStorageTaskAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageTaskAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230501:getStorageTaskAssignment", {
         "accountName": args.accountName,

@@ -74,7 +74,7 @@ export interface ListConnectionKeysResult {
 /**
  * Lists connection keys.
  */
-export function listConnectionKeysOutput(args: ListConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionKeysResult> {
+export function listConnectionKeysOutput(args: ListConnectionKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectionKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20150801preview:listConnectionKeys", {
         "connectionName": args.connectionName,

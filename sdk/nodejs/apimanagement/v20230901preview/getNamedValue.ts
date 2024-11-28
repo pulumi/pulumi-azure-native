@@ -78,7 +78,7 @@ export interface GetNamedValueResult {
 /**
  * Gets the details of the named value specified by its identifier.
  */
-export function getNamedValueOutput(args: GetNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedValueResult> {
+export function getNamedValueOutput(args: GetNamedValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamedValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getNamedValue", {
         "namedValueId": args.namedValueId,

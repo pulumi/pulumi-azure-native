@@ -51,7 +51,7 @@ export interface ListApplicationTokensResult {
 /**
  * List tokens for application.
  */
-export function listApplicationTokensOutput(args: ListApplicationTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationTokensResult> {
+export function listApplicationTokensOutput(args: ListApplicationTokensOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListApplicationTokensResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:solutions/v20231201preview:listApplicationTokens", {
         "applicationName": args.applicationName,

@@ -90,7 +90,7 @@ export interface GetBlobContainerDataSetResult {
  * Get a DataSet in a share
  * Azure REST API version: 2021-08-01.
  */
-export function getBlobContainerDataSetOutput(args: GetBlobContainerDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerDataSetResult> {
+export function getBlobContainerDataSetOutput(args: GetBlobContainerDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobContainerDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:getBlobContainerDataSet", {
         "accountName": args.accountName,

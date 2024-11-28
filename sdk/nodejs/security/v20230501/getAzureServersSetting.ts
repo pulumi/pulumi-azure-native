@@ -57,7 +57,7 @@ export interface GetAzureServersSettingResult {
 /**
  * Get a server vulnerability assessments setting of the requested kind, that is set on the subscription
  */
-export function getAzureServersSettingOutput(args: GetAzureServersSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureServersSettingResult> {
+export function getAzureServersSettingOutput(args: GetAzureServersSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureServersSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20230501:getAzureServersSetting", {
         "settingKind": args.settingKind,

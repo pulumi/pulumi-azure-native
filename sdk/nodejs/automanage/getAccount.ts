@@ -63,7 +63,7 @@ export interface GetAccountResult {
  * Get information about a Automanage account
  * Azure REST API version: 2020-06-30-preview.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automanage:getAccount", {
         "accountName": args.accountName,

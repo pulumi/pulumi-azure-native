@@ -64,7 +64,7 @@ export interface GetFunctionResult {
  *
  * Other available API versions: 2016-03-01, 2021-10-01-preview.
  */
-export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
+export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:streamanalytics:getFunction", {
         "functionName": args.functionName,

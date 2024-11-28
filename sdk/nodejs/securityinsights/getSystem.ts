@@ -79,7 +79,7 @@ export interface GetSystemResult {
  * Gets the system.
  * Azure REST API version: 2024-04-01-preview.
  */
-export function getSystemOutput(args: GetSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemResult> {
+export function getSystemOutput(args: GetSystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getSystem", {
         "agentResourceName": args.agentResourceName,

@@ -93,7 +93,7 @@ export interface GetNetworkTapResult {
 /**
  * Retrieves details of this Network Tap.
  */
-export function getNetworkTapOutput(args: GetNetworkTapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkTapResult> {
+export function getNetworkTapOutput(args: GetNetworkTapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkTapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkTap", {
         "networkTapName": args.networkTapName,

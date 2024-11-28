@@ -45,7 +45,7 @@ export interface GetFlowDestinationEndpointPortsResult {
  * Get the destination endpoint ports for the specified flow and stream ID.
  * Azure REST API version: 2024-09-27.
  */
-export function getFlowDestinationEndpointPortsOutput(args: GetFlowDestinationEndpointPortsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowDestinationEndpointPortsResult> {
+export function getFlowDestinationEndpointPortsOutput(args: GetFlowDestinationEndpointPortsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowDestinationEndpointPortsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:getFlowDestinationEndpointPorts", {
         "connectionName": args.connectionName,

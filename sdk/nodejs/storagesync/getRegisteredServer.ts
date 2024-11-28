@@ -156,7 +156,7 @@ export interface GetRegisteredServerResult {
  *
  * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2022-09-01.
  */
-export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {
+export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegisteredServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagesync:getRegisteredServer", {
         "resourceGroupName": args.resourceGroupName,

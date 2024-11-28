@@ -76,7 +76,7 @@ export interface GetVerifierWorkspaceResult {
  *
  * Other available API versions: 2024-05-01.
  */
-export function getVerifierWorkspaceOutput(args: GetVerifierWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVerifierWorkspaceResult> {
+export function getVerifierWorkspaceOutput(args: GetVerifierWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVerifierWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getVerifierWorkspace", {
         "networkManagerName": args.networkManagerName,

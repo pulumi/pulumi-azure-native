@@ -150,7 +150,7 @@ export interface GetWatchlistResult {
 /**
  * Get a watchlist, without its watchlist items.
  */
-export function getWatchlistOutput(args: GetWatchlistOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatchlistResult> {
+export function getWatchlistOutput(args: GetWatchlistOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWatchlistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240901:getWatchlist", {
         "resourceGroupName": args.resourceGroupName,

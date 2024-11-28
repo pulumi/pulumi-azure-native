@@ -75,7 +75,7 @@ export interface GetSyncAgentResult {
 /**
  * Gets a sync agent.
  */
-export function getSyncAgentOutput(args: GetSyncAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncAgentResult> {
+export function getSyncAgentOutput(args: GetSyncAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyncAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getSyncAgent", {
         "resourceGroupName": args.resourceGroupName,

@@ -65,7 +65,7 @@ export interface GetSsmParameterResult {
 /**
  * Get a SsmParameter
  */
-export function getSsmParameterOutput(args: GetSsmParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmParameterResult> {
+export function getSsmParameterOutput(args: GetSsmParameterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSsmParameterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSsmParameter", {
         "name": args.name,

@@ -89,7 +89,7 @@ export interface GetContactProfileResult {
 /**
  * Gets the specified contact Profile in a specified resource group.
  */
-export function getContactProfileOutput(args: GetContactProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactProfileResult> {
+export function getContactProfileOutput(args: GetContactProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital/v20220301:getContactProfile", {
         "contactProfileName": args.contactProfileName,

@@ -92,7 +92,7 @@ export interface GetGalleryImageVersionResult {
 /**
  * Retrieves information about a gallery image version.
  */
-export function getGalleryImageVersionOutput(args: GetGalleryImageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageVersionResult> {
+export function getGalleryImageVersionOutput(args: GetGalleryImageVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryImageVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20220303:getGalleryImageVersion", {
         "expand": args.expand,

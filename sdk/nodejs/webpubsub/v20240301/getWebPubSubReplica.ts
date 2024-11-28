@@ -85,7 +85,7 @@ export interface GetWebPubSubReplicaResult {
 /**
  * Get the replica and its properties.
  */
-export function getWebPubSubReplicaOutput(args: GetWebPubSubReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubReplicaResult> {
+export function getWebPubSubReplicaOutput(args: GetWebPubSubReplicaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebPubSubReplicaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20240301:getWebPubSubReplica", {
         "replicaName": args.replicaName,

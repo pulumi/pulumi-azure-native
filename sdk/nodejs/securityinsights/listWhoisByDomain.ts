@@ -77,7 +77,7 @@ export interface ListWhoisByDomainResult {
  *
  * Other available API versions: 2024-04-01-preview.
  */
-export function listWhoisByDomainOutput(args: ListWhoisByDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWhoisByDomainResult> {
+export function listWhoisByDomainOutput(args: ListWhoisByDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWhoisByDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:listWhoisByDomain", {
         "domain": args.domain,

@@ -112,7 +112,7 @@ export interface GetEnvironmentSettingResult {
 /**
  * Get environment setting
  */
-export function getEnvironmentSettingOutput(args: GetEnvironmentSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSettingResult> {
+export function getEnvironmentSettingOutput(args: GetEnvironmentSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices/v20181015:getEnvironmentSetting", {
         "environmentSettingName": args.environmentSettingName,

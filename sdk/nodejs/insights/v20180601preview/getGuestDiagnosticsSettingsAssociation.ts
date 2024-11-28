@@ -58,7 +58,7 @@ export interface GetGuestDiagnosticsSettingsAssociationResult {
 /**
  * Gets guest diagnostics association settings.
  */
-export function getGuestDiagnosticsSettingsAssociationOutput(args: GetGuestDiagnosticsSettingsAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingsAssociationResult> {
+export function getGuestDiagnosticsSettingsAssociationOutput(args: GetGuestDiagnosticsSettingsAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestDiagnosticsSettingsAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20180601preview:getGuestDiagnosticsSettingsAssociation", {
         "associationName": args.associationName,

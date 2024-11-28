@@ -105,7 +105,7 @@ export interface GetSapVirtualInstanceResult {
 /**
  * Gets a Virtual Instance for SAP solutions resource
  */
-export function getSapVirtualInstanceOutput(args: GetSapVirtualInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceResult> {
+export function getSapVirtualInstanceOutput(args: GetSapVirtualInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapVirtualInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20240901:getSapVirtualInstance", {
         "resourceGroupName": args.resourceGroupName,

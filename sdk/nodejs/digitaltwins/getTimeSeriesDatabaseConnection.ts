@@ -64,7 +64,7 @@ export interface GetTimeSeriesDatabaseConnectionResult {
  * Get the description of an existing time series database connection.
  * Azure REST API version: 2023-01-31.
  */
-export function getTimeSeriesDatabaseConnectionOutput(args: GetTimeSeriesDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTimeSeriesDatabaseConnectionResult> {
+export function getTimeSeriesDatabaseConnectionOutput(args: GetTimeSeriesDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTimeSeriesDatabaseConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:digitaltwins:getTimeSeriesDatabaseConnection", {
         "resourceGroupName": args.resourceGroupName,

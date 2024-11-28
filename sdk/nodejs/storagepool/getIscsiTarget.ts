@@ -108,7 +108,7 @@ export interface GetIscsiTargetResult {
  *
  * Other available API versions: 2020-03-15-preview.
  */
-export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiTargetResult> {
+export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIscsiTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagepool:getIscsiTarget", {
         "diskPoolName": args.diskPoolName,

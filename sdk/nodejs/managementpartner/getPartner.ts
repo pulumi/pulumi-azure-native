@@ -75,7 +75,7 @@ export interface GetPartnerResult {
  * Get the management partner using the partnerId, objectId and tenantId.
  * Azure REST API version: 2018-02-01.
  */
-export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerResult> {
+export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managementpartner:getPartner", {
         "partnerId": args.partnerId,

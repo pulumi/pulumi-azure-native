@@ -72,7 +72,7 @@ export interface GetWebServiceResult {
  *
  * Other available API versions: 2016-05-01-preview.
  */
-export function getWebServiceOutput(args: GetWebServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebServiceResult> {
+export function getWebServiceOutput(args: GetWebServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearning:getWebService", {
         "region": args.region,

@@ -81,7 +81,7 @@ export interface GetBlueprintResult {
 /**
  * Get a blueprint definition.
  */
-export function getBlueprintOutput(args: GetBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlueprintResult> {
+export function getBlueprintOutput(args: GetBlueprintOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlueprintResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:blueprint/v20181101preview:getBlueprint", {
         "blueprintName": args.blueprintName,

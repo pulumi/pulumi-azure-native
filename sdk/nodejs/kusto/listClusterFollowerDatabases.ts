@@ -47,7 +47,7 @@ export interface ListClusterFollowerDatabasesResult {
  *
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
  */
-export function listClusterFollowerDatabasesOutput(args: ListClusterFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterFollowerDatabasesResult> {
+export function listClusterFollowerDatabasesOutput(args: ListClusterFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListClusterFollowerDatabasesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto:listClusterFollowerDatabases", {
         "clusterName": args.clusterName,

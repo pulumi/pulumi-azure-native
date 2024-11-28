@@ -65,7 +65,7 @@ export interface GetCodeBuildProjectResult {
 /**
  * Get a CodeBuildProject
  */
-export function getCodeBuildProjectOutput(args: GetCodeBuildProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeBuildProjectResult> {
+export function getCodeBuildProjectOutput(args: GetCodeBuildProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeBuildProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getCodeBuildProject", {
         "name": args.name,

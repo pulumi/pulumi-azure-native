@@ -117,7 +117,7 @@ export interface GetConfigurationStoreResult {
 /**
  * Gets the properties of the specified configuration store.
  */
-export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationStoreResult> {
+export function getConfigurationStoreOutput(args: GetConfigurationStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appconfiguration/v20230901preview:getConfigurationStore", {
         "configStoreName": args.configStoreName,

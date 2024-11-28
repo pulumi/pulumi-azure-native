@@ -83,7 +83,7 @@ export interface GetCustomizableConnectorDefinitionResult {
 /**
  * Gets a data connector definition.
  */
-export function getCustomizableConnectorDefinitionOutput(args: GetCustomizableConnectorDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizableConnectorDefinitionResult> {
+export function getCustomizableConnectorDefinitionOutput(args: GetCustomizableConnectorDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomizableConnectorDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231201preview:getCustomizableConnectorDefinition", {
         "dataConnectorDefinitionName": args.dataConnectorDefinitionName,

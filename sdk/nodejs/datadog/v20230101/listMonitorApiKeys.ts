@@ -45,7 +45,7 @@ export interface ListMonitorApiKeysResult {
 /**
  * Response of a list operation.
  */
-export function listMonitorApiKeysOutput(args: ListMonitorApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorApiKeysResult> {
+export function listMonitorApiKeysOutput(args: ListMonitorApiKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMonitorApiKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datadog/v20230101:listMonitorApiKeys", {
         "monitorName": args.monitorName,

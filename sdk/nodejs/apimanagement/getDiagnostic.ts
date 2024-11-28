@@ -100,7 +100,7 @@ export interface GetDiagnosticResult {
  *
  * Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticResult> {
+export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getDiagnostic", {
         "diagnosticId": args.diagnosticId,

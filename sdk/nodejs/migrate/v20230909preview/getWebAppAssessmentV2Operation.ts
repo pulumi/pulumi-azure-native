@@ -179,7 +179,7 @@ export interface GetWebAppAssessmentV2OperationResult {
 /**
  * Get a WebAppAssessmentV2
  */
-export function getWebAppAssessmentV2OperationOutput(args: GetWebAppAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppAssessmentV2OperationResult> {
+export function getWebAppAssessmentV2OperationOutput(args: GetWebAppAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppAssessmentV2OperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230909preview:getWebAppAssessmentV2Operation", {
         "assessmentName": args.assessmentName,

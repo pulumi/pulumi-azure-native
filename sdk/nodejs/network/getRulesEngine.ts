@@ -64,7 +64,7 @@ export interface GetRulesEngineResult {
  * Gets a Rules Engine Configuration with the specified name within the specified Front Door.
  * Azure REST API version: 2021-06-01.
  */
-export function getRulesEngineOutput(args: GetRulesEngineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesEngineResult> {
+export function getRulesEngineOutput(args: GetRulesEngineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRulesEngineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getRulesEngine", {
         "frontDoorName": args.frontDoorName,

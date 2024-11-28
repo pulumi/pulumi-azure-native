@@ -93,7 +93,7 @@ export interface GetKeyValueResult {
  *
  * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
  */
-export function getKeyValueOutput(args: GetKeyValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyValueResult> {
+export function getKeyValueOutput(args: GetKeyValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appconfiguration:getKeyValue", {
         "configStoreName": args.configStoreName,

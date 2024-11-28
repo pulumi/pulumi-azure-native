@@ -87,7 +87,7 @@ export interface GetNetworkPacketBrokerResult {
  * Retrieves details of this Network Packet Broker.
  * Azure REST API version: 2023-06-15.
  */
-export function getNetworkPacketBrokerOutput(args: GetNetworkPacketBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketBrokerResult> {
+export function getNetworkPacketBrokerOutput(args: GetNetworkPacketBrokerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkPacketBrokerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkPacketBroker", {
         "networkPacketBrokerName": args.networkPacketBrokerName,

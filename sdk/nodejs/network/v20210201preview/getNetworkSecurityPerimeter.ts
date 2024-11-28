@@ -62,7 +62,7 @@ export interface GetNetworkSecurityPerimeterResult {
 /**
  * Gets the specified network security perimeter by the name.
  */
-export function getNetworkSecurityPerimeterOutput(args: GetNetworkSecurityPerimeterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityPerimeterResult> {
+export function getNetworkSecurityPerimeterOutput(args: GetNetworkSecurityPerimeterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSecurityPerimeterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20210201preview:getNetworkSecurityPerimeter", {
         "networkSecurityPerimeterName": args.networkSecurityPerimeterName,

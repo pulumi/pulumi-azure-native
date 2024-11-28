@@ -77,7 +77,7 @@ export interface GetClientGroupResult {
  *
  * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
-export function getClientGroupOutput(args: GetClientGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientGroupResult> {
+export function getClientGroupOutput(args: GetClientGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClientGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid:getClientGroup", {
         "clientGroupName": args.clientGroupName,

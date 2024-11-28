@@ -60,7 +60,7 @@ export interface ListNamespaceKeysResult {
 /**
  * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  */
-export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
+export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNamespaceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20231001preview:listNamespaceKeys", {
         "authorizationRuleName": args.authorizationRuleName,

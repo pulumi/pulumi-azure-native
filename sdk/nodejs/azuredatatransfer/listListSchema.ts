@@ -72,7 +72,7 @@ export interface ListListSchemaResult {
  *
  * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
  */
-export function listListSchemaOutput(args: ListListSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListSchemaResult> {
+export function listListSchemaOutput(args: ListListSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:listListSchema", {
         "connectionId": args.connectionId,

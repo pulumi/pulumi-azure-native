@@ -51,7 +51,7 @@ export interface ListAuthorizationServerSecretsResult {
 /**
  * Gets the client secret details of the authorization server.
  */
-export function listAuthorizationServerSecretsOutput(args: ListAuthorizationServerSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAuthorizationServerSecretsResult> {
+export function listAuthorizationServerSecretsOutput(args: ListAuthorizationServerSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAuthorizationServerSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:listAuthorizationServerSecrets", {
         "authsid": args.authsid,

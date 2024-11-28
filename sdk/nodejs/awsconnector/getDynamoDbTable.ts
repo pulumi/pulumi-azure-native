@@ -67,7 +67,7 @@ export interface GetDynamoDbTableResult {
  * Get a DynamoDBTable
  * Azure REST API version: 2024-12-01.
  */
-export function getDynamoDbTableOutput(args: GetDynamoDbTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamoDbTableResult> {
+export function getDynamoDbTableOutput(args: GetDynamoDbTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDynamoDbTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getDynamoDbTable", {
         "name": args.name,

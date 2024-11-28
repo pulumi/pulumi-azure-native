@@ -79,7 +79,7 @@ export interface GetSiteNetworkServiceResult {
  *
  * Other available API versions: 2024-04-15.
  */
-export function getSiteNetworkServiceOutput(args: GetSiteNetworkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteNetworkServiceResult> {
+export function getSiteNetworkServiceOutput(args: GetSiteNetworkServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSiteNetworkServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getSiteNetworkService", {
         "resourceGroupName": args.resourceGroupName,

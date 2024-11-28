@@ -70,7 +70,7 @@ export interface GetWorkspacePrivateEndpointConnectionResult {
 /**
  * Gets the specified private endpoint connection associated with the workspace.
  */
-export function getWorkspacePrivateEndpointConnectionOutput(args: GetWorkspacePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacePrivateEndpointConnectionResult> {
+export function getWorkspacePrivateEndpointConnectionOutput(args: GetWorkspacePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspacePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthcareapis/v20240331:getWorkspacePrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

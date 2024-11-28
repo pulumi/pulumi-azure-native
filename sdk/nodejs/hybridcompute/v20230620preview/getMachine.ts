@@ -198,7 +198,7 @@ export interface GetMachineResult {
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
  */
-export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineResult> {
+export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcompute/v20230620preview:getMachine", {
         "expand": args.expand,

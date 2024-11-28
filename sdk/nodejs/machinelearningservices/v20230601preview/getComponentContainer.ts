@@ -62,7 +62,7 @@ export interface GetComponentContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getComponentContainerOutput(args: GetComponentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentContainerResult> {
+export function getComponentContainerOutput(args: GetComponentContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:getComponentContainer", {
         "name": args.name,

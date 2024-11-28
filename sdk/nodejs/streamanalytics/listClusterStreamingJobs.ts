@@ -51,7 +51,7 @@ export interface ListClusterStreamingJobsResult {
  *
  * Other available API versions: 2020-03-01-preview.
  */
-export function listClusterStreamingJobsOutput(args: ListClusterStreamingJobsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterStreamingJobsResult> {
+export function listClusterStreamingJobsOutput(args: ListClusterStreamingJobsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListClusterStreamingJobsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:streamanalytics:listClusterStreamingJobs", {
         "clusterName": args.clusterName,

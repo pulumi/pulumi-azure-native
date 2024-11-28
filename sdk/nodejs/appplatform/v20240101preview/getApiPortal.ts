@@ -66,7 +66,7 @@ export interface GetApiPortalResult {
 /**
  * Get the API portal and its properties.
  */
-export function getApiPortalOutput(args: GetApiPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalResult> {
+export function getApiPortalOutput(args: GetApiPortalOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiPortalResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240101preview:getApiPortal", {
         "apiPortalName": args.apiPortalName,

@@ -99,7 +99,7 @@ export interface GetNotificationChannelResult {
 /**
  * Get notification channel.
  */
-export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
+export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getNotificationChannel", {
         "expand": args.expand,

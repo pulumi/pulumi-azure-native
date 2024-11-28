@@ -53,7 +53,7 @@ export interface GetSqlServerInstanceJobsStatusResult {
  * Gets jobs status details for sql arc resource
  * Azure REST API version: 2024-05-01-preview.
  */
-export function getSqlServerInstanceJobsStatusOutput(args: GetSqlServerInstanceJobsStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceJobsStatusResult> {
+export function getSqlServerInstanceJobsStatusOutput(args: GetSqlServerInstanceJobsStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerInstanceJobsStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getSqlServerInstanceJobsStatus", {
         "featureName": args.featureName,

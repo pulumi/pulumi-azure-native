@@ -111,7 +111,7 @@ export interface GetClusterResult {
  *
  * Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
  */
-export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getCluster", {
         "clusterName": args.clusterName,

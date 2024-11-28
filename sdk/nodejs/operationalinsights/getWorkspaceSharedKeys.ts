@@ -44,7 +44,7 @@ export interface GetWorkspaceSharedKeysResult {
  * Gets the shared keys for a workspace.
  * Azure REST API version: 2015-11-01-preview.
  */
-export function getWorkspaceSharedKeysOutput(args: GetWorkspaceSharedKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSharedKeysResult> {
+export function getWorkspaceSharedKeysOutput(args: GetWorkspaceSharedKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceSharedKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getWorkspaceSharedKeys", {
         "resourceGroupName": args.resourceGroupName,

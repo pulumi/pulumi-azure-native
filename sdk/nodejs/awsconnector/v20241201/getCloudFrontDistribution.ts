@@ -65,7 +65,7 @@ export interface GetCloudFrontDistributionResult {
 /**
  * Get a CloudFrontDistribution
  */
-export function getCloudFrontDistributionOutput(args: GetCloudFrontDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFrontDistributionResult> {
+export function getCloudFrontDistributionOutput(args: GetCloudFrontDistributionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudFrontDistributionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getCloudFrontDistribution", {
         "name": args.name,

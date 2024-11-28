@@ -57,7 +57,7 @@ export interface GetSolutionConfigurationResult {
 /**
  * Get a SolutionConfiguration
  */
-export function getSolutionConfigurationOutput(args: GetSolutionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionConfigurationResult> {
+export function getSolutionConfigurationOutput(args: GetSolutionConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity/v20241201:getSolutionConfiguration", {
         "resourceUri": args.resourceUri,

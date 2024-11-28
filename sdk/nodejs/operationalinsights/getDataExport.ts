@@ -85,7 +85,7 @@ export interface GetDataExportResult {
  *
  * Other available API versions: 2023-09-01.
  */
-export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataExportResult> {
+export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataExportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getDataExport", {
         "dataExportName": args.dataExportName,

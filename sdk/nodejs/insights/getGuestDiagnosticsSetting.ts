@@ -68,7 +68,7 @@ export interface GetGuestDiagnosticsSettingResult {
  * Gets guest diagnostics settings.
  * Azure REST API version: 2018-06-01-preview.
  */
-export function getGuestDiagnosticsSettingOutput(args: GetGuestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingResult> {
+export function getGuestDiagnosticsSettingOutput(args: GetGuestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestDiagnosticsSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getGuestDiagnosticsSetting", {
         "diagnosticSettingsName": args.diagnosticSettingsName,

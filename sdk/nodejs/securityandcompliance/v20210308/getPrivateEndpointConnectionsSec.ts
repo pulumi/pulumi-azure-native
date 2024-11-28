@@ -70,7 +70,7 @@ export interface GetPrivateEndpointConnectionsSecResult {
 /**
  * Gets the specified private endpoint connection associated with the service.
  */
-export function getPrivateEndpointConnectionsSecOutput(args: GetPrivateEndpointConnectionsSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsSecResult> {
+export function getPrivateEndpointConnectionsSecOutput(args: GetPrivateEndpointConnectionsSecOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionsSecResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityandcompliance/v20210308:getPrivateEndpointConnectionsSec", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

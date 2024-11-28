@@ -62,7 +62,7 @@ export interface GetSpringbootserverResult {
 /**
  * List springbootservers resource.
  */
-export function getSpringbootserverOutput(args: GetSpringbootserverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringbootserverResult> {
+export function getSpringbootserverOutput(args: GetSpringbootserverOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpringbootserverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazurespringboot/v20240401preview:getSpringbootserver", {
         "resourceGroupName": args.resourceGroupName,

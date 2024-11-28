@@ -48,7 +48,7 @@ export interface GetNamespaceTopicEventSubscriptionFullUrlResult {
 /**
  * Get the full endpoint URL for an event subscription of a namespace topic.
  */
-export function getNamespaceTopicEventSubscriptionFullUrlOutput(args: GetNamespaceTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionFullUrlResult> {
+export function getNamespaceTopicEventSubscriptionFullUrlOutput(args: GetNamespaceTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getNamespaceTopicEventSubscriptionFullUrl", {
         "eventSubscriptionName": args.eventSubscriptionName,

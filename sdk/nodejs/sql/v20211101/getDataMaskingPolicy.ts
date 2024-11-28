@@ -80,7 +80,7 @@ export interface GetDataMaskingPolicyResult {
 /**
  * Gets the database data masking policy.
  */
-export function getDataMaskingPolicyOutput(args: GetDataMaskingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataMaskingPolicyResult> {
+export function getDataMaskingPolicyOutput(args: GetDataMaskingPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataMaskingPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getDataMaskingPolicy", {
         "dataMaskingPolicyName": args.dataMaskingPolicyName,

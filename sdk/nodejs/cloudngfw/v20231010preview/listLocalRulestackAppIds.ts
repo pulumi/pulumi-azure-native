@@ -47,7 +47,7 @@ export interface ListLocalRulestackAppIdsResult {
 /**
  * List of AppIds for LocalRulestack ApiVersion
  */
-export function listLocalRulestackAppIdsOutput(args: ListLocalRulestackAppIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalRulestackAppIdsResult> {
+export function listLocalRulestackAppIdsOutput(args: ListLocalRulestackAppIdsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLocalRulestackAppIdsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20231010preview:listLocalRulestackAppIds", {
         "appIdVersion": args.appIdVersion,

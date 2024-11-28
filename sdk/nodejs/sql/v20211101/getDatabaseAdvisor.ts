@@ -91,7 +91,7 @@ export interface GetDatabaseAdvisorResult {
 /**
  * Gets a database advisor.
  */
-export function getDatabaseAdvisorOutput(args: GetDatabaseAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAdvisorResult> {
+export function getDatabaseAdvisorOutput(args: GetDatabaseAdvisorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseAdvisorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getDatabaseAdvisor", {
         "advisorName": args.advisorName,

@@ -79,7 +79,7 @@ export interface GetSecurityStandardResult {
  * Get a specific security standard for the requested scope by standardId
  * Azure REST API version: 2024-08-01.
  */
-export function getSecurityStandardOutput(args: GetSecurityStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityStandardResult> {
+export function getSecurityStandardOutput(args: GetSecurityStandardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityStandardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getSecurityStandard", {
         "scope": args.scope,

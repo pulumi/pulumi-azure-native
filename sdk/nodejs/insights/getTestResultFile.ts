@@ -69,7 +69,7 @@ export interface GetTestResultFileResult {
  * Returns a file test result for the matching test
  * Azure REST API version: 2020-02-10-preview.
  */
-export function getTestResultFileOutput(args: GetTestResultFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultFileResult> {
+export function getTestResultFileOutput(args: GetTestResultFileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestResultFileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getTestResultFile", {
         "continuationToken": args.continuationToken,

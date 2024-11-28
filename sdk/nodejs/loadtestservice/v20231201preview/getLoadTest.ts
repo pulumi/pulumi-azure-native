@@ -81,7 +81,7 @@ export interface GetLoadTestResult {
 /**
  * Get a LoadTestResource
  */
-export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestResult> {
+export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadTestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:loadtestservice/v20231201preview:getLoadTest", {
         "loadTestName": args.loadTestName,

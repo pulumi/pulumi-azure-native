@@ -114,7 +114,7 @@ export interface GetWorkspaceSubscriptionResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getWorkspaceSubscriptionOutput(args: GetWorkspaceSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSubscriptionResult> {
+export function getWorkspaceSubscriptionOutput(args: GetWorkspaceSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceSubscription", {
         "resourceGroupName": args.resourceGroupName,

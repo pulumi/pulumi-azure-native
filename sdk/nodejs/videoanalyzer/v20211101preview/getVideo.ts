@@ -82,7 +82,7 @@ export interface GetVideoResult {
 /**
  * Retrieves an existing video resource with the given name.
  */
-export function getVideoOutput(args: GetVideoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoResult> {
+export function getVideoOutput(args: GetVideoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVideoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20211101preview:getVideo", {
         "accountName": args.accountName,

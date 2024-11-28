@@ -99,7 +99,7 @@ export interface GetFirewallPolicyDraftResult {
  *
  * Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
  */
-export function getFirewallPolicyDraftOutput(args: GetFirewallPolicyDraftOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyDraftResult> {
+export function getFirewallPolicyDraftOutput(args: GetFirewallPolicyDraftOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallPolicyDraftResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getFirewallPolicyDraft", {
         "firewallPolicyName": args.firewallPolicyName,

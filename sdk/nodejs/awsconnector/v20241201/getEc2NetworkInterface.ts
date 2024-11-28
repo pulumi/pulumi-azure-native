@@ -65,7 +65,7 @@ export interface GetEc2NetworkInterfaceResult {
 /**
  * Get a Ec2NetworkInterface
  */
-export function getEc2NetworkInterfaceOutput(args: GetEc2NetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2NetworkInterfaceResult> {
+export function getEc2NetworkInterfaceOutput(args: GetEc2NetworkInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2NetworkInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2NetworkInterface", {
         "name": args.name,

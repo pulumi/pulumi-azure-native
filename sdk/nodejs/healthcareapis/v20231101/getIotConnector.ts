@@ -86,7 +86,7 @@ export interface GetIotConnectorResult {
 /**
  * Gets the properties of the specified IoT Connector.
  */
-export function getIotConnectorOutput(args: GetIotConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotConnectorResult> {
+export function getIotConnectorOutput(args: GetIotConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthcareapis/v20231101:getIotConnector", {
         "iotConnectorName": args.iotConnectorName,

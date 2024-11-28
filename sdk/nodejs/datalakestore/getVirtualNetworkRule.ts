@@ -57,7 +57,7 @@ export interface GetVirtualNetworkRuleResult {
  * Gets the specified Data Lake Store virtual network rule.
  * Azure REST API version: 2016-11-01.
  */
-export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
+export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datalakestore:getVirtualNetworkRule", {
         "accountName": args.accountName,

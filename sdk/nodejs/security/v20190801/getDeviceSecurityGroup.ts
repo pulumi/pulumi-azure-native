@@ -65,7 +65,7 @@ export interface GetDeviceSecurityGroupResult {
 /**
  * Use this method to get the device security group for the specified IoT Hub resource.
  */
-export function getDeviceSecurityGroupOutput(args: GetDeviceSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceSecurityGroupResult> {
+export function getDeviceSecurityGroupOutput(args: GetDeviceSecurityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceSecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20190801:getDeviceSecurityGroup", {
         "deviceSecurityGroupName": args.deviceSecurityGroupName,

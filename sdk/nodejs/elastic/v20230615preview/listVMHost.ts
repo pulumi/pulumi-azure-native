@@ -45,7 +45,7 @@ export interface ListVMHostResult {
 /**
  * Response of a list operation.
  */
-export function listVMHostOutput(args: ListVMHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVMHostResult> {
+export function listVMHostOutput(args: ListVMHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVMHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20230615preview:listVMHost", {
         "monitorName": args.monitorName,

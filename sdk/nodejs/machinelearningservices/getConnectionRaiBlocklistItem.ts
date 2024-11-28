@@ -68,7 +68,7 @@ export interface GetConnectionRaiBlocklistItemResult {
  *
  * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
  */
-export function getConnectionRaiBlocklistItemOutput(args: GetConnectionRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionRaiBlocklistItemResult> {
+export function getConnectionRaiBlocklistItemOutput(args: GetConnectionRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionRaiBlocklistItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getConnectionRaiBlocklistItem", {
         "connectionName": args.connectionName,

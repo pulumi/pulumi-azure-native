@@ -87,7 +87,7 @@ export interface GetProtectedItemResult {
  * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
  */
-export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
+export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectedItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20240401:getProtectedItem", {
         "containerName": args.containerName,

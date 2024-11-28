@@ -117,7 +117,7 @@ export interface GetContainerAppResult {
 /**
  * Container App.
  */
-export function getContainerAppOutput(args: GetContainerAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppResult> {
+export function getContainerAppOutput(args: GetContainerAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20221001:getContainerApp", {
         "containerAppName": args.containerAppName,

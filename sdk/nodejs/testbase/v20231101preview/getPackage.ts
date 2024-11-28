@@ -134,7 +134,7 @@ export interface GetPackageResult {
 /**
  * Gets a Test Base Package.
  */
-export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
+export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getPackage", {
         "packageName": args.packageName,

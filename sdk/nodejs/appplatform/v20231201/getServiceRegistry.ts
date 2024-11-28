@@ -62,7 +62,7 @@ export interface GetServiceRegistryResult {
 /**
  * Get the Service Registry and its properties.
  */
-export function getServiceRegistryOutput(args: GetServiceRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRegistryResult> {
+export function getServiceRegistryOutput(args: GetServiceRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231201:getServiceRegistry", {
         "resourceGroupName": args.resourceGroupName,

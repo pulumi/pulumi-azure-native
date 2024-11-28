@@ -74,7 +74,7 @@ export interface GetFactoryDataPlaneAccessResult {
 /**
  * Get Data Plane access.
  */
-export function getFactoryDataPlaneAccessOutput(args: GetFactoryDataPlaneAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryDataPlaneAccessResult> {
+export function getFactoryDataPlaneAccessOutput(args: GetFactoryDataPlaneAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFactoryDataPlaneAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", {
         "accessResourcePath": args.accessResourcePath,

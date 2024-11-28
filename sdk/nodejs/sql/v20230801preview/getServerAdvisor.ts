@@ -86,7 +86,7 @@ export interface GetServerAdvisorResult {
 /**
  * Gets a server advisor.
  */
-export function getServerAdvisorOutput(args: GetServerAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdvisorResult> {
+export function getServerAdvisorOutput(args: GetServerAdvisorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerAdvisorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getServerAdvisor", {
         "advisorName": args.advisorName,

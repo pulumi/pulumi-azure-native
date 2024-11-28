@@ -73,7 +73,7 @@ export interface GetDataFlowResult {
  * Get a DataFlowResource
  * Azure REST API version: 2024-07-01-preview.
  */
-export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowResult> {
+export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataFlowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperations:getDataFlow", {
         "dataflowName": args.dataflowName,

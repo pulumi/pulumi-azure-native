@@ -91,7 +91,7 @@ export interface ListPaloAltoNetworksCloudngfwSupportInfoResult {
  *
  * Other available API versions: 2024-01-19-preview.
  */
-export function listPaloAltoNetworksCloudngfwSupportInfoOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> {
+export function listPaloAltoNetworksCloudngfwSupportInfoOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwSupportInfo", {
     }, opts);

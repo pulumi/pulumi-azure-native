@@ -65,7 +65,7 @@ export interface GetAppSyncGraphqlApiResult {
 /**
  * Get a AppSyncGraphqlApi
  */
-export function getAppSyncGraphqlApiOutput(args: GetAppSyncGraphqlApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppSyncGraphqlApiResult> {
+export function getAppSyncGraphqlApiOutput(args: GetAppSyncGraphqlApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppSyncGraphqlApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getAppSyncGraphqlApi", {
         "name": args.name,

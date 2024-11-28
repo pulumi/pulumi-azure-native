@@ -60,7 +60,7 @@ export interface GetGroupQuotaSubscriptionResult {
  *
  * Other available API versions: 2024-10-15-preview.
  */
-export function getGroupQuotaSubscriptionOutput(args: GetGroupQuotaSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupQuotaSubscriptionResult> {
+export function getGroupQuotaSubscriptionOutput(args: GetGroupQuotaSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupQuotaSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:quota:getGroupQuotaSubscription", {
         "groupQuotaName": args.groupQuotaName,

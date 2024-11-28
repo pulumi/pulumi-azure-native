@@ -79,7 +79,7 @@ export interface GetAutoScaleVCoreResult {
  * Gets details about the specified auto scale v-core.
  * Azure REST API version: 2021-01-01.
  */
-export function getAutoScaleVCoreOutput(args: GetAutoScaleVCoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScaleVCoreResult> {
+export function getAutoScaleVCoreOutput(args: GetAutoScaleVCoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutoScaleVCoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:powerbidedicated:getAutoScaleVCore", {
         "resourceGroupName": args.resourceGroupName,

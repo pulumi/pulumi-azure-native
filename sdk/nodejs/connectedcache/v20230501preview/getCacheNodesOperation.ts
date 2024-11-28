@@ -65,7 +65,7 @@ export interface GetCacheNodesOperationResult {
 /**
  * Retrieves the properties of a cacheNodes
  */
-export function getCacheNodesOperationOutput(args: GetCacheNodesOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheNodesOperationResult> {
+export function getCacheNodesOperationOutput(args: GetCacheNodesOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCacheNodesOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedcache/v20230501preview:getCacheNodesOperation", {
         "customerResourceName": args.customerResourceName,

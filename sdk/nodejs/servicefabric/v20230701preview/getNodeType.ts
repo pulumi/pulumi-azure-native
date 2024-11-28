@@ -246,7 +246,7 @@ export interface GetNodeTypeResult {
 /**
  * Get a Service Fabric node type of a given managed cluster.
  */
-export function getNodeTypeOutput(args: GetNodeTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeTypeResult> {
+export function getNodeTypeOutput(args: GetNodeTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNodeTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20230701preview:getNodeType", {
         "clusterName": args.clusterName,

@@ -43,7 +43,7 @@ export interface ListControllerConnectionDetailsResult {
 /**
  * Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
  */
-export function listControllerConnectionDetailsOutput(args: ListControllerConnectionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListControllerConnectionDetailsResult> {
+export function listControllerConnectionDetailsOutput(args: ListControllerConnectionDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListControllerConnectionDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devspaces/v20190401:listControllerConnectionDetails", {
         "name": args.name,

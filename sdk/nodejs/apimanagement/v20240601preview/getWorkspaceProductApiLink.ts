@@ -65,7 +65,7 @@ export interface GetWorkspaceProductApiLinkResult {
 /**
  * Gets the API link for the product.
  */
-export function getWorkspaceProductApiLinkOutput(args: GetWorkspaceProductApiLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceProductApiLinkResult> {
+export function getWorkspaceProductApiLinkOutput(args: GetWorkspaceProductApiLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceProductApiLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:getWorkspaceProductApiLink", {
         "apiLinkId": args.apiLinkId,

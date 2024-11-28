@@ -67,7 +67,7 @@ export interface GetOpenSearchDomainStatusResult {
  * Get a OpenSearchDomainStatus
  * Azure REST API version: 2024-12-01.
  */
-export function getOpenSearchDomainStatusOutput(args: GetOpenSearchDomainStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenSearchDomainStatusResult> {
+export function getOpenSearchDomainStatusOutput(args: GetOpenSearchDomainStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenSearchDomainStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getOpenSearchDomainStatus", {
         "name": args.name,

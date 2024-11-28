@@ -126,7 +126,7 @@ export interface GetSourceControlConfigurationResult {
  *
  * Other available API versions: 2019-11-01-preview.
  */
-export function getSourceControlConfigurationOutput(args: GetSourceControlConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlConfigurationResult> {
+export function getSourceControlConfigurationOutput(args: GetSourceControlConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kubernetesconfiguration:getSourceControlConfiguration", {
         "clusterName": args.clusterName,

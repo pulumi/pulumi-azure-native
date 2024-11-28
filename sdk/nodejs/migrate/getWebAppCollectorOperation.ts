@@ -84,7 +84,7 @@ export interface GetWebAppCollectorOperationResult {
  *
  * Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
  */
-export function getWebAppCollectorOperationOutput(args: GetWebAppCollectorOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppCollectorOperationResult> {
+export function getWebAppCollectorOperationOutput(args: GetWebAppCollectorOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppCollectorOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getWebAppCollectorOperation", {
         "collectorName": args.collectorName,

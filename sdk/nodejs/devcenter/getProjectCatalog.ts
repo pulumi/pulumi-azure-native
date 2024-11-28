@@ -104,7 +104,7 @@ export interface GetProjectCatalogResult {
  *
  * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
-export function getProjectCatalogOutput(args: GetProjectCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogResult> {
+export function getProjectCatalogOutput(args: GetProjectCatalogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter:getProjectCatalog", {
         "catalogName": args.catalogName,

@@ -114,7 +114,7 @@ export interface GetArtifactSourceResult {
  *
  * Other available API versions: 2016-05-15.
  */
-export function getArtifactSourceOutput(args: GetArtifactSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactSourceResult> {
+export function getArtifactSourceOutput(args: GetArtifactSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArtifactSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab:getArtifactSource", {
         "expand": args.expand,

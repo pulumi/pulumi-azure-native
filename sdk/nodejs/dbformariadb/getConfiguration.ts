@@ -81,7 +81,7 @@ export interface GetConfigurationResult {
  *
  * Other available API versions: 2018-06-01-preview.
  */
-export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
+export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbformariadb:getConfiguration", {
         "configurationName": args.configurationName,

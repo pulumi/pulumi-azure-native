@@ -43,7 +43,7 @@ export interface ListApmSecretKeysResult {
 /**
  * List keys of APM sensitive properties.
  */
-export function listApmSecretKeysOutput(args: ListApmSecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApmSecretKeysResult> {
+export function listApmSecretKeysOutput(args: ListApmSecretKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListApmSecretKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:listApmSecretKeys", {
         "apmName": args.apmName,

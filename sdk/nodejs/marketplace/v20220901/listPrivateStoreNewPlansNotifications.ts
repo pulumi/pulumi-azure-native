@@ -33,7 +33,7 @@ export interface ListPrivateStoreNewPlansNotificationsResult {
 /**
  * List new plans notifications
  */
-export function listPrivateStoreNewPlansNotificationsOutput(args: ListPrivateStoreNewPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreNewPlansNotificationsResult> {
+export function listPrivateStoreNewPlansNotificationsOutput(args: ListPrivateStoreNewPlansNotificationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPrivateStoreNewPlansNotificationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:marketplace/v20220901:listPrivateStoreNewPlansNotifications", {
         "privateStoreId": args.privateStoreId,

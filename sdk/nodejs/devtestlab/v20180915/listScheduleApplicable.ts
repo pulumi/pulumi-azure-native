@@ -50,7 +50,7 @@ export interface ListScheduleApplicableResult {
 /**
  * Lists all applicable schedules
  */
-export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListScheduleApplicableResult> {
+export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListScheduleApplicableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:listScheduleApplicable", {
         "labName": args.labName,

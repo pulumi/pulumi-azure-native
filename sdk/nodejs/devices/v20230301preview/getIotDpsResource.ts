@@ -85,7 +85,7 @@ export interface GetIotDpsResourceResult {
 /**
  * Get the metadata of the provisioning service without SAS keys.
  */
-export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourceResult> {
+export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotDpsResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices/v20230301preview:getIotDpsResource", {
         "provisioningServiceName": args.provisioningServiceName,

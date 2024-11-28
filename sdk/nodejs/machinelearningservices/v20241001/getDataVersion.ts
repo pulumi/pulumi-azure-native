@@ -67,7 +67,7 @@ export interface GetDataVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getDataVersionOutput(args: GetDataVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataVersionResult> {
+export function getDataVersionOutput(args: GetDataVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001:getDataVersion", {
         "name": args.name,

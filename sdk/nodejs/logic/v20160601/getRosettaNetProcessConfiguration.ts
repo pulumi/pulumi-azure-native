@@ -102,7 +102,7 @@ export interface GetRosettaNetProcessConfigurationResult {
 /**
  * Gets an integration account RosettaNetProcessConfiguration.
  */
-export function getRosettaNetProcessConfigurationOutput(args: GetRosettaNetProcessConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRosettaNetProcessConfigurationResult> {
+export function getRosettaNetProcessConfigurationOutput(args: GetRosettaNetProcessConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRosettaNetProcessConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20160601:getRosettaNetProcessConfiguration", {
         "integrationAccountName": args.integrationAccountName,

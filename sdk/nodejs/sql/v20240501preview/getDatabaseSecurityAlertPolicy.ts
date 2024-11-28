@@ -95,7 +95,7 @@ export interface GetDatabaseSecurityAlertPolicyResult {
 /**
  * Gets a database's security alert policy.
  */
-export function getDatabaseSecurityAlertPolicyOutput(args: GetDatabaseSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseSecurityAlertPolicyResult> {
+export function getDatabaseSecurityAlertPolicyOutput(args: GetDatabaseSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseSecurityAlertPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getDatabaseSecurityAlertPolicy", {
         "databaseName": args.databaseName,

@@ -86,7 +86,7 @@ export interface GetBillingRoleAssignmentByBillingAccountResult {
 /**
  * Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
  */
-export function getBillingRoleAssignmentByBillingAccountOutput(args: GetBillingRoleAssignmentByBillingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingRoleAssignmentByBillingAccountResult> {
+export function getBillingRoleAssignmentByBillingAccountOutput(args: GetBillingRoleAssignmentByBillingAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingRoleAssignmentByBillingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:billing/v20191001preview:getBillingRoleAssignmentByBillingAccount", {
         "billingAccountName": args.billingAccountName,

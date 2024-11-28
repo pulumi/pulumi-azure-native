@@ -65,7 +65,7 @@ export interface GetRdsDbInstanceResult {
 /**
  * Get a RdsDBInstance
  */
-export function getRdsDbInstanceOutput(args: GetRdsDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsDbInstanceResult> {
+export function getRdsDbInstanceOutput(args: GetRdsDbInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRdsDbInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRdsDbInstance", {
         "name": args.name,

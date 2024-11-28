@@ -79,7 +79,7 @@ export interface GetDevCenterResult {
  *
  * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
-export function getDevCenterOutput(args: GetDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevCenterResult> {
+export function getDevCenterOutput(args: GetDevCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter:getDevCenter", {
         "devCenterName": args.devCenterName,

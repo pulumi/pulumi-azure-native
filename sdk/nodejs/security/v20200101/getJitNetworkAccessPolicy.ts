@@ -68,7 +68,7 @@ export interface GetJitNetworkAccessPolicyResult {
 /**
  * Policies for protecting resources using Just-in-Time access control for the subscription, location
  */
-export function getJitNetworkAccessPolicyOutput(args: GetJitNetworkAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitNetworkAccessPolicyResult> {
+export function getJitNetworkAccessPolicyOutput(args: GetJitNetworkAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJitNetworkAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20200101:getJitNetworkAccessPolicy", {
         "ascLocation": args.ascLocation,

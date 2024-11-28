@@ -92,7 +92,7 @@ export interface GetReadWriteDatabaseResult {
 /**
  * Returns a database.
  */
-export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
+export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReadWriteDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getReadWriteDatabase", {
         "databaseName": args.databaseName,

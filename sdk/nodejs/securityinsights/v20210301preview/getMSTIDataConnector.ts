@@ -80,7 +80,7 @@ export interface GetMSTIDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getMSTIDataConnectorOutput(args: GetMSTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSTIDataConnectorResult> {
+export function getMSTIDataConnectorOutput(args: GetMSTIDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMSTIDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getMSTIDataConnector", {
         "dataConnectorId": args.dataConnectorId,

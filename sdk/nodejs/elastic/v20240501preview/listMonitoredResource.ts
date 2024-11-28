@@ -45,7 +45,7 @@ export interface ListMonitoredResourceResult {
 /**
  * Response of a list operation.
  */
-export function listMonitoredResourceOutput(args: ListMonitoredResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitoredResourceResult> {
+export function listMonitoredResourceOutput(args: ListMonitoredResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMonitoredResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20240501preview:listMonitoredResource", {
         "monitorName": args.monitorName,

@@ -97,7 +97,7 @@ export interface GetCommunityTrainingResult {
 /**
  * Get a CommunityTraining
  */
-export function getCommunityTrainingOutput(args: GetCommunityTrainingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunityTrainingResult> {
+export function getCommunityTrainingOutput(args: GetCommunityTrainingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommunityTrainingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:community/v20231101:getCommunityTraining", {
         "communityTrainingName": args.communityTrainingName,

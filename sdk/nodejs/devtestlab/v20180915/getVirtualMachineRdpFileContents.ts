@@ -43,7 +43,7 @@ export interface GetVirtualMachineRdpFileContentsResult {
 /**
  * Gets a string that represents the contents of the RDP file for the virtual machine
  */
-export function getVirtualMachineRdpFileContentsOutput(args: GetVirtualMachineRdpFileContentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRdpFileContentsResult> {
+export function getVirtualMachineRdpFileContentsOutput(args: GetVirtualMachineRdpFileContentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineRdpFileContentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getVirtualMachineRdpFileContents", {
         "labName": args.labName,

@@ -81,7 +81,7 @@ export interface GetMECRoleResult {
  * Gets a specific role by name.
  * Azure REST API version: 2022-03-01.
  */
-export function getMECRoleOutput(args: GetMECRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMECRoleResult> {
+export function getMECRoleOutput(args: GetMECRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMECRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge:getMECRole", {
         "deviceName": args.deviceName,

@@ -48,7 +48,7 @@ export interface ListRegistryBuildSourceUploadUrlResult {
  *
  * Other available API versions: 2018-09-01, 2019-04-01.
  */
-export function listRegistryBuildSourceUploadUrlOutput(args: ListRegistryBuildSourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryBuildSourceUploadUrlResult> {
+export function listRegistryBuildSourceUploadUrlOutput(args: ListRegistryBuildSourceUploadUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRegistryBuildSourceUploadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry:listRegistryBuildSourceUploadUrl", {
         "registryName": args.registryName,

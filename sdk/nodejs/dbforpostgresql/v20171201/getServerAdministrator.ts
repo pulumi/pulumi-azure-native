@@ -62,7 +62,7 @@ export interface GetServerAdministratorResult {
 /**
  * Gets information about a AAD server administrator.
  */
-export function getServerAdministratorOutput(args: GetServerAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdministratorResult> {
+export function getServerAdministratorOutput(args: GetServerAdministratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20171201:getServerAdministrator", {
         "resourceGroupName": args.resourceGroupName,

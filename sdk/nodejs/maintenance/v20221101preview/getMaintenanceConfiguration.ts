@@ -105,7 +105,7 @@ export interface GetMaintenanceConfigurationResult {
 /**
  * Maintenance configuration record type
  */
-export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
+export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maintenance/v20221101preview:getMaintenanceConfiguration", {
         "resourceGroupName": args.resourceGroupName,

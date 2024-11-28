@@ -75,7 +75,7 @@ export interface GetMCASDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getMCASDataConnectorOutput(args: GetMCASDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMCASDataConnectorResult> {
+export function getMCASDataConnectorOutput(args: GetMCASDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMCASDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230901preview:getMCASDataConnector", {
         "dataConnectorId": args.dataConnectorId,

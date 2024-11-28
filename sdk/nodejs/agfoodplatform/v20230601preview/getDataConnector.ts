@@ -66,7 +66,7 @@ export interface GetDataConnectorResult {
 /**
  * Get specific Data Connector resource by DataConnectorName.
  */
-export function getDataConnectorOutput(args: GetDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataConnectorResult> {
+export function getDataConnectorOutput(args: GetDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:agfoodplatform/v20230601preview:getDataConnector", {
         "dataConnectorName": args.dataConnectorName,

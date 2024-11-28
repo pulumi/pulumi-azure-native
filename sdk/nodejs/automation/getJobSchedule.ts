@@ -80,7 +80,7 @@ export interface GetJobScheduleResult {
  *
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
-export function getJobScheduleOutput(args: GetJobScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobScheduleResult> {
+export function getJobScheduleOutput(args: GetJobScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getJobSchedule", {
         "automationAccountName": args.automationAccountName,

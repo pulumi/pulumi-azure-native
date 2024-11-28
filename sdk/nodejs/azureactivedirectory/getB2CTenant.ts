@@ -76,7 +76,7 @@ export interface GetB2CTenantResult {
  *
  * Other available API versions: 2019-01-01-preview, 2023-01-18-preview, 2023-05-17-preview.
  */
-export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetB2CTenantResult> {
+export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetB2CTenantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azureactivedirectory:getB2CTenant", {
         "resourceGroupName": args.resourceGroupName,

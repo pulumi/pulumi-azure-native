@@ -67,7 +67,7 @@ export interface GetCloudWatchAlarmResult {
  * Get a CloudWatchAlarm
  * Azure REST API version: 2024-12-01.
  */
-export function getCloudWatchAlarmOutput(args: GetCloudWatchAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudWatchAlarmResult> {
+export function getCloudWatchAlarmOutput(args: GetCloudWatchAlarmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudWatchAlarmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getCloudWatchAlarm", {
         "name": args.name,

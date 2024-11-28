@@ -89,7 +89,7 @@ export interface GetEnterprisePolicyResult {
 /**
  * Get information about an EnterprisePolicy
  */
-export function getEnterprisePolicyOutput(args: GetEnterprisePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePolicyResult> {
+export function getEnterprisePolicyOutput(args: GetEnterprisePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterprisePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:powerplatform/v20201030preview:getEnterprisePolicy", {
         "enterprisePolicyName": args.enterprisePolicyName,

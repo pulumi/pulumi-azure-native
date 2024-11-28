@@ -66,7 +66,7 @@ export interface GetGuestConfigurationConnectedVMwarevSphereAssignmentResult {
 /**
  * Get information about a guest configuration assignment
  */
-export function getGuestConfigurationConnectedVMwarevSphereAssignmentOutput(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
+export function getGuestConfigurationConnectedVMwarevSphereAssignmentOutput(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:guestconfiguration/v20240405:getGuestConfigurationConnectedVMwarevSphereAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,

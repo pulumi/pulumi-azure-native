@@ -51,7 +51,7 @@ export interface ListVolumeReplicationsResult {
 /**
  * List all replications for a specified volume
  */
-export function listVolumeReplicationsOutput(args: ListVolumeReplicationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeReplicationsResult> {
+export function listVolumeReplicationsOutput(args: ListVolumeReplicationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVolumeReplicationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:netapp/v20221101preview:listVolumeReplications", {
         "accountName": args.accountName,

@@ -76,7 +76,7 @@ export interface GetRegistrationResult {
  *
  * Other available API versions: 2020-06-01-preview.
  */
-export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationResult> {
+export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestack:getRegistration", {
         "registrationName": args.registrationName,

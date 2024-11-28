@@ -163,7 +163,7 @@ export interface GetAppServicePlanResult {
 /**
  * Description for Get an App Service plan.
  */
-export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {
+export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppServicePlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getAppServicePlan", {
         "name": args.name,

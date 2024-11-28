@@ -73,7 +73,7 @@ export interface GetApiIssueAttachmentResult {
 /**
  * Gets the details of the issue Attachment for an API specified by its identifier.
  */
-export function getApiIssueAttachmentOutput(args: GetApiIssueAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueAttachmentResult> {
+export function getApiIssueAttachmentOutput(args: GetApiIssueAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiIssueAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getApiIssueAttachment", {
         "apiId": args.apiId,

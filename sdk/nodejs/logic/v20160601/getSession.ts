@@ -71,7 +71,7 @@ export interface GetSessionResult {
 /**
  * Gets an integration account session.
  */
-export function getSessionOutput(args: GetSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSessionResult> {
+export function getSessionOutput(args: GetSessionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSessionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20160601:getSession", {
         "integrationAccountName": args.integrationAccountName,

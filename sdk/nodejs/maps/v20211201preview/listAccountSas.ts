@@ -79,7 +79,7 @@ export interface ListAccountSasResult {
  * 1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account.
  * 2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
  */
-export function listAccountSasOutput(args: ListAccountSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountSasResult> {
+export function listAccountSasOutput(args: ListAccountSasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccountSasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maps/v20211201preview:listAccountSas", {
         "accountName": args.accountName,

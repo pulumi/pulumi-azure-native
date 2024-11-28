@@ -99,7 +99,7 @@ export interface GetMLBehaviorAnalyticsAlertRuleResult {
 /**
  * Gets the alert rule.
  */
-export function getMLBehaviorAnalyticsAlertRuleOutput(args: GetMLBehaviorAnalyticsAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMLBehaviorAnalyticsAlertRuleResult> {
+export function getMLBehaviorAnalyticsAlertRuleOutput(args: GetMLBehaviorAnalyticsAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMLBehaviorAnalyticsAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231001preview:getMLBehaviorAnalyticsAlertRule", {
         "resourceGroupName": args.resourceGroupName,

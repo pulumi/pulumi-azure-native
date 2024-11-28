@@ -84,7 +84,7 @@ export interface GetHypervCollectorsOperationResult {
  *
  * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
  */
-export function getHypervCollectorsOperationOutput(args: GetHypervCollectorsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervCollectorsOperationResult> {
+export function getHypervCollectorsOperationOutput(args: GetHypervCollectorsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHypervCollectorsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getHypervCollectorsOperation", {
         "hypervCollectorName": args.hypervCollectorName,

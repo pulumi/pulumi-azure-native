@@ -73,7 +73,7 @@ export interface GetGrafanaResult {
 /**
  * The grafana resource type.
  */
-export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrafanaResult> {
+export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGrafanaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dashboard/v20221001preview:getGrafana", {
         "resourceGroupName": args.resourceGroupName,

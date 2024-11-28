@@ -89,7 +89,7 @@ export interface GetAzureMonitorWorkspaceResult {
 /**
  * Returns the specific Azure Monitor workspace
  */
-export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
+export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:monitor/v20231001preview:getAzureMonitorWorkspace", {
         "azureMonitorWorkspaceName": args.azureMonitorWorkspaceName,

@@ -63,7 +63,7 @@ export interface GetImageUploadUrlForDataResult {
  * Gets data image upload URL.
  * Azure REST API version: 2017-04-26.
  */
-export function getImageUploadUrlForDataOutput(args: GetImageUploadUrlForDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForDataResult> {
+export function getImageUploadUrlForDataOutput(args: GetImageUploadUrlForDataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageUploadUrlForDataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getImageUploadUrlForData", {
         "entityType": args.entityType,

@@ -91,7 +91,7 @@ export interface GetDeviceGroupResult {
 /**
  * Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
  */
-export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceGroupResult> {
+export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20220901preview:getDeviceGroup", {
         "catalogName": args.catalogName,

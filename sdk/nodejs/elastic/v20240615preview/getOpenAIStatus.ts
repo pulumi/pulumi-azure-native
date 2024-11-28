@@ -46,7 +46,7 @@ export interface GetOpenAIStatusResult {
 /**
  * Status of the OpenAI Integration
  */
-export function getOpenAIStatusOutput(args: GetOpenAIStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenAIStatusResult> {
+export function getOpenAIStatusOutput(args: GetOpenAIStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenAIStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20240615preview:getOpenAIStatus", {
         "integrationName": args.integrationName,

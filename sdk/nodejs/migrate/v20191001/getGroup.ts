@@ -62,7 +62,7 @@ export interface GetGroupResult {
 /**
  * Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
  */
-export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
+export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20191001:getGroup", {
         "groupName": args.groupName,

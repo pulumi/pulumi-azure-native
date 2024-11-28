@@ -67,7 +67,7 @@ export interface GetSandboxCustomImageResult {
 /**
  * Returns a sandbox custom image
  */
-export function getSandboxCustomImageOutput(args: GetSandboxCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSandboxCustomImageResult> {
+export function getSandboxCustomImageOutput(args: GetSandboxCustomImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSandboxCustomImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto/v20230815:getSandboxCustomImage", {
         "clusterName": args.clusterName,

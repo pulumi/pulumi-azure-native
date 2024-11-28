@@ -103,7 +103,7 @@ export interface GetServerInstanceResult {
 /**
  * Gets the Server Instance resource.
  */
-export function getServerInstanceOutput(args: GetServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerInstanceResult> {
+export function getServerInstanceOutput(args: GetServerInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getServerInstance", {
         "resourceGroupName": args.resourceGroupName,

@@ -124,7 +124,7 @@ export interface GetPredictionResult {
  * Gets a Prediction in the hub.
  * Azure REST API version: 2017-04-26.
  */
-export function getPredictionOutput(args: GetPredictionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionResult> {
+export function getPredictionOutput(args: GetPredictionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPredictionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getPrediction", {
         "hubName": args.hubName,

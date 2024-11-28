@@ -73,7 +73,7 @@ export interface GetDnsResolverPolicyResult {
 /**
  * Gets properties of a DNS resolver policy.
  */
-export function getDnsResolverPolicyOutput(args: GetDnsResolverPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverPolicyResult> {
+export function getDnsResolverPolicyOutput(args: GetDnsResolverPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsResolverPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:getDnsResolverPolicy", {
         "dnsResolverPolicyName": args.dnsResolverPolicyName,

@@ -56,7 +56,7 @@ export interface ListWebPubSubKeysResult {
  *
  * Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
  */
-export function listWebPubSubKeysOutput(args: ListWebPubSubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebPubSubKeysResult> {
+export function listWebPubSubKeysOutput(args: ListWebPubSubKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebPubSubKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:webpubsub:listWebPubSubKeys", {
         "resourceGroupName": args.resourceGroupName,

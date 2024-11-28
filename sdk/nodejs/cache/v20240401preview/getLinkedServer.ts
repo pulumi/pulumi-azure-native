@@ -75,7 +75,7 @@ export interface GetLinkedServerResult {
 /**
  * Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
  */
-export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServerResult> {
+export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache/v20240401preview:getLinkedServer", {
         "linkedServerName": args.linkedServerName,

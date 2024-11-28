@@ -70,7 +70,7 @@ export interface GetB2CTenantResult {
 /**
  * Get the Azure AD B2C tenant resource.
  */
-export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetB2CTenantResult> {
+export function getB2CTenantOutput(args: GetB2CTenantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetB2CTenantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azureactivedirectory/v20210401:getB2CTenant", {
         "resourceGroupName": args.resourceGroupName,

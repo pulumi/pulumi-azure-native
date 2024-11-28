@@ -86,7 +86,7 @@ export interface ListProductDetailsResult {
 /**
  * Returns the extended properties of a product.
  */
-export function listProductDetailsOutput(args: ListProductDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductDetailsResult> {
+export function listProductDetailsOutput(args: ListProductDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProductDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestack/v20220601:listProductDetails", {
         "productName": args.productName,

@@ -65,7 +65,7 @@ export interface GetIntegrationRuntimeConnectionInfoResult {
  * Gets the on-premises integration runtime connection information for encrypting the on-premises data source credentials.
  * Azure REST API version: 2018-06-01.
  */
-export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
+export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getIntegrationRuntimeConnectionInfo", {
         "factoryName": args.factoryName,

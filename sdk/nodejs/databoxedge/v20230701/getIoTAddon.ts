@@ -92,7 +92,7 @@ export interface GetIoTAddonResult {
 /**
  * Gets a specific addon by name.
  */
-export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTAddonResult> {
+export function getIoTAddonOutput(args: GetIoTAddonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoTAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230701:getIoTAddon", {
         "addonName": args.addonName,

@@ -67,7 +67,7 @@ export interface GetEc2InstanceStatusResult {
  * Get a Ec2InstanceStatus
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2InstanceStatusOutput(args: GetEc2InstanceStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2InstanceStatusResult> {
+export function getEc2InstanceStatusOutput(args: GetEc2InstanceStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2InstanceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2InstanceStatus", {
         "name": args.name,

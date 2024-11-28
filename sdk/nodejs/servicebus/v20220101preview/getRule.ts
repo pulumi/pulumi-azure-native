@@ -88,7 +88,7 @@ export interface GetRuleResult {
 /**
  * Retrieves the description for the specified rule.
  */
-export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
+export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20220101preview:getRule", {
         "namespaceName": args.namespaceName,

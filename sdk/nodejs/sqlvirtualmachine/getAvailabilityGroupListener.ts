@@ -97,7 +97,7 @@ export interface GetAvailabilityGroupListenerResult {
  *
  * Other available API versions: 2023-01-01-preview, 2023-10-01.
  */
-export function getAvailabilityGroupListenerOutput(args: GetAvailabilityGroupListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityGroupListenerResult> {
+export function getAvailabilityGroupListenerOutput(args: GetAvailabilityGroupListenerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAvailabilityGroupListenerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", {
         "availabilityGroupListenerName": args.availabilityGroupListenerName,

@@ -108,7 +108,7 @@ export interface ListChannelWithKeysResult {
  *
  * Other available API versions: 2023-09-15-preview.
  */
-export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListChannelWithKeysResult> {
+export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListChannelWithKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice:listChannelWithKeys", {
         "channelName": args.channelName,

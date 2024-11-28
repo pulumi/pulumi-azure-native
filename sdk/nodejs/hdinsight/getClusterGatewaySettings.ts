@@ -52,7 +52,7 @@ export interface GetClusterGatewaySettingsResult {
  *
  * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
  */
-export function getClusterGatewaySettingsOutput(args: GetClusterGatewaySettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterGatewaySettingsResult> {
+export function getClusterGatewaySettingsOutput(args: GetClusterGatewaySettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterGatewaySettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hdinsight:getClusterGatewaySettings", {
         "clusterName": args.clusterName,

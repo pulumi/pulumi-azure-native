@@ -148,7 +148,7 @@ export interface GetFluxConfigurationResult {
 /**
  * Gets details of the Flux Configuration.
  */
-export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluxConfigurationResult> {
+export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFluxConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kubernetesconfiguration/v20240401preview:getFluxConfiguration", {
         "clusterName": args.clusterName,

@@ -51,7 +51,7 @@ export interface ListMonitorApiKeysResult {
  *
  * Other available API versions: 2022-08-01, 2023-01-01.
  */
-export function listMonitorApiKeysOutput(args: ListMonitorApiKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorApiKeysResult> {
+export function listMonitorApiKeysOutput(args: ListMonitorApiKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMonitorApiKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datadog:listMonitorApiKeys", {
         "monitorName": args.monitorName,

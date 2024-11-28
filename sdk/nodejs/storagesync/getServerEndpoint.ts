@@ -149,7 +149,7 @@ export interface GetServerEndpointResult {
  *
  * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2018-10-01, 2019-10-01, 2022-09-01.
  */
-export function getServerEndpointOutput(args: GetServerEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerEndpointResult> {
+export function getServerEndpointOutput(args: GetServerEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagesync:getServerEndpoint", {
         "resourceGroupName": args.resourceGroupName,

@@ -201,7 +201,7 @@ export interface GetHostPoolResult {
 /**
  * Get a host pool.
  */
-export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
+export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20240808preview:getHostPool", {
         "hostPoolName": args.hostPoolName,

@@ -107,7 +107,7 @@ export interface GetLiveOutputResult {
 /**
  * Gets a live output.
  */
-export function getLiveOutputOutput(args: GetLiveOutputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveOutputResult> {
+export function getLiveOutputOutput(args: GetLiveOutputOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveOutputResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20221101:getLiveOutput", {
         "accountName": args.accountName,

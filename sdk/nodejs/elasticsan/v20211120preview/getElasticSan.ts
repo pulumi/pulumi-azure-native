@@ -101,7 +101,7 @@ export interface GetElasticSanResult {
 /**
  * Get a ElasticSan.
  */
-export function getElasticSanOutput(args: GetElasticSanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticSanResult> {
+export function getElasticSanOutput(args: GetElasticSanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticSanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elasticsan/v20211120preview:getElasticSan", {
         "elasticSanName": args.elasticSanName,

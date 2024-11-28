@@ -62,7 +62,7 @@ export interface GetPrivateDnsZoneGroupResult {
 /**
  * Gets the private dns zone group resource by specified private dns zone group name.
  */
-export function getPrivateDnsZoneGroupOutput(args: GetPrivateDnsZoneGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateDnsZoneGroupResult> {
+export function getPrivateDnsZoneGroupOutput(args: GetPrivateDnsZoneGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateDnsZoneGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getPrivateDnsZoneGroup", {
         "privateDnsZoneGroupName": args.privateDnsZoneGroupName,

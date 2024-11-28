@@ -79,7 +79,7 @@ export interface GetWorkbookTemplateResult {
  * Get a single workbook template by its resourceName.
  * Azure REST API version: 2020-11-20.
  */
-export function getWorkbookTemplateOutput(args: GetWorkbookTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookTemplateResult> {
+export function getWorkbookTemplateOutput(args: GetWorkbookTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkbookTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getWorkbookTemplate", {
         "resourceGroupName": args.resourceGroupName,

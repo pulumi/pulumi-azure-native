@@ -71,7 +71,7 @@ export interface GetHybridConnectionAuthorizationRuleResult {
 /**
  * Hybrid connection authorization rule for a hybrid connection by name.
  */
-export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
+export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay/v20240101:getHybridConnectionAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

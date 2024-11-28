@@ -70,7 +70,7 @@ export interface GetTriggerResult {
 /**
  * Get the specified trigger for the specified image template resource
  */
-export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
+export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:virtualmachineimages/v20240201:getTrigger", {
         "imageTemplateName": args.imageTemplateName,

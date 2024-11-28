@@ -71,7 +71,7 @@ export interface ListWebAppFunctionKeysSlotResult {
 /**
  * Get function keys for a function in a web site, or a deployment slot.
  */
-export function listWebAppFunctionKeysSlotOutput(args: ListWebAppFunctionKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionKeysSlotResult> {
+export function listWebAppFunctionKeysSlotOutput(args: ListWebAppFunctionKeysSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppFunctionKeysSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listWebAppFunctionKeysSlot", {
         "functionName": args.functionName,

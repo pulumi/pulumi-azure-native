@@ -69,7 +69,7 @@ export interface GetEmailServiceResult {
 /**
  * Get the EmailService and its properties.
  */
-export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailServiceResult> {
+export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:communication/v20230601preview:getEmailService", {
         "emailServiceName": args.emailServiceName,

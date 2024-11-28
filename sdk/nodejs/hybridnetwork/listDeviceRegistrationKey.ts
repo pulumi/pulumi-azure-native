@@ -40,7 +40,7 @@ export interface ListDeviceRegistrationKeyResult {
  * List the registration key for the device.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function listDeviceRegistrationKeyOutput(args: ListDeviceRegistrationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceRegistrationKeyResult> {
+export function listDeviceRegistrationKeyOutput(args: ListDeviceRegistrationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDeviceRegistrationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:listDeviceRegistrationKey", {
         "deviceName": args.deviceName,

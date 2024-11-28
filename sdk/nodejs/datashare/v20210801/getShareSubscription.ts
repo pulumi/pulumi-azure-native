@@ -118,7 +118,7 @@ export interface GetShareSubscriptionResult {
 /**
  * Get a shareSubscription in an account
  */
-export function getShareSubscriptionOutput(args: GetShareSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareSubscriptionResult> {
+export function getShareSubscriptionOutput(args: GetShareSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetShareSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getShareSubscription", {
         "accountName": args.accountName,

@@ -88,7 +88,7 @@ export interface GetCollectorPolicyResult {
  *
  * Other available API versions: 2022-05-01.
  */
-export function getCollectorPolicyOutput(args: GetCollectorPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollectorPolicyResult> {
+export function getCollectorPolicyOutput(args: GetCollectorPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCollectorPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkfunction:getCollectorPolicy", {
         "azureTrafficCollectorName": args.azureTrafficCollectorName,

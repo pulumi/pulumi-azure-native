@@ -87,7 +87,7 @@ export interface GetSpacecraftResult {
  *
  * Other available API versions: 2022-03-01.
  */
-export function getSpacecraftOutput(args: GetSpacecraftOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpacecraftResult> {
+export function getSpacecraftOutput(args: GetSpacecraftOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpacecraftResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital:getSpacecraft", {
         "resourceGroupName": args.resourceGroupName,

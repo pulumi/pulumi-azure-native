@@ -111,7 +111,7 @@ export interface GetMaintenanceConfigurationResult {
  *
  * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
  */
-export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
+export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maintenance:getMaintenanceConfiguration", {
         "resourceGroupName": args.resourceGroupName,

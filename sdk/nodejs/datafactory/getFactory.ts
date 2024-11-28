@@ -103,7 +103,7 @@ export interface GetFactoryResult {
  *
  * Other available API versions: 2017-09-01-preview.
  */
-export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryResult> {
+export function getFactoryOutput(args: GetFactoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFactoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getFactory", {
         "factoryName": args.factoryName,

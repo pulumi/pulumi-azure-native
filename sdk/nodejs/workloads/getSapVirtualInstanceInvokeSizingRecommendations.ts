@@ -83,7 +83,7 @@ export interface GetSapVirtualInstanceInvokeSizingRecommendationsResult {
  * Gets the sizing recommendations.
  * Azure REST API version: 2024-09-01.
  */
-export function getSapVirtualInstanceInvokeSizingRecommendationsOutput(args: GetSapVirtualInstanceInvokeSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeSizingRecommendationsResult> {
+export function getSapVirtualInstanceInvokeSizingRecommendationsOutput(args: GetSapVirtualInstanceInvokeSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapVirtualInstanceInvokeSizingRecommendationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getSapVirtualInstanceInvokeSizingRecommendations", {
         "appLocation": args.appLocation,

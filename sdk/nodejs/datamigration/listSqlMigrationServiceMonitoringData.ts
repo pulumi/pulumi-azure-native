@@ -51,7 +51,7 @@ export interface ListSqlMigrationServiceMonitoringDataResult {
  *
  * Other available API versions: 2023-07-15-preview.
  */
-export function listSqlMigrationServiceMonitoringDataOutput(args: ListSqlMigrationServiceMonitoringDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSqlMigrationServiceMonitoringDataResult> {
+export function listSqlMigrationServiceMonitoringDataOutput(args: ListSqlMigrationServiceMonitoringDataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSqlMigrationServiceMonitoringDataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration:listSqlMigrationServiceMonitoringData", {
         "resourceGroupName": args.resourceGroupName,

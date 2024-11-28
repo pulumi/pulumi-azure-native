@@ -86,7 +86,7 @@ export interface GetBuildResult {
 /**
  * Get a BuildResource
  */
-export function getBuildOutput(args: GetBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildResult> {
+export function getBuildOutput(args: GetBuildOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuildResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20230801preview:getBuild", {
         "buildName": args.buildName,

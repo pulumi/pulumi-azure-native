@@ -88,7 +88,7 @@ export interface GetChangeDataCaptureResult {
  * Gets a change data capture.
  * Azure REST API version: 2018-06-01.
  */
-export function getChangeDataCaptureOutput(args: GetChangeDataCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChangeDataCaptureResult> {
+export function getChangeDataCaptureOutput(args: GetChangeDataCaptureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChangeDataCaptureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getChangeDataCapture", {
         "changeDataCaptureName": args.changeDataCaptureName,

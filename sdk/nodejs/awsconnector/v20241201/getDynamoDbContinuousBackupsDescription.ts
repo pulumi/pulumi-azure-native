@@ -65,7 +65,7 @@ export interface GetDynamoDbContinuousBackupsDescriptionResult {
 /**
  * Get a DynamoDBContinuousBackupsDescription
  */
-export function getDynamoDbContinuousBackupsDescriptionOutput(args: GetDynamoDbContinuousBackupsDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamoDbContinuousBackupsDescriptionResult> {
+export function getDynamoDbContinuousBackupsDescriptionOutput(args: GetDynamoDbContinuousBackupsDescriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDynamoDbContinuousBackupsDescriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getDynamoDbContinuousBackupsDescription", {
         "name": args.name,

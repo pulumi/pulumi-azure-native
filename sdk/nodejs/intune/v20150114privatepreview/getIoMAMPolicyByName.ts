@@ -79,7 +79,7 @@ export interface GetIoMAMPolicyByNameResult {
 /**
  * Returns Intune iOS policies.
  */
-export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
+export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:intune/v20150114privatepreview:getIoMAMPolicyByName", {
         "hostName": args.hostName,

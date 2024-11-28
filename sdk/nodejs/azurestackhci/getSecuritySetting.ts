@@ -76,7 +76,7 @@ export interface GetSecuritySettingResult {
  *
  * Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
  */
-export function getSecuritySettingOutput(args: GetSecuritySettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecuritySettingResult> {
+export function getSecuritySettingOutput(args: GetSecuritySettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecuritySettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getSecuritySetting", {
         "clusterName": args.clusterName,

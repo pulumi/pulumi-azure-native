@@ -66,7 +66,7 @@ export interface GetCreatorResult {
 /**
  * Get a Maps Creator resource.
  */
-export function getCreatorOutput(args: GetCreatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCreatorResult> {
+export function getCreatorOutput(args: GetCreatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCreatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maps/v20210201:getCreator", {
         "accountName": args.accountName,

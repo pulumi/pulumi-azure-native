@@ -84,7 +84,7 @@ export interface GetOrderItemByNameResult {
  * Gets an order item.
  * Azure REST API version: 2021-12-01.
  */
-export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemByNameResult> {
+export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderItemByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edgeorder:getOrderItemByName", {
         "expand": args.expand,

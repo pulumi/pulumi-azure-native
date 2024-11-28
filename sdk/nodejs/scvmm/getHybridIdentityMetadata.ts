@@ -80,7 +80,7 @@ export interface GetHybridIdentityMetadataResult {
  *
  * Other available API versions: 2023-04-01-preview.
  */
-export function getHybridIdentityMetadataOutput(args: GetHybridIdentityMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadataResult> {
+export function getHybridIdentityMetadataOutput(args: GetHybridIdentityMetadataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridIdentityMetadataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm:getHybridIdentityMetadata", {
         "metadataName": args.metadataName,

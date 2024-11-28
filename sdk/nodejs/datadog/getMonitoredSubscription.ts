@@ -60,7 +60,7 @@ export interface GetMonitoredSubscriptionResult {
  * The request to update subscriptions needed to be monitored by the Datadog monitor resource.
  * Azure REST API version: 2023-01-01.
  */
-export function getMonitoredSubscriptionOutput(args: GetMonitoredSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoredSubscriptionResult> {
+export function getMonitoredSubscriptionOutput(args: GetMonitoredSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoredSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datadog:getMonitoredSubscription", {
         "configurationName": args.configurationName,

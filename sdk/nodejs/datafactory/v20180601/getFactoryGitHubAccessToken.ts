@@ -61,7 +61,7 @@ export interface GetFactoryGitHubAccessTokenResult {
 /**
  * Get GitHub Access Token.
  */
-export function getFactoryGitHubAccessTokenOutput(args: GetFactoryGitHubAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryGitHubAccessTokenResult> {
+export function getFactoryGitHubAccessTokenOutput(args: GetFactoryGitHubAccessTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFactoryGitHubAccessTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getFactoryGitHubAccessToken", {
         "factoryName": args.factoryName,

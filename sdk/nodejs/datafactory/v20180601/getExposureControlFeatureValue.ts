@@ -47,7 +47,7 @@ export interface GetExposureControlFeatureValueResult {
 /**
  * Get exposure control feature for specific location.
  */
-export function getExposureControlFeatureValueOutput(args: GetExposureControlFeatureValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExposureControlFeatureValueResult> {
+export function getExposureControlFeatureValueOutput(args: GetExposureControlFeatureValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExposureControlFeatureValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getExposureControlFeatureValue", {
         "featureName": args.featureName,

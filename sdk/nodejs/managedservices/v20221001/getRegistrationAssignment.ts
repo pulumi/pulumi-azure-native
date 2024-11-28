@@ -62,7 +62,7 @@ export interface GetRegistrationAssignmentResult {
 /**
  * Gets the details of the specified registration assignment.
  */
-export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {
+export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managedservices/v20221001:getRegistrationAssignment", {
         "expandRegistrationDefinition": args.expandRegistrationDefinition,

@@ -66,7 +66,7 @@ export interface GetPrivateEndpointConnectionByNameResult {
 /**
  * Gets the details of the Private Endpoint Connection specified by its identifier.
  */
-export function getPrivateEndpointConnectionByNameOutput(args: GetPrivateEndpointConnectionByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionByNameResult> {
+export function getPrivateEndpointConnectionByNameOutput(args: GetPrivateEndpointConnectionByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getPrivateEndpointConnectionByName", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

@@ -55,7 +55,7 @@ export interface GetServerAzureADOnlyAuthenticationResult {
 /**
  * Gets a specific Azure Active Directory only authentication property.
  */
-export function getServerAzureADOnlyAuthenticationOutput(args: GetServerAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADOnlyAuthenticationResult> {
+export function getServerAzureADOnlyAuthenticationOutput(args: GetServerAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerAzureADOnlyAuthenticationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getServerAzureADOnlyAuthentication", {
         "authenticationName": args.authenticationName,

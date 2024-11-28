@@ -106,7 +106,7 @@ export interface GetConnectedRegistryResult {
 /**
  * Gets the properties of the connected registry.
  */
-export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedRegistryResult> {
+export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectedRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230101preview:getConnectedRegistry", {
         "connectedRegistryName": args.connectedRegistryName,

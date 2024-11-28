@@ -110,7 +110,7 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
  * Get access review history definition by definition Id
  * Azure REST API version: 2021-12-01-preview.
  */
-export function getAccessReviewHistoryDefinitionByIdOutput(args: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
+export function getAccessReviewHistoryDefinitionByIdOutput(args: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getAccessReviewHistoryDefinitionById", {
         "historyDefinitionId": args.historyDefinitionId,

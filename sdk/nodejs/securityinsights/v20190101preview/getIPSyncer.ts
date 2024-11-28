@@ -69,7 +69,7 @@ export interface GetIPSyncerResult {
 /**
  * Gets a setting.
  */
-export function getIPSyncerOutput(args: GetIPSyncerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPSyncerResult> {
+export function getIPSyncerOutput(args: GetIPSyncerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIPSyncerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20190101preview:getIPSyncer", {
         "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,

@@ -92,7 +92,7 @@ export interface GetBuildResult {
  *
  * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
  */
-export function getBuildOutput(args: GetBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildResult> {
+export function getBuildOutput(args: GetBuildOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuildResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:getBuild", {
         "buildName": args.buildName,

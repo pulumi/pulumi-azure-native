@@ -77,7 +77,7 @@ export interface ListWorkflowCallbackUrlResult {
  *
  * Other available API versions: 2016-06-01, 2018-07-01-preview.
  */
-export function listWorkflowCallbackUrlOutput(args: ListWorkflowCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowCallbackUrlResult> {
+export function listWorkflowCallbackUrlOutput(args: ListWorkflowCallbackUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkflowCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:listWorkflowCallbackUrl", {
         "keyType": args.keyType,

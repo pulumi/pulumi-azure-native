@@ -54,7 +54,7 @@ export interface GetSitesBySubscriptionResult {
  * Get a Site
  * Azure REST API version: 2024-02-01-preview.
  */
-export function getSitesBySubscriptionOutput(args: GetSitesBySubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesBySubscriptionResult> {
+export function getSitesBySubscriptionOutput(args: GetSitesBySubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSitesBySubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edge:getSitesBySubscription", {
         "siteName": args.siteName,

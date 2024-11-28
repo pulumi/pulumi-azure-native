@@ -68,7 +68,7 @@ export interface GetMonitoringConfigResult {
  *
  * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
-export function getMonitoringConfigOutput(args: GetMonitoringConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringConfigResult> {
+export function getMonitoringConfigOutput(args: GetMonitoringConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoringConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge:getMonitoringConfig", {
         "deviceName": args.deviceName,

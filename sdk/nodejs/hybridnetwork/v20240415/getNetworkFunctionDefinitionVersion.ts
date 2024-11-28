@@ -75,7 +75,7 @@ export interface GetNetworkFunctionDefinitionVersionResult {
 /**
  * Gets information about a network function definition version.
  */
-export function getNetworkFunctionDefinitionVersionOutput(args: GetNetworkFunctionDefinitionVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionDefinitionVersionResult> {
+export function getNetworkFunctionDefinitionVersionOutput(args: GetNetworkFunctionDefinitionVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFunctionDefinitionVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20240415:getNetworkFunctionDefinitionVersion", {
         "networkFunctionDefinitionGroupName": args.networkFunctionDefinitionGroupName,

@@ -78,7 +78,7 @@ export interface GetVmwareCollectorsOperationResult {
 /**
  * Get a VmwareCollector
  */
-export function getVmwareCollectorsOperationOutput(args: GetVmwareCollectorsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVmwareCollectorsOperationResult> {
+export function getVmwareCollectorsOperationOutput(args: GetVmwareCollectorsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVmwareCollectorsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230315:getVmwareCollectorsOperation", {
         "projectName": args.projectName,

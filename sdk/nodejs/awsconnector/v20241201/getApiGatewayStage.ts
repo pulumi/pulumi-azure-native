@@ -65,7 +65,7 @@ export interface GetApiGatewayStageResult {
 /**
  * Get a ApiGatewayStage
  */
-export function getApiGatewayStageOutput(args: GetApiGatewayStageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayStageResult> {
+export function getApiGatewayStageOutput(args: GetApiGatewayStageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiGatewayStageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getApiGatewayStage", {
         "name": args.name,

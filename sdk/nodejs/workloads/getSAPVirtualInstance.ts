@@ -107,7 +107,7 @@ export interface GetSAPVirtualInstanceResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getSAPVirtualInstanceOutput(args: GetSAPVirtualInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPVirtualInstanceResult> {
+export function getSAPVirtualInstanceOutput(args: GetSAPVirtualInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPVirtualInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPVirtualInstance", {
         "resourceGroupName": args.resourceGroupName,

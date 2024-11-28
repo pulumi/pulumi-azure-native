@@ -75,7 +75,7 @@ export interface GetNamespaceTopicResult {
 /**
  * Get properties of a namespace topic.
  */
-export function getNamespaceTopicOutput(args: GetNamespaceTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceTopicResult> {
+export function getNamespaceTopicOutput(args: GetNamespaceTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getNamespaceTopic", {
         "namespaceName": args.namespaceName,

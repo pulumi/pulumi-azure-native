@@ -58,7 +58,7 @@ export interface ListAssetContainerSasResult {
  * Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
  * Azure REST API version: 2023-01-01.
  */
-export function listAssetContainerSasOutput(args: ListAssetContainerSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAssetContainerSasResult> {
+export function listAssetContainerSasOutput(args: ListAssetContainerSasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAssetContainerSasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:listAssetContainerSas", {
         "accountName": args.accountName,

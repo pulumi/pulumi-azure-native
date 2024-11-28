@@ -41,7 +41,7 @@ export interface ListAllTrafficFilterResult {
 /**
  * List of elastic traffic filters in the account
  */
-export function listAllTrafficFilterOutput(args: ListAllTrafficFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAllTrafficFilterResult> {
+export function listAllTrafficFilterOutput(args: ListAllTrafficFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAllTrafficFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20231101preview:listAllTrafficFilter", {
         "monitorName": args.monitorName,

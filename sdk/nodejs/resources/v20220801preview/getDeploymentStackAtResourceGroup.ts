@@ -125,7 +125,7 @@ export interface GetDeploymentStackAtResourceGroupResult {
 /**
  * Gets a Deployment Stack with a given name.
  */
-export function getDeploymentStackAtResourceGroupOutput(args: GetDeploymentStackAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentStackAtResourceGroupResult> {
+export function getDeploymentStackAtResourceGroupOutput(args: GetDeploymentStackAtResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentStackAtResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources/v20220801preview:getDeploymentStackAtResourceGroup", {
         "deploymentStackName": args.deploymentStackName,

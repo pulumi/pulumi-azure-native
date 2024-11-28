@@ -98,7 +98,7 @@ export interface GetDataNetworkResult {
 /**
  * Gets information about the specified data network.
  */
-export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataNetworkResult> {
+export function getDataNetworkOutput(args: GetDataNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20220401preview:getDataNetwork", {
         "dataNetworkName": args.dataNetworkName,

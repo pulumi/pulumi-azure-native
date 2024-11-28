@@ -94,7 +94,7 @@ export interface GetSimPolicyResult {
 /**
  * Gets information about the specified SIM policy.
  */
-export function getSimPolicyOutput(args: GetSimPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimPolicyResult> {
+export function getSimPolicyOutput(args: GetSimPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSimPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20221101:getSimPolicy", {
         "mobileNetworkName": args.mobileNetworkName,

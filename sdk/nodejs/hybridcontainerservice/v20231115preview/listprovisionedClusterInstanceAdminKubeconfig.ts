@@ -50,7 +50,7 @@ export interface ListprovisionedClusterInstanceAdminKubeconfigResult {
 /**
  * Lists the admin credentials of a provisioned cluster instance used only in direct mode.
  */
-export function listprovisionedClusterInstanceAdminKubeconfigOutput(args: ListprovisionedClusterInstanceAdminKubeconfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListprovisionedClusterInstanceAdminKubeconfigResult> {
+export function listprovisionedClusterInstanceAdminKubeconfigOutput(args: ListprovisionedClusterInstanceAdminKubeconfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListprovisionedClusterInstanceAdminKubeconfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20231115preview:listprovisionedClusterInstanceAdminKubeconfig", {
         "connectedClusterResourceUri": args.connectedClusterResourceUri,

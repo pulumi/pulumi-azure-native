@@ -42,7 +42,7 @@ export interface GetRequiredAmlFSSubnetsSizeResult {
 /**
  * Get the number of available IP addresses needed for the AML file system information provided.
  */
-export function getRequiredAmlFSSubnetsSizeOutput(args?: GetRequiredAmlFSSubnetsSizeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRequiredAmlFSSubnetsSizeResult> {
+export function getRequiredAmlFSSubnetsSizeOutput(args?: GetRequiredAmlFSSubnetsSizeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRequiredAmlFSSubnetsSizeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagecache/v20230501:getRequiredAmlFSSubnetsSize", {

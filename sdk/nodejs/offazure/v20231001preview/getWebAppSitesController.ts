@@ -76,7 +76,7 @@ export interface GetWebAppSitesControllerResult {
 /**
  * Method to get a site.
  */
-export function getWebAppSitesControllerOutput(args: GetWebAppSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSitesControllerResult> {
+export function getWebAppSitesControllerOutput(args: GetWebAppSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20231001preview:getWebAppSitesController", {
         "resourceGroupName": args.resourceGroupName,

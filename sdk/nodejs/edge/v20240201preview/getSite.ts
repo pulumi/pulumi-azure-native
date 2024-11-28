@@ -57,7 +57,7 @@ export interface GetSiteResult {
 /**
  * Get a Site
  */
-export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
+export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edge/v20240201preview:getSite", {
         "resourceGroupName": args.resourceGroupName,

@@ -72,7 +72,7 @@ export interface GetProtectionPolicyResult {
  * Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
  * operation. Status of the operation can be fetched using GetPolicyOperationResult API.
  */
-export function getProtectionPolicyOutput(args: GetProtectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionPolicyResult> {
+export function getProtectionPolicyOutput(args: GetProtectionPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230601:getProtectionPolicy", {
         "policyName": args.policyName,

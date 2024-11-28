@@ -59,7 +59,7 @@ export interface GetSyncIdentityProviderResult {
 /**
  * The operation returns properties of a SyncIdentityProvider.
  */
-export function getSyncIdentityProviderOutput(args: GetSyncIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncIdentityProviderResult> {
+export function getSyncIdentityProviderOutput(args: GetSyncIdentityProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyncIdentityProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:redhatopenshift/v20231122:getSyncIdentityProvider", {
         "childResourceName": args.childResourceName,

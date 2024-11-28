@@ -103,7 +103,7 @@ export interface GetMicrosoftSecurityIncidentCreationAlertRuleResult {
 /**
  * Gets the alert rule.
  */
-export function getMicrosoftSecurityIncidentCreationAlertRuleOutput(args: GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
+export function getMicrosoftSecurityIncidentCreationAlertRuleOutput(args: GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231001preview:getMicrosoftSecurityIncidentCreationAlertRule", {
         "resourceGroupName": args.resourceGroupName,

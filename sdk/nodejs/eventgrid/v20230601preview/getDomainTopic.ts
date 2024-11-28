@@ -62,7 +62,7 @@ export interface GetDomainTopicResult {
 /**
  * Get properties of a domain topic.
  */
-export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainTopicResult> {
+export function getDomainTopicOutput(args: GetDomainTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20230601preview:getDomainTopic", {
         "domainName": args.domainName,

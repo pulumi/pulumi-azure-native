@@ -65,7 +65,7 @@ export interface GetWafWebAclSummaryResult {
 /**
  * Get a WafWebACLSummary
  */
-export function getWafWebAclSummaryOutput(args: GetWafWebAclSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafWebAclSummaryResult> {
+export function getWafWebAclSummaryOutput(args: GetWafWebAclSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWafWebAclSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getWafWebAclSummary", {
         "name": args.name,

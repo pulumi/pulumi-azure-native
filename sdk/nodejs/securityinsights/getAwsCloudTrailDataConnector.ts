@@ -77,7 +77,7 @@ export interface GetAwsCloudTrailDataConnectorResult {
  * Gets a data connector.
  * Azure REST API version: 2023-02-01.
  */
-export function getAwsCloudTrailDataConnectorOutput(args: GetAwsCloudTrailDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsCloudTrailDataConnectorResult> {
+export function getAwsCloudTrailDataConnectorOutput(args: GetAwsCloudTrailDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAwsCloudTrailDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getAwsCloudTrailDataConnector", {
         "dataConnectorId": args.dataConnectorId,

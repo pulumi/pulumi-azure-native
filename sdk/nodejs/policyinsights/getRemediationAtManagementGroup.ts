@@ -116,7 +116,7 @@ export interface GetRemediationAtManagementGroupResult {
  *
  * Other available API versions: 2018-07-01-preview, 2024-10-01.
  */
-export function getRemediationAtManagementGroupOutput(args: GetRemediationAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtManagementGroupResult> {
+export function getRemediationAtManagementGroupOutput(args: GetRemediationAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemediationAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights:getRemediationAtManagementGroup", {
         "managementGroupId": args.managementGroupId,

@@ -86,7 +86,7 @@ export interface GetGlobalReachConnectionResult {
 /**
  * Get a GlobalReachConnection
  */
-export function getGlobalReachConnectionOutput(args: GetGlobalReachConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalReachConnectionResult> {
+export function getGlobalReachConnectionOutput(args: GetGlobalReachConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalReachConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getGlobalReachConnection", {
         "globalReachConnectionName": args.globalReachConnectionName,

@@ -82,7 +82,7 @@ export interface GetEventHubConnectionResult {
  * Returns an Event Hub connection.
  * Azure REST API version: 2018-09-07-preview.
  */
-export function getEventHubConnectionOutput(args: GetEventHubConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubConnectionResult> {
+export function getEventHubConnectionOutput(args: GetEventHubConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventHubConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto:getEventHubConnection", {
         "clusterName": args.clusterName,

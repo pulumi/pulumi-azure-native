@@ -78,7 +78,7 @@ export interface GetCaCertificateResult {
 /**
  * Get properties of a CA certificate.
  */
-export function getCaCertificateOutput(args: GetCaCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCaCertificateResult> {
+export function getCaCertificateOutput(args: GetCaCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCaCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getCaCertificate", {
         "caCertificateName": args.caCertificateName,

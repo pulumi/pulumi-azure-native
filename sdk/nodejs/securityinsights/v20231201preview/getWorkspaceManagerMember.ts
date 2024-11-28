@@ -70,7 +70,7 @@ export interface GetWorkspaceManagerMemberResult {
 /**
  * Gets a workspace manager member
  */
-export function getWorkspaceManagerMemberOutput(args: GetWorkspaceManagerMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerMemberResult> {
+export function getWorkspaceManagerMemberOutput(args: GetWorkspaceManagerMemberOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceManagerMemberResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231201preview:getWorkspaceManagerMember", {
         "resourceGroupName": args.resourceGroupName,

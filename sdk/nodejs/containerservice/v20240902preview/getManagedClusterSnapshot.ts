@@ -73,7 +73,7 @@ export interface GetManagedClusterSnapshotResult {
 /**
  * A managed cluster snapshot resource.
  */
-export function getManagedClusterSnapshotOutput(args: GetManagedClusterSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterSnapshotResult> {
+export function getManagedClusterSnapshotOutput(args: GetManagedClusterSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20240902preview:getManagedClusterSnapshot", {
         "resourceGroupName": args.resourceGroupName,

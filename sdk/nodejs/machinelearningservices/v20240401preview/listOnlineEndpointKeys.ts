@@ -47,7 +47,7 @@ export interface ListOnlineEndpointKeysResult {
 /**
  * Keys for endpoint authentication.
  */
-export function listOnlineEndpointKeysOutput(args: ListOnlineEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOnlineEndpointKeysResult> {
+export function listOnlineEndpointKeysOutput(args: ListOnlineEndpointKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListOnlineEndpointKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401preview:listOnlineEndpointKeys", {
         "endpointName": args.endpointName,

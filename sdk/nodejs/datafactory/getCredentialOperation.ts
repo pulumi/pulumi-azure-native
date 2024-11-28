@@ -64,7 +64,7 @@ export interface GetCredentialOperationResult {
  * Gets a credential.
  * Azure REST API version: 2018-06-01.
  */
-export function getCredentialOperationOutput(args: GetCredentialOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialOperationResult> {
+export function getCredentialOperationOutput(args: GetCredentialOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCredentialOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getCredentialOperation", {
         "credentialName": args.credentialName,

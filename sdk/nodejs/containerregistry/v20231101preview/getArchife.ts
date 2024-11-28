@@ -77,7 +77,7 @@ export interface GetArchifeResult {
 /**
  * Gets the properties of the archive.
  */
-export function getArchifeOutput(args: GetArchifeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArchifeResult> {
+export function getArchifeOutput(args: GetArchifeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArchifeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20231101preview:getArchife", {
         "archiveName": args.archiveName,

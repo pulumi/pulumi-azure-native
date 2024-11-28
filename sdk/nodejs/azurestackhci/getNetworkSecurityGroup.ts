@@ -87,7 +87,7 @@ export interface GetNetworkSecurityGroupResult {
  *
  * Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview.
  */
-export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
+export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getNetworkSecurityGroup", {
         "networkSecurityGroupName": args.networkSecurityGroupName,

@@ -71,7 +71,7 @@ export interface GetWCFRelayAuthorizationRuleResult {
 /**
  * Get authorizationRule for a WCF relay by name.
  */
-export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
+export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay/v20240101:getWCFRelayAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

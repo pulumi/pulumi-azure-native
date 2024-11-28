@@ -60,7 +60,7 @@ export interface GetAzureADMetricResult {
  * Gets a azureADMetrics instance with a given name.
  * Azure REST API version: 2020-07-01-preview.
  */
-export function getAzureADMetricOutput(args: GetAzureADMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADMetricResult> {
+export function getAzureADMetricOutput(args: GetAzureADMetricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureADMetricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:aadiam:getAzureADMetric", {
         "azureADMetricsName": args.azureADMetricsName,

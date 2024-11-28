@@ -87,7 +87,7 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
  *
  * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
  */
-export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
+export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicySetDefinitionAtManagementGroup", {
         "managementGroupId": args.managementGroupId,

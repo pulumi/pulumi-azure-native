@@ -89,7 +89,7 @@ export interface GetDigitalTwinResult {
 /**
  * Get DigitalTwinsInstances resource.
  */
-export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinResult> {
+export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDigitalTwinResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:digitaltwins/v20230131:getDigitalTwin", {
         "resourceGroupName": args.resourceGroupName,

@@ -76,7 +76,7 @@ export interface GetCurationProfileResult {
  *
  * Other available API versions: 2024-10-01-preview.
  */
-export function getCurationProfileOutput(args: GetCurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCurationProfileResult> {
+export function getCurationProfileOutput(args: GetCurationProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCurationProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter:getCurationProfile", {
         "curationProfileName": args.curationProfileName,

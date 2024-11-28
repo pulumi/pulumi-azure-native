@@ -86,7 +86,7 @@ export interface GetNatRuleResult {
 /**
  * Retrieves the details of a nat ruleGet.
  */
-export function getNatRuleOutput(args: GetNatRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatRuleResult> {
+export function getNatRuleOutput(args: GetNatRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNatRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getNatRule", {
         "gatewayName": args.gatewayName,

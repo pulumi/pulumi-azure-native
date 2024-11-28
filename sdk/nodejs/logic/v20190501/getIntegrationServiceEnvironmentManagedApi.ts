@@ -114,7 +114,7 @@ export interface GetIntegrationServiceEnvironmentManagedApiResult {
 /**
  * Gets the integration service environment managed Api.
  */
-export function getIntegrationServiceEnvironmentManagedApiOutput(args: GetIntegrationServiceEnvironmentManagedApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationServiceEnvironmentManagedApiResult> {
+export function getIntegrationServiceEnvironmentManagedApiOutput(args: GetIntegrationServiceEnvironmentManagedApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationServiceEnvironmentManagedApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20190501:getIntegrationServiceEnvironmentManagedApi", {
         "apiName": args.apiName,

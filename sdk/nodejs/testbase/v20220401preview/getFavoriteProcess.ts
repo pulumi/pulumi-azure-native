@@ -67,7 +67,7 @@ export interface GetFavoriteProcessResult {
 /**
  * Gets a favorite process for a Test Base Package.
  */
-export function getFavoriteProcessOutput(args: GetFavoriteProcessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteProcessResult> {
+export function getFavoriteProcessOutput(args: GetFavoriteProcessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFavoriteProcessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getFavoriteProcess", {
         "favoriteProcessResourceName": args.favoriteProcessResourceName,

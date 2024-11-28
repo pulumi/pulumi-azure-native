@@ -73,7 +73,7 @@ export interface GetStaticCidrResult {
  *
  * Other available API versions: 2024-05-01.
  */
-export function getStaticCidrOutput(args: GetStaticCidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticCidrResult> {
+export function getStaticCidrOutput(args: GetStaticCidrOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticCidrResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getStaticCidr", {
         "networkManagerName": args.networkManagerName,

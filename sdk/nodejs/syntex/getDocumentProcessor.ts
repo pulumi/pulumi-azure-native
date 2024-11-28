@@ -67,7 +67,7 @@ export interface GetDocumentProcessorResult {
  * Returns a document processor for a given name.
  * Azure REST API version: 2022-09-15-preview.
  */
-export function getDocumentProcessorOutput(args: GetDocumentProcessorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentProcessorResult> {
+export function getDocumentProcessorOutput(args: GetDocumentProcessorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDocumentProcessorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:syntex:getDocumentProcessor", {
         "processorName": args.processorName,

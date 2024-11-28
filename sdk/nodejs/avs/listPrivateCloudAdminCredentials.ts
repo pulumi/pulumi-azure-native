@@ -56,7 +56,7 @@ export interface ListPrivateCloudAdminCredentialsResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function listPrivateCloudAdminCredentialsOutput(args: ListPrivateCloudAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateCloudAdminCredentialsResult> {
+export function listPrivateCloudAdminCredentialsOutput(args: ListPrivateCloudAdminCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPrivateCloudAdminCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:listPrivateCloudAdminCredentials", {
         "privateCloudName": args.privateCloudName,

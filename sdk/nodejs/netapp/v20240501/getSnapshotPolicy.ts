@@ -94,7 +94,7 @@ export interface GetSnapshotPolicyResult {
 /**
  * Get a snapshot Policy
  */
-export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotPolicyResult> {
+export function getSnapshotPolicyOutput(args: GetSnapshotPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnapshotPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:netapp/v20240501:getSnapshotPolicy", {
         "accountName": args.accountName,

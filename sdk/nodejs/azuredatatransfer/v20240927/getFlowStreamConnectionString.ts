@@ -43,7 +43,7 @@ export interface GetFlowStreamConnectionStringResult {
 /**
  * Get the connection string for the specified flow.
  */
-export function getFlowStreamConnectionStringOutput(args: GetFlowStreamConnectionStringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowStreamConnectionStringResult> {
+export function getFlowStreamConnectionStringOutput(args: GetFlowStreamConnectionStringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowStreamConnectionStringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240927:getFlowStreamConnectionString", {
         "connectionName": args.connectionName,

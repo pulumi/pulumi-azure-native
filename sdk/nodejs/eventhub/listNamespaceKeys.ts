@@ -73,7 +73,7 @@ export interface ListNamespaceKeysResult {
  *
  * Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
-export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
+export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNamespaceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub:listNamespaceKeys", {
         "authorizationRuleName": args.authorizationRuleName,

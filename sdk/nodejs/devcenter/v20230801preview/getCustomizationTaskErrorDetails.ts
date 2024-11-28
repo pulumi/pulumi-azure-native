@@ -51,7 +51,7 @@ export interface GetCustomizationTaskErrorDetailsResult {
 /**
  * Gets Customization Task error details
  */
-export function getCustomizationTaskErrorDetailsOutput(args: GetCustomizationTaskErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizationTaskErrorDetailsResult> {
+export function getCustomizationTaskErrorDetailsOutput(args: GetCustomizationTaskErrorDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomizationTaskErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20230801preview:getCustomizationTaskErrorDetails", {
         "catalogName": args.catalogName,

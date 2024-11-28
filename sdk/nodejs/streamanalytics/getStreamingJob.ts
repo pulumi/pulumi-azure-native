@@ -164,7 +164,7 @@ export interface GetStreamingJobResult {
  *
  * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
  */
-export function getStreamingJobOutput(args: GetStreamingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingJobResult> {
+export function getStreamingJobOutput(args: GetStreamingJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamingJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:streamanalytics:getStreamingJob", {
         "expand": args.expand,

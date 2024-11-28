@@ -130,7 +130,7 @@ export interface GetAzurePowerShellScriptResult {
 /**
  * Gets a deployment script with a given name.
  */
-export function getAzurePowerShellScriptOutput(args: GetAzurePowerShellScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzurePowerShellScriptResult> {
+export function getAzurePowerShellScriptOutput(args: GetAzurePowerShellScriptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzurePowerShellScriptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources/v20191001preview:getAzurePowerShellScript", {
         "resourceGroupName": args.resourceGroupName,

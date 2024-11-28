@@ -72,7 +72,7 @@ export interface GetPolicyFragmentResult {
 /**
  * Gets a policy fragment.
  */
-export function getPolicyFragmentOutput(args: GetPolicyFragmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyFragmentResult> {
+export function getPolicyFragmentOutput(args: GetPolicyFragmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyFragmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:getPolicyFragment", {
         "format": args.format,

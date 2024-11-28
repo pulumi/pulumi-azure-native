@@ -67,7 +67,7 @@ export interface GetSnsTopicResult {
  * Get a SnsTopic
  * Azure REST API version: 2024-12-01.
  */
-export function getSnsTopicOutput(args: GetSnsTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnsTopicResult> {
+export function getSnsTopicOutput(args: GetSnsTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnsTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSnsTopic", {
         "name": args.name,

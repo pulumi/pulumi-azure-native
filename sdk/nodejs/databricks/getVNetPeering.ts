@@ -96,7 +96,7 @@ export interface GetVNetPeeringResult {
  * Gets the workspace vNet Peering.
  * Azure REST API version: 2023-02-01.
  */
-export function getVNetPeeringOutput(args: GetVNetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVNetPeeringResult> {
+export function getVNetPeeringOutput(args: GetVNetPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVNetPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databricks:getVNetPeering", {
         "peeringName": args.peeringName,

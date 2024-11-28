@@ -76,7 +76,7 @@ export interface GetSqlServerAvailabilityGroupDetailViewResult {
  *
  * Other available API versions: 2024-05-01-preview.
  */
-export function getSqlServerAvailabilityGroupDetailViewOutput(args: GetSqlServerAvailabilityGroupDetailViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerAvailabilityGroupDetailViewResult> {
+export function getSqlServerAvailabilityGroupDetailViewOutput(args: GetSqlServerAvailabilityGroupDetailViewOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerAvailabilityGroupDetailViewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getSqlServerAvailabilityGroupDetailView", {
         "availabilityGroupName": args.availabilityGroupName,

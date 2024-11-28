@@ -46,7 +46,7 @@ export interface GetClusterGatewaySettingsResult {
 /**
  * Gets the gateway settings for the specified cluster.
  */
-export function getClusterGatewaySettingsOutput(args: GetClusterGatewaySettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterGatewaySettingsResult> {
+export function getClusterGatewaySettingsOutput(args: GetClusterGatewaySettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterGatewaySettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hdinsight/v20240801preview:getClusterGatewaySettings", {
         "clusterName": args.clusterName,

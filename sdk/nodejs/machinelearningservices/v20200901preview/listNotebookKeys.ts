@@ -27,7 +27,7 @@ export interface ListNotebookKeysResult {
     readonly primaryAccessKey: string;
     readonly secondaryAccessKey: string;
 }
-export function listNotebookKeysOutput(args: ListNotebookKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotebookKeysResult> {
+export function listNotebookKeysOutput(args: ListNotebookKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNotebookKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20200901preview:listNotebookKeys", {
         "resourceGroupName": args.resourceGroupName,

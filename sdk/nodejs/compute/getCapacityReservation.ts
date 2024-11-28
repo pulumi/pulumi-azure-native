@@ -109,7 +109,7 @@ export interface GetCapacityReservationResult {
  *
  * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
-export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
+export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityReservationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute:getCapacityReservation", {
         "capacityReservationGroupName": args.capacityReservationGroupName,

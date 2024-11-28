@@ -98,7 +98,7 @@ export interface GetGlobalRulestackResult {
  *
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
-export function getGlobalRulestackOutput(args: GetGlobalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalRulestackResult> {
+export function getGlobalRulestackOutput(args: GetGlobalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw:getGlobalRulestack", {
         "globalRulestackName": args.globalRulestackName,

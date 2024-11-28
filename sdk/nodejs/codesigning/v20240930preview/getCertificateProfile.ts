@@ -94,7 +94,7 @@ export interface GetCertificateProfileResult {
 /**
  * Get details of a certificate profile.
  */
-export function getCertificateProfileOutput(args: GetCertificateProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateProfileResult> {
+export function getCertificateProfileOutput(args: GetCertificateProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:codesigning/v20240930preview:getCertificateProfile", {
         "accountName": args.accountName,

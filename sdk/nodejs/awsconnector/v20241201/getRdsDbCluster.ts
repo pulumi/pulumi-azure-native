@@ -65,7 +65,7 @@ export interface GetRdsDbClusterResult {
 /**
  * Get a RdsDBCluster
  */
-export function getRdsDbClusterOutput(args: GetRdsDbClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsDbClusterResult> {
+export function getRdsDbClusterOutput(args: GetRdsDbClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRdsDbClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRdsDbCluster", {
         "name": args.name,

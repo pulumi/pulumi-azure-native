@@ -67,7 +67,7 @@ export interface GetComponentVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getComponentVersionOutput(args: GetComponentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentVersionResult> {
+export function getComponentVersionOutput(args: GetComponentVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240701preview:getComponentVersion", {
         "name": args.name,

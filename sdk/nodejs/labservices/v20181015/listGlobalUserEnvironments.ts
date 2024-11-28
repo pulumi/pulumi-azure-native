@@ -41,7 +41,7 @@ export interface ListGlobalUserEnvironmentsResult {
 /**
  * List Environments for the user
  */
-export function listGlobalUserEnvironmentsOutput(args: ListGlobalUserEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserEnvironmentsResult> {
+export function listGlobalUserEnvironmentsOutput(args: ListGlobalUserEnvironmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGlobalUserEnvironmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices/v20181015:listGlobalUserEnvironments", {
         "labId": args.labId,

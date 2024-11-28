@@ -91,7 +91,7 @@ export interface GetOrganizationResult {
  *
  * Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13.
  */
-export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationResult> {
+export function getOrganizationOutput(args: GetOrganizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confluent:getOrganization", {
         "organizationName": args.organizationName,

@@ -54,7 +54,7 @@ export interface ListWorkflowRunActionExpressionTracesResult {
  *
  * Other available API versions: 2016-06-01, 2018-07-01-preview.
  */
-export function listWorkflowRunActionExpressionTracesOutput(args: ListWorkflowRunActionExpressionTracesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowRunActionExpressionTracesResult> {
+export function listWorkflowRunActionExpressionTracesOutput(args: ListWorkflowRunActionExpressionTracesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkflowRunActionExpressionTracesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:listWorkflowRunActionExpressionTraces", {
         "actionName": args.actionName,

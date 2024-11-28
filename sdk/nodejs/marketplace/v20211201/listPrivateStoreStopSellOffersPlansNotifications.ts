@@ -35,7 +35,7 @@ export interface ListPrivateStoreStopSellOffersPlansNotificationsResult {
 /**
  * List stop sell notifications for both stop sell offers and stop sell plans
  */
-export function listPrivateStoreStopSellOffersPlansNotificationsOutput(args: ListPrivateStoreStopSellOffersPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreStopSellOffersPlansNotificationsResult> {
+export function listPrivateStoreStopSellOffersPlansNotificationsOutput(args: ListPrivateStoreStopSellOffersPlansNotificationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPrivateStoreStopSellOffersPlansNotificationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:marketplace/v20211201:listPrivateStoreStopSellOffersPlansNotifications", {
         "privateStoreId": args.privateStoreId,

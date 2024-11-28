@@ -54,7 +54,7 @@ export interface ListStaticSiteConfiguredRolesResult {
 /**
  * Lists the roles configured for the static site.
  */
-export function listStaticSiteConfiguredRolesOutput(args: ListStaticSiteConfiguredRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteConfiguredRolesResult> {
+export function listStaticSiteConfiguredRolesOutput(args: ListStaticSiteConfiguredRolesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStaticSiteConfiguredRolesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20210201:listStaticSiteConfiguredRoles", {
         "name": args.name,

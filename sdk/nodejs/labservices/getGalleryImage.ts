@@ -117,7 +117,7 @@ export interface GetGalleryImageResult {
  * Get gallery image
  * Azure REST API version: 2018-10-15.
  */
-export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
+export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices:getGalleryImage", {
         "expand": args.expand,

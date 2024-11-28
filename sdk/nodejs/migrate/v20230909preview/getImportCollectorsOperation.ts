@@ -74,7 +74,7 @@ export interface GetImportCollectorsOperationResult {
 /**
  * Get a ImportCollector
  */
-export function getImportCollectorsOperationOutput(args: GetImportCollectorsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportCollectorsOperationResult> {
+export function getImportCollectorsOperationOutput(args: GetImportCollectorsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImportCollectorsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230909preview:getImportCollectorsOperation", {
         "importCollectorName": args.importCollectorName,

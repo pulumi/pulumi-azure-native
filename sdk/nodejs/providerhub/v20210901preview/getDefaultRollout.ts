@@ -57,7 +57,7 @@ export interface GetDefaultRolloutResult {
 /**
  * Gets the default rollout details.
  */
-export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultRolloutResult> {
+export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultRolloutResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:providerhub/v20210901preview:getDefaultRollout", {
         "providerNamespace": args.providerNamespace,

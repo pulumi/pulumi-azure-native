@@ -71,7 +71,7 @@ export interface ListSpacecraftAvailableContactsResult {
  *
  * Other available API versions: 2022-03-01.
  */
-export function listSpacecraftAvailableContactsOutput(args: ListSpacecraftAvailableContactsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSpacecraftAvailableContactsResult> {
+export function listSpacecraftAvailableContactsOutput(args: ListSpacecraftAvailableContactsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSpacecraftAvailableContactsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital:listSpacecraftAvailableContacts", {
         "contactProfile": args.contactProfile,

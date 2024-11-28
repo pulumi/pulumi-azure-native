@@ -65,7 +65,7 @@ export interface GetDocumentationResult {
  *
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getDocumentationOutput(args: GetDocumentationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationResult> {
+export function getDocumentationOutput(args: GetDocumentationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDocumentationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getDocumentation", {
         "documentationId": args.documentationId,

@@ -67,7 +67,7 @@ export interface GetConfigurationProfileResult {
  * Get information about a configuration profile
  * Azure REST API version: 2022-05-04.
  */
-export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
+export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automanage:getConfigurationProfile", {
         "configurationProfileName": args.configurationProfileName,

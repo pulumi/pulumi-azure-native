@@ -47,7 +47,7 @@ export interface ListMobileNetworkSimIdsResult {
  * Lists the IDs of all provisioned SIMs in a mobile network
  * Azure REST API version: 2022-04-01-preview.
  */
-export function listMobileNetworkSimIdsOutput(args: ListMobileNetworkSimIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMobileNetworkSimIdsResult> {
+export function listMobileNetworkSimIdsOutput(args: ListMobileNetworkSimIdsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMobileNetworkSimIdsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork:listMobileNetworkSimIds", {
         "mobileNetworkName": args.mobileNetworkName,

@@ -95,7 +95,7 @@ export interface GetSecretSyncResult {
  * Gets the properties of a SecretSync instance.
  * Azure REST API version: 2024-08-21-preview.
  */
-export function getSecretSyncOutput(args: GetSecretSyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretSyncResult> {
+export function getSecretSyncOutput(args: GetSecretSyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretSyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:secretsynccontroller:getSecretSync", {
         "resourceGroupName": args.resourceGroupName,

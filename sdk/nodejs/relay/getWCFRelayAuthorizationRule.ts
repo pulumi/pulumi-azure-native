@@ -77,7 +77,7 @@ export interface GetWCFRelayAuthorizationRuleResult {
  *
  * Other available API versions: 2017-04-01, 2024-01-01.
  */
-export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
+export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay:getWCFRelayAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

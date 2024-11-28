@@ -132,7 +132,7 @@ export interface GetAzurePowerShellScriptResult {
  * Gets a deployment script with a given name.
  * Azure REST API version: 2020-10-01.
  */
-export function getAzurePowerShellScriptOutput(args: GetAzurePowerShellScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzurePowerShellScriptResult> {
+export function getAzurePowerShellScriptOutput(args: GetAzurePowerShellScriptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzurePowerShellScriptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getAzurePowerShellScript", {
         "resourceGroupName": args.resourceGroupName,

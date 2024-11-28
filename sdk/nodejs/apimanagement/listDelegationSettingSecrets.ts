@@ -40,7 +40,7 @@ export interface ListDelegationSettingSecretsResult {
  * Gets the secret validation key of the DelegationSettings.
  * Azure REST API version: 2021-08-01.
  */
-export function listDelegationSettingSecretsOutput(args: ListDelegationSettingSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDelegationSettingSecretsResult> {
+export function listDelegationSettingSecretsOutput(args: ListDelegationSettingSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDelegationSettingSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:listDelegationSettingSecrets", {
         "resourceGroupName": args.resourceGroupName,

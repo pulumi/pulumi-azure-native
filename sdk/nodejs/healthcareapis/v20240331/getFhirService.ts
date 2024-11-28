@@ -126,7 +126,7 @@ export interface GetFhirServiceResult {
 /**
  * Gets the properties of the specified FHIR Service.
  */
-export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFhirServiceResult> {
+export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFhirServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthcareapis/v20240331:getFhirService", {
         "fhirServiceName": args.fhirServiceName,

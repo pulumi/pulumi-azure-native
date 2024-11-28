@@ -70,7 +70,7 @@ export interface ListFirewallPolicyIdpsSignatureResult {
 /**
  * Retrieves the current status of IDPS signatures for the relevant policy. Maximal amount of returned signatures is 1000.
  */
-export function listFirewallPolicyIdpsSignatureOutput(args: ListFirewallPolicyIdpsSignatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallPolicyIdpsSignatureResult> {
+export function listFirewallPolicyIdpsSignatureOutput(args: ListFirewallPolicyIdpsSignatureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFirewallPolicyIdpsSignatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20231101:listFirewallPolicyIdpsSignature", {
         "filters": args.filters,

@@ -142,7 +142,7 @@ export interface GetSqlVirtualMachineResult {
 /**
  * Gets a SQL virtual machine.
  */
-export function getSqlVirtualMachineOutput(args: GetSqlVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineResult> {
+export function getSqlVirtualMachineOutput(args: GetSqlVirtualMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sqlvirtualmachine/v20230101preview:getSqlVirtualMachine", {
         "expand": args.expand,

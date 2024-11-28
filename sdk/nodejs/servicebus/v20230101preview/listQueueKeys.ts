@@ -72,7 +72,7 @@ export interface ListQueueKeysResult {
 /**
  * Primary and secondary connection strings to the queue.
  */
-export function listQueueKeysOutput(args: ListQueueKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueueKeysResult> {
+export function listQueueKeysOutput(args: ListQueueKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListQueueKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20230101preview:listQueueKeys", {
         "authorizationRuleName": args.authorizationRuleName,

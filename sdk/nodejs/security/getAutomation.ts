@@ -91,7 +91,7 @@ export interface GetAutomationResult {
  *
  * Other available API versions: 2023-12-01-preview.
  */
-export function getAutomationOutput(args: GetAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationResult> {
+export function getAutomationOutput(args: GetAutomationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutomationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getAutomation", {
         "automationName": args.automationName,

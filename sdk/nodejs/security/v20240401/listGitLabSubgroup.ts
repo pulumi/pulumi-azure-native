@@ -50,7 +50,7 @@ export interface ListGitLabSubgroupResult {
 /**
  * List of RP resources which supports pagination.
  */
-export function listGitLabSubgroupOutput(args: ListGitLabSubgroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGitLabSubgroupResult> {
+export function listGitLabSubgroupOutput(args: ListGitLabSubgroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGitLabSubgroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20240401:listGitLabSubgroup", {
         "groupFQName": args.groupFQName,

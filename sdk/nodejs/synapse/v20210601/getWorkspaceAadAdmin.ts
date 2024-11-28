@@ -62,7 +62,7 @@ export interface GetWorkspaceAadAdminResult {
 /**
  * Gets a workspace active directory admin
  */
-export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
+export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601:getWorkspaceAadAdmin", {
         "resourceGroupName": args.resourceGroupName,

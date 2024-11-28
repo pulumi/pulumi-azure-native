@@ -110,7 +110,7 @@ export interface GetModuleResult {
 /**
  * Retrieve the module identified by module name.
  */
-export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleResult> {
+export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20220808:getModule", {
         "automationAccountName": args.automationAccountName,

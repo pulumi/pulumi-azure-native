@@ -67,7 +67,7 @@ export interface GetRedshiftClusterResult {
  * Get a RedshiftCluster
  * Azure REST API version: 2024-12-01.
  */
-export function getRedshiftClusterOutput(args: GetRedshiftClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedshiftClusterResult> {
+export function getRedshiftClusterOutput(args: GetRedshiftClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRedshiftClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getRedshiftCluster", {
         "name": args.name,

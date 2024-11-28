@@ -73,7 +73,7 @@ export interface GetKeyGroupResult {
  *
  * Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
  */
-export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyGroupResult> {
+export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn:getKeyGroup", {
         "keyGroupName": args.keyGroupName,

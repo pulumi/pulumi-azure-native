@@ -43,7 +43,7 @@ export interface ListFirewallPolicyIdpsSignaturesFilterValueResult {
 /**
  * Retrieves the current filter values for the signatures overrides
  */
-export function listFirewallPolicyIdpsSignaturesFilterValueOutput(args: ListFirewallPolicyIdpsSignaturesFilterValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFirewallPolicyIdpsSignaturesFilterValueResult> {
+export function listFirewallPolicyIdpsSignaturesFilterValueOutput(args: ListFirewallPolicyIdpsSignaturesFilterValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFirewallPolicyIdpsSignaturesFilterValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20210801:listFirewallPolicyIdpsSignaturesFilterValue", {
         "filterName": args.filterName,

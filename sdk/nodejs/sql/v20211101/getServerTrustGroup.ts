@@ -62,7 +62,7 @@ export interface GetServerTrustGroupResult {
 /**
  * Gets a server trust group.
  */
-export function getServerTrustGroupOutput(args: GetServerTrustGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustGroupResult> {
+export function getServerTrustGroupOutput(args: GetServerTrustGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerTrustGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getServerTrustGroup", {
         "locationName": args.locationName,

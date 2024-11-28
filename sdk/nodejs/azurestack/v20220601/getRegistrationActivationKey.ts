@@ -38,7 +38,7 @@ export interface GetRegistrationActivationKeyResult {
 /**
  * Returns Azure Stack Activation Key.
  */
-export function getRegistrationActivationKeyOutput(args: GetRegistrationActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationActivationKeyResult> {
+export function getRegistrationActivationKeyOutput(args: GetRegistrationActivationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationActivationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestack/v20220601:getRegistrationActivationKey", {
         "registrationName": args.registrationName,

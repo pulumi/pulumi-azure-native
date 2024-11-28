@@ -60,7 +60,7 @@ export interface GetJobCredentialResult {
 /**
  * Gets a jobs credential.
  */
-export function getJobCredentialOutput(args: GetJobCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCredentialResult> {
+export function getJobCredentialOutput(args: GetJobCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230501preview:getJobCredential", {
         "credentialName": args.credentialName,

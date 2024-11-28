@@ -99,7 +99,7 @@ export interface GetWorkspaceDiagnosticResult {
 /**
  * Gets the details of the Diagnostic specified by its identifier.
  */
-export function getWorkspaceDiagnosticOutput(args: GetWorkspaceDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceDiagnosticResult> {
+export function getWorkspaceDiagnosticOutput(args: GetWorkspaceDiagnosticOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceDiagnosticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getWorkspaceDiagnostic", {
         "diagnosticId": args.diagnosticId,

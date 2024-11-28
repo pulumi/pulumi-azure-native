@@ -62,7 +62,7 @@ export interface GetDppResourceGuardProxyResult {
 /**
  * ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
  */
-export function getDppResourceGuardProxyOutput(args: GetDppResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDppResourceGuardProxyResult> {
+export function getDppResourceGuardProxyOutput(args: GetDppResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDppResourceGuardProxyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dataprotection/v20240401:getDppResourceGuardProxy", {
         "resourceGroupName": args.resourceGroupName,

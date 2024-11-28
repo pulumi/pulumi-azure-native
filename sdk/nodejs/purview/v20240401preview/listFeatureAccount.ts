@@ -43,7 +43,7 @@ export interface ListFeatureAccountResult {
 /**
  * Gets details from a list of feature names.
  */
-export function listFeatureAccountOutput(args: ListFeatureAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeatureAccountResult> {
+export function listFeatureAccountOutput(args: ListFeatureAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFeatureAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:purview/v20240401preview:listFeatureAccount", {
         "accountName": args.accountName,

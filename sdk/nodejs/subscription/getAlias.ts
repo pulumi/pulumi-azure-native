@@ -58,7 +58,7 @@ export interface GetAliasResult {
  *
  * Other available API versions: 2020-09-01, 2024-08-01-preview.
  */
-export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:subscription:getAlias", {
         "aliasName": args.aliasName,

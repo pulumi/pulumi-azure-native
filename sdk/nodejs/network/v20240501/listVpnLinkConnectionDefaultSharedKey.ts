@@ -63,7 +63,7 @@ export interface ListVpnLinkConnectionDefaultSharedKeyResult {
 /**
  * Gets the value of the shared key of VpnLink connection specified.
  */
-export function listVpnLinkConnectionDefaultSharedKeyOutput(args: ListVpnLinkConnectionDefaultSharedKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVpnLinkConnectionDefaultSharedKeyResult> {
+export function listVpnLinkConnectionDefaultSharedKeyOutput(args: ListVpnLinkConnectionDefaultSharedKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVpnLinkConnectionDefaultSharedKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:listVpnLinkConnectionDefaultSharedKey", {
         "connectionName": args.connectionName,

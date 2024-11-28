@@ -94,7 +94,7 @@ export interface GetDatabaseThreatDetectionPolicyResult {
  * Gets a database's threat detection policy.
  * Azure REST API version: 2014-04-01.
  */
-export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
+export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql:getDatabaseThreatDetectionPolicy", {
         "databaseName": args.databaseName,

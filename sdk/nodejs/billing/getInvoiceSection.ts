@@ -68,7 +68,7 @@ export interface GetInvoiceSectionResult {
  * Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
  * Azure REST API version: 2024-04-01.
  */
-export function getInvoiceSectionOutput(args: GetInvoiceSectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvoiceSectionResult> {
+export function getInvoiceSectionOutput(args: GetInvoiceSectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInvoiceSectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:billing:getInvoiceSection", {
         "billingAccountName": args.billingAccountName,

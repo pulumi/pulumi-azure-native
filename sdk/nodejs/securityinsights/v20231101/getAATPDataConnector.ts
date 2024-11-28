@@ -75,7 +75,7 @@ export interface GetAATPDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getAATPDataConnectorOutput(args: GetAATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAATPDataConnectorResult> {
+export function getAATPDataConnectorOutput(args: GetAATPDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAATPDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231101:getAATPDataConnector", {
         "dataConnectorId": args.dataConnectorId,

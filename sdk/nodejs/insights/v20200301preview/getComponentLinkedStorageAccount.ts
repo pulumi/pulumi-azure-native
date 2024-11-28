@@ -55,7 +55,7 @@ export interface GetComponentLinkedStorageAccountResult {
 /**
  * Returns the current linked storage settings for an Application Insights component.
  */
-export function getComponentLinkedStorageAccountOutput(args: GetComponentLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentLinkedStorageAccountResult> {
+export function getComponentLinkedStorageAccountOutput(args: GetComponentLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentLinkedStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", {
         "resourceGroupName": args.resourceGroupName,

@@ -70,7 +70,7 @@ export interface GetEntitiesGetTimelineResult {
 /**
  * Timeline for an entity.
  */
-export function getEntitiesGetTimelineOutput(args: GetEntitiesGetTimelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitiesGetTimelineResult> {
+export function getEntitiesGetTimelineOutput(args: GetEntitiesGetTimelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntitiesGetTimelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230501preview:getEntitiesGetTimeline", {
         "endTime": args.endTime,

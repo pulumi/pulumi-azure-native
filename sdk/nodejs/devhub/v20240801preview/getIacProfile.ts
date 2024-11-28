@@ -111,7 +111,7 @@ export interface GetIacProfileResult {
 /**
  * Resource representation of a IacProfile.
  */
-export function getIacProfileOutput(args: GetIacProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIacProfileResult> {
+export function getIacProfileOutput(args: GetIacProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIacProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devhub/v20240801preview:getIacProfile", {
         "iacProfileName": args.iacProfileName,

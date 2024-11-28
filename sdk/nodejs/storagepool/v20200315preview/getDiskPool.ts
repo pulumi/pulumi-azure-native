@@ -89,7 +89,7 @@ export interface GetDiskPoolResult {
 /**
  * Get a Disk pool.
  */
-export function getDiskPoolOutput(args: GetDiskPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskPoolResult> {
+export function getDiskPoolOutput(args: GetDiskPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiskPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagepool/v20200315preview:getDiskPool", {
         "diskPoolName": args.diskPoolName,

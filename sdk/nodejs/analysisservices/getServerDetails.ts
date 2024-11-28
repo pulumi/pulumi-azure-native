@@ -107,7 +107,7 @@ export interface GetServerDetailsResult {
  *
  * Other available API versions: 2017-08-01-beta.
  */
-export function getServerDetailsOutput(args: GetServerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDetailsResult> {
+export function getServerDetailsOutput(args: GetServerDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:analysisservices:getServerDetails", {
         "resourceGroupName": args.resourceGroupName,

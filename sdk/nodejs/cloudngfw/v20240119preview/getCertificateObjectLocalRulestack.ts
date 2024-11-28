@@ -82,7 +82,7 @@ export interface GetCertificateObjectLocalRulestackResult {
 /**
  * Get a CertificateObjectLocalRulestackResource
  */
-export function getCertificateObjectLocalRulestackOutput(args: GetCertificateObjectLocalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateObjectLocalRulestackResult> {
+export function getCertificateObjectLocalRulestackOutput(args: GetCertificateObjectLocalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateObjectLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240119preview:getCertificateObjectLocalRulestack", {
         "localRulestackName": args.localRulestackName,

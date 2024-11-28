@@ -60,7 +60,7 @@ export interface GetDatabaseMigrationsSqlDbResult {
 /**
  * Retrieve the Database Migration resource.
  */
-export function getDatabaseMigrationsSqlDbOutput(args: GetDatabaseMigrationsSqlDbOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseMigrationsSqlDbResult> {
+export function getDatabaseMigrationsSqlDbOutput(args: GetDatabaseMigrationsSqlDbOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseMigrationsSqlDbResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration/v20230715preview:getDatabaseMigrationsSqlDb", {
         "expand": args.expand,

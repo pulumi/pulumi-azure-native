@@ -89,7 +89,7 @@ export interface GetStaticSiteBuildDatabaseConnectionResult {
  *
  * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getStaticSiteBuildDatabaseConnectionOutput(args: GetStaticSiteBuildDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteBuildDatabaseConnectionResult> {
+export function getStaticSiteBuildDatabaseConnectionOutput(args: GetStaticSiteBuildDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteBuildDatabaseConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getStaticSiteBuildDatabaseConnection", {
         "databaseConnectionName": args.databaseConnectionName,

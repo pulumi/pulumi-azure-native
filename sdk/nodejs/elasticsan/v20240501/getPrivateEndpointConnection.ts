@@ -74,7 +74,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Gets the specified private endpoint connection associated with the Elastic San
  */
-export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elasticsan/v20240501:getPrivateEndpointConnection", {
         "elasticSanName": args.elasticSanName,

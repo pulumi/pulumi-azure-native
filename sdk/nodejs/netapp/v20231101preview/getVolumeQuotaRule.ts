@@ -92,7 +92,7 @@ export interface GetVolumeQuotaRuleResult {
 /**
  * Get details of the specified quota rule
  */
-export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
+export function getVolumeQuotaRuleOutput(args: GetVolumeQuotaRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeQuotaRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:netapp/v20231101preview:getVolumeQuotaRule", {
         "accountName": args.accountName,

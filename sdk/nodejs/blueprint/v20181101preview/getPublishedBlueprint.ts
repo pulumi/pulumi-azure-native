@@ -86,7 +86,7 @@ export interface GetPublishedBlueprintResult {
 /**
  * Get a published version of a blueprint definition.
  */
-export function getPublishedBlueprintOutput(args: GetPublishedBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublishedBlueprintResult> {
+export function getPublishedBlueprintOutput(args: GetPublishedBlueprintOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublishedBlueprintResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:blueprint/v20181101preview:getPublishedBlueprint", {
         "blueprintName": args.blueprintName,

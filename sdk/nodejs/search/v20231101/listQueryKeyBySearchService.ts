@@ -45,7 +45,7 @@ export interface ListQueryKeyBySearchServiceResult {
 /**
  * Returns the list of query API keys for the given search service.
  */
-export function listQueryKeyBySearchServiceOutput(args: ListQueryKeyBySearchServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueryKeyBySearchServiceResult> {
+export function listQueryKeyBySearchServiceOutput(args: ListQueryKeyBySearchServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListQueryKeyBySearchServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:search/v20231101:listQueryKeyBySearchService", {
         "resourceGroupName": args.resourceGroupName,

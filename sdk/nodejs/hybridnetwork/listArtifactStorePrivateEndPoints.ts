@@ -52,7 +52,7 @@ export interface ListArtifactStorePrivateEndPointsResult {
  * List manual private endpoints on artifact stores
  * Azure REST API version: 2024-04-15.
  */
-export function listArtifactStorePrivateEndPointsOutput(args: ListArtifactStorePrivateEndPointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListArtifactStorePrivateEndPointsResult> {
+export function listArtifactStorePrivateEndPointsOutput(args: ListArtifactStorePrivateEndPointsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListArtifactStorePrivateEndPointsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:listArtifactStorePrivateEndPoints", {
         "artifactStoreName": args.artifactStoreName,

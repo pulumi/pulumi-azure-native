@@ -78,7 +78,7 @@ export interface GetInferenceGroupResult {
      */
     readonly type: string;
 }
-export function getInferenceGroupOutput(args: GetInferenceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceGroupResult> {
+export function getInferenceGroupOutput(args: GetInferenceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230801preview:getInferenceGroup", {
         "groupName": args.groupName,

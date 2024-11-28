@@ -88,7 +88,7 @@ export interface GetKustoTableDataSetResult {
 /**
  * Get a DataSet in a share
  */
-export function getKustoTableDataSetOutput(args: GetKustoTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoTableDataSetResult> {
+export function getKustoTableDataSetOutput(args: GetKustoTableDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKustoTableDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getKustoTableDataSet", {
         "accountName": args.accountName,

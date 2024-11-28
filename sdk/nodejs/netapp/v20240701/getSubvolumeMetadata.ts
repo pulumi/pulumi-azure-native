@@ -101,7 +101,7 @@ export interface GetSubvolumeMetadataResult {
 /**
  * Get details of the specified subvolume
  */
-export function getSubvolumeMetadataOutput(args: GetSubvolumeMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubvolumeMetadataResult> {
+export function getSubvolumeMetadataOutput(args: GetSubvolumeMetadataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubvolumeMetadataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:netapp/v20240701:getSubvolumeMetadata", {
         "accountName": args.accountName,

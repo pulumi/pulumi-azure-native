@@ -79,7 +79,7 @@ export interface GetTIDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getTIDataConnectorOutput(args: GetTIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTIDataConnectorResult> {
+export function getTIDataConnectorOutput(args: GetTIDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTIDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230601preview:getTIDataConnector", {
         "dataConnectorId": args.dataConnectorId,

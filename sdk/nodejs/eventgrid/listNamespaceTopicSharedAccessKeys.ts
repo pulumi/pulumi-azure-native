@@ -53,7 +53,7 @@ export interface ListNamespaceTopicSharedAccessKeysResult {
  *
  * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
-export function listNamespaceTopicSharedAccessKeysOutput(args: ListNamespaceTopicSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceTopicSharedAccessKeysResult> {
+export function listNamespaceTopicSharedAccessKeysOutput(args: ListNamespaceTopicSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNamespaceTopicSharedAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid:listNamespaceTopicSharedAccessKeys", {
         "namespaceName": args.namespaceName,

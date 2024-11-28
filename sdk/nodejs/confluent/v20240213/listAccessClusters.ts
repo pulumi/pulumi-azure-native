@@ -54,7 +54,7 @@ export interface ListAccessClustersResult {
 /**
  * Details of the clusters returned on successful response
  */
-export function listAccessClustersOutput(args: ListAccessClustersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessClustersResult> {
+export function listAccessClustersOutput(args: ListAccessClustersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessClustersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confluent/v20240213:listAccessClusters", {
         "organizationName": args.organizationName,

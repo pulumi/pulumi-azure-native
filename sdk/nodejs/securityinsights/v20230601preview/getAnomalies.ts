@@ -71,7 +71,7 @@ export interface GetAnomaliesResult {
 /**
  * Gets a setting.
  */
-export function getAnomaliesOutput(args: GetAnomaliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomaliesResult> {
+export function getAnomaliesOutput(args: GetAnomaliesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnomaliesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230601preview:getAnomalies", {
         "resourceGroupName": args.resourceGroupName,

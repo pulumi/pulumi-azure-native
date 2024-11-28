@@ -43,7 +43,7 @@ export interface GetManagerDevicePublicEncryptionKeyResult {
 /**
  * Returns the public encryption key of the device.
  */
-export function getManagerDevicePublicEncryptionKeyOutput(args: GetManagerDevicePublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerDevicePublicEncryptionKeyResult> {
+export function getManagerDevicePublicEncryptionKeyOutput(args: GetManagerDevicePublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagerDevicePublicEncryptionKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getManagerDevicePublicEncryptionKey", {
         "deviceName": args.deviceName,

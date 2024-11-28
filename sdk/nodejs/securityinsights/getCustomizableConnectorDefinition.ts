@@ -85,7 +85,7 @@ export interface GetCustomizableConnectorDefinitionResult {
  * Gets a data connector definition.
  * Azure REST API version: 2023-07-01-preview.
  */
-export function getCustomizableConnectorDefinitionOutput(args: GetCustomizableConnectorDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizableConnectorDefinitionResult> {
+export function getCustomizableConnectorDefinitionOutput(args: GetCustomizableConnectorDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomizableConnectorDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getCustomizableConnectorDefinition", {
         "dataConnectorDefinitionName": args.dataConnectorDefinitionName,

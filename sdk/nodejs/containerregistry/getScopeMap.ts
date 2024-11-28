@@ -82,7 +82,7 @@ export interface GetScopeMapResult {
  *
  * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
  */
-export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeMapResult> {
+export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScopeMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry:getScopeMap", {
         "registryName": args.registryName,

@@ -126,7 +126,7 @@ export interface GetGalleryImageResult {
 /**
  * Retrieves information about a gallery image definition.
  */
-export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
+export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20240303:getGalleryImage", {
         "galleryImageName": args.galleryImageName,

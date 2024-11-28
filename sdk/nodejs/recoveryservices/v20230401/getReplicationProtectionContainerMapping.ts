@@ -72,7 +72,7 @@ export interface GetReplicationProtectionContainerMappingResult {
 /**
  * Gets the details of a protection container mapping.
  */
-export function getReplicationProtectionContainerMappingOutput(args: GetReplicationProtectionContainerMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionContainerMappingResult> {
+export function getReplicationProtectionContainerMappingOutput(args: GetReplicationProtectionContainerMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationProtectionContainerMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230401:getReplicationProtectionContainerMapping", {
         "fabricName": args.fabricName,

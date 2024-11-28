@@ -141,7 +141,7 @@ export interface GetAppServiceCertificateOrderResult {
 /**
  * Get a certificate order.
  */
-export function getAppServiceCertificateOrderOutput(args: GetAppServiceCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderResult> {
+export function getAppServiceCertificateOrderOutput(args: GetAppServiceCertificateOrderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppServiceCertificateOrderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:certificateregistration/v20201001:getAppServiceCertificateOrder", {
         "certificateOrderName": args.certificateOrderName,

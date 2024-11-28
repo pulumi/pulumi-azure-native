@@ -70,7 +70,7 @@ export interface GetConfigurationGroupSchemaResult {
 /**
  * Gets information about the specified configuration group schema.
  */
-export function getConfigurationGroupSchemaOutput(args: GetConfigurationGroupSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationGroupSchemaResult> {
+export function getConfigurationGroupSchemaOutput(args: GetConfigurationGroupSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationGroupSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20230901:getConfigurationGroupSchema", {
         "configurationGroupSchemaName": args.configurationGroupSchemaName,

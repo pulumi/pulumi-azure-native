@@ -54,7 +54,7 @@ export interface ListServiceTestKeysResult {
 /**
  * List test keys for a Service.
  */
-export function listServiceTestKeysOutput(args: ListServiceTestKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceTestKeysResult> {
+export function listServiceTestKeysOutput(args: ListServiceTestKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListServiceTestKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:listServiceTestKeys", {
         "resourceGroupName": args.resourceGroupName,

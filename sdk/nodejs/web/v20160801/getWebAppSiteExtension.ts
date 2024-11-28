@@ -127,7 +127,7 @@ export interface GetWebAppSiteExtensionResult {
 /**
  * Get site extension information by its ID for a web site, or a deployment slot.
  */
-export function getWebAppSiteExtensionOutput(args: GetWebAppSiteExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionResult> {
+export function getWebAppSiteExtensionOutput(args: GetWebAppSiteExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSiteExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20160801:getWebAppSiteExtension", {
         "name": args.name,

@@ -74,7 +74,7 @@ export interface GetRouteMapResult {
 /**
  * Retrieves the details of a RouteMap.
  */
-export function getRouteMapOutput(args: GetRouteMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteMapResult> {
+export function getRouteMapOutput(args: GetRouteMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getRouteMap", {
         "resourceGroupName": args.resourceGroupName,

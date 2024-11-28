@@ -73,7 +73,7 @@ export interface GetAuthorizationAccessPolicyResult {
 /**
  * Gets the details of the authorization access policy specified by its identifier.
  */
-export function getAuthorizationAccessPolicyOutput(args: GetAuthorizationAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationAccessPolicyResult> {
+export function getAuthorizationAccessPolicyOutput(args: GetAuthorizationAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:getAuthorizationAccessPolicy", {
         "authorizationAccessPolicyId": args.authorizationAccessPolicyId,

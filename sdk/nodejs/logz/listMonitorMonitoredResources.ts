@@ -47,7 +47,7 @@ export interface ListMonitorMonitoredResourcesResult {
  * Response of a list operation.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function listMonitorMonitoredResourcesOutput(args: ListMonitorMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorMonitoredResourcesResult> {
+export function listMonitorMonitoredResourcesOutput(args: ListMonitorMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMonitorMonitoredResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logz:listMonitorMonitoredResources", {
         "monitorName": args.monitorName,

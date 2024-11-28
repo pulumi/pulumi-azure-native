@@ -74,7 +74,7 @@ export interface GetAdministratorResult {
 /**
  * Gets information about a server.
  */
-export function getAdministratorOutput(args: GetAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdministratorResult> {
+export function getAdministratorOutput(args: GetAdministratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20240801:getAdministrator", {
         "objectId": args.objectId,

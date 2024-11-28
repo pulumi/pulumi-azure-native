@@ -65,7 +65,7 @@ export interface GetRdsEventSubscriptionResult {
 /**
  * Get a RdsEventSubscription
  */
-export function getRdsEventSubscriptionOutput(args: GetRdsEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsEventSubscriptionResult> {
+export function getRdsEventSubscriptionOutput(args: GetRdsEventSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRdsEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRdsEventSubscription", {
         "name": args.name,

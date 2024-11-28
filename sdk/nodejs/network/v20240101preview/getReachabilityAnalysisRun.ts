@@ -67,7 +67,7 @@ export interface GetReachabilityAnalysisRunResult {
 /**
  * Configuration information for analysis run.
  */
-export function getReachabilityAnalysisRunOutput(args: GetReachabilityAnalysisRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReachabilityAnalysisRunResult> {
+export function getReachabilityAnalysisRunOutput(args: GetReachabilityAnalysisRunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReachabilityAnalysisRunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240101preview:getReachabilityAnalysisRun", {
         "networkManagerName": args.networkManagerName,

@@ -70,7 +70,7 @@ export interface GetQueryPackResult {
 /**
  * Returns a Log Analytics QueryPack.
  */
-export function getQueryPackOutput(args: GetQueryPackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryPackResult> {
+export function getQueryPackOutput(args: GetQueryPackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueryPackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20190901:getQueryPack", {
         "queryPackName": args.queryPackName,

@@ -67,7 +67,7 @@ export interface ListInferenceGroupDeltaModelsAsyncResult {
 /**
  * A paginated list of String entities.
  */
-export function listInferenceGroupDeltaModelsAsyncOutput(args: ListInferenceGroupDeltaModelsAsyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListInferenceGroupDeltaModelsAsyncResult> {
+export function listInferenceGroupDeltaModelsAsyncOutput(args: ListInferenceGroupDeltaModelsAsyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListInferenceGroupDeltaModelsAsyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001preview:listInferenceGroupDeltaModelsAsync", {
         "count": args.count,

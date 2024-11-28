@@ -103,7 +103,7 @@ export interface GetBmcKeySetResult {
 /**
  * Get baseboard management controller key set of the provided cluster.
  */
-export function getBmcKeySetOutput(args: GetBmcKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBmcKeySetResult> {
+export function getBmcKeySetOutput(args: GetBmcKeySetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBmcKeySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240701:getBmcKeySet", {
         "bmcKeySetName": args.bmcKeySetName,

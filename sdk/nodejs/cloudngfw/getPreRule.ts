@@ -136,7 +136,7 @@ export interface GetPreRuleResult {
  *
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
-export function getPreRuleOutput(args: GetPreRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPreRuleResult> {
+export function getPreRuleOutput(args: GetPreRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPreRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw:getPreRule", {
         "globalRulestackName": args.globalRulestackName,

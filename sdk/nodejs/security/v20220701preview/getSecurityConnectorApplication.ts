@@ -63,7 +63,7 @@ export interface GetSecurityConnectorApplicationResult {
 /**
  * Get a specific application for the requested scope by applicationId
  */
-export function getSecurityConnectorApplicationOutput(args: GetSecurityConnectorApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorApplicationResult> {
+export function getSecurityConnectorApplicationOutput(args: GetSecurityConnectorApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityConnectorApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20220701preview:getSecurityConnectorApplication", {
         "applicationId": args.applicationId,

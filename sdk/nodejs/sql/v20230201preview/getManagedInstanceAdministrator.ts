@@ -64,7 +64,7 @@ export interface GetManagedInstanceAdministratorResult {
 /**
  * Gets a managed instance administrator.
  */
-export function getManagedInstanceAdministratorOutput(args: GetManagedInstanceAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAdministratorResult> {
+export function getManagedInstanceAdministratorOutput(args: GetManagedInstanceAdministratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedInstanceAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230201preview:getManagedInstanceAdministrator", {
         "administratorName": args.administratorName,

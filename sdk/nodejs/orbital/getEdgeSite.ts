@@ -71,7 +71,7 @@ export interface GetEdgeSiteResult {
  *
  * Other available API versions: 2024-03-01.
  */
-export function getEdgeSiteOutput(args: GetEdgeSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeSiteResult> {
+export function getEdgeSiteOutput(args: GetEdgeSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEdgeSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital:getEdgeSite", {
         "edgeSiteName": args.edgeSiteName,

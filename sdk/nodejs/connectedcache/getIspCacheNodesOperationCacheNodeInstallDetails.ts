@@ -72,7 +72,7 @@ export interface GetIspCacheNodesOperationCacheNodeInstallDetailsResult {
  * This api gets secrets of the ispCacheNode resource install details
  * Azure REST API version: 2023-05-01-preview.
  */
-export function getIspCacheNodesOperationCacheNodeInstallDetailsOutput(args: GetIspCacheNodesOperationCacheNodeInstallDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIspCacheNodesOperationCacheNodeInstallDetailsResult> {
+export function getIspCacheNodesOperationCacheNodeInstallDetailsOutput(args: GetIspCacheNodesOperationCacheNodeInstallDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIspCacheNodesOperationCacheNodeInstallDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedcache:getIspCacheNodesOperationCacheNodeInstallDetails", {
         "cacheNodeResourceName": args.cacheNodeResourceName,

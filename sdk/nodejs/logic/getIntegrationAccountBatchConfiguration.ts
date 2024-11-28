@@ -68,7 +68,7 @@ export interface GetIntegrationAccountBatchConfigurationResult {
  * Get a batch configuration for an integration account.
  * Azure REST API version: 2019-05-01.
  */
-export function getIntegrationAccountBatchConfigurationOutput(args: GetIntegrationAccountBatchConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountBatchConfigurationResult> {
+export function getIntegrationAccountBatchConfigurationOutput(args: GetIntegrationAccountBatchConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountBatchConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:getIntegrationAccountBatchConfiguration", {
         "batchConfigurationName": args.batchConfigurationName,

@@ -88,7 +88,7 @@ export interface GetObjectAnchorsAccountResult {
  * Retrieve an Object Anchors Account.
  * Azure REST API version: 2021-03-01-preview.
  */
-export function getObjectAnchorsAccountOutput(args: GetObjectAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectAnchorsAccountResult> {
+export function getObjectAnchorsAccountOutput(args: GetObjectAnchorsAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetObjectAnchorsAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mixedreality:getObjectAnchorsAccount", {
         "accountName": args.accountName,

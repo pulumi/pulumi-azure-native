@@ -71,7 +71,7 @@ export interface GetWebAppDomainOwnershipIdentifierSlotResult {
 /**
  * Get domain ownership identifier for web app.
  */
-export function getWebAppDomainOwnershipIdentifierSlotOutput(args: GetWebAppDomainOwnershipIdentifierSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierSlotResult> {
+export function getWebAppDomainOwnershipIdentifierSlotOutput(args: GetWebAppDomainOwnershipIdentifierSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20201001:getWebAppDomainOwnershipIdentifierSlot", {
         "domainOwnershipIdentifierName": args.domainOwnershipIdentifierName,

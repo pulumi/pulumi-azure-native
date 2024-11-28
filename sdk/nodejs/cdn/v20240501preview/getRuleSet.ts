@@ -67,7 +67,7 @@ export interface GetRuleSetResult {
 /**
  * Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
  */
-export function getRuleSetOutput(args: GetRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleSetResult> {
+export function getRuleSetOutput(args: GetRuleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20240501preview:getRuleSet", {
         "profileName": args.profileName,

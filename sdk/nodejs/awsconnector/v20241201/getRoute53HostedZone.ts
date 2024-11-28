@@ -65,7 +65,7 @@ export interface GetRoute53HostedZoneResult {
 /**
  * Get a Route53HostedZone
  */
-export function getRoute53HostedZoneOutput(args: GetRoute53HostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoute53HostedZoneResult> {
+export function getRoute53HostedZoneOutput(args: GetRoute53HostedZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoute53HostedZoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRoute53HostedZone", {
         "name": args.name,

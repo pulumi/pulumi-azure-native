@@ -68,7 +68,7 @@ export interface GetActiveDirectoryConnectorResult {
  *
  * Other available API versions: 2024-01-01, 2024-05-01-preview.
  */
-export function getActiveDirectoryConnectorOutput(args: GetActiveDirectoryConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveDirectoryConnectorResult> {
+export function getActiveDirectoryConnectorOutput(args: GetActiveDirectoryConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActiveDirectoryConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getActiveDirectoryConnector", {
         "activeDirectoryConnectorName": args.activeDirectoryConnectorName,

@@ -49,7 +49,7 @@ export interface ListFeatureAccountResult {
  *
  * Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
  */
-export function listFeatureAccountOutput(args: ListFeatureAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeatureAccountResult> {
+export function listFeatureAccountOutput(args: ListFeatureAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFeatureAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:purview:listFeatureAccount", {
         "accountName": args.accountName,

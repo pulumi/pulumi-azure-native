@@ -45,7 +45,7 @@ export interface ListRegistryCredentialsResult {
 /**
  * Lists the login credentials for the specified container registry.
  */
-export function listRegistryCredentialsOutput(args: ListRegistryCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryCredentialsResult> {
+export function listRegistryCredentialsOutput(args: ListRegistryCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRegistryCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230601preview:listRegistryCredentials", {
         "registryName": args.registryName,

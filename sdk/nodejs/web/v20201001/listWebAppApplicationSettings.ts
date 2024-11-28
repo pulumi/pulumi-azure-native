@@ -61,7 +61,7 @@ export interface ListWebAppApplicationSettingsResult {
 /**
  * Gets the application settings of an app.
  */
-export function listWebAppApplicationSettingsOutput(args: ListWebAppApplicationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsResult> {
+export function listWebAppApplicationSettingsOutput(args: ListWebAppApplicationSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppApplicationSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20201001:listWebAppApplicationSettings", {
         "name": args.name,

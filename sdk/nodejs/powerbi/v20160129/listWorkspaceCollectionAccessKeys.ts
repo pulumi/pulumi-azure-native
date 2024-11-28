@@ -39,7 +39,7 @@ export interface ListWorkspaceCollectionAccessKeysResult {
 /**
  * Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
  */
-export function listWorkspaceCollectionAccessKeysOutput(args: ListWorkspaceCollectionAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceCollectionAccessKeysResult> {
+export function listWorkspaceCollectionAccessKeysOutput(args: ListWorkspaceCollectionAccessKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceCollectionAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys", {
         "resourceGroupName": args.resourceGroupName,

@@ -69,7 +69,7 @@ export interface GetAccountResult {
 /**
  * Returns RecommendationsService Account resource for a given name.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recommendationsservice/v20220301preview:getAccount", {
         "accountName": args.accountName,

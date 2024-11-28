@@ -58,7 +58,7 @@ export interface GetAccountResult {
 /**
  * Gets the Visual Studio Team Services account resource details.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:visualstudio/v20171101preview:getAccount", {
         "resourceGroupName": args.resourceGroupName,

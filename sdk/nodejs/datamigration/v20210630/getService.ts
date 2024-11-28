@@ -89,7 +89,7 @@ export interface GetServiceResult {
 /**
  * The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
  */
-export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration/v20210630:getService", {
         "groupName": args.groupName,

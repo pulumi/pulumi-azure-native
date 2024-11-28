@@ -62,7 +62,7 @@ export interface GetManagedEnvironmentsStorageResult {
 /**
  * Get storage for a managedEnvironment.
  */
-export function getManagedEnvironmentsStorageOutput(args: GetManagedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentsStorageResult> {
+export function getManagedEnvironmentsStorageOutput(args: GetManagedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedEnvironmentsStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20221001:getManagedEnvironmentsStorage", {
         "environmentName": args.environmentName,

@@ -71,7 +71,7 @@ export interface GetApiVersionSetResult {
 /**
  * Gets the details of the Api Version Set specified by its identifier.
  */
-export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionSetResult> {
+export function getApiVersionSetOutput(args: GetApiVersionSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiVersionSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getApiVersionSet", {
         "resourceGroupName": args.resourceGroupName,

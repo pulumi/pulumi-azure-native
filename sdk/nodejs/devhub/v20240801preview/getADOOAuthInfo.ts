@@ -42,7 +42,7 @@ export interface GetADOOAuthInfoResult {
 /**
  * Response containing ADO OAuth information
  */
-export function getADOOAuthInfoOutput(args: GetADOOAuthInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADOOAuthInfoResult> {
+export function getADOOAuthInfoOutput(args: GetADOOAuthInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetADOOAuthInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devhub/v20240801preview:getADOOAuthInfo", {
         "location": args.location,

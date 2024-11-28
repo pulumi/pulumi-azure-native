@@ -41,7 +41,7 @@ export interface ListLinkerConfigurationsResult {
 /**
  * list source configurations for a Linker.
  */
-export function listLinkerConfigurationsOutput(args: ListLinkerConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLinkerConfigurationsResult> {
+export function listLinkerConfigurationsOutput(args: ListLinkerConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLinkerConfigurationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicelinker/v20240401:listLinkerConfigurations", {
         "linkerName": args.linkerName,

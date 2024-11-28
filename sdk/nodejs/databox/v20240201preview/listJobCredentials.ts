@@ -45,7 +45,7 @@ export interface ListJobCredentialsResult {
 /**
  * This method gets the unencrypted secrets related to the job.
  */
-export function listJobCredentialsOutput(args: ListJobCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobCredentialsResult> {
+export function listJobCredentialsOutput(args: ListJobCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListJobCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databox/v20240201preview:listJobCredentials", {
         "jobName": args.jobName,

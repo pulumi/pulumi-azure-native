@@ -71,7 +71,7 @@ export interface GetAccessPolicyAssignmentResult {
 /**
  * Gets information about access policy assignment for database.
  */
-export function getAccessPolicyAssignmentOutput(args: GetAccessPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyAssignmentResult> {
+export function getAccessPolicyAssignmentOutput(args: GetAccessPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache/v20240901preview:getAccessPolicyAssignment", {
         "accessPolicyAssignmentName": args.accessPolicyAssignmentName,

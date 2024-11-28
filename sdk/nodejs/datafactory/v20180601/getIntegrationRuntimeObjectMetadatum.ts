@@ -55,7 +55,7 @@ export interface GetIntegrationRuntimeObjectMetadatumResult {
 /**
  * Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
  */
-export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {
+export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getIntegrationRuntimeObjectMetadatum", {
         "factoryName": args.factoryName,

@@ -44,7 +44,7 @@ export interface GetADOOAuthInfoResult {
  * Response containing ADO OAuth information
  * Azure REST API version: 2024-08-01-preview.
  */
-export function getADOOAuthInfoOutput(args: GetADOOAuthInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADOOAuthInfoResult> {
+export function getADOOAuthInfoOutput(args: GetADOOAuthInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetADOOAuthInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devhub:getADOOAuthInfo", {
         "location": args.location,

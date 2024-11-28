@@ -65,7 +65,7 @@ export interface GetMacie2JobSummaryResult {
 /**
  * Get a Macie2JobSummary
  */
-export function getMacie2JobSummaryOutput(args: GetMacie2JobSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMacie2JobSummaryResult> {
+export function getMacie2JobSummaryOutput(args: GetMacie2JobSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMacie2JobSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getMacie2JobSummary", {
         "name": args.name,

@@ -54,7 +54,7 @@ export interface GetWebAppFtpAllowedResult {
 /**
  * Description for Returns whether FTP is allowed on the site or not.
  */
-export function getWebAppFtpAllowedOutput(args: GetWebAppFtpAllowedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFtpAllowedResult> {
+export function getWebAppFtpAllowedOutput(args: GetWebAppFtpAllowedOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppFtpAllowedResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getWebAppFtpAllowed", {
         "name": args.name,

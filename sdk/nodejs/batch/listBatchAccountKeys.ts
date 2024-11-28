@@ -52,7 +52,7 @@ export interface ListBatchAccountKeysResult {
  *
  * Other available API versions: 2017-01-01, 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
  */
-export function listBatchAccountKeysOutput(args: ListBatchAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBatchAccountKeysResult> {
+export function listBatchAccountKeysOutput(args: ListBatchAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBatchAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:batch:listBatchAccountKeys", {
         "accountName": args.accountName,

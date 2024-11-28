@@ -70,7 +70,7 @@ export interface GetSuppressionResult {
 /**
  * Obtains the details of a suppression.
  */
-export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionResult> {
+export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSuppressionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:advisor/v20230101:getSuppression", {
         "name": args.name,

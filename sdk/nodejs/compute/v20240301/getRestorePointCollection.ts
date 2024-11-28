@@ -78,7 +78,7 @@ export interface GetRestorePointCollectionResult {
 /**
  * The operation to get the restore point collection.
  */
-export function getRestorePointCollectionOutput(args: GetRestorePointCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointCollectionResult> {
+export function getRestorePointCollectionOutput(args: GetRestorePointCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRestorePointCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20240301:getRestorePointCollection", {
         "expand": args.expand,

@@ -210,7 +210,7 @@ export interface GetClusterResult {
 /**
  * Get a Service Fabric cluster resource created or in the process of being created in the specified resource group.
  */
-export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20210601:getCluster", {
         "clusterName": args.clusterName,

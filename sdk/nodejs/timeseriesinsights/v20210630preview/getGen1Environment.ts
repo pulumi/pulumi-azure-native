@@ -107,7 +107,7 @@ export interface GetGen1EnvironmentResult {
 /**
  * Gets the environment with the specified name in the specified subscription and resource group.
  */
-export function getGen1EnvironmentOutput(args: GetGen1EnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGen1EnvironmentResult> {
+export function getGen1EnvironmentOutput(args: GetGen1EnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGen1EnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights/v20210630preview:getGen1Environment", {
         "environmentName": args.environmentName,

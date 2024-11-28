@@ -41,7 +41,7 @@ export interface ListSiteIdentifiersAssignedToHostNameResult {
 /**
  * List all apps that are assigned to a hostname.
  */
-export function listSiteIdentifiersAssignedToHostNameOutput(args?: ListSiteIdentifiersAssignedToHostNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSiteIdentifiersAssignedToHostNameResult> {
+export function listSiteIdentifiersAssignedToHostNameOutput(args?: ListSiteIdentifiersAssignedToHostNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSiteIdentifiersAssignedToHostNameResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20210201:listSiteIdentifiersAssignedToHostName", {

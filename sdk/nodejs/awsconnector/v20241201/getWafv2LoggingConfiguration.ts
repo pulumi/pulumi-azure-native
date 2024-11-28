@@ -65,7 +65,7 @@ export interface GetWafv2LoggingConfigurationResult {
 /**
  * Get a Wafv2LoggingConfiguration
  */
-export function getWafv2LoggingConfigurationOutput(args: GetWafv2LoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafv2LoggingConfigurationResult> {
+export function getWafv2LoggingConfigurationOutput(args: GetWafv2LoggingConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWafv2LoggingConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getWafv2LoggingConfiguration", {
         "name": args.name,

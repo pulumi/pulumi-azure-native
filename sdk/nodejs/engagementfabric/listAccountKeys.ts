@@ -43,7 +43,7 @@ export interface ListAccountKeysResult {
  * The list of the EngagementFabric account keys
  * Azure REST API version: 2018-09-01-preview.
  */
-export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
+export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:engagementfabric:listAccountKeys", {
         "accountName": args.accountName,

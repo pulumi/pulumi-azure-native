@@ -142,7 +142,7 @@ export interface GetPublicIPAddressResult {
 /**
  * Gets the specified public IP address in a specified resource group.
  */
-export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPAddressResult> {
+export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIPAddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getPublicIPAddress", {
         "expand": args.expand,

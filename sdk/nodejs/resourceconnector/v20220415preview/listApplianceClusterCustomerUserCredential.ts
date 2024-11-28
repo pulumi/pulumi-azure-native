@@ -45,7 +45,7 @@ export interface ListApplianceClusterCustomerUserCredentialResult {
 /**
  * Returns the cluster customer user credentials for the dedicated appliance.
  */
-export function listApplianceClusterCustomerUserCredentialOutput(args: ListApplianceClusterCustomerUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceClusterCustomerUserCredentialResult> {
+export function listApplianceClusterCustomerUserCredentialOutput(args: ListApplianceClusterCustomerUserCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListApplianceClusterCustomerUserCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resourceconnector/v20220415preview:listApplianceClusterCustomerUserCredential", {
         "resourceGroupName": args.resourceGroupName,

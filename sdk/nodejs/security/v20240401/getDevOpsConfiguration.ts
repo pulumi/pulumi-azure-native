@@ -57,7 +57,7 @@ export interface GetDevOpsConfigurationResult {
 /**
  * DevOps Configuration resource.
  */
-export function getDevOpsConfigurationOutput(args: GetDevOpsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevOpsConfigurationResult> {
+export function getDevOpsConfigurationOutput(args: GetDevOpsConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevOpsConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20240401:getDevOpsConfiguration", {
         "resourceGroupName": args.resourceGroupName,

@@ -98,7 +98,7 @@ export interface GetSimResult {
 /**
  * Gets information about the specified SIM.
  */
-export function getSimOutput(args: GetSimOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimResult> {
+export function getSimOutput(args: GetSimOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSimResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20240401:getSim", {
         "resourceGroupName": args.resourceGroupName,

@@ -76,7 +76,7 @@ export interface ListIntegrationAccountAgreementContentCallbackUrlResult {
 /**
  * Get the content callback url.
  */
-export function listIntegrationAccountAgreementContentCallbackUrlOutput(args: ListIntegrationAccountAgreementContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountAgreementContentCallbackUrlResult> {
+export function listIntegrationAccountAgreementContentCallbackUrlOutput(args: ListIntegrationAccountAgreementContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIntegrationAccountAgreementContentCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20190501:listIntegrationAccountAgreementContentCallbackUrl", {
         "agreementName": args.agreementName,

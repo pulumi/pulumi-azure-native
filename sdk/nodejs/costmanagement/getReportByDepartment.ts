@@ -71,7 +71,7 @@ export interface GetReportByDepartmentResult {
  * Gets the report for a department by report name.
  * Azure REST API version: 2018-08-01-preview.
  */
-export function getReportByDepartmentOutput(args: GetReportByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByDepartmentResult> {
+export function getReportByDepartmentOutput(args: GetReportByDepartmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportByDepartmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getReportByDepartment", {
         "departmentId": args.departmentId,

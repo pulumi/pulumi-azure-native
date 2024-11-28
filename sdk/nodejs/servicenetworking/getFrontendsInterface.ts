@@ -80,7 +80,7 @@ export interface GetFrontendsInterfaceResult {
  *
  * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview.
  */
-export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontendsInterfaceResult> {
+export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontendsInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicenetworking:getFrontendsInterface", {
         "frontendName": args.frontendName,

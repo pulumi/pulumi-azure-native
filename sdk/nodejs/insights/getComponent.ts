@@ -167,7 +167,7 @@ export interface GetComponentResult {
  *
  * Other available API versions: 2020-02-02-preview.
  */
-export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
+export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getComponent", {
         "resourceGroupName": args.resourceGroupName,

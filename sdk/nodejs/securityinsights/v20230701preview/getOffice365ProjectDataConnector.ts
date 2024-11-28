@@ -75,7 +75,7 @@ export interface GetOffice365ProjectDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getOffice365ProjectDataConnectorOutput(args: GetOffice365ProjectDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOffice365ProjectDataConnectorResult> {
+export function getOffice365ProjectDataConnectorOutput(args: GetOffice365ProjectDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOffice365ProjectDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230701preview:getOffice365ProjectDataConnector", {
         "dataConnectorId": args.dataConnectorId,

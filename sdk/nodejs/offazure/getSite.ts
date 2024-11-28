@@ -68,7 +68,7 @@ export interface GetSiteResult {
  * Site REST Resource.
  * Azure REST API version: 2020-07-07.
  */
-export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
+export function getSiteOutput(args: GetSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure:getSite", {
         "resourceGroupName": args.resourceGroupName,

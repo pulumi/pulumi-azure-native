@@ -64,7 +64,7 @@ export interface GetTableServicePropertiesResult {
  *
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
-export function getTableServicePropertiesOutput(args: GetTableServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableServicePropertiesResult> {
+export function getTableServicePropertiesOutput(args: GetTableServicePropertiesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableServicePropertiesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage:getTableServiceProperties", {
         "accountName": args.accountName,

@@ -33,7 +33,7 @@ export interface ListWorkspaceNotebookAccessTokenResult {
     readonly scope: string;
     readonly tokenType: string;
 }
-export function listWorkspaceNotebookAccessTokenOutput(args: ListWorkspaceNotebookAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookAccessTokenResult> {
+export function listWorkspaceNotebookAccessTokenOutput(args: ListWorkspaceNotebookAccessTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceNotebookAccessTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:listWorkspaceNotebookAccessToken", {
         "resourceGroupName": args.resourceGroupName,

@@ -70,7 +70,7 @@ export interface GetPeerAsnResult {
  *
  * Other available API versions: 2019-09-01-preview, 2021-01-01.
  */
-export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeerAsnResult> {
+export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeerAsnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:peering:getPeerAsn", {
         "peerAsnName": args.peerAsnName,

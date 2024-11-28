@@ -95,7 +95,7 @@ export interface GetL2IsolationDomainResult {
  *
  * Other available API versions: 2023-06-15.
  */
-export function getL2IsolationDomainOutput(args: GetL2IsolationDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2IsolationDomainResult> {
+export function getL2IsolationDomainOutput(args: GetL2IsolationDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL2IsolationDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getL2IsolationDomain", {
         "l2IsolationDomainName": args.l2IsolationDomainName,

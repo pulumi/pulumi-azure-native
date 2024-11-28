@@ -71,7 +71,7 @@ export interface GetMigrationServiceResult {
  * Retrieve the Database Migration Service
  * Azure REST API version: 2023-07-15-preview.
  */
-export function getMigrationServiceOutput(args: GetMigrationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationServiceResult> {
+export function getMigrationServiceOutput(args: GetMigrationServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration:getMigrationService", {
         "migrationServiceName": args.migrationServiceName,

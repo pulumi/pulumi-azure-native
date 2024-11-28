@@ -48,7 +48,7 @@ export interface ListWorkspaceNamedValueResult {
 /**
  * Gets the secret of the named value specified by its identifier.
  */
-export function listWorkspaceNamedValueOutput(args: ListWorkspaceNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNamedValueResult> {
+export function listWorkspaceNamedValueOutput(args: ListWorkspaceNamedValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceNamedValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:listWorkspaceNamedValue", {
         "namedValueId": args.namedValueId,

@@ -65,7 +65,7 @@ export interface GetLogsMetricFilterResult {
 /**
  * Get a LogsMetricFilter
  */
-export function getLogsMetricFilterOutput(args: GetLogsMetricFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsMetricFilterResult> {
+export function getLogsMetricFilterOutput(args: GetLogsMetricFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsMetricFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLogsMetricFilter", {
         "name": args.name,

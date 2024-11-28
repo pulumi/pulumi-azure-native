@@ -62,7 +62,7 @@ export interface GetApmResult {
 /**
  * Get the APM by name.
  */
-export function getApmOutput(args: GetApmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApmResult> {
+export function getApmOutput(args: GetApmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230701preview:getApm", {
         "apmName": args.apmName,

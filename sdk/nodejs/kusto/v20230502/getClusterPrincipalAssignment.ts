@@ -83,7 +83,7 @@ export interface GetClusterPrincipalAssignmentResult {
 /**
  * Gets a Kusto cluster principalAssignment.
  */
-export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
+export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto/v20230502:getClusterPrincipalAssignment", {
         "clusterName": args.clusterName,

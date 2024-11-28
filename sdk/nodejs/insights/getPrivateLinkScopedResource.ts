@@ -68,7 +68,7 @@ export interface GetPrivateLinkScopedResourceResult {
  * Gets a scoped resource in a private link scope.
  * Azure REST API version: 2021-07-01-preview.
  */
-export function getPrivateLinkScopedResourceOutput(args: GetPrivateLinkScopedResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopedResourceResult> {
+export function getPrivateLinkScopedResourceOutput(args: GetPrivateLinkScopedResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkScopedResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getPrivateLinkScopedResource", {
         "name": args.name,

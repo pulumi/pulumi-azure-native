@@ -106,7 +106,7 @@ export interface GetKubeEnvironmentResult {
 /**
  * Description for Get the properties of a Kubernetes Environment.
  */
-export function getKubeEnvironmentOutput(args: GetKubeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubeEnvironmentResult> {
+export function getKubeEnvironmentOutput(args: GetKubeEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getKubeEnvironment", {
         "name": args.name,

@@ -76,7 +76,7 @@ export interface ListUserAssignedIdentityAssociatedResourcesResult {
  * Lists the associated resources for this identity.
  * Azure REST API version: 2022-01-31-preview.
  */
-export function listUserAssignedIdentityAssociatedResourcesOutput(args: ListUserAssignedIdentityAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUserAssignedIdentityAssociatedResourcesResult> {
+export function listUserAssignedIdentityAssociatedResourcesOutput(args: ListUserAssignedIdentityAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListUserAssignedIdentityAssociatedResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managedidentity:listUserAssignedIdentityAssociatedResources", {
         "filter": args.filter,

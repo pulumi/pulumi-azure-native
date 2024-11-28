@@ -68,7 +68,7 @@ export interface GetGremlinResourceGremlinDatabaseResult {
 /**
  * Gets the Gremlin databases under an existing Azure Cosmos DB database account with the provided name.
  */
-export function getGremlinResourceGremlinDatabaseOutput(args: GetGremlinResourceGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGremlinResourceGremlinDatabaseResult> {
+export function getGremlinResourceGremlinDatabaseOutput(args: GetGremlinResourceGremlinDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGremlinResourceGremlinDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20231115preview:getGremlinResourceGremlinDatabase", {
         "accountName": args.accountName,

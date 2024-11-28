@@ -78,7 +78,7 @@ export interface GetVMInstanceGuestAgentResult {
  * Implements GuestAgent GET method.
  * Azure REST API version: 2023-04-01-preview.
  */
-export function getVMInstanceGuestAgentOutput(args: GetVMInstanceGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMInstanceGuestAgentResult> {
+export function getVMInstanceGuestAgentOutput(args: GetVMInstanceGuestAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVMInstanceGuestAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm:getVMInstanceGuestAgent", {
         "resourceUri": args.resourceUri,

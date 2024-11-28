@@ -83,7 +83,7 @@ export interface GetTestBaseAccountResult {
  *
  * Other available API versions: 2023-11-01-preview.
  */
-export function getTestBaseAccountOutput(args: GetTestBaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountResult> {
+export function getTestBaseAccountOutput(args: GetTestBaseAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestBaseAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase:getTestBaseAccount", {
         "resourceGroupName": args.resourceGroupName,

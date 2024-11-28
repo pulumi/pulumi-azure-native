@@ -65,7 +65,7 @@ export interface GetAlertProcessingRuleByNameResult {
 /**
  * Get an alert processing rule by name.
  */
-export function getAlertProcessingRuleByNameOutput(args: GetAlertProcessingRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertProcessingRuleByNameResult> {
+export function getAlertProcessingRuleByNameOutput(args: GetAlertProcessingRuleByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertProcessingRuleByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:alertsmanagement/v20240301preview:getAlertProcessingRuleByName", {
         "alertProcessingRuleName": args.alertProcessingRuleName,

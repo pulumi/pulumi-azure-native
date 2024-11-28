@@ -42,7 +42,7 @@ export interface ListAzureDataTransferApprovedSchemasResult {
 /**
  * Lists approved schemas for Azure Data Transfer.
  */
-export function listAzureDataTransferApprovedSchemasOutput(args?: ListAzureDataTransferApprovedSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAzureDataTransferApprovedSchemasResult> {
+export function listAzureDataTransferApprovedSchemasOutput(args?: ListAzureDataTransferApprovedSchemasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAzureDataTransferApprovedSchemasResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240927:listAzureDataTransferApprovedSchemas", {

@@ -38,7 +38,7 @@ export interface ListKeyByAutomationAccountResult {
 /**
  * Retrieve the automation keys for an account.
  */
-export function listKeyByAutomationAccountOutput(args: ListKeyByAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKeyByAutomationAccountResult> {
+export function listKeyByAutomationAccountOutput(args: ListKeyByAutomationAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListKeyByAutomationAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20220808:listKeyByAutomationAccount", {
         "automationAccountName": args.automationAccountName,

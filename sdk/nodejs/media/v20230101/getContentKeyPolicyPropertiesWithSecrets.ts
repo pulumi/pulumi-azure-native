@@ -62,7 +62,7 @@ export interface GetContentKeyPolicyPropertiesWithSecretsResult {
 /**
  * Get a Content Key Policy including secret values
  */
-export function getContentKeyPolicyPropertiesWithSecretsOutput(args: GetContentKeyPolicyPropertiesWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyPropertiesWithSecretsResult> {
+export function getContentKeyPolicyPropertiesWithSecretsOutput(args: GetContentKeyPolicyPropertiesWithSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentKeyPolicyPropertiesWithSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getContentKeyPolicyPropertiesWithSecrets", {
         "accountName": args.accountName,

@@ -100,7 +100,7 @@ export interface GetBlobFolderDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
-export function getBlobFolderDataSetMappingOutput(args: GetBlobFolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobFolderDataSetMappingResult> {
+export function getBlobFolderDataSetMappingOutput(args: GetBlobFolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobFolderDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getBlobFolderDataSetMapping", {
         "accountName": args.accountName,

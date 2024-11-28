@@ -77,7 +77,7 @@ export interface GetSecurityPartnerProviderResult {
 /**
  * Gets the specified Security Partner Provider.
  */
-export function getSecurityPartnerProviderOutput(args: GetSecurityPartnerProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPartnerProviderResult> {
+export function getSecurityPartnerProviderOutput(args: GetSecurityPartnerProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityPartnerProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getSecurityPartnerProvider", {
         "resourceGroupName": args.resourceGroupName,

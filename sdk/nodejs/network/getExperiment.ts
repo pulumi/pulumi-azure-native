@@ -92,7 +92,7 @@ export interface GetExperimentResult {
  * Defines the properties of an Experiment
  * Azure REST API version: 2019-11-01.
  */
-export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
+export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExperimentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getExperiment", {
         "experimentName": args.experimentName,

@@ -73,7 +73,7 @@ export interface GetConnectionRaiPolicyResult {
  *
  * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
  */
-export function getConnectionRaiPolicyOutput(args: GetConnectionRaiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionRaiPolicyResult> {
+export function getConnectionRaiPolicyOutput(args: GetConnectionRaiPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionRaiPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getConnectionRaiPolicy", {
         "connectionName": args.connectionName,

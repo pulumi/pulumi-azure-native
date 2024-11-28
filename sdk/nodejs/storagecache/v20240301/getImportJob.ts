@@ -122,7 +122,7 @@ export interface GetImportJobResult {
 /**
  * Returns an import job.
  */
-export function getImportJobOutput(args: GetImportJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportJobResult> {
+export function getImportJobOutput(args: GetImportJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImportJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagecache/v20240301:getImportJob", {
         "amlFilesystemName": args.amlFilesystemName,

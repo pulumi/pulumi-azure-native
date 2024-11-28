@@ -43,7 +43,7 @@ export interface ListComputeKeysResult {
 /**
  * Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
  */
-export function listComputeKeysOutput(args: ListComputeKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListComputeKeysResult> {
+export function listComputeKeysOutput(args: ListComputeKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListComputeKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:listComputeKeys", {
         "computeName": args.computeName,

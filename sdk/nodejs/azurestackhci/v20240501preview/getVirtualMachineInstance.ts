@@ -104,7 +104,7 @@ export interface GetVirtualMachineInstanceResult {
 /**
  * Gets a virtual machine instance
  */
-export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineInstanceResult> {
+export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240501preview:getVirtualMachineInstance", {
         "resourceUri": args.resourceUri,

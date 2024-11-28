@@ -71,7 +71,7 @@ export interface GetCommitmentPlanResult {
  * Retrieve an Azure ML commitment plan by its subscription, resource group and name.
  * Azure REST API version: 2016-05-01-preview.
  */
-export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {
+export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommitmentPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearning:getCommitmentPlan", {
         "commitmentPlanName": args.commitmentPlanName,

@@ -64,7 +64,7 @@ export interface GetFabricResult {
  * Gets the details of the fabric.
  * Azure REST API version: 2021-02-16-preview.
  */
-export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFabricResult> {
+export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datareplication:getFabric", {
         "fabricName": args.fabricName,

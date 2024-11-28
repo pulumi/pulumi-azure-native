@@ -92,7 +92,7 @@ export interface GetBillingRoleAssignmentByBillingAccountResult {
  *
  * Other available API versions: 2024-04-01.
  */
-export function getBillingRoleAssignmentByBillingAccountOutput(args: GetBillingRoleAssignmentByBillingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingRoleAssignmentByBillingAccountResult> {
+export function getBillingRoleAssignmentByBillingAccountOutput(args: GetBillingRoleAssignmentByBillingAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingRoleAssignmentByBillingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:billing:getBillingRoleAssignmentByBillingAccount", {
         "billingAccountName": args.billingAccountName,

@@ -62,7 +62,7 @@ export interface GetDevToolPortalResult {
 /**
  * Get the Application Live  and its properties.
  */
-export function getDevToolPortalOutput(args: GetDevToolPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevToolPortalResult> {
+export function getDevToolPortalOutput(args: GetDevToolPortalOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevToolPortalResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230701preview:getDevToolPortal", {
         "devToolPortalName": args.devToolPortalName,

@@ -56,7 +56,7 @@ export interface ListApplianceKeysResult {
  * Returns the cluster customer credentials for the dedicated appliance.
  * Azure REST API version: 2022-10-27.
  */
-export function listApplianceKeysOutput(args: ListApplianceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceKeysResult> {
+export function listApplianceKeysOutput(args: ListApplianceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListApplianceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resourceconnector:listApplianceKeys", {
         "artifactType": args.artifactType,

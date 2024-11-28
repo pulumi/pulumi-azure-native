@@ -117,7 +117,7 @@ export interface GetIacProfileResult {
  *
  * Other available API versions: 2024-08-01-preview.
  */
-export function getIacProfileOutput(args: GetIacProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIacProfileResult> {
+export function getIacProfileOutput(args: GetIacProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIacProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devhub:getIacProfile", {
         "iacProfileName": args.iacProfileName,

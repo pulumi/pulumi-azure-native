@@ -67,7 +67,7 @@ export interface GetEc2KeyPairResult {
  * Get a Ec2KeyPair
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2KeyPairOutput(args: GetEc2KeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2KeyPairResult> {
+export function getEc2KeyPairOutput(args: GetEc2KeyPairOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2KeyPairResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2KeyPair", {
         "name": args.name,

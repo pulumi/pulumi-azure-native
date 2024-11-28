@@ -108,7 +108,7 @@ export interface GetSqlPoolSensitivityLabelResult {
 /**
  * Gets the sensitivity label of a given column
  */
-export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {
+export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601:getSqlPoolSensitivityLabel", {
         "columnName": args.columnName,

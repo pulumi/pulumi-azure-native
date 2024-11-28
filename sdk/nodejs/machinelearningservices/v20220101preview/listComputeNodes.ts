@@ -50,7 +50,7 @@ export interface ListComputeNodesResult {
 /**
  * Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
  */
-export function listComputeNodesOutput(args: ListComputeNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListComputeNodesResult> {
+export function listComputeNodesOutput(args: ListComputeNodesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListComputeNodesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20220101preview:listComputeNodes", {
         "computeName": args.computeName,

@@ -67,7 +67,7 @@ export interface GetCodeVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getCodeVersionOutput(args: GetCodeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeVersionResult> {
+export function getCodeVersionOutput(args: GetCodeVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401:getCodeVersion", {
         "name": args.name,

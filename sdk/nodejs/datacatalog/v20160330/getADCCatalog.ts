@@ -85,7 +85,7 @@ export interface GetADCCatalogResult {
 /**
  * The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
  */
-export function getADCCatalogOutput(args: GetADCCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADCCatalogResult> {
+export function getADCCatalogOutput(args: GetADCCatalogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetADCCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datacatalog/v20160330:getADCCatalog", {
         "catalogName": args.catalogName,

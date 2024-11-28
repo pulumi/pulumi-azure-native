@@ -174,7 +174,7 @@ export interface GetBareMetalMachineResult {
 /**
  * Get properties of the provided bare metal machine.
  */
-export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineResult> {
+export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBareMetalMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20230701:getBareMetalMachine", {
         "bareMetalMachineName": args.bareMetalMachineName,

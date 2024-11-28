@@ -68,7 +68,7 @@ export interface GetConfigurationProfileHCIAssignmentResult {
  * Get information about a configuration profile assignment
  * Azure REST API version: 2022-05-04.
  */
-export function getConfigurationProfileHCIAssignmentOutput(args: GetConfigurationProfileHCIAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileHCIAssignmentResult> {
+export function getConfigurationProfileHCIAssignmentOutput(args: GetConfigurationProfileHCIAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfileHCIAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automanage:getConfigurationProfileHCIAssignment", {
         "clusterName": args.clusterName,

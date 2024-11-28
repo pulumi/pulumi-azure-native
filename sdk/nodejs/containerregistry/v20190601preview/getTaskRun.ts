@@ -83,7 +83,7 @@ export interface GetTaskRunResult {
 /**
  * Gets the detailed information for a given task run.
  */
-export function getTaskRunOutput(args: GetTaskRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskRunResult> {
+export function getTaskRunOutput(args: GetTaskRunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTaskRunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190601preview:getTaskRun", {
         "registryName": args.registryName,

@@ -70,7 +70,7 @@ export interface GetRegistrationResult {
 /**
  * Returns the properties of an Azure Stack registration.
  */
-export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationResult> {
+export function getRegistrationOutput(args: GetRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestack/v20220601:getRegistration", {
         "registrationName": args.registrationName,

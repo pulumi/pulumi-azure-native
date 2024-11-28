@@ -64,7 +64,7 @@ export interface GetProfessionalServiceSubscriptionLevelResult {
  * Gets information about the specified Subscription Level ProfessionalService.
  * Azure REST API version: 2023-07-01-preview.
  */
-export function getProfessionalServiceSubscriptionLevelOutput(args: GetProfessionalServiceSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfessionalServiceSubscriptionLevelResult> {
+export function getProfessionalServiceSubscriptionLevelOutput(args: GetProfessionalServiceSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfessionalServiceSubscriptionLevelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:professionalservice:getProfessionalServiceSubscriptionLevel", {
         "resourceGroupName": args.resourceGroupName,

@@ -75,7 +75,7 @@ export interface GetCertificateResult {
 /**
  * Retrieve the certificate identified by certificate name.
  */
-export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20220808:getCertificate", {
         "automationAccountName": args.automationAccountName,

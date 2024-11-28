@@ -68,7 +68,7 @@ export interface GetSqlResourceSqlDatabaseResult {
 /**
  * Gets the SQL database under an existing Azure Cosmos DB database account with the provided name.
  */
-export function getSqlResourceSqlDatabaseOutput(args: GetSqlResourceSqlDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlDatabaseResult> {
+export function getSqlResourceSqlDatabaseOutput(args: GetSqlResourceSqlDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlResourceSqlDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20241201preview:getSqlResourceSqlDatabase", {
         "accountName": args.accountName,

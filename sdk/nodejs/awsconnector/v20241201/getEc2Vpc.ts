@@ -65,7 +65,7 @@ export interface GetEc2VpcResult {
 /**
  * Get a Ec2Vpc
  */
-export function getEc2VpcOutput(args: GetEc2VpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2VpcResult> {
+export function getEc2VpcOutput(args: GetEc2VpcOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2VpcResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2Vpc", {
         "name": args.name,

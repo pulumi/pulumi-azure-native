@@ -66,7 +66,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * REST model used to encapsulate the user visible state of a PrivateEndpoint.
  */
-export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20200707:getPrivateEndpointConnection", {
         "peConnectionName": args.peConnectionName,

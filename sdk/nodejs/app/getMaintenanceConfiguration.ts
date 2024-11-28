@@ -64,7 +64,7 @@ export interface GetMaintenanceConfigurationResult {
  * Gets the maintenance configuration of a ManagedEnvironment .
  * Azure REST API version: 2024-10-02-preview.
  */
-export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
+export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:getMaintenanceConfiguration", {
         "configName": args.configName,

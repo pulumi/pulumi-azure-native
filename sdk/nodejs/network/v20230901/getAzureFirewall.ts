@@ -117,7 +117,7 @@ export interface GetAzureFirewallResult {
 /**
  * Gets the specified Azure Firewall.
  */
-export function getAzureFirewallOutput(args: GetAzureFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureFirewallResult> {
+export function getAzureFirewallOutput(args: GetAzureFirewallOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureFirewallResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getAzureFirewall", {
         "azureFirewallName": args.azureFirewallName,

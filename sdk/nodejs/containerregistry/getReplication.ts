@@ -88,7 +88,7 @@ export interface GetReplicationResult {
  *
  * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
  */
-export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationResult> {
+export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry:getReplication", {
         "registryName": args.registryName,

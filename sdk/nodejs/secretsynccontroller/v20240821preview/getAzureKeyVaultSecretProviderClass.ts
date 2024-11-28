@@ -85,7 +85,7 @@ export interface GetAzureKeyVaultSecretProviderClassResult {
 /**
  * Gets the properties of an AzureKeyVaultSecretProviderClass instance.
  */
-export function getAzureKeyVaultSecretProviderClassOutput(args: GetAzureKeyVaultSecretProviderClassOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureKeyVaultSecretProviderClassResult> {
+export function getAzureKeyVaultSecretProviderClassOutput(args: GetAzureKeyVaultSecretProviderClassOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureKeyVaultSecretProviderClassResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:secretsynccontroller/v20240821preview:getAzureKeyVaultSecretProviderClass", {
         "azureKeyVaultSecretProviderClassName": args.azureKeyVaultSecretProviderClassName,

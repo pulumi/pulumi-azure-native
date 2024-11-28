@@ -62,7 +62,7 @@ export interface GetCredentialOperationResult {
 /**
  * Gets a credential.
  */
-export function getCredentialOperationOutput(args: GetCredentialOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialOperationResult> {
+export function getCredentialOperationOutput(args: GetCredentialOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCredentialOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getCredentialOperation", {
         "credentialName": args.credentialName,

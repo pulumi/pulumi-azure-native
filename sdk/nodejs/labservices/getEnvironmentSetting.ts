@@ -114,7 +114,7 @@ export interface GetEnvironmentSettingResult {
  * Get environment setting
  * Azure REST API version: 2018-10-15.
  */
-export function getEnvironmentSettingOutput(args: GetEnvironmentSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSettingResult> {
+export function getEnvironmentSettingOutput(args: GetEnvironmentSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices:getEnvironmentSetting", {
         "environmentSettingName": args.environmentSettingName,

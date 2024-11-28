@@ -57,7 +57,7 @@ export interface ListSystemActionsResult {
  * List of actions for a business application system.
  * Azure REST API version: 2024-04-01-preview.
  */
-export function listSystemActionsOutput(args: ListSystemActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSystemActionsResult> {
+export function listSystemActionsOutput(args: ListSystemActionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSystemActionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:listSystemActions", {
         "agentResourceName": args.agentResourceName,

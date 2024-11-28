@@ -85,7 +85,7 @@ export interface GetIoMAMPolicyByNameResult {
  *
  * Other available API versions: 2015-01-14-privatepreview.
  */
-export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
+export function getIoMAMPolicyByNameOutput(args: GetIoMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoMAMPolicyByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:intune:getIoMAMPolicyByName", {
         "hostName": args.hostName,

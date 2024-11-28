@@ -67,7 +67,7 @@ export interface GetEnterpriseCustomerOperationResult {
  * Retrieves the properties of a Enterprise customer
  * Azure REST API version: 2023-05-01-preview.
  */
-export function getEnterpriseCustomerOperationOutput(args: GetEnterpriseCustomerOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseCustomerOperationResult> {
+export function getEnterpriseCustomerOperationOutput(args: GetEnterpriseCustomerOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterpriseCustomerOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedcache:getEnterpriseCustomerOperation", {
         "customerResourceName": args.customerResourceName,

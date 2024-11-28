@@ -103,7 +103,7 @@ export interface GetLabPlanResult {
  *
  * Other available API versions: 2023-06-07.
  */
-export function getLabPlanOutput(args: GetLabPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabPlanResult> {
+export function getLabPlanOutput(args: GetLabPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices:getLabPlan", {
         "labPlanName": args.labPlanName,

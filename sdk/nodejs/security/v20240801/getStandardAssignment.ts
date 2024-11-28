@@ -85,7 +85,7 @@ export interface GetStandardAssignmentResult {
 /**
  * This operation retrieves a single standard assignment, given its name and the scope it was created at.
  */
-export function getStandardAssignmentOutput(args: GetStandardAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardAssignmentResult> {
+export function getStandardAssignmentOutput(args: GetStandardAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandardAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20240801:getStandardAssignment", {
         "resourceId": args.resourceId,

@@ -112,7 +112,7 @@ export interface GetLinkResult {
  *
  * Other available API versions: 2017-01-01.
  */
-export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
+export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getLink", {
         "hubName": args.hubName,

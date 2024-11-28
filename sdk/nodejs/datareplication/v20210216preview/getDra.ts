@@ -59,7 +59,7 @@ export interface GetDraResult {
 /**
  * Gets the details of the fabric agent.
  */
-export function getDraOutput(args: GetDraOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDraResult> {
+export function getDraOutput(args: GetDraOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDraResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datareplication/v20210216preview:getDra", {
         "fabricAgentName": args.fabricAgentName,

@@ -56,7 +56,7 @@ export interface ListScheduleApplicableResult {
  *
  * Other available API versions: 2016-05-15.
  */
-export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListScheduleApplicableResult> {
+export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListScheduleApplicableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab:listScheduleApplicable", {
         "labName": args.labName,

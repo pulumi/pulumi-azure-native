@@ -55,7 +55,7 @@ export interface GetOnlineEndpointTokenResult {
 /**
  * Service Token
  */
-export function getOnlineEndpointTokenOutput(args: GetOnlineEndpointTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineEndpointTokenResult> {
+export function getOnlineEndpointTokenOutput(args: GetOnlineEndpointTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOnlineEndpointTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001preview:getOnlineEndpointToken", {
         "endpointName": args.endpointName,

@@ -55,7 +55,7 @@ export interface GetSecurityOperatorResult {
  * Get a specific security operator for the requested scope.
  * Azure REST API version: 2023-01-01-preview.
  */
-export function getSecurityOperatorOutput(args: GetSecurityOperatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityOperatorResult> {
+export function getSecurityOperatorOutput(args: GetSecurityOperatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityOperatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getSecurityOperator", {
         "pricingName": args.pricingName,

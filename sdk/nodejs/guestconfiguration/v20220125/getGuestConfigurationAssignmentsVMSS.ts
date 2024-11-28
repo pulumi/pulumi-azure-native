@@ -66,7 +66,7 @@ export interface GetGuestConfigurationAssignmentsVMSSResult {
 /**
  * Get information about a guest configuration assignment for VMSS
  */
-export function getGuestConfigurationAssignmentsVMSSOutput(args: GetGuestConfigurationAssignmentsVMSSOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationAssignmentsVMSSResult> {
+export function getGuestConfigurationAssignmentsVMSSOutput(args: GetGuestConfigurationAssignmentsVMSSOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestConfigurationAssignmentsVMSSResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:guestconfiguration/v20220125:getGuestConfigurationAssignmentsVMSS", {
         "name": args.name,

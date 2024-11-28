@@ -78,7 +78,7 @@ export interface GetVariableResult {
 /**
  * Retrieve the variable identified by variable name.
  */
-export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
+export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getVariable", {
         "automationAccountName": args.automationAccountName,

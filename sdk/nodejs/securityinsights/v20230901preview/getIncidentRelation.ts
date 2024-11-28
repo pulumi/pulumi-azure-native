@@ -83,7 +83,7 @@ export interface GetIncidentRelationResult {
 /**
  * Gets an incident relation.
  */
-export function getIncidentRelationOutput(args: GetIncidentRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentRelationResult> {
+export function getIncidentRelationOutput(args: GetIncidentRelationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIncidentRelationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230901preview:getIncidentRelation", {
         "incidentId": args.incidentId,

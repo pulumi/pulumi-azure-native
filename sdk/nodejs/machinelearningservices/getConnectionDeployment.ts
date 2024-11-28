@@ -66,7 +66,7 @@ export interface GetConnectionDeploymentResult {
  *
  * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
  */
-export function getConnectionDeploymentOutput(args: GetConnectionDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionDeploymentResult> {
+export function getConnectionDeploymentOutput(args: GetConnectionDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getConnectionDeployment", {
         "connectionName": args.connectionName,

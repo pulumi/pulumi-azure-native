@@ -92,7 +92,7 @@ export interface GetAttestationAtSubscriptionResult {
 /**
  * Gets an existing attestation at subscription scope.
  */
-export function getAttestationAtSubscriptionOutput(args: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
+export function getAttestationAtSubscriptionOutput(args: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights/v20241001:getAttestationAtSubscription", {
         "attestationName": args.attestationName,

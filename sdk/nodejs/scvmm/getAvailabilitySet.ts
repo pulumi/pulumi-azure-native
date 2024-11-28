@@ -83,7 +83,7 @@ export interface GetAvailabilitySetResult {
  *
  * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
  */
-export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
+export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAvailabilitySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm:getAvailabilitySet", {
         "availabilitySetName": args.availabilitySetName,

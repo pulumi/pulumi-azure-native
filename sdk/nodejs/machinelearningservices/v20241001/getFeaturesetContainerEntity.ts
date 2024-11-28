@@ -62,7 +62,7 @@ export interface GetFeaturesetContainerEntityResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getFeaturesetContainerEntityOutput(args: GetFeaturesetContainerEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeaturesetContainerEntityResult> {
+export function getFeaturesetContainerEntityOutput(args: GetFeaturesetContainerEntityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFeaturesetContainerEntityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001:getFeaturesetContainerEntity", {
         "name": args.name,

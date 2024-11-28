@@ -48,7 +48,7 @@ export interface ListStreamingLocatorContentKeysResult {
  * List Content Keys used by this Streaming Locator
  * Azure REST API version: 2023-01-01.
  */
-export function listStreamingLocatorContentKeysOutput(args: ListStreamingLocatorContentKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStreamingLocatorContentKeysResult> {
+export function listStreamingLocatorContentKeysOutput(args: ListStreamingLocatorContentKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStreamingLocatorContentKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:listStreamingLocatorContentKeys", {
         "accountName": args.accountName,

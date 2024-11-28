@@ -67,7 +67,7 @@ export interface GetSqsQueueResult {
  * Get a SqsQueue
  * Azure REST API version: 2024-12-01.
  */
-export function getSqsQueueOutput(args: GetSqsQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqsQueueResult> {
+export function getSqsQueueOutput(args: GetSqsQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqsQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSqsQueue", {
         "name": args.name,

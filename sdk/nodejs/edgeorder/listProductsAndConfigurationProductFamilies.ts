@@ -61,7 +61,7 @@ export interface ListProductsAndConfigurationProductFamiliesResult {
  *
  * Other available API versions: 2024-02-01.
  */
-export function listProductsAndConfigurationProductFamiliesOutput(args: ListProductsAndConfigurationProductFamiliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsAndConfigurationProductFamiliesResult> {
+export function listProductsAndConfigurationProductFamiliesOutput(args: ListProductsAndConfigurationProductFamiliesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProductsAndConfigurationProductFamiliesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edgeorder:listProductsAndConfigurationProductFamilies", {
         "customerSubscriptionDetails": args.customerSubscriptionDetails,

@@ -68,7 +68,7 @@ export interface ListWebAppHybridConnectionKeysResult {
 /**
  * Gets the send key name and value for a Hybrid Connection.
  */
-export function listWebAppHybridConnectionKeysOutput(args: ListWebAppHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHybridConnectionKeysResult> {
+export function listWebAppHybridConnectionKeysOutput(args: ListWebAppHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppHybridConnectionKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20181101:listWebAppHybridConnectionKeys", {
         "name": args.name,

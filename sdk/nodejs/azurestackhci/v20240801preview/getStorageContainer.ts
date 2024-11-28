@@ -77,7 +77,7 @@ export interface GetStorageContainerResult {
 /**
  * Gets a storage container
  */
-export function getStorageContainerOutput(args: GetStorageContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageContainerResult> {
+export function getStorageContainerOutput(args: GetStorageContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240801preview:getStorageContainer", {
         "resourceGroupName": args.resourceGroupName,

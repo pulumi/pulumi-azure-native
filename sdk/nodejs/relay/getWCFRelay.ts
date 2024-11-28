@@ -100,7 +100,7 @@ export interface GetWCFRelayResult {
  *
  * Other available API versions: 2016-07-01, 2024-01-01.
  */
-export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {
+export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWCFRelayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay:getWCFRelay", {
         "namespaceName": args.namespaceName,

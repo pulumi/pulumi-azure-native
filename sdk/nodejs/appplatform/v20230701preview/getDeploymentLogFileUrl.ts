@@ -48,7 +48,7 @@ export interface GetDeploymentLogFileUrlResult {
 /**
  * Get deployment log file URL
  */
-export function getDeploymentLogFileUrlOutput(args: GetDeploymentLogFileUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentLogFileUrlResult> {
+export function getDeploymentLogFileUrlOutput(args: GetDeploymentLogFileUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentLogFileUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230701preview:getDeploymentLogFileUrl", {
         "appName": args.appName,

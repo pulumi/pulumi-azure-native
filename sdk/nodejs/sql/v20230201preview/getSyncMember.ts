@@ -105,7 +105,7 @@ export interface GetSyncMemberResult {
 /**
  * Gets a sync member.
  */
-export function getSyncMemberOutput(args: GetSyncMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncMemberResult> {
+export function getSyncMemberOutput(args: GetSyncMemberOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyncMemberResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230201preview:getSyncMember", {
         "databaseName": args.databaseName,

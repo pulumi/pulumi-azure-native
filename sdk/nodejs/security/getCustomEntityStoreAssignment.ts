@@ -63,7 +63,7 @@ export interface GetCustomEntityStoreAssignmentResult {
  * Gets a single custom entity store assignment by name for the provided subscription and resource group.
  * Azure REST API version: 2021-07-01-preview.
  */
-export function getCustomEntityStoreAssignmentOutput(args: GetCustomEntityStoreAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomEntityStoreAssignmentResult> {
+export function getCustomEntityStoreAssignmentOutput(args: GetCustomEntityStoreAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomEntityStoreAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getCustomEntityStoreAssignment", {
         "customEntityStoreAssignmentName": args.customEntityStoreAssignmentName,

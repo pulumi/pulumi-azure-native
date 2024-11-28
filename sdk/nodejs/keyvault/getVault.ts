@@ -71,7 +71,7 @@ export interface GetVaultResult {
  *
  * Other available API versions: 2018-02-14-preview, 2023-07-01, 2024-04-01-preview.
  */
-export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
+export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:keyvault:getVault", {
         "resourceGroupName": args.resourceGroupName,

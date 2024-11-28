@@ -58,7 +58,7 @@ export interface GetLinkedWorkspaceResult {
 /**
  * Get the detail of a linked workspace.
  */
-export function getLinkedWorkspaceOutput(args: GetLinkedWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedWorkspaceResult> {
+export function getLinkedWorkspaceOutput(args: GetLinkedWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20200515preview:getLinkedWorkspace", {
         "linkName": args.linkName,

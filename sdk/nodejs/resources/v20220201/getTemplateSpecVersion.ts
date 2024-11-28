@@ -86,7 +86,7 @@ export interface GetTemplateSpecVersionResult {
 /**
  * Gets a Template Spec version from a specific Template Spec.
  */
-export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
+export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplateSpecVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources/v20220201:getTemplateSpecVersion", {
         "resourceGroupName": args.resourceGroupName,

@@ -74,7 +74,7 @@ export interface GetDiagnosticSettingResult {
  *
  * Other available API versions: 2017-04-01-preview.
  */
-export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
+export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:aadiam:getDiagnosticSetting", {
         "name": args.name,

@@ -56,7 +56,7 @@ export interface GetWebAppScmAllowedSlotResult {
 /**
  * Returns whether Scm basic auth is allowed on the site or not.
  */
-export function getWebAppScmAllowedSlotOutput(args: GetWebAppScmAllowedSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppScmAllowedSlotResult> {
+export function getWebAppScmAllowedSlotOutput(args: GetWebAppScmAllowedSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppScmAllowedSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20210301:getWebAppScmAllowedSlot", {
         "name": args.name,

@@ -65,7 +65,7 @@ export interface GetEcsClusterResult {
 /**
  * Get a EcsCluster
  */
-export function getEcsClusterOutput(args: GetEcsClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcsClusterResult> {
+export function getEcsClusterOutput(args: GetEcsClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcsClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEcsCluster", {
         "name": args.name,

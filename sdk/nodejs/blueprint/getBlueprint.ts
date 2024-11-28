@@ -87,7 +87,7 @@ export interface GetBlueprintResult {
  *
  * Other available API versions: 2017-11-11-preview.
  */
-export function getBlueprintOutput(args: GetBlueprintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlueprintResult> {
+export function getBlueprintOutput(args: GetBlueprintOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlueprintResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:blueprint:getBlueprint", {
         "blueprintName": args.blueprintName,

@@ -123,7 +123,7 @@ export interface GetServiceFabricScheduleResult {
  * Get schedule.
  * Azure REST API version: 2018-09-15.
  */
-export function getServiceFabricScheduleOutput(args: GetServiceFabricScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceFabricScheduleResult> {
+export function getServiceFabricScheduleOutput(args: GetServiceFabricScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceFabricScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab:getServiceFabricSchedule", {
         "expand": args.expand,

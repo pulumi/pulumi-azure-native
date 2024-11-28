@@ -48,7 +48,7 @@ export interface GetLiveEventStreamEventsResult {
  * Get stream events telemetry of a live event.
  * Azure REST API version: 2022-11-01.
  */
-export function getLiveEventStreamEventsOutput(args: GetLiveEventStreamEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventStreamEventsResult> {
+export function getLiveEventStreamEventsOutput(args: GetLiveEventStreamEventsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveEventStreamEventsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getLiveEventStreamEvents", {
         "accountName": args.accountName,

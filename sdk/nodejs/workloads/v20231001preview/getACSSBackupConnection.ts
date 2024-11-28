@@ -78,7 +78,7 @@ export interface GetACSSBackupConnectionResult {
 /**
  * Gets the backup connection resource of virtual instance for SAP.
  */
-export function getACSSBackupConnectionOutput(args: GetACSSBackupConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACSSBackupConnectionResult> {
+export function getACSSBackupConnectionOutput(args: GetACSSBackupConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetACSSBackupConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getACSSBackupConnection", {
         "backupName": args.backupName,

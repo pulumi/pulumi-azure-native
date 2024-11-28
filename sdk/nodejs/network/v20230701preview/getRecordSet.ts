@@ -139,7 +139,7 @@ export interface GetRecordSetResult {
 /**
  * Gets a record set.
  */
-export function getRecordSetOutput(args: GetRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecordSetResult> {
+export function getRecordSetOutput(args: GetRecordSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRecordSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:getRecordSet", {
         "recordType": args.recordType,

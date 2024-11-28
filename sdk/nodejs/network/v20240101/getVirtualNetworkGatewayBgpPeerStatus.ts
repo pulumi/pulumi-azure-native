@@ -46,7 +46,7 @@ export interface GetVirtualNetworkGatewayBgpPeerStatusResult {
 /**
  * The GetBgpPeerStatus operation retrieves the status of all BGP peers.
  */
-export function getVirtualNetworkGatewayBgpPeerStatusOutput(args: GetVirtualNetworkGatewayBgpPeerStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayBgpPeerStatusResult> {
+export function getVirtualNetworkGatewayBgpPeerStatusOutput(args: GetVirtualNetworkGatewayBgpPeerStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkGatewayBgpPeerStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240101:getVirtualNetworkGatewayBgpPeerStatus", {
         "peer": args.peer,

@@ -73,7 +73,7 @@ export interface GetWorkloadNetworkPublicIPResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function getWorkloadNetworkPublicIPOutput(args: GetWorkloadNetworkPublicIPOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkPublicIPResult> {
+export function getWorkloadNetworkPublicIPOutput(args: GetWorkloadNetworkPublicIPOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadNetworkPublicIPResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getWorkloadNetworkPublicIP", {
         "privateCloudName": args.privateCloudName,

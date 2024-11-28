@@ -108,7 +108,7 @@ export interface GetAccessReviewHistoryDefinitionByIdResult {
 /**
  * Get access review history definition by definition Id
  */
-export function getAccessReviewHistoryDefinitionByIdOutput(args: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
+export function getAccessReviewHistoryDefinitionByIdOutput(args: GetAccessReviewHistoryDefinitionByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessReviewHistoryDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20211201preview:getAccessReviewHistoryDefinitionById", {
         "historyDefinitionId": args.historyDefinitionId,

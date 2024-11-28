@@ -67,7 +67,7 @@ export interface GetReplicationRecoveryServicesProviderResult {
 /**
  * Gets the details of registered recovery services provider.
  */
-export function getReplicationRecoveryServicesProviderOutput(args: GetReplicationRecoveryServicesProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationRecoveryServicesProviderResult> {
+export function getReplicationRecoveryServicesProviderOutput(args: GetReplicationRecoveryServicesProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationRecoveryServicesProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230801:getReplicationRecoveryServicesProvider", {
         "fabricName": args.fabricName,

@@ -89,7 +89,7 @@ export interface GetPoolResult {
 /**
  * Get a Pool
  */
-export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
+export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devopsinfrastructure/v20231030preview:getPool", {
         "poolName": args.poolName,

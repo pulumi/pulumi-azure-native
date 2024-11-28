@@ -65,7 +65,7 @@ export interface GetLinkedStorageAccountResult {
  *
  * Other available API versions: 2023-09-01.
  */
-export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedStorageAccountResult> {
+export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getLinkedStorageAccount", {
         "dataSourceType": args.dataSourceType,

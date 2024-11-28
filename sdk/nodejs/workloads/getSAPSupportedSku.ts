@@ -72,7 +72,7 @@ export interface GetSAPSupportedSkuResult {
  *
  * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
-export function getSAPSupportedSkuOutput(args: GetSAPSupportedSkuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSupportedSkuResult> {
+export function getSAPSupportedSkuOutput(args: GetSAPSupportedSkuOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPSupportedSkuResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPSupportedSku", {
         "appLocation": args.appLocation,

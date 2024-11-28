@@ -75,7 +75,7 @@ export interface GetArtifactManifestResult {
 /**
  * Gets information about a artifact manifest resource.
  */
-export function getArtifactManifestOutput(args: GetArtifactManifestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactManifestResult> {
+export function getArtifactManifestOutput(args: GetArtifactManifestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArtifactManifestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20240415:getArtifactManifest", {
         "artifactManifestName": args.artifactManifestName,

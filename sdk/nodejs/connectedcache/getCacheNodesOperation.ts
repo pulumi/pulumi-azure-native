@@ -67,7 +67,7 @@ export interface GetCacheNodesOperationResult {
  * Retrieves the properties of a cacheNodes
  * Azure REST API version: 2023-05-01-preview.
  */
-export function getCacheNodesOperationOutput(args: GetCacheNodesOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheNodesOperationResult> {
+export function getCacheNodesOperationOutput(args: GetCacheNodesOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCacheNodesOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedcache:getCacheNodesOperation", {
         "customerResourceName": args.customerResourceName,

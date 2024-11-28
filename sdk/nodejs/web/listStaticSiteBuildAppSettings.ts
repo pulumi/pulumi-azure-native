@@ -65,7 +65,7 @@ export interface ListStaticSiteBuildAppSettingsResult {
  *
  * Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function listStaticSiteBuildAppSettingsOutput(args: ListStaticSiteBuildAppSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteBuildAppSettingsResult> {
+export function listStaticSiteBuildAppSettingsOutput(args: ListStaticSiteBuildAppSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStaticSiteBuildAppSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:listStaticSiteBuildAppSettings", {
         "environmentName": args.environmentName,

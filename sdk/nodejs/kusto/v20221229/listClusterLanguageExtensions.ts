@@ -41,7 +41,7 @@ export interface ListClusterLanguageExtensionsResult {
 /**
  * Returns a list of language extensions that can run within KQL queries.
  */
-export function listClusterLanguageExtensionsOutput(args: ListClusterLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterLanguageExtensionsResult> {
+export function listClusterLanguageExtensionsOutput(args: ListClusterLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListClusterLanguageExtensionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto/v20221229:listClusterLanguageExtensions", {
         "clusterName": args.clusterName,

@@ -63,7 +63,7 @@ export interface GetFactoryGitHubAccessTokenResult {
  * Get GitHub Access Token.
  * Azure REST API version: 2018-06-01.
  */
-export function getFactoryGitHubAccessTokenOutput(args: GetFactoryGitHubAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryGitHubAccessTokenResult> {
+export function getFactoryGitHubAccessTokenOutput(args: GetFactoryGitHubAccessTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFactoryGitHubAccessTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getFactoryGitHubAccessToken", {
         "factoryName": args.factoryName,

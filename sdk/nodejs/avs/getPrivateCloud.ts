@@ -147,7 +147,7 @@ export interface GetPrivateCloudResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateCloudResult> {
+export function getPrivateCloudOutput(args: GetPrivateCloudOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateCloudResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getPrivateCloud", {
         "privateCloudName": args.privateCloudName,

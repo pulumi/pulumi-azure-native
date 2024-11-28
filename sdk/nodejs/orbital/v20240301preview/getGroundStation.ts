@@ -93,7 +93,7 @@ export interface GetGroundStationResult {
 /**
  * Gets the specified ground station in a specified resource group.
  */
-export function getGroundStationOutput(args: GetGroundStationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroundStationResult> {
+export function getGroundStationOutput(args: GetGroundStationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroundStationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital/v20240301preview:getGroundStation", {
         "groundStationName": args.groundStationName,

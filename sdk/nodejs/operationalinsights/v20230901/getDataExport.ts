@@ -79,7 +79,7 @@ export interface GetDataExportResult {
 /**
  * Gets a data export instance.
  */
-export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataExportResult> {
+export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataExportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20230901:getDataExport", {
         "dataExportName": args.dataExportName,

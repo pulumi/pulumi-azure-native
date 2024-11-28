@@ -83,7 +83,7 @@ export interface ListWorkflowVersionCallbackUrlResult {
  * Get the callback url for a trigger of a workflow version.
  * Azure REST API version: 2016-06-01.
  */
-export function listWorkflowVersionCallbackUrlOutput(args: ListWorkflowVersionCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowVersionCallbackUrlResult> {
+export function listWorkflowVersionCallbackUrlOutput(args: ListWorkflowVersionCallbackUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkflowVersionCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:listWorkflowVersionCallbackUrl", {
         "keyType": args.keyType,

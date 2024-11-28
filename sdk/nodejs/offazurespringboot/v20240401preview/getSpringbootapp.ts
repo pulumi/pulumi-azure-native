@@ -62,7 +62,7 @@ export interface GetSpringbootappResult {
 /**
  * Get a springbootapps resource.
  */
-export function getSpringbootappOutput(args: GetSpringbootappOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringbootappResult> {
+export function getSpringbootappOutput(args: GetSpringbootappOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpringbootappResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazurespringboot/v20240401preview:getSpringbootapp", {
         "resourceGroupName": args.resourceGroupName,

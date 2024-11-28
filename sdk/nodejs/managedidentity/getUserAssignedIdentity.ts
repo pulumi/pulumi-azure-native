@@ -79,7 +79,7 @@ export interface GetUserAssignedIdentityResult {
  *
  * Other available API versions: 2015-08-31-preview, 2023-07-31-preview.
  */
-export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
+export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserAssignedIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managedidentity:getUserAssignedIdentity", {
         "resourceGroupName": args.resourceGroupName,

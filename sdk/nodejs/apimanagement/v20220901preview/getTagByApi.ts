@@ -60,7 +60,7 @@ export interface GetTagByApiResult {
 /**
  * Get tag associated with the API.
  */
-export function getTagByApiOutput(args: GetTagByApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByApiResult> {
+export function getTagByApiOutput(args: GetTagByApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagByApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220901preview:getTagByApi", {
         "apiId": args.apiId,

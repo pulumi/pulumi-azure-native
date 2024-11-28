@@ -130,7 +130,7 @@ export interface GetKubernetesClusterResult {
 /**
  * Get properties of the provided the Kubernetes cluster.
  */
-export function getKubernetesClusterOutput(args: GetKubernetesClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesClusterResult> {
+export function getKubernetesClusterOutput(args: GetKubernetesClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240701:getKubernetesCluster", {
         "kubernetesClusterName": args.kubernetesClusterName,

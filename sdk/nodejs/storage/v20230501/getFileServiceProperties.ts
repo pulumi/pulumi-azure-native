@@ -70,7 +70,7 @@ export interface GetFileServicePropertiesResult {
 /**
  * Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
  */
-export function getFileServicePropertiesOutput(args: GetFileServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileServicePropertiesResult> {
+export function getFileServicePropertiesOutput(args: GetFileServicePropertiesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileServicePropertiesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230501:getFileServiceProperties", {
         "accountName": args.accountName,

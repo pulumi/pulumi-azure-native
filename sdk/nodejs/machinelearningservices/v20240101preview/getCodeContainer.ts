@@ -62,7 +62,7 @@ export interface GetCodeContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getCodeContainerOutput(args: GetCodeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeContainerResult> {
+export function getCodeContainerOutput(args: GetCodeContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:getCodeContainer", {
         "name": args.name,

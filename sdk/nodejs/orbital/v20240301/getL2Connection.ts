@@ -77,7 +77,7 @@ export interface GetL2ConnectionResult {
 /**
  * Gets the specified L2 connection in a specified resource group.
  */
-export function getL2ConnectionOutput(args: GetL2ConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2ConnectionResult> {
+export function getL2ConnectionOutput(args: GetL2ConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL2ConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital/v20240301:getL2Connection", {
         "l2ConnectionName": args.l2ConnectionName,

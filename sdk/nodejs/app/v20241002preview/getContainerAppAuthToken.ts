@@ -69,7 +69,7 @@ export interface GetContainerAppAuthTokenResult {
 /**
  * Container App Auth Token.
  */
-export function getContainerAppAuthTokenOutput(args: GetContainerAppAuthTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppAuthTokenResult> {
+export function getContainerAppAuthTokenOutput(args: GetContainerAppAuthTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerAppAuthTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20241002preview:getContainerAppAuthToken", {
         "containerAppName": args.containerAppName,

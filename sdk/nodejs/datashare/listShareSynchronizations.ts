@@ -67,7 +67,7 @@ export interface ListShareSynchronizationsResult {
  * List synchronizations of a share
  * Azure REST API version: 2021-08-01.
  */
-export function listShareSynchronizationsOutput(args: ListShareSynchronizationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSynchronizationsResult> {
+export function listShareSynchronizationsOutput(args: ListShareSynchronizationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListShareSynchronizationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:listShareSynchronizations", {
         "accountName": args.accountName,

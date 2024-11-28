@@ -50,7 +50,7 @@ export interface ListWebhookEventsResult {
 /**
  * Lists recent events for the specified webhook.
  */
-export function listWebhookEventsOutput(args: ListWebhookEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebhookEventsResult> {
+export function listWebhookEventsOutput(args: ListWebhookEventsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebhookEventsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230101preview:listWebhookEvents", {
         "registryName": args.registryName,

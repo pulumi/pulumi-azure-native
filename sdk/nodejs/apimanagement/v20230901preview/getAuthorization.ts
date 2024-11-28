@@ -79,7 +79,7 @@ export interface GetAuthorizationResult {
 /**
  * Gets the details of the authorization specified by its identifier.
  */
-export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationResult> {
+export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getAuthorization", {
         "authorizationId": args.authorizationId,

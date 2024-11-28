@@ -57,7 +57,7 @@ export interface GetCustomizationTaskErrorDetailsResult {
  *
  * Other available API versions: 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
-export function getCustomizationTaskErrorDetailsOutput(args: GetCustomizationTaskErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizationTaskErrorDetailsResult> {
+export function getCustomizationTaskErrorDetailsOutput(args: GetCustomizationTaskErrorDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomizationTaskErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter:getCustomizationTaskErrorDetails", {
         "catalogName": args.catalogName,

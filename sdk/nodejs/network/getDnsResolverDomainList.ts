@@ -79,7 +79,7 @@ export interface GetDnsResolverDomainListResult {
  * Gets properties of a DNS resolver domain list.
  * Azure REST API version: 2023-07-01-preview.
  */
-export function getDnsResolverDomainListOutput(args: GetDnsResolverDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverDomainListResult> {
+export function getDnsResolverDomainListOutput(args: GetDnsResolverDomainListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsResolverDomainListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getDnsResolverDomainList", {
         "dnsResolverDomainListName": args.dnsResolverDomainListName,

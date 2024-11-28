@@ -59,7 +59,7 @@ export interface GetAccessPolicyResult {
 /**
  * Gets the detailed information about an access policy of a redis cache
  */
-export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
+export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache/v20240301:getAccessPolicy", {
         "accessPolicyName": args.accessPolicyName,

@@ -47,7 +47,7 @@ export interface ListServerlessEndpointKeysResult {
 /**
  * Keys for endpoint authentication.
  */
-export function listServerlessEndpointKeysOutput(args: ListServerlessEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerlessEndpointKeysResult> {
+export function listServerlessEndpointKeysOutput(args: ListServerlessEndpointKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListServerlessEndpointKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001preview:listServerlessEndpointKeys", {
         "name": args.name,

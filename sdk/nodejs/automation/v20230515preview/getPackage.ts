@@ -99,7 +99,7 @@ export interface GetPackageResult {
 /**
  * Retrieve the Package identified by Package name.
  */
-export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
+export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getPackage", {
         "automationAccountName": args.automationAccountName,

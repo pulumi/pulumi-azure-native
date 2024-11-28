@@ -82,7 +82,7 @@ export interface GetHybridConnectionResult {
 /**
  * Returns the description for the specified hybrid connection.
  */
-export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionResult> {
+export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay/v20211101:getHybridConnection", {
         "hybridConnectionName": args.hybridConnectionName,

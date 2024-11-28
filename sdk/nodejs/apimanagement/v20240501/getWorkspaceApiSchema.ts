@@ -81,7 +81,7 @@ export interface GetWorkspaceApiSchemaResult {
 /**
  * Get the schema configuration at the API level.
  */
-export function getWorkspaceApiSchemaOutput(args: GetWorkspaceApiSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiSchemaResult> {
+export function getWorkspaceApiSchemaOutput(args: GetWorkspaceApiSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceApiSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getWorkspaceApiSchema", {
         "apiId": args.apiId,

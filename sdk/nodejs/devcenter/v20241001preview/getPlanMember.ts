@@ -82,7 +82,7 @@ export interface GetPlanMemberResult {
 /**
  * Gets a devcenter plan member.
  */
-export function getPlanMemberOutput(args: GetPlanMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanMemberResult> {
+export function getPlanMemberOutput(args: GetPlanMemberOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlanMemberResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20241001preview:getPlanMember", {
         "memberName": args.memberName,

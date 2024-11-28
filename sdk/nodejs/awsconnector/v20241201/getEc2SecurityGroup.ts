@@ -65,7 +65,7 @@ export interface GetEc2SecurityGroupResult {
 /**
  * Get a Ec2SecurityGroup
  */
-export function getEc2SecurityGroupOutput(args: GetEc2SecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2SecurityGroupResult> {
+export function getEc2SecurityGroupOutput(args: GetEc2SecurityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2SecurityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2SecurityGroup", {
         "name": args.name,

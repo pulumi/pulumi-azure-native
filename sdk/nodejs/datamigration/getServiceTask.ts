@@ -77,7 +77,7 @@ export interface GetServiceTaskResult {
  *
  * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
-export function getServiceTaskOutput(args: GetServiceTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTaskResult> {
+export function getServiceTaskOutput(args: GetServiceTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration:getServiceTask", {
         "expand": args.expand,

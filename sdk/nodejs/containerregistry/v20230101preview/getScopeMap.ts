@@ -76,7 +76,7 @@ export interface GetScopeMapResult {
 /**
  * Gets the properties of the specified scope map.
  */
-export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeMapResult> {
+export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScopeMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230101preview:getScopeMap", {
         "registryName": args.registryName,

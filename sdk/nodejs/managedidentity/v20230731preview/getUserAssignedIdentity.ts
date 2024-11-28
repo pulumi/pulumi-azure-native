@@ -73,7 +73,7 @@ export interface GetUserAssignedIdentityResult {
 /**
  * Gets the identity.
  */
-export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserAssignedIdentityResult> {
+export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserAssignedIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managedidentity/v20230731preview:getUserAssignedIdentity", {
         "resourceGroupName": args.resourceGroupName,

@@ -47,7 +47,7 @@ export interface ListBatchEndpointKeysResult {
 /**
  * Keys for endpoint authentication.
  */
-export function listBatchEndpointKeysOutput(args: ListBatchEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBatchEndpointKeysResult> {
+export function listBatchEndpointKeysOutput(args: ListBatchEndpointKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBatchEndpointKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:listBatchEndpointKeys", {
         "endpointName": args.endpointName,

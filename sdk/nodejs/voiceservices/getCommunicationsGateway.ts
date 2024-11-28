@@ -127,7 +127,7 @@ export interface GetCommunicationsGatewayResult {
  *
  * Other available API versions: 2023-09-01.
  */
-export function getCommunicationsGatewayOutput(args: GetCommunicationsGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationsGatewayResult> {
+export function getCommunicationsGatewayOutput(args: GetCommunicationsGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommunicationsGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:voiceservices:getCommunicationsGateway", {
         "communicationsGatewayName": args.communicationsGatewayName,

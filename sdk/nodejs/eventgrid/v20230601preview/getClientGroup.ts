@@ -71,7 +71,7 @@ export interface GetClientGroupResult {
 /**
  * Get properties of a client group.
  */
-export function getClientGroupOutput(args: GetClientGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientGroupResult> {
+export function getClientGroupOutput(args: GetClientGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClientGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20230601preview:getClientGroup", {
         "clientGroupName": args.clientGroupName,

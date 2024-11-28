@@ -105,7 +105,7 @@ export interface GetMyWorkbookResult {
 /**
  * Get a single private workbook by its resourceName.
  */
-export function getMyWorkbookOutput(args: GetMyWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMyWorkbookResult> {
+export function getMyWorkbookOutput(args: GetMyWorkbookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMyWorkbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20210308:getMyWorkbook", {
         "resourceGroupName": args.resourceGroupName,

@@ -74,7 +74,7 @@ export interface GetObjectReplicationPolicyResult {
 /**
  * Get the object replication policy of the storage account by policy ID.
  */
-export function getObjectReplicationPolicyOutput(args: GetObjectReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectReplicationPolicyResult> {
+export function getObjectReplicationPolicyOutput(args: GetObjectReplicationPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetObjectReplicationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20220901:getObjectReplicationPolicy", {
         "accountName": args.accountName,

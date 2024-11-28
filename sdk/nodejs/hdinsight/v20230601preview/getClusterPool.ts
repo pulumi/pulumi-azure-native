@@ -101,7 +101,7 @@ export interface GetClusterPoolResult {
 /**
  * Gets a cluster pool.
  */
-export function getClusterPoolOutput(args: GetClusterPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPoolResult> {
+export function getClusterPoolOutput(args: GetClusterPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hdinsight/v20230601preview:getClusterPool", {
         "clusterPoolName": args.clusterPoolName,

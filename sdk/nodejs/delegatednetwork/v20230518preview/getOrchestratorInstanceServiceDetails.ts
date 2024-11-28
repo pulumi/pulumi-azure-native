@@ -97,7 +97,7 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
 /**
  * Gets details about the orchestrator instance.
  */
-export function getOrchestratorInstanceServiceDetailsOutput(args: GetOrchestratorInstanceServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrchestratorInstanceServiceDetailsResult> {
+export function getOrchestratorInstanceServiceDetailsOutput(args: GetOrchestratorInstanceServiceDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrchestratorInstanceServiceDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:delegatednetwork/v20230518preview:getOrchestratorInstanceServiceDetails", {
         "resourceGroupName": args.resourceGroupName,

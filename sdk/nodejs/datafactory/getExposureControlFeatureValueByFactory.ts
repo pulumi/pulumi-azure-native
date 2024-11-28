@@ -54,7 +54,7 @@ export interface GetExposureControlFeatureValueByFactoryResult {
  * Get exposure control feature for specific factory.
  * Azure REST API version: 2018-06-01.
  */
-export function getExposureControlFeatureValueByFactoryOutput(args: GetExposureControlFeatureValueByFactoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExposureControlFeatureValueByFactoryResult> {
+export function getExposureControlFeatureValueByFactoryOutput(args: GetExposureControlFeatureValueByFactoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExposureControlFeatureValueByFactoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getExposureControlFeatureValueByFactory", {
         "factoryName": args.factoryName,

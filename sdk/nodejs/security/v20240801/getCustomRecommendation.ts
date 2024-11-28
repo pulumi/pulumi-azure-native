@@ -85,7 +85,7 @@ export interface GetCustomRecommendationResult {
 /**
  * Get a specific custom recommendation for the requested scope by customRecommendationName
  */
-export function getCustomRecommendationOutput(args: GetCustomRecommendationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomRecommendationResult> {
+export function getCustomRecommendationOutput(args: GetCustomRecommendationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomRecommendationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20240801:getCustomRecommendation", {
         "customRecommendationName": args.customRecommendationName,

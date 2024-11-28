@@ -73,7 +73,7 @@ export interface GetBackupVaultResult {
 /**
  * Returns a resource belonging to a resource group.
  */
-export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupVaultResult> {
+export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dataprotection/v20231101:getBackupVault", {
         "resourceGroupName": args.resourceGroupName,

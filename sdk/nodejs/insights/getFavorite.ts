@@ -85,7 +85,7 @@ export interface GetFavoriteResult {
  * Get a single favorite by its FavoriteId, defined within an Application Insights component.
  * Azure REST API version: 2015-05-01.
  */
-export function getFavoriteOutput(args: GetFavoriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteResult> {
+export function getFavoriteOutput(args: GetFavoriteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFavoriteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getFavorite", {
         "favoriteId": args.favoriteId,

@@ -75,7 +75,7 @@ export interface GetLinkerDryrunResult {
  *
  * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
  */
-export function getLinkerDryrunOutput(args: GetLinkerDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerDryrunResult> {
+export function getLinkerDryrunOutput(args: GetLinkerDryrunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkerDryrunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicelinker:getLinkerDryrun", {
         "dryrunName": args.dryrunName,

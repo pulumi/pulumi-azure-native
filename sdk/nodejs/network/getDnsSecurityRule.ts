@@ -92,7 +92,7 @@ export interface GetDnsSecurityRuleResult {
  * Gets properties of a DNS security rule for a DNS resolver policy.
  * Azure REST API version: 2023-07-01-preview.
  */
-export function getDnsSecurityRuleOutput(args: GetDnsSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsSecurityRuleResult> {
+export function getDnsSecurityRuleOutput(args: GetDnsSecurityRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsSecurityRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getDnsSecurityRule", {
         "dnsResolverPolicyName": args.dnsResolverPolicyName,

@@ -66,7 +66,7 @@ export interface GetWorkspaceManagerConfigurationResult {
 /**
  * Gets a workspace manager configuration
  */
-export function getWorkspaceManagerConfigurationOutput(args: GetWorkspaceManagerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerConfigurationResult> {
+export function getWorkspaceManagerConfigurationOutput(args: GetWorkspaceManagerConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceManagerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230601preview:getWorkspaceManagerConfiguration", {
         "resourceGroupName": args.resourceGroupName,

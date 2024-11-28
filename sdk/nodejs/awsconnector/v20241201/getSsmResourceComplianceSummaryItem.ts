@@ -65,7 +65,7 @@ export interface GetSsmResourceComplianceSummaryItemResult {
 /**
  * Get a SsmResourceComplianceSummaryItem
  */
-export function getSsmResourceComplianceSummaryItemOutput(args: GetSsmResourceComplianceSummaryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmResourceComplianceSummaryItemResult> {
+export function getSsmResourceComplianceSummaryItemOutput(args: GetSsmResourceComplianceSummaryItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSsmResourceComplianceSummaryItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSsmResourceComplianceSummaryItem", {
         "name": args.name,

@@ -94,7 +94,7 @@ export interface GetSuppressionListAddressResult {
  * Get a SuppressionListAddress.
  * Azure REST API version: 2023-06-01-preview.
  */
-export function getSuppressionListAddressOutput(args: GetSuppressionListAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionListAddressResult> {
+export function getSuppressionListAddressOutput(args: GetSuppressionListAddressOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSuppressionListAddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:communication:getSuppressionListAddress", {
         "addressId": args.addressId,

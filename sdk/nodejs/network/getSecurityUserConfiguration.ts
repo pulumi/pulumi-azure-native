@@ -80,7 +80,7 @@ export interface GetSecurityUserConfigurationResult {
  *
  * Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
  */
-export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityUserConfigurationResult> {
+export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityUserConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getSecurityUserConfiguration", {
         "configurationName": args.configurationName,

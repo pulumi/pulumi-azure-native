@@ -88,7 +88,7 @@ export interface GetSharedPrivateLinkResourceResult {
  *
  * Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
  */
-export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {
+export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databasewatcher:getSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,

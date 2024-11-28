@@ -45,7 +45,7 @@ export interface ListGitLabGroupAvailableResult {
 /**
  * List of RP resources which supports pagination.
  */
-export function listGitLabGroupAvailableOutput(args: ListGitLabGroupAvailableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGitLabGroupAvailableResult> {
+export function listGitLabGroupAvailableOutput(args: ListGitLabGroupAvailableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGitLabGroupAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20240515preview:listGitLabGroupAvailable", {
         "resourceGroupName": args.resourceGroupName,

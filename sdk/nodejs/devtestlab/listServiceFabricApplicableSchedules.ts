@@ -77,7 +77,7 @@ export interface ListServiceFabricApplicableSchedulesResult {
  * Lists the applicable start/stop schedules, if any.
  * Azure REST API version: 2018-09-15.
  */
-export function listServiceFabricApplicableSchedulesOutput(args: ListServiceFabricApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceFabricApplicableSchedulesResult> {
+export function listServiceFabricApplicableSchedulesOutput(args: ListServiceFabricApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListServiceFabricApplicableSchedulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab:listServiceFabricApplicableSchedules", {
         "labName": args.labName,

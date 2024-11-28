@@ -98,7 +98,7 @@ export interface GetAgreementResult {
 /**
  * Gets an integration account agreement.
  */
-export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgreementResult> {
+export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgreementResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20160601:getAgreement", {
         "agreementName": args.agreementName,

@@ -46,7 +46,7 @@ export interface ListBillingAccountInvoiceSectionsByCreateSubscriptionPermission
  *
  * Other available API versions: 2019-10-01-preview, 2024-04-01.
  */
-export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
+export function listBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutput(args: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:billing:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", {
         "billingAccountName": args.billingAccountName,

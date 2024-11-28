@@ -67,7 +67,7 @@ export interface GetRoute53DomainsDomainSummaryResult {
  * Get a Route53DomainsDomainSummary
  * Azure REST API version: 2024-12-01.
  */
-export function getRoute53DomainsDomainSummaryOutput(args: GetRoute53DomainsDomainSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoute53DomainsDomainSummaryResult> {
+export function getRoute53DomainsDomainSummaryOutput(args: GetRoute53DomainsDomainSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoute53DomainsDomainSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getRoute53DomainsDomainSummary", {
         "name": args.name,

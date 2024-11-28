@@ -70,7 +70,7 @@ export interface GetPartnerRegistrationResult {
 /**
  * Gets a partner registration with the specified parameters.
  */
-export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerRegistrationResult> {
+export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getPartnerRegistration", {
         "partnerRegistrationName": args.partnerRegistrationName,

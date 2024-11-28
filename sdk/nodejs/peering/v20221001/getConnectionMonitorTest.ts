@@ -79,7 +79,7 @@ export interface GetConnectionMonitorTestResult {
 /**
  * Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
  */
-export function getConnectionMonitorTestOutput(args: GetConnectionMonitorTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorTestResult> {
+export function getConnectionMonitorTestOutput(args: GetConnectionMonitorTestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionMonitorTestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:peering/v20221001:getConnectionMonitorTest", {
         "connectionMonitorTestName": args.connectionMonitorTestName,

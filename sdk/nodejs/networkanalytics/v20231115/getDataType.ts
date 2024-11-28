@@ -86,7 +86,7 @@ export interface GetDataTypeResult {
 /**
  * Retrieve data type resource.
  */
-export function getDataTypeOutput(args: GetDataTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataTypeResult> {
+export function getDataTypeOutput(args: GetDataTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkanalytics/v20231115:getDataType", {
         "dataProductName": args.dataProductName,

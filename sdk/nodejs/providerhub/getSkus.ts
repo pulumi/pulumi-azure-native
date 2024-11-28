@@ -58,7 +58,7 @@ export interface GetSkusResult {
  * Gets the sku details for the given resource type and sku name.
  * Azure REST API version: 2021-09-01-preview.
  */
-export function getSkusOutput(args: GetSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusResult> {
+export function getSkusOutput(args: GetSkusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSkusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:providerhub:getSkus", {
         "providerNamespace": args.providerNamespace,

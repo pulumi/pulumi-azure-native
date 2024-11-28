@@ -84,7 +84,7 @@ export interface GetManagedPrivateEndpointResult {
  *
  * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
  */
-export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
+export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto:getManagedPrivateEndpoint", {
         "clusterName": args.clusterName,

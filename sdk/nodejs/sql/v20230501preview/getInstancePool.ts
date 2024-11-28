@@ -81,7 +81,7 @@ export interface GetInstancePoolResult {
 /**
  * Gets an instance pool.
  */
-export function getInstancePoolOutput(args: GetInstancePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancePoolResult> {
+export function getInstancePoolOutput(args: GetInstancePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstancePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230501preview:getInstancePool", {
         "instancePoolName": args.instancePoolName,

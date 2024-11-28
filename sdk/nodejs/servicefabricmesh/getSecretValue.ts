@@ -69,7 +69,7 @@ export interface GetSecretValueResult {
  * Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
  * Azure REST API version: 2018-09-01-preview.
  */
-export function getSecretValueOutput(args: GetSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretValueResult> {
+export function getSecretValueOutput(args: GetSecretValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh:getSecretValue", {
         "resourceGroupName": args.resourceGroupName,

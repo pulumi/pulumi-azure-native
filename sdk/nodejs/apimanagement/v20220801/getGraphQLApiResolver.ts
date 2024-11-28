@@ -68,7 +68,7 @@ export interface GetGraphQLApiResolverResult {
 /**
  * Gets the details of the GraphQL API Resolver specified by its identifier.
  */
-export function getGraphQLApiResolverOutput(args: GetGraphQLApiResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResolverResult> {
+export function getGraphQLApiResolverOutput(args: GetGraphQLApiResolverOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGraphQLApiResolverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220801:getGraphQLApiResolver", {
         "apiId": args.apiId,

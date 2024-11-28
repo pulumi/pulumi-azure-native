@@ -66,7 +66,7 @@ export interface GetGalleryInVMAccessControlProfileResult {
 /**
  * Retrieves information about a gallery inVMAccessControlProfile.
  */
-export function getGalleryInVMAccessControlProfileOutput(args: GetGalleryInVMAccessControlProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryInVMAccessControlProfileResult> {
+export function getGalleryInVMAccessControlProfileOutput(args: GetGalleryInVMAccessControlProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryInVMAccessControlProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20240303:getGalleryInVMAccessControlProfile", {
         "galleryName": args.galleryName,

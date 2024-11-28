@@ -67,7 +67,7 @@ export interface GetAssessmentResult {
 /**
  * Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
  */
-export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
+export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20191001:getAssessment", {
         "assessmentName": args.assessmentName,

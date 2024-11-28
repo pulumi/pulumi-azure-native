@@ -74,7 +74,7 @@ export interface GetApiOperationPolicyResult {
 /**
  * Get the policy configuration at the API Operation level.
  */
-export function getApiOperationPolicyOutput(args: GetApiOperationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationPolicyResult> {
+export function getApiOperationPolicyOutput(args: GetApiOperationPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiOperationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getApiOperationPolicy", {
         "apiId": args.apiId,

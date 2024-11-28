@@ -71,7 +71,7 @@ export interface ListCatalogDevicesResult {
  *
  * Other available API versions: 2024-04-01.
  */
-export function listCatalogDevicesOutput(args: ListCatalogDevicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDevicesResult> {
+export function listCatalogDevicesOutput(args: ListCatalogDevicesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListCatalogDevicesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere:listCatalogDevices", {
         "catalogName": args.catalogName,

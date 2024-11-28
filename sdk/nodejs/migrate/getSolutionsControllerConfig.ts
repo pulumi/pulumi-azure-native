@@ -45,7 +45,7 @@ export interface GetSolutionsControllerConfigResult {
  * Class representing the config for the solution in the migrate project.
  * Azure REST API version: 2023-01-01.
  */
-export function getSolutionsControllerConfigOutput(args: GetSolutionsControllerConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionsControllerConfigResult> {
+export function getSolutionsControllerConfigOutput(args: GetSolutionsControllerConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionsControllerConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getSolutionsControllerConfig", {
         "migrateProjectName": args.migrateProjectName,

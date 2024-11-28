@@ -118,7 +118,7 @@ export interface GetMachineRunCommandResult {
 /**
  * The operation to get a run command.
  */
-export function getMachineRunCommandOutput(args: GetMachineRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineRunCommandResult> {
+export function getMachineRunCommandOutput(args: GetMachineRunCommandOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineRunCommandResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcompute/v20240910preview:getMachineRunCommand", {
         "machineName": args.machineName,

@@ -89,7 +89,7 @@ export interface GetZoneResult {
 /**
  * Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
  */
-export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
+export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetZoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20180501:getZone", {
         "resourceGroupName": args.resourceGroupName,

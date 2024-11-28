@@ -73,7 +73,7 @@ export interface GetFeaturestoreEntityVersionResult {
  *
  * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
  */
-export function getFeaturestoreEntityVersionOutput(args: GetFeaturestoreEntityVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeaturestoreEntityVersionResult> {
+export function getFeaturestoreEntityVersionOutput(args: GetFeaturestoreEntityVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFeaturestoreEntityVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getFeaturestoreEntityVersion", {
         "name": args.name,

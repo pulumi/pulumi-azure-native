@@ -47,7 +47,7 @@ export interface GetTestBaseAccountFileUploadUrlResult {
 /**
  * Gets the file upload URL of a Test Base Account.
  */
-export function getTestBaseAccountFileUploadUrlOutput(args: GetTestBaseAccountFileUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestBaseAccountFileUploadUrlResult> {
+export function getTestBaseAccountFileUploadUrlOutput(args: GetTestBaseAccountFileUploadUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestBaseAccountFileUploadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getTestBaseAccountFileUploadUrl", {
         "blobName": args.blobName,

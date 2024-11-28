@@ -65,7 +65,7 @@ export interface GetIamPolicyVersionResult {
 /**
  * Get a IamPolicyVersion
  */
-export function getIamPolicyVersionOutput(args: GetIamPolicyVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamPolicyVersionResult> {
+export function getIamPolicyVersionOutput(args: GetIamPolicyVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamPolicyVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamPolicyVersion", {
         "name": args.name,

@@ -103,7 +103,7 @@ export interface GetVirtualmachineRetrieveResult {
 /**
  * Gets virtual machines by resource name
  */
-export function getVirtualmachineRetrieveOutput(args: GetVirtualmachineRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualmachineRetrieveResult> {
+export function getVirtualmachineRetrieveOutput(args: GetVirtualmachineRetrieveOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualmachineRetrieveResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20210901preview:getVirtualmachineRetrieve", {
         "resourceGroupName": args.resourceGroupName,

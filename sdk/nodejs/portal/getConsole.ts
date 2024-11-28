@@ -38,7 +38,7 @@ export interface GetConsoleResult {
  * Gets the console for the user.
  * Azure REST API version: 2018-10-01.
  */
-export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
+export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portal:getConsole", {
         "consoleName": args.consoleName,

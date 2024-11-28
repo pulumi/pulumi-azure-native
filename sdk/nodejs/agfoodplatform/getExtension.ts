@@ -92,7 +92,7 @@ export interface GetExtensionResult {
  *
  * Other available API versions: 2021-09-01-preview.
  */
-export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
+export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:agfoodplatform:getExtension", {
         "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,

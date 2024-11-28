@@ -102,7 +102,7 @@ export interface GetL2NetworkResult {
 /**
  * Get properties of the provided layer 2 (L2) network.
  */
-export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2NetworkResult> {
+export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL2NetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240601preview:getL2Network", {
         "l2NetworkName": args.l2NetworkName,

@@ -67,7 +67,7 @@ export interface GetBuildServiceAgentPoolResult {
 /**
  * Get build service agent pool.
  */
-export function getBuildServiceAgentPoolOutput(args: GetBuildServiceAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceAgentPoolResult> {
+export function getBuildServiceAgentPoolOutput(args: GetBuildServiceAgentPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuildServiceAgentPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240501preview:getBuildServiceAgentPool", {
         "agentPoolName": args.agentPoolName,

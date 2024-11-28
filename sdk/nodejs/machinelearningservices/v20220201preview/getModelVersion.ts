@@ -67,7 +67,7 @@ export interface GetModelVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getModelVersionOutput(args: GetModelVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelVersionResult> {
+export function getModelVersionOutput(args: GetModelVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModelVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20220201preview:getModelVersion", {
         "name": args.name,

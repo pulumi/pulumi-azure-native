@@ -137,7 +137,7 @@ export interface GetVirtualMachineTemplateResult {
 /**
  * Implements VirtualMachineTemplate GET method.
  */
-export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
+export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm/v20240601:getVirtualMachineTemplate", {
         "resourceGroupName": args.resourceGroupName,

@@ -78,7 +78,7 @@ export interface ListIntegrationAccountAgreementContentCallbackUrlResult {
  * Get the content callback url.
  * Azure REST API version: 2019-05-01.
  */
-export function listIntegrationAccountAgreementContentCallbackUrlOutput(args: ListIntegrationAccountAgreementContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountAgreementContentCallbackUrlResult> {
+export function listIntegrationAccountAgreementContentCallbackUrlOutput(args: ListIntegrationAccountAgreementContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIntegrationAccountAgreementContentCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:listIntegrationAccountAgreementContentCallbackUrl", {
         "agreementName": args.agreementName,

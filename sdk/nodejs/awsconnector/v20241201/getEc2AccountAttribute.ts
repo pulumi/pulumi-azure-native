@@ -65,7 +65,7 @@ export interface GetEc2AccountAttributeResult {
 /**
  * Get a Ec2AccountAttribute
  */
-export function getEc2AccountAttributeOutput(args: GetEc2AccountAttributeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2AccountAttributeResult> {
+export function getEc2AccountAttributeOutput(args: GetEc2AccountAttributeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2AccountAttributeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2AccountAttribute", {
         "name": args.name,

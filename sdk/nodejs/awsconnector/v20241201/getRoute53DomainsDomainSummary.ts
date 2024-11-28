@@ -65,7 +65,7 @@ export interface GetRoute53DomainsDomainSummaryResult {
 /**
  * Get a Route53DomainsDomainSummary
  */
-export function getRoute53DomainsDomainSummaryOutput(args: GetRoute53DomainsDomainSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoute53DomainsDomainSummaryResult> {
+export function getRoute53DomainsDomainSummaryOutput(args: GetRoute53DomainsDomainSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoute53DomainsDomainSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRoute53DomainsDomainSummary", {
         "name": args.name,

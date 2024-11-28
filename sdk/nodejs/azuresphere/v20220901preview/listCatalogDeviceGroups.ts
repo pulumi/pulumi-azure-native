@@ -70,7 +70,7 @@ export interface ListCatalogDeviceGroupsResult {
 /**
  * List the device groups for the catalog.
  */
-export function listCatalogDeviceGroupsOutput(args: ListCatalogDeviceGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDeviceGroupsResult> {
+export function listCatalogDeviceGroupsOutput(args: ListCatalogDeviceGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListCatalogDeviceGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20220901preview:listCatalogDeviceGroups", {
         "catalogName": args.catalogName,

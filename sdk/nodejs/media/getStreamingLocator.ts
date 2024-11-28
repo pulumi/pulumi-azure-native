@@ -104,7 +104,7 @@ export interface GetStreamingLocatorResult {
  *
  * Other available API versions: 2018-03-30-preview.
  */
-export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingLocatorResult> {
+export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamingLocatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getStreamingLocator", {
         "accountName": args.accountName,

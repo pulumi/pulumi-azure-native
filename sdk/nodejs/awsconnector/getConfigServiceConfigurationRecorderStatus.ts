@@ -67,7 +67,7 @@ export interface GetConfigServiceConfigurationRecorderStatusResult {
  * Get a ConfigServiceConfigurationRecorderStatus
  * Azure REST API version: 2024-12-01.
  */
-export function getConfigServiceConfigurationRecorderStatusOutput(args: GetConfigServiceConfigurationRecorderStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServiceConfigurationRecorderStatusResult> {
+export function getConfigServiceConfigurationRecorderStatusOutput(args: GetConfigServiceConfigurationRecorderStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigServiceConfigurationRecorderStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getConfigServiceConfigurationRecorderStatus", {
         "name": args.name,

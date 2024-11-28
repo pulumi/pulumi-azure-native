@@ -84,7 +84,7 @@ export interface GetLocalRuleCountersResult {
 /**
  * Get counters
  */
-export function getLocalRuleCountersOutput(args: GetLocalRuleCountersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRuleCountersResult> {
+export function getLocalRuleCountersOutput(args: GetLocalRuleCountersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRuleCountersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901preview:getLocalRuleCounters", {
         "firewallName": args.firewallName,

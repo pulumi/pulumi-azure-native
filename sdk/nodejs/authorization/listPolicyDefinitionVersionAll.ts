@@ -42,7 +42,7 @@ export interface ListPolicyDefinitionVersionAllResult {
  *
  * Other available API versions: 2024-05-01, 2025-01-01.
  */
-export function listPolicyDefinitionVersionAllOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicyDefinitionVersionAllResult> {
+export function listPolicyDefinitionVersionAllOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPolicyDefinitionVersionAllResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:listPolicyDefinitionVersionAll", {
     }, opts);

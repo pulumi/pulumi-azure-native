@@ -67,7 +67,7 @@ export interface GetS3BucketPolicyResult {
  * Get a S3BucketPolicy
  * Azure REST API version: 2024-12-01.
  */
-export function getS3BucketPolicyOutput(args: GetS3BucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3BucketPolicyResult> {
+export function getS3BucketPolicyOutput(args: GetS3BucketPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetS3BucketPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getS3BucketPolicy", {
         "name": args.name,

@@ -90,7 +90,7 @@ export interface GetPolicyDefinitionVersionAtManagementGroupResult {
 /**
  * This operation retrieves the policy definition version in the given management group with the given name.
  */
-export function getPolicyDefinitionVersionAtManagementGroupOutput(args: GetPolicyDefinitionVersionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionVersionAtManagementGroupResult> {
+export function getPolicyDefinitionVersionAtManagementGroupOutput(args: GetPolicyDefinitionVersionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyDefinitionVersionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20250101:getPolicyDefinitionVersionAtManagementGroup", {
         "managementGroupName": args.managementGroupName,

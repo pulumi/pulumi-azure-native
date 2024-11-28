@@ -77,7 +77,7 @@ export interface GetTunnelPolicyResult {
  * Gets an existing tunnel policy within a profile.
  * Azure REST API version: 2024-06-01-preview.
  */
-export function getTunnelPolicyOutput(args: GetTunnelPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTunnelPolicyResult> {
+export function getTunnelPolicyOutput(args: GetTunnelPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTunnelPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn:getTunnelPolicy", {
         "profileName": args.profileName,

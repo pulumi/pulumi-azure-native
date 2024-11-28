@@ -71,7 +71,7 @@ export interface GetQueueAuthorizationRuleResult {
 /**
  * Gets an authorization rule for a queue by rule name.
  */
-export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
+export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20220101preview:getQueueAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

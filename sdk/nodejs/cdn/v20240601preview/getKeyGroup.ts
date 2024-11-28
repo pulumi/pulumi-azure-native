@@ -67,7 +67,7 @@ export interface GetKeyGroupResult {
 /**
  * Gets an existing KeyGroup within a profile.
  */
-export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyGroupResult> {
+export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20240601preview:getKeyGroup", {
         "keyGroupName": args.keyGroupName,

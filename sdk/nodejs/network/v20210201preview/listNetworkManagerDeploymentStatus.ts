@@ -60,7 +60,7 @@ export interface ListNetworkManagerDeploymentStatusResult {
 /**
  * Post to List of Network Manager Deployment Status.
  */
-export function listNetworkManagerDeploymentStatusOutput(args: ListNetworkManagerDeploymentStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerDeploymentStatusResult> {
+export function listNetworkManagerDeploymentStatusOutput(args: ListNetworkManagerDeploymentStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNetworkManagerDeploymentStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20210201preview:listNetworkManagerDeploymentStatus", {
         "deploymentTypes": args.deploymentTypes,

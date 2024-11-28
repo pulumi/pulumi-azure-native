@@ -45,7 +45,7 @@ export interface ListHostPoolRegistrationTokensResult {
 /**
  * Operation to list the RegistrationTokens associated with the HostPool.
  */
-export function listHostPoolRegistrationTokensOutput(args: ListHostPoolRegistrationTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHostPoolRegistrationTokensResult> {
+export function listHostPoolRegistrationTokensOutput(args: ListHostPoolRegistrationTokensOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListHostPoolRegistrationTokensResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20240408preview:listHostPoolRegistrationTokens", {
         "hostPoolName": args.hostPoolName,

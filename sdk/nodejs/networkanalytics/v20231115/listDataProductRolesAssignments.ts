@@ -45,7 +45,7 @@ export interface ListDataProductRolesAssignmentsResult {
 /**
  * List user roles associated with the data product.
  */
-export function listDataProductRolesAssignmentsOutput(args: ListDataProductRolesAssignmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDataProductRolesAssignmentsResult> {
+export function listDataProductRolesAssignmentsOutput(args: ListDataProductRolesAssignmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDataProductRolesAssignmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkanalytics/v20231115:listDataProductRolesAssignments", {
         "dataProductName": args.dataProductName,

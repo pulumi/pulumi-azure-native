@@ -50,7 +50,7 @@ export interface GetAssetEncryptionKeyResult {
 /**
  * Gets the Asset storage encryption keys used to decrypt content created by version 2 of the Media Services API
  */
-export function getAssetEncryptionKeyOutput(args: GetAssetEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetEncryptionKeyResult> {
+export function getAssetEncryptionKeyOutput(args: GetAssetEncryptionKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetEncryptionKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getAssetEncryptionKey", {
         "accountName": args.accountName,

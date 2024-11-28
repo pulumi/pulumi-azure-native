@@ -135,7 +135,7 @@ export interface GetApplicationDefinitionResult {
  *
  * Other available API versions: 2017-12-01, 2023-12-01-preview.
  */
-export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationDefinitionResult> {
+export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:solutions:getApplicationDefinition", {
         "applicationDefinitionName": args.applicationDefinitionName,

@@ -65,7 +65,7 @@ export interface GetEndpointDeploymentResult {
  *
  * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
  */
-export function getEndpointDeploymentOutput(args: GetEndpointDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointDeploymentResult> {
+export function getEndpointDeploymentOutput(args: GetEndpointDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getEndpointDeployment", {
         "deploymentName": args.deploymentName,

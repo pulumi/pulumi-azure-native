@@ -85,7 +85,7 @@ export interface GetRoleDefinitionResult {
 /**
  * Get role definition by ID (GUID).
  */
-export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
+export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20220501preview:getRoleDefinition", {
         "roleDefinitionId": args.roleDefinitionId,

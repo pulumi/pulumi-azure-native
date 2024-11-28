@@ -40,7 +40,7 @@ export interface ListPolicyDefinitionVersionAllAtManagementGroupResult {
 /**
  * This operation lists all the policy definition versions for all policy definitions at the management group scope.
  */
-export function listPolicyDefinitionVersionAllAtManagementGroupOutput(args: ListPolicyDefinitionVersionAllAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicyDefinitionVersionAllAtManagementGroupResult> {
+export function listPolicyDefinitionVersionAllAtManagementGroupOutput(args: ListPolicyDefinitionVersionAllAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPolicyDefinitionVersionAllAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20230401:listPolicyDefinitionVersionAllAtManagementGroup", {
         "managementGroupName": args.managementGroupName,

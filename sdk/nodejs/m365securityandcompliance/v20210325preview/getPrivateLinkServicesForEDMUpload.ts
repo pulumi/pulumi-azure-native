@@ -77,7 +77,7 @@ export interface GetPrivateLinkServicesForEDMUploadResult {
 /**
  * Get the metadata of a privateLinkServicesForEDMUpload resource.
  */
-export function getPrivateLinkServicesForEDMUploadOutput(args: GetPrivateLinkServicesForEDMUploadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForEDMUploadResult> {
+export function getPrivateLinkServicesForEDMUploadOutput(args: GetPrivateLinkServicesForEDMUploadOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkServicesForEDMUploadResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance/v20210325preview:getPrivateLinkServicesForEDMUpload", {
         "resourceGroupName": args.resourceGroupName,

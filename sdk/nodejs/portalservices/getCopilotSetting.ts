@@ -54,7 +54,7 @@ export interface GetCopilotSettingResult {
  * Get a CopilotSettingsResource
  * Azure REST API version: 2024-04-01-preview.
  */
-export function getCopilotSettingOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCopilotSettingResult> {
+export function getCopilotSettingOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCopilotSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portalservices:getCopilotSetting", {
     }, opts);

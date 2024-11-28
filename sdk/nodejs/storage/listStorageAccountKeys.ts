@@ -52,7 +52,7 @@ export interface ListStorageAccountKeysResult {
  *
  * Other available API versions: 2015-05-01-preview, 2015-06-15, 2018-11-01, 2023-01-01, 2023-04-01, 2023-05-01.
  */
-export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
+export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStorageAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage:listStorageAccountKeys", {
         "accountName": args.accountName,

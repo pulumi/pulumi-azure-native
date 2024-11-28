@@ -122,7 +122,7 @@ export interface GetPredictionResult {
 /**
  * Gets a Prediction in the hub.
  */
-export function getPredictionOutput(args: GetPredictionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionResult> {
+export function getPredictionOutput(args: GetPredictionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPredictionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getPrediction", {
         "hubName": args.hubName,

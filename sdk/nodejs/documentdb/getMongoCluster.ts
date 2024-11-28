@@ -95,7 +95,7 @@ export interface GetMongoClusterResult {
  *
  * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-06-01-preview, 2024-07-01.
  */
-export function getMongoClusterOutput(args: GetMongoClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoClusterResult> {
+export function getMongoClusterOutput(args: GetMongoClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMongoClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb:getMongoCluster", {
         "mongoClusterName": args.mongoClusterName,

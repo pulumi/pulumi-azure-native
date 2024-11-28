@@ -73,7 +73,7 @@ export interface GetReplicationvCenterResult {
  *
  * Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
  */
-export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationvCenterResult> {
+export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationvCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices:getReplicationvCenter", {
         "fabricName": args.fabricName,

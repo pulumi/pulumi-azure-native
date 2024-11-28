@@ -115,7 +115,7 @@ export interface GetUserRuleResult {
  *
  * Other available API versions: 2021-05-01-preview.
  */
-export function getUserRuleOutput(args: GetUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleResult> {
+export function getUserRuleOutput(args: GetUserRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getUserRule", {
         "configurationName": args.configurationName,

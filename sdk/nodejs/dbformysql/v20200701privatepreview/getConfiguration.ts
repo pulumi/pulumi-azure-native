@@ -87,7 +87,7 @@ export interface GetConfigurationResult {
 /**
  * Gets information about a configuration of server.
  */
-export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
+export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbformysql/v20200701privatepreview:getConfiguration", {
         "configurationName": args.configurationName,

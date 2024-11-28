@@ -46,7 +46,7 @@ export interface GetProviderRegistrationResult {
 /**
  * Gets the provider registration details.
  */
-export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderRegistrationResult> {
+export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:providerhub/v20210901preview:getProviderRegistration", {
         "providerNamespace": args.providerNamespace,

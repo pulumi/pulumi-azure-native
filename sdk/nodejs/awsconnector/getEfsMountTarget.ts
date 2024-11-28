@@ -67,7 +67,7 @@ export interface GetEfsMountTargetResult {
  * Get a EfsMountTarget
  * Azure REST API version: 2024-12-01.
  */
-export function getEfsMountTargetOutput(args: GetEfsMountTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEfsMountTargetResult> {
+export function getEfsMountTargetOutput(args: GetEfsMountTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEfsMountTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEfsMountTarget", {
         "name": args.name,

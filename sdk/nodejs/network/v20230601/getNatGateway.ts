@@ -98,7 +98,7 @@ export interface GetNatGatewayResult {
 /**
  * Gets the specified nat gateway in a specified resource group.
  */
-export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
+export function getNatGatewayOutput(args: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNatGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getNatGateway", {
         "expand": args.expand,

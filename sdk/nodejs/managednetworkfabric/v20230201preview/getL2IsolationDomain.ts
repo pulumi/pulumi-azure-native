@@ -89,7 +89,7 @@ export interface GetL2IsolationDomainResult {
 /**
  * Implements L2 Isolation Domain GET method.
  */
-export function getL2IsolationDomainOutput(args: GetL2IsolationDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2IsolationDomainResult> {
+export function getL2IsolationDomainOutput(args: GetL2IsolationDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL2IsolationDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getL2IsolationDomain", {
         "l2IsolationDomainName": args.l2IsolationDomainName,

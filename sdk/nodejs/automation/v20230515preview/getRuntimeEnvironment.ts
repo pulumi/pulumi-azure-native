@@ -82,7 +82,7 @@ export interface GetRuntimeEnvironmentResult {
 /**
  * Get information about the Runtime Environment
  */
-export function getRuntimeEnvironmentOutput(args: GetRuntimeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuntimeEnvironmentResult> {
+export function getRuntimeEnvironmentOutput(args: GetRuntimeEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuntimeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getRuntimeEnvironment", {
         "automationAccountName": args.automationAccountName,

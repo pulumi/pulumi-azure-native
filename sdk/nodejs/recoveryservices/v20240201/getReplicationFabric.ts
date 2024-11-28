@@ -67,7 +67,7 @@ export interface GetReplicationFabricResult {
 /**
  * Gets the details of an Azure Site Recovery fabric.
  */
-export function getReplicationFabricOutput(args: GetReplicationFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationFabricResult> {
+export function getReplicationFabricOutput(args: GetReplicationFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20240201:getReplicationFabric", {
         "fabricName": args.fabricName,

@@ -126,7 +126,7 @@ export interface GetAuthorizationServerResult {
 /**
  * Gets the details of the authorization server specified by its identifier.
  */
-export function getAuthorizationServerOutput(args: GetAuthorizationServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationServerResult> {
+export function getAuthorizationServerOutput(args: GetAuthorizationServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getAuthorizationServer", {
         "authsid": args.authsid,

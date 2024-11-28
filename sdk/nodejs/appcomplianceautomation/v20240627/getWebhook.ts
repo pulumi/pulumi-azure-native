@@ -105,7 +105,7 @@ export interface GetWebhookResult {
 /**
  * Get the AppComplianceAutomation webhook and its properties.
  */
-export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
+export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebhookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation/v20240627:getWebhook", {
         "reportName": args.reportName,

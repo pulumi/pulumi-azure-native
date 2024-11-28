@@ -111,7 +111,7 @@ export interface GetContainerAppsSessionPoolResult {
  *
  * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
  */
-export function getContainerAppsSessionPoolOutput(args: GetContainerAppsSessionPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsSessionPoolResult> {
+export function getContainerAppsSessionPoolOutput(args: GetContainerAppsSessionPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerAppsSessionPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:getContainerAppsSessionPool", {
         "resourceGroupName": args.resourceGroupName,

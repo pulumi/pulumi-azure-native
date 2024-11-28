@@ -95,7 +95,7 @@ export interface GetNspLinkResult {
 /**
  * Gets the specified NSP link resource.
  */
-export function getNspLinkOutput(args: GetNspLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspLinkResult> {
+export function getNspLinkOutput(args: GetNspLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNspLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230801preview:getNspLink", {
         "linkName": args.linkName,

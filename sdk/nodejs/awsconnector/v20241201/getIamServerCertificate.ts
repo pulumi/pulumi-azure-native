@@ -65,7 +65,7 @@ export interface GetIamServerCertificateResult {
 /**
  * Get a IamServerCertificate
  */
-export function getIamServerCertificateOutput(args: GetIamServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamServerCertificateResult> {
+export function getIamServerCertificateOutput(args: GetIamServerCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamServerCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamServerCertificate", {
         "name": args.name,

@@ -45,7 +45,7 @@ export interface ListAgentPoolQueueStatusResult {
  * Gets the count of queued runs for a given agent pool.
  * Azure REST API version: 2019-06-01-preview.
  */
-export function listAgentPoolQueueStatusOutput(args: ListAgentPoolQueueStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAgentPoolQueueStatusResult> {
+export function listAgentPoolQueueStatusOutput(args: ListAgentPoolQueueStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAgentPoolQueueStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry:listAgentPoolQueueStatus", {
         "agentPoolName": args.agentPoolName,

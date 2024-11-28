@@ -65,7 +65,7 @@ export interface GetLedgerResult {
 /**
  * Retrieves the properties of a Confidential Ledger.
  */
-export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
+export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLedgerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confidentialledger/v20230126preview:getLedger", {
         "ledgerName": args.ledgerName,

@@ -149,7 +149,7 @@ export interface GetWorkspaceApiResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getWorkspaceApiOutput(args: GetWorkspaceApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiResult> {
+export function getWorkspaceApiOutput(args: GetWorkspaceApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceApi", {
         "apiId": args.apiId,

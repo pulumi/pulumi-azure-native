@@ -77,7 +77,7 @@ export interface GetAzureTrafficCollectorResult {
 /**
  * Gets the specified Azure Traffic Collector in a specified resource group
  */
-export function getAzureTrafficCollectorOutput(args: GetAzureTrafficCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureTrafficCollectorResult> {
+export function getAzureTrafficCollectorOutput(args: GetAzureTrafficCollectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureTrafficCollectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkfunction/v20221101:getAzureTrafficCollector", {
         "azureTrafficCollectorName": args.azureTrafficCollectorName,

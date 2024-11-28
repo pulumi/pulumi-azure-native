@@ -65,7 +65,7 @@ export interface GetAccessPolicyResult {
  *
  * Other available API versions: 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
  */
-export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
+export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache:getAccessPolicy", {
         "accessPolicyName": args.accessPolicyName,

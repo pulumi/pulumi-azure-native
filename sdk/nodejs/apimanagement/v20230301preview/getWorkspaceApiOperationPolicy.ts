@@ -79,7 +79,7 @@ export interface GetWorkspaceApiOperationPolicyResult {
 /**
  * Get the policy configuration at the API Operation level.
  */
-export function getWorkspaceApiOperationPolicyOutput(args: GetWorkspaceApiOperationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiOperationPolicyResult> {
+export function getWorkspaceApiOperationPolicyOutput(args: GetWorkspaceApiOperationPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceApiOperationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getWorkspaceApiOperationPolicy", {
         "apiId": args.apiId,

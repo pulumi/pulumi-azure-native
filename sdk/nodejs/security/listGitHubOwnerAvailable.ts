@@ -51,7 +51,7 @@ export interface ListGitHubOwnerAvailableResult {
  *
  * Other available API versions: 2024-04-01, 2024-05-15-preview.
  */
-export function listGitHubOwnerAvailableOutput(args: ListGitHubOwnerAvailableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGitHubOwnerAvailableResult> {
+export function listGitHubOwnerAvailableOutput(args: ListGitHubOwnerAvailableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGitHubOwnerAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:listGitHubOwnerAvailable", {
         "resourceGroupName": args.resourceGroupName,

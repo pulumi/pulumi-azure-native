@@ -62,7 +62,7 @@ export interface GetWebPubSubHubResult {
 /**
  * Get a hub setting.
  */
-export function getWebPubSubHubOutput(args: GetWebPubSubHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubHubResult> {
+export function getWebPubSubHubOutput(args: GetWebPubSubHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebPubSubHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20240801preview:getWebPubSubHub", {
         "hubName": args.hubName,

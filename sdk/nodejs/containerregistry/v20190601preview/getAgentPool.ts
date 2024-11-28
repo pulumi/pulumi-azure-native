@@ -87,7 +87,7 @@ export interface GetAgentPoolResult {
 /**
  * Gets the detailed information for a given agent pool.
  */
-export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
+export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgentPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190601preview:getAgentPool", {
         "agentPoolName": args.agentPoolName,

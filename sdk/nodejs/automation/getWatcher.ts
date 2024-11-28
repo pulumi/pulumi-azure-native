@@ -105,7 +105,7 @@ export interface GetWatcherResult {
  *
  * Other available API versions: 2023-05-15-preview.
  */
-export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatcherResult> {
+export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWatcherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getWatcher", {
         "automationAccountName": args.automationAccountName,

@@ -46,7 +46,7 @@ export interface ListDatabasePrincipalsResult {
 /**
  * Returns a list of database principals of the given Kusto cluster and database.
  */
-export function listDatabasePrincipalsOutput(args: ListDatabasePrincipalsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasePrincipalsResult> {
+export function listDatabasePrincipalsOutput(args: ListDatabasePrincipalsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDatabasePrincipalsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto/v20230815:listDatabasePrincipals", {
         "clusterName": args.clusterName,

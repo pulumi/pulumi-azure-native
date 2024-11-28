@@ -119,7 +119,7 @@ export interface GetUpdateRunResult {
 /**
  * Get the Update run for a specified update
  */
-export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateRunResult> {
+export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUpdateRunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240401:getUpdateRun", {
         "clusterName": args.clusterName,

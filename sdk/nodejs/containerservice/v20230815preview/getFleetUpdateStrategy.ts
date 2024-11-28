@@ -70,7 +70,7 @@ export interface GetFleetUpdateStrategyResult {
 /**
  * Get a FleetUpdateStrategy
  */
-export function getFleetUpdateStrategyOutput(args: GetFleetUpdateStrategyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetUpdateStrategyResult> {
+export function getFleetUpdateStrategyOutput(args: GetFleetUpdateStrategyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetUpdateStrategyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20230815preview:getFleetUpdateStrategy", {
         "fleetName": args.fleetName,

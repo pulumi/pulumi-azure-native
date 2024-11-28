@@ -61,7 +61,7 @@ export interface GetReplicationExtensionResult {
  * Gets the details of the replication extension.
  * Azure REST API version: 2021-02-16-preview.
  */
-export function getReplicationExtensionOutput(args: GetReplicationExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationExtensionResult> {
+export function getReplicationExtensionOutput(args: GetReplicationExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datareplication:getReplicationExtension", {
         "replicationExtensionName": args.replicationExtensionName,

@@ -62,7 +62,7 @@ export interface GetDataFlowResult {
 /**
  * Gets a data flow.
  */
-export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowResult> {
+export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataFlowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getDataFlow", {
         "dataFlowName": args.dataFlowName,

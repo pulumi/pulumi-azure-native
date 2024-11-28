@@ -66,7 +66,7 @@ export interface ListEndpointManagedProxyDetailsResult {
  *
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */
-export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
+export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity:listEndpointManagedProxyDetails", {
         "endpointName": args.endpointName,

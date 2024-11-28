@@ -114,7 +114,7 @@ export interface GetKustoPoolResult {
 /**
  * Gets a Kusto pool.
  */
-export function getKustoPoolOutput(args: GetKustoPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolResult> {
+export function getKustoPoolOutput(args: GetKustoPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKustoPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getKustoPool", {
         "kustoPoolName": args.kustoPoolName,

@@ -74,7 +74,7 @@ export interface ListUserAssignedIdentityAssociatedResourcesResult {
 /**
  * Lists the associated resources for this identity.
  */
-export function listUserAssignedIdentityAssociatedResourcesOutput(args: ListUserAssignedIdentityAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUserAssignedIdentityAssociatedResourcesResult> {
+export function listUserAssignedIdentityAssociatedResourcesOutput(args: ListUserAssignedIdentityAssociatedResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListUserAssignedIdentityAssociatedResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managedidentity/v20220131preview:listUserAssignedIdentityAssociatedResources", {
         "filter": args.filter,

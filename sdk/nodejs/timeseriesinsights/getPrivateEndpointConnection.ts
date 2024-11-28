@@ -72,7 +72,7 @@ export interface GetPrivateEndpointConnectionResult {
  * Gets the details of the private endpoint connection of the environment in the given resource group.
  * Azure REST API version: 2021-03-31-preview.
  */
-export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights:getPrivateEndpointConnection", {
         "environmentName": args.environmentName,

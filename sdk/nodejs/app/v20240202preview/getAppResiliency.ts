@@ -82,7 +82,7 @@ export interface GetAppResiliencyResult {
 /**
  * Get container app resiliency policy.
  */
-export function getAppResiliencyOutput(args: GetAppResiliencyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResiliencyResult> {
+export function getAppResiliencyOutput(args: GetAppResiliencyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppResiliencyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240202preview:getAppResiliency", {
         "appName": args.appName,

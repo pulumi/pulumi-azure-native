@@ -65,7 +65,7 @@ export interface GetIspCustomerResult {
 /**
  * Gets the ispCustomer resource information using this get call
  */
-export function getIspCustomerOutput(args: GetIspCustomerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIspCustomerResult> {
+export function getIspCustomerOutput(args: GetIspCustomerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIspCustomerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedcache/v20230501preview:getIspCustomer", {
         "customerResourceName": args.customerResourceName,

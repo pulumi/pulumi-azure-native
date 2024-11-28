@@ -73,7 +73,7 @@ export interface GetImageDefinitionResult {
  * Get image properties under the image definition name created by test base custom image which derived from 'VHD' source.
  * Azure REST API version: 2023-11-01-preview.
  */
-export function getImageDefinitionOutput(args: GetImageDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageDefinitionResult> {
+export function getImageDefinitionOutput(args: GetImageDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase:getImageDefinition", {
         "imageDefinitionName": args.imageDefinitionName,

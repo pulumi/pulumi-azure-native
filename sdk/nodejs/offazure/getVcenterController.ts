@@ -108,7 +108,7 @@ export interface GetVcenterControllerResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getVcenterControllerOutput(args: GetVcenterControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVcenterControllerResult> {
+export function getVcenterControllerOutput(args: GetVcenterControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVcenterControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure:getVcenterController", {
         "resourceGroupName": args.resourceGroupName,

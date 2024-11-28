@@ -44,7 +44,7 @@ export interface ListWorkspaceConnectionModelsResult {
  * List available models from all connections.
  * Azure REST API version: 2024-04-01-preview.
  */
-export function listWorkspaceConnectionModelsOutput(args: ListWorkspaceConnectionModelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceConnectionModelsResult> {
+export function listWorkspaceConnectionModelsOutput(args: ListWorkspaceConnectionModelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceConnectionModelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listWorkspaceConnectionModels", {
         "resourceGroupName": args.resourceGroupName,

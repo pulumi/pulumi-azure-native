@@ -128,7 +128,7 @@ export interface GetExtensionResult {
 /**
  * Gets Kubernetes Cluster Extension.
  */
-export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
+export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kubernetesconfiguration/v20220701:getExtension", {
         "clusterName": args.clusterName,

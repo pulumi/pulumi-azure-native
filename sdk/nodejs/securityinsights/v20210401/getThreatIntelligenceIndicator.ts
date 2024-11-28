@@ -71,7 +71,7 @@ export interface GetThreatIntelligenceIndicatorResult {
 /**
  * View a threat intelligence indicator by name.
  */
-export function getThreatIntelligenceIndicatorOutput(args: GetThreatIntelligenceIndicatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceIndicatorResult> {
+export function getThreatIntelligenceIndicatorOutput(args: GetThreatIntelligenceIndicatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThreatIntelligenceIndicatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210401:getThreatIntelligenceIndicator", {
         "name": args.name,

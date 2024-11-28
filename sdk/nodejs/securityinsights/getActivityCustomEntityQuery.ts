@@ -113,7 +113,7 @@ export interface GetActivityCustomEntityQueryResult {
  * Gets an entity query.
  * Azure REST API version: 2023-06-01-preview.
  */
-export function getActivityCustomEntityQueryOutput(args: GetActivityCustomEntityQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityCustomEntityQueryResult> {
+export function getActivityCustomEntityQueryOutput(args: GetActivityCustomEntityQueryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActivityCustomEntityQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getActivityCustomEntityQuery", {
         "entityQueryId": args.entityQueryId,

@@ -100,7 +100,7 @@ export interface GetRemediationAtSubscriptionResult {
 /**
  * Gets an existing remediation at subscription scope.
  */
-export function getRemediationAtSubscriptionOutput(args: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {
+export function getRemediationAtSubscriptionOutput(args: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights/v20211001:getRemediationAtSubscription", {
         "remediationName": args.remediationName,

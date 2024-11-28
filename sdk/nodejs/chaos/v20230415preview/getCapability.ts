@@ -77,7 +77,7 @@ export interface GetCapabilityResult {
 /**
  * Get a Capability resource that extends a Target resource.
  */
-export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapabilityResult> {
+export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapabilityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:chaos/v20230415preview:getCapability", {
         "capabilityName": args.capabilityName,

@@ -82,7 +82,7 @@ export interface GetRoleAssignmentArtifactResult {
  * Get a blueprint artifact.
  * Azure REST API version: 2018-11-01-preview.
  */
-export function getRoleAssignmentArtifactOutput(args: GetRoleAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentArtifactResult> {
+export function getRoleAssignmentArtifactOutput(args: GetRoleAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleAssignmentArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:blueprint:getRoleAssignmentArtifact", {
         "artifactName": args.artifactName,

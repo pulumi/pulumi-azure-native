@@ -82,7 +82,7 @@ export interface GetSubscriptionDiagnosticSettingResult {
  *
  * Other available API versions: 2017-05-01-preview.
  */
-export function getSubscriptionDiagnosticSettingOutput(args: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {
+export function getSubscriptionDiagnosticSettingOutput(args: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getSubscriptionDiagnosticSetting", {
         "name": args.name,

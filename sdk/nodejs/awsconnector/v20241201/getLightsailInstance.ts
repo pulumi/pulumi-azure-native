@@ -65,7 +65,7 @@ export interface GetLightsailInstanceResult {
 /**
  * Get a LightsailInstance
  */
-export function getLightsailInstanceOutput(args: GetLightsailInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLightsailInstanceResult> {
+export function getLightsailInstanceOutput(args: GetLightsailInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLightsailInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLightsailInstance", {
         "name": args.name,

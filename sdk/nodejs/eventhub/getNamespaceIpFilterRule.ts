@@ -65,7 +65,7 @@ export interface GetNamespaceIpFilterRuleResult {
  * Gets an IpFilterRule for a Namespace by rule name.
  * Azure REST API version: 2018-01-01-preview.
  */
-export function getNamespaceIpFilterRuleOutput(args: GetNamespaceIpFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceIpFilterRuleResult> {
+export function getNamespaceIpFilterRuleOutput(args: GetNamespaceIpFilterRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceIpFilterRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub:getNamespaceIpFilterRule", {
         "ipFilterRuleName": args.ipFilterRuleName,

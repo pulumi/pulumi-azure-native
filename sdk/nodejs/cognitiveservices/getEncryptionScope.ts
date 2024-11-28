@@ -76,7 +76,7 @@ export interface GetEncryptionScopeResult {
  *
  * Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
  */
-export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
+export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices:getEncryptionScope", {
         "accountName": args.accountName,

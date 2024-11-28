@@ -58,7 +58,7 @@ export interface GetInputResult {
 /**
  * Gets details about the specified input.
  */
-export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
+export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInputResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:streamanalytics/v20211001preview:getInput", {
         "inputName": args.inputName,

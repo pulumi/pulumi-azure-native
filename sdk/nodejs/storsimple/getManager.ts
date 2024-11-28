@@ -79,7 +79,7 @@ export interface GetManagerResult {
  *
  * Other available API versions: 2016-10-01.
  */
-export function getManagerOutput(args: GetManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerResult> {
+export function getManagerOutput(args: GetManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple:getManager", {
         "managerName": args.managerName,

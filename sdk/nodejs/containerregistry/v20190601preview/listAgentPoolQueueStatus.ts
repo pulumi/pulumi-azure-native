@@ -43,7 +43,7 @@ export interface ListAgentPoolQueueStatusResult {
 /**
  * Gets the count of queued runs for a given agent pool.
  */
-export function listAgentPoolQueueStatusOutput(args: ListAgentPoolQueueStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAgentPoolQueueStatusResult> {
+export function listAgentPoolQueueStatusOutput(args: ListAgentPoolQueueStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAgentPoolQueueStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190601preview:listAgentPoolQueueStatus", {
         "agentPoolName": args.agentPoolName,

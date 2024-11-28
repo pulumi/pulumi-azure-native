@@ -67,7 +67,7 @@ export interface GetAcmCertificateSummaryResult {
  * Get a AcmCertificateSummary
  * Azure REST API version: 2024-12-01.
  */
-export function getAcmCertificateSummaryOutput(args: GetAcmCertificateSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcmCertificateSummaryResult> {
+export function getAcmCertificateSummaryOutput(args: GetAcmCertificateSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAcmCertificateSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getAcmCertificateSummary", {
         "name": args.name,

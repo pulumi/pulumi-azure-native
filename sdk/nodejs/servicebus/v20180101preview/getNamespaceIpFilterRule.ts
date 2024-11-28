@@ -63,7 +63,7 @@ export interface GetNamespaceIpFilterRuleResult {
 /**
  * Gets an IpFilterRule for a Namespace by rule name.
  */
-export function getNamespaceIpFilterRuleOutput(args: GetNamespaceIpFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceIpFilterRuleResult> {
+export function getNamespaceIpFilterRuleOutput(args: GetNamespaceIpFilterRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceIpFilterRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20180101preview:getNamespaceIpFilterRule", {
         "ipFilterRuleName": args.ipFilterRuleName,

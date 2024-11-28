@@ -64,7 +64,7 @@ export interface GetMonitoredSubscriptionResult {
  *
  * Other available API versions: 2024-06-15-preview, 2024-10-01-preview.
  */
-export function getMonitoredSubscriptionOutput(args: GetMonitoredSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoredSubscriptionResult> {
+export function getMonitoredSubscriptionOutput(args: GetMonitoredSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoredSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic:getMonitoredSubscription", {
         "configurationName": args.configurationName,

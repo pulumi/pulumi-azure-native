@@ -70,7 +70,7 @@ export interface GetAccountFilterResult {
 /**
  * Get the details of an Account Filter in the Media Services account.
  */
-export function getAccountFilterOutput(args: GetAccountFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountFilterResult> {
+export function getAccountFilterOutput(args: GetAccountFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getAccountFilter", {
         "accountName": args.accountName,

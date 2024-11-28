@@ -50,7 +50,7 @@ export interface ListSubAccountMonitoredResourcesResult {
 /**
  * Response of a list operation.
  */
-export function listSubAccountMonitoredResourcesOutput(args: ListSubAccountMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubAccountMonitoredResourcesResult> {
+export function listSubAccountMonitoredResourcesOutput(args: ListSubAccountMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSubAccountMonitoredResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logz/v20220101preview:listSubAccountMonitoredResources", {
         "monitorName": args.monitorName,

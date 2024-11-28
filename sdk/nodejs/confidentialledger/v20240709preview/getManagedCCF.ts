@@ -65,7 +65,7 @@ export interface GetManagedCCFResult {
 /**
  * Retrieves the properties of a Managed CCF app.
  */
-export function getManagedCCFOutput(args: GetManagedCCFOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedCCFResult> {
+export function getManagedCCFOutput(args: GetManagedCCFOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedCCFResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confidentialledger/v20240709preview:getManagedCCF", {
         "appName": args.appName,

@@ -108,7 +108,7 @@ export interface GetWorkspaceSubscriptionResult {
 /**
  * Gets the specified Subscription entity.
  */
-export function getWorkspaceSubscriptionOutput(args: GetWorkspaceSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSubscriptionResult> {
+export function getWorkspaceSubscriptionOutput(args: GetWorkspaceSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getWorkspaceSubscription", {
         "resourceGroupName": args.resourceGroupName,

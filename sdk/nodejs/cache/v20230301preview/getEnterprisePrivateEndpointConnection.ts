@@ -70,7 +70,7 @@ export interface GetEnterprisePrivateEndpointConnectionResult {
 /**
  * Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
  */
-export function getEnterprisePrivateEndpointConnectionOutput(args: GetEnterprisePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePrivateEndpointConnectionResult> {
+export function getEnterprisePrivateEndpointConnectionOutput(args: GetEnterprisePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterprisePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache/v20230301preview:getEnterprisePrivateEndpointConnection", {
         "clusterName": args.clusterName,

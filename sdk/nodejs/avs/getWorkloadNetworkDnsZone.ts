@@ -85,7 +85,7 @@ export interface GetWorkloadNetworkDnsZoneResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function getWorkloadNetworkDnsZoneOutput(args: GetWorkloadNetworkDnsZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsZoneResult> {
+export function getWorkloadNetworkDnsZoneOutput(args: GetWorkloadNetworkDnsZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadNetworkDnsZoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getWorkloadNetworkDnsZone", {
         "dnsZoneId": args.dnsZoneId,

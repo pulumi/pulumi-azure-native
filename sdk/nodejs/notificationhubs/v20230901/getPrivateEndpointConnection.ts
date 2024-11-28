@@ -62,7 +62,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Represents a Private Endpoint Connection ARM resource - a sub-resource of Notification Hubs namespace.
  */
-export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20230901:getPrivateEndpointConnection", {
         "namespaceName": args.namespaceName,

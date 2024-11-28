@@ -76,7 +76,7 @@ export interface GetPrivateLinkForAzureAdResult {
  * Gets a private link policy with a given name.
  * Azure REST API version: 2020-03-01.
  */
-export function getPrivateLinkForAzureAdOutput(args: GetPrivateLinkForAzureAdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkForAzureAdResult> {
+export function getPrivateLinkForAzureAdOutput(args: GetPrivateLinkForAzureAdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkForAzureAdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:aadiam:getPrivateLinkForAzureAd", {
         "policyName": args.policyName,

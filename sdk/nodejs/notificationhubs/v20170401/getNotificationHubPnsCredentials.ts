@@ -90,7 +90,7 @@ export interface GetNotificationHubPnsCredentialsResult {
 /**
  * Lists the PNS Credentials associated with a notification hub .
  */
-export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
+export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20170401:getNotificationHubPnsCredentials", {
         "namespaceName": args.namespaceName,

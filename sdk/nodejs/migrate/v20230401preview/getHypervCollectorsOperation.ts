@@ -78,7 +78,7 @@ export interface GetHypervCollectorsOperationResult {
 /**
  * Get a HypervCollector
  */
-export function getHypervCollectorsOperationOutput(args: GetHypervCollectorsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervCollectorsOperationResult> {
+export function getHypervCollectorsOperationOutput(args: GetHypervCollectorsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHypervCollectorsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230401preview:getHypervCollectorsOperation", {
         "hypervCollectorName": args.hypervCollectorName,

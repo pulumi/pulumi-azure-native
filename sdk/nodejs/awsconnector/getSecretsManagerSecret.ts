@@ -67,7 +67,7 @@ export interface GetSecretsManagerSecretResult {
  * Get a SecretsManagerSecret
  * Azure REST API version: 2024-12-01.
  */
-export function getSecretsManagerSecretOutput(args: GetSecretsManagerSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsManagerSecretResult> {
+export function getSecretsManagerSecretOutput(args: GetSecretsManagerSecretOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretsManagerSecretResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSecretsManagerSecret", {
         "name": args.name,

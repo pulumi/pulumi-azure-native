@@ -62,7 +62,7 @@ export interface GetDeploymentAtSubscriptionScopeResult {
  *
  * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
-export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {
+export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getDeploymentAtSubscriptionScope", {
         "deploymentName": args.deploymentName,

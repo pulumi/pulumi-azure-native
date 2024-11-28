@@ -68,7 +68,7 @@ export interface GetServiceRunnerResult {
  * Get service runner.
  * Azure REST API version: 2018-09-15.
  */
-export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRunnerResult> {
+export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceRunnerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab:getServiceRunner", {
         "labName": args.labName,

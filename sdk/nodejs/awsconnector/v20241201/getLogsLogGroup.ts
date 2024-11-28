@@ -65,7 +65,7 @@ export interface GetLogsLogGroupResult {
 /**
  * Get a LogsLogGroup
  */
-export function getLogsLogGroupOutput(args: GetLogsLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsLogGroupResult> {
+export function getLogsLogGroupOutput(args: GetLogsLogGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsLogGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLogsLogGroup", {
         "name": args.name,

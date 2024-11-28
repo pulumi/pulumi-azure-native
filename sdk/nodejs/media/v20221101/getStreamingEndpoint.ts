@@ -134,7 +134,7 @@ export interface GetStreamingEndpointResult {
 /**
  * Gets a streaming endpoint.
  */
-export function getStreamingEndpointOutput(args: GetStreamingEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingEndpointResult> {
+export function getStreamingEndpointOutput(args: GetStreamingEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamingEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20221101:getStreamingEndpoint", {
         "accountName": args.accountName,

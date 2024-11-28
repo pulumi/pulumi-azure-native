@@ -75,7 +75,7 @@ export interface GetOfficeIRMDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getOfficeIRMDataConnectorOutput(args: GetOfficeIRMDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeIRMDataConnectorResult> {
+export function getOfficeIRMDataConnectorOutput(args: GetOfficeIRMDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOfficeIRMDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:getOfficeIRMDataConnector", {
         "dataConnectorId": args.dataConnectorId,

@@ -72,7 +72,7 @@ export interface GetGeoBackupPolicyResult {
 /**
  * Gets a Geo backup policy for the given database resource.
  */
-export function getGeoBackupPolicyOutput(args: GetGeoBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeoBackupPolicyResult> {
+export function getGeoBackupPolicyOutput(args: GetGeoBackupPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGeoBackupPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getGeoBackupPolicy", {
         "databaseName": args.databaseName,

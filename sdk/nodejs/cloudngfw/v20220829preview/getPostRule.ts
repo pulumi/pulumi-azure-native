@@ -130,7 +130,7 @@ export interface GetPostRuleResult {
 /**
  * Get a PostRulesResource
  */
-export function getPostRuleOutput(args: GetPostRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostRuleResult> {
+export function getPostRuleOutput(args: GetPostRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPostRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829preview:getPostRule", {
         "globalRulestackName": args.globalRulestackName,

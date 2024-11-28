@@ -61,7 +61,7 @@ export interface GetProtectedItemResult {
  * Gets the details of the protected item.
  * Azure REST API version: 2021-02-16-preview.
  */
-export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
+export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectedItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datareplication:getProtectedItem", {
         "protectedItemName": args.protectedItemName,

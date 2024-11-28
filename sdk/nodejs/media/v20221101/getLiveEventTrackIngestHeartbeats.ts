@@ -46,7 +46,7 @@ export interface GetLiveEventTrackIngestHeartbeatsResult {
 /**
  * Get track ingest heartbeat events telemetry of a live event.
  */
-export function getLiveEventTrackIngestHeartbeatsOutput(args: GetLiveEventTrackIngestHeartbeatsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventTrackIngestHeartbeatsResult> {
+export function getLiveEventTrackIngestHeartbeatsOutput(args: GetLiveEventTrackIngestHeartbeatsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveEventTrackIngestHeartbeatsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20221101:getLiveEventTrackIngestHeartbeats", {
         "accountName": args.accountName,

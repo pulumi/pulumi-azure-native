@@ -67,7 +67,7 @@ export interface GetLogsLogStreamResult {
  * Get a LogsLogStream
  * Azure REST API version: 2024-12-01.
  */
-export function getLogsLogStreamOutput(args: GetLogsLogStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsLogStreamResult> {
+export function getLogsLogStreamOutput(args: GetLogsLogStreamOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsLogStreamResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getLogsLogStream", {
         "name": args.name,

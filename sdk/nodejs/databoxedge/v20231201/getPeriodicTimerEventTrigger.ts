@@ -75,7 +75,7 @@ export interface GetPeriodicTimerEventTriggerResult {
 /**
  * Get a specific trigger by name.
  */
-export function getPeriodicTimerEventTriggerOutput(args: GetPeriodicTimerEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeriodicTimerEventTriggerResult> {
+export function getPeriodicTimerEventTriggerOutput(args: GetPeriodicTimerEventTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeriodicTimerEventTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20231201:getPeriodicTimerEventTrigger", {
         "deviceName": args.deviceName,

@@ -103,7 +103,7 @@ export interface GetApiGatewayResult {
  *
  * Other available API versions: 2024-05-01, 2024-06-01-preview.
  */
-export function getApiGatewayOutput(args: GetApiGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayResult> {
+export function getApiGatewayOutput(args: GetApiGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getApiGateway", {
         "gatewayName": args.gatewayName,

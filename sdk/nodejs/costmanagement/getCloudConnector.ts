@@ -111,7 +111,7 @@ export interface GetCloudConnectorResult {
  * Get a cloud connector definition
  * Azure REST API version: 2019-03-01-preview.
  */
-export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudConnectorResult> {
+export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getCloudConnector", {
         "connectorName": args.connectorName,

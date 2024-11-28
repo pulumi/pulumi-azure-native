@@ -118,7 +118,7 @@ export interface ListGeodataByIpResult {
  *
  * Other available API versions: 2024-04-01-preview.
  */
-export function listGeodataByIpOutput(args: ListGeodataByIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGeodataByIpResult> {
+export function listGeodataByIpOutput(args: ListGeodataByIpOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGeodataByIpResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:listGeodataByIp", {
         "enrichmentType": args.enrichmentType,

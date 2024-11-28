@@ -87,7 +87,7 @@ export interface GetAutoscaleSettingResult {
  * Gets an autoscale setting
  * Azure REST API version: 2022-10-01.
  */
-export function getAutoscaleSettingOutput(args: GetAutoscaleSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoscaleSettingResult> {
+export function getAutoscaleSettingOutput(args: GetAutoscaleSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutoscaleSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getAutoscaleSetting", {
         "autoscaleSettingName": args.autoscaleSettingName,

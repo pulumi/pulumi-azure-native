@@ -176,7 +176,7 @@ export interface GetContentTemplateResult {
  * - properties/mainTemplate
  * - properties/dependantTemplates
  */
-export function getContentTemplateOutput(args: GetContentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTemplateResult> {
+export function getContentTemplateOutput(args: GetContentTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getContentTemplate", {
         "resourceGroupName": args.resourceGroupName,

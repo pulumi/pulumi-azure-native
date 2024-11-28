@@ -84,7 +84,7 @@ export interface GetAssociationsInterfaceResult {
  *
  * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview.
  */
-export function getAssociationsInterfaceOutput(args: GetAssociationsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationsInterfaceResult> {
+export function getAssociationsInterfaceOutput(args: GetAssociationsInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssociationsInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicenetworking:getAssociationsInterface", {
         "associationName": args.associationName,

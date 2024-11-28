@@ -63,7 +63,7 @@ export interface GetSqlResourceSqlRoleAssignmentResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB SQL Role Assignment with the given Id.
  */
-export function getSqlResourceSqlRoleAssignmentOutput(args: GetSqlResourceSqlRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlRoleAssignmentResult> {
+export function getSqlResourceSqlRoleAssignmentOutput(args: GetSqlResourceSqlRoleAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlResourceSqlRoleAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20231115:getSqlResourceSqlRoleAssignment", {
         "accountName": args.accountName,

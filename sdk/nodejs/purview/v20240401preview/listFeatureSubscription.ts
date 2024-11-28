@@ -38,7 +38,7 @@ export interface ListFeatureSubscriptionResult {
 /**
  * Gets details from a list of feature names.
  */
-export function listFeatureSubscriptionOutput(args: ListFeatureSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeatureSubscriptionResult> {
+export function listFeatureSubscriptionOutput(args: ListFeatureSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFeatureSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:purview/v20240401preview:listFeatureSubscription", {
         "features": args.features,

@@ -64,7 +64,7 @@ export interface GetOpenAIResult {
  *
  * Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
  */
-export function getOpenAIOutput(args: GetOpenAIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenAIResult> {
+export function getOpenAIOutput(args: GetOpenAIOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenAIResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic:getOpenAI", {
         "integrationName": args.integrationName,

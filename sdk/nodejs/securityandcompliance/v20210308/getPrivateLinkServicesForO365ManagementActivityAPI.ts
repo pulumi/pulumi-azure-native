@@ -77,7 +77,7 @@ export interface GetPrivateLinkServicesForO365ManagementActivityAPIResult {
 /**
  * Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.
  */
-export function getPrivateLinkServicesForO365ManagementActivityAPIOutput(args: GetPrivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForO365ManagementActivityAPIResult> {
+export function getPrivateLinkServicesForO365ManagementActivityAPIOutput(args: GetPrivateLinkServicesForO365ManagementActivityAPIOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkServicesForO365ManagementActivityAPIResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityandcompliance/v20210308:getPrivateLinkServicesForO365ManagementActivityAPI", {
         "resourceGroupName": args.resourceGroupName,

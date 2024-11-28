@@ -82,7 +82,7 @@ export interface GetNetworkProfileResult {
 /**
  * Gets the specified network profile in a specified resource group.
  */
-export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
+export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getNetworkProfile", {
         "expand": args.expand,

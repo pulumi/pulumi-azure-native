@@ -104,7 +104,7 @@ export interface GetSimResult {
  *
  * Other available API versions: 2022-03-01-preview, 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
  */
-export function getSimOutput(args: GetSimOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimResult> {
+export function getSimOutput(args: GetSimOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSimResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork:getSim", {
         "resourceGroupName": args.resourceGroupName,

@@ -71,7 +71,7 @@ export interface GetRegisteredPrefixResult {
 /**
  * Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
  */
-export function getRegisteredPrefixOutput(args: GetRegisteredPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredPrefixResult> {
+export function getRegisteredPrefixOutput(args: GetRegisteredPrefixOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegisteredPrefixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:peering/v20221001:getRegisteredPrefix", {
         "peeringName": args.peeringName,

@@ -50,7 +50,7 @@ export interface ListDnsForwardingRulesetByVirtualNetworkResult {
 /**
  * Lists DNS forwarding ruleset resource IDs attached to a virtual network.
  */
-export function listDnsForwardingRulesetByVirtualNetworkOutput(args: ListDnsForwardingRulesetByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsForwardingRulesetByVirtualNetworkResult> {
+export function listDnsForwardingRulesetByVirtualNetworkOutput(args: ListDnsForwardingRulesetByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDnsForwardingRulesetByVirtualNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20220701:listDnsForwardingRulesetByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,

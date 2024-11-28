@@ -45,7 +45,7 @@ export interface ListLabVhdsResult {
 /**
  * List disk images available for custom image creation.
  */
-export function listLabVhdsOutput(args: ListLabVhdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLabVhdsResult> {
+export function listLabVhdsOutput(args: ListLabVhdsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLabVhdsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:listLabVhds", {
         "name": args.name,

@@ -64,7 +64,7 @@ export interface GetInferenceGroupStatusResult {
  *
  * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
  */
-export function getInferenceGroupStatusOutput(args: GetInferenceGroupStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceGroupStatusResult> {
+export function getInferenceGroupStatusOutput(args: GetInferenceGroupStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceGroupStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getInferenceGroupStatus", {
         "groupName": args.groupName,

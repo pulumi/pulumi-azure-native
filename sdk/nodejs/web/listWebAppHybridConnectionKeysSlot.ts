@@ -75,7 +75,7 @@ export interface ListWebAppHybridConnectionKeysSlotResult {
  * Gets the send key name and value for a Hybrid Connection.
  * Azure REST API version: 2018-11-01.
  */
-export function listWebAppHybridConnectionKeysSlotOutput(args: ListWebAppHybridConnectionKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHybridConnectionKeysSlotResult> {
+export function listWebAppHybridConnectionKeysSlotOutput(args: ListWebAppHybridConnectionKeysSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppHybridConnectionKeysSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:listWebAppHybridConnectionKeysSlot", {
         "name": args.name,

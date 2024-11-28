@@ -82,7 +82,7 @@ export interface GetBlobContainerImmutabilityPolicyResult {
  *
  * Other available API versions: 2019-04-01, 2023-01-01, 2023-04-01, 2023-05-01.
  */
-export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
+export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage:getBlobContainerImmutabilityPolicy", {
         "accountName": args.accountName,

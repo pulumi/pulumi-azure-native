@@ -119,7 +119,7 @@ export interface GetOriginResult {
 /**
  * Gets an existing origin within an endpoint.
  */
-export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginResult> {
+export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20240601preview:getOrigin", {
         "endpointName": args.endpointName,

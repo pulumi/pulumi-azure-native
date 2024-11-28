@@ -65,7 +65,7 @@ export interface GetConfigServiceDeliveryChannelResult {
 /**
  * Get a ConfigServiceDeliveryChannel
  */
-export function getConfigServiceDeliveryChannelOutput(args: GetConfigServiceDeliveryChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServiceDeliveryChannelResult> {
+export function getConfigServiceDeliveryChannelOutput(args: GetConfigServiceDeliveryChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigServiceDeliveryChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getConfigServiceDeliveryChannel", {
         "name": args.name,

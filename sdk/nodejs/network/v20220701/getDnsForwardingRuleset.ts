@@ -77,7 +77,7 @@ export interface GetDnsForwardingRulesetResult {
 /**
  * Gets a DNS forwarding ruleset properties.
  */
-export function getDnsForwardingRulesetOutput(args: GetDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsForwardingRulesetResult> {
+export function getDnsForwardingRulesetOutput(args: GetDnsForwardingRulesetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsForwardingRulesetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20220701:getDnsForwardingRuleset", {
         "dnsForwardingRulesetName": args.dnsForwardingRulesetName,

@@ -71,7 +71,7 @@ export interface GetReportByBillingAccountResult {
  * Gets the report for a billing account by report name.
  * Azure REST API version: 2018-08-01-preview.
  */
-export function getReportByBillingAccountOutput(args: GetReportByBillingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByBillingAccountResult> {
+export function getReportByBillingAccountOutput(args: GetReportByBillingAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportByBillingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getReportByBillingAccount", {
         "billingAccountId": args.billingAccountId,

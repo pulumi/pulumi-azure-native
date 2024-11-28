@@ -154,7 +154,7 @@ export interface GetUpdateResult {
 /**
  * Get specified Update
  */
-export function getUpdateOutput(args: GetUpdateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateResult> {
+export function getUpdateOutput(args: GetUpdateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUpdateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20221215preview:getUpdate", {
         "clusterName": args.clusterName,

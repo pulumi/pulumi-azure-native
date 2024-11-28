@@ -48,7 +48,7 @@ export interface ListApplicationBusinessProcessDevelopmentArtifactsResult {
  * The list business process development artifacts action.
  * Azure REST API version: 2023-11-14-preview.
  */
-export function listApplicationBusinessProcessDevelopmentArtifactsOutput(args: ListApplicationBusinessProcessDevelopmentArtifactsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationBusinessProcessDevelopmentArtifactsResult> {
+export function listApplicationBusinessProcessDevelopmentArtifactsOutput(args: ListApplicationBusinessProcessDevelopmentArtifactsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListApplicationBusinessProcessDevelopmentArtifactsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:integrationspaces:listApplicationBusinessProcessDevelopmentArtifacts", {
         "applicationName": args.applicationName,

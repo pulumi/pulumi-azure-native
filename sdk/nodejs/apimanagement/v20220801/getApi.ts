@@ -138,7 +138,7 @@ export interface GetApiResult {
 /**
  * Gets the details of the API specified by its identifier.
  */
-export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
+export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220801:getApi", {
         "apiId": args.apiId,

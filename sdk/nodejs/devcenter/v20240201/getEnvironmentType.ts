@@ -70,7 +70,7 @@ export interface GetEnvironmentTypeResult {
 /**
  * Gets an environment type.
  */
-export function getEnvironmentTypeOutput(args: GetEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentTypeResult> {
+export function getEnvironmentTypeOutput(args: GetEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240201:getEnvironmentType", {
         "devCenterName": args.devCenterName,

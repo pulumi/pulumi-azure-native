@@ -76,7 +76,7 @@ export interface GetNetworkFunctionDefinitionGroupResult {
  *
  * Other available API versions: 2024-04-15.
  */
-export function getNetworkFunctionDefinitionGroupOutput(args: GetNetworkFunctionDefinitionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionDefinitionGroupResult> {
+export function getNetworkFunctionDefinitionGroupOutput(args: GetNetworkFunctionDefinitionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFunctionDefinitionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getNetworkFunctionDefinitionGroup", {
         "networkFunctionDefinitionGroupName": args.networkFunctionDefinitionGroupName,

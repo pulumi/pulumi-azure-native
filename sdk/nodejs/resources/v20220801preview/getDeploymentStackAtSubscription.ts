@@ -120,7 +120,7 @@ export interface GetDeploymentStackAtSubscriptionResult {
 /**
  * Gets a Deployment Stack with a given name.
  */
-export function getDeploymentStackAtSubscriptionOutput(args: GetDeploymentStackAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentStackAtSubscriptionResult> {
+export function getDeploymentStackAtSubscriptionOutput(args: GetDeploymentStackAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentStackAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources/v20220801preview:getDeploymentStackAtSubscription", {
         "deploymentStackName": args.deploymentStackName,

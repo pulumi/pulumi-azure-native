@@ -72,7 +72,7 @@ export interface GetInfrastructureResourceResult {
  * Get a InfrastructureResource
  * Azure REST API version: 2023-11-14-preview.
  */
-export function getInfrastructureResourceOutput(args: GetInfrastructureResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureResourceResult> {
+export function getInfrastructureResourceOutput(args: GetInfrastructureResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInfrastructureResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:integrationspaces:getInfrastructureResource", {
         "infrastructureResourceName": args.infrastructureResourceName,

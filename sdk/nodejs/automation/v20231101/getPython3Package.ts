@@ -106,7 +106,7 @@ export interface GetPython3PackageResult {
 /**
  * Retrieve the python 3 package identified by package name.
  */
-export function getPython3PackageOutput(args: GetPython3PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython3PackageResult> {
+export function getPython3PackageOutput(args: GetPython3PackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPython3PackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20231101:getPython3Package", {
         "automationAccountName": args.automationAccountName,

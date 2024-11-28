@@ -63,7 +63,7 @@ export interface GetChannelResult {
 /**
  * The EngagementFabric channel
  */
-export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
+export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:engagementfabric/v20180901preview:getChannel", {
         "accountName": args.accountName,

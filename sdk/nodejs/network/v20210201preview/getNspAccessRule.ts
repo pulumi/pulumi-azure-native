@@ -99,7 +99,7 @@ export interface GetNspAccessRuleResult {
 /**
  * Gets the specified NSP access rule by name.
  */
-export function getNspAccessRuleOutput(args: GetNspAccessRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspAccessRuleResult> {
+export function getNspAccessRuleOutput(args: GetNspAccessRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNspAccessRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20210201preview:getNspAccessRule", {
         "accessRuleName": args.accessRuleName,

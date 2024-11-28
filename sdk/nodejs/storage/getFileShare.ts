@@ -141,7 +141,7 @@ export interface GetFileShareResult {
  *
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
-export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {
+export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage:getFileShare", {
         "accountName": args.accountName,

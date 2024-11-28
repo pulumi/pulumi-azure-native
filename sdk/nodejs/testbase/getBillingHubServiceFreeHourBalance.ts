@@ -40,7 +40,7 @@ export interface GetBillingHubServiceFreeHourBalanceResult {
  *
  * Other available API versions: 2023-11-01-preview.
  */
-export function getBillingHubServiceFreeHourBalanceOutput(args: GetBillingHubServiceFreeHourBalanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingHubServiceFreeHourBalanceResult> {
+export function getBillingHubServiceFreeHourBalanceOutput(args: GetBillingHubServiceFreeHourBalanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingHubServiceFreeHourBalanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase:getBillingHubServiceFreeHourBalance", {
         "resourceGroupName": args.resourceGroupName,

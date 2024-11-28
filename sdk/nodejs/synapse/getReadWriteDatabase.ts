@@ -94,7 +94,7 @@ export interface GetReadWriteDatabaseResult {
  * Returns a database.
  * Azure REST API version: 2021-06-01-preview.
  */
-export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
+export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReadWriteDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getReadWriteDatabase", {
         "databaseName": args.databaseName,

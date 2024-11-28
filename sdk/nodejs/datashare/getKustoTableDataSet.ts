@@ -90,7 +90,7 @@ export interface GetKustoTableDataSetResult {
  * Get a DataSet in a share
  * Azure REST API version: 2021-08-01.
  */
-export function getKustoTableDataSetOutput(args: GetKustoTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoTableDataSetResult> {
+export function getKustoTableDataSetOutput(args: GetKustoTableDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKustoTableDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:getKustoTableDataSet", {
         "accountName": args.accountName,

@@ -70,7 +70,7 @@ export interface GetTrustedAccessRoleBindingResult {
 /**
  * Defines binding between a resource and role
  */
-export function getTrustedAccessRoleBindingOutput(args: GetTrustedAccessRoleBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedAccessRoleBindingResult> {
+export function getTrustedAccessRoleBindingOutput(args: GetTrustedAccessRoleBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrustedAccessRoleBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20240402preview:getTrustedAccessRoleBinding", {
         "resourceGroupName": args.resourceGroupName,

@@ -103,7 +103,7 @@ export interface GetRestApiPollerDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getRestApiPollerDataConnectorOutput(args: GetRestApiPollerDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiPollerDataConnectorResult> {
+export function getRestApiPollerDataConnectorOutput(args: GetRestApiPollerDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRestApiPollerDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getRestApiPollerDataConnector", {
         "dataConnectorId": args.dataConnectorId,

@@ -83,7 +83,7 @@ export interface GetSecurityUserRuleCollectionResult {
 /**
  * Gets a network manager security user configuration rule collection.
  */
-export function getSecurityUserRuleCollectionOutput(args: GetSecurityUserRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityUserRuleCollectionResult> {
+export function getSecurityUserRuleCollectionOutput(args: GetSecurityUserRuleCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityUserRuleCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getSecurityUserRuleCollection", {
         "configurationName": args.configurationName,

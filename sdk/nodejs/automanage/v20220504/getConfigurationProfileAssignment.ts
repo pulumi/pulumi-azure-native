@@ -66,7 +66,7 @@ export interface GetConfigurationProfileAssignmentResult {
 /**
  * Get information about a configuration profile assignment
  */
-export function getConfigurationProfileAssignmentOutput(args: GetConfigurationProfileAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileAssignmentResult> {
+export function getConfigurationProfileAssignmentOutput(args: GetConfigurationProfileAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfileAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automanage/v20220504:getConfigurationProfileAssignment", {
         "configurationProfileAssignmentName": args.configurationProfileAssignmentName,

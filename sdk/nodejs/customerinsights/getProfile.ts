@@ -133,7 +133,7 @@ export interface GetProfileResult {
  * Gets information about the specified profile.
  * Azure REST API version: 2017-04-26.
  */
-export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
+export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getProfile", {
         "hubName": args.hubName,

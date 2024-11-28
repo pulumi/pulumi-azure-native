@@ -59,7 +59,7 @@ export interface ListTenantAccessSecretsResult {
 /**
  * Get tenant access information details.
  */
-export function listTenantAccessSecretsOutput(args: ListTenantAccessSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTenantAccessSecretsResult> {
+export function listTenantAccessSecretsOutput(args: ListTenantAccessSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListTenantAccessSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:listTenantAccessSecrets", {
         "accessName": args.accessName,

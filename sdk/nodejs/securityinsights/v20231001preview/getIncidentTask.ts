@@ -89,7 +89,7 @@ export interface GetIncidentTaskResult {
 /**
  * Gets an incident task.
  */
-export function getIncidentTaskOutput(args: GetIncidentTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentTaskResult> {
+export function getIncidentTaskOutput(args: GetIncidentTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIncidentTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231001preview:getIncidentTask", {
         "incidentId": args.incidentId,

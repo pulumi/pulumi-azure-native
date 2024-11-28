@@ -57,7 +57,7 @@ export interface GetSqlMigrationServiceResult {
  *
  * Other available API versions: 2023-07-15-preview.
  */
-export function getSqlMigrationServiceOutput(args: GetSqlMigrationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlMigrationServiceResult> {
+export function getSqlMigrationServiceOutput(args: GetSqlMigrationServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlMigrationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration:getSqlMigrationService", {
         "resourceGroupName": args.resourceGroupName,

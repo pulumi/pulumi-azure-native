@@ -56,7 +56,7 @@ export interface GetSubAccountResult {
      */
     readonly type: string;
 }
-export function getSubAccountOutput(args: GetSubAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubAccountResult> {
+export function getSubAccountOutput(args: GetSubAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logz/v20220101preview:getSubAccount", {
         "monitorName": args.monitorName,

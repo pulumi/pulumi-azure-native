@@ -70,7 +70,7 @@ export interface GetWorkloadDeploymentSecretConfigurationsResult {
  * Gets the secrets of the workload deployment.
  * Azure REST API version: 2022-05-01-preview.
  */
-export function getWorkloadDeploymentSecretConfigurationsOutput(args: GetWorkloadDeploymentSecretConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadDeploymentSecretConfigurationsResult> {
+export function getWorkloadDeploymentSecretConfigurationsOutput(args: GetWorkloadDeploymentSecretConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadDeploymentSecretConfigurationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getWorkloadDeploymentSecretConfigurations", {
         "modernizeProjectName": args.modernizeProjectName,

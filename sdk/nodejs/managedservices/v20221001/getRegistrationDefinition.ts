@@ -61,7 +61,7 @@ export interface GetRegistrationDefinitionResult {
 /**
  * Gets the registration definition details.
  */
-export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationDefinitionResult> {
+export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managedservices/v20221001:getRegistrationDefinition", {
         "registrationDefinitionId": args.registrationDefinitionId,

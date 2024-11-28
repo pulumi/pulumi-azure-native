@@ -57,7 +57,7 @@ export interface GetGroupQuotaResult {
 /**
  * Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
  */
-export function getGroupQuotaOutput(args: GetGroupQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupQuotaResult> {
+export function getGroupQuotaOutput(args: GetGroupQuotaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupQuotaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:quota/v20241015preview:getGroupQuota", {
         "groupQuotaName": args.groupQuotaName,

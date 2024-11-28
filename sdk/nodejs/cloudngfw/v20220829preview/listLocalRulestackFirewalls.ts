@@ -42,7 +42,7 @@ export interface ListLocalRulestackFirewallsResult {
 /**
  * List of Firewalls associated with Rulestack
  */
-export function listLocalRulestackFirewallsOutput(args: ListLocalRulestackFirewallsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalRulestackFirewallsResult> {
+export function listLocalRulestackFirewallsOutput(args: ListLocalRulestackFirewallsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLocalRulestackFirewallsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829preview:listLocalRulestackFirewalls", {
         "localRulestackName": args.localRulestackName,

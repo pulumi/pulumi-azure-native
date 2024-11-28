@@ -147,7 +147,7 @@ export interface GetStaticSiteResult {
  *
  * Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getStaticSiteOutput(args: GetStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteResult> {
+export function getStaticSiteOutput(args: GetStaticSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getStaticSite", {
         "name": args.name,

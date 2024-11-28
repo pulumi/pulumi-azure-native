@@ -93,7 +93,7 @@ export interface GetPipelineGroupResult {
 /**
  * Returns the specific pipeline group instance.
  */
-export function getPipelineGroupOutput(args: GetPipelineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineGroupResult> {
+export function getPipelineGroupOutput(args: GetPipelineGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:monitor/v20231001preview:getPipelineGroup", {
         "pipelineGroupName": args.pipelineGroupName,

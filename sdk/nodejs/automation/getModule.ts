@@ -116,7 +116,7 @@ export interface GetModuleResult {
  *
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
-export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModuleResult> {
+export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getModule", {
         "automationAccountName": args.automationAccountName,

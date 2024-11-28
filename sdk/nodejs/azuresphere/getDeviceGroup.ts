@@ -97,7 +97,7 @@ export interface GetDeviceGroupResult {
  *
  * Other available API versions: 2024-04-01.
  */
-export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceGroupResult> {
+export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere:getDeviceGroup", {
         "catalogName": args.catalogName,

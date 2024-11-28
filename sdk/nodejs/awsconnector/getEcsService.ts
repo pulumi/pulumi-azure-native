@@ -67,7 +67,7 @@ export interface GetEcsServiceResult {
  * Get a EcsService
  * Azure REST API version: 2024-12-01.
  */
-export function getEcsServiceOutput(args: GetEcsServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcsServiceResult> {
+export function getEcsServiceOutput(args: GetEcsServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcsServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEcsService", {
         "name": args.name,

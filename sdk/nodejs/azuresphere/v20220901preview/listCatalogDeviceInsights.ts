@@ -65,7 +65,7 @@ export interface ListCatalogDeviceInsightsResult {
 /**
  * Lists device insights for catalog.
  */
-export function listCatalogDeviceInsightsOutput(args: ListCatalogDeviceInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDeviceInsightsResult> {
+export function listCatalogDeviceInsightsOutput(args: ListCatalogDeviceInsightsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListCatalogDeviceInsightsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20220901preview:listCatalogDeviceInsights", {
         "catalogName": args.catalogName,

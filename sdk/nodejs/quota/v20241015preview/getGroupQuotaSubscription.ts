@@ -54,7 +54,7 @@ export interface GetGroupQuotaSubscriptionResult {
 /**
  * Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
  */
-export function getGroupQuotaSubscriptionOutput(args: GetGroupQuotaSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupQuotaSubscriptionResult> {
+export function getGroupQuotaSubscriptionOutput(args: GetGroupQuotaSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupQuotaSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:quota/v20241015preview:getGroupQuotaSubscription", {
         "groupQuotaName": args.groupQuotaName,

@@ -70,7 +70,7 @@ export interface GetCustomApiResult {
 /**
  * Gets a custom API by name for a specific subscription and resource group
  */
-export function getCustomApiOutput(args: GetCustomApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomApiResult> {
+export function getCustomApiOutput(args: GetCustomApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20160601:getCustomApi", {
         "apiName": args.apiName,

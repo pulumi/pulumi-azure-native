@@ -41,7 +41,7 @@ export interface ListDatabaseAccountConnectionStringsResult {
 /**
  * Lists the connection strings for the specified Azure Cosmos DB database account.
  */
-export function listDatabaseAccountConnectionStringsOutput(args: ListDatabaseAccountConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountConnectionStringsResult> {
+export function listDatabaseAccountConnectionStringsOutput(args: ListDatabaseAccountConnectionStringsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDatabaseAccountConnectionStringsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240515:listDatabaseAccountConnectionStrings", {
         "accountName": args.accountName,

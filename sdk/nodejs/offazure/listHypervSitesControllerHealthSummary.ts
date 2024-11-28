@@ -51,7 +51,7 @@ export interface ListHypervSitesControllerHealthSummaryResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function listHypervSitesControllerHealthSummaryOutput(args: ListHypervSitesControllerHealthSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHypervSitesControllerHealthSummaryResult> {
+export function listHypervSitesControllerHealthSummaryOutput(args: ListHypervSitesControllerHealthSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListHypervSitesControllerHealthSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure:listHypervSitesControllerHealthSummary", {
         "resourceGroupName": args.resourceGroupName,

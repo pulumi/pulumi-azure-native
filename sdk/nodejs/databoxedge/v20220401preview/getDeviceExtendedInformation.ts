@@ -113,7 +113,7 @@ export interface GetDeviceExtendedInformationResult {
 /**
  * Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
  */
-export function getDeviceExtendedInformationOutput(args: GetDeviceExtendedInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceExtendedInformationResult> {
+export function getDeviceExtendedInformationOutput(args: GetDeviceExtendedInformationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceExtendedInformationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20220401preview:getDeviceExtendedInformation", {
         "deviceName": args.deviceName,

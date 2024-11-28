@@ -84,7 +84,7 @@ export interface GetWorkspaceProductResult {
 /**
  * Gets the details of the product specified by its identifier.
  */
-export function getWorkspaceProductOutput(args: GetWorkspaceProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceProductResult> {
+export function getWorkspaceProductOutput(args: GetWorkspaceProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getWorkspaceProduct", {
         "productId": args.productId,

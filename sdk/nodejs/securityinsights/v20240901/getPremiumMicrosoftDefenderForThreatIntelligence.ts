@@ -83,7 +83,7 @@ export interface GetPremiumMicrosoftDefenderForThreatIntelligenceResult {
 /**
  * Gets a data connector.
  */
-export function getPremiumMicrosoftDefenderForThreatIntelligenceOutput(args: GetPremiumMicrosoftDefenderForThreatIntelligenceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPremiumMicrosoftDefenderForThreatIntelligenceResult> {
+export function getPremiumMicrosoftDefenderForThreatIntelligenceOutput(args: GetPremiumMicrosoftDefenderForThreatIntelligenceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPremiumMicrosoftDefenderForThreatIntelligenceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240901:getPremiumMicrosoftDefenderForThreatIntelligence", {
         "dataConnectorId": args.dataConnectorId,

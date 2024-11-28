@@ -100,7 +100,7 @@ export interface GetBlobStorageAccountDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
-export function getBlobStorageAccountDataSetMappingOutput(args: GetBlobStorageAccountDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobStorageAccountDataSetMappingResult> {
+export function getBlobStorageAccountDataSetMappingOutput(args: GetBlobStorageAccountDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobStorageAccountDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSetMapping", {
         "accountName": args.accountName,

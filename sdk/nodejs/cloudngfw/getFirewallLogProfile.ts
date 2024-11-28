@@ -71,7 +71,7 @@ export interface GetFirewallLogProfileResult {
  *
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
-export function getFirewallLogProfileOutput(args: GetFirewallLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallLogProfileResult> {
+export function getFirewallLogProfileOutput(args: GetFirewallLogProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallLogProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw:getFirewallLogProfile", {
         "firewallName": args.firewallName,

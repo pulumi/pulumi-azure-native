@@ -84,7 +84,7 @@ export interface GetExperimentExecutionDetailsResult {
  *
  * Other available API versions: 2024-01-01, 2024-03-22-preview.
  */
-export function getExperimentExecutionDetailsOutput(args: GetExperimentExecutionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentExecutionDetailsResult> {
+export function getExperimentExecutionDetailsOutput(args: GetExperimentExecutionDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExperimentExecutionDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:chaos:getExperimentExecutionDetails", {
         "executionId": args.executionId,

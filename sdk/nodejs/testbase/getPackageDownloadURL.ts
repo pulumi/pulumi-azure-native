@@ -53,7 +53,7 @@ export interface GetPackageDownloadURLResult {
  *
  * Other available API versions: 2023-11-01-preview.
  */
-export function getPackageDownloadURLOutput(args: GetPackageDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageDownloadURLResult> {
+export function getPackageDownloadURLOutput(args: GetPackageDownloadURLOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPackageDownloadURLResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase:getPackageDownloadURL", {
         "packageName": args.packageName,

@@ -80,7 +80,7 @@ export interface GetConnectionResult {
  *
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
-export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
+export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getConnection", {
         "automationAccountName": args.automationAccountName,

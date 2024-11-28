@@ -63,7 +63,7 @@ export interface GetServerTrustCertificateResult {
 /**
  * Gets a server trust certificate that was uploaded from SQL Server to SQL Managed Instance.
  */
-export function getServerTrustCertificateOutput(args: GetServerTrustCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerTrustCertificateResult> {
+export function getServerTrustCertificateOutput(args: GetServerTrustCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerTrustCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getServerTrustCertificate", {
         "certificateName": args.certificateName,

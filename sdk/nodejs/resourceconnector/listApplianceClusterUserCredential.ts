@@ -51,7 +51,7 @@ export interface ListApplianceClusterUserCredentialResult {
  *
  * Other available API versions: 2021-10-31-preview.
  */
-export function listApplianceClusterUserCredentialOutput(args: ListApplianceClusterUserCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplianceClusterUserCredentialResult> {
+export function listApplianceClusterUserCredentialOutput(args: ListApplianceClusterUserCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListApplianceClusterUserCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resourceconnector:listApplianceClusterUserCredential", {
         "resourceGroupName": args.resourceGroupName,

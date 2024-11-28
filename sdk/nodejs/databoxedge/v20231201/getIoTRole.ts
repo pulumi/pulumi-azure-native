@@ -95,7 +95,7 @@ export interface GetIoTRoleResult {
 /**
  * Gets a specific role by name.
  */
-export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTRoleResult> {
+export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoTRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20231201:getIoTRole", {
         "deviceName": args.deviceName,

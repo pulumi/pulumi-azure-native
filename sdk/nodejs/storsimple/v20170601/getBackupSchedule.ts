@@ -92,7 +92,7 @@ export interface GetBackupScheduleResult {
 /**
  * Gets the properties of the specified backup schedule name.
  */
-export function getBackupScheduleOutput(args: GetBackupScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupScheduleResult> {
+export function getBackupScheduleOutput(args: GetBackupScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getBackupSchedule", {
         "backupPolicyName": args.backupPolicyName,

@@ -67,7 +67,7 @@ export interface GetFeaturesetVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getFeaturesetVersionOutput(args: GetFeaturesetVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeaturesetVersionResult> {
+export function getFeaturesetVersionOutput(args: GetFeaturesetVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFeaturesetVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401:getFeaturesetVersion", {
         "name": args.name,

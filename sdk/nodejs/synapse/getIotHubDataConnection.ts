@@ -111,7 +111,7 @@ export interface GetIotHubDataConnectionResult {
  * Returns a data connection.
  * Azure REST API version: 2021-06-01-preview.
  */
-export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubDataConnectionResult> {
+export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotHubDataConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getIotHubDataConnection", {
         "dataConnectionName": args.dataConnectionName,

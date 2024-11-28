@@ -67,7 +67,7 @@ export interface GetEc2VolumeResult {
  * Get a Ec2Volume
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2VolumeOutput(args: GetEc2VolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2VolumeResult> {
+export function getEc2VolumeOutput(args: GetEc2VolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2VolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Volume", {
         "name": args.name,

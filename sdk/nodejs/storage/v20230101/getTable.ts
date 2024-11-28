@@ -62,7 +62,7 @@ export interface GetTableResult {
 /**
  * Gets the table with the specified table name, under the specified account if it exists.
  */
-export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
+export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230101:getTable", {
         "accountName": args.accountName,

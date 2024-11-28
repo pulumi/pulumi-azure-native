@@ -85,7 +85,7 @@ export interface GetApiIssueResult {
 /**
  * Gets the details of the Issue for an API specified by its identifier.
  */
-export function getApiIssueOutput(args: GetApiIssueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueResult> {
+export function getApiIssueOutput(args: GetApiIssueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiIssueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getApiIssue", {
         "apiId": args.apiId,

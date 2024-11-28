@@ -69,7 +69,7 @@ export interface ListManagedClusterAccessProfileResult {
  *
  * Other available API versions: 2017-08-31, 2019-02-01, 2019-06-01.
  */
-export function listManagedClusterAccessProfileOutput(args: ListManagedClusterAccessProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAccessProfileResult> {
+export function listManagedClusterAccessProfileOutput(args: ListManagedClusterAccessProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListManagedClusterAccessProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice:listManagedClusterAccessProfile", {
         "resourceGroupName": args.resourceGroupName,

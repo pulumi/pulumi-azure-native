@@ -108,7 +108,7 @@ export interface GetSAPDatabaseInstanceResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getSAPDatabaseInstanceOutput(args: GetSAPDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDatabaseInstanceResult> {
+export function getSAPDatabaseInstanceOutput(args: GetSAPDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPDatabaseInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPDatabaseInstance", {
         "databaseInstanceName": args.databaseInstanceName,

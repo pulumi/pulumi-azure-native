@@ -42,7 +42,7 @@ export interface ListSqlMigrationServiceAuthKeysResult {
 /**
  * Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
  */
-export function listSqlMigrationServiceAuthKeysOutput(args: ListSqlMigrationServiceAuthKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSqlMigrationServiceAuthKeysResult> {
+export function listSqlMigrationServiceAuthKeysOutput(args: ListSqlMigrationServiceAuthKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSqlMigrationServiceAuthKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration/v20220330preview:listSqlMigrationServiceAuthKeys", {
         "resourceGroupName": args.resourceGroupName,

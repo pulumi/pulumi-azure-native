@@ -85,7 +85,7 @@ export interface GetAttestationProviderResult {
 /**
  * Get the status of Attestation Provider.
  */
-export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationProviderResult> {
+export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttestationProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:attestation/v20210601:getAttestationProvider", {
         "providerName": args.providerName,

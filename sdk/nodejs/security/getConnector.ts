@@ -54,7 +54,7 @@ export interface GetConnectorResult {
  * Details of a specific cloud account connector
  * Azure REST API version: 2020-01-01-preview.
  */
-export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
+export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getConnector", {
         "connectorName": args.connectorName,

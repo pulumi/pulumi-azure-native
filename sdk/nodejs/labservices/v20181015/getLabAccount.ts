@@ -82,7 +82,7 @@ export interface GetLabAccountResult {
 /**
  * Get lab account
  */
-export function getLabAccountOutput(args: GetLabAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountResult> {
+export function getLabAccountOutput(args: GetLabAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices/v20181015:getLabAccount", {
         "expand": args.expand,

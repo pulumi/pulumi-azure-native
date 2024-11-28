@@ -84,7 +84,7 @@ export interface GetStorageInsightConfigResult {
  *
  * Other available API versions: 2023-09-01.
  */
-export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightConfigResult> {
+export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageInsightConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getStorageInsightConfig", {
         "resourceGroupName": args.resourceGroupName,

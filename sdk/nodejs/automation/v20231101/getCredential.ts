@@ -67,7 +67,7 @@ export interface GetCredentialResult {
 /**
  * Retrieve the credential identified by credential name.
  */
-export function getCredentialOutput(args: GetCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialResult> {
+export function getCredentialOutput(args: GetCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20231101:getCredential", {
         "automationAccountName": args.automationAccountName,

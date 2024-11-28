@@ -67,7 +67,7 @@ export interface GetIamRoleResult {
  * Get a IamRole
  * Azure REST API version: 2024-12-01.
  */
-export function getIamRoleOutput(args: GetIamRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamRoleResult> {
+export function getIamRoleOutput(args: GetIamRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamRole", {
         "name": args.name,

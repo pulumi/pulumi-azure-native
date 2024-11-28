@@ -77,7 +77,7 @@ export interface GetTrafficControllerInterfaceResult {
 /**
  * Get a TrafficController
  */
-export function getTrafficControllerInterfaceOutput(args: GetTrafficControllerInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficControllerInterfaceResult> {
+export function getTrafficControllerInterfaceOutput(args: GetTrafficControllerInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficControllerInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicenetworking/v20221001preview:getTrafficControllerInterface", {
         "resourceGroupName": args.resourceGroupName,

@@ -77,7 +77,7 @@ export interface GetDdosProtectionPlanResult {
 /**
  * Gets information about the specified DDoS protection plan.
  */
-export function getDdosProtectionPlanOutput(args: GetDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosProtectionPlanResult> {
+export function getDdosProtectionPlanOutput(args: GetDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDdosProtectionPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getDdosProtectionPlan", {
         "ddosProtectionPlanName": args.ddosProtectionPlanName,

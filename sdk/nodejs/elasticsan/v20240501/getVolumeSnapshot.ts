@@ -79,7 +79,7 @@ export interface GetVolumeSnapshotResult {
 /**
  * Get a Volume Snapshot.
  */
-export function getVolumeSnapshotOutput(args: GetVolumeSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeSnapshotResult> {
+export function getVolumeSnapshotOutput(args: GetVolumeSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elasticsan/v20240501:getVolumeSnapshot", {
         "elasticSanName": args.elasticSanName,

@@ -83,7 +83,7 @@ export interface GetIncidentCommentResult {
 /**
  * Gets a comment for a given incident.
  */
-export function getIncidentCommentOutput(args: GetIncidentCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIncidentCommentResult> {
+export function getIncidentCommentOutput(args: GetIncidentCommentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIncidentCommentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230201:getIncidentComment", {
         "incidentCommentId": args.incidentCommentId,

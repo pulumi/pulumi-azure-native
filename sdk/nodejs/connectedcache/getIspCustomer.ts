@@ -67,7 +67,7 @@ export interface GetIspCustomerResult {
  * Gets the ispCustomer resource information using this get call
  * Azure REST API version: 2023-05-01-preview.
  */
-export function getIspCustomerOutput(args: GetIspCustomerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIspCustomerResult> {
+export function getIspCustomerOutput(args: GetIspCustomerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIspCustomerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedcache:getIspCustomer", {
         "customerResourceName": args.customerResourceName,

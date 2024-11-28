@@ -75,7 +75,7 @@ export interface GetApiPolicyResult {
  *
  * Other available API versions: 2016-10-10, 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getApiPolicyOutput(args: GetApiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPolicyResult> {
+export function getApiPolicyOutput(args: GetApiPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getApiPolicy", {
         "apiId": args.apiId,

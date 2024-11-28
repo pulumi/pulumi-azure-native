@@ -83,7 +83,7 @@ export interface GetSharedCommitmentPlanResult {
  *
  * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
  */
-export function getSharedCommitmentPlanOutput(args: GetSharedCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedCommitmentPlanResult> {
+export function getSharedCommitmentPlanOutput(args: GetSharedCommitmentPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedCommitmentPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices:getSharedCommitmentPlan", {
         "commitmentPlanName": args.commitmentPlanName,

@@ -72,7 +72,7 @@ export interface GetReplicationNetworkMappingResult {
 /**
  * Gets the details of an ASR network mapping.
  */
-export function getReplicationNetworkMappingOutput(args: GetReplicationNetworkMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationNetworkMappingResult> {
+export function getReplicationNetworkMappingOutput(args: GetReplicationNetworkMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationNetworkMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20241001:getReplicationNetworkMapping", {
         "fabricName": args.fabricName,

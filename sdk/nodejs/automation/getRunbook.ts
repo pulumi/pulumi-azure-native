@@ -132,7 +132,7 @@ export interface GetRunbookResult {
  *
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
-export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunbookResult> {
+export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRunbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getRunbook", {
         "automationAccountName": args.automationAccountName,

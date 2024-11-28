@@ -74,7 +74,7 @@ export interface GetFleetMemberResult {
 /**
  * Get a FleetMember
  */
-export function getFleetMemberOutput(args: GetFleetMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetMemberResult> {
+export function getFleetMemberOutput(args: GetFleetMemberOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetMemberResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20231015:getFleetMember", {
         "fleetMemberName": args.fleetMemberName,

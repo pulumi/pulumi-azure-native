@@ -93,7 +93,7 @@ export interface GetWebAppHybridConnectionResult {
 /**
  * Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
  */
-export function getWebAppHybridConnectionOutput(args: GetWebAppHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionResult> {
+export function getWebAppHybridConnectionOutput(args: GetWebAppHybridConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppHybridConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getWebAppHybridConnection", {
         "name": args.name,

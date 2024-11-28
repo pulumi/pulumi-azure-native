@@ -72,7 +72,7 @@ export interface GetStaticSiteCustomDomainResult {
 /**
  * Description for Gets an existing custom domain for a particular static site.
  */
-export function getStaticSiteCustomDomainOutput(args: GetStaticSiteCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteCustomDomainResult> {
+export function getStaticSiteCustomDomainOutput(args: GetStaticSiteCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getStaticSiteCustomDomain", {
         "domainName": args.domainName,

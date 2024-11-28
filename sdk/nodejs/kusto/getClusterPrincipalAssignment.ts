@@ -89,7 +89,7 @@ export interface GetClusterPrincipalAssignmentResult {
  *
  * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
  */
-export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
+export function getClusterPrincipalAssignmentOutput(args: GetClusterPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterPrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto:getClusterPrincipalAssignment", {
         "clusterName": args.clusterName,

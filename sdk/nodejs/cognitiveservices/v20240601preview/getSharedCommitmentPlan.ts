@@ -77,7 +77,7 @@ export interface GetSharedCommitmentPlanResult {
 /**
  * Returns a Cognitive Services commitment plan specified by the parameters.
  */
-export function getSharedCommitmentPlanOutput(args: GetSharedCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedCommitmentPlanResult> {
+export function getSharedCommitmentPlanOutput(args: GetSharedCommitmentPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedCommitmentPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20240601preview:getSharedCommitmentPlan", {
         "commitmentPlanName": args.commitmentPlanName,

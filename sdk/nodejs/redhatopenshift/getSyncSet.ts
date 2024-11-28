@@ -68,7 +68,7 @@ export interface GetSyncSetResult {
  *
  * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
  */
-export function getSyncSetOutput(args: GetSyncSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncSetResult> {
+export function getSyncSetOutput(args: GetSyncSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyncSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:redhatopenshift:getSyncSet", {
         "childResourceName": args.childResourceName,

@@ -77,7 +77,7 @@ export interface GetBrokerAuthorizationResult {
  *
  * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
  */
-export function getBrokerAuthorizationOutput(args: GetBrokerAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerAuthorizationResult> {
+export function getBrokerAuthorizationOutput(args: GetBrokerAuthorizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerAuthorizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperations:getBrokerAuthorization", {
         "authorizationName": args.authorizationName,

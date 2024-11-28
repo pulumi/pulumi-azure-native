@@ -133,7 +133,7 @@ export interface GetDiscoveredAssetResult {
 /**
  * Get a DiscoveredAsset
  */
-export function getDiscoveredAssetOutput(args: GetDiscoveredAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiscoveredAssetResult> {
+export function getDiscoveredAssetOutput(args: GetDiscoveredAssetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiscoveredAssetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:deviceregistry/v20240901preview:getDiscoveredAsset", {
         "discoveredAssetName": args.discoveredAssetName,

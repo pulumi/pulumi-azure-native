@@ -64,7 +64,7 @@ export interface GetDataFlowResult {
  * Gets a data flow.
  * Azure REST API version: 2018-06-01.
  */
-export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataFlowResult> {
+export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataFlowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getDataFlow", {
         "dataFlowName": args.dataFlowName,

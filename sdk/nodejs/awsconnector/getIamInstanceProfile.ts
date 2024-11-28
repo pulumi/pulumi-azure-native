@@ -67,7 +67,7 @@ export interface GetIamInstanceProfileResult {
  * Get a IamInstanceProfile
  * Azure REST API version: 2024-12-01.
  */
-export function getIamInstanceProfileOutput(args: GetIamInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamInstanceProfileResult> {
+export function getIamInstanceProfileOutput(args: GetIamInstanceProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamInstanceProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamInstanceProfile", {
         "name": args.name,

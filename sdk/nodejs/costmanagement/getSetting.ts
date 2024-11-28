@@ -62,7 +62,7 @@ export interface GetSettingResult {
  * Retrieves the current value for a specific setting.
  * Azure REST API version: 2019-11-01.
  */
-export function getSettingOutput(args: GetSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSettingResult> {
+export function getSettingOutput(args: GetSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getSetting", {
         "settingName": args.settingName,

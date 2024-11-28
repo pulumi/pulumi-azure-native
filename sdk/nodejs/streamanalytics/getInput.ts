@@ -64,7 +64,7 @@ export interface GetInputResult {
  *
  * Other available API versions: 2021-10-01-preview.
  */
-export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
+export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInputResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:streamanalytics:getInput", {
         "inputName": args.inputName,

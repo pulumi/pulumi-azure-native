@@ -132,7 +132,7 @@ export interface GetKpiResult {
  * Gets a KPI in the hub.
  * Azure REST API version: 2017-04-26.
  */
-export function getKpiOutput(args: GetKpiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKpiResult> {
+export function getKpiOutput(args: GetKpiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKpiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getKpi", {
         "hubName": args.hubName,

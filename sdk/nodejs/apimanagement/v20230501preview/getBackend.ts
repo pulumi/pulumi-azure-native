@@ -95,7 +95,7 @@ export interface GetBackendResult {
 /**
  * Gets the details of the backend specified by its identifier.
  */
-export function getBackendOutput(args: GetBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendResult> {
+export function getBackendOutput(args: GetBackendOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackendResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getBackend", {
         "backendId": args.backendId,

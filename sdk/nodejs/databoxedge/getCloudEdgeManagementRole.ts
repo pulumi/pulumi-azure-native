@@ -79,7 +79,7 @@ export interface GetCloudEdgeManagementRoleResult {
  * Gets a specific role by name.
  * Azure REST API version: 2022-03-01.
  */
-export function getCloudEdgeManagementRoleOutput(args: GetCloudEdgeManagementRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEdgeManagementRoleResult> {
+export function getCloudEdgeManagementRoleOutput(args: GetCloudEdgeManagementRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudEdgeManagementRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge:getCloudEdgeManagementRole", {
         "deviceName": args.deviceName,

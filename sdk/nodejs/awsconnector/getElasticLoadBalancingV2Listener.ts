@@ -67,7 +67,7 @@ export interface GetElasticLoadBalancingV2ListenerResult {
  * Get a ElasticLoadBalancingV2Listener
  * Azure REST API version: 2024-12-01.
  */
-export function getElasticLoadBalancingV2ListenerOutput(args: GetElasticLoadBalancingV2ListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticLoadBalancingV2ListenerResult> {
+export function getElasticLoadBalancingV2ListenerOutput(args: GetElasticLoadBalancingV2ListenerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticLoadBalancingV2ListenerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getElasticLoadBalancingV2Listener", {
         "name": args.name,

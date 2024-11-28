@@ -146,7 +146,7 @@ export interface GetCGProfileResult {
  * Get the properties of the specified container group profile.
  * Azure REST API version: 2024-11-01-preview.
  */
-export function getCGProfileOutput(args: GetCGProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCGProfileResult> {
+export function getCGProfileOutput(args: GetCGProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCGProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerinstance:getCGProfile", {
         "containerGroupProfileName": args.containerGroupProfileName,

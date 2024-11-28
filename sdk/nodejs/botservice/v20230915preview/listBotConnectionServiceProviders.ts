@@ -36,7 +36,7 @@ export interface ListBotConnectionServiceProvidersResult {
 /**
  * Lists the available Service Providers for creating Connection Settings
  */
-export function listBotConnectionServiceProvidersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListBotConnectionServiceProvidersResult> {
+export function listBotConnectionServiceProvidersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBotConnectionServiceProvidersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice/v20230915preview:listBotConnectionServiceProviders", {
     }, opts);
