@@ -178,7 +178,7 @@ def get_proactive_detection_configuration(configuration_id: Optional[str] = None
 def get_proactive_detection_configuration_output(configuration_id: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  resource_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProactiveDetectionConfigurationResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProactiveDetectionConfigurationResult]:
     """
     Get the ProactiveDetection configuration for this configuration id.
 
@@ -191,7 +191,7 @@ def get_proactive_detection_configuration_output(configuration_id: Optional[pulu
     __args__['configurationId'] = configuration_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20180501preview:getProactiveDetectionConfiguration', __args__, opts=opts, typ=GetProactiveDetectionConfigurationResult)
     return __ret__.apply(lambda __response__: GetProactiveDetectionConfigurationResult(
         custom_emails=pulumi.get(__response__, 'custom_emails'),

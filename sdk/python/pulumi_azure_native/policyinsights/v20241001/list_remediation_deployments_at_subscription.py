@@ -83,7 +83,7 @@ def list_remediation_deployments_at_subscription(remediation_name: Optional[str]
         value=pulumi.get(__ret__, 'value'))
 def list_remediation_deployments_at_subscription_output(remediation_name: Optional[pulumi.Input[str]] = None,
                                                         top: Optional[pulumi.Input[Optional[int]]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtSubscriptionResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemediationDeploymentsAtSubscriptionResult]:
     """
     Gets all deployments for a remediation at subscription scope.
 
@@ -94,7 +94,7 @@ def list_remediation_deployments_at_subscription_output(remediation_name: Option
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights/v20241001:listRemediationDeploymentsAtSubscription', __args__, opts=opts, typ=ListRemediationDeploymentsAtSubscriptionResult)
     return __ret__.apply(lambda __response__: ListRemediationDeploymentsAtSubscriptionResult(
         next_link=pulumi.get(__response__, 'next_link'),

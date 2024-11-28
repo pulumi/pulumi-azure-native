@@ -217,7 +217,7 @@ def list_container_app_custom_host_name_analysis(container_app_name: Optional[st
 def list_container_app_custom_host_name_analysis_output(container_app_name: Optional[pulumi.Input[str]] = None,
                                                         custom_hostname: Optional[pulumi.Input[Optional[str]]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListContainerAppCustomHostNameAnalysisResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListContainerAppCustomHostNameAnalysisResult]:
     """
     Custom domain analysis.
 
@@ -230,7 +230,7 @@ def list_container_app_custom_host_name_analysis_output(container_app_name: Opti
     __args__['containerAppName'] = container_app_name
     __args__['customHostname'] = custom_hostname
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240202preview:listContainerAppCustomHostNameAnalysis', __args__, opts=opts, typ=ListContainerAppCustomHostNameAnalysisResult)
     return __ret__.apply(lambda __response__: ListContainerAppCustomHostNameAnalysisResult(
         a_records=pulumi.get(__response__, 'a_records'),

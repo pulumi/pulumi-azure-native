@@ -286,7 +286,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         endpoint_type: Optional[pulumi.Input[str]] = None,
                         profile_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets a Traffic Manager endpoint.
 
@@ -301,7 +301,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     __args__['endpointType'] = endpoint_type
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20220401:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
     return __ret__.apply(lambda __response__: GetEndpointResult(
         always_serve=pulumi.get(__response__, 'always_serve'),

@@ -234,7 +234,7 @@ def get_nsp_access_rule_output(access_rule_name: Optional[pulumi.Input[str]] = N
                                network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
                                profile_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspAccessRuleResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNspAccessRuleResult]:
     """
     Gets the specified NSP access rule by name.
 
@@ -249,7 +249,7 @@ def get_nsp_access_rule_output(access_rule_name: Optional[pulumi.Input[str]] = N
     __args__['networkSecurityPerimeterName'] = network_security_perimeter_name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20210201preview:getNspAccessRule', __args__, opts=opts, typ=GetNspAccessRuleResult)
     return __ret__.apply(lambda __response__: GetNspAccessRuleResult(
         address_prefixes=pulumi.get(__response__, 'address_prefixes'),

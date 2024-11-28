@@ -616,7 +616,7 @@ def get_sql_assessment_v2_operation_output(assessment_name: Optional[pulumi.Inpu
                                            group_name: Optional[pulumi.Input[str]] = None,
                                            project_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlAssessmentV2OperationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlAssessmentV2OperationResult]:
     """
     Get a SqlAssessmentV2
 
@@ -631,7 +631,7 @@ def get_sql_assessment_v2_operation_output(assessment_name: Optional[pulumi.Inpu
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230401preview:getSqlAssessmentV2Operation', __args__, opts=opts, typ=GetSqlAssessmentV2OperationResult)
     return __ret__.apply(lambda __response__: GetSqlAssessmentV2OperationResult(
         assessment_type=pulumi.get(__response__, 'assessment_type'),

@@ -257,7 +257,7 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[str
 def get_rosetta_net_process_configuration_output(integration_account_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  rosetta_net_process_configuration_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRosettaNetProcessConfigurationResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRosettaNetProcessConfigurationResult]:
     """
     Gets an integration account RosettaNetProcessConfiguration.
     Azure REST API version: 2016-06-01.
@@ -271,7 +271,7 @@ def get_rosetta_net_process_configuration_output(integration_account_name: Optio
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['rosettaNetProcessConfigurationName'] = rosetta_net_process_configuration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getRosettaNetProcessConfiguration', __args__, opts=opts, typ=GetRosettaNetProcessConfigurationResult)
     return __ret__.apply(lambda __response__: GetRosettaNetProcessConfigurationResult(
         activity_settings=pulumi.get(__response__, 'activity_settings'),

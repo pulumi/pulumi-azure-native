@@ -139,7 +139,7 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[str] = Non
 def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                            hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridRunbookWorkerGroupResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridRunbookWorkerGroupResult]:
     """
     Retrieve a hybrid runbook worker group.
 
@@ -152,7 +152,7 @@ def get_hybrid_runbook_worker_group_output(automation_account_name: Optional[pul
     __args__['automationAccountName'] = automation_account_name
     __args__['hybridRunbookWorkerGroupName'] = hybrid_runbook_worker_group_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20220808:getHybridRunbookWorkerGroup', __args__, opts=opts, typ=GetHybridRunbookWorkerGroupResult)
     return __ret__.apply(lambda __response__: GetHybridRunbookWorkerGroupResult(
         credential=pulumi.get(__response__, 'credential'),

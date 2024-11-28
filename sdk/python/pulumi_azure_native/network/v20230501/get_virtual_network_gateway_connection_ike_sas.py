@@ -63,7 +63,7 @@ def get_virtual_network_gateway_connection_ike_sas(resource_group_name: Optional
         value=pulumi.get(__ret__, 'value'))
 def get_virtual_network_gateway_connection_ike_sas_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                           virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
-                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayConnectionIkeSasResult]:
+                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayConnectionIkeSasResult]:
     """
     Lists IKE Security Associations for the virtual network gateway connection in the specified resource group.
 
@@ -74,7 +74,7 @@ def get_virtual_network_gateway_connection_ike_sas_output(resource_group_name: O
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayConnectionName'] = virtual_network_gateway_connection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:getVirtualNetworkGatewayConnectionIkeSas', __args__, opts=opts, typ=GetVirtualNetworkGatewayConnectionIkeSasResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayConnectionIkeSasResult(
         value=pulumi.get(__response__, 'value')))

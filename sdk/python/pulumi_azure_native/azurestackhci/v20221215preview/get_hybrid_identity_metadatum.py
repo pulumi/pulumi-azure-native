@@ -165,7 +165,7 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
 def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          virtual_machine_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
     """
     Implements HybridIdentityMetadata GET method.
 
@@ -178,7 +178,7 @@ def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[st
     __args__['metadataName'] = metadata_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineName'] = virtual_machine_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20221215preview:getHybridIdentityMetadatum', __args__, opts=opts, typ=GetHybridIdentityMetadatumResult)
     return __ret__.apply(lambda __response__: GetHybridIdentityMetadatumResult(
         id=pulumi.get(__response__, 'id'),

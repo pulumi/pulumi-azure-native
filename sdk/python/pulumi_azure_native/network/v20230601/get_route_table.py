@@ -204,7 +204,7 @@ def get_route_table(expand: Optional[str] = None,
 def get_route_table_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            route_table_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableResult]:
     """
     Gets the specified route table.
 
@@ -217,7 +217,7 @@ def get_route_table_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeTableName'] = route_table_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult)
     return __ret__.apply(lambda __response__: GetRouteTableResult(
         disable_bgp_route_propagation=pulumi.get(__response__, 'disable_bgp_route_propagation'),

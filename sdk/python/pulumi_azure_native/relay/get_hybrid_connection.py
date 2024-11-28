@@ -194,7 +194,7 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
 def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[str]] = None,
                                  namespace_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridConnectionResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridConnectionResult]:
     """
     Returns the description for the specified hybrid connection.
     Azure REST API version: 2021-11-01.
@@ -210,7 +210,7 @@ def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[s
     __args__['hybridConnectionName'] = hybrid_connection_name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:relay:getHybridConnection', __args__, opts=opts, typ=GetHybridConnectionResult)
     return __ret__.apply(lambda __response__: GetHybridConnectionResult(
         created_at=pulumi.get(__response__, 'created_at'),

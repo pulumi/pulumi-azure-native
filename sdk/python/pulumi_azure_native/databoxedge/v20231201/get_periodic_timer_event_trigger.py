@@ -166,7 +166,7 @@ def get_periodic_timer_event_trigger(device_name: Optional[str] = None,
 def get_periodic_timer_event_trigger_output(device_name: Optional[pulumi.Input[str]] = None,
                                             name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeriodicTimerEventTriggerResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeriodicTimerEventTriggerResult]:
     """
     Get a specific trigger by name.
 
@@ -179,7 +179,7 @@ def get_periodic_timer_event_trigger_output(device_name: Optional[pulumi.Input[s
     __args__['deviceName'] = device_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20231201:getPeriodicTimerEventTrigger', __args__, opts=opts, typ=GetPeriodicTimerEventTriggerResult)
     return __ret__.apply(lambda __response__: GetPeriodicTimerEventTriggerResult(
         custom_context_tag=pulumi.get(__response__, 'custom_context_tag'),

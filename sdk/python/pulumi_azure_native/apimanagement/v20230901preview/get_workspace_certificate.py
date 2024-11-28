@@ -156,7 +156,7 @@ def get_workspace_certificate_output(certificate_id: Optional[pulumi.Input[str]]
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      service_name: Optional[pulumi.Input[str]] = None,
                                      workspace_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceCertificateResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceCertificateResult]:
     """
     Gets the details of the certificate specified by its identifier.
 
@@ -171,7 +171,7 @@ def get_workspace_certificate_output(certificate_id: Optional[pulumi.Input[str]]
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getWorkspaceCertificate', __args__, opts=opts, typ=GetWorkspaceCertificateResult)
     return __ret__.apply(lambda __response__: GetWorkspaceCertificateResult(
         expiration_date=pulumi.get(__response__, 'expiration_date'),

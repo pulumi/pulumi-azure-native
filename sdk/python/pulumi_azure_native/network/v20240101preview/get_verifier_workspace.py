@@ -152,7 +152,7 @@ def get_verifier_workspace(network_manager_name: Optional[str] = None,
 def get_verifier_workspace_output(network_manager_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   workspace_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVerifierWorkspaceResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVerifierWorkspaceResult]:
     """
     Instance of Verifier Workspace.
 
@@ -165,7 +165,7 @@ def get_verifier_workspace_output(network_manager_name: Optional[pulumi.Input[st
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101preview:getVerifierWorkspace', __args__, opts=opts, typ=GetVerifierWorkspaceResult)
     return __ret__.apply(lambda __response__: GetVerifierWorkspaceResult(
         id=pulumi.get(__response__, 'id'),

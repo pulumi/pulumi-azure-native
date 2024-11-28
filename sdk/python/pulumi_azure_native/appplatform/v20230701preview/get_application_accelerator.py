@@ -139,7 +139,7 @@ def get_application_accelerator(application_accelerator_name: Optional[str] = No
 def get_application_accelerator_output(application_accelerator_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        service_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationAcceleratorResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationAcceleratorResult]:
     """
     Get the application accelerator.
 
@@ -152,7 +152,7 @@ def get_application_accelerator_output(application_accelerator_name: Optional[pu
     __args__['applicationAcceleratorName'] = application_accelerator_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20230701preview:getApplicationAccelerator', __args__, opts=opts, typ=GetApplicationAcceleratorResult)
     return __ret__.apply(lambda __response__: GetApplicationAcceleratorResult(
         id=pulumi.get(__response__, 'id'),

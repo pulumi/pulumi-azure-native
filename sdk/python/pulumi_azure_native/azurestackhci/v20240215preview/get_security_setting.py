@@ -152,7 +152,7 @@ def get_security_setting(cluster_name: Optional[str] = None,
 def get_security_setting_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 security_settings_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecuritySettingResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecuritySettingResult]:
     """
     Get a SecuritySetting
 
@@ -165,7 +165,7 @@ def get_security_setting_output(cluster_name: Optional[pulumi.Input[str]] = None
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['securitySettingsName'] = security_settings_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240215preview:getSecuritySetting', __args__, opts=opts, typ=GetSecuritySettingResult)
     return __ret__.apply(lambda __response__: GetSecuritySettingResult(
         id=pulumi.get(__response__, 'id'),

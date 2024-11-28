@@ -126,7 +126,7 @@ def get_time_series_database_connection(resource_group_name: Optional[str] = Non
 def get_time_series_database_connection_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                resource_name: Optional[pulumi.Input[str]] = None,
                                                time_series_database_connection_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTimeSeriesDatabaseConnectionResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTimeSeriesDatabaseConnectionResult]:
     """
     Get the description of an existing time series database connection.
 
@@ -139,7 +139,7 @@ def get_time_series_database_connection_output(resource_group_name: Optional[pul
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     __args__['timeSeriesDatabaseConnectionName'] = time_series_database_connection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:digitaltwins/v20230131:getTimeSeriesDatabaseConnection', __args__, opts=opts, typ=GetTimeSeriesDatabaseConnectionResult)
     return __ret__.apply(lambda __response__: GetTimeSeriesDatabaseConnectionResult(
         id=pulumi.get(__response__, 'id'),

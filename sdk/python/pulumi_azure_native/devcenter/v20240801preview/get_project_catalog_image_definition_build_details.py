@@ -199,7 +199,7 @@ def get_project_catalog_image_definition_build_details_output(build_name: Option
                                                               image_definition_name: Optional[pulumi.Input[str]] = None,
                                                               project_name: Optional[pulumi.Input[str]] = None,
                                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectCatalogImageDefinitionBuildDetailsResult]:
+                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectCatalogImageDefinitionBuildDetailsResult]:
     """
     Gets Build details
 
@@ -216,7 +216,7 @@ def get_project_catalog_image_definition_build_details_output(build_name: Option
     __args__['imageDefinitionName'] = image_definition_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240801preview:getProjectCatalogImageDefinitionBuildDetails', __args__, opts=opts, typ=GetProjectCatalogImageDefinitionBuildDetailsResult)
     return __ret__.apply(lambda __response__: GetProjectCatalogImageDefinitionBuildDetailsResult(
         end_time=pulumi.get(__response__, 'end_time'),

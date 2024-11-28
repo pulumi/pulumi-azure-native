@@ -207,7 +207,7 @@ def get_key_value(config_store_name: Optional[str] = None,
 def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
                          key_value_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyValueResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyValueResult]:
     """
     Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
 
@@ -220,7 +220,7 @@ def get_key_value_output(config_store_name: Optional[pulumi.Input[str]] = None,
     __args__['configStoreName'] = config_store_name
     __args__['keyValueName'] = key_value_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appconfiguration/v20230301:getKeyValue', __args__, opts=opts, typ=GetKeyValueResult)
     return __ret__.apply(lambda __response__: GetKeyValueResult(
         content_type=pulumi.get(__response__, 'content_type'),

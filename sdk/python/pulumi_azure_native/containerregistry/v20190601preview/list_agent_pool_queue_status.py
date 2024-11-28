@@ -73,7 +73,7 @@ def list_agent_pool_queue_status(agent_pool_name: Optional[str] = None,
 def list_agent_pool_queue_status_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                                         registry_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAgentPoolQueueStatusResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAgentPoolQueueStatusResult]:
     """
     Gets the count of queued runs for a given agent pool.
 
@@ -86,7 +86,7 @@ def list_agent_pool_queue_status_output(agent_pool_name: Optional[pulumi.Input[s
     __args__['agentPoolName'] = agent_pool_name
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20190601preview:listAgentPoolQueueStatus', __args__, opts=opts, typ=ListAgentPoolQueueStatusResult)
     return __ret__.apply(lambda __response__: ListAgentPoolQueueStatusResult(
         count=pulumi.get(__response__, 'count')))

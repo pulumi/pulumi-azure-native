@@ -127,7 +127,7 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
 def get_registration_assignment_output(expand_registration_definition: Optional[pulumi.Input[Optional[bool]]] = None,
                                        registration_assignment_id: Optional[pulumi.Input[str]] = None,
                                        scope: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationAssignmentResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationAssignmentResult]:
     """
     Gets the details of the specified registration assignment.
     Azure REST API version: 2022-10-01.
@@ -141,7 +141,7 @@ def get_registration_assignment_output(expand_registration_definition: Optional[
     __args__['expandRegistrationDefinition'] = expand_registration_definition
     __args__['registrationAssignmentId'] = registration_assignment_id
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managedservices:getRegistrationAssignment', __args__, opts=opts, typ=GetRegistrationAssignmentResult)
     return __ret__.apply(lambda __response__: GetRegistrationAssignmentResult(
         id=pulumi.get(__response__, 'id'),

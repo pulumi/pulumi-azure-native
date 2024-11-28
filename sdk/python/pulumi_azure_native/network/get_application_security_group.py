@@ -163,7 +163,7 @@ def get_application_security_group(application_security_group_name: Optional[str
         type=pulumi.get(__ret__, 'type'))
 def get_application_security_group_output(application_security_group_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationSecurityGroupResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationSecurityGroupResult]:
     """
     Gets information about the specified application security group.
     Azure REST API version: 2023-02-01.
@@ -177,7 +177,7 @@ def get_application_security_group_output(application_security_group_name: Optio
     __args__ = dict()
     __args__['applicationSecurityGroupName'] = application_security_group_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getApplicationSecurityGroup', __args__, opts=opts, typ=GetApplicationSecurityGroupResult)
     return __ret__.apply(lambda __response__: GetApplicationSecurityGroupResult(
         etag=pulumi.get(__response__, 'etag'),

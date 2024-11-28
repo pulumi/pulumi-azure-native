@@ -158,7 +158,7 @@ def list_queue_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] 
                            namespace_name: Optional[pulumi.Input[str]] = None,
                            queue_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListQueueKeysResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListQueueKeysResult]:
     """
     Primary and secondary connection strings to the queue.
     Azure REST API version: 2022-01-01-preview.
@@ -176,7 +176,7 @@ def list_queue_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] 
     __args__['namespaceName'] = namespace_name
     __args__['queueName'] = queue_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus:listQueueKeys', __args__, opts=opts, typ=ListQueueKeysResult)
     return __ret__.apply(lambda __response__: ListQueueKeysResult(
         alias_primary_connection_string=pulumi.get(__response__, 'alias_primary_connection_string'),

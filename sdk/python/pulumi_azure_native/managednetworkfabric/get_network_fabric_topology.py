@@ -97,7 +97,7 @@ def get_network_fabric_topology(network_fabric_name: Optional[str] = None,
         url=pulumi.get(__ret__, 'url'))
 def get_network_fabric_topology_output(network_fabric_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkFabricTopologyResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFabricTopologyResult]:
     """
     Gets Topology of the underlying resources in the given Network Fabric instance.
     Azure REST API version: 2023-06-15.
@@ -109,7 +109,7 @@ def get_network_fabric_topology_output(network_fabric_name: Optional[pulumi.Inpu
     __args__ = dict()
     __args__['networkFabricName'] = network_fabric_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getNetworkFabricTopology', __args__, opts=opts, typ=GetNetworkFabricTopologyResult)
     return __ret__.apply(lambda __response__: GetNetworkFabricTopologyResult(
         configuration_state=pulumi.get(__response__, 'configuration_state'),

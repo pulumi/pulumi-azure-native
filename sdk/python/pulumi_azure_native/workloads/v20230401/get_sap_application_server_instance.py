@@ -334,7 +334,7 @@ def get_sap_application_server_instance(application_instance_name: Optional[str]
 def get_sap_application_server_instance_output(application_instance_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPApplicationServerInstanceResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPApplicationServerInstanceResult]:
     """
     Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
 
@@ -347,7 +347,7 @@ def get_sap_application_server_instance_output(application_instance_name: Option
     __args__['applicationInstanceName'] = application_instance_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20230401:getSAPApplicationServerInstance', __args__, opts=opts, typ=GetSAPApplicationServerInstanceResult)
     return __ret__.apply(lambda __response__: GetSAPApplicationServerInstanceResult(
         errors=pulumi.get(__response__, 'errors'),

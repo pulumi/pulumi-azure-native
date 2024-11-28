@@ -84,7 +84,7 @@ def list_dns_resolver_policy_by_virtual_network(resource_group_name: Optional[st
         value=pulumi.get(__ret__, 'value'))
 def list_dns_resolver_policy_by_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                        virtual_network_name: Optional[pulumi.Input[str]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDnsResolverPolicyByVirtualNetworkResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDnsResolverPolicyByVirtualNetworkResult]:
     """
     Lists DNS resolver policy resource IDs linked to a virtual network.
     Azure REST API version: 2023-07-01-preview.
@@ -96,7 +96,7 @@ def list_dns_resolver_policy_by_virtual_network_output(resource_group_name: Opti
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:listDnsResolverPolicyByVirtualNetwork', __args__, opts=opts, typ=ListDnsResolverPolicyByVirtualNetworkResult)
     return __ret__.apply(lambda __response__: ListDnsResolverPolicyByVirtualNetworkResult(
         next_link=pulumi.get(__response__, 'next_link'),

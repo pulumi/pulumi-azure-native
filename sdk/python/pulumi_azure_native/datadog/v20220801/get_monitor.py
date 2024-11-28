@@ -158,7 +158,7 @@ def get_monitor(monitor_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -168,7 +168,7 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datadog/v20220801:getMonitor', __args__, opts=opts, typ=GetMonitorResult)
     return __ret__.apply(lambda __response__: GetMonitorResult(
         id=pulumi.get(__response__, 'id'),

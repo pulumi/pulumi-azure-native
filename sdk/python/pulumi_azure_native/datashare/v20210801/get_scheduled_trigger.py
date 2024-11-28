@@ -222,7 +222,7 @@ def get_scheduled_trigger_output(account_name: Optional[pulumi.Input[str]] = Non
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  share_subscription_name: Optional[pulumi.Input[str]] = None,
                                  trigger_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledTriggerResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledTriggerResult]:
     """
     Get a Trigger in a shareSubscription
 
@@ -237,7 +237,7 @@ def get_scheduled_trigger_output(account_name: Optional[pulumi.Input[str]] = Non
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareSubscriptionName'] = share_subscription_name
     __args__['triggerName'] = trigger_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20210801:getScheduledTrigger', __args__, opts=opts, typ=GetScheduledTriggerResult)
     return __ret__.apply(lambda __response__: GetScheduledTriggerResult(
         created_at=pulumi.get(__response__, 'created_at'),

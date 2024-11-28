@@ -91,7 +91,7 @@ def get_test_base_account_file_upload_url_output(blob_name: Optional[pulumi.Inpu
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  resource_type: Optional[pulumi.Input[Optional[Union[str, 'FileUploadResourceType']]]] = None,
                                                  test_base_account_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestBaseAccountFileUploadUrlResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestBaseAccountFileUploadUrlResult]:
     """
     Gets the file upload URL of a Test Base Account.
 
@@ -106,7 +106,7 @@ def get_test_base_account_file_upload_url_output(blob_name: Optional[pulumi.Inpu
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceType'] = resource_type
     __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20231101preview:getTestBaseAccountFileUploadUrl', __args__, opts=opts, typ=GetTestBaseAccountFileUploadUrlResult)
     return __ret__.apply(lambda __response__: GetTestBaseAccountFileUploadUrlResult(
         blob_path=pulumi.get(__response__, 'blob_path'),

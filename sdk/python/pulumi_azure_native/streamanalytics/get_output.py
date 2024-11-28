@@ -181,7 +181,7 @@ def get_output(job_name: Optional[str] = None,
 def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
                       output_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutputResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutputResult]:
     """
     Gets details about the specified output.
     Azure REST API version: 2020-03-01.
@@ -197,7 +197,7 @@ def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
     __args__['jobName'] = job_name
     __args__['outputName'] = output_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics:getOutput', __args__, opts=opts, typ=GetOutputResult)
     return __ret__.apply(lambda __response__: GetOutputResult(
         datasource=pulumi.get(__response__, 'datasource'),

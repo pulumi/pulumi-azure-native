@@ -178,7 +178,7 @@ def get_packet_core_data_plane(packet_core_control_plane_name: Optional[str] = N
 def get_packet_core_data_plane_output(packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                                       packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPacketCoreDataPlaneResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPacketCoreDataPlaneResult]:
     """
     Gets information about the specified packet core data plane.
 
@@ -191,7 +191,7 @@ def get_packet_core_data_plane_output(packet_core_control_plane_name: Optional[p
     __args__['packetCoreControlPlaneName'] = packet_core_control_plane_name
     __args__['packetCoreDataPlaneName'] = packet_core_data_plane_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork/v20230901:getPacketCoreDataPlane', __args__, opts=opts, typ=GetPacketCoreDataPlaneResult)
     return __ret__.apply(lambda __response__: GetPacketCoreDataPlaneResult(
         id=pulumi.get(__response__, 'id'),

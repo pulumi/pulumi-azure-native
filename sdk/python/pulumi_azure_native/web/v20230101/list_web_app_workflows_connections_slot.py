@@ -139,7 +139,7 @@ def list_web_app_workflows_connections_slot(name: Optional[str] = None,
 def list_web_app_workflows_connections_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    slot: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppWorkflowsConnectionsSlotResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppWorkflowsConnectionsSlotResult]:
     """
     Workflow properties definition.
 
@@ -152,7 +152,7 @@ def list_web_app_workflows_connections_slot_output(name: Optional[pulumi.Input[s
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:listWebAppWorkflowsConnectionsSlot', __args__, opts=opts, typ=ListWebAppWorkflowsConnectionsSlotResult)
     return __ret__.apply(lambda __response__: ListWebAppWorkflowsConnectionsSlotResult(
         id=pulumi.get(__response__, 'id'),

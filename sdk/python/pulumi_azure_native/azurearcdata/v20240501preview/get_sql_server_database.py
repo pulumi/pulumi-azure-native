@@ -152,7 +152,7 @@ def get_sql_server_database(database_name: Optional[str] = None,
 def get_sql_server_database_output(database_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    sql_server_instance_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerDatabaseResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerDatabaseResult]:
     """
     Retrieves an Arc Sql Server database.
 
@@ -165,7 +165,7 @@ def get_sql_server_database_output(database_name: Optional[pulumi.Input[str]] = 
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlServerInstanceName'] = sql_server_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata/v20240501preview:getSqlServerDatabase', __args__, opts=opts, typ=GetSqlServerDatabaseResult)
     return __ret__.apply(lambda __response__: GetSqlServerDatabaseResult(
         id=pulumi.get(__response__, 'id'),

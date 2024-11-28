@@ -151,7 +151,7 @@ def get_cache(cache_id: Optional[str] = None,
 def get_cache_output(cache_id: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      service_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheResult]:
     """
     Gets the details of the Cache specified by its identifier.
 
@@ -164,7 +164,7 @@ def get_cache_output(cache_id: Optional[pulumi.Input[str]] = None,
     __args__['cacheId'] = cache_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240601preview:getCache', __args__, opts=opts, typ=GetCacheResult)
     return __ret__.apply(lambda __response__: GetCacheResult(
         connection_string=pulumi.get(__response__, 'connection_string'),

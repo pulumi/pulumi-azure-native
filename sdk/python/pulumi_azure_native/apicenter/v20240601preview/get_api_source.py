@@ -182,7 +182,7 @@ def get_api_source_output(api_source_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           service_name: Optional[pulumi.Input[str]] = None,
                           workspace_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiSourceResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiSourceResult]:
     """
     Returns details of the API source.
 
@@ -197,7 +197,7 @@ def get_api_source_output(api_source_name: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter/v20240601preview:getApiSource', __args__, opts=opts, typ=GetApiSourceResult)
     return __ret__.apply(lambda __response__: GetApiSourceResult(
         azure_api_management_source=pulumi.get(__response__, 'azure_api_management_source'),

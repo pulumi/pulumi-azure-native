@@ -83,7 +83,7 @@ def list_monitor_hosts(monitor_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_monitor_hosts_output(monitor_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitorHostsResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMonitorHostsResult]:
     """
     List operation response containing list of Datadog Hosts.
 
@@ -94,7 +94,7 @@ def list_monitor_hosts_output(monitor_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datadog/v20220801:listMonitorHosts', __args__, opts=opts, typ=ListMonitorHostsResult)
     return __ret__.apply(lambda __response__: ListMonitorHostsResult(
         next_link=pulumi.get(__response__, 'next_link'),

@@ -136,7 +136,7 @@ def get_scoping_configuration(report_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_scoping_configuration_output(report_name: Optional[pulumi.Input[str]] = None,
                                      scoping_configuration_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopingConfigurationResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopingConfigurationResult]:
     """
     Get the AppComplianceAutomation scoping configuration of the specific report.
     Azure REST API version: 2024-06-27.
@@ -148,7 +148,7 @@ def get_scoping_configuration_output(report_name: Optional[pulumi.Input[str]] = 
     __args__ = dict()
     __args__['reportName'] = report_name
     __args__['scopingConfigurationName'] = scoping_configuration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation:getScopingConfiguration', __args__, opts=opts, typ=GetScopingConfigurationResult)
     return __ret__.apply(lambda __response__: GetScopingConfigurationResult(
         answers=pulumi.get(__response__, 'answers'),

@@ -102,7 +102,7 @@ def list_storage_account_sas_output(account_name: Optional[pulumi.Input[str]] = 
                                     services: Optional[pulumi.Input[Union[str, 'Services']]] = None,
                                     shared_access_expiry_time: Optional[pulumi.Input[str]] = None,
                                     shared_access_start_time: Optional[pulumi.Input[Optional[str]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountSASResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStorageAccountSASResult]:
     """
     List SAS credentials of a storage account.
 
@@ -129,7 +129,7 @@ def list_storage_account_sas_output(account_name: Optional[pulumi.Input[str]] = 
     __args__['services'] = services
     __args__['sharedAccessExpiryTime'] = shared_access_expiry_time
     __args__['sharedAccessStartTime'] = shared_access_start_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230101:listStorageAccountSAS', __args__, opts=opts, typ=ListStorageAccountSASResult)
     return __ret__.apply(lambda __response__: ListStorageAccountSASResult(
         account_sas_token=pulumi.get(__response__, 'account_sas_token')))

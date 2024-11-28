@@ -259,7 +259,7 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
 def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              security_rule_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityRuleResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityRuleResult]:
     """
     Gets the specified security rule.
     Azure REST API version: 2024-02-01-preview.
@@ -275,7 +275,7 @@ def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[
     __args__['networkSecurityGroupName'] = network_security_group_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityRuleName'] = security_rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getSecurityRule', __args__, opts=opts, typ=GetSecurityRuleResult)
     return __ret__.apply(lambda __response__: GetSecurityRuleResult(
         access=pulumi.get(__response__, 'access'),

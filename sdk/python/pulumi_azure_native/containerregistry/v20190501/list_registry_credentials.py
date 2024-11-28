@@ -83,7 +83,7 @@ def list_registry_credentials(registry_name: Optional[str] = None,
         username=pulumi.get(__ret__, 'username'))
 def list_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryCredentialsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegistryCredentialsResult]:
     """
     Lists the login credentials for the specified container registry.
 
@@ -94,7 +94,7 @@ def list_registry_credentials_output(registry_name: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20190501:listRegistryCredentials', __args__, opts=opts, typ=ListRegistryCredentialsResult)
     return __ret__.apply(lambda __response__: ListRegistryCredentialsResult(
         passwords=pulumi.get(__response__, 'passwords'),

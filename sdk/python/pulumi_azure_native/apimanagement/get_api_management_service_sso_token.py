@@ -72,7 +72,7 @@ def get_api_management_service_sso_token(resource_group_name: Optional[str] = No
         redirect_uri=pulumi.get(__ret__, 'redirect_uri'))
 def get_api_management_service_sso_token_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 service_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceSsoTokenResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiManagementServiceSsoTokenResult]:
     """
     Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
     Azure REST API version: 2022-08-01.
@@ -86,7 +86,7 @@ def get_api_management_service_sso_token_output(resource_group_name: Optional[pu
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiManagementServiceSsoToken', __args__, opts=opts, typ=GetApiManagementServiceSsoTokenResult)
     return __ret__.apply(lambda __response__: GetApiManagementServiceSsoTokenResult(
         redirect_uri=pulumi.get(__response__, 'redirect_uri')))

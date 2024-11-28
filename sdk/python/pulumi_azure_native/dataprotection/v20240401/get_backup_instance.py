@@ -139,7 +139,7 @@ def get_backup_instance(backup_instance_name: Optional[str] = None,
 def get_backup_instance_output(backup_instance_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                vault_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupInstanceResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupInstanceResult]:
     """
     Gets a backup instance with name in a backup vault
 
@@ -152,7 +152,7 @@ def get_backup_instance_output(backup_instance_name: Optional[pulumi.Input[str]]
     __args__['backupInstanceName'] = backup_instance_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dataprotection/v20240401:getBackupInstance', __args__, opts=opts, typ=GetBackupInstanceResult)
     return __ret__.apply(lambda __response__: GetBackupInstanceResult(
         id=pulumi.get(__response__, 'id'),

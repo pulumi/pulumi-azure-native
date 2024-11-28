@@ -138,7 +138,7 @@ def get_inference_group_delta_models_status_async_output(delta_models: Optional[
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          target_base_model: Optional[pulumi.Input[Optional[str]]] = None,
                                                          workspace_name: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInferenceGroupDeltaModelsStatusAsyncResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceGroupDeltaModelsStatusAsyncResult]:
     """
     Contract returning to user the delta models.
 
@@ -157,7 +157,7 @@ def get_inference_group_delta_models_status_async_output(delta_models: Optional[
     __args__['resourceGroupName'] = resource_group_name
     __args__['targetBaseModel'] = target_base_model
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20241001preview:getInferenceGroupDeltaModelsStatusAsync', __args__, opts=opts, typ=GetInferenceGroupDeltaModelsStatusAsyncResult)
     return __ret__.apply(lambda __response__: GetInferenceGroupDeltaModelsStatusAsyncResult(
         actual_instance_count=pulumi.get(__response__, 'actual_instance_count'),

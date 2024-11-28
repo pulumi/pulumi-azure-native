@@ -216,7 +216,7 @@ def get_policy_definition_version(policy_definition_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_policy_definition_version_output(policy_definition_name: Optional[pulumi.Input[str]] = None,
                                          policy_definition_version: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDefinitionVersionResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDefinitionVersionResult]:
     """
     This operation retrieves the policy definition version in the given subscription with the given name.
     Azure REST API version: 2023-04-01.
@@ -230,7 +230,7 @@ def get_policy_definition_version_output(policy_definition_name: Optional[pulumi
     __args__ = dict()
     __args__['policyDefinitionName'] = policy_definition_name
     __args__['policyDefinitionVersion'] = policy_definition_version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getPolicyDefinitionVersion', __args__, opts=opts, typ=GetPolicyDefinitionVersionResult)
     return __ret__.apply(lambda __response__: GetPolicyDefinitionVersionResult(
         description=pulumi.get(__response__, 'description'),

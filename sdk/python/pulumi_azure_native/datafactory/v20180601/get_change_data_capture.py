@@ -204,7 +204,7 @@ def get_change_data_capture(change_data_capture_name: Optional[str] = None,
 def get_change_data_capture_output(change_data_capture_name: Optional[pulumi.Input[str]] = None,
                                    factory_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChangeDataCaptureResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChangeDataCaptureResult]:
     """
     Gets a change data capture.
 
@@ -217,7 +217,7 @@ def get_change_data_capture_output(change_data_capture_name: Optional[pulumi.Inp
     __args__['changeDataCaptureName'] = change_data_capture_name
     __args__['factoryName'] = factory_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:getChangeDataCapture', __args__, opts=opts, typ=GetChangeDataCaptureResult)
     return __ret__.apply(lambda __response__: GetChangeDataCaptureResult(
         allow_v_net_override=pulumi.get(__response__, 'allow_v_net_override'),

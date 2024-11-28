@@ -662,7 +662,7 @@ def get_web_app(name: Optional[str] = None,
         usage_state=pulumi.get(__ret__, 'usage_state'))
 def get_web_app_output(name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppResult]:
     """
     Gets the details of a web, mobile, or API app.
 
@@ -673,7 +673,7 @@ def get_web_app_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getWebApp', __args__, opts=opts, typ=GetWebAppResult)
     return __ret__.apply(lambda __response__: GetWebAppResult(
         availability_state=pulumi.get(__response__, 'availability_state'),

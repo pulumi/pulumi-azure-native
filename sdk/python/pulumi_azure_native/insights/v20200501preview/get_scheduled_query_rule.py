@@ -327,7 +327,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         window_size=pulumi.get(__ret__, 'window_size'))
 def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     rule_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledQueryRuleResult]:
     """
     Retrieve an scheduled query rule definition.
 
@@ -338,7 +338,7 @@ def get_scheduled_query_rule_output(resource_group_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20200501preview:getScheduledQueryRule', __args__, opts=opts, typ=GetScheduledQueryRuleResult)
     return __ret__.apply(lambda __response__: GetScheduledQueryRuleResult(
         actions=pulumi.get(__response__, 'actions'),

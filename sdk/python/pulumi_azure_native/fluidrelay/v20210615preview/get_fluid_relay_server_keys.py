@@ -82,7 +82,7 @@ def get_fluid_relay_server_keys(name: Optional[str] = None,
         key2=pulumi.get(__ret__, 'key2'))
 def get_fluid_relay_server_keys_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluidRelayServerKeysResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFluidRelayServerKeysResult]:
     """
     The set of available keys for this server.
 
@@ -93,7 +93,7 @@ def get_fluid_relay_server_keys_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:fluidrelay/v20210615preview:getFluidRelayServerKeys', __args__, opts=opts, typ=GetFluidRelayServerKeysResult)
     return __ret__.apply(lambda __response__: GetFluidRelayServerKeysResult(
         key1=pulumi.get(__response__, 'key1'),

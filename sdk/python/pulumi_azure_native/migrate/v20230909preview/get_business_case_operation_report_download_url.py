@@ -86,7 +86,7 @@ def get_business_case_operation_report_download_url(business_case_name: Optional
 def get_business_case_operation_report_download_url_output(business_case_name: Optional[pulumi.Input[str]] = None,
                                                            project_name: Optional[pulumi.Input[str]] = None,
                                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBusinessCaseOperationReportDownloadUrlResult]:
+                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessCaseOperationReportDownloadUrlResult]:
     """
     Get the URL for downloading the business case in a report format.
 
@@ -99,7 +99,7 @@ def get_business_case_operation_report_download_url_output(business_case_name: O
     __args__['businessCaseName'] = business_case_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230909preview:getBusinessCaseOperationReportDownloadUrl', __args__, opts=opts, typ=GetBusinessCaseOperationReportDownloadUrlResult)
     return __ret__.apply(lambda __response__: GetBusinessCaseOperationReportDownloadUrlResult(
         business_case_report_url=pulumi.get(__response__, 'business_case_report_url'),

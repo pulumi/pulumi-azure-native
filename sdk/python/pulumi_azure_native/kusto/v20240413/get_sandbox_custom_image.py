@@ -164,7 +164,7 @@ def get_sandbox_custom_image(cluster_name: Optional[str] = None,
 def get_sandbox_custom_image_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     sandbox_custom_image_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSandboxCustomImageResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSandboxCustomImageResult]:
     """
     Returns a sandbox custom image
 
@@ -177,7 +177,7 @@ def get_sandbox_custom_image_output(cluster_name: Optional[pulumi.Input[str]] = 
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sandboxCustomImageName'] = sandbox_custom_image_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20240413:getSandboxCustomImage', __args__, opts=opts, typ=GetSandboxCustomImageResult)
     return __ret__.apply(lambda __response__: GetSandboxCustomImageResult(
         base_image_name=pulumi.get(__response__, 'base_image_name'),

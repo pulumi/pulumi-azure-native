@@ -154,7 +154,7 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
 def get_express_route_circuit_authorization_output(authorization_name: Optional[pulumi.Input[str]] = None,
                                                    circuit_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitAuthorizationResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteCircuitAuthorizationResult]:
     """
     Gets the specified authorization from the specified express route circuit.
     Azure REST API version: 2023-02-01.
@@ -170,7 +170,7 @@ def get_express_route_circuit_authorization_output(authorization_name: Optional[
     __args__['authorizationName'] = authorization_name
     __args__['circuitName'] = circuit_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getExpressRouteCircuitAuthorization', __args__, opts=opts, typ=GetExpressRouteCircuitAuthorizationResult)
     return __ret__.apply(lambda __response__: GetExpressRouteCircuitAuthorizationResult(
         authorization_key=pulumi.get(__response__, 'authorization_key'),

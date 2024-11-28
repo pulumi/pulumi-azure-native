@@ -83,7 +83,7 @@ def list_list_pending_flow(connection_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_list_pending_flow_output(connection_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListListPendingFlowResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListPendingFlowResult]:
     """
     Lists all pending flows for a connection.
 
@@ -94,7 +94,7 @@ def list_list_pending_flow_output(connection_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuredatatransfer/v20240507:listListPendingFlow', __args__, opts=opts, typ=ListListPendingFlowResult)
     return __ret__.apply(lambda __response__: ListListPendingFlowResult(
         next_link=pulumi.get(__response__, 'next_link'),

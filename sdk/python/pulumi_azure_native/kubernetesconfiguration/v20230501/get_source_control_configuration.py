@@ -290,7 +290,7 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
                                             cluster_rp: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             source_control_configuration_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlConfigurationResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlConfigurationResult]:
     """
     Gets details of the Source Control Configuration.
 
@@ -307,7 +307,7 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
     __args__['clusterRp'] = cluster_rp
     __args__['resourceGroupName'] = resource_group_name
     __args__['sourceControlConfigurationName'] = source_control_configuration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration/v20230501:getSourceControlConfiguration', __args__, opts=opts, typ=GetSourceControlConfigurationResult)
     return __ret__.apply(lambda __response__: GetSourceControlConfigurationResult(
         compliance_status=pulumi.get(__response__, 'compliance_status'),

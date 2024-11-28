@@ -192,7 +192,7 @@ def get_premium_microsoft_defender_for_threat_intelligence(data_connector_id: Op
 def get_premium_microsoft_defender_for_threat_intelligence_output(data_connector_id: Optional[pulumi.Input[str]] = None,
                                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                   workspace_name: Optional[pulumi.Input[str]] = None,
-                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPremiumMicrosoftDefenderForThreatIntelligenceResult]:
+                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPremiumMicrosoftDefenderForThreatIntelligenceResult]:
     """
     Gets a data connector.
 
@@ -205,7 +205,7 @@ def get_premium_microsoft_defender_for_threat_intelligence_output(data_connector
     __args__['dataConnectorId'] = data_connector_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240901:getPremiumMicrosoftDefenderForThreatIntelligence', __args__, opts=opts, typ=GetPremiumMicrosoftDefenderForThreatIntelligenceResult)
     return __ret__.apply(lambda __response__: GetPremiumMicrosoftDefenderForThreatIntelligenceResult(
         data_types=pulumi.get(__response__, 'data_types'),

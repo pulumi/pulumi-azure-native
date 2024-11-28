@@ -71,7 +71,7 @@ def get_console_with_location(console_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'))
 def get_console_with_location_output(console_name: Optional[pulumi.Input[str]] = None,
                                      location: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsoleWithLocationResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsoleWithLocationResult]:
     """
     Gets the console for the user.
     Azure REST API version: 2018-10-01.
@@ -83,7 +83,7 @@ def get_console_with_location_output(console_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['consoleName'] = console_name
     __args__['location'] = location
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:portal:getConsoleWithLocation', __args__, opts=opts, typ=GetConsoleWithLocationResult)
     return __ret__.apply(lambda __response__: GetConsoleWithLocationResult(
         properties=pulumi.get(__response__, 'properties')))

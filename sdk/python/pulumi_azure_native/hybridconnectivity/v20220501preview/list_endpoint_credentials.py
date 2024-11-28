@@ -125,7 +125,7 @@ def list_endpoint_credentials(endpoint_name: Optional[str] = None,
 def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                      expiresin: Optional[pulumi.Input[Optional[int]]] = None,
                                      resource_uri: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEndpointCredentialsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointCredentialsResult]:
     """
     Gets the endpoint access credentials to the resource.
 
@@ -138,7 +138,7 @@ def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] 
     __args__['endpointName'] = endpoint_name
     __args__['expiresin'] = expiresin
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity/v20220501preview:listEndpointCredentials', __args__, opts=opts, typ=ListEndpointCredentialsResult)
     return __ret__.apply(lambda __response__: ListEndpointCredentialsResult(
         access_key=pulumi.get(__response__, 'access_key'),

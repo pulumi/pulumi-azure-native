@@ -181,7 +181,7 @@ def get_hyperv_collectors_operation(hyperv_collector_name: Optional[str] = None,
 def get_hyperv_collectors_operation_output(hyperv_collector_name: Optional[pulumi.Input[str]] = None,
                                            project_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHypervCollectorsOperationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervCollectorsOperationResult]:
     """
     Get a HypervCollector
     Azure REST API version: 2023-03-15.
@@ -197,7 +197,7 @@ def get_hyperv_collectors_operation_output(hyperv_collector_name: Optional[pulum
     __args__['hypervCollectorName'] = hyperv_collector_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getHypervCollectorsOperation', __args__, opts=opts, typ=GetHypervCollectorsOperationResult)
     return __ret__.apply(lambda __response__: GetHypervCollectorsOperationResult(
         agent_properties=pulumi.get(__response__, 'agent_properties'),

@@ -111,7 +111,7 @@ def get_outbound_firewall_rule(outbound_rule_fqdn: Optional[str] = None,
 def get_outbound_firewall_rule_output(outbound_rule_fqdn: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       server_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutboundFirewallRuleResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutboundFirewallRuleResult]:
     """
     Gets an outbound firewall rule.
 
@@ -123,7 +123,7 @@ def get_outbound_firewall_rule_output(outbound_rule_fqdn: Optional[pulumi.Input[
     __args__['outboundRuleFqdn'] = outbound_rule_fqdn
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230501preview:getOutboundFirewallRule', __args__, opts=opts, typ=GetOutboundFirewallRuleResult)
     return __ret__.apply(lambda __response__: GetOutboundFirewallRuleResult(
         id=pulumi.get(__response__, 'id'),

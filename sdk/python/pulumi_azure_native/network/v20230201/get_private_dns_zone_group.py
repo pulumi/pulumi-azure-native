@@ -126,7 +126,7 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
 def get_private_dns_zone_group_output(private_dns_zone_group_name: Optional[pulumi.Input[str]] = None,
                                       private_endpoint_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateDnsZoneGroupResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateDnsZoneGroupResult]:
     """
     Gets the private dns zone group resource by specified private dns zone group name.
 
@@ -139,7 +139,7 @@ def get_private_dns_zone_group_output(private_dns_zone_group_name: Optional[pulu
     __args__['privateDnsZoneGroupName'] = private_dns_zone_group_name
     __args__['privateEndpointName'] = private_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getPrivateDnsZoneGroup', __args__, opts=opts, typ=GetPrivateDnsZoneGroupResult)
     return __ret__.apply(lambda __response__: GetPrivateDnsZoneGroupResult(
         etag=pulumi.get(__response__, 'etag'),

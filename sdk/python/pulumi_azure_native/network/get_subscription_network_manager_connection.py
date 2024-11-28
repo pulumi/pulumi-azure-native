@@ -147,7 +147,7 @@ def get_subscription_network_manager_connection(network_manager_connection_name:
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_subscription_network_manager_connection_output(network_manager_connection_name: Optional[pulumi.Input[str]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionNetworkManagerConnectionResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionNetworkManagerConnectionResult]:
     """
     Get a specified connection created by this subscription.
     Azure REST API version: 2023-02-01.
@@ -159,7 +159,7 @@ def get_subscription_network_manager_connection_output(network_manager_connectio
     """
     __args__ = dict()
     __args__['networkManagerConnectionName'] = network_manager_connection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getSubscriptionNetworkManagerConnection', __args__, opts=opts, typ=GetSubscriptionNetworkManagerConnectionResult)
     return __ret__.apply(lambda __response__: GetSubscriptionNetworkManagerConnectionResult(
         description=pulumi.get(__response__, 'description'),

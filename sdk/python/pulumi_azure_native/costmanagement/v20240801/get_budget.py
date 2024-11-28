@@ -281,7 +281,7 @@ def get_budget(budget_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
                       scope: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResult]:
     """
     Gets the budget for the scope by budget name.
 
@@ -320,7 +320,7 @@ def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['budgetName'] = budget_name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20240801:getBudget', __args__, opts=opts, typ=GetBudgetResult)
     return __ret__.apply(lambda __response__: GetBudgetResult(
         amount=pulumi.get(__response__, 'amount'),

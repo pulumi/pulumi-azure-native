@@ -217,7 +217,7 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
 def get_attached_database_configuration_output(attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
                                                cluster_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedDatabaseConfigurationResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachedDatabaseConfigurationResult]:
     """
     Returns an attached database configuration.
 
@@ -230,7 +230,7 @@ def get_attached_database_configuration_output(attached_database_configuration_n
     __args__['attachedDatabaseConfigurationName'] = attached_database_configuration_name
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20230502:getAttachedDatabaseConfiguration', __args__, opts=opts, typ=GetAttachedDatabaseConfigurationResult)
     return __ret__.apply(lambda __response__: GetAttachedDatabaseConfigurationResult(
         attached_database_names=pulumi.get(__response__, 'attached_database_names'),

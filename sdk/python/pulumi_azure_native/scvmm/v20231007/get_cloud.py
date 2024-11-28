@@ -239,7 +239,7 @@ def get_cloud(cloud_resource_name: Optional[str] = None,
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
 def get_cloud_output(cloud_resource_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudResult]:
     """
     Implements Cloud GET method.
 
@@ -250,7 +250,7 @@ def get_cloud_output(cloud_resource_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['cloudResourceName'] = cloud_resource_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm/v20231007:getCloud', __args__, opts=opts, typ=GetCloudResult)
     return __ret__.apply(lambda __response__: GetCloudResult(
         cloud_capacity=pulumi.get(__response__, 'cloud_capacity'),

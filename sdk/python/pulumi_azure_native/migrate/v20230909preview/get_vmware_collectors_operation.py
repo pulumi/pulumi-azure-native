@@ -178,7 +178,7 @@ def get_vmware_collectors_operation(project_name: Optional[str] = None,
 def get_vmware_collectors_operation_output(project_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            vm_ware_collector_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVmwareCollectorsOperationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVmwareCollectorsOperationResult]:
     """
     Get a VmwareCollector
 
@@ -191,7 +191,7 @@ def get_vmware_collectors_operation_output(project_name: Optional[pulumi.Input[s
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmWareCollectorName'] = vm_ware_collector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230909preview:getVmwareCollectorsOperation', __args__, opts=opts, typ=GetVmwareCollectorsOperationResult)
     return __ret__.apply(lambda __response__: GetVmwareCollectorsOperationResult(
         agent_properties=pulumi.get(__response__, 'agent_properties'),

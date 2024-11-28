@@ -410,7 +410,7 @@ def get_virtual_machine_template(resource_group_name: Optional[str] = None,
         v_center_id=pulumi.get(__ret__, 'v_center_id'))
 def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         virtual_machine_template_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineTemplateResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineTemplateResult]:
     """
     Implements virtual machine template GET method.
 
@@ -421,7 +421,7 @@ def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineTemplateName'] = virtual_machine_template_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere/v20231001:getVirtualMachineTemplate', __args__, opts=opts, typ=GetVirtualMachineTemplateResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineTemplateResult(
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),

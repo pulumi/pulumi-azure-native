@@ -243,7 +243,7 @@ def get_agreement(agreement_name: Optional[str] = None,
 def get_agreement_output(agreement_name: Optional[pulumi.Input[str]] = None,
                          integration_account_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgreementResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgreementResult]:
     """
     Gets an integration account agreement.
 
@@ -256,7 +256,7 @@ def get_agreement_output(agreement_name: Optional[pulumi.Input[str]] = None,
     __args__['agreementName'] = agreement_name
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20160601:getAgreement', __args__, opts=opts, typ=GetAgreementResult)
     return __ret__.apply(lambda __response__: GetAgreementResult(
         agreement_type=pulumi.get(__response__, 'agreement_type'),

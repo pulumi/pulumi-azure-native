@@ -254,7 +254,7 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
                       pool_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       volume_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupResult]:
     """
     Gets the specified backup of the volume
     Azure REST API version: 2022-11-01.
@@ -274,7 +274,7 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['volumeName'] = volume_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp:getBackup', __args__, opts=opts, typ=GetBackupResult)
     return __ret__.apply(lambda __response__: GetBackupResult(
         backup_id=pulumi.get(__response__, 'backup_id'),

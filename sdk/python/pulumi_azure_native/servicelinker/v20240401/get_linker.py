@@ -226,7 +226,7 @@ def get_linker(linker_name: Optional[str] = None,
         v_net_solution=pulumi.get(__ret__, 'v_net_solution'))
 def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
                       resource_uri: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkerResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkerResult]:
     """
     Returns Linker resource for a given name.
 
@@ -237,7 +237,7 @@ def get_linker_output(linker_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['linkerName'] = linker_name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicelinker/v20240401:getLinker', __args__, opts=opts, typ=GetLinkerResult)
     return __ret__.apply(lambda __response__: GetLinkerResult(
         auth_info=pulumi.get(__response__, 'auth_info'),

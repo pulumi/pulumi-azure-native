@@ -83,7 +83,7 @@ def get_adoo_auth_info(location: Optional[str] = None,
         token=pulumi.get(__ret__, 'token'))
 def get_adoo_auth_info_output(location: Optional[pulumi.Input[str]] = None,
                               redirect_url: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADOOAuthInfoResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetADOOAuthInfoResult]:
     """
     Response containing ADO OAuth information
     Azure REST API version: 2024-08-01-preview.
@@ -95,7 +95,7 @@ def get_adoo_auth_info_output(location: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['location'] = location
     __args__['redirectUrl'] = redirect_url
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devhub:getADOOAuthInfo', __args__, opts=opts, typ=GetADOOAuthInfoResult)
     return __ret__.apply(lambda __response__: GetADOOAuthInfoResult(
         auth_url=pulumi.get(__response__, 'auth_url'),

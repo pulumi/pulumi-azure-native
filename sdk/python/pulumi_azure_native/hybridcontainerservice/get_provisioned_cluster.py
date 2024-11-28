@@ -171,7 +171,7 @@ def get_provisioned_cluster(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_provisioned_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                    resource_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProvisionedClusterResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProvisionedClusterResult]:
     """
     Gets the Hybrid AKS provisioned cluster
     Azure REST API version: 2022-09-01-preview.
@@ -185,7 +185,7 @@ def get_provisioned_cluster_output(resource_group_name: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice:getProvisionedCluster', __args__, opts=opts, typ=GetProvisionedClusterResult)
     return __ret__.apply(lambda __response__: GetProvisionedClusterResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

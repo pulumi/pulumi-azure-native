@@ -113,7 +113,7 @@ def get_open_ai(integration_name: Optional[str] = None,
 def get_open_ai_output(integration_name: Optional[pulumi.Input[str]] = None,
                        monitor_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenAIResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenAIResult]:
     """
     Capture properties of Open AI resource Integration.
 
@@ -126,7 +126,7 @@ def get_open_ai_output(integration_name: Optional[pulumi.Input[str]] = None,
     __args__['integrationName'] = integration_name
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:elastic/v20240615preview:getOpenAI', __args__, opts=opts, typ=GetOpenAIResult)
     return __ret__.apply(lambda __response__: GetOpenAIResult(
         id=pulumi.get(__response__, 'id'),

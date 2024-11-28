@@ -139,7 +139,7 @@ def get_configuration_profile_hciassignment(cluster_name: Optional[str] = None,
 def get_configuration_profile_hciassignment_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                                    configuration_profile_assignment_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileHCIAssignmentResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileHCIAssignmentResult]:
     """
     Get information about a configuration profile assignment
 
@@ -152,7 +152,7 @@ def get_configuration_profile_hciassignment_output(cluster_name: Optional[pulumi
     __args__['clusterName'] = cluster_name
     __args__['configurationProfileAssignmentName'] = configuration_profile_assignment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automanage/v20220504:getConfigurationProfileHCIAssignment', __args__, opts=opts, typ=GetConfigurationProfileHCIAssignmentResult)
     return __ret__.apply(lambda __response__: GetConfigurationProfileHCIAssignmentResult(
         id=pulumi.get(__response__, 'id'),

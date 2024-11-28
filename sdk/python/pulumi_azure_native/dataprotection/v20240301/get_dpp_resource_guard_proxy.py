@@ -126,7 +126,7 @@ def get_dpp_resource_guard_proxy(resource_group_name: Optional[str] = None,
 def get_dpp_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         resource_guard_proxy_name: Optional[pulumi.Input[str]] = None,
                                         vault_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDppResourceGuardProxyResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDppResourceGuardProxyResult]:
     """
     ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
 
@@ -139,7 +139,7 @@ def get_dpp_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Inp
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceGuardProxyName'] = resource_guard_proxy_name
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dataprotection/v20240301:getDppResourceGuardProxy', __args__, opts=opts, typ=GetDppResourceGuardProxyResult)
     return __ret__.apply(lambda __response__: GetDppResourceGuardProxyResult(
         id=pulumi.get(__response__, 'id'),

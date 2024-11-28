@@ -117,7 +117,7 @@ def get_resource_management_private_link(resource_group_name: Optional[str] = No
         type=pulumi.get(__ret__, 'type'))
 def get_resource_management_private_link_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 rmpl_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceManagementPrivateLinkResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceManagementPrivateLinkResult]:
     """
     Get a resource management private link(resource-level).
     Azure REST API version: 2020-05-01.
@@ -129,7 +129,7 @@ def get_resource_management_private_link_output(resource_group_name: Optional[pu
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['rmplName'] = rmpl_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getResourceManagementPrivateLink', __args__, opts=opts, typ=GetResourceManagementPrivateLinkResult)
     return __ret__.apply(lambda __response__: GetResourceManagementPrivateLinkResult(
         id=pulumi.get(__response__, 'id'),

@@ -125,7 +125,7 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
 def get_customer_subscription_output(customer_subscription_name: Optional[pulumi.Input[str]] = None,
                                      registration_name: Optional[pulumi.Input[str]] = None,
                                      resource_group: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerSubscriptionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomerSubscriptionResult]:
     """
     Returns the specified product.
 
@@ -138,7 +138,7 @@ def get_customer_subscription_output(customer_subscription_name: Optional[pulumi
     __args__['customerSubscriptionName'] = customer_subscription_name
     __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack/v20220601:getCustomerSubscription', __args__, opts=opts, typ=GetCustomerSubscriptionResult)
     return __ret__.apply(lambda __response__: GetCustomerSubscriptionResult(
         etag=pulumi.get(__response__, 'etag'),

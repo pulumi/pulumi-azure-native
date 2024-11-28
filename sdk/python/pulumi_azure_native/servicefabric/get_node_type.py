@@ -701,7 +701,7 @@ def get_node_type(cluster_name: Optional[str] = None,
 def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          node_type_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeTypeResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeTypeResult]:
     """
     Get a Service Fabric node type of a given managed cluster.
     Azure REST API version: 2023-03-01-preview.
@@ -717,7 +717,7 @@ def get_node_type_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__['clusterName'] = cluster_name
     __args__['nodeTypeName'] = node_type_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric:getNodeType', __args__, opts=opts, typ=GetNodeTypeResult)
     return __ret__.apply(lambda __response__: GetNodeTypeResult(
         additional_data_disks=pulumi.get(__response__, 'additional_data_disks'),

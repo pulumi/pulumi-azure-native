@@ -59,12 +59,12 @@ def get_api_management_service_domain_ownership_identifier(opts: Optional[pulumi
 
     return AwaitableGetApiManagementServiceDomainOwnershipIdentifierResult(
         domain_ownership_identifier=pulumi.get(__ret__, 'domain_ownership_identifier'))
-def get_api_management_service_domain_ownership_identifier_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceDomainOwnershipIdentifierResult]:
+def get_api_management_service_domain_ownership_identifier_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiManagementServiceDomainOwnershipIdentifierResult]:
     """
     Get the custom domain ownership identifier for an API Management service.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20211201preview:getApiManagementServiceDomainOwnershipIdentifier', __args__, opts=opts, typ=GetApiManagementServiceDomainOwnershipIdentifierResult)
     return __ret__.apply(lambda __response__: GetApiManagementServiceDomainOwnershipIdentifierResult(
         domain_ownership_identifier=pulumi.get(__response__, 'domain_ownership_identifier')))

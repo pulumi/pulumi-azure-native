@@ -83,7 +83,7 @@ def list_web_app_site_backups(name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_web_app_site_backups_output(name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSiteBackupsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppSiteBackupsResult]:
     """
     Description for Gets existing backups of an app.
 
@@ -94,7 +94,7 @@ def list_web_app_site_backups_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:listWebAppSiteBackups', __args__, opts=opts, typ=ListWebAppSiteBackupsResult)
     return __ret__.apply(lambda __response__: ListWebAppSiteBackupsResult(
         next_link=pulumi.get(__response__, 'next_link'),

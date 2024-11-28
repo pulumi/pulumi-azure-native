@@ -152,7 +152,7 @@ def get_sub_account(monitor_name: Optional[str] = None,
 def get_sub_account_output(monitor_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            sub_account_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubAccountResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubAccountResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -164,7 +164,7 @@ def get_sub_account_output(monitor_name: Optional[pulumi.Input[str]] = None,
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['subAccountName'] = sub_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logz/v20220101preview:getSubAccount', __args__, opts=opts, typ=GetSubAccountResult)
     return __ret__.apply(lambda __response__: GetSubAccountResult(
         id=pulumi.get(__response__, 'id'),

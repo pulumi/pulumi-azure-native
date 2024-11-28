@@ -152,7 +152,7 @@ def get_diagnostics_package(diagnostics_package_name: Optional[str] = None,
 def get_diagnostics_package_output(diagnostics_package_name: Optional[pulumi.Input[str]] = None,
                                    packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticsPackageResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiagnosticsPackageResult]:
     """
     Gets information about the specified diagnostics package.
 
@@ -165,7 +165,7 @@ def get_diagnostics_package_output(diagnostics_package_name: Optional[pulumi.Inp
     __args__['diagnosticsPackageName'] = diagnostics_package_name
     __args__['packetCoreControlPlaneName'] = packet_core_control_plane_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork/v20240201:getDiagnosticsPackage', __args__, opts=opts, typ=GetDiagnosticsPackageResult)
     return __ret__.apply(lambda __response__: GetDiagnosticsPackageResult(
         id=pulumi.get(__response__, 'id'),

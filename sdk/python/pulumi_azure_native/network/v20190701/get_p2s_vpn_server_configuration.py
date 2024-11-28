@@ -230,7 +230,7 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
 def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             virtual_wan_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnServerConfigurationResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetP2sVpnServerConfigurationResult]:
     """
     Retrieves the details of a P2SVpnServerConfiguration.
 
@@ -243,7 +243,7 @@ def get_p2s_vpn_server_configuration_output(p2_s_vpn_server_configuration_name: 
     __args__['p2SVpnServerConfigurationName'] = p2_s_vpn_server_configuration_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualWanName'] = virtual_wan_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20190701:getP2sVpnServerConfiguration', __args__, opts=opts, typ=GetP2sVpnServerConfigurationResult)
     return __ret__.apply(lambda __response__: GetP2sVpnServerConfigurationResult(
         etag=pulumi.get(__response__, 'etag'),

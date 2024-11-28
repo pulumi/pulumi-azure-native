@@ -278,7 +278,7 @@ def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_sap_virtual_instance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPVirtualInstanceResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPVirtualInstanceResult]:
     """
     Gets a Virtual Instance for SAP solutions resource
 
@@ -289,7 +289,7 @@ def get_sap_virtual_instance_output(resource_group_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20231001preview:getSAPVirtualInstance', __args__, opts=opts, typ=GetSAPVirtualInstanceResult)
     return __ret__.apply(lambda __response__: GetSAPVirtualInstanceResult(
         configuration=pulumi.get(__response__, 'configuration'),

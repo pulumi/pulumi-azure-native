@@ -235,7 +235,7 @@ def get_threat_intelligence_alert_rule_output(operational_insights_resource_prov
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               rule_id: Optional[pulumi.Input[str]] = None,
                                               workspace_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThreatIntelligenceAlertRuleResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThreatIntelligenceAlertRuleResult]:
     """
     Gets the alert rule.
 
@@ -250,7 +250,7 @@ def get_threat_intelligence_alert_rule_output(operational_insights_resource_prov
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleId'] = rule_id
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210301preview:getThreatIntelligenceAlertRule', __args__, opts=opts, typ=GetThreatIntelligenceAlertRuleResult)
     return __ret__.apply(lambda __response__: GetThreatIntelligenceAlertRuleResult(
         alert_rule_template_name=pulumi.get(__response__, 'alert_rule_template_name'),

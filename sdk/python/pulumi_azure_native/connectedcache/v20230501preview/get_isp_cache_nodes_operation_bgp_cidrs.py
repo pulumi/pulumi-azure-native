@@ -152,7 +152,7 @@ def get_isp_cache_nodes_operation_bgp_cidrs(cache_node_resource_name: Optional[s
 def get_isp_cache_nodes_operation_bgp_cidrs_output(cache_node_resource_name: Optional[pulumi.Input[str]] = None,
                                                    customer_resource_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIspCacheNodesOperationBgpCidrsResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIspCacheNodesOperationBgpCidrsResult]:
     """
     This api gets ispCacheNode resource information
 
@@ -165,7 +165,7 @@ def get_isp_cache_nodes_operation_bgp_cidrs_output(cache_node_resource_name: Opt
     __args__['cacheNodeResourceName'] = cache_node_resource_name
     __args__['customerResourceName'] = customer_resource_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedcache/v20230501preview:getIspCacheNodesOperationBgpCidrs', __args__, opts=opts, typ=GetIspCacheNodesOperationBgpCidrsResult)
     return __ret__.apply(lambda __response__: GetIspCacheNodesOperationBgpCidrsResult(
         id=pulumi.get(__response__, 'id'),

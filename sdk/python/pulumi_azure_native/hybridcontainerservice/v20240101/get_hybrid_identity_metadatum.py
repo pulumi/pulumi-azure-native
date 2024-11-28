@@ -144,7 +144,7 @@ def get_hybrid_identity_metadatum(connected_cluster_resource_uri: Optional[str] 
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_hybrid_identity_metadatum_output(connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
     """
     Get the hybrid identity metadata proxy resource.
 
@@ -153,7 +153,7 @@ def get_hybrid_identity_metadatum_output(connected_cluster_resource_uri: Optiona
     """
     __args__ = dict()
     __args__['connectedClusterResourceUri'] = connected_cluster_resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20240101:getHybridIdentityMetadatum', __args__, opts=opts, typ=GetHybridIdentityMetadatumResult)
     return __ret__.apply(lambda __response__: GetHybridIdentityMetadatumResult(
         id=pulumi.get(__response__, 'id'),

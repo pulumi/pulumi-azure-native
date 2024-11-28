@@ -203,7 +203,7 @@ def get_blueprint(blueprint_name: Optional[str] = None,
         versions=pulumi.get(__ret__, 'versions'))
 def get_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] = None,
                          resource_scope: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlueprintResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlueprintResult]:
     """
     Get a blueprint definition.
     Azure REST API version: 2018-11-01-preview.
@@ -217,7 +217,7 @@ def get_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['blueprintName'] = blueprint_name
     __args__['resourceScope'] = resource_scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint:getBlueprint', __args__, opts=opts, typ=GetBlueprintResult)
     return __ret__.apply(lambda __response__: GetBlueprintResult(
         description=pulumi.get(__response__, 'description'),

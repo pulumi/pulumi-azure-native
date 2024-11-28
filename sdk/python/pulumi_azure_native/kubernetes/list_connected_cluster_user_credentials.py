@@ -95,7 +95,7 @@ def list_connected_cluster_user_credentials_output(authentication_method: Option
                                                    client_proxy: Optional[pulumi.Input[bool]] = None,
                                                    cluster_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectedClusterUserCredentialsResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectedClusterUserCredentialsResult]:
     """
     Gets cluster user credentials of the connected cluster with a specified resource group and name.
     Azure REST API version: 2021-04-01-preview.
@@ -113,7 +113,7 @@ def list_connected_cluster_user_credentials_output(authentication_method: Option
     __args__['clientProxy'] = client_proxy
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetes:listConnectedClusterUserCredentials', __args__, opts=opts, typ=ListConnectedClusterUserCredentialsResult)
     return __ret__.apply(lambda __response__: ListConnectedClusterUserCredentialsResult(
         hybrid_connection_config=pulumi.get(__response__, 'hybrid_connection_config'),

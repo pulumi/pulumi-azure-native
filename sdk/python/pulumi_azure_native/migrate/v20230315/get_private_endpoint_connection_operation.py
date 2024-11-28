@@ -165,7 +165,7 @@ def get_private_endpoint_connection_operation(private_endpoint_connection_name: 
 def get_private_endpoint_connection_operation_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                      project_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionOperationResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionOperationResult]:
     """
     Get a PrivateEndpointConnection
 
@@ -178,7 +178,7 @@ def get_private_endpoint_connection_operation_output(private_endpoint_connection
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230315:getPrivateEndpointConnectionOperation', __args__, opts=opts, typ=GetPrivateEndpointConnectionOperationResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionOperationResult(
         group_ids=pulumi.get(__response__, 'group_ids'),

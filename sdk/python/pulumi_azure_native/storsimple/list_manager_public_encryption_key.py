@@ -96,7 +96,7 @@ def list_manager_public_encryption_key(manager_name: Optional[str] = None,
         value_certificate_thumbprint=pulumi.get(__ret__, 'value_certificate_thumbprint'))
 def list_manager_public_encryption_key_output(manager_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagerPublicEncryptionKeyResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManagerPublicEncryptionKeyResult]:
     """
     Returns the symmetric encrypted public encryption key of the manager.
     Azure REST API version: 2017-06-01.
@@ -108,7 +108,7 @@ def list_manager_public_encryption_key_output(manager_name: Optional[pulumi.Inpu
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:listManagerPublicEncryptionKey', __args__, opts=opts, typ=ListManagerPublicEncryptionKeyResult)
     return __ret__.apply(lambda __response__: ListManagerPublicEncryptionKeyResult(
         encryption_algorithm=pulumi.get(__response__, 'encryption_algorithm'),

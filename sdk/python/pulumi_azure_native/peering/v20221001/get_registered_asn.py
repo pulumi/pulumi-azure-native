@@ -138,7 +138,7 @@ def get_registered_asn(peering_name: Optional[str] = None,
 def get_registered_asn_output(peering_name: Optional[pulumi.Input[str]] = None,
                               registered_asn_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegisteredAsnResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegisteredAsnResult]:
     """
     Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
 
@@ -151,7 +151,7 @@ def get_registered_asn_output(peering_name: Optional[pulumi.Input[str]] = None,
     __args__['peeringName'] = peering_name
     __args__['registeredAsnName'] = registered_asn_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:peering/v20221001:getRegisteredAsn', __args__, opts=opts, typ=GetRegisteredAsnResult)
     return __ret__.apply(lambda __response__: GetRegisteredAsnResult(
         asn=pulumi.get(__response__, 'asn'),

@@ -177,7 +177,7 @@ def get_fqdn_list_global_rulestack(global_rulestack_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_fqdn_list_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                           name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFqdnListGlobalRulestackResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFqdnListGlobalRulestackResult]:
     """
     Get a FqdnListGlobalRulestackResource
     Azure REST API version: 2023-09-01.
@@ -191,7 +191,7 @@ def get_fqdn_list_global_rulestack_output(global_rulestack_name: Optional[pulumi
     __args__ = dict()
     __args__['globalRulestackName'] = global_rulestack_name
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:getFqdnListGlobalRulestack', __args__, opts=opts, typ=GetFqdnListGlobalRulestackResult)
     return __ret__.apply(lambda __response__: GetFqdnListGlobalRulestackResult(
         audit_comment=pulumi.get(__response__, 'audit_comment'),

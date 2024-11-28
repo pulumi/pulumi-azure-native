@@ -161,7 +161,7 @@ def get_experiment(experiment_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentResult]:
     """
     Get a Experiment resource.
 
@@ -172,7 +172,7 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['experimentName'] = experiment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:chaos/v20240322preview:getExperiment', __args__, opts=opts, typ=GetExperimentResult)
     return __ret__.apply(lambda __response__: GetExperimentResult(
         id=pulumi.get(__response__, 'id'),

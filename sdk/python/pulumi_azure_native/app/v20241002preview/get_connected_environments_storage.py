@@ -126,7 +126,7 @@ def get_connected_environments_storage(connected_environment_name: Optional[str]
 def get_connected_environments_storage_output(connected_environment_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               storage_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentsStorageResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedEnvironmentsStorageResult]:
     """
     Get storage for a connectedEnvironment.
 
@@ -139,7 +139,7 @@ def get_connected_environments_storage_output(connected_environment_name: Option
     __args__['connectedEnvironmentName'] = connected_environment_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageName'] = storage_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20241002preview:getConnectedEnvironmentsStorage', __args__, opts=opts, typ=GetConnectedEnvironmentsStorageResult)
     return __ret__.apply(lambda __response__: GetConnectedEnvironmentsStorageResult(
         id=pulumi.get(__response__, 'id'),

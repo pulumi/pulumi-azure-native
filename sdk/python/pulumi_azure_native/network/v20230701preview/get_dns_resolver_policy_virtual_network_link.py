@@ -178,7 +178,7 @@ def get_dns_resolver_policy_virtual_network_link(dns_resolver_policy_name: Optio
 def get_dns_resolver_policy_virtual_network_link_output(dns_resolver_policy_name: Optional[pulumi.Input[str]] = None,
                                                         dns_resolver_policy_virtual_network_link_name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsResolverPolicyVirtualNetworkLinkResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsResolverPolicyVirtualNetworkLinkResult]:
     """
     Gets properties of a DNS resolver policy virtual network link.
 
@@ -191,7 +191,7 @@ def get_dns_resolver_policy_virtual_network_link_output(dns_resolver_policy_name
     __args__['dnsResolverPolicyName'] = dns_resolver_policy_name
     __args__['dnsResolverPolicyVirtualNetworkLinkName'] = dns_resolver_policy_virtual_network_link_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230701preview:getDnsResolverPolicyVirtualNetworkLink', __args__, opts=opts, typ=GetDnsResolverPolicyVirtualNetworkLinkResult)
     return __ret__.apply(lambda __response__: GetDnsResolverPolicyVirtualNetworkLinkResult(
         etag=pulumi.get(__response__, 'etag'),

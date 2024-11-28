@@ -70,7 +70,7 @@ def list_container_app_secrets(container_app_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_container_app_secrets_output(container_app_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListContainerAppSecretsResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListContainerAppSecretsResult]:
     """
     Container App Secrets Collection ARM resource.
 
@@ -81,7 +81,7 @@ def list_container_app_secrets_output(container_app_name: Optional[pulumi.Input[
     __args__ = dict()
     __args__['containerAppName'] = container_app_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240301:listContainerAppSecrets', __args__, opts=opts, typ=ListContainerAppSecretsResult)
     return __ret__.apply(lambda __response__: ListContainerAppSecretsResult(
         value=pulumi.get(__response__, 'value')))

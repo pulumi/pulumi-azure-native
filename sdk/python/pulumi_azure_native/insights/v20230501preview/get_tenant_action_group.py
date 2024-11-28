@@ -213,7 +213,7 @@ def get_tenant_action_group(management_group_id: Optional[str] = None,
         webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
 def get_tenant_action_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                    tenant_action_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTenantActionGroupResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTenantActionGroupResult]:
     """
     Get a tenant action group.
 
@@ -224,7 +224,7 @@ def get_tenant_action_group_output(management_group_id: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['tenantActionGroupName'] = tenant_action_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20230501preview:getTenantActionGroup', __args__, opts=opts, typ=GetTenantActionGroupResult)
     return __ret__.apply(lambda __response__: GetTenantActionGroupResult(
         azure_app_push_receivers=pulumi.get(__response__, 'azure_app_push_receivers'),

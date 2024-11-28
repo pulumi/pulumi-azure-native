@@ -200,7 +200,7 @@ def get_sap_discovery_site(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_sap_discovery_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   sap_discovery_site_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSapDiscoverySiteResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapDiscoverySiteResult]:
     """
     Gets a SAP Migration discovery site resource.
 
@@ -211,7 +211,7 @@ def get_sap_discovery_site_output(resource_group_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapDiscoverySiteName'] = sap_discovery_site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20231001preview:getSapDiscoverySite', __args__, opts=opts, typ=GetSapDiscoverySiteResult)
     return __ret__.apply(lambda __response__: GetSapDiscoverySiteResult(
         errors=pulumi.get(__response__, 'errors'),

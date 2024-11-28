@@ -146,7 +146,7 @@ def get_web_app_discovery_site_data_sources_controller_output(discovery_site_dat
                                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                                               site_name: Optional[pulumi.Input[str]] = None,
                                                               web_app_site_name: Optional[pulumi.Input[str]] = None,
-                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDiscoverySiteDataSourcesControllerResult]:
+                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppDiscoverySiteDataSourcesControllerResult]:
     """
     Method to get a Web app data source in site.
     Azure REST API version: 2023-06-06.
@@ -164,7 +164,7 @@ def get_web_app_discovery_site_data_sources_controller_output(discovery_site_dat
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
     __args__['webAppSiteName'] = web_app_site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getWebAppDiscoverySiteDataSourcesController', __args__, opts=opts, typ=GetWebAppDiscoverySiteDataSourcesControllerResult)
     return __ret__.apply(lambda __response__: GetWebAppDiscoverySiteDataSourcesControllerResult(
         discovery_site_id=pulumi.get(__response__, 'discovery_site_id'),

@@ -70,7 +70,7 @@ def list_managed_cluster_admin_credentials(resource_group_name: Optional[str] = 
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
 def list_managed_cluster_admin_credentials_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   resource_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterAdminCredentialsResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManagedClusterAdminCredentialsResult]:
     """
     Gets cluster admin credential of the managed cluster with a specified resource group and name.
 
@@ -81,7 +81,7 @@ def list_managed_cluster_admin_credentials_output(resource_group_name: Optional[
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20190601:listManagedClusterAdminCredentials', __args__, opts=opts, typ=ListManagedClusterAdminCredentialsResult)
     return __ret__.apply(lambda __response__: ListManagedClusterAdminCredentialsResult(
         kubeconfigs=pulumi.get(__response__, 'kubeconfigs')))

@@ -93,7 +93,7 @@ def list_products_and_configuration_product_families_output(customer_subscriptio
                                                             expand: Optional[pulumi.Input[Optional[str]]] = None,
                                                             filterable_properties: Optional[pulumi.Input[Mapping[str, Sequence[Union['FilterableProperty', 'FilterablePropertyDict']]]]] = None,
                                                             skip_token: Optional[pulumi.Input[Optional[str]]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductsAndConfigurationProductFamiliesResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductsAndConfigurationProductFamiliesResult]:
     """
     List product families for the given subscription.
 
@@ -108,7 +108,7 @@ def list_products_and_configuration_product_families_output(customer_subscriptio
     __args__['expand'] = expand
     __args__['filterableProperties'] = filterable_properties
     __args__['skipToken'] = skip_token
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:edgeorder/v20220501preview:listProductsAndConfigurationProductFamilies', __args__, opts=opts, typ=ListProductsAndConfigurationProductFamiliesResult)
     return __ret__.apply(lambda __response__: ListProductsAndConfigurationProductFamiliesResult(
         next_link=pulumi.get(__response__, 'next_link'),

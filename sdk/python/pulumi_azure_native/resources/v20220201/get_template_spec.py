@@ -191,7 +191,7 @@ def get_template_spec(expand: Optional[str] = None,
 def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              template_spec_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateSpecResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateSpecResult]:
     """
     Gets a Template Spec with a given name.
 
@@ -204,7 +204,7 @@ def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['templateSpecName'] = template_spec_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources/v20220201:getTemplateSpec', __args__, opts=opts, typ=GetTemplateSpecResult)
     return __ret__.apply(lambda __response__: GetTemplateSpecResult(
         description=pulumi.get(__response__, 'description'),

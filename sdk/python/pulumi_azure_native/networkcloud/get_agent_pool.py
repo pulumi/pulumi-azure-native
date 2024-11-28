@@ -334,7 +334,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
 def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentPoolResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Get properties of the provided Kubernetes cluster agent pool.
     Azure REST API version: 2023-10-01-preview.
@@ -350,7 +350,7 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     __args__['agentPoolName'] = agent_pool_name
     __args__['kubernetesClusterName'] = kubernetes_cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult)
     return __ret__.apply(lambda __response__: GetAgentPoolResult(
         administrator_configuration=pulumi.get(__response__, 'administrator_configuration'),

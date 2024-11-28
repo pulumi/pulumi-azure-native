@@ -83,7 +83,7 @@ def get_get_cached_server_name_execute_output(location_name: Optional[pulumi.Inp
                                               sku: Optional[pulumi.Input[Union['Sku', 'SkuDict']]] = None,
                                               storage: Optional[pulumi.Input[Union['Storage', 'StorageDict']]] = None,
                                               version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGetCachedServerNameExecuteResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGetCachedServerNameExecuteResult]:
     """
     Get available cached server name for fast provisioning
 
@@ -100,7 +100,7 @@ def get_get_cached_server_name_execute_output(location_name: Optional[pulumi.Inp
     __args__['sku'] = sku
     __args__['storage'] = storage
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute', __args__, opts=opts, typ=GetGetCachedServerNameExecuteResult)
     return __ret__.apply(lambda __response__: GetGetCachedServerNameExecuteResult(
         name=pulumi.get(__response__, 'name')))

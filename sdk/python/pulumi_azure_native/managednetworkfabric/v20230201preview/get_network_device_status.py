@@ -95,7 +95,7 @@ def get_network_device_status(network_device_name: Optional[str] = None,
         serial_number=pulumi.get(__ret__, 'serial_number'))
 def get_network_device_status_output(network_device_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkDeviceStatusResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkDeviceStatusResult]:
     """
     Get the running status of the Network Device.
 
@@ -106,7 +106,7 @@ def get_network_device_status_output(network_device_name: Optional[pulumi.Input[
     __args__ = dict()
     __args__['networkDeviceName'] = network_device_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230201preview:getNetworkDeviceStatus', __args__, opts=opts, typ=GetNetworkDeviceStatusResult)
     return __ret__.apply(lambda __response__: GetNetworkDeviceStatusResult(
         operational_status=pulumi.get(__response__, 'operational_status'),

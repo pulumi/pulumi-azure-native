@@ -316,7 +316,7 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          cluster_rp: Optional[pulumi.Input[str]] = None,
                          extension_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Gets Kubernetes Cluster Extension.
 
@@ -333,7 +333,7 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__['clusterRp'] = cluster_rp
     __args__['extensionName'] = extension_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration/v20220701:getExtension', __args__, opts=opts, typ=GetExtensionResult)
     return __ret__.apply(lambda __response__: GetExtensionResult(
         aks_assigned_identity=pulumi.get(__response__, 'aks_assigned_identity'),

@@ -165,7 +165,7 @@ def get_data_network(data_network_name: Optional[str] = None,
 def get_data_network_output(data_network_name: Optional[pulumi.Input[str]] = None,
                             mobile_network_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataNetworkResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataNetworkResult]:
     """
     Gets information about the specified data network.
 
@@ -178,7 +178,7 @@ def get_data_network_output(data_network_name: Optional[pulumi.Input[str]] = Non
     __args__['dataNetworkName'] = data_network_name
     __args__['mobileNetworkName'] = mobile_network_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork/v20230901:getDataNetwork', __args__, opts=opts, typ=GetDataNetworkResult)
     return __ret__.apply(lambda __response__: GetDataNetworkResult(
         description=pulumi.get(__response__, 'description'),

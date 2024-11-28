@@ -168,7 +168,7 @@ def get_route_map(resource_group_name: Optional[str] = None,
 def get_route_map_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          route_map_name: Optional[pulumi.Input[str]] = None,
                          virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteMapResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteMapResult]:
     """
     Retrieves the details of a RouteMap.
     Azure REST API version: 2023-02-01.
@@ -184,7 +184,7 @@ def get_route_map_output(resource_group_name: Optional[pulumi.Input[str]] = None
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeMapName'] = route_map_name
     __args__['virtualHubName'] = virtual_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getRouteMap', __args__, opts=opts, typ=GetRouteMapResult)
     return __ret__.apply(lambda __response__: GetRouteMapResult(
         associated_inbound_connections=pulumi.get(__response__, 'associated_inbound_connections'),

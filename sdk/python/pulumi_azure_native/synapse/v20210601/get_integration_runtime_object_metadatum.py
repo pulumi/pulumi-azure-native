@@ -91,7 +91,7 @@ def get_integration_runtime_object_metadatum_output(integration_runtime_name: Op
                                                     metadata_path: Optional[pulumi.Input[Optional[str]]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     workspace_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeObjectMetadatumResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationRuntimeObjectMetadatumResult]:
     """
     Get object metadata from an integration runtime
 
@@ -106,7 +106,7 @@ def get_integration_runtime_object_metadatum_output(integration_runtime_name: Op
     __args__['metadataPath'] = metadata_path
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601:getIntegrationRuntimeObjectMetadatum', __args__, opts=opts, typ=GetIntegrationRuntimeObjectMetadatumResult)
     return __ret__.apply(lambda __response__: GetIntegrationRuntimeObjectMetadatumResult(
         next_link=pulumi.get(__response__, 'next_link'),

@@ -88,7 +88,7 @@ def list_effective_connectivity_configuration(resource_group_name: Optional[str]
 def list_effective_connectivity_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                      virtual_network_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEffectiveConnectivityConfigurationResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEffectiveConnectivityConfigurationResult]:
     """
     List all effective connectivity configurations applied on a virtual network.
     Azure REST API version: 2021-02-01-preview.
@@ -102,7 +102,7 @@ def list_effective_connectivity_configuration_output(resource_group_name: Option
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
     __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:listEffectiveConnectivityConfiguration', __args__, opts=opts, typ=ListEffectiveConnectivityConfigurationResult)
     return __ret__.apply(lambda __response__: ListEffectiveConnectivityConfigurationResult(
         skip_token=pulumi.get(__response__, 'skip_token'),

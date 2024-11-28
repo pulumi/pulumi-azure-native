@@ -659,7 +659,7 @@ def get_avs_assessments_operation_output(assessment_name: Optional[pulumi.Input[
                                          group_name: Optional[pulumi.Input[str]] = None,
                                          project_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvsAssessmentsOperationResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvsAssessmentsOperationResult]:
     """
     Get a AvsAssessment
     Azure REST API version: 2023-03-15.
@@ -677,7 +677,7 @@ def get_avs_assessments_operation_output(assessment_name: Optional[pulumi.Input[
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getAvsAssessmentsOperation', __args__, opts=opts, typ=GetAvsAssessmentsOperationResult)
     return __ret__.apply(lambda __response__: GetAvsAssessmentsOperationResult(
         assessment_error_summary=pulumi.get(__response__, 'assessment_error_summary'),

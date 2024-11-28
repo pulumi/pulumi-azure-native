@@ -191,7 +191,7 @@ def get_bot_connection(connection_name: Optional[str] = None,
 def get_bot_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               resource_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotConnectionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotConnectionResult]:
     """
     Get a Connection Setting registration for a Bot Service
 
@@ -204,7 +204,7 @@ def get_bot_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:botservice/v20230915preview:getBotConnection', __args__, opts=opts, typ=GetBotConnectionResult)
     return __ret__.apply(lambda __response__: GetBotConnectionResult(
         etag=pulumi.get(__response__, 'etag'),

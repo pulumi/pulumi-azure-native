@@ -95,7 +95,7 @@ def list_batch_account_keys(account_name: Optional[str] = None,
         secondary=pulumi.get(__ret__, 'secondary'))
 def list_batch_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBatchAccountKeysResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBatchAccountKeysResult]:
     """
     This operation applies only to Batch accounts with allowedAuthenticationModes containing 'SharedKey'. If the Batch account doesn't contain 'SharedKey' in its allowedAuthenticationMode, clients cannot use shared keys to authenticate, and must use another allowedAuthenticationModes instead. In this case, getting the keys will fail.
 
@@ -106,7 +106,7 @@ def list_batch_account_keys_output(account_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:batch/v20240701:listBatchAccountKeys', __args__, opts=opts, typ=ListBatchAccountKeysResult)
     return __ret__.apply(lambda __response__: ListBatchAccountKeysResult(
         account_name=pulumi.get(__response__, 'account_name'),

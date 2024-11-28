@@ -139,7 +139,7 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
 def get_access_control_record_output(access_control_record_name: Optional[pulumi.Input[str]] = None,
                                      manager_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessControlRecordResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessControlRecordResult]:
     """
     Returns the properties of the specified access control record name.
     Azure REST API version: 2017-06-01.
@@ -153,7 +153,7 @@ def get_access_control_record_output(access_control_record_name: Optional[pulumi
     __args__['accessControlRecordName'] = access_control_record_name
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple:getAccessControlRecord', __args__, opts=opts, typ=GetAccessControlRecordResult)
     return __ret__.apply(lambda __response__: GetAccessControlRecordResult(
         id=pulumi.get(__response__, 'id'),

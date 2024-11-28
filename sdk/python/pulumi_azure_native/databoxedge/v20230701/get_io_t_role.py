@@ -231,7 +231,7 @@ def get_io_t_role(device_name: Optional[str] = None,
 def get_io_t_role_output(device_name: Optional[pulumi.Input[str]] = None,
                          name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIoTRoleResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIoTRoleResult]:
     """
     Gets a specific role by name.
 
@@ -244,7 +244,7 @@ def get_io_t_role_output(device_name: Optional[pulumi.Input[str]] = None,
     __args__['deviceName'] = device_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230701:getIoTRole', __args__, opts=opts, typ=GetIoTRoleResult)
     return __ret__.apply(lambda __response__: GetIoTRoleResult(
         compute_resource=pulumi.get(__response__, 'compute_resource'),

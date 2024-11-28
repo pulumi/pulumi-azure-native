@@ -126,7 +126,7 @@ def get_failover_group(failover_group_name: Optional[str] = None,
 def get_failover_group_output(failover_group_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               sql_managed_instance_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFailoverGroupResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFailoverGroupResult]:
     """
     Retrieves a failover group resource
 
@@ -139,7 +139,7 @@ def get_failover_group_output(failover_group_name: Optional[pulumi.Input[str]] =
     __args__['failoverGroupName'] = failover_group_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlManagedInstanceName'] = sql_managed_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata/v20240501preview:getFailoverGroup', __args__, opts=opts, typ=GetFailoverGroupResult)
     return __ret__.apply(lambda __response__: GetFailoverGroupResult(
         id=pulumi.get(__response__, 'id'),

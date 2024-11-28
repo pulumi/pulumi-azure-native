@@ -165,7 +165,7 @@ def get_web_app_public_certificate(name: Optional[str] = None,
 def get_web_app_public_certificate_output(name: Optional[pulumi.Input[str]] = None,
                                           public_certificate_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPublicCertificateResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppPublicCertificateResult]:
     """
     Get the named public certificate for an app (or deployment slot, if specified).
 
@@ -178,7 +178,7 @@ def get_web_app_public_certificate_output(name: Optional[pulumi.Input[str]] = No
     __args__['name'] = name
     __args__['publicCertificateName'] = public_certificate_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getWebAppPublicCertificate', __args__, opts=opts, typ=GetWebAppPublicCertificateResult)
     return __ret__.apply(lambda __response__: GetWebAppPublicCertificateResult(
         blob=pulumi.get(__response__, 'blob'),

@@ -92,7 +92,7 @@ def list_effective_virtual_network_by_network_group_output(network_group_name: O
                                                            network_manager_name: Optional[pulumi.Input[str]] = None,
                                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                                            skip_token: Optional[pulumi.Input[Optional[str]]] = None,
-                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEffectiveVirtualNetworkByNetworkGroupResult]:
+                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEffectiveVirtualNetworkByNetworkGroupResult]:
     """
     Lists all effective virtual networks by specified network group.
     Azure REST API version: 2021-02-01-preview.
@@ -108,7 +108,7 @@ def list_effective_virtual_network_by_network_group_output(network_group_name: O
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:listEffectiveVirtualNetworkByNetworkGroup', __args__, opts=opts, typ=ListEffectiveVirtualNetworkByNetworkGroupResult)
     return __ret__.apply(lambda __response__: ListEffectiveVirtualNetworkByNetworkGroupResult(
         skip_token=pulumi.get(__response__, 'skip_token'),

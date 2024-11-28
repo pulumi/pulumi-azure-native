@@ -80,7 +80,7 @@ def get_domain_topic_event_subscription_full_url_output(domain_name: Optional[pu
                                                         event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         topic_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainTopicEventSubscriptionFullUrlResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainTopicEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for a nested event subscription for domain topic.
     Azure REST API version: 2022-06-15.
@@ -98,7 +98,7 @@ def get_domain_topic_event_subscription_full_url_output(domain_name: Optional[pu
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getDomainTopicEventSubscriptionFullUrl', __args__, opts=opts, typ=GetDomainTopicEventSubscriptionFullUrlResult)
     return __ret__.apply(lambda __response__: GetDomainTopicEventSubscriptionFullUrlResult(
         endpoint_url=pulumi.get(__response__, 'endpoint_url')))

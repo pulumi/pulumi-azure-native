@@ -308,7 +308,7 @@ def get_share_subscription(account_name: Optional[str] = None,
 def get_share_subscription_output(account_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   share_subscription_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetShareSubscriptionResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetShareSubscriptionResult]:
     """
     Get a shareSubscription in an account
 
@@ -321,7 +321,7 @@ def get_share_subscription_output(account_name: Optional[pulumi.Input[str]] = No
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareSubscriptionName'] = share_subscription_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20210801:getShareSubscription', __args__, opts=opts, typ=GetShareSubscriptionResult)
     return __ret__.apply(lambda __response__: GetShareSubscriptionResult(
         created_at=pulumi.get(__response__, 'created_at'),

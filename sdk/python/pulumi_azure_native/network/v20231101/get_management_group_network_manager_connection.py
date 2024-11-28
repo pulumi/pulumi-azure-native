@@ -148,7 +148,7 @@ def get_management_group_network_manager_connection(management_group_id: Optiona
         type=pulumi.get(__ret__, 'type'))
 def get_management_group_network_manager_connection_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                                            network_manager_connection_name: Optional[pulumi.Input[str]] = None,
-                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupNetworkManagerConnectionResult]:
+                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupNetworkManagerConnectionResult]:
     """
     Get a specified connection created by this management group.
 
@@ -159,7 +159,7 @@ def get_management_group_network_manager_connection_output(management_group_id: 
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['networkManagerConnectionName'] = network_manager_connection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:getManagementGroupNetworkManagerConnection', __args__, opts=opts, typ=GetManagementGroupNetworkManagerConnectionResult)
     return __ret__.apply(lambda __response__: GetManagementGroupNetworkManagerConnectionResult(
         description=pulumi.get(__response__, 'description'),

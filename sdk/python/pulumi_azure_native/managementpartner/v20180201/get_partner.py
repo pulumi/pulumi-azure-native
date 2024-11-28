@@ -195,7 +195,7 @@ def get_partner(partner_id: Optional[str] = None,
         updated_time=pulumi.get(__ret__, 'updated_time'),
         version=pulumi.get(__ret__, 'version'))
 def get_partner_output(partner_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerResult]:
     """
     Get the management partner using the partnerId, objectId and tenantId.
 
@@ -204,7 +204,7 @@ def get_partner_output(partner_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['partnerId'] = partner_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managementpartner/v20180201:getPartner', __args__, opts=opts, typ=GetPartnerResult)
     return __ret__.apply(lambda __response__: GetPartnerResult(
         created_time=pulumi.get(__response__, 'created_time'),

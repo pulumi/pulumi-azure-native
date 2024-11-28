@@ -279,7 +279,7 @@ def get_governance_rule(rule_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_governance_rule_output(rule_id: Optional[pulumi.Input[str]] = None,
                                scope: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGovernanceRuleResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGovernanceRuleResult]:
     """
     Get a specific governance rule for the requested scope by ruleId
     Azure REST API version: 2022-01-01-preview.
@@ -291,7 +291,7 @@ def get_governance_rule_output(rule_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['ruleId'] = rule_id
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getGovernanceRule', __args__, opts=opts, typ=GetGovernanceRuleResult)
     return __ret__.apply(lambda __response__: GetGovernanceRuleResult(
         description=pulumi.get(__response__, 'description'),

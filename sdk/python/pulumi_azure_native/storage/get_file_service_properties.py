@@ -155,7 +155,7 @@ def get_file_service_properties(account_name: Optional[str] = None,
 def get_file_service_properties_output(account_name: Optional[pulumi.Input[str]] = None,
                                        file_services_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileServicePropertiesResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileServicePropertiesResult]:
     """
     Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
     Azure REST API version: 2022-09-01.
@@ -171,7 +171,7 @@ def get_file_service_properties_output(account_name: Optional[pulumi.Input[str]]
     __args__['accountName'] = account_name
     __args__['fileServicesName'] = file_services_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getFileServiceProperties', __args__, opts=opts, typ=GetFileServicePropertiesResult)
     return __ret__.apply(lambda __response__: GetFileServicePropertiesResult(
         cors=pulumi.get(__response__, 'cors'),

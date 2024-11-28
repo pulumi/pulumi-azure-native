@@ -412,7 +412,7 @@ def get_queue(namespace_name: Optional[str] = None,
 def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      queue_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     Returns a description for the specified queue.
 
@@ -425,7 +425,7 @@ def get_queue_output(namespace_name: Optional[pulumi.Input[str]] = None,
     __args__['namespaceName'] = namespace_name
     __args__['queueName'] = queue_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus/v20221001preview:getQueue', __args__, opts=opts, typ=GetQueueResult)
     return __ret__.apply(lambda __response__: GetQueueResult(
         accessed_at=pulumi.get(__response__, 'accessed_at'),

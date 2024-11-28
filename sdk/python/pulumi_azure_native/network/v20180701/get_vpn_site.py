@@ -226,7 +226,7 @@ def get_vpn_site(resource_group_name: Optional[str] = None,
         virtual_wan=pulumi.get(__ret__, 'virtual_wan'))
 def get_vpn_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         vpn_site_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnSiteResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnSiteResult]:
     """
     Retrieves the details of a VPN site.
 
@@ -237,7 +237,7 @@ def get_vpn_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vpnSiteName'] = vpn_site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20180701:getVpnSite', __args__, opts=opts, typ=GetVpnSiteResult)
     return __ret__.apply(lambda __response__: GetVpnSiteResult(
         address_space=pulumi.get(__response__, 'address_space'),

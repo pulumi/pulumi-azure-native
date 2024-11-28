@@ -155,7 +155,7 @@ def list_event_hub_keys_output(authorization_rule_name: Optional[pulumi.Input[st
                                event_hub_name: Optional[pulumi.Input[str]] = None,
                                namespace_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEventHubKeysResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEventHubKeysResult]:
     """
     Gets the ACS and SAS connection strings for the Event Hub.
 
@@ -170,7 +170,7 @@ def list_event_hub_keys_output(authorization_rule_name: Optional[pulumi.Input[st
     __args__['eventHubName'] = event_hub_name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub/v20230101preview:listEventHubKeys', __args__, opts=opts, typ=ListEventHubKeysResult)
     return __ret__.apply(lambda __response__: ListEventHubKeysResult(
         alias_primary_connection_string=pulumi.get(__response__, 'alias_primary_connection_string'),

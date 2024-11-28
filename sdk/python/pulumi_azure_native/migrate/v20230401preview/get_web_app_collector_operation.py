@@ -178,7 +178,7 @@ def get_web_app_collector_operation(collector_name: Optional[str] = None,
 def get_web_app_collector_operation_output(collector_name: Optional[pulumi.Input[str]] = None,
                                            project_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppCollectorOperationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppCollectorOperationResult]:
     """
     Get a WebAppCollector
 
@@ -191,7 +191,7 @@ def get_web_app_collector_operation_output(collector_name: Optional[pulumi.Input
     __args__['collectorName'] = collector_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230401preview:getWebAppCollectorOperation', __args__, opts=opts, typ=GetWebAppCollectorOperationResult)
     return __ret__.apply(lambda __response__: GetWebAppCollectorOperationResult(
         agent_properties=pulumi.get(__response__, 'agent_properties'),

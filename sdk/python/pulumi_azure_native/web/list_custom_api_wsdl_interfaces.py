@@ -89,7 +89,7 @@ def list_custom_api_wsdl_interfaces_output(content: Optional[pulumi.Input[Option
                                            service: Optional[pulumi.Input[Optional[Union['WsdlService', 'WsdlServiceDict']]]] = None,
                                            subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                            url: Optional[pulumi.Input[Optional[str]]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCustomApiWsdlInterfacesResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListCustomApiWsdlInterfacesResult]:
     """
     This returns the list of interfaces in the WSDL
     Azure REST API version: 2016-06-01.
@@ -109,7 +109,7 @@ def list_custom_api_wsdl_interfaces_output(content: Optional[pulumi.Input[Option
     __args__['service'] = service
     __args__['subscriptionId'] = subscription_id
     __args__['url'] = url
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:listCustomApiWsdlInterfaces', __args__, opts=opts, typ=ListCustomApiWsdlInterfacesResult)
     return __ret__.apply(lambda __response__: ListCustomApiWsdlInterfacesResult(
         value=pulumi.get(__response__, 'value')))

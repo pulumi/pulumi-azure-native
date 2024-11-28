@@ -132,7 +132,7 @@ def get_vendor(vendor_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_vendor_output(vendor_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVendorResult]:
     """
     Gets information about the specified vendor.
     Azure REST API version: 2022-01-01-preview.
@@ -142,7 +142,7 @@ def get_vendor_output(vendor_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['vendorName'] = vendor_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:getVendor', __args__, opts=opts, typ=GetVendorResult)
     return __ret__.apply(lambda __response__: GetVendorResult(
         id=pulumi.get(__response__, 'id'),

@@ -278,7 +278,7 @@ def get_firewall(firewall_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_firewall_output(firewall_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Get a FirewallResource
 
@@ -289,7 +289,7 @@ def get_firewall_output(firewall_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['firewallName'] = firewall_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20231010preview:getFirewall', __args__, opts=opts, typ=GetFirewallResult)
     return __ret__.apply(lambda __response__: GetFirewallResult(
         associated_rulestack=pulumi.get(__response__, 'associated_rulestack'),

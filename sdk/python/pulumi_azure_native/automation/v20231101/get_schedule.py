@@ -282,7 +282,7 @@ def get_schedule(automation_account_name: Optional[str] = None,
 def get_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         schedule_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Retrieve the schedule identified by schedule name.
 
@@ -295,7 +295,7 @@ def get_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = N
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['scheduleName'] = schedule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20231101:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
     return __ret__.apply(lambda __response__: GetScheduleResult(
         advanced_schedule=pulumi.get(__response__, 'advanced_schedule'),

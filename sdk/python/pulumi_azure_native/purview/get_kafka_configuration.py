@@ -204,7 +204,7 @@ def get_kafka_configuration(account_name: Optional[str] = None,
 def get_kafka_configuration_output(account_name: Optional[pulumi.Input[str]] = None,
                                    kafka_configuration_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKafkaConfigurationResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaConfigurationResult]:
     """
     Gets the kafka configuration for the account
     Azure REST API version: 2021-12-01.
@@ -220,7 +220,7 @@ def get_kafka_configuration_output(account_name: Optional[pulumi.Input[str]] = N
     __args__['accountName'] = account_name
     __args__['kafkaConfigurationName'] = kafka_configuration_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:purview:getKafkaConfiguration', __args__, opts=opts, typ=GetKafkaConfigurationResult)
     return __ret__.apply(lambda __response__: GetKafkaConfigurationResult(
         consumer_group=pulumi.get(__response__, 'consumer_group'),

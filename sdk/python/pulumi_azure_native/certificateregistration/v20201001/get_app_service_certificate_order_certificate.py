@@ -191,7 +191,7 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
 def get_app_service_certificate_order_certificate_output(certificate_order_name: Optional[pulumi.Input[str]] = None,
                                                          name: Optional[pulumi.Input[str]] = None,
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceCertificateOrderCertificateResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceCertificateOrderCertificateResult]:
     """
     Get the certificate associated with a certificate order.
 
@@ -204,7 +204,7 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
     __args__['certificateOrderName'] = certificate_order_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:certificateregistration/v20201001:getAppServiceCertificateOrderCertificate', __args__, opts=opts, typ=GetAppServiceCertificateOrderCertificateResult)
     return __ret__.apply(lambda __response__: GetAppServiceCertificateOrderCertificateResult(
         id=pulumi.get(__response__, 'id'),

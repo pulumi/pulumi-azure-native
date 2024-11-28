@@ -239,7 +239,7 @@ def get_order(device_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderResult]:
     """
     The order details.
 
@@ -250,7 +250,7 @@ def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20231201:getOrder', __args__, opts=opts, typ=GetOrderResult)
     return __ret__.apply(lambda __response__: GetOrderResult(
         contact_information=pulumi.get(__response__, 'contact_information'),

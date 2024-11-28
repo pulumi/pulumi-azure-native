@@ -74,7 +74,7 @@ def get_solution_config(migrate_project_name: Optional[str] = None,
 def get_solution_config_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                solution_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionConfigResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionConfigResult]:
     """
     Class representing the config for the solution in the migrate project.
     Azure REST API version: 2018-09-01-preview.
@@ -88,7 +88,7 @@ def get_solution_config_output(migrate_project_name: Optional[pulumi.Input[str]]
     __args__['migrateProjectName'] = migrate_project_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['solutionName'] = solution_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getSolutionConfig', __args__, opts=opts, typ=GetSolutionConfigResult)
     return __ret__.apply(lambda __response__: GetSolutionConfigResult(
         publisher_sas_uri=pulumi.get(__response__, 'publisher_sas_uri')))

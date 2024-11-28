@@ -108,7 +108,7 @@ def list_qn_a_maker_endpoint_key(authkey: Optional[str] = None,
         secondary_endpoint_key=pulumi.get(__ret__, 'secondary_endpoint_key'))
 def list_qn_a_maker_endpoint_key_output(authkey: Optional[pulumi.Input[Optional[str]]] = None,
                                         hostname: Optional[pulumi.Input[Optional[str]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListQnAMakerEndpointKeyResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListQnAMakerEndpointKeyResult]:
     """
     Lists the QnA Maker endpoint keys
 
@@ -119,7 +119,7 @@ def list_qn_a_maker_endpoint_key_output(authkey: Optional[pulumi.Input[Optional[
     __args__ = dict()
     __args__['authkey'] = authkey
     __args__['hostname'] = hostname
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:botservice/v20220915:listQnAMakerEndpointKey', __args__, opts=opts, typ=ListQnAMakerEndpointKeyResult)
     return __ret__.apply(lambda __response__: ListQnAMakerEndpointKeyResult(
         installed_version=pulumi.get(__response__, 'installed_version'),

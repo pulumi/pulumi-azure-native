@@ -126,7 +126,7 @@ def get_replication_recovery_plan(recovery_plan_name: Optional[str] = None,
 def get_replication_recovery_plan_output(recovery_plan_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          resource_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationRecoveryPlanResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationRecoveryPlanResult]:
     """
     Gets the details of the recovery plan.
 
@@ -139,7 +139,7 @@ def get_replication_recovery_plan_output(recovery_plan_name: Optional[pulumi.Inp
     __args__['recoveryPlanName'] = recovery_plan_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20241001:getReplicationRecoveryPlan', __args__, opts=opts, typ=GetReplicationRecoveryPlanResult)
     return __ret__.apply(lambda __response__: GetReplicationRecoveryPlanResult(
         id=pulumi.get(__response__, 'id'),

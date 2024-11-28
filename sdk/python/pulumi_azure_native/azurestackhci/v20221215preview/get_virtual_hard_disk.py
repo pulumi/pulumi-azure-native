@@ -269,7 +269,7 @@ def get_virtual_hard_disk(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_virtual_hard_disk_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  virtual_hard_disk_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHardDiskResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHardDiskResult]:
     """
     Gets a virtual hard disk
 
@@ -280,7 +280,7 @@ def get_virtual_hard_disk_output(resource_group_name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualHardDiskName'] = virtual_hard_disk_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20221215preview:getVirtualHardDisk', __args__, opts=opts, typ=GetVirtualHardDiskResult)
     return __ret__.apply(lambda __response__: GetVirtualHardDiskResult(
         block_size_bytes=pulumi.get(__response__, 'block_size_bytes'),

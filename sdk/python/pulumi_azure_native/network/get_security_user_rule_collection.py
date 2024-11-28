@@ -185,7 +185,7 @@ def get_security_user_rule_collection_output(configuration_name: Optional[pulumi
                                              network_manager_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              rule_collection_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityUserRuleCollectionResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityUserRuleCollectionResult]:
     """
     Gets a network manager security user configuration rule collection.
     Azure REST API version: 2024-03-01.
@@ -203,7 +203,7 @@ def get_security_user_rule_collection_output(configuration_name: Optional[pulumi
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleCollectionName'] = rule_collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getSecurityUserRuleCollection', __args__, opts=opts, typ=GetSecurityUserRuleCollectionResult)
     return __ret__.apply(lambda __response__: GetSecurityUserRuleCollectionResult(
         applies_to_groups=pulumi.get(__response__, 'applies_to_groups'),

@@ -149,7 +149,7 @@ def get_enterprise_knowledge_graph(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_enterprise_knowledge_graph_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                           resource_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseKnowledgeGraphResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseKnowledgeGraphResult]:
     """
     Returns a EnterpriseKnowledgeGraph service specified by the parameters.
     Azure REST API version: 2018-12-03.
@@ -161,7 +161,7 @@ def get_enterprise_knowledge_graph_output(resource_group_name: Optional[pulumi.I
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:enterpriseknowledgegraph:getEnterpriseKnowledgeGraph', __args__, opts=opts, typ=GetEnterpriseKnowledgeGraphResult)
     return __ret__.apply(lambda __response__: GetEnterpriseKnowledgeGraphResult(
         id=pulumi.get(__response__, 'id'),

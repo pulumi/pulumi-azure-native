@@ -221,7 +221,7 @@ def get_database_security_alert_policy_output(database_name: Optional[pulumi.Inp
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               security_alert_policy_name: Optional[pulumi.Input[str]] = None,
                                               server_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseSecurityAlertPolicyResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseSecurityAlertPolicyResult]:
     """
     Gets a database's security alert policy.
 
@@ -236,7 +236,7 @@ def get_database_security_alert_policy_output(database_name: Optional[pulumi.Inp
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityAlertPolicyName'] = security_alert_policy_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20211101:getDatabaseSecurityAlertPolicy', __args__, opts=opts, typ=GetDatabaseSecurityAlertPolicyResult)
     return __ret__.apply(lambda __response__: GetDatabaseSecurityAlertPolicyResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

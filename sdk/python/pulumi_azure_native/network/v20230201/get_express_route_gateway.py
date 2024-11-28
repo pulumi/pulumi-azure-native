@@ -200,7 +200,7 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
 def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteGatewayResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteGatewayResult]:
     """
     Fetches the details of a ExpressRoute gateway in a resource group.
 
@@ -211,7 +211,7 @@ def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi
     __args__ = dict()
     __args__['expressRouteGatewayName'] = express_route_gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getExpressRouteGateway', __args__, opts=opts, typ=GetExpressRouteGatewayResult)
     return __ret__.apply(lambda __response__: GetExpressRouteGatewayResult(
         allow_non_virtual_wan_traffic=pulumi.get(__response__, 'allow_non_virtual_wan_traffic'),

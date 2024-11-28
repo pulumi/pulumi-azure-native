@@ -178,7 +178,7 @@ def get_restore_point_collection(expand: Optional[str] = None,
 def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         restore_point_collection_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestorePointCollectionResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestorePointCollectionResult]:
     """
     The operation to get the restore point collection.
 
@@ -191,7 +191,7 @@ def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[s
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['restorePointCollectionName'] = restore_point_collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240301:getRestorePointCollection', __args__, opts=opts, typ=GetRestorePointCollectionResult)
     return __ret__.apply(lambda __response__: GetRestorePointCollectionResult(
         id=pulumi.get(__response__, 'id'),

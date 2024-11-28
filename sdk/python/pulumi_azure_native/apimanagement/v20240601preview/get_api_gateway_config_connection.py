@@ -164,7 +164,7 @@ def get_api_gateway_config_connection(config_connection_name: Optional[str] = No
 def get_api_gateway_config_connection_output(config_connection_name: Optional[pulumi.Input[str]] = None,
                                              gateway_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiGatewayConfigConnectionResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiGatewayConfigConnectionResult]:
     """
     Gets an API Management gateway config connection resource description.
 
@@ -177,7 +177,7 @@ def get_api_gateway_config_connection_output(config_connection_name: Optional[pu
     __args__['configConnectionName'] = config_connection_name
     __args__['gatewayName'] = gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240601preview:getApiGatewayConfigConnection', __args__, opts=opts, typ=GetApiGatewayConfigConnectionResult)
     return __ret__.apply(lambda __response__: GetApiGatewayConfigConnectionResult(
         default_hostname=pulumi.get(__response__, 'default_hostname'),

@@ -226,7 +226,7 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             resource_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDigitalTwinResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDigitalTwinResult]:
     """
     Get DigitalTwinsInstances resource.
 
@@ -237,7 +237,7 @@ def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:digitaltwins/v20230131:getDigitalTwin', __args__, opts=opts, typ=GetDigitalTwinResult)
     return __ret__.apply(lambda __response__: GetDigitalTwinResult(
         created_time=pulumi.get(__response__, 'created_time'),

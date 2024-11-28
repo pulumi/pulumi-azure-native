@@ -122,7 +122,7 @@ def list_media_service_keys(media_service_name: Optional[str] = None,
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
 def list_media_service_keys_output(media_service_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMediaServiceKeysResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMediaServiceKeysResult]:
     """
     Lists the keys for a Media Service.
     Azure REST API version: 2015-10-01.
@@ -134,7 +134,7 @@ def list_media_service_keys_output(media_service_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['mediaServiceName'] = media_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media:listMediaServiceKeys', __args__, opts=opts, typ=ListMediaServiceKeysResult)
     return __ret__.apply(lambda __response__: ListMediaServiceKeysResult(
         primary_auth_endpoint=pulumi.get(__response__, 'primary_auth_endpoint'),

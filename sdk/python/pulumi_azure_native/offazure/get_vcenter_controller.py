@@ -259,7 +259,7 @@ def get_vcenter_controller(resource_group_name: Optional[str] = None,
 def get_vcenter_controller_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   site_name: Optional[pulumi.Input[str]] = None,
                                   vcenter_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVcenterControllerResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVcenterControllerResult]:
     """
     Get a Vcenter
     Azure REST API version: 2023-06-06.
@@ -275,7 +275,7 @@ def get_vcenter_controller_output(resource_group_name: Optional[pulumi.Input[str
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
     __args__['vcenterName'] = vcenter_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getVcenterController', __args__, opts=opts, typ=GetVcenterControllerResult)
     return __ret__.apply(lambda __response__: GetVcenterControllerResult(
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),

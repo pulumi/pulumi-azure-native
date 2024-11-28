@@ -354,7 +354,7 @@ def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
                           expand: Optional[pulumi.Input[Optional[str]]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           share_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileShareResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileShareResult]:
     """
     Gets properties of a specified share.
     Azure REST API version: 2022-09-01.
@@ -372,7 +372,7 @@ def get_file_share_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getFileShare', __args__, opts=opts, typ=GetFileShareResult)
     return __ret__.apply(lambda __response__: GetFileShareResult(
         access_tier=pulumi.get(__response__, 'access_tier'),

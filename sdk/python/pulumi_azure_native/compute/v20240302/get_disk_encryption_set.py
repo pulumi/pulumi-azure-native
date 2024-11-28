@@ -239,7 +239,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
     """
     Gets information about a disk encryption set.
 
@@ -250,7 +250,7 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['diskEncryptionSetName'] = disk_encryption_set_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240302:getDiskEncryptionSet', __args__, opts=opts, typ=GetDiskEncryptionSetResult)
     return __ret__.apply(lambda __response__: GetDiskEncryptionSetResult(
         active_key=pulumi.get(__response__, 'active_key'),

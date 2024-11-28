@@ -146,7 +146,7 @@ def get_mongo_db_resource_mongo_db_database(account_name: Optional[str] = None,
 def get_mongo_db_resource_mongo_db_database_output(account_name: Optional[pulumi.Input[str]] = None,
                                                    database_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoDBResourceMongoDBDatabaseResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMongoDBResourceMongoDBDatabaseResult]:
     """
     Gets the MongoDB databases under an existing Azure Cosmos DB database account with the provided name.
 
@@ -159,7 +159,7 @@ def get_mongo_db_resource_mongo_db_database_output(account_name: Optional[pulumi
     __args__['accountName'] = account_name
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20230415:getMongoDBResourceMongoDBDatabase', __args__, opts=opts, typ=GetMongoDBResourceMongoDBDatabaseResult)
     return __ret__.apply(lambda __response__: GetMongoDBResourceMongoDBDatabaseResult(
         id=pulumi.get(__response__, 'id'),

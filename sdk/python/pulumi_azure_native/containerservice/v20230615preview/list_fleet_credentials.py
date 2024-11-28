@@ -70,7 +70,7 @@ def list_fleet_credentials(fleet_name: Optional[str] = None,
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
 def list_fleet_credentials_output(fleet_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFleetCredentialsResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFleetCredentialsResult]:
     """
     Lists the user credentials of a Fleet.
 
@@ -81,7 +81,7 @@ def list_fleet_credentials_output(fleet_name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['fleetName'] = fleet_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20230615preview:listFleetCredentials', __args__, opts=opts, typ=ListFleetCredentialsResult)
     return __ret__.apply(lambda __response__: ListFleetCredentialsResult(
         kubeconfigs=pulumi.get(__response__, 'kubeconfigs')))

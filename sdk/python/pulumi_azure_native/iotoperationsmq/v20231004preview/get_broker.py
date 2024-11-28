@@ -321,7 +321,7 @@ def get_broker(broker_name: Optional[str] = None,
 def get_broker_output(broker_name: Optional[pulumi.Input[str]] = None,
                       mq_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrokerResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerResult]:
     """
     Get a BrokerResource
 
@@ -334,7 +334,7 @@ def get_broker_output(broker_name: Optional[pulumi.Input[str]] = None,
     __args__['brokerName'] = broker_name
     __args__['mqName'] = mq_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq/v20231004preview:getBroker', __args__, opts=opts, typ=GetBrokerResult)
     return __ret__.apply(lambda __response__: GetBrokerResult(
         auth_image=pulumi.get(__response__, 'auth_image'),

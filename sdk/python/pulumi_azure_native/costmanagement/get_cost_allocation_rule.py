@@ -112,7 +112,7 @@ def get_cost_allocation_rule(billing_account_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[str]] = None,
                                     rule_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCostAllocationRuleResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostAllocationRuleResult]:
     """
     Get a cost allocation rule by rule name and billing account or enterprise enrollment.
     Azure REST API version: 2020-03-01-preview.
@@ -126,7 +126,7 @@ def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['billingAccountId'] = billing_account_id
     __args__['ruleName'] = rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getCostAllocationRule', __args__, opts=opts, typ=GetCostAllocationRuleResult)
     return __ret__.apply(lambda __response__: GetCostAllocationRuleResult(
         id=pulumi.get(__response__, 'id'),

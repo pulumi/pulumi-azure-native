@@ -208,7 +208,7 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        gallery_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        select: Optional[pulumi.Input[Optional[str]]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryResult]:
     """
     Retrieves information about a Shared Image Gallery.
 
@@ -223,7 +223,7 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['galleryName'] = gallery_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['select'] = select
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20220803:getGallery', __args__, opts=opts, typ=GetGalleryResult)
     return __ret__.apply(lambda __response__: GetGalleryResult(
         description=pulumi.get(__response__, 'description'),

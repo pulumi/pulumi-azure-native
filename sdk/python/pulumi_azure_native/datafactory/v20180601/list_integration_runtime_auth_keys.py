@@ -86,7 +86,7 @@ def list_integration_runtime_auth_keys(factory_name: Optional[str] = None,
 def list_integration_runtime_auth_keys_output(factory_name: Optional[pulumi.Input[str]] = None,
                                               integration_runtime_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationRuntimeAuthKeysResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationRuntimeAuthKeysResult]:
     """
     Retrieves the authentication keys for an integration runtime.
 
@@ -99,7 +99,7 @@ def list_integration_runtime_auth_keys_output(factory_name: Optional[pulumi.Inpu
     __args__['factoryName'] = factory_name
     __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:listIntegrationRuntimeAuthKeys', __args__, opts=opts, typ=ListIntegrationRuntimeAuthKeysResult)
     return __ret__.apply(lambda __response__: ListIntegrationRuntimeAuthKeysResult(
         auth_key1=pulumi.get(__response__, 'auth_key1'),

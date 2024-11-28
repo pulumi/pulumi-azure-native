@@ -128,7 +128,7 @@ def list_web_app_function_keys(function_name: Optional[str] = None,
 def list_web_app_function_keys_output(function_name: Optional[pulumi.Input[str]] = None,
                                       name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppFunctionKeysResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppFunctionKeysResult]:
     """
     Description for Get function keys for a function in a web site, or a deployment slot.
     Azure REST API version: 2022-09-01.
@@ -144,7 +144,7 @@ def list_web_app_function_keys_output(function_name: Optional[pulumi.Input[str]]
     __args__['functionName'] = function_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:listWebAppFunctionKeys', __args__, opts=opts, typ=ListWebAppFunctionKeysResult)
     return __ret__.apply(lambda __response__: ListWebAppFunctionKeysResult(
         id=pulumi.get(__response__, 'id'),

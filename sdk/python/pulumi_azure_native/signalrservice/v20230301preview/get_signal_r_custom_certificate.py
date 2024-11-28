@@ -165,7 +165,7 @@ def get_signal_r_custom_certificate(certificate_name: Optional[str] = None,
 def get_signal_r_custom_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            resource_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRCustomCertificateResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalRCustomCertificateResult]:
     """
     Get a custom certificate.
 
@@ -178,7 +178,7 @@ def get_signal_r_custom_certificate_output(certificate_name: Optional[pulumi.Inp
     __args__['certificateName'] = certificate_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:signalrservice/v20230301preview:getSignalRCustomCertificate', __args__, opts=opts, typ=GetSignalRCustomCertificateResult)
     return __ret__.apply(lambda __response__: GetSignalRCustomCertificateResult(
         id=pulumi.get(__response__, 'id'),

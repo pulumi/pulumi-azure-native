@@ -136,7 +136,7 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
         type=pulumi.get(__ret__, 'type'))
 def get_registration_definition_output(registration_definition_id: Optional[pulumi.Input[str]] = None,
                                        scope: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationDefinitionResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationDefinitionResult]:
     """
     Gets the registration definition details.
     Azure REST API version: 2022-10-01.
@@ -148,7 +148,7 @@ def get_registration_definition_output(registration_definition_id: Optional[pulu
     __args__ = dict()
     __args__['registrationDefinitionId'] = registration_definition_id
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managedservices:getRegistrationDefinition', __args__, opts=opts, typ=GetRegistrationDefinitionResult)
     return __ret__.apply(lambda __response__: GetRegistrationDefinitionResult(
         id=pulumi.get(__response__, 'id'),

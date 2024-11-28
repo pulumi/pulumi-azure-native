@@ -191,7 +191,7 @@ def get_runtime_environment(automation_account_name: Optional[str] = None,
 def get_runtime_environment_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    runtime_environment_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuntimeEnvironmentResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeEnvironmentResult]:
     """
     Get information about the Runtime Environment
 
@@ -204,7 +204,7 @@ def get_runtime_environment_output(automation_account_name: Optional[pulumi.Inpu
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['runtimeEnvironmentName'] = runtime_environment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:getRuntimeEnvironment', __args__, opts=opts, typ=GetRuntimeEnvironmentResult)
     return __ret__.apply(lambda __response__: GetRuntimeEnvironmentResult(
         default_packages=pulumi.get(__response__, 'default_packages'),

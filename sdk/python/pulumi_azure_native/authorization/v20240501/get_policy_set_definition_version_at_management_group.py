@@ -221,7 +221,7 @@ def get_policy_set_definition_version_at_management_group_output(expand: Optiona
                                                                  management_group_name: Optional[pulumi.Input[str]] = None,
                                                                  policy_definition_version: Optional[pulumi.Input[str]] = None,
                                                                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
-                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionVersionAtManagementGroupResult]:
+                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionVersionAtManagementGroupResult]:
     """
     This operation retrieves the policy set definition version in the given management group with the given name and version.
 
@@ -236,7 +236,7 @@ def get_policy_set_definition_version_at_management_group_output(expand: Optiona
     __args__['managementGroupName'] = management_group_name
     __args__['policyDefinitionVersion'] = policy_definition_version
     __args__['policySetDefinitionName'] = policy_set_definition_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20240501:getPolicySetDefinitionVersionAtManagementGroup', __args__, opts=opts, typ=GetPolicySetDefinitionVersionAtManagementGroupResult)
     return __ret__.apply(lambda __response__: GetPolicySetDefinitionVersionAtManagementGroupResult(
         description=pulumi.get(__response__, 'description'),

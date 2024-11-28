@@ -130,7 +130,7 @@ def get_replication_recovery_services_provider_output(fabric_name: Optional[pulu
                                                       provider_name: Optional[pulumi.Input[str]] = None,
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                                       resource_name: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationRecoveryServicesProviderResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationRecoveryServicesProviderResult]:
     """
     Gets the details of registered recovery services provider.
 
@@ -145,7 +145,7 @@ def get_replication_recovery_services_provider_output(fabric_name: Optional[pulu
     __args__['providerName'] = provider_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20241001:getReplicationRecoveryServicesProvider', __args__, opts=opts, typ=GetReplicationRecoveryServicesProviderResult)
     return __ret__.apply(lambda __response__: GetReplicationRecoveryServicesProviderResult(
         id=pulumi.get(__response__, 'id'),

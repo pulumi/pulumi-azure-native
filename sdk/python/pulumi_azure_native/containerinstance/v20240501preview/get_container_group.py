@@ -411,7 +411,7 @@ def get_container_group(container_group_name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_container_group_output(container_group_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerGroupResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerGroupResult]:
     """
     Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
 
@@ -422,7 +422,7 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['containerGroupName'] = container_group_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerinstance/v20240501preview:getContainerGroup', __args__, opts=opts, typ=GetContainerGroupResult)
     return __ret__.apply(lambda __response__: GetContainerGroupResult(
         confidential_compute_properties=pulumi.get(__response__, 'confidential_compute_properties'),

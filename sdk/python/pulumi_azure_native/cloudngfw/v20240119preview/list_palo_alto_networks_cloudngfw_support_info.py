@@ -241,12 +241,12 @@ def list_palo_alto_networks_cloudngfw_support_info(opts: Optional[pulumi.InvokeO
         register_url=pulumi.get(__ret__, 'register_url'),
         start_date_for_credits=pulumi.get(__ret__, 'start_date_for_credits'),
         support_url=pulumi.get(__ret__, 'support_url'))
-def list_palo_alto_networks_cloudngfw_support_info_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPaloAltoNetworksCloudngfwSupportInfoResult]:
+def list_palo_alto_networks_cloudngfw_support_info_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPaloAltoNetworksCloudngfwSupportInfoResult]:
     """
     Support information for the service
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240119preview:listPaloAltoNetworksCloudngfwSupportInfo', __args__, opts=opts, typ=ListPaloAltoNetworksCloudngfwSupportInfoResult)
     return __ret__.apply(lambda __response__: ListPaloAltoNetworksCloudngfwSupportInfoResult(
         account_id=pulumi.get(__response__, 'account_id'),

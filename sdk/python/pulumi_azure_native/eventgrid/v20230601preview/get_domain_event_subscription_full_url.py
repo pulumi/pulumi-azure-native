@@ -73,7 +73,7 @@ def get_domain_event_subscription_full_url(domain_name: Optional[str] = None,
 def get_domain_event_subscription_full_url_output(domain_name: Optional[pulumi.Input[str]] = None,
                                                   event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainEventSubscriptionFullUrlResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for an event subscription for domain.
 
@@ -86,7 +86,7 @@ def get_domain_event_subscription_full_url_output(domain_name: Optional[pulumi.I
     __args__['domainName'] = domain_name
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20230601preview:getDomainEventSubscriptionFullUrl', __args__, opts=opts, typ=GetDomainEventSubscriptionFullUrlResult)
     return __ret__.apply(lambda __response__: GetDomainEventSubscriptionFullUrlResult(
         endpoint_url=pulumi.get(__response__, 'endpoint_url')))

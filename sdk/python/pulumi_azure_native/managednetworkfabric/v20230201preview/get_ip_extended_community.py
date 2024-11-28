@@ -187,7 +187,7 @@ def get_ip_extended_community(ip_extended_community_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_ip_extended_community_output(ip_extended_community_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpExtendedCommunityResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpExtendedCommunityResult]:
     """
     Implements IP Extended Community GET method.
 
@@ -198,7 +198,7 @@ def get_ip_extended_community_output(ip_extended_community_name: Optional[pulumi
     __args__ = dict()
     __args__['ipExtendedCommunityName'] = ip_extended_community_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230201preview:getIpExtendedCommunity', __args__, opts=opts, typ=GetIpExtendedCommunityResult)
     return __ret__.apply(lambda __response__: GetIpExtendedCommunityResult(
         action=pulumi.get(__response__, 'action'),

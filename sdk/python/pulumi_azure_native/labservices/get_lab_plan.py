@@ -255,7 +255,7 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabPlanResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabPlanResult]:
     """
     Retrieves the properties of a Lab Plan.
     Azure REST API version: 2022-08-01.
@@ -269,7 +269,7 @@ def get_lab_plan_output(lab_plan_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['labPlanName'] = lab_plan_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getLabPlan', __args__, opts=opts, typ=GetLabPlanResult)
     return __ret__.apply(lambda __response__: GetLabPlanResult(
         allowed_regions=pulumi.get(__response__, 'allowed_regions'),

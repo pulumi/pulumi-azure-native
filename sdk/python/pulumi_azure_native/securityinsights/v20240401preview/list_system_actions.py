@@ -91,7 +91,7 @@ def list_system_actions_output(agent_resource_name: Optional[pulumi.Input[str]] 
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                system_resource_name: Optional[pulumi.Input[str]] = None,
                                workspace_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSystemActionsResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSystemActionsResult]:
     """
     List of actions for a business application system.
 
@@ -106,7 +106,7 @@ def list_system_actions_output(agent_resource_name: Optional[pulumi.Input[str]] 
     __args__['resourceGroupName'] = resource_group_name
     __args__['systemResourceName'] = system_resource_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240401preview:listSystemActions', __args__, opts=opts, typ=ListSystemActionsResult)
     return __ret__.apply(lambda __response__: ListSystemActionsResult(
         next_link=pulumi.get(__response__, 'next_link'),

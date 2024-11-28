@@ -256,7 +256,7 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
 def list_channel_with_keys_output(channel_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   resource_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListChannelWithKeysResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListChannelWithKeysResult]:
     """
     Lists a Channel registration for a Bot Service including secrets
 
@@ -269,7 +269,7 @@ def list_channel_with_keys_output(channel_name: Optional[pulumi.Input[str]] = No
     __args__['channelName'] = channel_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:botservice/v20220915:listChannelWithKeys', __args__, opts=opts, typ=ListChannelWithKeysResult)
     return __ret__.apply(lambda __response__: ListChannelWithKeysResult(
         changed_time=pulumi.get(__response__, 'changed_time'),

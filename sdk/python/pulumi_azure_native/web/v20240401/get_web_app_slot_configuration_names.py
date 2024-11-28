@@ -147,7 +147,7 @@ def get_web_app_slot_configuration_names(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_web_app_slot_configuration_names_output(name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSlotConfigurationNamesResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSlotConfigurationNamesResult]:
     """
     Description for Gets the names of app settings and connection strings that stick to the slot (not swapped).
 
@@ -158,7 +158,7 @@ def get_web_app_slot_configuration_names_output(name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:getWebAppSlotConfigurationNames', __args__, opts=opts, typ=GetWebAppSlotConfigurationNamesResult)
     return __ret__.apply(lambda __response__: GetWebAppSlotConfigurationNamesResult(
         app_setting_names=pulumi.get(__response__, 'app_setting_names'),

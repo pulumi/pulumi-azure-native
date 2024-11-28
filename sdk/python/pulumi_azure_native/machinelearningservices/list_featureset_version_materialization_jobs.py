@@ -110,7 +110,7 @@ def list_featureset_version_materialization_jobs_output(feature_window_end: Opti
                                                         skip: Optional[pulumi.Input[Optional[str]]] = None,
                                                         version: Optional[pulumi.Input[str]] = None,
                                                         workspace_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFeaturesetVersionMaterializationJobsResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFeaturesetVersionMaterializationJobsResult]:
     """
     A paginated list of FeaturesetJob entities.
     Azure REST API version: 2023-04-01-preview.
@@ -136,7 +136,7 @@ def list_featureset_version_materialization_jobs_output(feature_window_end: Opti
     __args__['skip'] = skip
     __args__['version'] = version
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs', __args__, opts=opts, typ=ListFeaturesetVersionMaterializationJobsResult)
     return __ret__.apply(lambda __response__: ListFeaturesetVersionMaterializationJobsResult(
         next_link=pulumi.get(__response__, 'next_link'),

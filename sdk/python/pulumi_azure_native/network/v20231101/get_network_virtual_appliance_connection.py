@@ -165,7 +165,7 @@ def get_network_virtual_appliance_connection(connection_name: Optional[str] = No
 def get_network_virtual_appliance_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                                                     network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkVirtualApplianceConnectionResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkVirtualApplianceConnectionResult]:
     """
     Retrieves the details of specified NVA connection.
 
@@ -178,7 +178,7 @@ def get_network_virtual_appliance_connection_output(connection_name: Optional[pu
     __args__['connectionName'] = connection_name
     __args__['networkVirtualApplianceName'] = network_virtual_appliance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:getNetworkVirtualApplianceConnection', __args__, opts=opts, typ=GetNetworkVirtualApplianceConnectionResult)
     return __ret__.apply(lambda __response__: GetNetworkVirtualApplianceConnectionResult(
         asn=pulumi.get(__response__, 'asn'),

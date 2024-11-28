@@ -113,7 +113,7 @@ def get_table_service_properties(account_name: Optional[str] = None,
 def get_table_service_properties_output(account_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         table_service_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableServicePropertiesResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableServicePropertiesResult]:
     """
     Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
 
@@ -126,7 +126,7 @@ def get_table_service_properties_output(account_name: Optional[pulumi.Input[str]
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tableServiceName'] = table_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230401:getTableServiceProperties', __args__, opts=opts, typ=GetTableServicePropertiesResult)
     return __ret__.apply(lambda __response__: GetTableServicePropertiesResult(
         cors=pulumi.get(__response__, 'cors'),

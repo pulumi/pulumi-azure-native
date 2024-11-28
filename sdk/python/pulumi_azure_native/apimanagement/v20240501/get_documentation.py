@@ -125,7 +125,7 @@ def get_documentation(documentation_id: Optional[str] = None,
 def get_documentation_output(documentation_id: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              service_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentationResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentationResult]:
     """
     Gets the details of the Documentation specified by its identifier.
 
@@ -138,7 +138,7 @@ def get_documentation_output(documentation_id: Optional[pulumi.Input[str]] = Non
     __args__['documentationId'] = documentation_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getDocumentation', __args__, opts=opts, typ=GetDocumentationResult)
     return __ret__.apply(lambda __response__: GetDocumentationResult(
         content=pulumi.get(__response__, 'content'),

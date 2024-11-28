@@ -388,7 +388,7 @@ def get_watchlist(resource_group_name: Optional[str] = None,
 def get_watchlist_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          watchlist_alias: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatchlistResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWatchlistResult]:
     """
     Get a watchlist, without its watchlist items.
 
@@ -401,7 +401,7 @@ def get_watchlist_output(resource_group_name: Optional[pulumi.Input[str]] = None
     __args__['resourceGroupName'] = resource_group_name
     __args__['watchlistAlias'] = watchlist_alias
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20231101:getWatchlist', __args__, opts=opts, typ=GetWatchlistResult)
     return __ret__.apply(lambda __response__: GetWatchlistResult(
         content_type=pulumi.get(__response__, 'content_type'),

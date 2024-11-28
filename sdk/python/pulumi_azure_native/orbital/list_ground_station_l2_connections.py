@@ -86,7 +86,7 @@ def list_ground_station_l2_connections(ground_station_name: Optional[str] = None
         value=pulumi.get(__ret__, 'value'))
 def list_ground_station_l2_connections_output(ground_station_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGroundStationL2ConnectionsResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGroundStationL2ConnectionsResult]:
     """
     Returns a list of L2 Connections attached to an ground station.
     Azure REST API version: 2024-03-01-preview.
@@ -100,7 +100,7 @@ def list_ground_station_l2_connections_output(ground_station_name: Optional[pulu
     __args__ = dict()
     __args__['groundStationName'] = ground_station_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital:listGroundStationL2Connections', __args__, opts=opts, typ=ListGroundStationL2ConnectionsResult)
     return __ret__.apply(lambda __response__: ListGroundStationL2ConnectionsResult(
         next_link=pulumi.get(__response__, 'next_link'),

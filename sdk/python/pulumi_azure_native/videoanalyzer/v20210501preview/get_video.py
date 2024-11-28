@@ -178,7 +178,7 @@ def get_video(account_name: Optional[str] = None,
 def get_video_output(account_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      video_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVideoResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVideoResult]:
     """
     Retrieves an existing video resource within an account with a given name.
 
@@ -191,7 +191,7 @@ def get_video_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['videoName'] = video_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer/v20210501preview:getVideo', __args__, opts=opts, typ=GetVideoResult)
     return __ret__.apply(lambda __response__: GetVideoResult(
         description=pulumi.get(__response__, 'description'),

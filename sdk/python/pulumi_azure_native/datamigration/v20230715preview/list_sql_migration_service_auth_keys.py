@@ -82,7 +82,7 @@ def list_sql_migration_service_auth_keys(resource_group_name: Optional[str] = No
         auth_key2=pulumi.get(__ret__, 'auth_key2'))
 def list_sql_migration_service_auth_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 sql_migration_service_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSqlMigrationServiceAuthKeysResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSqlMigrationServiceAuthKeysResult]:
     """
     Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
 
@@ -93,7 +93,7 @@ def list_sql_migration_service_auth_keys_output(resource_group_name: Optional[pu
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlMigrationServiceName'] = sql_migration_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration/v20230715preview:listSqlMigrationServiceAuthKeys', __args__, opts=opts, typ=ListSqlMigrationServiceAuthKeysResult)
     return __ret__.apply(lambda __response__: ListSqlMigrationServiceAuthKeysResult(
         auth_key1=pulumi.get(__response__, 'auth_key1'),

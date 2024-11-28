@@ -342,7 +342,7 @@ def get_deployment_stack_at_subscription(deployment_stack_name: Optional[str] = 
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_deployment_stack_at_subscription_output(deployment_stack_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentStackAtSubscriptionResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStackAtSubscriptionResult]:
     """
     Gets a Deployment Stack with a given name.
     Azure REST API version: 2022-08-01-preview.
@@ -354,7 +354,7 @@ def get_deployment_stack_at_subscription_output(deployment_stack_name: Optional[
     """
     __args__ = dict()
     __args__['deploymentStackName'] = deployment_stack_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getDeploymentStackAtSubscription', __args__, opts=opts, typ=GetDeploymentStackAtSubscriptionResult)
     return __ret__.apply(lambda __response__: GetDeploymentStackAtSubscriptionResult(
         action_on_unmanage=pulumi.get(__response__, 'action_on_unmanage'),

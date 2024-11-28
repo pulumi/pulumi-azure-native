@@ -200,7 +200,7 @@ def get_ip_prefix(ip_prefix_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_ip_prefix_output(ip_prefix_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpPrefixResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpPrefixResult]:
     """
     Implements IP Prefix GET method.
 
@@ -211,7 +211,7 @@ def get_ip_prefix_output(ip_prefix_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['ipPrefixName'] = ip_prefix_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getIpPrefix', __args__, opts=opts, typ=GetIpPrefixResult)
     return __ret__.apply(lambda __response__: GetIpPrefixResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),

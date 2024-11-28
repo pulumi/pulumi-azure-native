@@ -136,7 +136,7 @@ def get_hci_edge_device(edge_device_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_hci_edge_device_output(edge_device_name: Optional[pulumi.Input[str]] = None,
                                resource_uri: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHciEdgeDeviceResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHciEdgeDeviceResult]:
     """
     Get a EdgeDevice
 
@@ -147,7 +147,7 @@ def get_hci_edge_device_output(edge_device_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['edgeDeviceName'] = edge_device_name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240901preview:getHciEdgeDevice', __args__, opts=opts, typ=GetHciEdgeDeviceResult)
     return __ret__.apply(lambda __response__: GetHciEdgeDeviceResult(
         id=pulumi.get(__response__, 'id'),

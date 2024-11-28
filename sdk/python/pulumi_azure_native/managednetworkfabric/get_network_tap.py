@@ -240,7 +240,7 @@ def get_network_tap(network_tap_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_network_tap_output(network_tap_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkTapResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkTapResult]:
     """
     Retrieves details of this Network Tap.
     Azure REST API version: 2023-06-15.
@@ -252,7 +252,7 @@ def get_network_tap_output(network_tap_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['networkTapName'] = network_tap_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getNetworkTap', __args__, opts=opts, typ=GetNetworkTapResult)
     return __ret__.apply(lambda __response__: GetNetworkTapResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),

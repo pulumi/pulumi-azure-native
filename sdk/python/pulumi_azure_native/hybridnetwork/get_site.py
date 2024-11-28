@@ -151,7 +151,7 @@ def get_site(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     site_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteResult]:
     """
     Gets information about the specified network site.
     Azure REST API version: 2023-09-01.
@@ -165,7 +165,7 @@ def get_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:getSite', __args__, opts=opts, typ=GetSiteResult)
     return __ret__.apply(lambda __response__: GetSiteResult(
         id=pulumi.get(__response__, 'id'),

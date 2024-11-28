@@ -97,7 +97,7 @@ def get_test_result_console_log_download_url_output(log_file_name: Optional[pulu
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     test_base_account_name: Optional[pulumi.Input[str]] = None,
                                                     test_result_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultConsoleLogDownloadURLResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultConsoleLogDownloadURLResult]:
     """
     Gets the download URL of the test execution console log file.
     Azure REST API version: 2022-04-01-preview.
@@ -117,7 +117,7 @@ def get_test_result_console_log_download_url_output(log_file_name: Optional[pulu
     __args__['resourceGroupName'] = resource_group_name
     __args__['testBaseAccountName'] = test_base_account_name
     __args__['testResultName'] = test_result_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getTestResultConsoleLogDownloadURL', __args__, opts=opts, typ=GetTestResultConsoleLogDownloadURLResult)
     return __ret__.apply(lambda __response__: GetTestResultConsoleLogDownloadURLResult(
         download_url=pulumi.get(__response__, 'download_url'),

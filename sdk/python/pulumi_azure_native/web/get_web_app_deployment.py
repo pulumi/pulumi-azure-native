@@ -232,7 +232,7 @@ def get_web_app_deployment(id: Optional[str] = None,
 def get_web_app_deployment_output(id: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDeploymentResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppDeploymentResult]:
     """
     Description for Get a deployment by its ID for an app, or a deployment slot.
     Azure REST API version: 2022-09-01.
@@ -248,7 +248,7 @@ def get_web_app_deployment_output(id: Optional[pulumi.Input[str]] = None,
     __args__['id'] = id
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppDeployment', __args__, opts=opts, typ=GetWebAppDeploymentResult)
     return __ret__.apply(lambda __response__: GetWebAppDeploymentResult(
         active=pulumi.get(__response__, 'active'),

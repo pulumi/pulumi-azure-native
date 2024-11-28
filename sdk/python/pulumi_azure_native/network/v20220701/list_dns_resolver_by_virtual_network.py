@@ -87,7 +87,7 @@ def list_dns_resolver_by_virtual_network(resource_group_name: Optional[str] = No
 def list_dns_resolver_by_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 top: Optional[pulumi.Input[Optional[int]]] = None,
                                                 virtual_network_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDnsResolverByVirtualNetworkResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDnsResolverByVirtualNetworkResult]:
     """
     Lists DNS resolver resource IDs linked to a virtual network.
 
@@ -100,7 +100,7 @@ def list_dns_resolver_by_virtual_network_output(resource_group_name: Optional[pu
     __args__['resourceGroupName'] = resource_group_name
     __args__['top'] = top
     __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20220701:listDnsResolverByVirtualNetwork', __args__, opts=opts, typ=ListDnsResolverByVirtualNetworkResult)
     return __ret__.apply(lambda __response__: ListDnsResolverByVirtualNetworkResult(
         next_link=pulumi.get(__response__, 'next_link'),

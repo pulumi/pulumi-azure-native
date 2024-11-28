@@ -127,7 +127,7 @@ def get_managed_server_dns_alias(dns_alias_name: Optional[str] = None,
 def get_managed_server_dns_alias_output(dns_alias_name: Optional[pulumi.Input[str]] = None,
                                         managed_instance_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedServerDnsAliasResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedServerDnsAliasResult]:
     """
     Gets a server DNS alias.
     Azure REST API version: 2021-11-01.
@@ -142,7 +142,7 @@ def get_managed_server_dns_alias_output(dns_alias_name: Optional[pulumi.Input[st
     __args__['dnsAliasName'] = dns_alias_name
     __args__['managedInstanceName'] = managed_instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getManagedServerDnsAlias', __args__, opts=opts, typ=GetManagedServerDnsAliasResult)
     return __ret__.apply(lambda __response__: GetManagedServerDnsAliasResult(
         azure_dns_record=pulumi.get(__response__, 'azure_dns_record'),

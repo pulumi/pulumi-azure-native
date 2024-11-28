@@ -434,7 +434,7 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
         vpn_gateway=pulumi.get(__ret__, 'vpn_gateway'))
 def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubResult]:
     """
     Retrieves the details of a VirtualHub.
 
@@ -445,7 +445,7 @@ def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualHubName'] = virtual_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getVirtualHub', __args__, opts=opts, typ=GetVirtualHubResult)
     return __ret__.apply(lambda __response__: GetVirtualHubResult(
         address_prefix=pulumi.get(__response__, 'address_prefix'),

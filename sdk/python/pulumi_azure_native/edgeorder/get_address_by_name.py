@@ -175,7 +175,7 @@ def get_address_by_name(address_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_address_by_name_output(address_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddressByNameResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddressByNameResult]:
     """
     Gets information about the specified address.
     Azure REST API version: 2021-12-01.
@@ -187,7 +187,7 @@ def get_address_by_name_output(address_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['addressName'] = address_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:edgeorder:getAddressByName', __args__, opts=opts, typ=GetAddressByNameResult)
     return __ret__.apply(lambda __response__: GetAddressByNameResult(
         address_validation_status=pulumi.get(__response__, 'address_validation_status'),

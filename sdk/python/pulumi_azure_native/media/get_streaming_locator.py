@@ -246,7 +246,7 @@ def get_streaming_locator(account_name: Optional[str] = None,
 def get_streaming_locator_output(account_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  streaming_locator_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingLocatorResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamingLocatorResult]:
     """
     Get the details of a Streaming Locator in the Media Services account
     Azure REST API version: 2023-01-01.
@@ -262,7 +262,7 @@ def get_streaming_locator_output(account_name: Optional[pulumi.Input[str]] = Non
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['streamingLocatorName'] = streaming_locator_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media:getStreamingLocator', __args__, opts=opts, typ=GetStreamingLocatorResult)
     return __ret__.apply(lambda __response__: GetStreamingLocatorResult(
         alternative_media_id=pulumi.get(__response__, 'alternative_media_id'),

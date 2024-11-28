@@ -122,7 +122,7 @@ def get_group_quota_subscription(group_quota_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_group_quota_subscription_output(group_quota_name: Optional[pulumi.Input[str]] = None,
                                         management_group_id: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupQuotaSubscriptionResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupQuotaSubscriptionResult]:
     """
     Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
     Azure REST API version: 2023-06-01-preview.
@@ -136,7 +136,7 @@ def get_group_quota_subscription_output(group_quota_name: Optional[pulumi.Input[
     __args__ = dict()
     __args__['groupQuotaName'] = group_quota_name
     __args__['managementGroupId'] = management_group_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:quota:getGroupQuotaSubscription', __args__, opts=opts, typ=GetGroupQuotaSubscriptionResult)
     return __ret__.apply(lambda __response__: GetGroupQuotaSubscriptionResult(
         id=pulumi.get(__response__, 'id'),

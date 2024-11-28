@@ -204,7 +204,7 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
 def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] = None,
                                    resource_scope: Optional[pulumi.Input[str]] = None,
                                    version_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublishedBlueprintResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublishedBlueprintResult]:
     """
     Get a published version of a blueprint definition.
 
@@ -217,7 +217,7 @@ def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] =
     __args__['blueprintName'] = blueprint_name
     __args__['resourceScope'] = resource_scope
     __args__['versionId'] = version_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint/v20181101preview:getPublishedBlueprint', __args__, opts=opts, typ=GetPublishedBlueprintResult)
     return __ret__.apply(lambda __response__: GetPublishedBlueprintResult(
         blueprint_name=pulumi.get(__response__, 'blueprint_name'),

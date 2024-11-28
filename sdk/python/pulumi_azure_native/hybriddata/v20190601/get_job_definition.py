@@ -221,7 +221,7 @@ def get_job_definition_output(data_manager_name: Optional[pulumi.Input[str]] = N
                               data_service_name: Optional[pulumi.Input[str]] = None,
                               job_definition_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobDefinitionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     This method gets job definition object by name.
 
@@ -236,7 +236,7 @@ def get_job_definition_output(data_manager_name: Optional[pulumi.Input[str]] = N
     __args__['dataServiceName'] = data_service_name
     __args__['jobDefinitionName'] = job_definition_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybriddata/v20190601:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
     return __ret__.apply(lambda __response__: GetJobDefinitionResult(
         customer_secrets=pulumi.get(__response__, 'customer_secrets'),

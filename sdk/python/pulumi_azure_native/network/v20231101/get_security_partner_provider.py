@@ -187,7 +187,7 @@ def get_security_partner_provider(resource_group_name: Optional[str] = None,
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
 def get_security_partner_provider_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                          security_partner_provider_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityPartnerProviderResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPartnerProviderResult]:
     """
     Gets the specified Security Partner Provider.
 
@@ -198,7 +198,7 @@ def get_security_partner_provider_output(resource_group_name: Optional[pulumi.In
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityPartnerProviderName'] = security_partner_provider_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:getSecurityPartnerProvider', __args__, opts=opts, typ=GetSecurityPartnerProviderResult)
     return __ret__.apply(lambda __response__: GetSecurityPartnerProviderResult(
         connection_status=pulumi.get(__response__, 'connection_status'),

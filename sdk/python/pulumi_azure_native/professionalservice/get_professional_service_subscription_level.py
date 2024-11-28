@@ -127,7 +127,7 @@ def get_professional_service_subscription_level(resource_group_name: Optional[st
 def get_professional_service_subscription_level_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                        resource_name: Optional[pulumi.Input[str]] = None,
                                                        subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfessionalServiceSubscriptionLevelResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfessionalServiceSubscriptionLevelResult]:
     """
     Gets information about the specified Subscription Level ProfessionalService.
     Azure REST API version: 2023-07-01-preview.
@@ -141,7 +141,7 @@ def get_professional_service_subscription_level_output(resource_group_name: Opti
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:professionalservice:getProfessionalServiceSubscriptionLevel', __args__, opts=opts, typ=GetProfessionalServiceSubscriptionLevelResult)
     return __ret__.apply(lambda __response__: GetProfessionalServiceSubscriptionLevelResult(
         id=pulumi.get(__response__, 'id'),

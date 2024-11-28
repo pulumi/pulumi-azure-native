@@ -219,7 +219,7 @@ def get_firewall_support_info(email: Optional[str] = None,
 def get_firewall_support_info_output(email: Optional[pulumi.Input[Optional[str]]] = None,
                                      firewall_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallSupportInfoResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallSupportInfoResult]:
     """
     support info for firewall.
     Azure REST API version: 2023-09-01.
@@ -235,7 +235,7 @@ def get_firewall_support_info_output(email: Optional[pulumi.Input[Optional[str]]
     __args__['email'] = email
     __args__['firewallName'] = firewall_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:getFirewallSupportInfo', __args__, opts=opts, typ=GetFirewallSupportInfoResult)
     return __ret__.apply(lambda __response__: GetFirewallSupportInfoResult(
         account_id=pulumi.get(__response__, 'account_id'),

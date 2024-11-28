@@ -155,7 +155,7 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[str] = N
 def get_virtual_appliance_site_output(network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       site_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualApplianceSiteResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualApplianceSiteResult]:
     """
     Gets the specified Virtual Appliance Site.
     Azure REST API version: 2023-02-01.
@@ -171,7 +171,7 @@ def get_virtual_appliance_site_output(network_virtual_appliance_name: Optional[p
     __args__['networkVirtualApplianceName'] = network_virtual_appliance_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVirtualApplianceSite', __args__, opts=opts, typ=GetVirtualApplianceSiteResult)
     return __ret__.apply(lambda __response__: GetVirtualApplianceSiteResult(
         address_prefix=pulumi.get(__response__, 'address_prefix'),

@@ -129,7 +129,7 @@ def get_job_private_endpoint_output(job_agent_name: Optional[pulumi.Input[str]] 
                                     private_endpoint_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     server_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobPrivateEndpointResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobPrivateEndpointResult]:
     """
     Gets a private endpoint.
 
@@ -144,7 +144,7 @@ def get_job_private_endpoint_output(job_agent_name: Optional[pulumi.Input[str]] 
     __args__['privateEndpointName'] = private_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20240501preview:getJobPrivateEndpoint', __args__, opts=opts, typ=GetJobPrivateEndpointResult)
     return __ret__.apply(lambda __response__: GetJobPrivateEndpointResult(
         id=pulumi.get(__response__, 'id'),

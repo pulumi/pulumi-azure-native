@@ -155,7 +155,7 @@ def get_artifact_store(artifact_store_name: Optional[str] = None,
 def get_artifact_store_output(artifact_store_name: Optional[pulumi.Input[str]] = None,
                               publisher_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArtifactStoreResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArtifactStoreResult]:
     """
     Gets information about the specified artifact store.
     Azure REST API version: 2023-09-01.
@@ -171,7 +171,7 @@ def get_artifact_store_output(artifact_store_name: Optional[pulumi.Input[str]] =
     __args__['artifactStoreName'] = artifact_store_name
     __args__['publisherName'] = publisher_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:getArtifactStore', __args__, opts=opts, typ=GetArtifactStoreResult)
     return __ret__.apply(lambda __response__: GetArtifactStoreResult(
         id=pulumi.get(__response__, 'id'),

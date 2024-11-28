@@ -165,7 +165,7 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
 def get_application_gateway_private_endpoint_connection_output(application_gateway_name: Optional[pulumi.Input[str]] = None,
                                                                connection_name: Optional[pulumi.Input[str]] = None,
                                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayPrivateEndpointConnectionResult]:
+                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGatewayPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection on application gateway.
 
@@ -178,7 +178,7 @@ def get_application_gateway_private_endpoint_connection_output(application_gatew
     __args__['applicationGatewayName'] = application_gateway_name
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getApplicationGatewayPrivateEndpointConnection', __args__, opts=opts, typ=GetApplicationGatewayPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetApplicationGatewayPrivateEndpointConnectionResult(
         etag=pulumi.get(__response__, 'etag'),

@@ -169,7 +169,7 @@ def get_connector_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
                                 location: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorDryrunResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorDryrunResult]:
     """
     get a dryrun job
 
@@ -184,7 +184,7 @@ def get_connector_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
     __args__['location'] = location
     __args__['resourceGroupName'] = resource_group_name
     __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicelinker/v20240701preview:getConnectorDryrun', __args__, opts=opts, typ=GetConnectorDryrunResult)
     return __ret__.apply(lambda __response__: GetConnectorDryrunResult(
         id=pulumi.get(__response__, 'id'),

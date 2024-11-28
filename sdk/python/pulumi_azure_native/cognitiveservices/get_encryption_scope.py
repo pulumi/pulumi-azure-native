@@ -155,7 +155,7 @@ def get_encryption_scope(account_name: Optional[str] = None,
 def get_encryption_scope_output(account_name: Optional[pulumi.Input[str]] = None,
                                 encryption_scope_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEncryptionScopeResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptionScopeResult]:
     """
     Gets the specified EncryptionScope associated with the Cognitive Services account.
     Azure REST API version: 2023-10-01-preview.
@@ -171,7 +171,7 @@ def get_encryption_scope_output(account_name: Optional[pulumi.Input[str]] = None
     __args__['accountName'] = account_name
     __args__['encryptionScopeName'] = encryption_scope_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cognitiveservices:getEncryptionScope', __args__, opts=opts, typ=GetEncryptionScopeResult)
     return __ret__.apply(lambda __response__: GetEncryptionScopeResult(
         etag=pulumi.get(__response__, 'etag'),

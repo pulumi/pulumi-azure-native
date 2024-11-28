@@ -237,7 +237,7 @@ def get_subvolume_metadata_output(account_name: Optional[pulumi.Input[str]] = No
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   subvolume_name: Optional[pulumi.Input[str]] = None,
                                   volume_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubvolumeMetadataResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubvolumeMetadataResult]:
     """
     Get details of the specified subvolume
 
@@ -254,7 +254,7 @@ def get_subvolume_metadata_output(account_name: Optional[pulumi.Input[str]] = No
     __args__['resourceGroupName'] = resource_group_name
     __args__['subvolumeName'] = subvolume_name
     __args__['volumeName'] = volume_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20230501preview:getSubvolumeMetadata', __args__, opts=opts, typ=GetSubvolumeMetadataResult)
     return __ret__.apply(lambda __response__: GetSubvolumeMetadataResult(
         accessed_time_stamp=pulumi.get(__response__, 'accessed_time_stamp'),

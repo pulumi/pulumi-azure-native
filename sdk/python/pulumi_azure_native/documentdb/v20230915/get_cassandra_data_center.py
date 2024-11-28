@@ -113,7 +113,7 @@ def get_cassandra_data_center(cluster_name: Optional[str] = None,
 def get_cassandra_data_center_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                      data_center_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraDataCenterResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCassandraDataCenterResult]:
     """
     Get the properties of a managed Cassandra data center.
 
@@ -126,7 +126,7 @@ def get_cassandra_data_center_output(cluster_name: Optional[pulumi.Input[str]] =
     __args__['clusterName'] = cluster_name
     __args__['dataCenterName'] = data_center_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20230915:getCassandraDataCenter', __args__, opts=opts, typ=GetCassandraDataCenterResult)
     return __ret__.apply(lambda __response__: GetCassandraDataCenterResult(
         id=pulumi.get(__response__, 'id'),

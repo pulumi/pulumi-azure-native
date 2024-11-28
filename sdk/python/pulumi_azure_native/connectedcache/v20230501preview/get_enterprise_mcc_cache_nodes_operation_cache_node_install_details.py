@@ -152,7 +152,7 @@ def get_enterprise_mcc_cache_nodes_operation_cache_node_install_details(cache_no
 def get_enterprise_mcc_cache_nodes_operation_cache_node_install_details_output(cache_node_resource_name: Optional[pulumi.Input[str]] = None,
                                                                                customer_resource_name: Optional[pulumi.Input[str]] = None,
                                                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseMccCacheNodesOperationCacheNodeInstallDetailsResult]:
+                                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnterpriseMccCacheNodesOperationCacheNodeInstallDetailsResult]:
     """
     This api gets secrets of the ispCacheNode resource install details
 
@@ -165,7 +165,7 @@ def get_enterprise_mcc_cache_nodes_operation_cache_node_install_details_output(c
     __args__['cacheNodeResourceName'] = cache_node_resource_name
     __args__['customerResourceName'] = customer_resource_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedcache/v20230501preview:getEnterpriseMccCacheNodesOperationCacheNodeInstallDetails', __args__, opts=opts, typ=GetEnterpriseMccCacheNodesOperationCacheNodeInstallDetailsResult)
     return __ret__.apply(lambda __response__: GetEnterpriseMccCacheNodesOperationCacheNodeInstallDetailsResult(
         id=pulumi.get(__response__, 'id'),

@@ -113,7 +113,7 @@ def get_product_wiki(product_id: Optional[str] = None,
 def get_product_wiki_output(product_id: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             service_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductWikiResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductWikiResult]:
     """
     Gets the details of the Wiki for a Product specified by its identifier.
 
@@ -126,7 +126,7 @@ def get_product_wiki_output(product_id: Optional[pulumi.Input[str]] = None,
     __args__['productId'] = product_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getProductWiki', __args__, opts=opts, typ=GetProductWikiResult)
     return __ret__.apply(lambda __response__: GetProductWikiResult(
         documents=pulumi.get(__response__, 'documents'),

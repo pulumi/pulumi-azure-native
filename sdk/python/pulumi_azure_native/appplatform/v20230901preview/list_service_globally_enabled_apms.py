@@ -69,7 +69,7 @@ def list_service_globally_enabled_apms(resource_group_name: Optional[str] = None
         value=pulumi.get(__ret__, 'value'))
 def list_service_globally_enabled_apms_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                               service_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceGloballyEnabledApmsResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServiceGloballyEnabledApmsResult]:
     """
     List globally enabled APMs for a Service.
 
@@ -80,7 +80,7 @@ def list_service_globally_enabled_apms_output(resource_group_name: Optional[pulu
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20230901preview:listServiceGloballyEnabledApms', __args__, opts=opts, typ=ListServiceGloballyEnabledApmsResult)
     return __ret__.apply(lambda __response__: ListServiceGloballyEnabledApmsResult(
         value=pulumi.get(__response__, 'value')))

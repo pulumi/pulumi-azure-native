@@ -282,7 +282,7 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
         type=pulumi.get(__ret__, 'type'),
         user_impact=pulumi.get(__ret__, 'user_impact'))
 def get_assessment_metadata_in_subscription_output(assessment_metadata_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentMetadataInSubscriptionResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentMetadataInSubscriptionResult]:
     """
     Get metadata information on an assessment type in a specific subscription
 
@@ -291,7 +291,7 @@ def get_assessment_metadata_in_subscription_output(assessment_metadata_name: Opt
     """
     __args__ = dict()
     __args__['assessmentMetadataName'] = assessment_metadata_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20210601:getAssessmentMetadataInSubscription', __args__, opts=opts, typ=GetAssessmentMetadataInSubscriptionResult)
     return __ret__.apply(lambda __response__: GetAssessmentMetadataInSubscriptionResult(
         assessment_type=pulumi.get(__response__, 'assessment_type'),

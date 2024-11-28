@@ -395,7 +395,7 @@ def get_data_product(data_product_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_data_product_output(data_product_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataProductResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataProductResult]:
     """
     Retrieve data product resource.
 
@@ -406,7 +406,7 @@ def get_data_product_output(data_product_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['dataProductName'] = data_product_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkanalytics/v20231115:getDataProduct', __args__, opts=opts, typ=GetDataProductResult)
     return __ret__.apply(lambda __response__: GetDataProductResult(
         available_minor_versions=pulumi.get(__response__, 'available_minor_versions'),

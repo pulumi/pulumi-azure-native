@@ -82,7 +82,7 @@ def get_online_deployment_logs_output(container_type: Optional[pulumi.Input[Opti
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       tail: Optional[pulumi.Input[Optional[int]]] = None,
                                       workspace_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnlineDeploymentLogsResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineDeploymentLogsResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -100,7 +100,7 @@ def get_online_deployment_logs_output(container_type: Optional[pulumi.Input[Opti
     __args__['resourceGroupName'] = resource_group_name
     __args__['tail'] = tail
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230601preview:getOnlineDeploymentLogs', __args__, opts=opts, typ=GetOnlineDeploymentLogsResult)
     return __ret__.apply(lambda __response__: GetOnlineDeploymentLogsResult(
         content=pulumi.get(__response__, 'content')))

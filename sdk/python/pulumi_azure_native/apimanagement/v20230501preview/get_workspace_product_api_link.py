@@ -120,7 +120,7 @@ def get_workspace_product_api_link_output(api_link_id: Optional[pulumi.Input[str
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           service_name: Optional[pulumi.Input[str]] = None,
                                           workspace_id: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceProductApiLinkResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceProductApiLinkResult]:
     """
     Gets the API link for the product.
 
@@ -137,7 +137,7 @@ def get_workspace_product_api_link_output(api_link_id: Optional[pulumi.Input[str
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getWorkspaceProductApiLink', __args__, opts=opts, typ=GetWorkspaceProductApiLinkResult)
     return __ret__.apply(lambda __response__: GetWorkspaceProductApiLinkResult(
         api_id=pulumi.get(__response__, 'api_id'),

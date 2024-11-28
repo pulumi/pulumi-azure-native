@@ -113,7 +113,7 @@ def get_storage_task_assignment(account_name: Optional[str] = None,
 def get_storage_task_assignment_output(account_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        storage_task_assignment_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageTaskAssignmentResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageTaskAssignmentResult]:
     """
     Get the storage task assignment properties
 
@@ -126,7 +126,7 @@ def get_storage_task_assignment_output(account_name: Optional[pulumi.Input[str]]
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageTaskAssignmentName'] = storage_task_assignment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230501:getStorageTaskAssignment', __args__, opts=opts, typ=GetStorageTaskAssignmentResult)
     return __ret__.apply(lambda __response__: GetStorageTaskAssignmentResult(
         id=pulumi.get(__response__, 'id'),

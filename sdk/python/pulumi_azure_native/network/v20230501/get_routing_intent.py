@@ -139,7 +139,7 @@ def get_routing_intent(resource_group_name: Optional[str] = None,
 def get_routing_intent_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               routing_intent_name: Optional[pulumi.Input[str]] = None,
                               virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingIntentResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingIntentResult]:
     """
     Retrieves the details of a RoutingIntent.
 
@@ -152,7 +152,7 @@ def get_routing_intent_output(resource_group_name: Optional[pulumi.Input[str]] =
     __args__['resourceGroupName'] = resource_group_name
     __args__['routingIntentName'] = routing_intent_name
     __args__['virtualHubName'] = virtual_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:getRoutingIntent', __args__, opts=opts, typ=GetRoutingIntentResult)
     return __ret__.apply(lambda __response__: GetRoutingIntentResult(
         etag=pulumi.get(__response__, 'etag'),

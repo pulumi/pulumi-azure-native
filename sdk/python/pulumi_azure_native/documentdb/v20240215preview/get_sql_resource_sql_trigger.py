@@ -157,7 +157,7 @@ def get_sql_resource_sql_trigger_output(account_name: Optional[pulumi.Input[str]
                                         database_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         trigger_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlTriggerResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlResourceSqlTriggerResult]:
     """
     Gets the SQL trigger under an existing Azure Cosmos DB database account.
 
@@ -174,7 +174,7 @@ def get_sql_resource_sql_trigger_output(account_name: Optional[pulumi.Input[str]
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['triggerName'] = trigger_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240215preview:getSqlResourceSqlTrigger', __args__, opts=opts, typ=GetSqlResourceSqlTriggerResult)
     return __ret__.apply(lambda __response__: GetSqlResourceSqlTriggerResult(
         id=pulumi.get(__response__, 'id'),

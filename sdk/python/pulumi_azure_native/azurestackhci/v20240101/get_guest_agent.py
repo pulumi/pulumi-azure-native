@@ -157,7 +157,7 @@ def get_guest_agent(resource_uri: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_guest_agent_output(resource_uri: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestAgentResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestAgentResult]:
     """
     Implements GuestAgent GET method.
 
@@ -166,7 +166,7 @@ def get_guest_agent_output(resource_uri: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240101:getGuestAgent', __args__, opts=opts, typ=GetGuestAgentResult)
     return __ret__.apply(lambda __response__: GetGuestAgentResult(
         credentials=pulumi.get(__response__, 'credentials'),

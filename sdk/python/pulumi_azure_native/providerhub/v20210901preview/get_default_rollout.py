@@ -122,7 +122,7 @@ def get_default_rollout(provider_namespace: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_default_rollout_output(provider_namespace: Optional[pulumi.Input[str]] = None,
                                rollout_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultRolloutResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultRolloutResult]:
     """
     Gets the default rollout details.
 
@@ -133,7 +133,7 @@ def get_default_rollout_output(provider_namespace: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     __args__['rolloutName'] = rollout_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:providerhub/v20210901preview:getDefaultRollout', __args__, opts=opts, typ=GetDefaultRolloutResult)
     return __ret__.apply(lambda __response__: GetDefaultRolloutResult(
         id=pulumi.get(__response__, 'id'),

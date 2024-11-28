@@ -204,7 +204,7 @@ def get_workload_network_dns_zone(dns_zone_id: Optional[str] = None,
 def get_workload_network_dns_zone_output(dns_zone_id: Optional[pulumi.Input[str]] = None,
                                          private_cloud_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkDnsZoneResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadNetworkDnsZoneResult]:
     """
     Get a WorkloadNetworkDnsZone
 
@@ -217,7 +217,7 @@ def get_workload_network_dns_zone_output(dns_zone_id: Optional[pulumi.Input[str]
     __args__['dnsZoneId'] = dns_zone_id
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20230901:getWorkloadNetworkDnsZone', __args__, opts=opts, typ=GetWorkloadNetworkDnsZoneResult)
     return __ret__.apply(lambda __response__: GetWorkloadNetworkDnsZoneResult(
         display_name=pulumi.get(__response__, 'display_name'),

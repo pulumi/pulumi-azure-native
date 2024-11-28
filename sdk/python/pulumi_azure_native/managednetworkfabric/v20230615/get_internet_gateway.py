@@ -213,7 +213,7 @@ def get_internet_gateway(internet_gateway_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_internet_gateway_output(internet_gateway_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
     Implements Gateway GET method.
 
@@ -224,7 +224,7 @@ def get_internet_gateway_output(internet_gateway_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['internetGatewayName'] = internet_gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult)
     return __ret__.apply(lambda __response__: GetInternetGatewayResult(
         annotation=pulumi.get(__response__, 'annotation'),

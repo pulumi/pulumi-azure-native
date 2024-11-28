@@ -108,7 +108,7 @@ def get_v_mware_collector(project_name: Optional[str] = None,
 def get_v_mware_collector_output(project_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  vm_ware_collector_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVMwareCollectorResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVMwareCollectorResult]:
     """
     Get a VMware collector.
 
@@ -121,7 +121,7 @@ def get_v_mware_collector_output(project_name: Optional[pulumi.Input[str]] = Non
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmWareCollectorName'] = vm_ware_collector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20191001:getVMwareCollector', __args__, opts=opts, typ=GetVMwareCollectorResult)
     return __ret__.apply(lambda __response__: GetVMwareCollectorResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

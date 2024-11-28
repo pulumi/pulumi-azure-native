@@ -126,7 +126,7 @@ def get_integration_runtime(integration_runtime_name: Optional[str] = None,
 def get_integration_runtime_output(integration_runtime_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    workspace_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationRuntimeResult]:
     """
     Get an integration runtime
 
@@ -139,7 +139,7 @@ def get_integration_runtime_output(integration_runtime_name: Optional[pulumi.Inp
     __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601:getIntegrationRuntime', __args__, opts=opts, typ=GetIntegrationRuntimeResult)
     return __ret__.apply(lambda __response__: GetIntegrationRuntimeResult(
         etag=pulumi.get(__response__, 'etag'),

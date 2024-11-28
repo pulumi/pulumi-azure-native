@@ -200,7 +200,7 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
         v_cores=pulumi.get(__ret__, 'v_cores'))
 def get_instance_pool_output(instance_pool_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancePoolResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancePoolResult]:
     """
     Gets an instance pool.
 
@@ -211,7 +211,7 @@ def get_instance_pool_output(instance_pool_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['instancePoolName'] = instance_pool_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20240501preview:getInstancePool', __args__, opts=opts, typ=GetInstancePoolResult)
     return __ret__.apply(lambda __response__: GetInstancePoolResult(
         dns_zone=pulumi.get(__response__, 'dns_zone'),

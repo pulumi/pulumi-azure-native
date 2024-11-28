@@ -178,7 +178,7 @@ def get_compute(compute_name: Optional[str] = None,
 def get_compute_output(compute_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        workspace_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputeResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputeResult]:
     """
     Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
 
@@ -191,7 +191,7 @@ def get_compute_output(compute_name: Optional[pulumi.Input[str]] = None,
     __args__['computeName'] = compute_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230601preview:getCompute', __args__, opts=opts, typ=GetComputeResult)
     return __ret__.apply(lambda __response__: GetComputeResult(
         id=pulumi.get(__response__, 'id'),

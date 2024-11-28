@@ -86,7 +86,7 @@ def get_trigger_event_subscription_status(factory_name: Optional[str] = None,
 def get_trigger_event_subscription_status_output(factory_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  trigger_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerEventSubscriptionStatusResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTriggerEventSubscriptionStatusResult]:
     """
     Get a trigger's event subscription status.
 
@@ -99,7 +99,7 @@ def get_trigger_event_subscription_status_output(factory_name: Optional[pulumi.I
     __args__['factoryName'] = factory_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['triggerName'] = trigger_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus', __args__, opts=opts, typ=GetTriggerEventSubscriptionStatusResult)
     return __ret__.apply(lambda __response__: GetTriggerEventSubscriptionStatusResult(
         status=pulumi.get(__response__, 'status'),

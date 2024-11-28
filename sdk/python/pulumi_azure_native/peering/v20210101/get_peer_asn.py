@@ -157,7 +157,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         validation_state=pulumi.get(__ret__, 'validation_state'))
 def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeerAsnResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeerAsnResult]:
     """
     Gets the peer ASN with the specified name under the given subscription.
 
@@ -166,7 +166,7 @@ def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['peerAsnName'] = peer_asn_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:peering/v20210101:getPeerAsn', __args__, opts=opts, typ=GetPeerAsnResult)
     return __ret__.apply(lambda __response__: GetPeerAsnResult(
         error_message=pulumi.get(__response__, 'error_message'),

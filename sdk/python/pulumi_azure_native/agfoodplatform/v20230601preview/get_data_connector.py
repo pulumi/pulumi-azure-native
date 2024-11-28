@@ -139,7 +139,7 @@ def get_data_connector(data_connector_name: Optional[str] = None,
 def get_data_connector_output(data_connector_name: Optional[pulumi.Input[str]] = None,
                               data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataConnectorResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataConnectorResult]:
     """
     Get specific Data Connector resource by DataConnectorName.
 
@@ -152,7 +152,7 @@ def get_data_connector_output(data_connector_name: Optional[pulumi.Input[str]] =
     __args__['dataConnectorName'] = data_connector_name
     __args__['dataManagerForAgricultureResourceName'] = data_manager_for_agriculture_resource_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:agfoodplatform/v20230601preview:getDataConnector', __args__, opts=opts, typ=GetDataConnectorResult)
     return __ret__.apply(lambda __response__: GetDataConnectorResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

@@ -127,7 +127,7 @@ def get_content_key_policy_properties_with_secrets(account_name: Optional[str] =
 def get_content_key_policy_properties_with_secrets_output(account_name: Optional[pulumi.Input[str]] = None,
                                                           content_key_policy_name: Optional[pulumi.Input[str]] = None,
                                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentKeyPolicyPropertiesWithSecretsResult]:
+                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContentKeyPolicyPropertiesWithSecretsResult]:
     """
     Get a Content Key Policy including secret values
     Azure REST API version: 2023-01-01.
@@ -141,7 +141,7 @@ def get_content_key_policy_properties_with_secrets_output(account_name: Optional
     __args__['accountName'] = account_name
     __args__['contentKeyPolicyName'] = content_key_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media:getContentKeyPolicyPropertiesWithSecrets', __args__, opts=opts, typ=GetContentKeyPolicyPropertiesWithSecretsResult)
     return __ret__.apply(lambda __response__: GetContentKeyPolicyPropertiesWithSecretsResult(
         created=pulumi.get(__response__, 'created'),

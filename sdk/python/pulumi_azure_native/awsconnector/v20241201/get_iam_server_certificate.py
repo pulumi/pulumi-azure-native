@@ -148,7 +148,7 @@ def get_iam_server_certificate(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_iam_server_certificate_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIamServerCertificateResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIamServerCertificateResult]:
     """
     Get a IamServerCertificate
 
@@ -159,7 +159,7 @@ def get_iam_server_certificate_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector/v20241201:getIamServerCertificate', __args__, opts=opts, typ=GetIamServerCertificateResult)
     return __ret__.apply(lambda __response__: GetIamServerCertificateResult(
         id=pulumi.get(__response__, 'id'),

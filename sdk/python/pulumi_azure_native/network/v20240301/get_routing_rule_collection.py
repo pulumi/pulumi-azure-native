@@ -195,7 +195,7 @@ def get_routing_rule_collection_output(configuration_name: Optional[pulumi.Input
                                        network_manager_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        rule_collection_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingRuleCollectionResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingRuleCollectionResult]:
     """
     Gets a network manager routing configuration rule collection.
 
@@ -210,7 +210,7 @@ def get_routing_rule_collection_output(configuration_name: Optional[pulumi.Input
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleCollectionName'] = rule_collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getRoutingRuleCollection', __args__, opts=opts, typ=GetRoutingRuleCollectionResult)
     return __ret__.apply(lambda __response__: GetRoutingRuleCollectionResult(
         applies_to=pulumi.get(__response__, 'applies_to'),

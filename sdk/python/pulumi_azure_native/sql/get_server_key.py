@@ -180,7 +180,7 @@ def get_server_key(key_name: Optional[str] = None,
 def get_server_key_output(key_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           server_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerKeyResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerKeyResult]:
     """
     Gets a server key.
     Azure REST API version: 2021-11-01.
@@ -196,7 +196,7 @@ def get_server_key_output(key_name: Optional[pulumi.Input[str]] = None,
     __args__['keyName'] = key_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getServerKey', __args__, opts=opts, typ=GetServerKeyResult)
     return __ret__.apply(lambda __response__: GetServerKeyResult(
         auto_rotation_enabled=pulumi.get(__response__, 'auto_rotation_enabled'),

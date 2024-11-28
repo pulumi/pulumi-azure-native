@@ -87,7 +87,7 @@ def list_sub_account_monitored_resources(monitor_name: Optional[str] = None,
 def list_sub_account_monitored_resources_output(monitor_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 sub_account_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSubAccountMonitoredResourcesResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSubAccountMonitoredResourcesResult]:
     """
     Response of a list operation.
 
@@ -100,7 +100,7 @@ def list_sub_account_monitored_resources_output(monitor_name: Optional[pulumi.In
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['subAccountName'] = sub_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logz/v20220101preview:listSubAccountMonitoredResources', __args__, opts=opts, typ=ListSubAccountMonitoredResourcesResult)
     return __ret__.apply(lambda __response__: ListSubAccountMonitoredResourcesResult(
         next_link=pulumi.get(__response__, 'next_link'),

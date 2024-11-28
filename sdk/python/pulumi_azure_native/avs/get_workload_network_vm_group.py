@@ -167,7 +167,7 @@ def get_workload_network_vm_group(private_cloud_name: Optional[str] = None,
 def get_workload_network_vm_group_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          vm_group_id: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkVMGroupResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadNetworkVMGroupResult]:
     """
     NSX VM Group
     Azure REST API version: 2022-05-01.
@@ -183,7 +183,7 @@ def get_workload_network_vm_group_output(private_cloud_name: Optional[pulumi.Inp
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmGroupId'] = vm_group_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs:getWorkloadNetworkVMGroup', __args__, opts=opts, typ=GetWorkloadNetworkVMGroupResult)
     return __ret__.apply(lambda __response__: GetWorkloadNetworkVMGroupResult(
         display_name=pulumi.get(__response__, 'display_name'),

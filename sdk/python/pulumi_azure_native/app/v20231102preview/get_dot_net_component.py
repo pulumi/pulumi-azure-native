@@ -165,7 +165,7 @@ def get_dot_net_component(environment_name: Optional[str] = None,
 def get_dot_net_component_output(environment_name: Optional[pulumi.Input[str]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDotNetComponentResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDotNetComponentResult]:
     """
     .NET Component.
 
@@ -178,7 +178,7 @@ def get_dot_net_component_output(environment_name: Optional[pulumi.Input[str]] =
     __args__['environmentName'] = environment_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20231102preview:getDotNetComponent', __args__, opts=opts, typ=GetDotNetComponentResult)
     return __ret__.apply(lambda __response__: GetDotNetComponentResult(
         component_type=pulumi.get(__response__, 'component_type'),

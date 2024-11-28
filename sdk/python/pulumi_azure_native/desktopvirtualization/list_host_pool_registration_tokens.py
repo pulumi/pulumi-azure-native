@@ -86,7 +86,7 @@ def list_host_pool_registration_tokens(host_pool_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_host_pool_registration_tokens_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListHostPoolRegistrationTokensResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListHostPoolRegistrationTokensResult]:
     """
     Operation to list the RegistrationTokens associated with the HostPool.
     Azure REST API version: 2024-04-08-preview.
@@ -100,7 +100,7 @@ def list_host_pool_registration_tokens_output(host_pool_name: Optional[pulumi.In
     __args__ = dict()
     __args__['hostPoolName'] = host_pool_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization:listHostPoolRegistrationTokens', __args__, opts=opts, typ=ListHostPoolRegistrationTokensResult)
     return __ret__.apply(lambda __response__: ListHostPoolRegistrationTokensResult(
         next_link=pulumi.get(__response__, 'next_link'),

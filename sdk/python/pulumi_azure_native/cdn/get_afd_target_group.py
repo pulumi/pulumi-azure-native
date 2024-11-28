@@ -150,7 +150,7 @@ def get_afd_target_group(profile_name: Optional[str] = None,
 def get_afd_target_group_output(profile_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 target_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDTargetGroupResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAFDTargetGroupResult]:
     """
     Gets an existing target group within a profile.
     Azure REST API version: 2024-06-01-preview.
@@ -164,7 +164,7 @@ def get_afd_target_group_output(profile_name: Optional[pulumi.Input[str]] = None
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['targetGroupName'] = target_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getAFDTargetGroup', __args__, opts=opts, typ=GetAFDTargetGroupResult)
     return __ret__.apply(lambda __response__: GetAFDTargetGroupResult(
         deployment_status=pulumi.get(__response__, 'deployment_status'),

@@ -151,7 +151,7 @@ def get_access_policy_assignment(access_policy_assignment_name: Optional[str] = 
 def get_access_policy_assignment_output(access_policy_assignment_name: Optional[pulumi.Input[str]] = None,
                                         cache_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyAssignmentResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyAssignmentResult]:
     """
     Gets the list of assignments for an access policy of a redis cache
 
@@ -164,7 +164,7 @@ def get_access_policy_assignment_output(access_policy_assignment_name: Optional[
     __args__['accessPolicyAssignmentName'] = access_policy_assignment_name
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cache/v20241101:getAccessPolicyAssignment', __args__, opts=opts, typ=GetAccessPolicyAssignmentResult)
     return __ret__.apply(lambda __response__: GetAccessPolicyAssignmentResult(
         access_policy_name=pulumi.get(__response__, 'access_policy_name'),

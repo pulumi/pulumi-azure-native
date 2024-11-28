@@ -149,7 +149,7 @@ def get_ecr_repository(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_ecr_repository_output(name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEcrRepositoryResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEcrRepositoryResult]:
     """
     Get a EcrRepository
     Azure REST API version: 2024-12-01.
@@ -161,7 +161,7 @@ def get_ecr_repository_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector:getEcrRepository', __args__, opts=opts, typ=GetEcrRepositoryResult)
     return __ret__.apply(lambda __response__: GetEcrRepositoryResult(
         id=pulumi.get(__response__, 'id'),

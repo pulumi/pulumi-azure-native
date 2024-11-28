@@ -395,7 +395,7 @@ def get_communications_gateway(communications_gateway_name: Optional[str] = None
         type=pulumi.get(__ret__, 'type'))
 def get_communications_gateway_output(communications_gateway_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunicationsGatewayResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommunicationsGatewayResult]:
     """
     Get a CommunicationsGateway
 
@@ -406,7 +406,7 @@ def get_communications_gateway_output(communications_gateway_name: Optional[pulu
     __args__ = dict()
     __args__['communicationsGatewayName'] = communications_gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:voiceservices/v20230901:getCommunicationsGateway', __args__, opts=opts, typ=GetCommunicationsGatewayResult)
     return __ret__.apply(lambda __response__: GetCommunicationsGatewayResult(
         allocated_media_address_prefixes=pulumi.get(__response__, 'allocated_media_address_prefixes'),

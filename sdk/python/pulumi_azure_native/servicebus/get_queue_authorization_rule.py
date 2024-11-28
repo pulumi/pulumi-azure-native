@@ -146,7 +146,7 @@ def get_queue_authorization_rule_output(authorization_rule_name: Optional[pulumi
                                         namespace_name: Optional[pulumi.Input[str]] = None,
                                         queue_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueAuthorizationRuleResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueAuthorizationRuleResult]:
     """
     Gets an authorization rule for a queue by rule name.
     Azure REST API version: 2022-01-01-preview.
@@ -164,7 +164,7 @@ def get_queue_authorization_rule_output(authorization_rule_name: Optional[pulumi
     __args__['namespaceName'] = namespace_name
     __args__['queueName'] = queue_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus:getQueueAuthorizationRule', __args__, opts=opts, typ=GetQueueAuthorizationRuleResult)
     return __ret__.apply(lambda __response__: GetQueueAuthorizationRuleResult(
         id=pulumi.get(__response__, 'id'),

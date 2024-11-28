@@ -226,7 +226,7 @@ def get_policy_set_definition(expand: Optional[str] = None,
         versions=pulumi.get(__ret__, 'versions'))
 def get_policy_set_definition_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                      policy_set_definition_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
     """
     This operation retrieves the policy set definition in the given subscription with the given name.
 
@@ -237,7 +237,7 @@ def get_policy_set_definition_output(expand: Optional[pulumi.Input[Optional[str]
     __args__ = dict()
     __args__['expand'] = expand
     __args__['policySetDefinitionName'] = policy_set_definition_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20240501:getPolicySetDefinition', __args__, opts=opts, typ=GetPolicySetDefinitionResult)
     return __ret__.apply(lambda __response__: GetPolicySetDefinitionResult(
         description=pulumi.get(__response__, 'description'),

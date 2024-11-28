@@ -170,7 +170,7 @@ def get_business_application_agent(agent_resource_name: Optional[str] = None,
 def get_business_application_agent_output(agent_resource_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           workspace_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBusinessApplicationAgentResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessApplicationAgentResult]:
     """
     Gets Business Application Agent.
     Azure REST API version: 2024-04-01-preview.
@@ -184,7 +184,7 @@ def get_business_application_agent_output(agent_resource_name: Optional[pulumi.I
     __args__['agentResourceName'] = agent_resource_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getBusinessApplicationAgent', __args__, opts=opts, typ=GetBusinessApplicationAgentResult)
     return __ret__.apply(lambda __response__: GetBusinessApplicationAgentResult(
         agent_systems=pulumi.get(__response__, 'agent_systems'),

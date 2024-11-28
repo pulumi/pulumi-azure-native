@@ -66,7 +66,7 @@ def get_diagnostic_service_token_read_write(resource_uri: Optional[str] = None,
     return AwaitableGetDiagnosticServiceTokenReadWriteResult(
         token=pulumi.get(__ret__, 'token'))
 def get_diagnostic_service_token_read_write_output(resource_uri: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticServiceTokenReadWriteResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiagnosticServiceTokenReadWriteResult]:
     """
     Gets an read-write access token for application insights diagnostic service data.
     Azure REST API version: 2021-03-03-preview.
@@ -76,7 +76,7 @@ def get_diagnostic_service_token_read_write_output(resource_uri: Optional[pulumi
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getDiagnosticServiceTokenReadWrite', __args__, opts=opts, typ=GetDiagnosticServiceTokenReadWriteResult)
     return __ret__.apply(lambda __response__: GetDiagnosticServiceTokenReadWriteResult(
         token=pulumi.get(__response__, 'token')))

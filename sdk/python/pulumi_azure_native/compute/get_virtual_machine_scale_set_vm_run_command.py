@@ -319,7 +319,7 @@ def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         run_command_name: Optional[pulumi.Input[str]] = None,
                                                         vm_scale_set_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMRunCommandResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMRunCommandResult]:
     """
     The operation to get the VMSS VM run command.
     Azure REST API version: 2023-03-01.
@@ -339,7 +339,7 @@ def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.
     __args__['resourceGroupName'] = resource_group_name
     __args__['runCommandName'] = run_command_name
     __args__['vmScaleSetName'] = vm_scale_set_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getVirtualMachineScaleSetVMRunCommand', __args__, opts=opts, typ=GetVirtualMachineScaleSetVMRunCommandResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineScaleSetVMRunCommandResult(
         async_execution=pulumi.get(__response__, 'async_execution'),

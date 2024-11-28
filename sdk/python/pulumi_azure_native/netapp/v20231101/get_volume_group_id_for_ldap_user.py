@@ -81,7 +81,7 @@ def get_volume_group_id_for_ldap_user_output(account_name: Optional[pulumi.Input
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              username: Optional[pulumi.Input[str]] = None,
                                              volume_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeGroupIdForLdapUserResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeGroupIdForLdapUserResult]:
     """
     Returns the list of group Ids for a specific LDAP User
 
@@ -98,7 +98,7 @@ def get_volume_group_id_for_ldap_user_output(account_name: Optional[pulumi.Input
     __args__['resourceGroupName'] = resource_group_name
     __args__['username'] = username
     __args__['volumeName'] = volume_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20231101:getVolumeGroupIdForLdapUser', __args__, opts=opts, typ=GetVolumeGroupIdForLdapUserResult)
     return __ret__.apply(lambda __response__: GetVolumeGroupIdForLdapUserResult(
         group_ids_for_ldap_user=pulumi.get(__response__, 'group_ids_for_ldap_user')))

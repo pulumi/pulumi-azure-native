@@ -252,7 +252,7 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_web_application_firewall_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebApplicationFirewallPolicyResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebApplicationFirewallPolicyResult]:
     """
     Retrieve protection policy with specified name within a resource group.
 
@@ -263,7 +263,7 @@ def get_web_application_firewall_policy_output(policy_name: Optional[pulumi.Inpu
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getWebApplicationFirewallPolicy', __args__, opts=opts, typ=GetWebApplicationFirewallPolicyResult)
     return __ret__.apply(lambda __response__: GetWebApplicationFirewallPolicyResult(
         application_gateway_for_containers=pulumi.get(__response__, 'application_gateway_for_containers'),

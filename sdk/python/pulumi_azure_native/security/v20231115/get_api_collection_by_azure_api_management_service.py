@@ -229,7 +229,7 @@ def get_api_collection_by_azure_api_management_service(api_id: Optional[str] = N
 def get_api_collection_by_azure_api_management_service_output(api_id: Optional[pulumi.Input[str]] = None,
                                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                                               service_name: Optional[pulumi.Input[str]] = None,
-                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAPICollectionByAzureApiManagementServiceResult]:
+                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAPICollectionByAzureApiManagementServiceResult]:
     """
     Gets an Azure API Management API if it has been onboarded to Microsoft Defender for APIs. If an Azure API Management API is onboarded to Microsoft Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
 
@@ -242,7 +242,7 @@ def get_api_collection_by_azure_api_management_service_output(api_id: Optional[p
     __args__['apiId'] = api_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20231115:getAPICollectionByAzureApiManagementService', __args__, opts=opts, typ=GetAPICollectionByAzureApiManagementServiceResult)
     return __ret__.apply(lambda __response__: GetAPICollectionByAzureApiManagementServiceResult(
         base_url=pulumi.get(__response__, 'base_url'),

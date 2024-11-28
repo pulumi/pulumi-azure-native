@@ -121,7 +121,7 @@ def list_service_test_keys(resource_group_name: Optional[str] = None,
         secondary_test_endpoint=pulumi.get(__ret__, 'secondary_test_endpoint'))
 def list_service_test_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   service_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceTestKeysResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServiceTestKeysResult]:
     """
     List test keys for a Service.
 
@@ -132,7 +132,7 @@ def list_service_test_keys_output(resource_group_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20230501preview:listServiceTestKeys', __args__, opts=opts, typ=ListServiceTestKeysResult)
     return __ret__.apply(lambda __response__: ListServiceTestKeysResult(
         enabled=pulumi.get(__response__, 'enabled'),

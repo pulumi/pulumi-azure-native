@@ -230,7 +230,7 @@ def get_blob_service_properties(account_name: Optional[str] = None,
 def get_blob_service_properties_output(account_name: Optional[pulumi.Input[str]] = None,
                                        blob_services_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobServicePropertiesResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobServicePropertiesResult]:
     """
     Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
 
@@ -243,7 +243,7 @@ def get_blob_service_properties_output(account_name: Optional[pulumi.Input[str]]
     __args__['accountName'] = account_name
     __args__['blobServicesName'] = blob_services_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230101:getBlobServiceProperties', __args__, opts=opts, typ=GetBlobServicePropertiesResult)
     return __ret__.apply(lambda __response__: GetBlobServicePropertiesResult(
         automatic_snapshot_policy_enabled=pulumi.get(__response__, 'automatic_snapshot_policy_enabled'),

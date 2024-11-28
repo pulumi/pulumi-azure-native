@@ -366,7 +366,7 @@ def get_post_rule(global_rulestack_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_post_rule_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                          priority: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPostRuleResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPostRuleResult]:
     """
     Get a PostRulesResource
 
@@ -377,7 +377,7 @@ def get_post_rule_output(global_rulestack_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['globalRulestackName'] = global_rulestack_name
     __args__['priority'] = priority
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240207preview:getPostRule', __args__, opts=opts, typ=GetPostRuleResult)
     return __ret__.apply(lambda __response__: GetPostRuleResult(
         action_type=pulumi.get(__response__, 'action_type'),

@@ -304,7 +304,7 @@ def get_web_test(resource_group_name: Optional[str] = None,
         web_test_name=pulumi.get(__ret__, 'web_test_name'))
 def get_web_test_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         web_test_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebTestResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebTestResult]:
     """
     Get a specific Application Insights web test definition.
 
@@ -315,7 +315,7 @@ def get_web_test_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['webTestName'] = web_test_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20201005preview:getWebTest', __args__, opts=opts, typ=GetWebTestResult)
     return __ret__.apply(lambda __response__: GetWebTestResult(
         configuration=pulumi.get(__response__, 'configuration'),

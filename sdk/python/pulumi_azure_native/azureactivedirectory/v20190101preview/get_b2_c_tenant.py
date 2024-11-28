@@ -158,7 +158,7 @@ def get_b2_c_tenant(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_b2_c_tenant_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            resource_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetB2CTenantResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetB2CTenantResult]:
     """
     Get the Azure AD B2C tenant resource.
 
@@ -169,7 +169,7 @@ def get_b2_c_tenant_output(resource_group_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azureactivedirectory/v20190101preview:getB2CTenant', __args__, opts=opts, typ=GetB2CTenantResult)
     return __ret__.apply(lambda __response__: GetB2CTenantResult(
         billing_config=pulumi.get(__response__, 'billing_config'),

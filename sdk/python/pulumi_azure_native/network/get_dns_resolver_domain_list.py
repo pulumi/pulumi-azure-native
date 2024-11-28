@@ -188,7 +188,7 @@ def get_dns_resolver_domain_list(dns_resolver_domain_list_name: Optional[str] = 
         type=pulumi.get(__ret__, 'type'))
 def get_dns_resolver_domain_list_output(dns_resolver_domain_list_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsResolverDomainListResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsResolverDomainListResult]:
     """
     Gets properties of a DNS resolver domain list.
     Azure REST API version: 2023-07-01-preview.
@@ -200,7 +200,7 @@ def get_dns_resolver_domain_list_output(dns_resolver_domain_list_name: Optional[
     __args__ = dict()
     __args__['dnsResolverDomainListName'] = dns_resolver_domain_list_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDnsResolverDomainList', __args__, opts=opts, typ=GetDnsResolverDomainListResult)
     return __ret__.apply(lambda __response__: GetDnsResolverDomainListResult(
         domains=pulumi.get(__response__, 'domains'),

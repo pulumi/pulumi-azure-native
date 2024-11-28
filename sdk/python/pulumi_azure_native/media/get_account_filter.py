@@ -153,7 +153,7 @@ def get_account_filter(account_name: Optional[str] = None,
 def get_account_filter_output(account_name: Optional[pulumi.Input[str]] = None,
                               filter_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountFilterResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountFilterResult]:
     """
     Get the details of an Account Filter in the Media Services account.
     Azure REST API version: 2023-01-01.
@@ -167,7 +167,7 @@ def get_account_filter_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['filterName'] = filter_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media:getAccountFilter', __args__, opts=opts, typ=GetAccountFilterResult)
     return __ret__.apply(lambda __response__: GetAccountFilterResult(
         first_quality=pulumi.get(__response__, 'first_quality'),

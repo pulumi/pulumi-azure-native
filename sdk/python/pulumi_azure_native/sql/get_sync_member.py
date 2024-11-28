@@ -253,7 +253,7 @@ def get_sync_member_output(database_name: Optional[pulumi.Input[str]] = None,
                            server_name: Optional[pulumi.Input[str]] = None,
                            sync_group_name: Optional[pulumi.Input[str]] = None,
                            sync_member_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncMemberResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncMemberResult]:
     """
     Gets a sync member.
     Azure REST API version: 2021-11-01.
@@ -273,7 +273,7 @@ def get_sync_member_output(database_name: Optional[pulumi.Input[str]] = None,
     __args__['serverName'] = server_name
     __args__['syncGroupName'] = sync_group_name
     __args__['syncMemberName'] = sync_member_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getSyncMember', __args__, opts=opts, typ=GetSyncMemberResult)
     return __ret__.apply(lambda __response__: GetSyncMemberResult(
         database_name=pulumi.get(__response__, 'database_name'),

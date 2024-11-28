@@ -66,7 +66,7 @@ def get_organization_api_key(email_id: Optional[str] = None,
     return AwaitableGetOrganizationApiKeyResult(
         properties=pulumi.get(__ret__, 'properties'))
 def get_organization_api_key_output(email_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationApiKeyResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationApiKeyResult]:
     """
     Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.
     Azure REST API version: 2023-06-01.
@@ -78,7 +78,7 @@ def get_organization_api_key_output(email_id: Optional[pulumi.Input[Optional[str
     """
     __args__ = dict()
     __args__['emailId'] = email_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:elastic:getOrganizationApiKey', __args__, opts=opts, typ=GetOrganizationApiKeyResult)
     return __ret__.apply(lambda __response__: GetOrganizationApiKeyResult(
         properties=pulumi.get(__response__, 'properties')))

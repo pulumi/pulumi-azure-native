@@ -220,7 +220,7 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
 def get_gallery_application_output(gallery_application_name: Optional[pulumi.Input[str]] = None,
                                    gallery_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryApplicationResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryApplicationResult]:
     """
     Retrieves information about a gallery Application Definition.
     Azure REST API version: 2022-03-03.
@@ -236,7 +236,7 @@ def get_gallery_application_output(gallery_application_name: Optional[pulumi.Inp
     __args__['galleryApplicationName'] = gallery_application_name
     __args__['galleryName'] = gallery_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getGalleryApplication', __args__, opts=opts, typ=GetGalleryApplicationResult)
     return __ret__.apply(lambda __response__: GetGalleryApplicationResult(
         custom_actions=pulumi.get(__response__, 'custom_actions'),

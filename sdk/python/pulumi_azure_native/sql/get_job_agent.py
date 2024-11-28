@@ -168,7 +168,7 @@ def get_job_agent(job_agent_name: Optional[str] = None,
 def get_job_agent_output(job_agent_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          server_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobAgentResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobAgentResult]:
     """
     Gets a job agent.
     Azure REST API version: 2021-11-01.
@@ -184,7 +184,7 @@ def get_job_agent_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     __args__['jobAgentName'] = job_agent_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getJobAgent', __args__, opts=opts, typ=GetJobAgentResult)
     return __ret__.apply(lambda __response__: GetJobAgentResult(
         database_id=pulumi.get(__response__, 'database_id'),

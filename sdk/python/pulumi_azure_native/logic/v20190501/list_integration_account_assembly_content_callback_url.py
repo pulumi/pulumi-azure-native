@@ -139,7 +139,7 @@ def list_integration_account_assembly_content_callback_url(assembly_artifact_nam
 def list_integration_account_assembly_content_callback_url_output(assembly_artifact_name: Optional[pulumi.Input[str]] = None,
                                                                   integration_account_name: Optional[pulumi.Input[str]] = None,
                                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountAssemblyContentCallbackUrlResult]:
+                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountAssemblyContentCallbackUrlResult]:
     """
     Get the content callback url for an integration account assembly.
 
@@ -152,7 +152,7 @@ def list_integration_account_assembly_content_callback_url_output(assembly_artif
     __args__['assemblyArtifactName'] = assembly_artifact_name
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20190501:listIntegrationAccountAssemblyContentCallbackUrl', __args__, opts=opts, typ=ListIntegrationAccountAssemblyContentCallbackUrlResult)
     return __ret__.apply(lambda __response__: ListIntegrationAccountAssemblyContentCallbackUrlResult(
         base_path=pulumi.get(__response__, 'base_path'),

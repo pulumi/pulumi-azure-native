@@ -152,7 +152,7 @@ def get_configuration_profiles_version(configuration_profile_name: Optional[str]
 def get_configuration_profiles_version_output(configuration_profile_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               version_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfilesVersionResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfilesVersionResult]:
     """
     Get information about a configuration profile version
 
@@ -165,7 +165,7 @@ def get_configuration_profiles_version_output(configuration_profile_name: Option
     __args__['configurationProfileName'] = configuration_profile_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['versionName'] = version_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automanage/v20220504:getConfigurationProfilesVersion', __args__, opts=opts, typ=GetConfigurationProfilesVersionResult)
     return __ret__.apply(lambda __response__: GetConfigurationProfilesVersionResult(
         id=pulumi.get(__response__, 'id'),

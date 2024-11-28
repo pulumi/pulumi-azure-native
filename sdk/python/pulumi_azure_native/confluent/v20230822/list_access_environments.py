@@ -100,7 +100,7 @@ def list_access_environments(organization_name: Optional[str] = None,
 def list_access_environments_output(organization_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     search_filters: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccessEnvironmentsResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessEnvironmentsResult]:
     """
     List environments success response
 
@@ -113,7 +113,7 @@ def list_access_environments_output(organization_name: Optional[pulumi.Input[str
     __args__['organizationName'] = organization_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchFilters'] = search_filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:confluent/v20230822:listAccessEnvironments', __args__, opts=opts, typ=ListAccessEnvironmentsResult)
     return __ret__.apply(lambda __response__: ListAccessEnvironmentsResult(
         data=pulumi.get(__response__, 'data'),

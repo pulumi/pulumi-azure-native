@@ -113,7 +113,7 @@ def get_trusted_id_provider(account_name: Optional[str] = None,
 def get_trusted_id_provider_output(account_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    trusted_id_provider_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustedIdProviderResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustedIdProviderResult]:
     """
     Gets the specified Data Lake Store trusted identity provider.
     Azure REST API version: 2016-11-01.
@@ -127,7 +127,7 @@ def get_trusted_id_provider_output(account_name: Optional[pulumi.Input[str]] = N
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['trustedIdProviderName'] = trusted_id_provider_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datalakestore:getTrustedIdProvider', __args__, opts=opts, typ=GetTrustedIdProviderResult)
     return __ret__.apply(lambda __response__: GetTrustedIdProviderResult(
         id=pulumi.get(__response__, 'id'),

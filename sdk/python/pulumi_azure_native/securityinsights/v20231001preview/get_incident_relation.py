@@ -182,7 +182,7 @@ def get_incident_relation_output(incident_id: Optional[pulumi.Input[str]] = None
                                  relation_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  workspace_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentRelationResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentRelationResult]:
     """
     Gets an incident relation.
 
@@ -197,7 +197,7 @@ def get_incident_relation_output(incident_id: Optional[pulumi.Input[str]] = None
     __args__['relationName'] = relation_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20231001preview:getIncidentRelation', __args__, opts=opts, typ=GetIncidentRelationResult)
     return __ret__.apply(lambda __response__: GetIncidentRelationResult(
         etag=pulumi.get(__response__, 'etag'),

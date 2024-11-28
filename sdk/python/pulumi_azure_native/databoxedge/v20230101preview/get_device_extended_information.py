@@ -304,7 +304,7 @@ def get_device_extended_information(device_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_device_extended_information_output(device_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceExtendedInformationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceExtendedInformationResult]:
     """
     Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.
 
@@ -315,7 +315,7 @@ def get_device_extended_information_output(device_name: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230101preview:getDeviceExtendedInformation', __args__, opts=opts, typ=GetDeviceExtendedInformationResult)
     return __ret__.apply(lambda __response__: GetDeviceExtendedInformationResult(
         channel_integrity_key_name=pulumi.get(__response__, 'channel_integrity_key_name'),

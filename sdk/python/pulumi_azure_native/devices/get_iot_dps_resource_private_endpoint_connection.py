@@ -129,7 +129,7 @@ def get_iot_dps_resource_private_endpoint_connection(private_endpoint_connection
 def get_iot_dps_resource_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                                             resource_name: Optional[pulumi.Input[str]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotDpsResourcePrivateEndpointConnectionResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotDpsResourcePrivateEndpointConnectionResult]:
     """
     Get private endpoint connection properties
     Azure REST API version: 2022-12-12.
@@ -145,7 +145,7 @@ def get_iot_dps_resource_private_endpoint_connection_output(private_endpoint_con
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devices:getIotDpsResourcePrivateEndpointConnection', __args__, opts=opts, typ=GetIotDpsResourcePrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetIotDpsResourcePrivateEndpointConnectionResult(
         id=pulumi.get(__response__, 'id'),

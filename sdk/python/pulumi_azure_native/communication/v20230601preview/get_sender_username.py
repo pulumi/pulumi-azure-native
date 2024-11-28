@@ -169,7 +169,7 @@ def get_sender_username_output(domain_name: Optional[pulumi.Input[str]] = None,
                                email_service_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                sender_username: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSenderUsernameResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSenderUsernameResult]:
     """
     Get a valid sender username for a domains resource.
 
@@ -184,7 +184,7 @@ def get_sender_username_output(domain_name: Optional[pulumi.Input[str]] = None,
     __args__['emailServiceName'] = email_service_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['senderUsername'] = sender_username
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:communication/v20230601preview:getSenderUsername', __args__, opts=opts, typ=GetSenderUsernameResult)
     return __ret__.apply(lambda __response__: GetSenderUsernameResult(
         data_location=pulumi.get(__response__, 'data_location'),

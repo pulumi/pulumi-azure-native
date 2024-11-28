@@ -74,7 +74,7 @@ def get_flow_source_addresses(connection_name: Optional[str] = None,
 def get_flow_source_addresses_output(connection_name: Optional[pulumi.Input[str]] = None,
                                      flow_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowSourceAddressesResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowSourceAddressesResult]:
     """
     Get the source addresses for the specified flow.
     Azure REST API version: 2024-09-27.
@@ -88,7 +88,7 @@ def get_flow_source_addresses_output(connection_name: Optional[pulumi.Input[str]
     __args__['connectionName'] = connection_name
     __args__['flowName'] = flow_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuredatatransfer:getFlowSourceAddresses', __args__, opts=opts, typ=GetFlowSourceAddressesResult)
     return __ret__.apply(lambda __response__: GetFlowSourceAddressesResult(
         source_addresses=pulumi.get(__response__, 'source_addresses')))

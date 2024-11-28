@@ -130,7 +130,7 @@ def get_registry_environment_version_output(environment_name: Optional[pulumi.In
                                             registry_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             version: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryEnvironmentVersionResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryEnvironmentVersionResult]:
     """
     Azure Resource Manager resource envelope.
 
@@ -145,7 +145,7 @@ def get_registry_environment_version_output(environment_name: Optional[pulumi.In
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230401preview:getRegistryEnvironmentVersion', __args__, opts=opts, typ=GetRegistryEnvironmentVersionResult)
     return __ret__.apply(lambda __response__: GetRegistryEnvironmentVersionResult(
         environment_version_properties=pulumi.get(__response__, 'environment_version_properties'),

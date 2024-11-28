@@ -269,7 +269,7 @@ def get_local_user(account_name: Optional[str] = None,
 def get_local_user_output(account_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           username: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalUserResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalUserResult]:
     """
     Get the local user of the storage account by username.
 
@@ -282,7 +282,7 @@ def get_local_user_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['username'] = username
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230501:getLocalUser', __args__, opts=opts, typ=GetLocalUserResult)
     return __ret__.apply(lambda __response__: GetLocalUserResult(
         allow_acl_authorization=pulumi.get(__response__, 'allow_acl_authorization'),

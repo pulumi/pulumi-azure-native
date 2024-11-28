@@ -140,7 +140,7 @@ def get_workload_deployment_secret_configurations_output(modernize_project_name:
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                                          workload_deployment_name: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadDeploymentSecretConfigurationsResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadDeploymentSecretConfigurationsResult]:
     """
     Gets the secrets of the workload deployment.
 
@@ -155,7 +155,7 @@ def get_workload_deployment_secret_configurations_output(modernize_project_name:
     __args__['resourceGroupName'] = resource_group_name
     __args__['subscriptionId'] = subscription_id
     __args__['workloadDeploymentName'] = workload_deployment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20220501preview:getWorkloadDeploymentSecretConfigurations', __args__, opts=opts, typ=GetWorkloadDeploymentSecretConfigurationsResult)
     return __ret__.apply(lambda __response__: GetWorkloadDeploymentSecretConfigurationsResult(
         id=pulumi.get(__response__, 'id'),

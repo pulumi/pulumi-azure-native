@@ -98,7 +98,7 @@ def list_account_sas_output(account_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             signing_key: Optional[pulumi.Input[Union[str, 'SigningKey']]] = None,
                             start: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountSasResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccountSasResult]:
     """
     Create and list an account shared access signature token. Use this SAS token for authentication to Azure Maps REST APIs through various Azure Maps SDKs. As prerequisite to create a SAS Token.
 
@@ -125,7 +125,7 @@ def list_account_sas_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['signingKey'] = signing_key
     __args__['start'] = start
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maps/v20230801preview:listAccountSas', __args__, opts=opts, typ=ListAccountSasResult)
     return __ret__.apply(lambda __response__: ListAccountSasResult(
         account_sas_token=pulumi.get(__response__, 'account_sas_token')))

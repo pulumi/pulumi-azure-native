@@ -142,7 +142,7 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
 def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                                provisioning_service_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDpsCertificateResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDpsCertificateResult]:
     """
     Get the certificate from the provisioning service.
     Azure REST API version: 2022-12-12.
@@ -158,7 +158,7 @@ def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = N
     __args__['certificateName'] = certificate_name
     __args__['provisioningServiceName'] = provisioning_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devices:getDpsCertificate', __args__, opts=opts, typ=GetDpsCertificateResult)
     return __ret__.apply(lambda __response__: GetDpsCertificateResult(
         etag=pulumi.get(__response__, 'etag'),

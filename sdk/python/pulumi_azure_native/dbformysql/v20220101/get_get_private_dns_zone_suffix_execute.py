@@ -59,12 +59,12 @@ def get_get_private_dns_zone_suffix_execute(opts: Optional[pulumi.InvokeOptions]
 
     return AwaitableGetGetPrivateDnsZoneSuffixExecuteResult(
         private_dns_zone_suffix=pulumi.get(__ret__, 'private_dns_zone_suffix'))
-def get_get_private_dns_zone_suffix_execute_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGetPrivateDnsZoneSuffixExecuteResult]:
+def get_get_private_dns_zone_suffix_execute_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGetPrivateDnsZoneSuffixExecuteResult]:
     """
     Get private DNS zone suffix in the cloud.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbformysql/v20220101:getGetPrivateDnsZoneSuffixExecute', __args__, opts=opts, typ=GetGetPrivateDnsZoneSuffixExecuteResult)
     return __ret__.apply(lambda __response__: GetGetPrivateDnsZoneSuffixExecuteResult(
         private_dns_zone_suffix=pulumi.get(__response__, 'private_dns_zone_suffix')))

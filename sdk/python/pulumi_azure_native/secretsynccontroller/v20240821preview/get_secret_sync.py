@@ -239,7 +239,7 @@ def get_secret_sync(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_secret_sync_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            secret_sync_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretSyncResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretSyncResult]:
     """
     Gets the properties of a SecretSync instance.
 
@@ -250,7 +250,7 @@ def get_secret_sync_output(resource_group_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['secretSyncName'] = secret_sync_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:secretsynccontroller/v20240821preview:getSecretSync', __args__, opts=opts, typ=GetSecretSyncResult)
     return __ret__.apply(lambda __response__: GetSecretSyncResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

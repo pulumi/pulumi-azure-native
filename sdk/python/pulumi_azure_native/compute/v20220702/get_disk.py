@@ -590,7 +590,7 @@ def get_disk(disk_name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskResult]:
     """
     Gets information about a disk.
 
@@ -601,7 +601,7 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['diskName'] = disk_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20220702:getDisk', __args__, opts=opts, typ=GetDiskResult)
     return __ret__.apply(lambda __response__: GetDiskResult(
         bursting_enabled=pulumi.get(__response__, 'bursting_enabled'),

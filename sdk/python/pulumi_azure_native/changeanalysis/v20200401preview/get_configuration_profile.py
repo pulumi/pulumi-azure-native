@@ -144,7 +144,7 @@ def get_configuration_profile(profile_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_configuration_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
     A profile object that contains change analysis configuration, such as notification settings, for this subscription
 
@@ -153,7 +153,7 @@ def get_configuration_profile_output(profile_name: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['profileName'] = profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:changeanalysis/v20200401preview:getConfigurationProfile', __args__, opts=opts, typ=GetConfigurationProfileResult)
     return __ret__.apply(lambda __response__: GetConfigurationProfileResult(
         id=pulumi.get(__response__, 'id'),

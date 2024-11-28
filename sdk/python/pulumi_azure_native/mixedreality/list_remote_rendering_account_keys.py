@@ -85,7 +85,7 @@ def list_remote_rendering_account_keys(account_name: Optional[str] = None,
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
 def list_remote_rendering_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemoteRenderingAccountKeysResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemoteRenderingAccountKeysResult]:
     """
     List Both of the 2 Keys of a Remote Rendering Account
     Azure REST API version: 2021-01-01.
@@ -99,7 +99,7 @@ def list_remote_rendering_account_keys_output(account_name: Optional[pulumi.Inpu
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mixedreality:listRemoteRenderingAccountKeys', __args__, opts=opts, typ=ListRemoteRenderingAccountKeysResult)
     return __ret__.apply(lambda __response__: ListRemoteRenderingAccountKeysResult(
         primary_key=pulumi.get(__response__, 'primary_key'),

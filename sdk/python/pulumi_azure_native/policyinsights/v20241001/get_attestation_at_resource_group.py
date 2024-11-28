@@ -252,7 +252,7 @@ def get_attestation_at_resource_group(attestation_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_attestation_at_resource_group_output(attestation_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationAtResourceGroupResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttestationAtResourceGroupResult]:
     """
     Gets an existing attestation at resource group scope.
 
@@ -263,7 +263,7 @@ def get_attestation_at_resource_group_output(attestation_name: Optional[pulumi.I
     __args__ = dict()
     __args__['attestationName'] = attestation_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights/v20241001:getAttestationAtResourceGroup', __args__, opts=opts, typ=GetAttestationAtResourceGroupResult)
     return __ret__.apply(lambda __response__: GetAttestationAtResourceGroupResult(
         assessment_date=pulumi.get(__response__, 'assessment_date'),

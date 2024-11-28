@@ -73,7 +73,7 @@ def list_bot_secrets(bot_name: Optional[str] = None,
         secrets=pulumi.get(__ret__, 'secrets'))
 def list_bot_secrets_output(bot_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBotSecretsResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBotSecretsResult]:
     """
     List all secrets of a HealthBot.
     Azure REST API version: 2023-05-01.
@@ -87,7 +87,7 @@ def list_bot_secrets_output(bot_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['botName'] = bot_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthbot:listBotSecrets', __args__, opts=opts, typ=ListBotSecretsResult)
     return __ret__.apply(lambda __response__: ListBotSecretsResult(
         secrets=pulumi.get(__response__, 'secrets')))

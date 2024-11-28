@@ -126,7 +126,7 @@ def get_managed_network_peering_policy(managed_network_name: Optional[str] = Non
 def get_managed_network_peering_policy_output(managed_network_name: Optional[pulumi.Input[str]] = None,
                                               managed_network_peering_policy_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedNetworkPeeringPolicyResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedNetworkPeeringPolicyResult]:
     """
     The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
 
@@ -139,7 +139,7 @@ def get_managed_network_peering_policy_output(managed_network_name: Optional[pul
     __args__['managedNetworkName'] = managed_network_name
     __args__['managedNetworkPeeringPolicyName'] = managed_network_peering_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy', __args__, opts=opts, typ=GetManagedNetworkPeeringPolicyResult)
     return __ret__.apply(lambda __response__: GetManagedNetworkPeeringPolicyResult(
         id=pulumi.get(__response__, 'id'),

@@ -139,7 +139,7 @@ def get_data_flow_endpoint(dataflow_endpoint_name: Optional[str] = None,
 def get_data_flow_endpoint_output(dataflow_endpoint_name: Optional[pulumi.Input[str]] = None,
                                   instance_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataFlowEndpointResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataFlowEndpointResult]:
     """
     Get a DataFlowEndpointResource
 
@@ -152,7 +152,7 @@ def get_data_flow_endpoint_output(dataflow_endpoint_name: Optional[pulumi.Input[
     __args__['dataflowEndpointName'] = dataflow_endpoint_name
     __args__['instanceName'] = instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperations/v20240701preview:getDataFlowEndpoint', __args__, opts=opts, typ=GetDataFlowEndpointResult)
     return __ret__.apply(lambda __response__: GetDataFlowEndpointResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

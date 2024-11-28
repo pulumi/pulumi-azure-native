@@ -178,7 +178,7 @@ def get_cloud_hsm_cluster_private_endpoint_connection(cloud_hsm_cluster_name: Op
 def get_cloud_hsm_cluster_private_endpoint_connection_output(cloud_hsm_cluster_name: Optional[pulumi.Input[str]] = None,
                                                              pe_connection_name: Optional[pulumi.Input[str]] = None,
                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudHsmClusterPrivateEndpointConnectionResult]:
+                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudHsmClusterPrivateEndpointConnectionResult]:
     """
     Gets the private endpoint connection for the Cloud Hsm Cluster.
 
@@ -191,7 +191,7 @@ def get_cloud_hsm_cluster_private_endpoint_connection_output(cloud_hsm_cluster_n
     __args__['cloudHsmClusterName'] = cloud_hsm_cluster_name
     __args__['peConnectionName'] = pe_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hardwaresecuritymodules/v20231210preview:getCloudHsmClusterPrivateEndpointConnection', __args__, opts=opts, typ=GetCloudHsmClusterPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetCloudHsmClusterPrivateEndpointConnectionResult(
         etag=pulumi.get(__response__, 'etag'),

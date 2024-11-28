@@ -86,7 +86,7 @@ def get_factory_git_hub_access_token_output(factory_name: Optional[pulumi.Input[
                                             git_hub_client_id: Optional[pulumi.Input[Optional[str]]] = None,
                                             git_hub_client_secret: Optional[pulumi.Input[Optional[Union['GitHubClientSecret', 'GitHubClientSecretDict']]]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryGitHubAccessTokenResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFactoryGitHubAccessTokenResult]:
     """
     Get GitHub Access Token.
 
@@ -105,7 +105,7 @@ def get_factory_git_hub_access_token_output(factory_name: Optional[pulumi.Input[
     __args__['gitHubClientId'] = git_hub_client_id
     __args__['gitHubClientSecret'] = git_hub_client_secret
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:getFactoryGitHubAccessToken', __args__, opts=opts, typ=GetFactoryGitHubAccessTokenResult)
     return __ret__.apply(lambda __response__: GetFactoryGitHubAccessTokenResult(
         git_hub_access_token=pulumi.get(__response__, 'git_hub_access_token')))

@@ -230,7 +230,7 @@ def get_query(id: Optional[str] = None,
 def get_query_output(id: Optional[pulumi.Input[str]] = None,
                      query_pack_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryResult]:
     """
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
 
@@ -243,7 +243,7 @@ def get_query_output(id: Optional[pulumi.Input[str]] = None,
     __args__['id'] = id
     __args__['queryPackName'] = query_pack_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights/v20190901preview:getQuery', __args__, opts=opts, typ=GetQueryResult)
     return __ret__.apply(lambda __response__: GetQueryResult(
         author=pulumi.get(__response__, 'author'),

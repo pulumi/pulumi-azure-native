@@ -165,7 +165,7 @@ def get_frontends_interface(frontend_name: Optional[str] = None,
 def get_frontends_interface_output(frontend_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    traffic_controller_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrontendsInterfaceResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontendsInterfaceResult]:
     """
     Get a Frontend
 
@@ -178,7 +178,7 @@ def get_frontends_interface_output(frontend_name: Optional[pulumi.Input[str]] = 
     __args__['frontendName'] = frontend_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['trafficControllerName'] = traffic_controller_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicenetworking/v20230501preview:getFrontendsInterface', __args__, opts=opts, typ=GetFrontendsInterfaceResult)
     return __ret__.apply(lambda __response__: GetFrontendsInterfaceResult(
         fqdn=pulumi.get(__response__, 'fqdn'),

@@ -151,7 +151,7 @@ def get_migrate_projects_controller_migrate_project(migrate_project_name: Option
         type=pulumi.get(__ret__, 'type'))
 def get_migrate_projects_controller_migrate_project_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
                                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrateProjectsControllerMigrateProjectResult]:
+                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrateProjectsControllerMigrateProjectResult]:
     """
     Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
     Azure REST API version: 2020-05-01.
@@ -165,7 +165,7 @@ def get_migrate_projects_controller_migrate_project_output(migrate_project_name:
     __args__ = dict()
     __args__['migrateProjectName'] = migrate_project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getMigrateProjectsControllerMigrateProject', __args__, opts=opts, typ=GetMigrateProjectsControllerMigrateProjectResult)
     return __ret__.apply(lambda __response__: GetMigrateProjectsControllerMigrateProjectResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

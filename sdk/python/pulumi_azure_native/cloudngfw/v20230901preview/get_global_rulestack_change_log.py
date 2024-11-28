@@ -91,7 +91,7 @@ def get_global_rulestack_change_log(global_rulestack_name: Optional[str] = None,
         last_committed=pulumi.get(__ret__, 'last_committed'),
         last_modified=pulumi.get(__ret__, 'last_modified'))
 def get_global_rulestack_change_log_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalRulestackChangeLogResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalRulestackChangeLogResult]:
     """
     Get changelog
 
@@ -100,7 +100,7 @@ def get_global_rulestack_change_log_output(global_rulestack_name: Optional[pulum
     """
     __args__ = dict()
     __args__['globalRulestackName'] = global_rulestack_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20230901preview:getGlobalRulestackChangeLog', __args__, opts=opts, typ=GetGlobalRulestackChangeLogResult)
     return __ret__.apply(lambda __response__: GetGlobalRulestackChangeLogResult(
         changes=pulumi.get(__response__, 'changes'),

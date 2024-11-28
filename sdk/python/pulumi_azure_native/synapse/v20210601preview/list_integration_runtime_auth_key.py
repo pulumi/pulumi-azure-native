@@ -86,7 +86,7 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[str] = 
 def list_integration_runtime_auth_key_output(integration_runtime_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              workspace_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationRuntimeAuthKeyResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationRuntimeAuthKeyResult]:
     """
     List authentication keys in an integration runtime
 
@@ -99,7 +99,7 @@ def list_integration_runtime_auth_key_output(integration_runtime_name: Optional[
     __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601preview:listIntegrationRuntimeAuthKey', __args__, opts=opts, typ=ListIntegrationRuntimeAuthKeyResult)
     return __ret__.apply(lambda __response__: ListIntegrationRuntimeAuthKeyResult(
         auth_key1=pulumi.get(__response__, 'auth_key1'),

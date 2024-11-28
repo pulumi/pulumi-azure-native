@@ -629,7 +629,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_application_gateway_output(application_gateway_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGatewayResult]:
     """
     Gets the specified application gateway.
 
@@ -640,7 +640,7 @@ def get_application_gateway_output(application_gateway_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['applicationGatewayName'] = application_gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getApplicationGateway', __args__, opts=opts, typ=GetApplicationGatewayResult)
     return __ret__.apply(lambda __response__: GetApplicationGatewayResult(
         authentication_certificates=pulumi.get(__response__, 'authentication_certificates'),

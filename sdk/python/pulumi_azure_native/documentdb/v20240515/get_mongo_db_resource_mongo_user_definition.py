@@ -178,7 +178,7 @@ def get_mongo_db_resource_mongo_user_definition(account_name: Optional[str] = No
 def get_mongo_db_resource_mongo_user_definition_output(account_name: Optional[pulumi.Input[str]] = None,
                                                        mongo_user_definition_id: Optional[pulumi.Input[str]] = None,
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoDBResourceMongoUserDefinitionResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMongoDBResourceMongoUserDefinitionResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB Mongo User Definition with the given Id.
 
@@ -191,7 +191,7 @@ def get_mongo_db_resource_mongo_user_definition_output(account_name: Optional[pu
     __args__['accountName'] = account_name
     __args__['mongoUserDefinitionId'] = mongo_user_definition_id
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240515:getMongoDBResourceMongoUserDefinition', __args__, opts=opts, typ=GetMongoDBResourceMongoUserDefinitionResult)
     return __ret__.apply(lambda __response__: GetMongoDBResourceMongoUserDefinitionResult(
         custom_data=pulumi.get(__response__, 'custom_data'),

@@ -185,7 +185,7 @@ def list_endpoint_ingress_gateway_credentials_output(endpoint_name: Optional[pul
                                                      expiresin: Optional[pulumi.Input[Optional[int]]] = None,
                                                      resource_uri: Optional[pulumi.Input[str]] = None,
                                                      service_name: Optional[pulumi.Input[Optional[Union[str, 'ServiceName']]]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEndpointIngressGatewayCredentialsResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointIngressGatewayCredentialsResult]:
     """
     Gets the ingress gateway endpoint credentials
     Azure REST API version: 2023-03-15.
@@ -203,7 +203,7 @@ def list_endpoint_ingress_gateway_credentials_output(endpoint_name: Optional[pul
     __args__['expiresin'] = expiresin
     __args__['resourceUri'] = resource_uri
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity:listEndpointIngressGatewayCredentials', __args__, opts=opts, typ=ListEndpointIngressGatewayCredentialsResult)
     return __ret__.apply(lambda __response__: ListEndpointIngressGatewayCredentialsResult(
         access_key=pulumi.get(__response__, 'access_key'),

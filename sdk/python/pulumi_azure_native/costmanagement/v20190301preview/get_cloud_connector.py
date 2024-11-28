@@ -291,7 +291,7 @@ def get_cloud_connector(connector_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_cloud_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                                expand: Optional[pulumi.Input[Optional[str]]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudConnectorResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudConnectorResult]:
     """
     Get a cloud connector definition
 
@@ -302,7 +302,7 @@ def get_cloud_connector_output(connector_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['connectorName'] = connector_name
     __args__['expand'] = expand
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20190301preview:getCloudConnector', __args__, opts=opts, typ=GetCloudConnectorResult)
     return __ret__.apply(lambda __response__: GetCloudConnectorResult(
         billing_model=pulumi.get(__response__, 'billing_model'),

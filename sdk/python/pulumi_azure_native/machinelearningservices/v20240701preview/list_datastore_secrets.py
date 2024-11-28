@@ -81,7 +81,7 @@ def list_datastore_secrets_output(expirable_secret: Optional[pulumi.Input[Option
                                   name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   workspace_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatastoreSecretsResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDatastoreSecretsResult]:
     """
     Base definition for datastore secrets.
 
@@ -98,7 +98,7 @@ def list_datastore_secrets_output(expirable_secret: Optional[pulumi.Input[Option
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20240701preview:listDatastoreSecrets', __args__, opts=opts, typ=ListDatastoreSecretsResult)
     return __ret__.apply(lambda __response__: ListDatastoreSecretsResult(
         secrets_type=pulumi.get(__response__, 'secrets_type')))

@@ -74,7 +74,7 @@ def list_cluster_zones(cluster_name: Optional[str] = None,
 def list_cluster_zones_output(cluster_name: Optional[pulumi.Input[str]] = None,
                               private_cloud_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterZonesResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterZonesResult]:
     """
     List of all zones and associated hosts for a cluster
 
@@ -87,7 +87,7 @@ def list_cluster_zones_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__['clusterName'] = cluster_name
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20230301:listClusterZones', __args__, opts=opts, typ=ListClusterZonesResult)
     return __ret__.apply(lambda __response__: ListClusterZonesResult(
         zones=pulumi.get(__response__, 'zones')))

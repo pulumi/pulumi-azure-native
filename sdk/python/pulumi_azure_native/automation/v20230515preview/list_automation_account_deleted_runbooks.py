@@ -83,7 +83,7 @@ def list_automation_account_deleted_runbooks(automation_account_name: Optional[s
         value=pulumi.get(__ret__, 'value'))
 def list_automation_account_deleted_runbooks_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAutomationAccountDeletedRunbooksResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAutomationAccountDeletedRunbooksResult]:
     """
     Retrieve the deleted runbooks for an automation account.
 
@@ -94,7 +94,7 @@ def list_automation_account_deleted_runbooks_output(automation_account_name: Opt
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:listAutomationAccountDeletedRunbooks', __args__, opts=opts, typ=ListAutomationAccountDeletedRunbooksResult)
     return __ret__.apply(lambda __response__: ListAutomationAccountDeletedRunbooksResult(
         next_link=pulumi.get(__response__, 'next_link'),

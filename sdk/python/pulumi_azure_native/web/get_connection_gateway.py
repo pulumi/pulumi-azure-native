@@ -150,7 +150,7 @@ def get_connection_gateway(connection_gateway_name: Optional[str] = None,
 def get_connection_gateway_output(connection_gateway_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionGatewayResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionGatewayResult]:
     """
     Gets a specific gateway under a subscription and in a specific resource group
     Azure REST API version: 2016-06-01.
@@ -164,7 +164,7 @@ def get_connection_gateway_output(connection_gateway_name: Optional[pulumi.Input
     __args__['connectionGatewayName'] = connection_gateway_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getConnectionGateway', __args__, opts=opts, typ=GetConnectionGatewayResult)
     return __ret__.apply(lambda __response__: GetConnectionGatewayResult(
         etag=pulumi.get(__response__, 'etag'),

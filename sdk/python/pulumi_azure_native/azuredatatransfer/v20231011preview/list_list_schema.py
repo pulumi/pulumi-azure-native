@@ -91,7 +91,7 @@ def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[str]]]
                             pipeline_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             status: Optional[pulumi.Input[Optional[Union[str, 'SchemaStatus']]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListListSchemaResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListSchemaResult]:
     """
     Lists the schemas for the specified connection in a pipeline.
 
@@ -112,7 +112,7 @@ def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[str]]]
     __args__['pipelineName'] = pipeline_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['status'] = status
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuredatatransfer/v20231011preview:listListSchema', __args__, opts=opts, typ=ListListSchemaResult)
     return __ret__.apply(lambda __response__: ListListSchemaResult(
         value=pulumi.get(__response__, 'value')))

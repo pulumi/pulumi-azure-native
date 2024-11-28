@@ -134,7 +134,7 @@ def get_replication_storage_classification_mapping_output(fabric_name: Optional[
                                                           resource_name: Optional[pulumi.Input[str]] = None,
                                                           storage_classification_mapping_name: Optional[pulumi.Input[str]] = None,
                                                           storage_classification_name: Optional[pulumi.Input[str]] = None,
-                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationStorageClassificationMappingResult]:
+                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationStorageClassificationMappingResult]:
     """
     Gets the details of the specified storage classification mapping.
 
@@ -151,7 +151,7 @@ def get_replication_storage_classification_mapping_output(fabric_name: Optional[
     __args__['resourceName'] = resource_name
     __args__['storageClassificationMappingName'] = storage_classification_mapping_name
     __args__['storageClassificationName'] = storage_classification_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20240201:getReplicationStorageClassificationMapping', __args__, opts=opts, typ=GetReplicationStorageClassificationMappingResult)
     return __ret__.apply(lambda __response__: GetReplicationStorageClassificationMappingResult(
         id=pulumi.get(__response__, 'id'),

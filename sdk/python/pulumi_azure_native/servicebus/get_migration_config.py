@@ -194,7 +194,7 @@ def get_migration_config(config_name: Optional[str] = None,
 def get_migration_config_output(config_name: Optional[pulumi.Input[str]] = None,
                                 namespace_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationConfigResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationConfigResult]:
     """
     Retrieves Migration Config
     Azure REST API version: 2022-01-01-preview.
@@ -210,7 +210,7 @@ def get_migration_config_output(config_name: Optional[pulumi.Input[str]] = None,
     __args__['configName'] = config_name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus:getMigrationConfig', __args__, opts=opts, typ=GetMigrationConfigResult)
     return __ret__.apply(lambda __response__: GetMigrationConfigResult(
         id=pulumi.get(__response__, 'id'),

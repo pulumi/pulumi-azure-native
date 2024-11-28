@@ -121,7 +121,7 @@ def get_serial_port_output(parent_resource: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            resource_provider_namespace: Optional[pulumi.Input[str]] = None,
                            serial_port: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSerialPortResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSerialPortResult]:
     """
     Gets the configured settings for a serial port
     Azure REST API version: 2018-05-01.
@@ -139,7 +139,7 @@ def get_serial_port_output(parent_resource: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceProviderNamespace'] = resource_provider_namespace
     __args__['serialPort'] = serial_port
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:serialconsole:getSerialPort', __args__, opts=opts, typ=GetSerialPortResult)
     return __ret__.apply(lambda __response__: GetSerialPortResult(
         id=pulumi.get(__response__, 'id'),

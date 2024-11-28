@@ -124,7 +124,7 @@ def get_replication_extension(replication_extension_name: Optional[str] = None,
 def get_replication_extension_output(replication_extension_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      vault_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationExtensionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationExtensionResult]:
     """
     Gets the details of the replication extension.
     Azure REST API version: 2021-02-16-preview.
@@ -138,7 +138,7 @@ def get_replication_extension_output(replication_extension_name: Optional[pulumi
     __args__['replicationExtensionName'] = replication_extension_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datareplication:getReplicationExtension', __args__, opts=opts, typ=GetReplicationExtensionResult)
     return __ret__.apply(lambda __response__: GetReplicationExtensionResult(
         id=pulumi.get(__response__, 'id'),

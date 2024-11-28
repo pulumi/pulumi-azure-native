@@ -126,7 +126,7 @@ def get_dataset(dataset_name: Optional[str] = None,
 def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
                        factory_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Gets a dataset.
 
@@ -139,7 +139,7 @@ def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
     __args__['datasetName'] = dataset_name
     __args__['factoryName'] = factory_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:getDataset', __args__, opts=opts, typ=GetDatasetResult)
     return __ret__.apply(lambda __response__: GetDatasetResult(
         etag=pulumi.get(__response__, 'etag'),

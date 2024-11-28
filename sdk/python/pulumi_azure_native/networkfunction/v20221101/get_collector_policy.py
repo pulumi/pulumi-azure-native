@@ -191,7 +191,7 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
 def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.Input[str]] = None,
                                 collector_policy_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollectorPolicyResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollectorPolicyResult]:
     """
     Gets the collector policy in a specified Traffic Collector
 
@@ -204,7 +204,7 @@ def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.In
     __args__['azureTrafficCollectorName'] = azure_traffic_collector_name
     __args__['collectorPolicyName'] = collector_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkfunction/v20221101:getCollectorPolicy', __args__, opts=opts, typ=GetCollectorPolicyResult)
     return __ret__.apply(lambda __response__: GetCollectorPolicyResult(
         emission_policies=pulumi.get(__response__, 'emission_policies'),

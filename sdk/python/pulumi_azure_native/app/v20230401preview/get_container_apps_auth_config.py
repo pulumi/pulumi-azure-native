@@ -178,7 +178,7 @@ def get_container_apps_auth_config(auth_config_name: Optional[str] = None,
 def get_container_apps_auth_config_output(auth_config_name: Optional[pulumi.Input[str]] = None,
                                           container_app_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppsAuthConfigResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerAppsAuthConfigResult]:
     """
     Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
 
@@ -191,7 +191,7 @@ def get_container_apps_auth_config_output(auth_config_name: Optional[pulumi.Inpu
     __args__['authConfigName'] = auth_config_name
     __args__['containerAppName'] = container_app_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230401preview:getContainerAppsAuthConfig', __args__, opts=opts, typ=GetContainerAppsAuthConfigResult)
     return __ret__.apply(lambda __response__: GetContainerAppsAuthConfigResult(
         global_validation=pulumi.get(__response__, 'global_validation'),

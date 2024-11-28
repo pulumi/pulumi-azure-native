@@ -69,7 +69,7 @@ def get_firewall_global_rulestack(firewall_name: Optional[str] = None,
         azure_id=pulumi.get(__ret__, 'azure_id'))
 def get_firewall_global_rulestack_output(firewall_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallGlobalRulestackResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallGlobalRulestackResult]:
     """
     Get Global Rulestack associated with the Firewall
 
@@ -80,7 +80,7 @@ def get_firewall_global_rulestack_output(firewall_name: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['firewallName'] = firewall_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20220829:getFirewallGlobalRulestack', __args__, opts=opts, typ=GetFirewallGlobalRulestackResult)
     return __ret__.apply(lambda __response__: GetFirewallGlobalRulestackResult(
         azure_id=pulumi.get(__response__, 'azure_id')))

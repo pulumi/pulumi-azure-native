@@ -165,7 +165,7 @@ def get_integration_account_session(integration_account_name: Optional[str] = No
 def get_integration_account_session_output(integration_account_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            session_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountSessionResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountSessionResult]:
     """
     Gets an integration account session.
     Azure REST API version: 2019-05-01.
@@ -179,7 +179,7 @@ def get_integration_account_session_output(integration_account_name: Optional[pu
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sessionName'] = session_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationAccountSession', __args__, opts=opts, typ=GetIntegrationAccountSessionResult)
     return __ret__.apply(lambda __response__: GetIntegrationAccountSessionResult(
         changed_time=pulumi.get(__response__, 'changed_time'),

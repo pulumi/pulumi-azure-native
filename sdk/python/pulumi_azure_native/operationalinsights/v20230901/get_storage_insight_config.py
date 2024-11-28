@@ -178,7 +178,7 @@ def get_storage_insight_config(resource_group_name: Optional[str] = None,
 def get_storage_insight_config_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       storage_insight_name: Optional[pulumi.Input[str]] = None,
                                       workspace_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageInsightConfigResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageInsightConfigResult]:
     """
     Gets a storage insight instance.
 
@@ -191,7 +191,7 @@ def get_storage_insight_config_output(resource_group_name: Optional[pulumi.Input
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageInsightName'] = storage_insight_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights/v20230901:getStorageInsightConfig', __args__, opts=opts, typ=GetStorageInsightConfigResult)
     return __ret__.apply(lambda __response__: GetStorageInsightConfigResult(
         containers=pulumi.get(__response__, 'containers'),

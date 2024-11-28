@@ -235,7 +235,7 @@ def get_blob_storage_account_data_set_mapping_output(account_name: Optional[pulu
                                                      data_set_mapping_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      share_subscription_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobStorageAccountDataSetMappingResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobStorageAccountDataSetMappingResult]:
     """
     Get a DataSetMapping in a shareSubscription
 
@@ -250,7 +250,7 @@ def get_blob_storage_account_data_set_mapping_output(account_name: Optional[pulu
     __args__['dataSetMappingName'] = data_set_mapping_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareSubscriptionName'] = share_subscription_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20201001preview:getBlobStorageAccountDataSetMapping', __args__, opts=opts, typ=GetBlobStorageAccountDataSetMappingResult)
     return __ret__.apply(lambda __response__: GetBlobStorageAccountDataSetMappingResult(
         container_name=pulumi.get(__response__, 'container_name'),

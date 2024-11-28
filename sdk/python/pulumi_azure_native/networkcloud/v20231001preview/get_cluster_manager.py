@@ -262,7 +262,7 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
         vm_size=pulumi.get(__ret__, 'vm_size'))
 def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterManagerResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterManagerResult]:
     """
     Get the properties of the provided cluster manager.
 
@@ -273,7 +273,7 @@ def get_cluster_manager_output(cluster_manager_name: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['clusterManagerName'] = cluster_manager_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20231001preview:getClusterManager', __args__, opts=opts, typ=GetClusterManagerResult)
     return __ret__.apply(lambda __response__: GetClusterManagerResult(
         analytics_workspace_id=pulumi.get(__response__, 'analytics_workspace_id'),

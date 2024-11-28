@@ -294,7 +294,7 @@ def get_v_center(resource_group_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_v_center_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         vcenter_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVCenterResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVCenterResult]:
     """
     Implements vCenter GET method.
     Azure REST API version: 2022-07-15-preview.
@@ -308,7 +308,7 @@ def get_v_center_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vcenterName'] = vcenter_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getVCenter', __args__, opts=opts, typ=GetVCenterResult)
     return __ret__.apply(lambda __response__: GetVCenterResult(
         connection_status=pulumi.get(__response__, 'connection_status'),

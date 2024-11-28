@@ -73,7 +73,7 @@ def list_secret_value(resource_group_name: Optional[str] = None,
 def list_secret_value_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                              secret_resource_name: Optional[pulumi.Input[str]] = None,
                              secret_value_resource_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSecretValueResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSecretValueResult]:
     """
     Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
 
@@ -86,7 +86,7 @@ def list_secret_value_output(resource_group_name: Optional[pulumi.Input[str]] = 
     __args__['resourceGroupName'] = resource_group_name
     __args__['secretResourceName'] = secret_resource_name
     __args__['secretValueResourceName'] = secret_value_resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh/v20180901preview:listSecretValue', __args__, opts=opts, typ=ListSecretValueResult)
     return __ret__.apply(lambda __response__: ListSecretValueResult(
         value=pulumi.get(__response__, 'value')))

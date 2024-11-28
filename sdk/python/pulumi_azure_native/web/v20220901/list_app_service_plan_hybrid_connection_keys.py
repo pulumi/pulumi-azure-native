@@ -142,7 +142,7 @@ def list_app_service_plan_hybrid_connection_keys_output(name: Optional[pulumi.In
                                                         namespace_name: Optional[pulumi.Input[str]] = None,
                                                         relay_name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAppServicePlanHybridConnectionKeysResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAppServicePlanHybridConnectionKeysResult]:
     """
     Description for Get the send key name and value of a Hybrid Connection.
 
@@ -157,7 +157,7 @@ def list_app_service_plan_hybrid_connection_keys_output(name: Optional[pulumi.In
     __args__['namespaceName'] = namespace_name
     __args__['relayName'] = relay_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:listAppServicePlanHybridConnectionKeys', __args__, opts=opts, typ=ListAppServicePlanHybridConnectionKeysResult)
     return __ret__.apply(lambda __response__: ListAppServicePlanHybridConnectionKeysResult(
         id=pulumi.get(__response__, 'id'),

@@ -103,7 +103,7 @@ def list_network_manager_deployment_status_output(deployment_types: Optional[pul
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                   top: Optional[pulumi.Input[Optional[int]]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerDeploymentStatusResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNetworkManagerDeploymentStatusResult]:
     """
     Post to List of Network Manager Deployment Status.
     Azure REST API version: 2023-02-01.
@@ -125,7 +125,7 @@ def list_network_manager_deployment_status_output(deployment_types: Optional[pul
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:listNetworkManagerDeploymentStatus', __args__, opts=opts, typ=ListNetworkManagerDeploymentStatusResult)
     return __ret__.apply(lambda __response__: ListNetworkManagerDeploymentStatusResult(
         skip_token=pulumi.get(__response__, 'skip_token'),

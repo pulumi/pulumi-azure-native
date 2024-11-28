@@ -396,7 +396,7 @@ def get_app_service_environment(name: Optional[str] = None,
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
     """
     Description for Get the properties of an App Service Environment.
 
@@ -407,7 +407,7 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getAppServiceEnvironment', __args__, opts=opts, typ=GetAppServiceEnvironmentResult)
     return __ret__.apply(lambda __response__: GetAppServiceEnvironmentResult(
         cluster_settings=pulumi.get(__response__, 'cluster_settings'),

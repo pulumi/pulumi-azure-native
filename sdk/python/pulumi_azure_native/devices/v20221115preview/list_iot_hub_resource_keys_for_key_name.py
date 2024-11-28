@@ -112,7 +112,7 @@ def list_iot_hub_resource_keys_for_key_name(key_name: Optional[str] = None,
 def list_iot_hub_resource_keys_for_key_name_output(key_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    resource_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotHubResourceKeysForKeyNameResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIotHubResourceKeysForKeyNameResult]:
     """
     Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
 
@@ -125,7 +125,7 @@ def list_iot_hub_resource_keys_for_key_name_output(key_name: Optional[pulumi.Inp
     __args__['keyName'] = key_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devices/v20221115preview:listIotHubResourceKeysForKeyName', __args__, opts=opts, typ=ListIotHubResourceKeysForKeyNameResult)
     return __ret__.apply(lambda __response__: ListIotHubResourceKeysForKeyNameResult(
         key_name=pulumi.get(__response__, 'key_name'),

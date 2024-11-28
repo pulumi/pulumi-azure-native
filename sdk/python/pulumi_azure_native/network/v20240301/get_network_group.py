@@ -178,7 +178,7 @@ def get_network_group(network_group_name: Optional[str] = None,
 def get_network_group_output(network_group_name: Optional[pulumi.Input[str]] = None,
                              network_manager_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkGroupResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkGroupResult]:
     """
     Gets the specified network group.
 
@@ -191,7 +191,7 @@ def get_network_group_output(network_group_name: Optional[pulumi.Input[str]] = N
     __args__['networkGroupName'] = network_group_name
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getNetworkGroup', __args__, opts=opts, typ=GetNetworkGroupResult)
     return __ret__.apply(lambda __response__: GetNetworkGroupResult(
         description=pulumi.get(__response__, 'description'),

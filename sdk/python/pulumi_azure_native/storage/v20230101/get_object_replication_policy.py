@@ -165,7 +165,7 @@ def get_object_replication_policy(account_name: Optional[str] = None,
 def get_object_replication_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                          object_replication_policy_id: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectReplicationPolicyResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectReplicationPolicyResult]:
     """
     Get the object replication policy of the storage account by policy ID.
 
@@ -178,7 +178,7 @@ def get_object_replication_policy_output(account_name: Optional[pulumi.Input[str
     __args__['accountName'] = account_name
     __args__['objectReplicationPolicyId'] = object_replication_policy_id
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230101:getObjectReplicationPolicy', __args__, opts=opts, typ=GetObjectReplicationPolicyResult)
     return __ret__.apply(lambda __response__: GetObjectReplicationPolicyResult(
         destination_account=pulumi.get(__response__, 'destination_account'),

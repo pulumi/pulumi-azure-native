@@ -148,7 +148,7 @@ def get_migrate_project(migrate_project_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_migrate_project_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrateProjectResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrateProjectResult]:
     """
     Migrate Project REST Resource.
 
@@ -159,7 +159,7 @@ def get_migrate_project_output(migrate_project_name: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['migrateProjectName'] = migrate_project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20180901preview:getMigrateProject', __args__, opts=opts, typ=GetMigrateProjectResult)
     return __ret__.apply(lambda __response__: GetMigrateProjectResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

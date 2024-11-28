@@ -83,7 +83,7 @@ def list_iot_hub_resource_keys(resource_group_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_iot_hub_resource_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       resource_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotHubResourceKeysResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIotHubResourceKeysResult]:
     """
     Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
 
@@ -94,7 +94,7 @@ def list_iot_hub_resource_keys_output(resource_group_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devices/v20230630preview:listIotHubResourceKeys', __args__, opts=opts, typ=ListIotHubResourceKeysResult)
     return __ret__.apply(lambda __response__: ListIotHubResourceKeysResult(
         next_link=pulumi.get(__response__, 'next_link'),

@@ -242,7 +242,7 @@ def get_assignment(assignment_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
                           resource_scope: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssignmentResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssignmentResult]:
     """
     Get a blueprint assignment.
     Azure REST API version: 2018-11-01-preview.
@@ -256,7 +256,7 @@ def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['assignmentName'] = assignment_name
     __args__['resourceScope'] = resource_scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint:getAssignment', __args__, opts=opts, typ=GetAssignmentResult)
     return __ret__.apply(lambda __response__: GetAssignmentResult(
         blueprint_id=pulumi.get(__response__, 'blueprint_id'),

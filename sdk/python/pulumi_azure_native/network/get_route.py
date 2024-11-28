@@ -180,7 +180,7 @@ def get_route(resource_group_name: Optional[str] = None,
 def get_route_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      route_name: Optional[pulumi.Input[str]] = None,
                      route_table_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
     """
     Gets the specified route from a route table.
     Azure REST API version: 2023-02-01.
@@ -196,7 +196,7 @@ def get_route_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeName'] = route_name
     __args__['routeTableName'] = route_table_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getRoute', __args__, opts=opts, typ=GetRouteResult)
     return __ret__.apply(lambda __response__: GetRouteResult(
         address_prefix=pulumi.get(__response__, 'address_prefix'),

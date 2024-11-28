@@ -84,7 +84,7 @@ def list_mobile_network_sim_ids(mobile_network_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_mobile_network_sim_ids_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMobileNetworkSimIdsResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMobileNetworkSimIdsResult]:
     """
     Lists the IDs of all provisioned SIMs in a mobile network
     Azure REST API version: 2022-04-01-preview.
@@ -96,7 +96,7 @@ def list_mobile_network_sim_ids_output(mobile_network_name: Optional[pulumi.Inpu
     __args__ = dict()
     __args__['mobileNetworkName'] = mobile_network_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork:listMobileNetworkSimIds', __args__, opts=opts, typ=ListMobileNetworkSimIdsResult)
     return __ret__.apply(lambda __response__: ListMobileNetworkSimIdsResult(
         next_link=pulumi.get(__response__, 'next_link'),

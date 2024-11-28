@@ -152,7 +152,7 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
 def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          resource_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
     See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
 
@@ -165,7 +165,7 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
     __args__['configName'] = config_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20230601:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult)
     return __ret__.apply(lambda __response__: GetMaintenanceConfigurationResult(
         id=pulumi.get(__response__, 'id'),

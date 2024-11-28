@@ -75,7 +75,7 @@ def list_organization_regions(organization_name: Optional[str] = None,
 def list_organization_regions_output(organization_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      search_filters: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOrganizationRegionsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOrganizationRegionsResult]:
     """
     Result of POST request to list regions supported by confluent
     Azure REST API version: 2024-02-13.
@@ -89,7 +89,7 @@ def list_organization_regions_output(organization_name: Optional[pulumi.Input[st
     __args__['organizationName'] = organization_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchFilters'] = search_filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:confluent:listOrganizationRegions', __args__, opts=opts, typ=ListOrganizationRegionsResult)
     return __ret__.apply(lambda __response__: ListOrganizationRegionsResult(
         data=pulumi.get(__response__, 'data')))

@@ -291,7 +291,7 @@ def get_elastic_san(elastic_san_name: Optional[str] = None,
         volume_group_count=pulumi.get(__ret__, 'volume_group_count'))
 def get_elastic_san_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticSanResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticSanResult]:
     """
     Get a ElasticSan.
 
@@ -302,7 +302,7 @@ def get_elastic_san_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['elasticSanName'] = elastic_san_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:elasticsan/v20240501:getElasticSan', __args__, opts=opts, typ=GetElasticSanResult)
     return __ret__.apply(lambda __response__: GetElasticSanResult(
         availability_zones=pulumi.get(__response__, 'availability_zones'),

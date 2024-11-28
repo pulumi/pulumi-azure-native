@@ -77,7 +77,7 @@ def get_virtual_network_gateway_bgp_peer_status(peer: Optional[str] = None,
 def get_virtual_network_gateway_bgp_peer_status_output(peer: Optional[pulumi.Input[Optional[str]]] = None,
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                                        virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayBgpPeerStatusResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayBgpPeerStatusResult]:
     """
     The GetBgpPeerStatus operation retrieves the status of all BGP peers.
     Azure REST API version: 2023-02-01.
@@ -93,7 +93,7 @@ def get_virtual_network_gateway_bgp_peer_status_output(peer: Optional[pulumi.Inp
     __args__['peer'] = peer
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVirtualNetworkGatewayBgpPeerStatus', __args__, opts=opts, typ=GetVirtualNetworkGatewayBgpPeerStatusResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayBgpPeerStatusResult(
         value=pulumi.get(__response__, 'value')))

@@ -155,7 +155,7 @@ def list_disaster_recovery_config_keys_output(alias: Optional[pulumi.Input[str]]
                                               authorization_rule_name: Optional[pulumi.Input[str]] = None,
                                               namespace_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDisasterRecoveryConfigKeysResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDisasterRecoveryConfigKeysResult]:
     """
     Gets the primary and secondary connection strings for the Namespace.
 
@@ -170,7 +170,7 @@ def list_disaster_recovery_config_keys_output(alias: Optional[pulumi.Input[str]]
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub/v20240101:listDisasterRecoveryConfigKeys', __args__, opts=opts, typ=ListDisasterRecoveryConfigKeysResult)
     return __ret__.apply(lambda __response__: ListDisasterRecoveryConfigKeysResult(
         alias_primary_connection_string=pulumi.get(__response__, 'alias_primary_connection_string'),

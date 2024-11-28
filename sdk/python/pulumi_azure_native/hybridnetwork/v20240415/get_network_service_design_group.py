@@ -152,7 +152,7 @@ def get_network_service_design_group(network_service_design_group_name: Optional
 def get_network_service_design_group_output(network_service_design_group_name: Optional[pulumi.Input[str]] = None,
                                             publisher_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkServiceDesignGroupResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkServiceDesignGroupResult]:
     """
     Gets information about the specified networkServiceDesign group.
 
@@ -165,7 +165,7 @@ def get_network_service_design_group_output(network_service_design_group_name: O
     __args__['networkServiceDesignGroupName'] = network_service_design_group_name
     __args__['publisherName'] = publisher_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork/v20240415:getNetworkServiceDesignGroup', __args__, opts=opts, typ=GetNetworkServiceDesignGroupResult)
     return __ret__.apply(lambda __response__: GetNetworkServiceDesignGroupResult(
         id=pulumi.get(__response__, 'id'),

@@ -117,7 +117,7 @@ def get_factory_data_plane_access_output(access_resource_path: Optional[pulumi.I
                                          profile_name: Optional[pulumi.Input[Optional[str]]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          start_time: Optional[pulumi.Input[Optional[str]]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryDataPlaneAccessResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFactoryDataPlaneAccessResult]:
     """
     Get Data Plane access.
     Azure REST API version: 2018-06-01.
@@ -139,7 +139,7 @@ def get_factory_data_plane_access_output(access_resource_path: Optional[pulumi.I
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['startTime'] = start_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getFactoryDataPlaneAccess', __args__, opts=opts, typ=GetFactoryDataPlaneAccessResult)
     return __ret__.apply(lambda __response__: GetFactoryDataPlaneAccessResult(
         access_token=pulumi.get(__response__, 'access_token'),

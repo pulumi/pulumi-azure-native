@@ -88,7 +88,7 @@ def list_monitor_user_roles(email_address: Optional[str] = None,
 def list_monitor_user_roles_output(email_address: Optional[pulumi.Input[Optional[str]]] = None,
                                    monitor_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitorUserRolesResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMonitorUserRolesResult]:
     """
     Response for list of user's role for Logz.io account.
     Azure REST API version: 2022-01-01-preview.
@@ -102,7 +102,7 @@ def list_monitor_user_roles_output(email_address: Optional[pulumi.Input[Optional
     __args__['emailAddress'] = email_address
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logz:listMonitorUserRoles', __args__, opts=opts, typ=ListMonitorUserRolesResult)
     return __ret__.apply(lambda __response__: ListMonitorUserRolesResult(
         next_link=pulumi.get(__response__, 'next_link'),

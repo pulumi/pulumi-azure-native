@@ -118,7 +118,7 @@ def get_sites_by_subscription(site_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_sites_by_subscription_output(site_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSitesBySubscriptionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesBySubscriptionResult]:
     """
     Get a Site
 
@@ -127,7 +127,7 @@ def get_sites_by_subscription_output(site_name: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['siteName'] = site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:edge/v20240201preview:getSitesBySubscription', __args__, opts=opts, typ=GetSitesBySubscriptionResult)
     return __ret__.apply(lambda __response__: GetSitesBySubscriptionResult(
         id=pulumi.get(__response__, 'id'),

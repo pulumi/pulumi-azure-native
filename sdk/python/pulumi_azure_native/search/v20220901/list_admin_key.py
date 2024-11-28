@@ -82,7 +82,7 @@ def list_admin_key(resource_group_name: Optional[str] = None,
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
 def list_admin_key_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                           search_service_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAdminKeyResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAdminKeyResult]:
     """
     Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
 
@@ -93,7 +93,7 @@ def list_admin_key_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchServiceName'] = search_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:search/v20220901:listAdminKey', __args__, opts=opts, typ=ListAdminKeyResult)
     return __ret__.apply(lambda __response__: ListAdminKeyResult(
         primary_key=pulumi.get(__response__, 'primary_key'),

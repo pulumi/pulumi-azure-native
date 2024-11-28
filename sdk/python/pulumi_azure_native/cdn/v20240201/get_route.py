@@ -296,7 +296,7 @@ def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                      profile_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      route_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
     """
     Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
 
@@ -311,7 +311,7 @@ def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeName'] = route_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240201:getRoute', __args__, opts=opts, typ=GetRouteResult)
     return __ret__.apply(lambda __response__: GetRouteResult(
         cache_configuration=pulumi.get(__response__, 'cache_configuration'),

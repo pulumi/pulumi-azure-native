@@ -195,7 +195,7 @@ def get_broker_authorization_output(authorization_name: Optional[pulumi.Input[st
                                     broker_name: Optional[pulumi.Input[str]] = None,
                                     mq_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrokerAuthorizationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerAuthorizationResult]:
     """
     Get a BrokerAuthorizationResource
 
@@ -210,7 +210,7 @@ def get_broker_authorization_output(authorization_name: Optional[pulumi.Input[st
     __args__['brokerName'] = broker_name
     __args__['mqName'] = mq_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq/v20231004preview:getBrokerAuthorization', __args__, opts=opts, typ=GetBrokerAuthorizationResult)
     return __ret__.apply(lambda __response__: GetBrokerAuthorizationResult(
         authorization_policies=pulumi.get(__response__, 'authorization_policies'),

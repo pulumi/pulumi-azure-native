@@ -489,7 +489,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
         virtual_network_gateway2=pulumi.get(__ret__, 'virtual_network_gateway2'))
 def get_virtual_network_gateway_connection_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   virtual_network_gateway_connection_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayConnectionResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayConnectionResult]:
     """
     Gets the specified virtual network gateway connection by resource group.
     Azure REST API version: 2023-02-01.
@@ -503,7 +503,7 @@ def get_virtual_network_gateway_connection_output(resource_group_name: Optional[
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayConnectionName'] = virtual_network_gateway_connection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVirtualNetworkGatewayConnection', __args__, opts=opts, typ=GetVirtualNetworkGatewayConnectionResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayConnectionResult(
         authorization_key=pulumi.get(__response__, 'authorization_key'),

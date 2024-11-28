@@ -210,7 +210,7 @@ def get_blob_data_set_output(account_name: Optional[pulumi.Input[str]] = None,
                              data_set_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              share_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobDataSetResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobDataSetResult]:
     """
     Get a DataSet in a share
     Azure REST API version: 2021-08-01.
@@ -226,7 +226,7 @@ def get_blob_data_set_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['dataSetName'] = data_set_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getBlobDataSet', __args__, opts=opts, typ=GetBlobDataSetResult)
     return __ret__.apply(lambda __response__: GetBlobDataSetResult(
         container_name=pulumi.get(__response__, 'container_name'),

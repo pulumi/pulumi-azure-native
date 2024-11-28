@@ -143,7 +143,7 @@ def get_sql_discovery_site_data_source_controller_output(discovery_site_data_sou
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          site_name: Optional[pulumi.Input[str]] = None,
                                                          sql_site_name: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlDiscoverySiteDataSourceControllerResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlDiscoverySiteDataSourceControllerResult]:
     """
     Get a SqlDiscoverySiteDataSource
 
@@ -158,7 +158,7 @@ def get_sql_discovery_site_data_source_controller_output(discovery_site_data_sou
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
     __args__['sqlSiteName'] = sql_site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure/v20231001preview:getSqlDiscoverySiteDataSourceController', __args__, opts=opts, typ=GetSqlDiscoverySiteDataSourceControllerResult)
     return __ret__.apply(lambda __response__: GetSqlDiscoverySiteDataSourceControllerResult(
         discovery_site_id=pulumi.get(__response__, 'discovery_site_id'),

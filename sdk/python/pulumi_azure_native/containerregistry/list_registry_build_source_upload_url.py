@@ -85,7 +85,7 @@ def list_registry_build_source_upload_url(registry_name: Optional[str] = None,
         upload_url=pulumi.get(__ret__, 'upload_url'))
 def list_registry_build_source_upload_url_output(registry_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRegistryBuildSourceUploadUrlResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegistryBuildSourceUploadUrlResult]:
     """
     Get the upload location for the user to be able to upload the source.
     Azure REST API version: 2019-06-01-preview.
@@ -99,7 +99,7 @@ def list_registry_build_source_upload_url_output(registry_name: Optional[pulumi.
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:listRegistryBuildSourceUploadUrl', __args__, opts=opts, typ=ListRegistryBuildSourceUploadUrlResult)
     return __ret__.apply(lambda __response__: ListRegistryBuildSourceUploadUrlResult(
         relative_path=pulumi.get(__response__, 'relative_path'),

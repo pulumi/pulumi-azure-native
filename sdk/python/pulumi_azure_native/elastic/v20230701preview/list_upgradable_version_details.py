@@ -82,7 +82,7 @@ def list_upgradable_version_details(monitor_name: Optional[str] = None,
         upgradable_versions=pulumi.get(__ret__, 'upgradable_versions'))
 def list_upgradable_version_details_output(monitor_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUpgradableVersionDetailsResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListUpgradableVersionDetailsResult]:
     """
     Stack Versions that this version can upgrade to
 
@@ -93,7 +93,7 @@ def list_upgradable_version_details_output(monitor_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:elastic/v20230701preview:listUpgradableVersionDetails', __args__, opts=opts, typ=ListUpgradableVersionDetailsResult)
     return __ret__.apply(lambda __response__: ListUpgradableVersionDetailsResult(
         current_version=pulumi.get(__response__, 'current_version'),

@@ -67,7 +67,7 @@ def list_key_by_automation_account(automation_account_name: Optional[str] = None
         keys=pulumi.get(__ret__, 'keys'))
 def list_key_by_automation_account_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKeyByAutomationAccountResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListKeyByAutomationAccountResult]:
     """
     Retrieve the automation keys for an account.
 
@@ -78,7 +78,7 @@ def list_key_by_automation_account_output(automation_account_name: Optional[pulu
     __args__ = dict()
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20230515preview:listKeyByAutomationAccount', __args__, opts=opts, typ=ListKeyByAutomationAccountResult)
     return __ret__.apply(lambda __response__: ListKeyByAutomationAccountResult(
         keys=pulumi.get(__response__, 'keys')))

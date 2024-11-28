@@ -356,7 +356,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
         type=pulumi.get(__ret__, 'type'))
 def get_application_definition_output(application_definition_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationDefinitionResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationDefinitionResult]:
     """
     Gets the managed application definition.
 
@@ -367,7 +367,7 @@ def get_application_definition_output(application_definition_name: Optional[pulu
     __args__ = dict()
     __args__['applicationDefinitionName'] = application_definition_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:solutions/v20231201preview:getApplicationDefinition', __args__, opts=opts, typ=GetApplicationDefinitionResult)
     return __ret__.apply(lambda __response__: GetApplicationDefinitionResult(
         artifacts=pulumi.get(__response__, 'artifacts'),

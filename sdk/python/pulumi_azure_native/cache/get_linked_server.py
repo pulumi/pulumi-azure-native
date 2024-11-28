@@ -180,7 +180,7 @@ def get_linked_server(linked_server_name: Optional[str] = None,
 def get_linked_server_output(linked_server_name: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedServerResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedServerResult]:
     """
     Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
     Azure REST API version: 2023-04-01.
@@ -196,7 +196,7 @@ def get_linked_server_output(linked_server_name: Optional[pulumi.Input[str]] = N
     __args__['linkedServerName'] = linked_server_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cache:getLinkedServer', __args__, opts=opts, typ=GetLinkedServerResult)
     return __ret__.apply(lambda __response__: GetLinkedServerResult(
         geo_replicated_primary_host_name=pulumi.get(__response__, 'geo_replicated_primary_host_name'),

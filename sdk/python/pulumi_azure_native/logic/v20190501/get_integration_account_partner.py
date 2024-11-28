@@ -191,7 +191,7 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
 def get_integration_account_partner_output(integration_account_name: Optional[pulumi.Input[str]] = None,
                                            partner_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountPartnerResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountPartnerResult]:
     """
     Gets an integration account partner.
 
@@ -204,7 +204,7 @@ def get_integration_account_partner_output(integration_account_name: Optional[pu
     __args__['integrationAccountName'] = integration_account_name
     __args__['partnerName'] = partner_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20190501:getIntegrationAccountPartner', __args__, opts=opts, typ=GetIntegrationAccountPartnerResult)
     return __ret__.apply(lambda __response__: GetIntegrationAccountPartnerResult(
         changed_time=pulumi.get(__response__, 'changed_time'),

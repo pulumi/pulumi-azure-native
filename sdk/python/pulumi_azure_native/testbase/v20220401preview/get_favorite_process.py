@@ -130,7 +130,7 @@ def get_favorite_process_output(favorite_process_resource_name: Optional[pulumi.
                                 package_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 test_base_account_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFavoriteProcessResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFavoriteProcessResult]:
     """
     Gets a favorite process for a Test Base Package.
 
@@ -145,7 +145,7 @@ def get_favorite_process_output(favorite_process_resource_name: Optional[pulumi.
     __args__['packageName'] = package_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20220401preview:getFavoriteProcess', __args__, opts=opts, typ=GetFavoriteProcessResult)
     return __ret__.apply(lambda __response__: GetFavoriteProcessResult(
         actual_process_name=pulumi.get(__response__, 'actual_process_name'),

@@ -196,7 +196,7 @@ def get_adls_gen2_file_system_data_set_output(account_name: Optional[pulumi.Inpu
                                               data_set_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               share_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen2FileSystemDataSetResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetADLSGen2FileSystemDataSetResult]:
     """
     Get a DataSet in a share
 
@@ -211,7 +211,7 @@ def get_adls_gen2_file_system_data_set_output(account_name: Optional[pulumi.Inpu
     __args__['dataSetName'] = data_set_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20210801:getADLSGen2FileSystemDataSet', __args__, opts=opts, typ=GetADLSGen2FileSystemDataSetResult)
     return __ret__.apply(lambda __response__: GetADLSGen2FileSystemDataSetResult(
         data_set_id=pulumi.get(__response__, 'data_set_id'),

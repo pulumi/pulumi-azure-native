@@ -139,7 +139,7 @@ def get_blob_inventory_policy(account_name: Optional[str] = None,
 def get_blob_inventory_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                      blob_inventory_policy_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobInventoryPolicyResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobInventoryPolicyResult]:
     """
     Gets the blob inventory policy associated with the specified storage account.
 
@@ -152,7 +152,7 @@ def get_blob_inventory_policy_output(account_name: Optional[pulumi.Input[str]] =
     __args__['accountName'] = account_name
     __args__['blobInventoryPolicyName'] = blob_inventory_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230501:getBlobInventoryPolicy', __args__, opts=opts, typ=GetBlobInventoryPolicyResult)
     return __ret__.apply(lambda __response__: GetBlobInventoryPolicyResult(
         id=pulumi.get(__response__, 'id'),

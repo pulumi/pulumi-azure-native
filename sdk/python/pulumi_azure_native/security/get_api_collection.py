@@ -126,7 +126,7 @@ def get_api_collection(api_collection_id: Optional[str] = None,
 def get_api_collection_output(api_collection_id: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               service_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAPICollectionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAPICollectionResult]:
     """
     Gets an Azure API Management API if it has been onboarded to Defender for APIs. If an Azure API Management API is onboarded to Defender for APIs, the system will monitor the operations within the Azure API Management API for intrusive behaviors and provide alerts for attacks that have been detected.
     Azure REST API version: 2022-11-20-preview.
@@ -140,7 +140,7 @@ def get_api_collection_output(api_collection_id: Optional[pulumi.Input[str]] = N
     __args__['apiCollectionId'] = api_collection_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAPICollection', __args__, opts=opts, typ=GetAPICollectionResult)
     return __ret__.apply(lambda __response__: GetAPICollectionResult(
         additional_data=pulumi.get(__response__, 'additional_data'),

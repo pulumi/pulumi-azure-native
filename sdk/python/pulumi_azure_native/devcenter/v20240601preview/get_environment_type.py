@@ -152,7 +152,7 @@ def get_environment_type(dev_center_name: Optional[str] = None,
 def get_environment_type_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                                 environment_type_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentTypeResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentTypeResult]:
     """
     Gets an environment type.
 
@@ -165,7 +165,7 @@ def get_environment_type_output(dev_center_name: Optional[pulumi.Input[str]] = N
     __args__['devCenterName'] = dev_center_name
     __args__['environmentTypeName'] = environment_type_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240601preview:getEnvironmentType', __args__, opts=opts, typ=GetEnvironmentTypeResult)
     return __ret__.apply(lambda __response__: GetEnvironmentTypeResult(
         display_name=pulumi.get(__response__, 'display_name'),

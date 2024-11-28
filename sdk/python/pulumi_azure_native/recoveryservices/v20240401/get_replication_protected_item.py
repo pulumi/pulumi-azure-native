@@ -134,7 +134,7 @@ def get_replication_protected_item_output(fabric_name: Optional[pulumi.Input[str
                                           replicated_protected_item_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           resource_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationProtectedItemResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationProtectedItemResult]:
     """
     Gets the details of an ASR replication protected item.
 
@@ -151,7 +151,7 @@ def get_replication_protected_item_output(fabric_name: Optional[pulumi.Input[str
     __args__['replicatedProtectedItemName'] = replicated_protected_item_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20240401:getReplicationProtectedItem', __args__, opts=opts, typ=GetReplicationProtectedItemResult)
     return __ret__.apply(lambda __response__: GetReplicationProtectedItemResult(
         id=pulumi.get(__response__, 'id'),

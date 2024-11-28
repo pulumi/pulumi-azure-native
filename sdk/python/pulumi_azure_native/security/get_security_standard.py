@@ -188,7 +188,7 @@ def get_security_standard(scope: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_security_standard_output(scope: Optional[pulumi.Input[str]] = None,
                                  standard_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityStandardResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityStandardResult]:
     """
     Get a specific security standard for the requested scope by standardId
     Azure REST API version: 2024-08-01.
@@ -200,7 +200,7 @@ def get_security_standard_output(scope: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['scope'] = scope
     __args__['standardId'] = standard_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getSecurityStandard', __args__, opts=opts, typ=GetSecurityStandardResult)
     return __ret__.apply(lambda __response__: GetSecurityStandardResult(
         assessments=pulumi.get(__response__, 'assessments'),

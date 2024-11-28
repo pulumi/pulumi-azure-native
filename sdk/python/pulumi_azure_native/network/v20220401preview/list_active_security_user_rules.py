@@ -91,7 +91,7 @@ def list_active_security_user_rules_output(network_manager_name: Optional[pulumi
                                            regions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            skip_token: Optional[pulumi.Input[Optional[str]]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListActiveSecurityUserRulesResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListActiveSecurityUserRulesResult]:
     """
     Lists Active Security User Rules in a network manager.
 
@@ -106,7 +106,7 @@ def list_active_security_user_rules_output(network_manager_name: Optional[pulumi
     __args__['regions'] = regions
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20220401preview:listActiveSecurityUserRules', __args__, opts=opts, typ=ListActiveSecurityUserRulesResult)
     return __ret__.apply(lambda __response__: ListActiveSecurityUserRulesResult(
         skip_token=pulumi.get(__response__, 'skip_token'),

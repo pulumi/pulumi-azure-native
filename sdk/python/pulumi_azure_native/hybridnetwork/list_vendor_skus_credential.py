@@ -122,7 +122,7 @@ def list_vendor_skus_credential(sku_name: Optional[str] = None,
         username=pulumi.get(__ret__, 'username'))
 def list_vendor_skus_credential_output(sku_name: Optional[pulumi.Input[str]] = None,
                                        vendor_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVendorSkusCredentialResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVendorSkusCredentialResult]:
     """
     Generate credentials for publishing SKU images.
     Azure REST API version: 2022-01-01-preview.
@@ -134,7 +134,7 @@ def list_vendor_skus_credential_output(sku_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['skuName'] = sku_name
     __args__['vendorName'] = vendor_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:listVendorSkusCredential', __args__, opts=opts, typ=ListVendorSkusCredentialResult)
     return __ret__.apply(lambda __response__: ListVendorSkusCredentialResult(
         acr_server_url=pulumi.get(__response__, 'acr_server_url'),

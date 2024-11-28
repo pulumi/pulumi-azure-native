@@ -256,7 +256,7 @@ def get_private_store_collection_offer(collection_id: Optional[str] = None,
 def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Input[str]] = None,
                                               offer_id: Optional[pulumi.Input[str]] = None,
                                               private_store_id: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreCollectionOfferResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateStoreCollectionOfferResult]:
     """
     Gets information about a specific offer.
 
@@ -269,7 +269,7 @@ def get_private_store_collection_offer_output(collection_id: Optional[pulumi.Inp
     __args__['collectionId'] = collection_id
     __args__['offerId'] = offer_id
     __args__['privateStoreId'] = private_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:marketplace/v20230101:getPrivateStoreCollectionOffer', __args__, opts=opts, typ=GetPrivateStoreCollectionOfferResult)
     return __ret__.apply(lambda __response__: GetPrivateStoreCollectionOfferResult(
         created_at=pulumi.get(__response__, 'created_at'),

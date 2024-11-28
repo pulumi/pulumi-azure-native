@@ -77,7 +77,7 @@ def list_storage_account_keys(account_name: Optional[str] = None,
 def list_storage_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                                      expand: Optional[pulumi.Input[Optional[str]]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountKeysResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStorageAccountKeysResult]:
     """
     Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
     Azure REST API version: 2022-09-01.
@@ -93,7 +93,7 @@ def list_storage_account_keys_output(account_name: Optional[pulumi.Input[str]] =
     __args__['accountName'] = account_name
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:listStorageAccountKeys', __args__, opts=opts, typ=ListStorageAccountKeysResult)
     return __ret__.apply(lambda __response__: ListStorageAccountKeysResult(
         keys=pulumi.get(__response__, 'keys')))

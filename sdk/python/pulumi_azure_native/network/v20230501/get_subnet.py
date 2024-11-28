@@ -377,7 +377,7 @@ def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       subnet_name: Optional[pulumi.Input[str]] = None,
                       virtual_network_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetResult]:
     """
     Gets the specified subnet by virtual network and resource group.
 
@@ -392,7 +392,7 @@ def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['subnetName'] = subnet_name
     __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:getSubnet', __args__, opts=opts, typ=GetSubnetResult)
     return __ret__.apply(lambda __response__: GetSubnetResult(
         address_prefix=pulumi.get(__response__, 'address_prefix'),

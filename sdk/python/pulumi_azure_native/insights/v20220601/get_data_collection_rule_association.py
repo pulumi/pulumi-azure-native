@@ -187,7 +187,7 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_data_collection_rule_association_output(association_name: Optional[pulumi.Input[str]] = None,
                                                 resource_uri: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleAssociationResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionRuleAssociationResult]:
     """
     Definition of generic ARM proxy resource.
 
@@ -198,7 +198,7 @@ def get_data_collection_rule_association_output(association_name: Optional[pulum
     __args__ = dict()
     __args__['associationName'] = association_name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20220601:getDataCollectionRuleAssociation', __args__, opts=opts, typ=GetDataCollectionRuleAssociationResult)
     return __ret__.apply(lambda __response__: GetDataCollectionRuleAssociationResult(
         data_collection_endpoint_id=pulumi.get(__response__, 'data_collection_endpoint_id'),

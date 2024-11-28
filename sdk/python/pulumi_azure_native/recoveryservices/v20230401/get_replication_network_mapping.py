@@ -134,7 +134,7 @@ def get_replication_network_mapping_output(fabric_name: Optional[pulumi.Input[st
                                            network_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            resource_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationNetworkMappingResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationNetworkMappingResult]:
     """
     Gets the details of an ASR network mapping.
 
@@ -151,7 +151,7 @@ def get_replication_network_mapping_output(fabric_name: Optional[pulumi.Input[st
     __args__['networkName'] = network_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20230401:getReplicationNetworkMapping', __args__, opts=opts, typ=GetReplicationNetworkMappingResult)
     return __ret__.apply(lambda __response__: GetReplicationNetworkMappingResult(
         id=pulumi.get(__response__, 'id'),

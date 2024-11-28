@@ -192,7 +192,7 @@ def get_resource_sync_rule(child_resource_name: Optional[str] = None,
 def get_resource_sync_rule_output(child_resource_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   resource_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceSyncRuleResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceSyncRuleResult]:
     """
     Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
     Azure REST API version: 2021-08-31-preview.
@@ -206,7 +206,7 @@ def get_resource_sync_rule_output(child_resource_name: Optional[pulumi.Input[str
     __args__['childResourceName'] = child_resource_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:extendedlocation:getResourceSyncRule', __args__, opts=opts, typ=GetResourceSyncRuleResult)
     return __ret__.apply(lambda __response__: GetResourceSyncRuleResult(
         id=pulumi.get(__response__, 'id'),

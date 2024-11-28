@@ -86,7 +86,7 @@ def get_project_inherited_settings(project_name: Optional[str] = None,
         project_catalog_settings=pulumi.get(__ret__, 'project_catalog_settings'))
 def get_project_inherited_settings_output(project_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectInheritedSettingsResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectInheritedSettingsResult]:
     """
     Gets applicable inherited settings for this project.
     Azure REST API version: 2024-05-01-preview.
@@ -100,7 +100,7 @@ def get_project_inherited_settings_output(project_name: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getProjectInheritedSettings', __args__, opts=opts, typ=GetProjectInheritedSettingsResult)
     return __ret__.apply(lambda __response__: GetProjectInheritedSettingsResult(
         network_settings=pulumi.get(__response__, 'network_settings'),

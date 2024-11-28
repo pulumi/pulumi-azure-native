@@ -227,7 +227,7 @@ def get_pool(pool_name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """
     Get a Pool
     Azure REST API version: 2023-07-01-preview.
@@ -239,7 +239,7 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerstorage:getPool', __args__, opts=opts, typ=GetPoolResult)
     return __ret__.apply(lambda __response__: GetPoolResult(
         assignments=pulumi.get(__response__, 'assignments'),

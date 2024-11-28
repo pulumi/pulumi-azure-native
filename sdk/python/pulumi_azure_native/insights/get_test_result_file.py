@@ -103,7 +103,7 @@ def get_test_result_file_output(continuation_token: Optional[pulumi.Input[Option
                                 test_successful_criteria: Optional[pulumi.Input[Optional[bool]]] = None,
                                 time_stamp: Optional[pulumi.Input[int]] = None,
                                 web_test_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultFileResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultFileResult]:
     """
     Returns a file test result for the matching test
     Azure REST API version: 2020-02-10-preview.
@@ -125,7 +125,7 @@ def get_test_result_file_output(continuation_token: Optional[pulumi.Input[Option
     __args__['testSuccessfulCriteria'] = test_successful_criteria
     __args__['timeStamp'] = time_stamp
     __args__['webTestName'] = web_test_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getTestResultFile', __args__, opts=opts, typ=GetTestResultFileResult)
     return __ret__.apply(lambda __response__: GetTestResultFileResult(
         data=pulumi.get(__response__, 'data'),

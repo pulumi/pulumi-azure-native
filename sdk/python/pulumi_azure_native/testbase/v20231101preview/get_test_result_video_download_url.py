@@ -90,7 +90,7 @@ def get_test_result_video_download_url_output(package_name: Optional[pulumi.Inpu
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               test_base_account_name: Optional[pulumi.Input[str]] = None,
                                               test_result_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultVideoDownloadURLResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultVideoDownloadURLResult]:
     """
     Gets the download URL of the test execution screen recording.
 
@@ -105,7 +105,7 @@ def get_test_result_video_download_url_output(package_name: Optional[pulumi.Inpu
     __args__['resourceGroupName'] = resource_group_name
     __args__['testBaseAccountName'] = test_base_account_name
     __args__['testResultName'] = test_result_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20231101preview:getTestResultVideoDownloadURL', __args__, opts=opts, typ=GetTestResultVideoDownloadURLResult)
     return __ret__.apply(lambda __response__: GetTestResultVideoDownloadURLResult(
         download_url=pulumi.get(__response__, 'download_url'),

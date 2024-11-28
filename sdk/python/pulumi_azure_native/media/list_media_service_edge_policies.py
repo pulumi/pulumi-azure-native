@@ -69,7 +69,7 @@ def list_media_service_edge_policies(account_name: Optional[str] = None,
 def list_media_service_edge_policies_output(account_name: Optional[pulumi.Input[str]] = None,
                                             device_id: Optional[pulumi.Input[Optional[str]]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMediaServiceEdgePoliciesResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMediaServiceEdgePoliciesResult]:
     """
     List all the media edge policies associated with the Media Services account.
     Azure REST API version: 2023-01-01.
@@ -83,7 +83,7 @@ def list_media_service_edge_policies_output(account_name: Optional[pulumi.Input[
     __args__['accountName'] = account_name
     __args__['deviceId'] = device_id
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media:listMediaServiceEdgePolicies', __args__, opts=opts, typ=ListMediaServiceEdgePoliciesResult)
     return __ret__.apply(lambda __response__: ListMediaServiceEdgePoliciesResult(
         usage_data_collection_policy=pulumi.get(__response__, 'usage_data_collection_policy')))

@@ -248,7 +248,7 @@ def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                    billing_profile_name: Optional[pulumi.Input[str]] = None,
                    include_budget: Optional[pulumi.Input[Optional[bool]]] = None,
                    invoice_section_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabResult]:
     """
     Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
     Azure REST API version: 2021-12-01-preview.
@@ -264,7 +264,7 @@ def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
     __args__['billingProfileName'] = billing_profile_name
     __args__['includeBudget'] = include_budget
     __args__['invoiceSectionName'] = invoice_section_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:education:getLab', __args__, opts=opts, typ=GetLabResult)
     return __ret__.apply(lambda __response__: GetLabResult(
         budget_per_student=pulumi.get(__response__, 'budget_per_student'),

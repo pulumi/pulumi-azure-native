@@ -161,7 +161,7 @@ def get_managed_environment_auth_token(environment_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_managed_environment_auth_token_output(environment_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentAuthTokenResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedEnvironmentAuthTokenResult]:
     """
     Checks if resource name is available.
 
@@ -172,7 +172,7 @@ def get_managed_environment_auth_token_output(environment_name: Optional[pulumi.
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240202preview:getManagedEnvironmentAuthToken', __args__, opts=opts, typ=GetManagedEnvironmentAuthTokenResult)
     return __ret__.apply(lambda __response__: GetManagedEnvironmentAuthTokenResult(
         expires=pulumi.get(__response__, 'expires'),

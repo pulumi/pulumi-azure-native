@@ -116,7 +116,7 @@ def get_job_credential_output(credential_name: Optional[pulumi.Input[str]] = Non
                               job_agent_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               server_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobCredentialResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobCredentialResult]:
     """
     Gets a jobs credential.
 
@@ -131,7 +131,7 @@ def get_job_credential_output(credential_name: Optional[pulumi.Input[str]] = Non
     __args__['jobAgentName'] = job_agent_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20211101:getJobCredential', __args__, opts=opts, typ=GetJobCredentialResult)
     return __ret__.apply(lambda __response__: GetJobCredentialResult(
         id=pulumi.get(__response__, 'id'),

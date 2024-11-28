@@ -144,7 +144,7 @@ def get_sql_resource_sql_user_defined_function_output(account_name: Optional[pul
                                                       database_name: Optional[pulumi.Input[str]] = None,
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                                       user_defined_function_name: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlUserDefinedFunctionResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlResourceSqlUserDefinedFunctionResult]:
     """
     Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
 
@@ -161,7 +161,7 @@ def get_sql_resource_sql_user_defined_function_output(account_name: Optional[pul
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['userDefinedFunctionName'] = user_defined_function_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20241115:getSqlResourceSqlUserDefinedFunction', __args__, opts=opts, typ=GetSqlResourceSqlUserDefinedFunctionResult)
     return __ret__.apply(lambda __response__: GetSqlResourceSqlUserDefinedFunctionResult(
         id=pulumi.get(__response__, 'id'),

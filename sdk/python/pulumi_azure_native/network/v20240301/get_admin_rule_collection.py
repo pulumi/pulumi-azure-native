@@ -182,7 +182,7 @@ def get_admin_rule_collection_output(configuration_name: Optional[pulumi.Input[s
                                      network_manager_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      rule_collection_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdminRuleCollectionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdminRuleCollectionResult]:
     """
     Gets a network manager security admin configuration rule collection.
 
@@ -197,7 +197,7 @@ def get_admin_rule_collection_output(configuration_name: Optional[pulumi.Input[s
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleCollectionName'] = rule_collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getAdminRuleCollection', __args__, opts=opts, typ=GetAdminRuleCollectionResult)
     return __ret__.apply(lambda __response__: GetAdminRuleCollectionResult(
         applies_to_groups=pulumi.get(__response__, 'applies_to_groups'),

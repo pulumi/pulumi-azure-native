@@ -178,7 +178,7 @@ def get_live_pipeline(account_name: Optional[str] = None,
 def get_live_pipeline_output(account_name: Optional[pulumi.Input[str]] = None,
                              live_pipeline_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLivePipelineResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLivePipelineResult]:
     """
     Retrieves a specific live pipeline by name. If a live pipeline with that name has been previously created, the call will return the JSON representation of that instance.
 
@@ -191,7 +191,7 @@ def get_live_pipeline_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['livePipelineName'] = live_pipeline_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer/v20211101preview:getLivePipeline', __args__, opts=opts, typ=GetLivePipelineResult)
     return __ret__.apply(lambda __response__: GetLivePipelineResult(
         bitrate_kbps=pulumi.get(__response__, 'bitrate_kbps'),

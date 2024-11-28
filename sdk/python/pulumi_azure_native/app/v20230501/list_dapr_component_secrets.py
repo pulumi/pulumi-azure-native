@@ -74,7 +74,7 @@ def list_dapr_component_secrets(component_name: Optional[str] = None,
 def list_dapr_component_secrets_output(component_name: Optional[pulumi.Input[str]] = None,
                                        environment_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDaprComponentSecretsResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDaprComponentSecretsResult]:
     """
     Dapr component Secrets Collection for ListSecrets Action.
 
@@ -87,7 +87,7 @@ def list_dapr_component_secrets_output(component_name: Optional[pulumi.Input[str
     __args__['componentName'] = component_name
     __args__['environmentName'] = environment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230501:listDaprComponentSecrets', __args__, opts=opts, typ=ListDaprComponentSecretsResult)
     return __ret__.apply(lambda __response__: ListDaprComponentSecretsResult(
         value=pulumi.get(__response__, 'value')))

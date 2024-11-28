@@ -226,7 +226,7 @@ def get_security_connector(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_security_connector_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   security_connector_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityConnectorResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityConnectorResult]:
     """
     Retrieves details of a specific security connector
 
@@ -237,7 +237,7 @@ def get_security_connector_output(resource_group_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityConnectorName'] = security_connector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20240301preview:getSecurityConnector', __args__, opts=opts, typ=GetSecurityConnectorResult)
     return __ret__.apply(lambda __response__: GetSecurityConnectorResult(
         environment_data=pulumi.get(__response__, 'environment_data'),

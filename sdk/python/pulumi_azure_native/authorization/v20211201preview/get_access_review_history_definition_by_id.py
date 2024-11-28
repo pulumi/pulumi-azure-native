@@ -300,7 +300,7 @@ def get_access_review_history_definition_by_id(history_definition_id: Optional[s
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
 def get_access_review_history_definition_by_id_output(history_definition_id: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessReviewHistoryDefinitionByIdResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessReviewHistoryDefinitionByIdResult]:
     """
     Get access review history definition by definition Id
 
@@ -309,7 +309,7 @@ def get_access_review_history_definition_by_id_output(history_definition_id: Opt
     """
     __args__ = dict()
     __args__['historyDefinitionId'] = history_definition_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20211201preview:getAccessReviewHistoryDefinitionById', __args__, opts=opts, typ=GetAccessReviewHistoryDefinitionByIdResult)
     return __ret__.apply(lambda __response__: GetAccessReviewHistoryDefinitionByIdResult(
         created_date_time=pulumi.get(__response__, 'created_date_time'),

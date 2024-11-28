@@ -200,7 +200,7 @@ def get_spacecraft(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                           spacecraft_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpacecraftResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpacecraftResult]:
     """
     Gets the specified spacecraft in a specified resource group.
 
@@ -211,7 +211,7 @@ def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['spacecraftName'] = spacecraft_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital/v20221101:getSpacecraft', __args__, opts=opts, typ=GetSpacecraftResult)
     return __ret__.apply(lambda __response__: GetSpacecraftResult(
         id=pulumi.get(__response__, 'id'),

@@ -282,7 +282,7 @@ def get_load_balancer(expand: Optional[str] = None,
 def get_load_balancer_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                              load_balancer_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Gets the specified load balancer.
 
@@ -295,7 +295,7 @@ def get_load_balancer_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     __args__['expand'] = expand
     __args__['loadBalancerName'] = load_balancer_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerResult(
         backend_address_pools=pulumi.get(__response__, 'backend_address_pools'),

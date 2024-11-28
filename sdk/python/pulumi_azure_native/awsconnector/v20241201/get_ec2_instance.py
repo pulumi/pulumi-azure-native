@@ -118,7 +118,7 @@ def get_ec2_instance(resource_uri: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_ec2_instance_output(resource_uri: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEc2InstanceResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEc2InstanceResult]:
     """
     Get a Ec2Instance
 
@@ -127,7 +127,7 @@ def get_ec2_instance_output(resource_uri: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector/v20241201:getEc2Instance', __args__, opts=opts, typ=GetEc2InstanceResult)
     return __ret__.apply(lambda __response__: GetEc2InstanceResult(
         id=pulumi.get(__response__, 'id'),

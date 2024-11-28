@@ -285,7 +285,7 @@ def list_geodata_by_ip_output(enrichment_type: Optional[pulumi.Input[str]] = Non
                               ip_address: Optional[pulumi.Input[Optional[str]]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGeodataByIpResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGeodataByIpResult]:
     """
     Get geodata for a single IP address
 
@@ -300,7 +300,7 @@ def list_geodata_by_ip_output(enrichment_type: Optional[pulumi.Input[str]] = Non
     __args__['ipAddress'] = ip_address
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240401preview:listGeodataByIp', __args__, opts=opts, typ=ListGeodataByIpResult)
     return __ret__.apply(lambda __response__: ListGeodataByIpResult(
         asn=pulumi.get(__response__, 'asn'),

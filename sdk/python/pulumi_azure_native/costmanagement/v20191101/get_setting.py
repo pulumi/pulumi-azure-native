@@ -144,7 +144,7 @@ def get_setting(setting_name: Optional[str] = None,
         start_on=pulumi.get(__ret__, 'start_on'),
         type=pulumi.get(__ret__, 'type'))
 def get_setting_output(setting_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSettingResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSettingResult]:
     """
     Retrieves the current value for a specific setting.
 
@@ -153,7 +153,7 @@ def get_setting_output(setting_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['settingName'] = setting_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20191101:getSetting', __args__, opts=opts, typ=GetSettingResult)
     return __ret__.apply(lambda __response__: GetSettingResult(
         cache=pulumi.get(__response__, 'cache'),

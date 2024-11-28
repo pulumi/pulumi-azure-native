@@ -399,7 +399,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
 def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         profile_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
 
@@ -412,7 +412,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     __args__['endpointName'] = endpoint_name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240501preview:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
     return __ret__.apply(lambda __response__: GetEndpointResult(
         content_types_to_compress=pulumi.get(__response__, 'content_types_to_compress'),

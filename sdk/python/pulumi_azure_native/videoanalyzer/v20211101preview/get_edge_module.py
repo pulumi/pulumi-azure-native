@@ -126,7 +126,7 @@ def get_edge_module(account_name: Optional[str] = None,
 def get_edge_module_output(account_name: Optional[pulumi.Input[str]] = None,
                            edge_module_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEdgeModuleResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEdgeModuleResult]:
     """
     Retrieves an existing edge module resource with the given name.
 
@@ -139,7 +139,7 @@ def get_edge_module_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['edgeModuleName'] = edge_module_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer/v20211101preview:getEdgeModule', __args__, opts=opts, typ=GetEdgeModuleResult)
     return __ret__.apply(lambda __response__: GetEdgeModuleResult(
         edge_module_id=pulumi.get(__response__, 'edge_module_id'),

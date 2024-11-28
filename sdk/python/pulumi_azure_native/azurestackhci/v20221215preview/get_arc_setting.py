@@ -321,7 +321,7 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
 def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                            cluster_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArcSettingResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArcSettingResult]:
     """
     Get ArcSetting resource details of HCI Cluster.
 
@@ -334,7 +334,7 @@ def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
     __args__['arcSettingName'] = arc_setting_name
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20221215preview:getArcSetting', __args__, opts=opts, typ=GetArcSettingResult)
     return __ret__.apply(lambda __response__: GetArcSettingResult(
         aggregate_state=pulumi.get(__response__, 'aggregate_state'),

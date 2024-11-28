@@ -215,7 +215,7 @@ def get_device_output(catalog_name: Optional[pulumi.Input[str]] = None,
                       device_name: Optional[pulumi.Input[str]] = None,
                       product_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
     Azure REST API version: 2022-09-01-preview.
@@ -235,7 +235,7 @@ def get_device_output(catalog_name: Optional[pulumi.Input[str]] = None,
     __args__['deviceName'] = device_name
     __args__['productName'] = product_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere:getDevice', __args__, opts=opts, typ=GetDeviceResult)
     return __ret__.apply(lambda __response__: GetDeviceResult(
         chip_sku=pulumi.get(__response__, 'chip_sku'),

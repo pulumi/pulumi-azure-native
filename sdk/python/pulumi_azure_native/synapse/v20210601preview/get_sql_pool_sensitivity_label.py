@@ -242,7 +242,7 @@ def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[str
                                           sql_pool_name: Optional[pulumi.Input[str]] = None,
                                           table_name: Optional[pulumi.Input[str]] = None,
                                           workspace_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolSensitivityLabelResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolSensitivityLabelResult]:
     """
     Gets the sensitivity label of a given column
 
@@ -263,7 +263,7 @@ def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[str
     __args__['sqlPoolName'] = sql_pool_name
     __args__['tableName'] = table_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601preview:getSqlPoolSensitivityLabel', __args__, opts=opts, typ=GetSqlPoolSensitivityLabelResult)
     return __ret__.apply(lambda __response__: GetSqlPoolSensitivityLabelResult(
         column_name=pulumi.get(__response__, 'column_name'),

@@ -74,7 +74,7 @@ def get_flow_destination_endpoints(connection_name: Optional[str] = None,
 def get_flow_destination_endpoints_output(connection_name: Optional[pulumi.Input[str]] = None,
                                           flow_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowDestinationEndpointsResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowDestinationEndpointsResult]:
     """
     Get the destination endpoints for the specified flow and stream ID.
     Azure REST API version: 2024-09-27.
@@ -88,7 +88,7 @@ def get_flow_destination_endpoints_output(connection_name: Optional[pulumi.Input
     __args__['connectionName'] = connection_name
     __args__['flowName'] = flow_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuredatatransfer:getFlowDestinationEndpoints', __args__, opts=opts, typ=GetFlowDestinationEndpointsResult)
     return __ret__.apply(lambda __response__: GetFlowDestinationEndpointsResult(
         endpoints=pulumi.get(__response__, 'endpoints')))

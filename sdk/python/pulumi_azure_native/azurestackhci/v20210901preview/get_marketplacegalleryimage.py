@@ -265,7 +265,7 @@ def get_marketplacegalleryimage(marketplacegalleryimages_name: Optional[str] = N
         version=pulumi.get(__ret__, 'version'))
 def get_marketplacegalleryimage_output(marketplacegalleryimages_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMarketplacegalleryimageResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMarketplacegalleryimageResult]:
     """
     Gets marketplacegalleryimages by resource name
 
@@ -276,7 +276,7 @@ def get_marketplacegalleryimage_output(marketplacegalleryimages_name: Optional[p
     __args__ = dict()
     __args__['marketplacegalleryimagesName'] = marketplacegalleryimages_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20210901preview:getMarketplacegalleryimage', __args__, opts=opts, typ=GetMarketplacegalleryimageResult)
     return __ret__.apply(lambda __response__: GetMarketplacegalleryimageResult(
         cloud_init_data_source=pulumi.get(__response__, 'cloud_init_data_source'),

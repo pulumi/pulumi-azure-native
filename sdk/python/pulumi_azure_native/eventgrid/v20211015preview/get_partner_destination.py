@@ -227,7 +227,7 @@ def get_partner_destination(partner_destination_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_partner_destination_output(partner_destination_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerDestinationResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerDestinationResult]:
     """
     Get properties of a partner destination.
 
@@ -238,7 +238,7 @@ def get_partner_destination_output(partner_destination_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['partnerDestinationName'] = partner_destination_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20211015preview:getPartnerDestination', __args__, opts=opts, typ=GetPartnerDestinationResult)
     return __ret__.apply(lambda __response__: GetPartnerDestinationResult(
         activation_state=pulumi.get(__response__, 'activation_state'),

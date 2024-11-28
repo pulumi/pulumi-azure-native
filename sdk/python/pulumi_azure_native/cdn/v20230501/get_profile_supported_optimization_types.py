@@ -69,7 +69,7 @@ def get_profile_supported_optimization_types(profile_name: Optional[str] = None,
         supported_optimization_types=pulumi.get(__ret__, 'supported_optimization_types'))
 def get_profile_supported_optimization_types_output(profile_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileSupportedOptimizationTypesResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileSupportedOptimizationTypesResult]:
     """
     Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.
 
@@ -80,7 +80,7 @@ def get_profile_supported_optimization_types_output(profile_name: Optional[pulum
     __args__ = dict()
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20230501:getProfileSupportedOptimizationTypes', __args__, opts=opts, typ=GetProfileSupportedOptimizationTypesResult)
     return __ret__.apply(lambda __response__: GetProfileSupportedOptimizationTypesResult(
         supported_optimization_types=pulumi.get(__response__, 'supported_optimization_types')))

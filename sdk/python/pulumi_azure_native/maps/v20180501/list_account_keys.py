@@ -95,7 +95,7 @@ def list_account_keys(account_name: Optional[str] = None,
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
 def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
     Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.
 
@@ -106,7 +106,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maps/v20180501:listAccountKeys', __args__, opts=opts, typ=ListAccountKeysResult)
     return __ret__.apply(lambda __response__: ListAccountKeysResult(
         id=pulumi.get(__response__, 'id'),

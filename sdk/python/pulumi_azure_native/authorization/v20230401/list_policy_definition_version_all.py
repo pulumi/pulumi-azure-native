@@ -73,12 +73,12 @@ def list_policy_definition_version_all(opts: Optional[pulumi.InvokeOptions] = No
     return AwaitableListPolicyDefinitionVersionAllResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_policy_definition_version_all_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicyDefinitionVersionAllResult]:
+def list_policy_definition_version_all_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPolicyDefinitionVersionAllResult]:
     """
     This operation lists all the policy definition versions for all policy definitions within a subscription.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20230401:listPolicyDefinitionVersionAll', __args__, opts=opts, typ=ListPolicyDefinitionVersionAllResult)
     return __ret__.apply(lambda __response__: ListPolicyDefinitionVersionAllResult(
         next_link=pulumi.get(__response__, 'next_link'),

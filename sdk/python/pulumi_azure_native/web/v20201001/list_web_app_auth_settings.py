@@ -654,7 +654,7 @@ def list_web_app_auth_settings(name: Optional[str] = None,
         validate_issuer=pulumi.get(__ret__, 'validate_issuer'))
 def list_web_app_auth_settings_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAuthSettingsResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppAuthSettingsResult]:
     """
     Gets the Authentication/Authorization settings of an app.
 
@@ -665,7 +665,7 @@ def list_web_app_auth_settings_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:listWebAppAuthSettings', __args__, opts=opts, typ=ListWebAppAuthSettingsResult)
     return __ret__.apply(lambda __response__: ListWebAppAuthSettingsResult(
         aad_claims_authorization=pulumi.get(__response__, 'aad_claims_authorization'),

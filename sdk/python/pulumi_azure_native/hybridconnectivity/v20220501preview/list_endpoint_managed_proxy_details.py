@@ -90,7 +90,7 @@ def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.In
                                                hostname: Optional[pulumi.Input[Optional[str]]] = None,
                                                resource_uri: Optional[pulumi.Input[str]] = None,
                                                service: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEndpointManagedProxyDetailsResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointManagedProxyDetailsResult]:
     """
     Fetches the managed proxy details
 
@@ -105,7 +105,7 @@ def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.In
     __args__['hostname'] = hostname
     __args__['resourceUri'] = resource_uri
     __args__['service'] = service
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity/v20220501preview:listEndpointManagedProxyDetails', __args__, opts=opts, typ=ListEndpointManagedProxyDetailsResult)
     return __ret__.apply(lambda __response__: ListEndpointManagedProxyDetailsResult(
         expires_on=pulumi.get(__response__, 'expires_on'),

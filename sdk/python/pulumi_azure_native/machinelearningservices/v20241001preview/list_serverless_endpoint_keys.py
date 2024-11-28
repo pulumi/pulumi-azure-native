@@ -86,7 +86,7 @@ def list_serverless_endpoint_keys(name: Optional[str] = None,
 def list_serverless_endpoint_keys_output(name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          workspace_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServerlessEndpointKeysResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServerlessEndpointKeysResult]:
     """
     Keys for endpoint authentication.
 
@@ -99,7 +99,7 @@ def list_serverless_endpoint_keys_output(name: Optional[pulumi.Input[str]] = Non
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20241001preview:listServerlessEndpointKeys', __args__, opts=opts, typ=ListServerlessEndpointKeysResult)
     return __ret__.apply(lambda __response__: ListServerlessEndpointKeysResult(
         primary_key=pulumi.get(__response__, 'primary_key'),

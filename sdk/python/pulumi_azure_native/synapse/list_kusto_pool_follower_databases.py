@@ -75,7 +75,7 @@ def list_kusto_pool_follower_databases(kusto_pool_name: Optional[str] = None,
 def list_kusto_pool_follower_databases_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               workspace_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListKustoPoolFollowerDatabasesResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListKustoPoolFollowerDatabasesResult]:
     """
     Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
     Azure REST API version: 2021-06-01-preview.
@@ -89,7 +89,7 @@ def list_kusto_pool_follower_databases_output(kusto_pool_name: Optional[pulumi.I
     __args__['kustoPoolName'] = kusto_pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:listKustoPoolFollowerDatabases', __args__, opts=opts, typ=ListKustoPoolFollowerDatabasesResult)
     return __ret__.apply(lambda __response__: ListKustoPoolFollowerDatabasesResult(
         value=pulumi.get(__response__, 'value')))

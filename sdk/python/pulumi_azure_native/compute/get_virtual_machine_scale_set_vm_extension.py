@@ -280,7 +280,7 @@ def get_virtual_machine_scale_set_vm_extension_output(expand: Optional[pulumi.In
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                                       vm_extension_name: Optional[pulumi.Input[str]] = None,
                                                       vm_scale_set_name: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMExtensionResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMExtensionResult]:
     """
     The operation to get the VMSS VM extension.
     Azure REST API version: 2023-03-01.
@@ -300,7 +300,7 @@ def get_virtual_machine_scale_set_vm_extension_output(expand: Optional[pulumi.In
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmExtensionName'] = vm_extension_name
     __args__['vmScaleSetName'] = vm_scale_set_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getVirtualMachineScaleSetVMExtension', __args__, opts=opts, typ=GetVirtualMachineScaleSetVMExtensionResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineScaleSetVMExtensionResult(
         auto_upgrade_minor_version=pulumi.get(__response__, 'auto_upgrade_minor_version'),

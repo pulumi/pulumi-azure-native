@@ -227,7 +227,7 @@ def get_kubernetes_cluster_feature(feature_name: Optional[str] = None,
 def get_kubernetes_cluster_feature_output(feature_name: Optional[pulumi.Input[str]] = None,
                                           kubernetes_cluster_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKubernetesClusterFeatureResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesClusterFeatureResult]:
     """
     Get properties of the provided the Kubernetes cluster feature.
 
@@ -240,7 +240,7 @@ def get_kubernetes_cluster_feature_output(feature_name: Optional[pulumi.Input[st
     __args__['featureName'] = feature_name
     __args__['kubernetesClusterName'] = kubernetes_cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20240701:getKubernetesClusterFeature', __args__, opts=opts, typ=GetKubernetesClusterFeatureResult)
     return __ret__.apply(lambda __response__: GetKubernetesClusterFeatureResult(
         availability_lifecycle=pulumi.get(__response__, 'availability_lifecycle'),

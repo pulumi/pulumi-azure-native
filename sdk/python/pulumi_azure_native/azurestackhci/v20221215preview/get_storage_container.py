@@ -187,7 +187,7 @@ def get_storage_container(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_storage_container_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  storage_container_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageContainerResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageContainerResult]:
     """
     Gets a storage container
 
@@ -198,7 +198,7 @@ def get_storage_container_output(resource_group_name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageContainerName'] = storage_container_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20221215preview:getStorageContainer', __args__, opts=opts, typ=GetStorageContainerResult)
     return __ret__.apply(lambda __response__: GetStorageContainerResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

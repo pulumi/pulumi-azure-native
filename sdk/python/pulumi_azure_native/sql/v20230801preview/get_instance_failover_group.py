@@ -191,7 +191,7 @@ def get_instance_failover_group(failover_group_name: Optional[str] = None,
 def get_instance_failover_group_output(failover_group_name: Optional[pulumi.Input[str]] = None,
                                        location_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceFailoverGroupResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceFailoverGroupResult]:
     """
     Gets a failover group.
 
@@ -204,7 +204,7 @@ def get_instance_failover_group_output(failover_group_name: Optional[pulumi.Inpu
     __args__['failoverGroupName'] = failover_group_name
     __args__['locationName'] = location_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getInstanceFailoverGroup', __args__, opts=opts, typ=GetInstanceFailoverGroupResult)
     return __ret__.apply(lambda __response__: GetInstanceFailoverGroupResult(
         id=pulumi.get(__response__, 'id'),

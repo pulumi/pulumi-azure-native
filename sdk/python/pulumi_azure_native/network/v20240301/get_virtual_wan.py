@@ -226,7 +226,7 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
         vpn_sites=pulumi.get(__ret__, 'vpn_sites'))
 def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            virtual_wan_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualWanResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualWanResult]:
     """
     Retrieves the details of a VirtualWAN.
 
@@ -237,7 +237,7 @@ def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualWANName'] = virtual_wan_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getVirtualWan', __args__, opts=opts, typ=GetVirtualWanResult)
     return __ret__.apply(lambda __response__: GetVirtualWanResult(
         allow_branch_to_branch_traffic=pulumi.get(__response__, 'allow_branch_to_branch_traffic'),

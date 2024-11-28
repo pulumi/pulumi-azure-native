@@ -83,7 +83,7 @@ def list_git_hub_owner_available(resource_group_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_git_hub_owner_available_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         security_connector_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGitHubOwnerAvailableResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGitHubOwnerAvailableResult]:
     """
     List of RP resources which supports pagination.
 
@@ -94,7 +94,7 @@ def list_git_hub_owner_available_output(resource_group_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityConnectorName'] = security_connector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20230901preview:listGitHubOwnerAvailable', __args__, opts=opts, typ=ListGitHubOwnerAvailableResult)
     return __ret__.apply(lambda __response__: ListGitHubOwnerAvailableResult(
         next_link=pulumi.get(__response__, 'next_link'),

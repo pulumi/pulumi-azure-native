@@ -86,7 +86,7 @@ def list_gateway_debug_credentials_output(api_id: Optional[pulumi.Input[str]] = 
                                           purposes: Optional[pulumi.Input[Sequence[Union[str, 'GatewayListDebugCredentialsContractPurpose']]]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           service_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGatewayDebugCredentialsResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGatewayDebugCredentialsResult]:
     """
     Create new debug credentials for gateway.
 
@@ -105,7 +105,7 @@ def list_gateway_debug_credentials_output(api_id: Optional[pulumi.Input[str]] = 
     __args__['purposes'] = purposes
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:listGatewayDebugCredentials', __args__, opts=opts, typ=ListGatewayDebugCredentialsResult)
     return __ret__.apply(lambda __response__: ListGatewayDebugCredentialsResult(
         token=pulumi.get(__response__, 'token')))

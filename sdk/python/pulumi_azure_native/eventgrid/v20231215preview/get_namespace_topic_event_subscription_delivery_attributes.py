@@ -78,7 +78,7 @@ def get_namespace_topic_event_subscription_delivery_attributes_output(event_subs
                                                                       namespace_name: Optional[pulumi.Input[str]] = None,
                                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                       topic_name: Optional[pulumi.Input[str]] = None,
-                                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceTopicEventSubscriptionDeliveryAttributesResult]:
+                                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription of a namespace topic.
 
@@ -93,7 +93,7 @@ def get_namespace_topic_event_subscription_delivery_attributes_output(event_subs
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20231215preview:getNamespaceTopicEventSubscriptionDeliveryAttributes', __args__, opts=opts, typ=GetNamespaceTopicEventSubscriptionDeliveryAttributesResult)
     return __ret__.apply(lambda __response__: GetNamespaceTopicEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__response__, 'value')))

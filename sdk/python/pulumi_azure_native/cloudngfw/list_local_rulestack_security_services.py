@@ -95,7 +95,7 @@ def list_local_rulestack_security_services_output(local_rulestack_name: Optional
                                                   skip: Optional[pulumi.Input[Optional[str]]] = None,
                                                   top: Optional[pulumi.Input[Optional[int]]] = None,
                                                   type: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLocalRulestackSecurityServicesResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLocalRulestackSecurityServicesResult]:
     """
     List the security services for rulestack
     Azure REST API version: 2023-09-01.
@@ -112,7 +112,7 @@ def list_local_rulestack_security_services_output(local_rulestack_name: Optional
     __args__['skip'] = skip
     __args__['top'] = top
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:listLocalRulestackSecurityServices', __args__, opts=opts, typ=ListLocalRulestackSecurityServicesResult)
     return __ret__.apply(lambda __response__: ListLocalRulestackSecurityServicesResult(
         next_link=pulumi.get(__response__, 'next_link'),

@@ -164,7 +164,7 @@ def get_configuration_assignments_for_resource_group(configuration_assignment_na
         type=pulumi.get(__ret__, 'type'))
 def get_configuration_assignments_for_resource_group_output(configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAssignmentsForResourceGroupResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentsForResourceGroupResult]:
     """
     Get configuration assignment for resource..
     Azure REST API version: 2023-04-01.
@@ -178,7 +178,7 @@ def get_configuration_assignments_for_resource_group_output(configuration_assign
     __args__ = dict()
     __args__['configurationAssignmentName'] = configuration_assignment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance:getConfigurationAssignmentsForResourceGroup', __args__, opts=opts, typ=GetConfigurationAssignmentsForResourceGroupResult)
     return __ret__.apply(lambda __response__: GetConfigurationAssignmentsForResourceGroupResult(
         filter=pulumi.get(__response__, 'filter'),

@@ -98,7 +98,7 @@ def get_log_analytic_export_throttled_requests_output(blob_container_sas_uri: Op
                                                       group_by_user_agent: Optional[pulumi.Input[Optional[bool]]] = None,
                                                       location: Optional[pulumi.Input[str]] = None,
                                                       to_time: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogAnalyticExportThrottledRequestsResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAnalyticExportThrottledRequestsResult]:
     """
     Export logs that show total throttled Api requests for this subscription in the given time window.
 
@@ -123,7 +123,7 @@ def get_log_analytic_export_throttled_requests_output(blob_container_sas_uri: Op
     __args__['groupByUserAgent'] = group_by_user_agent
     __args__['location'] = location
     __args__['toTime'] = to_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230701:getLogAnalyticExportThrottledRequests', __args__, opts=opts, typ=GetLogAnalyticExportThrottledRequestsResult)
     return __ret__.apply(lambda __response__: GetLogAnalyticExportThrottledRequestsResult(
         properties=pulumi.get(__response__, 'properties')))

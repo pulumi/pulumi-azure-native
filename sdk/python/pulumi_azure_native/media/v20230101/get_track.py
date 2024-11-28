@@ -130,7 +130,7 @@ def get_track_output(account_name: Optional[pulumi.Input[str]] = None,
                      asset_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      track_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrackResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrackResult]:
     """
     Get the details of a Track in the Asset
 
@@ -145,7 +145,7 @@ def get_track_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['assetName'] = asset_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['trackName'] = track_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media/v20230101:getTrack', __args__, opts=opts, typ=GetTrackResult)
     return __ret__.apply(lambda __response__: GetTrackResult(
         id=pulumi.get(__response__, 'id'),

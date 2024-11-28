@@ -269,7 +269,7 @@ def get_python2_package(automation_account_name: Optional[str] = None,
 def get_python2_package_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                package_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPython2PackageResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPython2PackageResult]:
     """
     Retrieve the python 2 package identified by package name.
 
@@ -282,7 +282,7 @@ def get_python2_package_output(automation_account_name: Optional[pulumi.Input[st
     __args__['automationAccountName'] = automation_account_name
     __args__['packageName'] = package_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20231101:getPython2Package', __args__, opts=opts, typ=GetPython2PackageResult)
     return __ret__.apply(lambda __response__: GetPython2PackageResult(
         activity_count=pulumi.get(__response__, 'activity_count'),

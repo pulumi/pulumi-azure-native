@@ -139,7 +139,7 @@ def get_managed_instance_private_endpoint_connection(managed_instance_name: Opti
 def get_managed_instance_private_endpoint_connection_output(managed_instance_name: Optional[pulumi.Input[str]] = None,
                                                             private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstancePrivateEndpointConnectionResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedInstancePrivateEndpointConnectionResult]:
     """
     Gets a private endpoint connection.
 
@@ -152,7 +152,7 @@ def get_managed_instance_private_endpoint_connection_output(managed_instance_nam
     __args__['managedInstanceName'] = managed_instance_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20240501preview:getManagedInstancePrivateEndpointConnection', __args__, opts=opts, typ=GetManagedInstancePrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetManagedInstancePrivateEndpointConnectionResult(
         id=pulumi.get(__response__, 'id'),

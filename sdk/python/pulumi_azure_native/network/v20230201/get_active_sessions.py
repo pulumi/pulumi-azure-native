@@ -83,7 +83,7 @@ def get_active_sessions(bastion_host_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def get_active_sessions_output(bastion_host_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActiveSessionsResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActiveSessionsResult]:
     """
     Returns the list of currently active sessions on the Bastion.
 
@@ -94,7 +94,7 @@ def get_active_sessions_output(bastion_host_name: Optional[pulumi.Input[str]] = 
     __args__ = dict()
     __args__['bastionHostName'] = bastion_host_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getActiveSessions', __args__, opts=opts, typ=GetActiveSessionsResult)
     return __ret__.apply(lambda __response__: GetActiveSessionsResult(
         next_link=pulumi.get(__response__, 'next_link'),

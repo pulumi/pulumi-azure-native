@@ -113,7 +113,7 @@ def get_api_wiki(api_id: Optional[str] = None,
 def get_api_wiki_output(api_id: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         service_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiWikiResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiWikiResult]:
     """
     Gets the details of the Wiki for an API specified by its identifier.
 
@@ -126,7 +126,7 @@ def get_api_wiki_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__['apiId'] = api_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240601preview:getApiWiki', __args__, opts=opts, typ=GetApiWikiResult)
     return __ret__.apply(lambda __response__: GetApiWikiResult(
         documents=pulumi.get(__response__, 'documents'),

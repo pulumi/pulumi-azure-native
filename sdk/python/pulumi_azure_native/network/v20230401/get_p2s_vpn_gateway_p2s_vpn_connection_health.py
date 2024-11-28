@@ -239,7 +239,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health(gateway_name: Optional[str] = 
         vpn_server_configuration=pulumi.get(__ret__, 'vpn_server_configuration'))
 def get_p2s_vpn_gateway_p2s_vpn_connection_health_output(gateway_name: Optional[pulumi.Input[str]] = None,
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnGatewayP2sVpnConnectionHealthResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetP2sVpnGatewayP2sVpnConnectionHealthResult]:
     """
     Gets the connection health of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
 
@@ -250,7 +250,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_output(gateway_name: Optional[
     __args__ = dict()
     __args__['gatewayName'] = gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getP2sVpnGatewayP2sVpnConnectionHealth', __args__, opts=opts, typ=GetP2sVpnGatewayP2sVpnConnectionHealthResult)
     return __ret__.apply(lambda __response__: GetP2sVpnGatewayP2sVpnConnectionHealthResult(
         custom_dns_servers=pulumi.get(__response__, 'custom_dns_servers'),

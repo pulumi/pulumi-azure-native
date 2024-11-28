@@ -70,7 +70,7 @@ def list_linker_configurations(linker_name: Optional[str] = None,
         configurations=pulumi.get(__ret__, 'configurations'))
 def list_linker_configurations_output(linker_name: Optional[pulumi.Input[str]] = None,
                                       resource_uri: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLinkerConfigurationsResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLinkerConfigurationsResult]:
     """
     list source configurations for a Linker.
 
@@ -81,7 +81,7 @@ def list_linker_configurations_output(linker_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['linkerName'] = linker_name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicelinker/v20240701preview:listLinkerConfigurations', __args__, opts=opts, typ=ListLinkerConfigurationsResult)
     return __ret__.apply(lambda __response__: ListLinkerConfigurationsResult(
         configurations=pulumi.get(__response__, 'configurations')))

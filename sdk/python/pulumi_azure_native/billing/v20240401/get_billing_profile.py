@@ -135,7 +135,7 @@ def get_billing_profile(billing_account_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_billing_profile_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                billing_profile_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingProfileResult]:
     """
     Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
 
@@ -146,7 +146,7 @@ def get_billing_profile_output(billing_account_name: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['billingAccountName'] = billing_account_name
     __args__['billingProfileName'] = billing_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:billing/v20240401:getBillingProfile', __args__, opts=opts, typ=GetBillingProfileResult)
     return __ret__.apply(lambda __response__: GetBillingProfileResult(
         id=pulumi.get(__response__, 'id'),

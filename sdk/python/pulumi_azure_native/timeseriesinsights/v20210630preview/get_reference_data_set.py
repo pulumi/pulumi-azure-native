@@ -178,7 +178,7 @@ def get_reference_data_set(environment_name: Optional[str] = None,
 def get_reference_data_set_output(environment_name: Optional[pulumi.Input[str]] = None,
                                   reference_data_set_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReferenceDataSetResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReferenceDataSetResult]:
     """
     Gets the reference data set with the specified name in the specified environment.
 
@@ -191,7 +191,7 @@ def get_reference_data_set_output(environment_name: Optional[pulumi.Input[str]] 
     __args__['environmentName'] = environment_name
     __args__['referenceDataSetName'] = reference_data_set_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:timeseriesinsights/v20210630preview:getReferenceDataSet', __args__, opts=opts, typ=GetReferenceDataSetResult)
     return __ret__.apply(lambda __response__: GetReferenceDataSetResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

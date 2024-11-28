@@ -165,7 +165,7 @@ def get_transform(account_name: Optional[str] = None,
 def get_transform_output(account_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          transform_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransformResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransformResult]:
     """
     Gets a Transform.
 
@@ -178,7 +178,7 @@ def get_transform_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['transformName'] = transform_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media/v20220701:getTransform', __args__, opts=opts, typ=GetTransformResult)
     return __ret__.apply(lambda __response__: GetTransformResult(
         created=pulumi.get(__response__, 'created'),

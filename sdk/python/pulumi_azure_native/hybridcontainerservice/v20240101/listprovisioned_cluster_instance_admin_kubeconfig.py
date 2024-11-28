@@ -125,7 +125,7 @@ def listprovisioned_cluster_instance_admin_kubeconfig(connected_cluster_resource
         resource_id=pulumi.get(__ret__, 'resource_id'),
         status=pulumi.get(__ret__, 'status'))
 def listprovisioned_cluster_instance_admin_kubeconfig_output(connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
-                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListprovisionedClusterInstanceAdminKubeconfigResult]:
+                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListprovisionedClusterInstanceAdminKubeconfigResult]:
     """
     Lists the admin credentials of the provisioned cluster (can only be used within private network)
 
@@ -134,7 +134,7 @@ def listprovisioned_cluster_instance_admin_kubeconfig_output(connected_cluster_r
     """
     __args__ = dict()
     __args__['connectedClusterResourceUri'] = connected_cluster_resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20240101:listprovisionedClusterInstanceAdminKubeconfig', __args__, opts=opts, typ=ListprovisionedClusterInstanceAdminKubeconfigResult)
     return __ret__.apply(lambda __response__: ListprovisionedClusterInstanceAdminKubeconfigResult(
         error=pulumi.get(__response__, 'error'),

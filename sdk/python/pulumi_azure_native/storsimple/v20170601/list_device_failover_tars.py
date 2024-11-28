@@ -78,7 +78,7 @@ def list_device_failover_tars_output(manager_name: Optional[pulumi.Input[str]] =
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      source_device_name: Optional[pulumi.Input[str]] = None,
                                      volume_containers: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceFailoverTarsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDeviceFailoverTarsResult]:
     """
     Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
 
@@ -93,7 +93,7 @@ def list_device_failover_tars_output(manager_name: Optional[pulumi.Input[str]] =
     __args__['resourceGroupName'] = resource_group_name
     __args__['sourceDeviceName'] = source_device_name
     __args__['volumeContainers'] = volume_containers
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple/v20170601:listDeviceFailoverTars', __args__, opts=opts, typ=ListDeviceFailoverTarsResult)
     return __ret__.apply(lambda __response__: ListDeviceFailoverTarsResult(
         value=pulumi.get(__response__, 'value')))

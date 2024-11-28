@@ -165,7 +165,7 @@ def get_plan_member(member_name: Optional[str] = None,
 def get_plan_member_output(member_name: Optional[pulumi.Input[str]] = None,
                            plan_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlanMemberResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanMemberResult]:
     """
     Gets a devcenter plan member.
 
@@ -178,7 +178,7 @@ def get_plan_member_output(member_name: Optional[pulumi.Input[str]] = None,
     __args__['memberName'] = member_name
     __args__['planName'] = plan_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240501preview:getPlanMember', __args__, opts=opts, typ=GetPlanMemberResult)
     return __ret__.apply(lambda __response__: GetPlanMemberResult(
         id=pulumi.get(__response__, 'id'),

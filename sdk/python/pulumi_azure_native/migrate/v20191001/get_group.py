@@ -126,7 +126,7 @@ def get_group(group_name: Optional[str] = None,
 def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
                      project_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
 
@@ -139,7 +139,7 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20191001:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

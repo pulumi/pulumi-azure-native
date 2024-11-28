@@ -132,7 +132,7 @@ def get_skus_nested_resource_type_third_output(nested_resource_type_first: Optio
                                                provider_namespace: Optional[pulumi.Input[str]] = None,
                                                resource_type: Optional[pulumi.Input[str]] = None,
                                                sku: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSkusNestedResourceTypeThirdResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSkusNestedResourceTypeThirdResult]:
     """
     Gets the sku details for the given resource type and sku name.
 
@@ -151,7 +151,7 @@ def get_skus_nested_resource_type_third_output(nested_resource_type_first: Optio
     __args__['providerNamespace'] = provider_namespace
     __args__['resourceType'] = resource_type
     __args__['sku'] = sku
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:providerhub/v20210901preview:getSkusNestedResourceTypeThird', __args__, opts=opts, typ=GetSkusNestedResourceTypeThirdResult)
     return __ret__.apply(lambda __response__: GetSkusNestedResourceTypeThirdResult(
         id=pulumi.get(__response__, 'id'),

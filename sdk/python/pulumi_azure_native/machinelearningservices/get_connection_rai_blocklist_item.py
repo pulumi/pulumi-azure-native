@@ -129,7 +129,7 @@ def get_connection_rai_blocklist_item_output(connection_name: Optional[pulumi.In
                                              rai_blocklist_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              workspace_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionRaiBlocklistItemResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionRaiBlocklistItemResult]:
     """
     Azure REST API version: 2024-04-01-preview.
 
@@ -146,7 +146,7 @@ def get_connection_rai_blocklist_item_output(connection_name: Optional[pulumi.In
     __args__['raiBlocklistName'] = rai_blocklist_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getConnectionRaiBlocklistItem', __args__, opts=opts, typ=GetConnectionRaiBlocklistItemResult)
     return __ret__.apply(lambda __response__: GetConnectionRaiBlocklistItemResult(
         id=pulumi.get(__response__, 'id'),

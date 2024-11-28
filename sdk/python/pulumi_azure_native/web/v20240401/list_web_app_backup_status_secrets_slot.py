@@ -312,7 +312,7 @@ def list_web_app_backup_status_secrets_slot_output(backup_id: Optional[pulumi.In
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    slot: Optional[pulumi.Input[str]] = None,
                                                    storage_account_url: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppBackupStatusSecretsSlotResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppBackupStatusSecretsSlotResult]:
     """
     Description for Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
 
@@ -339,7 +339,7 @@ def list_web_app_backup_status_secrets_slot_output(backup_id: Optional[pulumi.In
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
     __args__['storageAccountUrl'] = storage_account_url
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:listWebAppBackupStatusSecretsSlot', __args__, opts=opts, typ=ListWebAppBackupStatusSecretsSlotResult)
     return __ret__.apply(lambda __response__: ListWebAppBackupStatusSecretsSlotResult(
         backup_id=pulumi.get(__response__, 'backup_id'),

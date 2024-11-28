@@ -260,7 +260,7 @@ def get_iot_hub_data_connection_output(cluster_name: Optional[pulumi.Input[str]]
                                        data_connection_name: Optional[pulumi.Input[str]] = None,
                                        database_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubDataConnectionResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotHubDataConnectionResult]:
     """
     Returns a data connection.
 
@@ -275,7 +275,7 @@ def get_iot_hub_data_connection_output(cluster_name: Optional[pulumi.Input[str]]
     __args__['dataConnectionName'] = data_connection_name
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20221229:getIotHubDataConnection', __args__, opts=opts, typ=GetIotHubDataConnectionResult)
     return __ret__.apply(lambda __response__: GetIotHubDataConnectionResult(
         consumer_group=pulumi.get(__response__, 'consumer_group'),

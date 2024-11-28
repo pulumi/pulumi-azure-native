@@ -69,7 +69,7 @@ def get_serverless_endpoint_status(name: Optional[str] = None,
 def get_serverless_endpoint_status_output(name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           workspace_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessEndpointStatusResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessEndpointStatusResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -81,7 +81,7 @@ def get_serverless_endpoint_status_output(name: Optional[pulumi.Input[str]] = No
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230801preview:getServerlessEndpointStatus', __args__, opts=opts, typ=GetServerlessEndpointStatusResult)
     return __ret__.apply(lambda __response__: GetServerlessEndpointStatusResult(
         metrics=pulumi.get(__response__, 'metrics')))

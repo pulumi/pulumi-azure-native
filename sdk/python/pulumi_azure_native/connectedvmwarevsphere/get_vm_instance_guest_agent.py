@@ -225,7 +225,7 @@ def get_vm_instance_guest_agent(resource_uri: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
 def get_vm_instance_guest_agent_output(resource_uri: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVMInstanceGuestAgentResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVMInstanceGuestAgentResult]:
     """
     Implements GuestAgent GET method.
     Azure REST API version: 2023-03-01-preview.
@@ -237,7 +237,7 @@ def get_vm_instance_guest_agent_output(resource_uri: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getVMInstanceGuestAgent', __args__, opts=opts, typ=GetVMInstanceGuestAgentResult)
     return __ret__.apply(lambda __response__: GetVMInstanceGuestAgentResult(
         credentials=pulumi.get(__response__, 'credentials'),

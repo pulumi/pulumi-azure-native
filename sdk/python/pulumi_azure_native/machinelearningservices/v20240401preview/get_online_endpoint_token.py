@@ -112,7 +112,7 @@ def get_online_endpoint_token(endpoint_name: Optional[str] = None,
 def get_online_endpoint_token_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      workspace_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOnlineEndpointTokenResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineEndpointTokenResult]:
     """
     Service Token
 
@@ -125,7 +125,7 @@ def get_online_endpoint_token_output(endpoint_name: Optional[pulumi.Input[str]] 
     __args__['endpointName'] = endpoint_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20240401preview:getOnlineEndpointToken', __args__, opts=opts, typ=GetOnlineEndpointTokenResult)
     return __ret__.apply(lambda __response__: GetOnlineEndpointTokenResult(
         access_token=pulumi.get(__response__, 'access_token'),

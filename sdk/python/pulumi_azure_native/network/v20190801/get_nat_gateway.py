@@ -243,7 +243,7 @@ def get_nat_gateway(expand: Optional[str] = None,
 def get_nat_gateway_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            nat_gateway_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
     Gets the specified nat gateway in a specified resource group.
 
@@ -256,7 +256,7 @@ def get_nat_gateway_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['expand'] = expand
     __args__['natGatewayName'] = nat_gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20190801:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult)
     return __ret__.apply(lambda __response__: GetNatGatewayResult(
         etag=pulumi.get(__response__, 'etag'),

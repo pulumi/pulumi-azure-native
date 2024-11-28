@@ -178,7 +178,7 @@ def get_aks_assessment_operation(assessment_name: Optional[str] = None,
 def get_aks_assessment_operation_output(assessment_name: Optional[pulumi.Input[str]] = None,
                                         project_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAksAssessmentOperationResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAksAssessmentOperationResult]:
     """
     Get a AKSAssessment
 
@@ -191,7 +191,7 @@ def get_aks_assessment_operation_output(assessment_name: Optional[pulumi.Input[s
     __args__['assessmentName'] = assessment_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230909preview:getAksAssessmentOperation', __args__, opts=opts, typ=GetAksAssessmentOperationResult)
     return __ret__.apply(lambda __response__: GetAksAssessmentOperationResult(
         details=pulumi.get(__response__, 'details'),

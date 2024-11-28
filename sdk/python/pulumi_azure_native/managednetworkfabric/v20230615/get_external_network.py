@@ -269,7 +269,7 @@ def get_external_network(external_network_name: Optional[str] = None,
 def get_external_network_output(external_network_name: Optional[pulumi.Input[str]] = None,
                                 l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExternalNetworkResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExternalNetworkResult]:
     """
     Implements ExternalNetworks GET method.
 
@@ -282,7 +282,7 @@ def get_external_network_output(external_network_name: Optional[pulumi.Input[str
     __args__['externalNetworkName'] = external_network_name
     __args__['l3IsolationDomainName'] = l3_isolation_domain_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getExternalNetwork', __args__, opts=opts, typ=GetExternalNetworkResult)
     return __ret__.apply(lambda __response__: GetExternalNetworkResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),

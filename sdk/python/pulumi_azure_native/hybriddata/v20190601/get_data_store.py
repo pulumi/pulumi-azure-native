@@ -165,7 +165,7 @@ def get_data_store(data_manager_name: Optional[str] = None,
 def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
                           data_store_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataStoreResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataStoreResult]:
     """
     This method gets the data store/repository by name.
 
@@ -178,7 +178,7 @@ def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
     __args__['dataManagerName'] = data_manager_name
     __args__['dataStoreName'] = data_store_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybriddata/v20190601:getDataStore', __args__, opts=opts, typ=GetDataStoreResult)
     return __ret__.apply(lambda __response__: GetDataStoreResult(
         customer_secrets=pulumi.get(__response__, 'customer_secrets'),

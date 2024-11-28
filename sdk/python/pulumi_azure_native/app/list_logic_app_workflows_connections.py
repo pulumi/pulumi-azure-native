@@ -142,7 +142,7 @@ def list_logic_app_workflows_connections(container_app_name: Optional[str] = Non
 def list_logic_app_workflows_connections_output(container_app_name: Optional[pulumi.Input[str]] = None,
                                                 logic_app_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLogicAppWorkflowsConnectionsResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLogicAppWorkflowsConnectionsResult]:
     """
     Workflow properties definition.
     Azure REST API version: 2024-02-02-preview.
@@ -158,7 +158,7 @@ def list_logic_app_workflows_connections_output(container_app_name: Optional[pul
     __args__['containerAppName'] = container_app_name
     __args__['logicAppName'] = logic_app_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:listLogicAppWorkflowsConnections', __args__, opts=opts, typ=ListLogicAppWorkflowsConnectionsResult)
     return __ret__.apply(lambda __response__: ListLogicAppWorkflowsConnectionsResult(
         id=pulumi.get(__response__, 'id'),

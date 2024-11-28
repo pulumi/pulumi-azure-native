@@ -252,7 +252,7 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
         type=pulumi.get(__ret__, 'type'))
 def get_orchestrator_instance_service_details_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      resource_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrchestratorInstanceServiceDetailsResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrchestratorInstanceServiceDetailsResult]:
     """
     Gets details about the orchestrator instance.
 
@@ -263,7 +263,7 @@ def get_orchestrator_instance_service_details_output(resource_group_name: Option
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:delegatednetwork/v20230518preview:getOrchestratorInstanceServiceDetails', __args__, opts=opts, typ=GetOrchestratorInstanceServiceDetailsResult)
     return __ret__.apply(lambda __response__: GetOrchestratorInstanceServiceDetailsResult(
         api_server_endpoint=pulumi.get(__response__, 'api_server_endpoint'),

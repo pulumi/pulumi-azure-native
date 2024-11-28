@@ -191,7 +191,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
 def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               vmm_server_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInventoryItemResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInventoryItemResult]:
     """
     Shows an inventory item.
 
@@ -204,7 +204,7 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
     __args__['inventoryItemName'] = inventory_item_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmmServerName'] = vmm_server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm/v20220521preview:getInventoryItem', __args__, opts=opts, typ=GetInventoryItemResult)
     return __ret__.apply(lambda __response__: GetInventoryItemResult(
         id=pulumi.get(__response__, 'id'),

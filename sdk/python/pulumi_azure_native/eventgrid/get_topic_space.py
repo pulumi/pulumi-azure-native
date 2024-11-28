@@ -159,7 +159,7 @@ def get_topic_space(namespace_name: Optional[str] = None,
 def get_topic_space_output(namespace_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            topic_space_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicSpaceResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicSpaceResult]:
     """
     Get properties of a topic space.
     Azure REST API version: 2023-06-01-preview.
@@ -175,7 +175,7 @@ def get_topic_space_output(namespace_name: Optional[pulumi.Input[str]] = None,
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['topicSpaceName'] = topic_space_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getTopicSpace', __args__, opts=opts, typ=GetTopicSpaceResult)
     return __ret__.apply(lambda __response__: GetTopicSpaceResult(
         description=pulumi.get(__response__, 'description'),

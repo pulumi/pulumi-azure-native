@@ -139,7 +139,7 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[str] = None,
 def get_virtual_hub_route_table_v2_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                           route_table_name: Optional[pulumi.Input[str]] = None,
                                           virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubRouteTableV2Result]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubRouteTableV2Result]:
     """
     Retrieves the details of a VirtualHubRouteTableV2.
 
@@ -152,7 +152,7 @@ def get_virtual_hub_route_table_v2_output(resource_group_name: Optional[pulumi.I
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeTableName'] = route_table_name
     __args__['virtualHubName'] = virtual_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240501:getVirtualHubRouteTableV2', __args__, opts=opts, typ=GetVirtualHubRouteTableV2Result)
     return __ret__.apply(lambda __response__: GetVirtualHubRouteTableV2Result(
         attached_connections=pulumi.get(__response__, 'attached_connections'),

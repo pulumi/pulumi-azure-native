@@ -196,7 +196,7 @@ def get_scheduled_synchronization_setting_output(account_name: Optional[pulumi.I
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  share_name: Optional[pulumi.Input[str]] = None,
                                                  synchronization_setting_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledSynchronizationSettingResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledSynchronizationSettingResult]:
     """
     Get a synchronizationSetting in a share
 
@@ -211,7 +211,7 @@ def get_scheduled_synchronization_setting_output(account_name: Optional[pulumi.I
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
     __args__['synchronizationSettingName'] = synchronization_setting_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20210801:getScheduledSynchronizationSetting', __args__, opts=opts, typ=GetScheduledSynchronizationSettingResult)
     return __ret__.apply(lambda __response__: GetScheduledSynchronizationSettingResult(
         created_at=pulumi.get(__response__, 'created_at'),

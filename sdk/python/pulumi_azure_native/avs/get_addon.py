@@ -116,7 +116,7 @@ def get_addon(addon_name: Optional[str] = None,
 def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                      private_cloud_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonResult]:
     """
     An addon resource
     Azure REST API version: 2022-05-01.
@@ -132,7 +132,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     __args__['addonName'] = addon_name
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs:getAddon', __args__, opts=opts, typ=GetAddonResult)
     return __ret__.apply(lambda __response__: GetAddonResult(
         id=pulumi.get(__response__, 'id'),

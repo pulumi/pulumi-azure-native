@@ -273,7 +273,7 @@ def get_source_control_output(operational_insights_resource_provider: Optional[p
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               source_control_id: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlResult]:
     """
     Gets a source control byt its identifier.
 
@@ -288,7 +288,7 @@ def get_source_control_output(operational_insights_resource_provider: Optional[p
     __args__['resourceGroupName'] = resource_group_name
     __args__['sourceControlId'] = source_control_id
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210301preview:getSourceControl', __args__, opts=opts, typ=GetSourceControlResult)
     return __ret__.apply(lambda __response__: GetSourceControlResult(
         content_types=pulumi.get(__response__, 'content_types'),

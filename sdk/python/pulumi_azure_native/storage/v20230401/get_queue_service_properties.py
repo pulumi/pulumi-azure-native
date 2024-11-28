@@ -113,7 +113,7 @@ def get_queue_service_properties(account_name: Optional[str] = None,
 def get_queue_service_properties_output(account_name: Optional[pulumi.Input[str]] = None,
                                         queue_service_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueServicePropertiesResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueServicePropertiesResult]:
     """
     Gets the properties of a storage account’s Queue service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
 
@@ -126,7 +126,7 @@ def get_queue_service_properties_output(account_name: Optional[pulumi.Input[str]
     __args__['accountName'] = account_name
     __args__['queueServiceName'] = queue_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230401:getQueueServiceProperties', __args__, opts=opts, typ=GetQueueServicePropertiesResult)
     return __ret__.apply(lambda __response__: GetQueueServicePropertiesResult(
         cors=pulumi.get(__response__, 'cors'),

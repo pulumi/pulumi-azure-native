@@ -168,7 +168,7 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
 def get_pipeline_run_output(pipeline_run_name: Optional[pulumi.Input[str]] = None,
                             registry_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineRunResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineRunResult]:
     """
     Gets the detailed information for a given pipeline run.
     Azure REST API version: 2023-01-01-preview.
@@ -184,7 +184,7 @@ def get_pipeline_run_output(pipeline_run_name: Optional[pulumi.Input[str]] = Non
     __args__['pipelineRunName'] = pipeline_run_name
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getPipelineRun', __args__, opts=opts, typ=GetPipelineRunResult)
     return __ret__.apply(lambda __response__: GetPipelineRunResult(
         force_update_tag=pulumi.get(__response__, 'force_update_tag'),

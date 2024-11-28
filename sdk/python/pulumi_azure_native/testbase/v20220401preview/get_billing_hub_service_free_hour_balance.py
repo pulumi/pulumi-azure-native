@@ -73,7 +73,7 @@ def get_billing_hub_service_free_hour_balance(resource_group_name: Optional[str]
         total_remaining_free_hours=pulumi.get(__ret__, 'total_remaining_free_hours'))
 def get_billing_hub_service_free_hour_balance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      test_base_account_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingHubServiceFreeHourBalanceResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingHubServiceFreeHourBalanceResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -83,7 +83,7 @@ def get_billing_hub_service_free_hour_balance_output(resource_group_name: Option
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20220401preview:getBillingHubServiceFreeHourBalance', __args__, opts=opts, typ=GetBillingHubServiceFreeHourBalanceResult)
     return __ret__.apply(lambda __response__: GetBillingHubServiceFreeHourBalanceResult(
         increment_entries=pulumi.get(__response__, 'increment_entries'),

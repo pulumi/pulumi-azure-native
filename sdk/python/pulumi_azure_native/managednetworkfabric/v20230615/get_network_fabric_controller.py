@@ -317,7 +317,7 @@ def get_network_fabric_controller(network_fabric_controller_name: Optional[str] 
         workload_services=pulumi.get(__ret__, 'workload_services'))
 def get_network_fabric_controller_output(network_fabric_controller_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkFabricControllerResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFabricControllerResult]:
     """
     Shows the provisioning status of Network Fabric Controller.
 
@@ -328,7 +328,7 @@ def get_network_fabric_controller_output(network_fabric_controller_name: Optiona
     __args__ = dict()
     __args__['networkFabricControllerName'] = network_fabric_controller_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getNetworkFabricController', __args__, opts=opts, typ=GetNetworkFabricControllerResult)
     return __ret__.apply(lambda __response__: GetNetworkFabricControllerResult(
         annotation=pulumi.get(__response__, 'annotation'),

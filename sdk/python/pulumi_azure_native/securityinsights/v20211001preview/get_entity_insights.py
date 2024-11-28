@@ -103,7 +103,7 @@ def get_entity_insights_output(add_default_extended_time_range: Optional[pulumi.
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                start_time: Optional[pulumi.Input[str]] = None,
                                workspace_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityInsightsResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityInsightsResult]:
     """
     Execute Insights for an entity.
 
@@ -124,7 +124,7 @@ def get_entity_insights_output(add_default_extended_time_range: Optional[pulumi.
     __args__['resourceGroupName'] = resource_group_name
     __args__['startTime'] = start_time
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20211001preview:getEntityInsights', __args__, opts=opts, typ=GetEntityInsightsResult)
     return __ret__.apply(lambda __response__: GetEntityInsightsResult(
         meta_data=pulumi.get(__response__, 'meta_data'),

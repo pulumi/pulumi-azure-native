@@ -66,7 +66,7 @@ def list_diagnostic_settings_category(resource_uri: Optional[str] = None,
     return AwaitableListDiagnosticSettingsCategoryResult(
         value=pulumi.get(__ret__, 'value'))
 def list_diagnostic_settings_category_output(resource_uri: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDiagnosticSettingsCategoryResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDiagnosticSettingsCategoryResult]:
     """
     Lists the diagnostic settings categories for the specified resource.
 
@@ -75,7 +75,7 @@ def list_diagnostic_settings_category_output(resource_uri: Optional[pulumi.Input
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20210501preview:listDiagnosticSettingsCategory', __args__, opts=opts, typ=ListDiagnosticSettingsCategoryResult)
     return __ret__.apply(lambda __response__: ListDiagnosticSettingsCategoryResult(
         value=pulumi.get(__response__, 'value')))

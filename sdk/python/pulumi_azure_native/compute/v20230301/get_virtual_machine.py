@@ -529,7 +529,7 @@ def get_virtual_machine(expand: Optional[str] = None,
 def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                vm_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Retrieves information about the model view or the instance view of a virtual machine.
 
@@ -542,7 +542,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmName'] = vm_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230301:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineResult(
         additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),
