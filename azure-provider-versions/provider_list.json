@@ -35081,30 +35081,6 @@
         ]
       },
       {
-        "resourceType": "dnsResolverDomainLists",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "dnsResolverPolicies",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "dnsResolverPolicies/dnsSecurityRules",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
-        "resourceType": "dnsResolverPolicies/virtualNetworkLinks",
-        "apiVersions": [
-          "2023-07-01-preview"
-        ]
-      },
-      {
         "resourceType": "dnsResolvers",
         "apiVersions": [
           "2023-07-01-preview",
@@ -39541,12 +39517,6 @@
           "2023-07-01",
           "2022-07-01",
           "2020-04-01-preview"
-        ]
-      },
-      {
-        "resourceType": "virtualNetworks/listDnsResolverPolicies",
-        "apiVersions": [
-          "2023-07-01-preview"
         ]
       },
       {

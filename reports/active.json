@@ -29397,18 +29397,6 @@
       "2018-05-01",
       "2023-07-01-preview"
     ],
-    "dnsresolverdomainlists": [
-      "2023-07-01-preview"
-    ],
-    "dnsresolverpolicies": [
-      "2023-07-01-preview"
-    ],
-    "dnsresolverpolicies/dnssecurityrules": [
-      "2023-07-01-preview"
-    ],
-    "dnsresolverpolicies/virtualnetworklinks": [
-      "2023-07-01-preview"
-    ],
     "dnsresolvers": [
       "2020-04-01-preview",
       "2022-07-01",
@@ -33367,9 +33355,6 @@
       "2020-04-01-preview",
       "2022-07-01",
       "2023-07-01",
-      "2023-07-01-preview"
-    ],
-    "virtualnetworks/listdnsresolverpolicies": [
       "2023-07-01-preview"
     ],
     "virtualnetworks/listdnsresolvers": [
