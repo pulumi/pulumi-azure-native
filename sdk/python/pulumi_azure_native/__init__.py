@@ -3602,6 +3602,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azureplaywrightservice/v20241201",
+  "fqn": "pulumi_azure_native.azureplaywrightservice.v20241201",
+  "classes": {
+   "azure-native:azureplaywrightservice/v20241201:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azuresphere",
   "fqn": "pulumi_azure_native.azuresphere",
   "classes": {
@@ -18870,6 +18878,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "signalrservice/v20241001preview",
+  "fqn": "pulumi_azure_native.signalrservice.v20241001preview",
+  "classes": {
+   "azure-native:signalrservice/v20241001preview:SignalR": "SignalR",
+   "azure-native:signalrservice/v20241001preview:SignalRCustomCertificate": "SignalRCustomCertificate",
+   "azure-native:signalrservice/v20241001preview:SignalRCustomDomain": "SignalRCustomDomain",
+   "azure-native:signalrservice/v20241001preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
+   "azure-native:signalrservice/v20241001preview:SignalRReplica": "SignalRReplica",
+   "azure-native:signalrservice/v20241001preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "softwareplan",
   "fqn": "pulumi_azure_native.softwareplan",
   "classes": {
@@ -21197,6 +21218,20 @@ _utilities.register(
    "azure-native:webpubsub/v20240801preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub/v20240801preview:WebPubSubReplica": "WebPubSubReplica",
    "azure-native:webpubsub/v20240801preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "webpubsub/v20241001preview",
+  "fqn": "pulumi_azure_native.webpubsub.v20241001preview",
+  "classes": {
+   "azure-native:webpubsub/v20241001preview:WebPubSub": "WebPubSub",
+   "azure-native:webpubsub/v20241001preview:WebPubSubCustomCertificate": "WebPubSubCustomCertificate",
+   "azure-native:webpubsub/v20241001preview:WebPubSubCustomDomain": "WebPubSubCustomDomain",
+   "azure-native:webpubsub/v20241001preview:WebPubSubHub": "WebPubSubHub",
+   "azure-native:webpubsub/v20241001preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
+   "azure-native:webpubsub/v20241001preview:WebPubSubReplica": "WebPubSubReplica",
+   "azure-native:webpubsub/v20241001preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
   }
  },
  {

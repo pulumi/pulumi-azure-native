@@ -3522,6 +3522,9 @@
     ],
     "2024-08-01-preview": [
       "Account"
+    ],
+    "2024-12-01": [
+      "Account"
     ]
   },
   "AzureSphere": {
@@ -23418,6 +23421,15 @@
       "SignalRReplica",
       "SignalRSharedPrivateLinkResource",
       "listSignalRKeys"
+    ],
+    "2024-10-01-preview": [
+      "SignalR",
+      "SignalRCustomCertificate",
+      "SignalRCustomDomain",
+      "SignalRPrivateEndpointConnection",
+      "SignalRReplica",
+      "SignalRSharedPrivateLinkResource",
+      "listSignalRKeys"
     ]
   },
   "SoftwarePlan": {
@@ -27479,6 +27491,16 @@
       "listWebPubSubKeys"
     ],
     "2024-08-01-preview": [
+      "WebPubSub",
+      "WebPubSubCustomCertificate",
+      "WebPubSubCustomDomain",
+      "WebPubSubHub",
+      "WebPubSubPrivateEndpointConnection",
+      "WebPubSubReplica",
+      "WebPubSubSharedPrivateLinkResource",
+      "listWebPubSubKeys"
+    ],
+    "2024-10-01-preview": [
       "WebPubSub",
       "WebPubSubCustomCertificate",
       "WebPubSubCustomDomain",

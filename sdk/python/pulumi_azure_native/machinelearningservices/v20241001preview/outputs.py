@@ -1317,50 +1317,78 @@ class AcrDetailsResponse(dict):
 @pulumi.output_type
 class ActualCapacityInfoResponse(dict):
     def __init__(__self__, *,
-                 allocated: Optional[int] = None,
-                 assignment_failed: Optional[int] = None,
-                 assignment_success: Optional[int] = None):
+                 failed: Optional[int] = None,
+                 outdated_failed: Optional[int] = None,
+                 outdated_succeeded: Optional[int] = None,
+                 succeeded: Optional[int] = None,
+                 total: Optional[int] = None):
         """
-        :param int allocated: Gets or sets the total number of instances for the group.
-        :param int assignment_failed: Gets or sets the number of instances which failed to successfully complete assignment.
-        :param int assignment_success: Gets or sets the number of instances which successfully completed assignment.
+        :param int failed: Gets or sets the number of instances (scale units) which Failed provisioning state and have target group payload.
+        :param int outdated_failed: Gets or sets the number of instances (scale units) which have Failed provisioning state but do not have target group payload.
+        :param int outdated_succeeded: Gets or sets the number of instances (scale units) which have Succeeded provisioning state but do not have target group payload.
+        :param int succeeded: Gets or sets the number of instances (scale units) which have Succeeded provisioning state and target group payload.
+        :param int total: Gets or sets the total number of instances (scale units) regardless of provisioning state or whether current group payload version matches the target group payload.
         """
-        if allocated is None:
-            allocated = 0
-        if allocated is not None:
-            pulumi.set(__self__, "allocated", allocated)
-        if assignment_failed is None:
-            assignment_failed = 0
-        if assignment_failed is not None:
-            pulumi.set(__self__, "assignment_failed", assignment_failed)
-        if assignment_success is None:
-            assignment_success = 0
-        if assignment_success is not None:
-            pulumi.set(__self__, "assignment_success", assignment_success)
+        if failed is None:
+            failed = 0
+        if failed is not None:
+            pulumi.set(__self__, "failed", failed)
+        if outdated_failed is None:
+            outdated_failed = 0
+        if outdated_failed is not None:
+            pulumi.set(__self__, "outdated_failed", outdated_failed)
+        if outdated_succeeded is None:
+            outdated_succeeded = 0
+        if outdated_succeeded is not None:
+            pulumi.set(__self__, "outdated_succeeded", outdated_succeeded)
+        if succeeded is None:
+            succeeded = 0
+        if succeeded is not None:
+            pulumi.set(__self__, "succeeded", succeeded)
+        if total is None:
+            total = 0
+        if total is not None:
+            pulumi.set(__self__, "total", total)
 
     @property
     @pulumi.getter
-    def allocated(self) -> Optional[int]:
+    def failed(self) -> Optional[int]:
         """
-        Gets or sets the total number of instances for the group.
+        Gets or sets the number of instances (scale units) which Failed provisioning state and have target group payload.
         """
-        return pulumi.get(self, "allocated")
+        return pulumi.get(self, "failed")
 
     @property
-    @pulumi.getter(name="assignmentFailed")
-    def assignment_failed(self) -> Optional[int]:
+    @pulumi.getter(name="outdatedFailed")
+    def outdated_failed(self) -> Optional[int]:
         """
-        Gets or sets the number of instances which failed to successfully complete assignment.
+        Gets or sets the number of instances (scale units) which have Failed provisioning state but do not have target group payload.
         """
-        return pulumi.get(self, "assignment_failed")
+        return pulumi.get(self, "outdated_failed")
 
     @property
-    @pulumi.getter(name="assignmentSuccess")
-    def assignment_success(self) -> Optional[int]:
+    @pulumi.getter(name="outdatedSucceeded")
+    def outdated_succeeded(self) -> Optional[int]:
         """
-        Gets or sets the number of instances which successfully completed assignment.
+        Gets or sets the number of instances (scale units) which have Succeeded provisioning state but do not have target group payload.
         """
-        return pulumi.get(self, "assignment_success")
+        return pulumi.get(self, "outdated_succeeded")
+
+    @property
+    @pulumi.getter
+    def succeeded(self) -> Optional[int]:
+        """
+        Gets or sets the number of instances (scale units) which have Succeeded provisioning state and target group payload.
+        """
+        return pulumi.get(self, "succeeded")
+
+    @property
+    @pulumi.getter
+    def total(self) -> Optional[int]:
+        """
+        Gets or sets the total number of instances (scale units) regardless of provisioning state or whether current group payload version matches the target group payload.
+        """
+        return pulumi.get(self, "total")
 
 
 @pulumi.output_type

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
     /// An account resource
     /// Azure REST API version: 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2024-02-01-preview, 2024-08-01-preview.
+    /// Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azureplaywrightservice:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -106,6 +106,7 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
                     new global::Pulumi.Alias { Type = "azure-native:azureplaywrightservice/v20231001preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:azureplaywrightservice/v20240201preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:azureplaywrightservice/v20240801preview:Account" },
+                    new global::Pulumi.Alias { Type = "azure-native:azureplaywrightservice/v20241201:Account" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

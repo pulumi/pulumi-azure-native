@@ -231,6 +231,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20240801Preview
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240101preview:WebPubSub" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240301:WebPubSub" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240401preview:WebPubSub" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20241001preview:WebPubSub" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

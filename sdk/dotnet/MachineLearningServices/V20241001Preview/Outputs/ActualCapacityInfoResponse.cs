@@ -14,29 +14,43 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Outputs
     public sealed class ActualCapacityInfoResponse
     {
         /// <summary>
-        /// Gets or sets the total number of instances for the group.
+        /// Gets or sets the number of instances (scale units) which Failed provisioning state and have target group payload.
         /// </summary>
-        public readonly int? Allocated;
+        public readonly int? Failed;
         /// <summary>
-        /// Gets or sets the number of instances which failed to successfully complete assignment.
+        /// Gets or sets the number of instances (scale units) which have Failed provisioning state but do not have target group payload.
         /// </summary>
-        public readonly int? AssignmentFailed;
+        public readonly int? OutdatedFailed;
         /// <summary>
-        /// Gets or sets the number of instances which successfully completed assignment.
+        /// Gets or sets the number of instances (scale units) which have Succeeded provisioning state but do not have target group payload.
         /// </summary>
-        public readonly int? AssignmentSuccess;
+        public readonly int? OutdatedSucceeded;
+        /// <summary>
+        /// Gets or sets the number of instances (scale units) which have Succeeded provisioning state and target group payload.
+        /// </summary>
+        public readonly int? Succeeded;
+        /// <summary>
+        /// Gets or sets the total number of instances (scale units) regardless of provisioning state or whether current group payload version matches the target group payload.
+        /// </summary>
+        public readonly int? Total;
 
         [OutputConstructor]
         private ActualCapacityInfoResponse(
-            int? allocated,
+            int? failed,
 
-            int? assignmentFailed,
+            int? outdatedFailed,
 
-            int? assignmentSuccess)
+            int? outdatedSucceeded,
+
+            int? succeeded,
+
+            int? total)
         {
-            Allocated = allocated;
-            AssignmentFailed = assignmentFailed;
-            AssignmentSuccess = assignmentSuccess;
+            Failed = failed;
+            OutdatedFailed = outdatedFailed;
+            OutdatedSucceeded = outdatedSucceeded;
+            Succeeded = succeeded;
+            Total = total;
         }
     }
 }

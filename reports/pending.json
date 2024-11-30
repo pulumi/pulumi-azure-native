@@ -137,7 +137,8 @@
   "AzureLargeInstance": [],
   "AzurePlaywrightService": [
     "2024-02-01-preview",
-    "2024-08-01-preview"
+    "2024-08-01-preview",
+    "2024-12-01"
   ],
   "AzureSphere": [
     "2024-04-01"
@@ -1231,7 +1232,8 @@
     "2024-01-01-preview",
     "2024-03-01",
     "2024-04-01-preview",
-    "2024-08-01-preview"
+    "2024-08-01-preview",
+    "2024-10-01-preview"
   ],
   "SoftwarePlan": [],
   "Solutions": [
@@ -1360,7 +1362,8 @@
     "2024-01-01-preview",
     "2024-03-01",
     "2024-04-01-preview",
-    "2024-08-01-preview"
+    "2024-08-01-preview",
+    "2024-10-01-preview"
   ],
   "WindowsESU": [],
   "WindowsIoT": [],

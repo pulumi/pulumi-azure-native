@@ -10,6 +10,7 @@ import * as v20240101preview from "./v20240101preview";
 import * as v20240301 from "./v20240301";
 import * as v20240401preview from "./v20240401preview";
 import * as v20240801preview from "./v20240801preview";
+import * as v20241001preview from "./v20241001preview";
 
 export {
     v20230201,
@@ -20,6 +21,7 @@ export {
     v20240301,
     v20240401preview,
     v20240801preview,
+    v20241001preview,
 };
 
 export const ACLAction = {

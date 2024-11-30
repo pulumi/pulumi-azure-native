@@ -133,7 +133,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
         Describes a Shared Private Link Resource
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +154,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
         Describes a Shared Private Link Resource
         Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview.
+        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WebPubSubSharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +205,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230801preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20240101preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20240301:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20240401preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20240801preview:WebPubSubSharedPrivateLinkResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230801preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20240101preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20240301:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20240401preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20240801preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20241001preview:WebPubSubSharedPrivateLinkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSubSharedPrivateLinkResource, __self__).__init__(
             'azure-native:webpubsub:WebPubSubSharedPrivateLinkResource',
