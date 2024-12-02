@@ -155,7 +155,7 @@ def get_user(device_name: Optional[str] = None,
 def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
                     name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Gets the properties of the specified user.
     Azure REST API version: 2022-03-01.
@@ -171,7 +171,7 @@ def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
     __args__['deviceName'] = device_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         encrypted_password=pulumi.get(__response__, 'encrypted_password'),

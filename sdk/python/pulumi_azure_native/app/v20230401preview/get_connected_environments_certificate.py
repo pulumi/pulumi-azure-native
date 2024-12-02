@@ -152,7 +152,7 @@ def get_connected_environments_certificate(certificate_name: Optional[str] = Non
 def get_connected_environments_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                                                   connected_environment_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentsCertificateResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedEnvironmentsCertificateResult]:
     """
     Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
 
@@ -165,7 +165,7 @@ def get_connected_environments_certificate_output(certificate_name: Optional[pul
     __args__['certificateName'] = certificate_name
     __args__['connectedEnvironmentName'] = connected_environment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230401preview:getConnectedEnvironmentsCertificate', __args__, opts=opts, typ=GetConnectedEnvironmentsCertificateResult)
     return __ret__.apply(lambda __response__: GetConnectedEnvironmentsCertificateResult(
         id=pulumi.get(__response__, 'id'),

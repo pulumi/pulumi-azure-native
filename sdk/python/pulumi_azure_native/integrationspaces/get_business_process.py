@@ -222,7 +222,7 @@ def get_business_process_output(application_name: Optional[pulumi.Input[str]] = 
                                 business_process_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 space_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBusinessProcessResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessProcessResult]:
     """
     Get a BusinessProcess
     Azure REST API version: 2023-11-14-preview.
@@ -238,7 +238,7 @@ def get_business_process_output(application_name: Optional[pulumi.Input[str]] = 
     __args__['businessProcessName'] = business_process_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['spaceName'] = space_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:integrationspaces:getBusinessProcess', __args__, opts=opts, typ=GetBusinessProcessResult)
     return __ret__.apply(lambda __response__: GetBusinessProcessResult(
         business_process_mapping=pulumi.get(__response__, 'business_process_mapping'),

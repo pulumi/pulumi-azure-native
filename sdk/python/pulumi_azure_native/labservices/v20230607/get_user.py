@@ -230,7 +230,7 @@ def get_user(lab_name: Optional[str] = None,
 def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     user_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Returns the properties of a lab user.
 
@@ -243,7 +243,7 @@ def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
     __args__['labName'] = lab_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices/v20230607:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         additional_usage_quota=pulumi.get(__response__, 'additional_usage_quota'),

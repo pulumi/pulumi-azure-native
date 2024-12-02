@@ -427,7 +427,7 @@ def get_resource_pool(resource_group_name: Optional[str] = None,
         v_center_id=pulumi.get(__ret__, 'v_center_id'))
 def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                              resource_pool_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePoolResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePoolResult]:
     """
     Implements resourcePool GET method.
 
@@ -438,7 +438,7 @@ def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[str]] = 
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourcePoolName'] = resource_pool_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere/v20230301preview:getResourcePool', __args__, opts=opts, typ=GetResourcePoolResult)
     return __ret__.apply(lambda __response__: GetResourcePoolResult(
         cpu_capacity_m_hz=pulumi.get(__response__, 'cpu_capacity_m_hz'),

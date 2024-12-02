@@ -98,7 +98,7 @@ def list_web_app_host_keys(name: Optional[str] = None,
         system_keys=pulumi.get(__ret__, 'system_keys'))
 def list_web_app_host_keys_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppHostKeysResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppHostKeysResult]:
     """
     Description for Get host secrets for a function app.
     Azure REST API version: 2022-09-01.
@@ -112,7 +112,7 @@ def list_web_app_host_keys_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:listWebAppHostKeys', __args__, opts=opts, typ=ListWebAppHostKeysResult)
     return __ret__.apply(lambda __response__: ListWebAppHostKeysResult(
         function_keys=pulumi.get(__response__, 'function_keys'),

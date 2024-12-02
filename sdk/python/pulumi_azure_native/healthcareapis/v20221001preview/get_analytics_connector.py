@@ -217,7 +217,7 @@ def get_analytics_connector(analytics_connector_name: Optional[str] = None,
 def get_analytics_connector_output(analytics_connector_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    workspace_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalyticsConnectorResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnalyticsConnectorResult]:
     """
     Gets the properties of the specified Analytics Connector.
 
@@ -230,7 +230,7 @@ def get_analytics_connector_output(analytics_connector_name: Optional[pulumi.Inp
     __args__['analyticsConnectorName'] = analytics_connector_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis/v20221001preview:getAnalyticsConnector', __args__, opts=opts, typ=GetAnalyticsConnectorResult)
     return __ret__.apply(lambda __response__: GetAnalyticsConnectorResult(
         data_destination_configuration=pulumi.get(__response__, 'data_destination_configuration'),

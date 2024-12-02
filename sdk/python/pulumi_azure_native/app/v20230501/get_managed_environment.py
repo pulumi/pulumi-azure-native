@@ -356,7 +356,7 @@ def get_managed_environment(environment_name: Optional[str] = None,
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
     """
     Get the properties of a Managed Environment used to host container apps.
 
@@ -367,7 +367,7 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230501:getManagedEnvironment', __args__, opts=opts, typ=GetManagedEnvironmentResult)
     return __ret__.apply(lambda __response__: GetManagedEnvironmentResult(
         app_logs_configuration=pulumi.get(__response__, 'app_logs_configuration'),

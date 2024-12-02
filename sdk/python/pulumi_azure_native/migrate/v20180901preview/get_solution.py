@@ -126,7 +126,7 @@ def get_solution(migrate_project_name: Optional[str] = None,
 def get_solution_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         solution_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Solution REST Resource.
 
@@ -139,7 +139,7 @@ def get_solution_output(migrate_project_name: Optional[pulumi.Input[str]] = None
     __args__['migrateProjectName'] = migrate_project_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['solutionName'] = solution_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20180901preview:getSolution', __args__, opts=opts, typ=GetSolutionResult)
     return __ret__.apply(lambda __response__: GetSolutionResult(
         etag=pulumi.get(__response__, 'etag'),

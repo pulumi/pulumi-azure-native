@@ -256,7 +256,7 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
 def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPDatabaseInstanceResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPDatabaseInstanceResult]:
     """
     Gets the SAP Database Instance resource.
 
@@ -269,7 +269,7 @@ def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Inp
     __args__['databaseInstanceName'] = database_instance_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20231001preview:getSAPDatabaseInstance', __args__, opts=opts, typ=GetSAPDatabaseInstanceResult)
     return __ret__.apply(lambda __response__: GetSAPDatabaseInstanceResult(
         database_sid=pulumi.get(__response__, 'database_sid'),

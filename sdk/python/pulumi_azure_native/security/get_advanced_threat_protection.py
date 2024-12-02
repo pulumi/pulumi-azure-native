@@ -109,7 +109,7 @@ def get_advanced_threat_protection(resource_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[str]] = None,
                                           setting_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdvancedThreatProtectionResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdvancedThreatProtectionResult]:
     """
     Gets the Advanced Threat Protection settings for the specified resource.
     Azure REST API version: 2019-01-01.
@@ -121,7 +121,7 @@ def get_advanced_threat_protection_output(resource_id: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['resourceId'] = resource_id
     __args__['settingName'] = setting_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAdvancedThreatProtection', __args__, opts=opts, typ=GetAdvancedThreatProtectionResult)
     return __ret__.apply(lambda __response__: GetAdvancedThreatProtectionResult(
         id=pulumi.get(__response__, 'id'),

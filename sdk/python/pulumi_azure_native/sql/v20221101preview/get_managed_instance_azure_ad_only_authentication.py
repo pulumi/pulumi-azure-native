@@ -112,7 +112,7 @@ def get_managed_instance_azure_ad_only_authentication(authentication_name: Optio
 def get_managed_instance_azure_ad_only_authentication_output(authentication_name: Optional[pulumi.Input[str]] = None,
                                                              managed_instance_name: Optional[pulumi.Input[str]] = None,
                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceAzureADOnlyAuthenticationResult]:
+                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedInstanceAzureADOnlyAuthenticationResult]:
     """
     Gets a specific Azure Active Directory only authentication property.
 
@@ -125,7 +125,7 @@ def get_managed_instance_azure_ad_only_authentication_output(authentication_name
     __args__['authenticationName'] = authentication_name
     __args__['managedInstanceName'] = managed_instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20221101preview:getManagedInstanceAzureADOnlyAuthentication', __args__, opts=opts, typ=GetManagedInstanceAzureADOnlyAuthenticationResult)
     return __ret__.apply(lambda __response__: GetManagedInstanceAzureADOnlyAuthenticationResult(
         azure_ad_only_authentication=pulumi.get(__response__, 'azure_ad_only_authentication'),

@@ -156,7 +156,7 @@ def get_placement_policy_output(cluster_name: Optional[pulumi.Input[str]] = None
                                 placement_policy_name: Optional[pulumi.Input[str]] = None,
                                 private_cloud_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlacementPolicyResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlacementPolicyResult]:
     """
     Get a PlacementPolicy
 
@@ -171,7 +171,7 @@ def get_placement_policy_output(cluster_name: Optional[pulumi.Input[str]] = None
     __args__['placementPolicyName'] = placement_policy_name
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20230901:getPlacementPolicy', __args__, opts=opts, typ=GetPlacementPolicyResult)
     return __ret__.apply(lambda __response__: GetPlacementPolicyResult(
         display_name=pulumi.get(__response__, 'display_name'),

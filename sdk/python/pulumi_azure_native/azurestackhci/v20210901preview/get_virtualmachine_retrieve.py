@@ -287,7 +287,7 @@ def get_virtualmachine_retrieve(resource_group_name: Optional[str] = None,
         vm_id=pulumi.get(__ret__, 'vm_id'))
 def get_virtualmachine_retrieve_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        virtualmachines_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualmachineRetrieveResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualmachineRetrieveResult]:
     """
     Gets virtual machines by resource name
 
@@ -297,7 +297,7 @@ def get_virtualmachine_retrieve_output(resource_group_name: Optional[pulumi.Inpu
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualmachinesName'] = virtualmachines_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20210901preview:getVirtualmachineRetrieve', __args__, opts=opts, typ=GetVirtualmachineRetrieveResult)
     return __ret__.apply(lambda __response__: GetVirtualmachineRetrieveResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

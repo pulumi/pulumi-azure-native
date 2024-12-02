@@ -284,7 +284,7 @@ def get_database_migrations_mongo_to_cosmos_db_ru_mongo(migration_name: Optional
 def get_database_migrations_mongo_to_cosmos_db_ru_mongo_output(migration_name: Optional[pulumi.Input[str]] = None,
                                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                target_resource_name: Optional[pulumi.Input[str]] = None,
-                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseMigrationsMongoToCosmosDbRUMongoResult]:
+                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseMigrationsMongoToCosmosDbRUMongoResult]:
     """
     Get Database Migration resource.
     Azure REST API version: 2023-07-15-preview.
@@ -298,7 +298,7 @@ def get_database_migrations_mongo_to_cosmos_db_ru_mongo_output(migration_name: O
     __args__['migrationName'] = migration_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['targetResourceName'] = target_resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbRUMongo', __args__, opts=opts, typ=GetDatabaseMigrationsMongoToCosmosDbRUMongoResult)
     return __ret__.apply(lambda __response__: GetDatabaseMigrationsMongoToCosmosDbRUMongoResult(
         collection_list=pulumi.get(__response__, 'collection_list'),

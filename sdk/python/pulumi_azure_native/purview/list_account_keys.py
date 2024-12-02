@@ -85,7 +85,7 @@ def list_account_keys(account_name: Optional[str] = None,
         atlas_kafka_secondary_endpoint=pulumi.get(__ret__, 'atlas_kafka_secondary_endpoint'))
 def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
     List the authorization keys associated with this account.
     Azure REST API version: 2021-12-01.
@@ -99,7 +99,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:purview:listAccountKeys', __args__, opts=opts, typ=ListAccountKeysResult)
     return __ret__.apply(lambda __response__: ListAccountKeysResult(
         atlas_kafka_primary_endpoint=pulumi.get(__response__, 'atlas_kafka_primary_endpoint'),

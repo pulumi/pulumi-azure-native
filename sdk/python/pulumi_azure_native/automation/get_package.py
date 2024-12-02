@@ -235,7 +235,7 @@ def get_package_output(automation_account_name: Optional[pulumi.Input[str]] = No
                        package_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        runtime_environment_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageResult]:
     """
     Retrieve the Package identified by Package name.
     Azure REST API version: 2023-05-15-preview.
@@ -251,7 +251,7 @@ def get_package_output(automation_account_name: Optional[pulumi.Input[str]] = No
     __args__['packageName'] = package_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['runtimeEnvironmentName'] = runtime_environment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getPackage', __args__, opts=opts, typ=GetPackageResult)
     return __ret__.apply(lambda __response__: GetPackageResult(
         all_of=pulumi.get(__response__, 'all_of'),

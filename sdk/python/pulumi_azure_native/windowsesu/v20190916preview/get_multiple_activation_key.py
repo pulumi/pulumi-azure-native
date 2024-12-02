@@ -222,7 +222,7 @@ def get_multiple_activation_key(multiple_activation_key_name: Optional[str] = No
         type=pulumi.get(__ret__, 'type'))
 def get_multiple_activation_key_output(multiple_activation_key_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultipleActivationKeyResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultipleActivationKeyResult]:
     """
     Get a MAK key.
 
@@ -233,7 +233,7 @@ def get_multiple_activation_key_output(multiple_activation_key_name: Optional[pu
     __args__ = dict()
     __args__['multipleActivationKeyName'] = multiple_activation_key_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:windowsesu/v20190916preview:getMultipleActivationKey', __args__, opts=opts, typ=GetMultipleActivationKeyResult)
     return __ret__.apply(lambda __response__: GetMultipleActivationKeyResult(
         agreement_number=pulumi.get(__response__, 'agreement_number'),

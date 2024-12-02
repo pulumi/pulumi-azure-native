@@ -82,7 +82,7 @@ def list_redis_keys(name: Optional[str] = None,
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
 def list_redis_keys_output(name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRedisKeysResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRedisKeysResult]:
     """
     Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
 
@@ -93,7 +93,7 @@ def list_redis_keys_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cache/v20230801:listRedisKeys', __args__, opts=opts, typ=ListRedisKeysResult)
     return __ret__.apply(lambda __response__: ListRedisKeysResult(
         primary_key=pulumi.get(__response__, 'primary_key'),

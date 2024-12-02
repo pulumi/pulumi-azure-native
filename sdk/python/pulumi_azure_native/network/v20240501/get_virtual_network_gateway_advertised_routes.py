@@ -74,7 +74,7 @@ def get_virtual_network_gateway_advertised_routes(peer: Optional[str] = None,
 def get_virtual_network_gateway_advertised_routes_output(peer: Optional[pulumi.Input[str]] = None,
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayAdvertisedRoutesResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayAdvertisedRoutesResult]:
     """
     This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.
 
@@ -87,7 +87,7 @@ def get_virtual_network_gateway_advertised_routes_output(peer: Optional[pulumi.I
     __args__['peer'] = peer
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240501:getVirtualNetworkGatewayAdvertisedRoutes', __args__, opts=opts, typ=GetVirtualNetworkGatewayAdvertisedRoutesResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayAdvertisedRoutesResult(
         value=pulumi.get(__response__, 'value')))

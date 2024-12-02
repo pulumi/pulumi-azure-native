@@ -178,7 +178,7 @@ def get_start_stop_managed_instance_schedule(managed_instance_name: Optional[str
 def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     start_stop_schedule_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStartStopManagedInstanceScheduleResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStartStopManagedInstanceScheduleResult]:
     """
     Gets the managed instance's Start/Stop schedule.
 
@@ -191,7 +191,7 @@ def get_start_stop_managed_instance_schedule_output(managed_instance_name: Optio
     __args__['managedInstanceName'] = managed_instance_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['startStopScheduleName'] = start_stop_schedule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20221101preview:getStartStopManagedInstanceSchedule', __args__, opts=opts, typ=GetStartStopManagedInstanceScheduleResult)
     return __ret__.apply(lambda __response__: GetStartStopManagedInstanceScheduleResult(
         description=pulumi.get(__response__, 'description'),

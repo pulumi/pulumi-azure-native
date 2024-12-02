@@ -125,7 +125,7 @@ def get_linked_storage_account(data_source_type: Optional[str] = None,
 def get_linked_storage_account_output(data_source_type: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       workspace_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedStorageAccountResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedStorageAccountResult]:
     """
     Gets all linked storage account of a specific data source type associated with the specified workspace.
 
@@ -138,7 +138,7 @@ def get_linked_storage_account_output(data_source_type: Optional[pulumi.Input[st
     __args__['dataSourceType'] = data_source_type
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights/v20230901:getLinkedStorageAccount', __args__, opts=opts, typ=GetLinkedStorageAccountResult)
     return __ret__.apply(lambda __response__: GetLinkedStorageAccountResult(
         data_source_type=pulumi.get(__response__, 'data_source_type'),

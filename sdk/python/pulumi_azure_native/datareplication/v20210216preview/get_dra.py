@@ -123,7 +123,7 @@ def get_dra(fabric_agent_name: Optional[str] = None,
 def get_dra_output(fabric_agent_name: Optional[pulumi.Input[str]] = None,
                    fabric_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDraResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDraResult]:
     """
     Gets the details of the fabric agent.
 
@@ -136,7 +136,7 @@ def get_dra_output(fabric_agent_name: Optional[pulumi.Input[str]] = None,
     __args__['fabricAgentName'] = fabric_agent_name
     __args__['fabricName'] = fabric_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datareplication/v20210216preview:getDra', __args__, opts=opts, typ=GetDraResult)
     return __ret__.apply(lambda __response__: GetDraResult(
         id=pulumi.get(__response__, 'id'),

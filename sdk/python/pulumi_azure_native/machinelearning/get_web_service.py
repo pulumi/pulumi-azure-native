@@ -142,7 +142,7 @@ def get_web_service(region: Optional[str] = None,
 def get_web_service_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            web_service_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebServiceResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebServiceResult]:
     """
     Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
     Azure REST API version: 2017-01-01.
@@ -158,7 +158,7 @@ def get_web_service_output(region: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['region'] = region
     __args__['resourceGroupName'] = resource_group_name
     __args__['webServiceName'] = web_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearning:getWebService', __args__, opts=opts, typ=GetWebServiceResult)
     return __ret__.apply(lambda __response__: GetWebServiceResult(
         id=pulumi.get(__response__, 'id'),

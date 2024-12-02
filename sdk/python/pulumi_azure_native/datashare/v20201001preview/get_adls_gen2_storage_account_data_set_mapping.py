@@ -235,7 +235,7 @@ def get_adls_gen2_storage_account_data_set_mapping_output(account_name: Optional
                                                           data_set_mapping_name: Optional[pulumi.Input[str]] = None,
                                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                                           share_subscription_name: Optional[pulumi.Input[str]] = None,
-                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen2StorageAccountDataSetMappingResult]:
+                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetADLSGen2StorageAccountDataSetMappingResult]:
     """
     Get a DataSetMapping in a shareSubscription
 
@@ -250,7 +250,7 @@ def get_adls_gen2_storage_account_data_set_mapping_output(account_name: Optional
     __args__['dataSetMappingName'] = data_set_mapping_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareSubscriptionName'] = share_subscription_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping', __args__, opts=opts, typ=GetADLSGen2StorageAccountDataSetMappingResult)
     return __ret__.apply(lambda __response__: GetADLSGen2StorageAccountDataSetMappingResult(
         container_name=pulumi.get(__response__, 'container_name'),

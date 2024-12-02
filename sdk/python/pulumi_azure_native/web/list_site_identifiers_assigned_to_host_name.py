@@ -82,7 +82,7 @@ def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
 def list_site_identifiers_assigned_to_host_name_output(name: Optional[pulumi.Input[Optional[str]]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteIdentifiersAssignedToHostNameResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSiteIdentifiersAssignedToHostNameResult]:
     """
     Description for List all apps that are assigned to a hostname.
     Azure REST API version: 2022-09-01.
@@ -94,7 +94,7 @@ def list_site_identifiers_assigned_to_host_name_output(name: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:listSiteIdentifiersAssignedToHostName', __args__, opts=opts, typ=ListSiteIdentifiersAssignedToHostNameResult)
     return __ret__.apply(lambda __response__: ListSiteIdentifiersAssignedToHostNameResult(
         next_link=pulumi.get(__response__, 'next_link'),

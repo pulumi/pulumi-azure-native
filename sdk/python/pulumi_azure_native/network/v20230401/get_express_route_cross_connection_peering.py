@@ -295,7 +295,7 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[s
 def get_express_route_cross_connection_peering_output(cross_connection_name: Optional[pulumi.Input[str]] = None,
                                                       peering_name: Optional[pulumi.Input[str]] = None,
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCrossConnectionPeeringResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteCrossConnectionPeeringResult]:
     """
     Gets the specified peering for the ExpressRouteCrossConnection.
 
@@ -308,7 +308,7 @@ def get_express_route_cross_connection_peering_output(cross_connection_name: Opt
     __args__['crossConnectionName'] = cross_connection_name
     __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getExpressRouteCrossConnectionPeering', __args__, opts=opts, typ=GetExpressRouteCrossConnectionPeeringResult)
     return __ret__.apply(lambda __response__: GetExpressRouteCrossConnectionPeeringResult(
         azure_asn=pulumi.get(__response__, 'azure_asn'),

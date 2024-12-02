@@ -118,7 +118,7 @@ def get_workspace_setting(workspace_setting_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_workspace_setting_output(workspace_setting_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceSettingResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceSettingResult]:
     """
     Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
     Azure REST API version: 2017-08-01-preview.
@@ -128,7 +128,7 @@ def get_workspace_setting_output(workspace_setting_name: Optional[pulumi.Input[s
     """
     __args__ = dict()
     __args__['workspaceSettingName'] = workspace_setting_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getWorkspaceSetting', __args__, opts=opts, typ=GetWorkspaceSettingResult)
     return __ret__.apply(lambda __response__: GetWorkspaceSettingResult(
         id=pulumi.get(__response__, 'id'),

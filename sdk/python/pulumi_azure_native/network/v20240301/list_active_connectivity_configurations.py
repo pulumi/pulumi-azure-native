@@ -95,7 +95,7 @@ def list_active_connectivity_configurations_output(network_manager_name: Optiona
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                    top: Optional[pulumi.Input[Optional[int]]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListActiveConnectivityConfigurationsResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListActiveConnectivityConfigurationsResult]:
     """
     Lists active connectivity configurations in a network manager.
 
@@ -112,7 +112,7 @@ def list_active_connectivity_configurations_output(network_manager_name: Optiona
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:listActiveConnectivityConfigurations', __args__, opts=opts, typ=ListActiveConnectivityConfigurationsResult)
     return __ret__.apply(lambda __response__: ListActiveConnectivityConfigurationsResult(
         skip_token=pulumi.get(__response__, 'skip_token'),

@@ -191,7 +191,7 @@ def list_web_app_backup_configuration_slot(name: Optional[str] = None,
 def list_web_app_backup_configuration_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   slot: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppBackupConfigurationSlotResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppBackupConfigurationSlotResult]:
     """
     Gets the backup configuration of an app.
 
@@ -204,7 +204,7 @@ def list_web_app_backup_configuration_slot_output(name: Optional[pulumi.Input[st
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:listWebAppBackupConfigurationSlot', __args__, opts=opts, typ=ListWebAppBackupConfigurationSlotResult)
     return __ret__.apply(lambda __response__: ListWebAppBackupConfigurationSlotResult(
         backup_name=pulumi.get(__response__, 'backup_name'),

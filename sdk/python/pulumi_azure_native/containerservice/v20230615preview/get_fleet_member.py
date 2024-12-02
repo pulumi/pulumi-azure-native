@@ -165,7 +165,7 @@ def get_fleet_member(fleet_member_name: Optional[str] = None,
 def get_fleet_member_output(fleet_member_name: Optional[pulumi.Input[str]] = None,
                             fleet_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetMemberResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetMemberResult]:
     """
     Get a FleetMember
 
@@ -178,7 +178,7 @@ def get_fleet_member_output(fleet_member_name: Optional[pulumi.Input[str]] = Non
     __args__['fleetMemberName'] = fleet_member_name
     __args__['fleetName'] = fleet_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20230615preview:getFleetMember', __args__, opts=opts, typ=GetFleetMemberResult)
     return __ret__.apply(lambda __response__: GetFleetMemberResult(
         cluster_resource_id=pulumi.get(__response__, 'cluster_resource_id'),

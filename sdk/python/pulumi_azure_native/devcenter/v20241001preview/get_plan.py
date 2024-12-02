@@ -161,7 +161,7 @@ def get_plan(plan_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_plan_output(plan_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlanResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
     """
     Gets a devcenter plan.
 
@@ -172,7 +172,7 @@ def get_plan_output(plan_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['planName'] = plan_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20241001preview:getPlan', __args__, opts=opts, typ=GetPlanResult)
     return __ret__.apply(lambda __response__: GetPlanResult(
         id=pulumi.get(__response__, 'id'),

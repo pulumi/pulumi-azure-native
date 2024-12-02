@@ -214,7 +214,7 @@ def get_vendor_skus(sku_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_vendor_skus_output(sku_name: Optional[pulumi.Input[str]] = None,
                            vendor_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorSkusResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVendorSkusResult]:
     """
     Gets information about the specified sku.
     Azure REST API version: 2022-01-01-preview.
@@ -226,7 +226,7 @@ def get_vendor_skus_output(sku_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['skuName'] = sku_name
     __args__['vendorName'] = vendor_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:getVendorSkus', __args__, opts=opts, typ=GetVendorSkusResult)
     return __ret__.apply(lambda __response__: GetVendorSkusResult(
         deployment_mode=pulumi.get(__response__, 'deployment_mode'),

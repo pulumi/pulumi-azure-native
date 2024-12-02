@@ -161,7 +161,7 @@ def get_instance(instance_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_instance_output(instance_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Get a InstanceResource
 
@@ -172,7 +172,7 @@ def get_instance_output(instance_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['instanceName'] = instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperations/v20240701preview:getInstance', __args__, opts=opts, typ=GetInstanceResult)
     return __ret__.apply(lambda __response__: GetInstanceResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

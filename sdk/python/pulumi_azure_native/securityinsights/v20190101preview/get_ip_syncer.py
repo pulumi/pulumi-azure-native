@@ -143,7 +143,7 @@ def get_ip_syncer_output(operational_insights_resource_provider: Optional[pulumi
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          settings_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPSyncerResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIPSyncerResult]:
     """
     Gets a setting.
 
@@ -158,7 +158,7 @@ def get_ip_syncer_output(operational_insights_resource_provider: Optional[pulumi
     __args__['resourceGroupName'] = resource_group_name
     __args__['settingsName'] = settings_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20190101preview:getIPSyncer', __args__, opts=opts, typ=GetIPSyncerResult)
     return __ret__.apply(lambda __response__: GetIPSyncerResult(
         etag=pulumi.get(__response__, 'etag'),

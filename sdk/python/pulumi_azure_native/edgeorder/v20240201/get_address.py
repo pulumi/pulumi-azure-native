@@ -200,7 +200,7 @@ def get_address(address_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_address_output(address_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddressResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddressResult]:
     """
     Get information about the specified address.
 
@@ -211,7 +211,7 @@ def get_address_output(address_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['addressName'] = address_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:edgeorder/v20240201:getAddress', __args__, opts=opts, typ=GetAddressResult)
     return __ret__.apply(lambda __response__: GetAddressResult(
         address_classification=pulumi.get(__response__, 'address_classification'),

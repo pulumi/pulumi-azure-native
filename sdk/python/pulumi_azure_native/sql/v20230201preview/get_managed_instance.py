@@ -586,7 +586,7 @@ def get_managed_instance(expand: Optional[str] = None,
 def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                 managed_instance_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedInstanceResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedInstanceResult]:
     """
     Gets a managed instance.
 
@@ -599,7 +599,7 @@ def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     __args__['expand'] = expand
     __args__['managedInstanceName'] = managed_instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230201preview:getManagedInstance', __args__, opts=opts, typ=GetManagedInstanceResult)
     return __ret__.apply(lambda __response__: GetManagedInstanceResult(
         administrator_login=pulumi.get(__response__, 'administrator_login'),

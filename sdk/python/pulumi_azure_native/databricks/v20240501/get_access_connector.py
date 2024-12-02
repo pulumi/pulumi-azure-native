@@ -161,7 +161,7 @@ def get_access_connector(connector_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_access_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessConnectorResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessConnectorResult]:
     """
     Gets an Azure Databricks Access Connector.
 
@@ -172,7 +172,7 @@ def get_access_connector_output(connector_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['connectorName'] = connector_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databricks/v20240501:getAccessConnector', __args__, opts=opts, typ=GetAccessConnectorResult)
     return __ret__.apply(lambda __response__: GetAccessConnectorResult(
         id=pulumi.get(__response__, 'id'),

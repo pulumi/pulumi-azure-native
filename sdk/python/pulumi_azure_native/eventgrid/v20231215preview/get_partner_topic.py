@@ -254,7 +254,7 @@ def get_partner_topic(partner_topic_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_partner_topic_output(partner_topic_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerTopicResult]:
     """
     Get properties of a partner topic.
 
@@ -265,7 +265,7 @@ def get_partner_topic_output(partner_topic_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['partnerTopicName'] = partner_topic_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20231215preview:getPartnerTopic', __args__, opts=opts, typ=GetPartnerTopicResult)
     return __ret__.apply(lambda __response__: GetPartnerTopicResult(
         activation_state=pulumi.get(__response__, 'activation_state'),

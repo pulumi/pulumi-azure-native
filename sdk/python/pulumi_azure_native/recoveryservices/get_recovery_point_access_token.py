@@ -180,7 +180,7 @@ def get_recovery_point_access_token_output(container_name: Optional[pulumi.Input
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                            vault_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecoveryPointAccessTokenResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecoveryPointAccessTokenResult]:
     """
     Azure REST API version: 2023-01-15.
 
@@ -209,7 +209,7 @@ def get_recovery_point_access_token_output(container_name: Optional[pulumi.Input
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices:getRecoveryPointAccessToken', __args__, opts=opts, typ=GetRecoveryPointAccessTokenResult)
     return __ret__.apply(lambda __response__: GetRecoveryPointAccessTokenResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

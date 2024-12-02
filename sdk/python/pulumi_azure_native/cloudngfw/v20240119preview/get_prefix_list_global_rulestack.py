@@ -174,7 +174,7 @@ def get_prefix_list_global_rulestack(global_rulestack_name: Optional[str] = None
         type=pulumi.get(__ret__, 'type'))
 def get_prefix_list_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                             name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixListGlobalRulestackResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixListGlobalRulestackResult]:
     """
     Get a PrefixListGlobalRulestackResource
 
@@ -185,7 +185,7 @@ def get_prefix_list_global_rulestack_output(global_rulestack_name: Optional[pulu
     __args__ = dict()
     __args__['globalRulestackName'] = global_rulestack_name
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240119preview:getPrefixListGlobalRulestack', __args__, opts=opts, typ=GetPrefixListGlobalRulestackResult)
     return __ret__.apply(lambda __response__: GetPrefixListGlobalRulestackResult(
         audit_comment=pulumi.get(__response__, 'audit_comment'),

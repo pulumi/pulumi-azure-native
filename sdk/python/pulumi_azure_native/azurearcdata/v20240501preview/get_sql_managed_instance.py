@@ -174,7 +174,7 @@ def get_sql_managed_instance(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_sql_managed_instance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     sql_managed_instance_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlManagedInstanceResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlManagedInstanceResult]:
     """
     Retrieves a SQL Managed Instance resource
 
@@ -185,7 +185,7 @@ def get_sql_managed_instance_output(resource_group_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlManagedInstanceName'] = sql_managed_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata/v20240501preview:getSqlManagedInstance', __args__, opts=opts, typ=GetSqlManagedInstanceResult)
     return __ret__.apply(lambda __response__: GetSqlManagedInstanceResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

@@ -534,7 +534,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
         type=pulumi.get(__ret__, 'type'),
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
 def get_access_review_schedule_definition_by_id_output(schedule_definition_id: Optional[pulumi.Input[str]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessReviewScheduleDefinitionByIdResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessReviewScheduleDefinitionByIdResult]:
     """
     Get single access review definition
 
@@ -543,7 +543,7 @@ def get_access_review_schedule_definition_by_id_output(schedule_definition_id: O
     """
     __args__ = dict()
     __args__['scheduleDefinitionId'] = schedule_definition_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20211201preview:getAccessReviewScheduleDefinitionById', __args__, opts=opts, typ=GetAccessReviewScheduleDefinitionByIdResult)
     return __ret__.apply(lambda __response__: GetAccessReviewScheduleDefinitionByIdResult(
         assignment_state=pulumi.get(__response__, 'assignment_state'),

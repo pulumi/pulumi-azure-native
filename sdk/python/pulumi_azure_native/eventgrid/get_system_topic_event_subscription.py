@@ -263,7 +263,7 @@ def get_system_topic_event_subscription(event_subscription_name: Optional[str] =
 def get_system_topic_event_subscription_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                system_topic_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionResult]:
     """
     Get an event subscription.
     Azure REST API version: 2022-06-15.
@@ -279,7 +279,7 @@ def get_system_topic_event_subscription_output(event_subscription_name: Optional
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['systemTopicName'] = system_topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getSystemTopicEventSubscription', __args__, opts=opts, typ=GetSystemTopicEventSubscriptionResult)
     return __ret__.apply(lambda __response__: GetSystemTopicEventSubscriptionResult(
         dead_letter_destination=pulumi.get(__response__, 'dead_letter_destination'),

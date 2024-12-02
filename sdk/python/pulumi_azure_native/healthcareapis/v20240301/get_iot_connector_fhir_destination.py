@@ -182,7 +182,7 @@ def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pu
                                               iot_connector_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               workspace_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotConnectorFhirDestinationResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotConnectorFhirDestinationResult]:
     """
     Gets the properties of the specified Iot Connector FHIR destination.
 
@@ -197,7 +197,7 @@ def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pu
     __args__['iotConnectorName'] = iot_connector_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis/v20240301:getIotConnectorFhirDestination', __args__, opts=opts, typ=GetIotConnectorFhirDestinationResult)
     return __ret__.apply(lambda __response__: GetIotConnectorFhirDestinationResult(
         etag=pulumi.get(__response__, 'etag'),

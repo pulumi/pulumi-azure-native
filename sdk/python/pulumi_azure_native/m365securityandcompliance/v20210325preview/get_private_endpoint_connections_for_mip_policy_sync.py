@@ -152,7 +152,7 @@ def get_private_endpoint_connections_for_mip_policy_sync(private_endpoint_connec
 def get_private_endpoint_connections_for_mip_policy_sync_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                 resource_name: Optional[pulumi.Input[str]] = None,
-                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionsForMIPPolicySyncResult]:
+                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionsForMIPPolicySyncResult]:
     """
     Gets the specified private endpoint connection associated with the service.
 
@@ -165,7 +165,7 @@ def get_private_endpoint_connections_for_mip_policy_sync_output(private_endpoint
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForMIPPolicySync', __args__, opts=opts, typ=GetPrivateEndpointConnectionsForMIPPolicySyncResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionsForMIPPolicySyncResult(
         id=pulumi.get(__response__, 'id'),

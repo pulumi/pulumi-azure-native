@@ -204,7 +204,7 @@ def get_export(expand: Optional[str] = None,
 def get_export_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       export_name: Optional[pulumi.Input[str]] = None,
                       scope: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
     The operation to get the export for the defined scope by export name.
 
@@ -217,7 +217,7 @@ def get_export_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['expand'] = expand
     __args__['exportName'] = export_name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20230301:getExport', __args__, opts=opts, typ=GetExportResult)
     return __ret__.apply(lambda __response__: GetExportResult(
         definition=pulumi.get(__response__, 'definition'),

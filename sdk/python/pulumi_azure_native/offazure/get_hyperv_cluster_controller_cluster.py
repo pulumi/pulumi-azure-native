@@ -233,7 +233,7 @@ def get_hyperv_cluster_controller_cluster(cluster_name: Optional[str] = None,
 def get_hyperv_cluster_controller_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  site_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHypervClusterControllerClusterResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervClusterControllerClusterResult]:
     """
     Method to get a Hyper-V cluster.
     Azure REST API version: 2023-06-06.
@@ -249,7 +249,7 @@ def get_hyperv_cluster_controller_cluster_output(cluster_name: Optional[pulumi.I
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getHypervClusterControllerCluster', __args__, opts=opts, typ=GetHypervClusterControllerClusterResult)
     return __ret__.apply(lambda __response__: GetHypervClusterControllerClusterResult(
         created_timestamp=pulumi.get(__response__, 'created_timestamp'),

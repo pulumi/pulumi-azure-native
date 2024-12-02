@@ -144,7 +144,7 @@ def get_data_flow_output(dataflow_name: Optional[pulumi.Input[str]] = None,
                          dataflow_profile_name: Optional[pulumi.Input[str]] = None,
                          instance_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataFlowResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataFlowResult]:
     """
     Get a DataFlowResource
     Azure REST API version: 2024-07-01-preview.
@@ -160,7 +160,7 @@ def get_data_flow_output(dataflow_name: Optional[pulumi.Input[str]] = None,
     __args__['dataflowProfileName'] = dataflow_profile_name
     __args__['instanceName'] = instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperations:getDataFlow', __args__, opts=opts, typ=GetDataFlowResult)
     return __ret__.apply(lambda __response__: GetDataFlowResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

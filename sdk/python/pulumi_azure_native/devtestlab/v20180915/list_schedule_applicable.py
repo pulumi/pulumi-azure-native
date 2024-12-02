@@ -87,7 +87,7 @@ def list_schedule_applicable(lab_name: Optional[str] = None,
 def list_schedule_applicable_output(lab_name: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListScheduleApplicableResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListScheduleApplicableResult]:
     """
     Lists all applicable schedules
 
@@ -100,7 +100,7 @@ def list_schedule_applicable_output(lab_name: Optional[pulumi.Input[str]] = None
     __args__['labName'] = lab_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:listScheduleApplicable', __args__, opts=opts, typ=ListScheduleApplicableResult)
     return __ret__.apply(lambda __response__: ListScheduleApplicableResult(
         next_link=pulumi.get(__response__, 'next_link'),

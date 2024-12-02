@@ -460,7 +460,7 @@ def get_component(resource_group_name: Optional[str] = None,
         workspace_resource_id=pulumi.get(__ret__, 'workspace_resource_id'))
 def get_component_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          resource_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentResult]:
     """
     Returns an Application Insights component.
 
@@ -471,7 +471,7 @@ def get_component_output(resource_group_name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20200202:getComponent', __args__, opts=opts, typ=GetComponentResult)
     return __ret__.apply(lambda __response__: GetComponentResult(
         app_id=pulumi.get(__response__, 'app_id'),

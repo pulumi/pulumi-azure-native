@@ -282,7 +282,7 @@ def get_python3_package(automation_account_name: Optional[str] = None,
 def get_python3_package_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                package_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPython3PackageResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPython3PackageResult]:
     """
     Retrieve the python 3 package identified by package name.
 
@@ -295,7 +295,7 @@ def get_python3_package_output(automation_account_name: Optional[pulumi.Input[st
     __args__['automationAccountName'] = automation_account_name
     __args__['packageName'] = package_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20220808:getPython3Package', __args__, opts=opts, typ=GetPython3PackageResult)
     return __ret__.apply(lambda __response__: GetPython3PackageResult(
         activity_count=pulumi.get(__response__, 'activity_count'),

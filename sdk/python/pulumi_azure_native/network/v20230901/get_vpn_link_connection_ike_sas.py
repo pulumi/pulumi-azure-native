@@ -71,7 +71,7 @@ def get_vpn_link_connection_ike_sas_output(connection_name: Optional[pulumi.Inpu
                                            gateway_name: Optional[pulumi.Input[str]] = None,
                                            link_connection_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnLinkConnectionIkeSasResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnLinkConnectionIkeSasResult]:
     """
     Lists IKE Security Associations for Vpn Site Link Connection in the specified resource group.
 
@@ -86,7 +86,7 @@ def get_vpn_link_connection_ike_sas_output(connection_name: Optional[pulumi.Inpu
     __args__['gatewayName'] = gateway_name
     __args__['linkConnectionName'] = link_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230901:getVpnLinkConnectionIkeSas', __args__, opts=opts, typ=GetVpnLinkConnectionIkeSasResult)
     return __ret__.apply(lambda __response__: GetVpnLinkConnectionIkeSasResult(
         value=pulumi.get(__response__, 'value')))

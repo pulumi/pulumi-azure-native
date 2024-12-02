@@ -179,7 +179,7 @@ def get_security_policies_interface(resource_group_name: Optional[str] = None,
 def get_security_policies_interface_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                            security_policy_name: Optional[pulumi.Input[str]] = None,
                                            traffic_controller_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityPoliciesInterfaceResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPoliciesInterfaceResult]:
     """
     Get a SecurityPolicy
     Azure REST API version: 2024-05-01-preview.
@@ -193,7 +193,7 @@ def get_security_policies_interface_output(resource_group_name: Optional[pulumi.
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityPolicyName'] = security_policy_name
     __args__['trafficControllerName'] = traffic_controller_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicenetworking:getSecurityPoliciesInterface', __args__, opts=opts, typ=GetSecurityPoliciesInterfaceResult)
     return __ret__.apply(lambda __response__: GetSecurityPoliciesInterfaceResult(
         id=pulumi.get(__response__, 'id'),

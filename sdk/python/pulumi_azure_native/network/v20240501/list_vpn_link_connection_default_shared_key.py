@@ -117,7 +117,7 @@ def list_vpn_link_connection_default_shared_key_output(connection_name: Optional
                                                        gateway_name: Optional[pulumi.Input[str]] = None,
                                                        link_connection_name: Optional[pulumi.Input[str]] = None,
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVpnLinkConnectionDefaultSharedKeyResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVpnLinkConnectionDefaultSharedKeyResult]:
     """
     Gets the value of the shared key of VpnLink connection specified.
 
@@ -132,7 +132,7 @@ def list_vpn_link_connection_default_shared_key_output(connection_name: Optional
     __args__['gatewayName'] = gateway_name
     __args__['linkConnectionName'] = link_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240501:listVpnLinkConnectionDefaultSharedKey', __args__, opts=opts, typ=ListVpnLinkConnectionDefaultSharedKeyResult)
     return __ret__.apply(lambda __response__: ListVpnLinkConnectionDefaultSharedKeyResult(
         id=pulumi.get(__response__, 'id'),

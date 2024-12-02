@@ -130,7 +130,7 @@ def get_featurestore_entity_version_output(name: Optional[pulumi.Input[str]] = N
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            version: Optional[pulumi.Input[str]] = None,
                                            workspace_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFeaturestoreEntityVersionResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeaturestoreEntityVersionResult]:
     """
     Azure Resource Manager resource envelope.
 
@@ -145,7 +145,7 @@ def get_featurestore_entity_version_output(name: Optional[pulumi.Input[str]] = N
     __args__['resourceGroupName'] = resource_group_name
     __args__['version'] = version
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230801preview:getFeaturestoreEntityVersion', __args__, opts=opts, typ=GetFeaturestoreEntityVersionResult)
     return __ret__.apply(lambda __response__: GetFeaturestoreEntityVersionResult(
         featurestore_entity_version_properties=pulumi.get(__response__, 'featurestore_entity_version_properties'),

@@ -122,7 +122,7 @@ def get_workflow_access_key(access_key_name: Optional[str] = None,
 def get_workflow_access_key_output(access_key_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    workflow_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowAccessKeyResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowAccessKeyResult]:
     """
     Gets a workflow access key.
 
@@ -135,7 +135,7 @@ def get_workflow_access_key_output(access_key_name: Optional[pulumi.Input[str]] 
     __args__['accessKeyName'] = access_key_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workflowName'] = workflow_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20150201preview:getWorkflowAccessKey', __args__, opts=opts, typ=GetWorkflowAccessKeyResult)
     return __ret__.apply(lambda __response__: GetWorkflowAccessKeyResult(
         id=pulumi.get(__response__, 'id'),

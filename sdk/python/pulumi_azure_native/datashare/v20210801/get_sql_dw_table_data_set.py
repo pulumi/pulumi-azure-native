@@ -196,7 +196,7 @@ def get_sql_dw_table_data_set_output(account_name: Optional[pulumi.Input[str]] =
                                      data_set_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      share_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlDWTableDataSetResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlDWTableDataSetResult]:
     """
     Get a DataSet in a share
 
@@ -211,7 +211,7 @@ def get_sql_dw_table_data_set_output(account_name: Optional[pulumi.Input[str]] =
     __args__['dataSetName'] = data_set_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20210801:getSqlDWTableDataSet', __args__, opts=opts, typ=GetSqlDWTableDataSetResult)
     return __ret__.apply(lambda __response__: GetSqlDWTableDataSetResult(
         data_set_id=pulumi.get(__response__, 'data_set_id'),

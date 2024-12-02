@@ -169,7 +169,7 @@ def get_static_member_output(network_group_name: Optional[pulumi.Input[str]] = N
                              network_manager_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              static_member_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticMemberResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticMemberResult]:
     """
     Gets the specified static member.
 
@@ -184,7 +184,7 @@ def get_static_member_output(network_group_name: Optional[pulumi.Input[str]] = N
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['staticMemberName'] = static_member_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:getStaticMember', __args__, opts=opts, typ=GetStaticMemberResult)
     return __ret__.apply(lambda __response__: GetStaticMemberResult(
         etag=pulumi.get(__response__, 'etag'),

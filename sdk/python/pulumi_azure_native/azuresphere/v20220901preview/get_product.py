@@ -139,7 +139,7 @@ def get_product(catalog_name: Optional[str] = None,
 def get_product_output(catalog_name: Optional[pulumi.Input[str]] = None,
                        product_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
 
@@ -152,7 +152,7 @@ def get_product_output(catalog_name: Optional[pulumi.Input[str]] = None,
     __args__['catalogName'] = catalog_name
     __args__['productName'] = product_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere/v20220901preview:getProduct', __args__, opts=opts, typ=GetProductResult)
     return __ret__.apply(lambda __response__: GetProductResult(
         description=pulumi.get(__response__, 'description'),

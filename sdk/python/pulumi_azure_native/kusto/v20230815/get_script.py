@@ -169,7 +169,7 @@ def get_script_output(cluster_name: Optional[pulumi.Input[str]] = None,
                       database_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       script_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScriptResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptResult]:
     """
     Gets a Kusto cluster database script.
 
@@ -184,7 +184,7 @@ def get_script_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['scriptName'] = script_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20230815:getScript', __args__, opts=opts, typ=GetScriptResult)
     return __ret__.apply(lambda __response__: GetScriptResult(
         continue_on_errors=pulumi.get(__response__, 'continue_on_errors'),

@@ -113,7 +113,7 @@ def get_component_linked_storage_account(resource_group_name: Optional[str] = No
 def get_component_linked_storage_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 resource_name: Optional[pulumi.Input[str]] = None,
                                                 storage_type: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentLinkedStorageAccountResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentLinkedStorageAccountResult]:
     """
     Returns the current linked storage settings for an Application Insights component.
     Azure REST API version: 2020-03-01-preview.
@@ -127,7 +127,7 @@ def get_component_linked_storage_account_output(resource_group_name: Optional[pu
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     __args__['storageType'] = storage_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getComponentLinkedStorageAccount', __args__, opts=opts, typ=GetComponentLinkedStorageAccountResult)
     return __ret__.apply(lambda __response__: GetComponentLinkedStorageAccountResult(
         id=pulumi.get(__response__, 'id'),

@@ -83,7 +83,7 @@ def get_component_current_billing_feature(resource_group_name: Optional[str] = N
         data_volume_cap=pulumi.get(__ret__, 'data_volume_cap'))
 def get_component_current_billing_feature_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  resource_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentCurrentBillingFeatureResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentCurrentBillingFeatureResult]:
     """
     Returns current billing features for an Application Insights component.
 
@@ -94,7 +94,7 @@ def get_component_current_billing_feature_output(resource_group_name: Optional[p
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20150501:getComponentCurrentBillingFeature', __args__, opts=opts, typ=GetComponentCurrentBillingFeatureResult)
     return __ret__.apply(lambda __response__: GetComponentCurrentBillingFeatureResult(
         current_billing_features=pulumi.get(__response__, 'current_billing_features'),

@@ -208,7 +208,7 @@ def get_device_group_output(catalog_name: Optional[pulumi.Input[str]] = None,
                             device_group_name: Optional[pulumi.Input[str]] = None,
                             product_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceGroupResult]:
     """
     Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
 
@@ -223,7 +223,7 @@ def get_device_group_output(catalog_name: Optional[pulumi.Input[str]] = None,
     __args__['deviceGroupName'] = device_group_name
     __args__['productName'] = product_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere/v20240401:getDeviceGroup', __args__, opts=opts, typ=GetDeviceGroupResult)
     return __ret__.apply(lambda __response__: GetDeviceGroupResult(
         allow_crash_dumps_collection=pulumi.get(__response__, 'allow_crash_dumps_collection'),

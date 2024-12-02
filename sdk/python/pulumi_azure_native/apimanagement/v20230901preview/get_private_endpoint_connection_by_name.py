@@ -139,7 +139,7 @@ def get_private_endpoint_connection_by_name(private_endpoint_connection_name: Op
 def get_private_endpoint_connection_by_name_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    service_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionByNameResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionByNameResult]:
     """
     Gets the details of the Private Endpoint Connection specified by its identifier.
 
@@ -152,7 +152,7 @@ def get_private_endpoint_connection_by_name_output(private_endpoint_connection_n
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getPrivateEndpointConnectionByName', __args__, opts=opts, typ=GetPrivateEndpointConnectionByNameResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionByNameResult(
         id=pulumi.get(__response__, 'id'),

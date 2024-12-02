@@ -210,7 +210,7 @@ def get_pipeline_topology(account_name: Optional[str] = None,
 def get_pipeline_topology_output(account_name: Optional[pulumi.Input[str]] = None,
                                  pipeline_topology_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineTopologyResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineTopologyResult]:
     """
     Retrieves a specific pipeline topology by name. If a topology with that name has been previously created, the call will return the JSON representation of that topology.
     Azure REST API version: 2021-11-01-preview.
@@ -224,7 +224,7 @@ def get_pipeline_topology_output(account_name: Optional[pulumi.Input[str]] = Non
     __args__['accountName'] = account_name
     __args__['pipelineTopologyName'] = pipeline_topology_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer:getPipelineTopology', __args__, opts=opts, typ=GetPipelineTopologyResult)
     return __ret__.apply(lambda __response__: GetPipelineTopologyResult(
         description=pulumi.get(__response__, 'description'),

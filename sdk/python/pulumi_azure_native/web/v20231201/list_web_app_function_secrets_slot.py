@@ -90,7 +90,7 @@ def list_web_app_function_secrets_slot_output(function_name: Optional[pulumi.Inp
                                               name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               slot: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppFunctionSecretsSlotResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppFunctionSecretsSlotResult]:
     """
     Description for Get function secrets for a function in a web site, or a deployment slot.
 
@@ -105,7 +105,7 @@ def list_web_app_function_secrets_slot_output(function_name: Optional[pulumi.Inp
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:listWebAppFunctionSecretsSlot', __args__, opts=opts, typ=ListWebAppFunctionSecretsSlotResult)
     return __ret__.apply(lambda __response__: ListWebAppFunctionSecretsSlotResult(
         key=pulumi.get(__response__, 'key'),

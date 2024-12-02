@@ -300,7 +300,7 @@ def get_connector_mapping_output(connector_name: Optional[pulumi.Input[str]] = N
                                  hub_name: Optional[pulumi.Input[str]] = None,
                                  mapping_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorMappingResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorMappingResult]:
     """
     Gets a connector mapping in the connector.
     Azure REST API version: 2017-04-26.
@@ -316,7 +316,7 @@ def get_connector_mapping_output(connector_name: Optional[pulumi.Input[str]] = N
     __args__['hubName'] = hub_name
     __args__['mappingName'] = mapping_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getConnectorMapping', __args__, opts=opts, typ=GetConnectorMappingResult)
     return __ret__.apply(lambda __response__: GetConnectorMappingResult(
         connector_mapping_name=pulumi.get(__response__, 'connector_mapping_name'),

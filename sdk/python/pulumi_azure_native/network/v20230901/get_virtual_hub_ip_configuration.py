@@ -178,7 +178,7 @@ def get_virtual_hub_ip_configuration(ip_config_name: Optional[str] = None,
 def get_virtual_hub_ip_configuration_output(ip_config_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubIpConfigurationResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubIpConfigurationResult]:
     """
     Retrieves the details of a Virtual Hub Ip configuration.
 
@@ -191,7 +191,7 @@ def get_virtual_hub_ip_configuration_output(ip_config_name: Optional[pulumi.Inpu
     __args__['ipConfigName'] = ip_config_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualHubName'] = virtual_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230901:getVirtualHubIpConfiguration', __args__, opts=opts, typ=GetVirtualHubIpConfigurationResult)
     return __ret__.apply(lambda __response__: GetVirtualHubIpConfigurationResult(
         etag=pulumi.get(__response__, 'etag'),

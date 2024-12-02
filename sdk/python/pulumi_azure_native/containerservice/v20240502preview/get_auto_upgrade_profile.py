@@ -194,7 +194,7 @@ def get_auto_upgrade_profile(auto_upgrade_profile_name: Optional[str] = None,
 def get_auto_upgrade_profile_output(auto_upgrade_profile_name: Optional[pulumi.Input[str]] = None,
                                     fleet_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoUpgradeProfileResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoUpgradeProfileResult]:
     """
     Get a AutoUpgradeProfile
 
@@ -207,7 +207,7 @@ def get_auto_upgrade_profile_output(auto_upgrade_profile_name: Optional[pulumi.I
     __args__['autoUpgradeProfileName'] = auto_upgrade_profile_name
     __args__['fleetName'] = fleet_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20240502preview:getAutoUpgradeProfile', __args__, opts=opts, typ=GetAutoUpgradeProfileResult)
     return __ret__.apply(lambda __response__: GetAutoUpgradeProfileResult(
         channel=pulumi.get(__response__, 'channel'),

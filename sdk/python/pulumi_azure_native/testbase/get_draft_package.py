@@ -465,7 +465,7 @@ def get_draft_package(draft_package_name: Optional[str] = None,
 def get_draft_package_output(draft_package_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              test_base_account_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDraftPackageResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDraftPackageResult]:
     """
     Gets a Test Base Draft Package.
     Azure REST API version: 2023-11-01-preview.
@@ -479,7 +479,7 @@ def get_draft_package_output(draft_package_name: Optional[pulumi.Input[str]] = N
     __args__['draftPackageName'] = draft_package_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getDraftPackage', __args__, opts=opts, typ=GetDraftPackageResult)
     return __ret__.apply(lambda __response__: GetDraftPackageResult(
         app_file_name=pulumi.get(__response__, 'app_file_name'),

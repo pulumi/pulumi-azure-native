@@ -86,7 +86,7 @@ def list_video_streaming_token(account_name: Optional[str] = None,
 def list_video_streaming_token_output(account_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       video_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVideoStreamingTokenResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVideoStreamingTokenResult]:
     """
     Generates a streaming token used for authenticating video playback.
 
@@ -99,7 +99,7 @@ def list_video_streaming_token_output(account_name: Optional[pulumi.Input[str]] 
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['videoName'] = video_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken', __args__, opts=opts, typ=ListVideoStreamingTokenResult)
     return __ret__.apply(lambda __response__: ListVideoStreamingTokenResult(
         expiration_date=pulumi.get(__response__, 'expiration_date'),

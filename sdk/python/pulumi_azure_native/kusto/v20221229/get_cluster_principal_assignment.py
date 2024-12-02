@@ -203,7 +203,7 @@ def get_cluster_principal_assignment(cluster_name: Optional[str] = None,
 def get_cluster_principal_assignment_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                             principal_assignment_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterPrincipalAssignmentResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterPrincipalAssignmentResult]:
     """
     Gets a Kusto cluster principalAssignment.
 
@@ -216,7 +216,7 @@ def get_cluster_principal_assignment_output(cluster_name: Optional[pulumi.Input[
     __args__['clusterName'] = cluster_name
     __args__['principalAssignmentName'] = principal_assignment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20221229:getClusterPrincipalAssignment', __args__, opts=opts, typ=GetClusterPrincipalAssignmentResult)
     return __ret__.apply(lambda __response__: GetClusterPrincipalAssignmentResult(
         aad_object_id=pulumi.get(__response__, 'aad_object_id'),

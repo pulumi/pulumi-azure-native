@@ -87,7 +87,7 @@ def list_compute_nodes(compute_name: Optional[str] = None,
 def list_compute_nodes_output(compute_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListComputeNodesResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListComputeNodesResult]:
     """
     Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
 
@@ -100,7 +100,7 @@ def list_compute_nodes_output(compute_name: Optional[pulumi.Input[str]] = None,
     __args__['computeName'] = compute_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20220101preview:listComputeNodes', __args__, opts=opts, typ=ListComputeNodesResult)
     return __ret__.apply(lambda __response__: ListComputeNodesResult(
         next_link=pulumi.get(__response__, 'next_link'),

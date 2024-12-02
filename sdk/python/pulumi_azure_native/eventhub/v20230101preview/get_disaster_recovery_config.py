@@ -191,7 +191,7 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
 def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = None,
                                         namespace_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDisasterRecoveryConfigResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDisasterRecoveryConfigResult]:
     """
     Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
 
@@ -204,7 +204,7 @@ def get_disaster_recovery_config_output(alias: Optional[pulumi.Input[str]] = Non
     __args__['alias'] = alias
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub/v20230101preview:getDisasterRecoveryConfig', __args__, opts=opts, typ=GetDisasterRecoveryConfigResult)
     return __ret__.apply(lambda __response__: GetDisasterRecoveryConfigResult(
         alternate_name=pulumi.get(__response__, 'alternate_name'),

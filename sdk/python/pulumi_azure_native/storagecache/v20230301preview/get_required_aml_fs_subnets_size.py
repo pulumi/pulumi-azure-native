@@ -70,7 +70,7 @@ def get_required_aml_fs_subnets_size(sku: Optional[Union['SkuName', 'SkuNameDict
         filesystem_subnet_size=pulumi.get(__ret__, 'filesystem_subnet_size'))
 def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[Union['SkuName', 'SkuNameDict']]]] = None,
                                             storage_capacity_ti_b: Optional[pulumi.Input[Optional[float]]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRequiredAmlFSSubnetsSizeResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequiredAmlFSSubnetsSizeResult]:
     """
     Get the number of available IP addresses needed for the AML file system information provided.
 
@@ -81,7 +81,7 @@ def get_required_aml_fs_subnets_size_output(sku: Optional[pulumi.Input[Optional[
     __args__ = dict()
     __args__['sku'] = sku
     __args__['storageCapacityTiB'] = storage_capacity_ti_b
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagecache/v20230301preview:getRequiredAmlFSSubnetsSize', __args__, opts=opts, typ=GetRequiredAmlFSSubnetsSizeResult)
     return __ret__.apply(lambda __response__: GetRequiredAmlFSSubnetsSizeResult(
         filesystem_subnet_size=pulumi.get(__response__, 'filesystem_subnet_size')))

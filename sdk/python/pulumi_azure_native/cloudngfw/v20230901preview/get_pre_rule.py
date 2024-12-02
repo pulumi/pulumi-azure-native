@@ -366,7 +366,7 @@ def get_pre_rule(global_rulestack_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_pre_rule_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                         priority: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPreRuleResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPreRuleResult]:
     """
     Get a PreRulesResource
 
@@ -377,7 +377,7 @@ def get_pre_rule_output(global_rulestack_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['globalRulestackName'] = global_rulestack_name
     __args__['priority'] = priority
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20230901preview:getPreRule', __args__, opts=opts, typ=GetPreRuleResult)
     return __ret__.apply(lambda __response__: GetPreRuleResult(
         action_type=pulumi.get(__response__, 'action_type'),

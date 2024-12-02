@@ -149,7 +149,7 @@ def get_s3_bucket(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_s3_bucket_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetS3BucketResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetS3BucketResult]:
     """
     Get a S3Bucket
     Azure REST API version: 2024-12-01.
@@ -161,7 +161,7 @@ def get_s3_bucket_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector:getS3Bucket', __args__, opts=opts, typ=GetS3BucketResult)
     return __ret__.apply(lambda __response__: GetS3BucketResult(
         id=pulumi.get(__response__, 'id'),

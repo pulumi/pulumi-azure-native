@@ -256,7 +256,7 @@ def get_backup_policy(account_name: Optional[str] = None,
 def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                              backup_policy_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPolicyResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
     Get a particular backup Policy
 
@@ -269,7 +269,7 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['backupPolicyName'] = backup_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20240701preview:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult)
     return __ret__.apply(lambda __response__: GetBackupPolicyResult(
         backup_policy_id=pulumi.get(__response__, 'backup_policy_id'),

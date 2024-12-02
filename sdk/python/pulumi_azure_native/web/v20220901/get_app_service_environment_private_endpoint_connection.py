@@ -162,7 +162,7 @@ def get_app_service_environment_private_endpoint_connection(name: Optional[str] 
 def get_app_service_environment_private_endpoint_connection_output(name: Optional[pulumi.Input[str]] = None,
                                                                    private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentPrivateEndpointConnectionResult]:
+                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceEnvironmentPrivateEndpointConnectionResult]:
     """
     Description for Gets a private endpoint connection
 
@@ -175,7 +175,7 @@ def get_app_service_environment_private_endpoint_connection_output(name: Optiona
     __args__['name'] = name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getAppServiceEnvironmentPrivateEndpointConnection', __args__, opts=opts, typ=GetAppServiceEnvironmentPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetAppServiceEnvironmentPrivateEndpointConnectionResult(
         id=pulumi.get(__response__, 'id'),

@@ -91,7 +91,7 @@ def get_global_user_personal_preferences_output(add_remove: Optional[pulumi.Inpu
                                                 lab_account_resource_id: Optional[pulumi.Input[Optional[str]]] = None,
                                                 lab_resource_id: Optional[pulumi.Input[Optional[str]]] = None,
                                                 user_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserPersonalPreferencesResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalUserPersonalPreferencesResult]:
     """
     Get personal preferences for a user
 
@@ -106,7 +106,7 @@ def get_global_user_personal_preferences_output(add_remove: Optional[pulumi.Inpu
     __args__['labAccountResourceId'] = lab_account_resource_id
     __args__['labResourceId'] = lab_resource_id
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices/v20181015:getGlobalUserPersonalPreferences', __args__, opts=opts, typ=GetGlobalUserPersonalPreferencesResult)
     return __ret__.apply(lambda __response__: GetGlobalUserPersonalPreferencesResult(
         favorite_lab_resource_ids=pulumi.get(__response__, 'favorite_lab_resource_ids'),

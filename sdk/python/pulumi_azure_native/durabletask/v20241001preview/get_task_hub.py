@@ -126,7 +126,7 @@ def get_task_hub(resource_group_name: Optional[str] = None,
 def get_task_hub_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         scheduler_name: Optional[pulumi.Input[str]] = None,
                         task_hub_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskHubResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskHubResult]:
     """
     Get a Task Hub
 
@@ -139,7 +139,7 @@ def get_task_hub_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['schedulerName'] = scheduler_name
     __args__['taskHubName'] = task_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:durabletask/v20241001preview:getTaskHub', __args__, opts=opts, typ=GetTaskHubResult)
     return __ret__.apply(lambda __response__: GetTaskHubResult(
         id=pulumi.get(__response__, 'id'),

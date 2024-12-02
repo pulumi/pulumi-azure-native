@@ -382,7 +382,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainServiceResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainServiceResult]:
     """
     The Get Domain Service operation retrieves a json representation of the Domain Service.
 
@@ -393,7 +393,7 @@ def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['domainServiceName'] = domain_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:aad/v20221201:getDomainService', __args__, opts=opts, typ=GetDomainServiceResult)
     return __ret__.apply(lambda __response__: GetDomainServiceResult(
         config_diagnostics=pulumi.get(__response__, 'config_diagnostics'),

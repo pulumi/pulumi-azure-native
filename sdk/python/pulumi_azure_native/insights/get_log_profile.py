@@ -184,7 +184,7 @@ def get_log_profile(log_profile_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_log_profile_output(log_profile_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogProfileResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogProfileResult]:
     """
     Gets the log profile.
     Azure REST API version: 2016-03-01.
@@ -194,7 +194,7 @@ def get_log_profile_output(log_profile_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['logProfileName'] = log_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getLogProfile', __args__, opts=opts, typ=GetLogProfileResult)
     return __ret__.apply(lambda __response__: GetLogProfileResult(
         categories=pulumi.get(__response__, 'categories'),

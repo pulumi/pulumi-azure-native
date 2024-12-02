@@ -178,7 +178,7 @@ def get_static_site_database_connection(database_connection_name: Optional[str] 
 def get_static_site_database_connection_output(database_connection_name: Optional[pulumi.Input[str]] = None,
                                                name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteDatabaseConnectionResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteDatabaseConnectionResult]:
     """
     Static Site Database Connection resource.
 
@@ -191,7 +191,7 @@ def get_static_site_database_connection_output(database_connection_name: Optiona
     __args__['databaseConnectionName'] = database_connection_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getStaticSiteDatabaseConnection', __args__, opts=opts, typ=GetStaticSiteDatabaseConnectionResult)
     return __ret__.apply(lambda __response__: GetStaticSiteDatabaseConnectionResult(
         configuration_files=pulumi.get(__response__, 'configuration_files'),

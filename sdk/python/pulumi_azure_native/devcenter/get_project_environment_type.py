@@ -220,7 +220,7 @@ def get_project_environment_type(environment_type_name: Optional[str] = None,
 def get_project_environment_type_output(environment_type_name: Optional[pulumi.Input[str]] = None,
                                         project_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectEnvironmentTypeResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectEnvironmentTypeResult]:
     """
     Gets a project environment type.
     Azure REST API version: 2023-04-01.
@@ -236,7 +236,7 @@ def get_project_environment_type_output(environment_type_name: Optional[pulumi.I
     __args__['environmentTypeName'] = environment_type_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getProjectEnvironmentType', __args__, opts=opts, typ=GetProjectEnvironmentTypeResult)
     return __ret__.apply(lambda __response__: GetProjectEnvironmentTypeResult(
         creator_role_assignment=pulumi.get(__response__, 'creator_role_assignment'),

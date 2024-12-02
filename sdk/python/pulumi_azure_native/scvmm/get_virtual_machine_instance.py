@@ -225,7 +225,7 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineInstanceResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineInstanceResult]:
     """
     Retrieves information about a virtual machine instance.
     Azure REST API version: 2023-04-01-preview.
@@ -237,7 +237,7 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm:getVirtualMachineInstance', __args__, opts=opts, typ=GetVirtualMachineInstanceResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineInstanceResult(
         availability_sets=pulumi.get(__response__, 'availability_sets'),

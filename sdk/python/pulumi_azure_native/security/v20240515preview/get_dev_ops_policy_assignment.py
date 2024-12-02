@@ -126,7 +126,7 @@ def get_dev_ops_policy_assignment(policy_assignment_id: Optional[str] = None,
 def get_dev_ops_policy_assignment_output(policy_assignment_id: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          security_connector_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevOpsPolicyAssignmentResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevOpsPolicyAssignmentResult]:
     """
     DevOps Policy assignment resource.
 
@@ -139,7 +139,7 @@ def get_dev_ops_policy_assignment_output(policy_assignment_id: Optional[pulumi.I
     __args__['policyAssignmentId'] = policy_assignment_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityConnectorName'] = security_connector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20240515preview:getDevOpsPolicyAssignment', __args__, opts=opts, typ=GetDevOpsPolicyAssignmentResult)
     return __ret__.apply(lambda __response__: GetDevOpsPolicyAssignmentResult(
         id=pulumi.get(__response__, 'id'),

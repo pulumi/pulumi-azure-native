@@ -252,7 +252,7 @@ def get_managed_database_sensitivity_label_output(column_name: Optional[pulumi.I
                                                   schema_name: Optional[pulumi.Input[str]] = None,
                                                   sensitivity_label_source: Optional[pulumi.Input[str]] = None,
                                                   table_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedDatabaseSensitivityLabelResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedDatabaseSensitivityLabelResult]:
     """
     Gets the sensitivity label of a given column
 
@@ -273,7 +273,7 @@ def get_managed_database_sensitivity_label_output(column_name: Optional[pulumi.I
     __args__['schemaName'] = schema_name
     __args__['sensitivityLabelSource'] = sensitivity_label_source
     __args__['tableName'] = table_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230501preview:getManagedDatabaseSensitivityLabel', __args__, opts=opts, typ=GetManagedDatabaseSensitivityLabelResult)
     return __ret__.apply(lambda __response__: GetManagedDatabaseSensitivityLabelResult(
         client_classification_source=pulumi.get(__response__, 'client_classification_source'),

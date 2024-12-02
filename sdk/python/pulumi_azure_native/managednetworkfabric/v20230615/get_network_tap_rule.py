@@ -278,7 +278,7 @@ def get_network_tap_rule(network_tap_rule_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_network_tap_rule_output(network_tap_rule_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkTapRuleResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkTapRuleResult]:
     """
     Get Network Tap Rule resource details.
 
@@ -289,7 +289,7 @@ def get_network_tap_rule_output(network_tap_rule_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['networkTapRuleName'] = network_tap_rule_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getNetworkTapRule', __args__, opts=opts, typ=GetNetworkTapRuleResult)
     return __ret__.apply(lambda __response__: GetNetworkTapRuleResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),

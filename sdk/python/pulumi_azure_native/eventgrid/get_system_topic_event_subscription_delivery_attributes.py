@@ -77,7 +77,7 @@ def get_system_topic_event_subscription_delivery_attributes(event_subscription_n
 def get_system_topic_event_subscription_delivery_attributes_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                    system_topic_name: Optional[pulumi.Input[str]] = None,
-                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionDeliveryAttributesResult]:
+                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription.
     Azure REST API version: 2022-06-15.
@@ -93,7 +93,7 @@ def get_system_topic_event_subscription_delivery_attributes_output(event_subscri
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['systemTopicName'] = system_topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getSystemTopicEventSubscriptionDeliveryAttributes', __args__, opts=opts, typ=GetSystemTopicEventSubscriptionDeliveryAttributesResult)
     return __ret__.apply(lambda __response__: GetSystemTopicEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__response__, 'value')))

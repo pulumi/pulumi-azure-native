@@ -86,7 +86,7 @@ def list_cluster_streaming_jobs(cluster_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_cluster_streaming_jobs_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterStreamingJobsResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterStreamingJobsResult]:
     """
     Lists all of the streaming jobs in the given cluster.
     Azure REST API version: 2020-03-01.
@@ -100,7 +100,7 @@ def list_cluster_streaming_jobs_output(cluster_name: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics:listClusterStreamingJobs', __args__, opts=opts, typ=ListClusterStreamingJobsResult)
     return __ret__.apply(lambda __response__: ListClusterStreamingJobsResult(
         next_link=pulumi.get(__response__, 'next_link'),

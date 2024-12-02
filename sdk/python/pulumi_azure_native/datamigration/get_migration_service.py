@@ -162,7 +162,7 @@ def get_migration_service(migration_service_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_migration_service_output(migration_service_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationServiceResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationServiceResult]:
     """
     Retrieve the Database Migration Service
     Azure REST API version: 2023-07-15-preview.
@@ -174,7 +174,7 @@ def get_migration_service_output(migration_service_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['migrationServiceName'] = migration_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getMigrationService', __args__, opts=opts, typ=GetMigrationServiceResult)
     return __ret__.apply(lambda __response__: GetMigrationServiceResult(
         id=pulumi.get(__response__, 'id'),

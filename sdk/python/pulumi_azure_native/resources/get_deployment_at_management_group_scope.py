@@ -138,7 +138,7 @@ def get_deployment_at_management_group_scope(deployment_name: Optional[str] = No
         type=pulumi.get(__ret__, 'type'))
 def get_deployment_at_management_group_scope_output(deployment_name: Optional[pulumi.Input[str]] = None,
                                                     group_id: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtManagementGroupScopeResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentAtManagementGroupScopeResult]:
     """
     Gets a deployment.
     Azure REST API version: 2022-09-01.
@@ -152,7 +152,7 @@ def get_deployment_at_management_group_scope_output(deployment_name: Optional[pu
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     __args__['groupId'] = group_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getDeploymentAtManagementGroupScope', __args__, opts=opts, typ=GetDeploymentAtManagementGroupScopeResult)
     return __ret__.apply(lambda __response__: GetDeploymentAtManagementGroupScopeResult(
         id=pulumi.get(__response__, 'id'),

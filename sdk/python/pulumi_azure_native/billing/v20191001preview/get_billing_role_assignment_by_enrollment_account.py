@@ -229,7 +229,7 @@ def get_billing_role_assignment_by_enrollment_account(billing_account_name: Opti
 def get_billing_role_assignment_by_enrollment_account_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                                              billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
                                                              enrollment_account_name: Optional[pulumi.Input[str]] = None,
-                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingRoleAssignmentByEnrollmentAccountResult]:
+                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingRoleAssignmentByEnrollmentAccountResult]:
     """
     Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
 
@@ -242,7 +242,7 @@ def get_billing_role_assignment_by_enrollment_account_output(billing_account_nam
     __args__['billingAccountName'] = billing_account_name
     __args__['billingRoleAssignmentName'] = billing_role_assignment_name
     __args__['enrollmentAccountName'] = enrollment_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:billing/v20191001preview:getBillingRoleAssignmentByEnrollmentAccount', __args__, opts=opts, typ=GetBillingRoleAssignmentByEnrollmentAccountResult)
     return __ret__.apply(lambda __response__: GetBillingRoleAssignmentByEnrollmentAccountResult(
         created_by_principal_id=pulumi.get(__response__, 'created_by_principal_id'),

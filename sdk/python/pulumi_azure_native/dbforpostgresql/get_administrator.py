@@ -168,7 +168,7 @@ def get_administrator(object_id: Optional[str] = None,
 def get_administrator_output(object_id: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              server_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAdministratorResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdministratorResult]:
     """
     Gets information about a server.
     Azure REST API version: 2022-12-01.
@@ -184,7 +184,7 @@ def get_administrator_output(object_id: Optional[pulumi.Input[str]] = None,
     __args__['objectId'] = object_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql:getAdministrator', __args__, opts=opts, typ=GetAdministratorResult)
     return __ret__.apply(lambda __response__: GetAdministratorResult(
         id=pulumi.get(__response__, 'id'),

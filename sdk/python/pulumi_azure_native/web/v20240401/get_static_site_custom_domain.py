@@ -174,7 +174,7 @@ def get_static_site_custom_domain(domain_name: Optional[str] = None,
 def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                                          name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteCustomDomainResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteCustomDomainResult]:
     """
     Description for Gets an existing custom domain for a particular static site.
 
@@ -187,7 +187,7 @@ def get_static_site_custom_domain_output(domain_name: Optional[pulumi.Input[str]
     __args__['domainName'] = domain_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:getStaticSiteCustomDomain', __args__, opts=opts, typ=GetStaticSiteCustomDomainResult)
     return __ret__.apply(lambda __response__: GetStaticSiteCustomDomainResult(
         created_on=pulumi.get(__response__, 'created_on'),

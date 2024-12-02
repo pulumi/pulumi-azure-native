@@ -149,7 +149,7 @@ def get_sql_server_license(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_sql_server_license_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   sql_server_license_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerLicenseResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerLicenseResult]:
     """
     Retrieves a SQL Server license resource
     Azure REST API version: 2024-05-01-preview.
@@ -161,7 +161,7 @@ def get_sql_server_license_output(resource_group_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlServerLicenseName'] = sql_server_license_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata:getSqlServerLicense', __args__, opts=opts, typ=GetSqlServerLicenseResult)
     return __ret__.apply(lambda __response__: GetSqlServerLicenseResult(
         id=pulumi.get(__response__, 'id'),

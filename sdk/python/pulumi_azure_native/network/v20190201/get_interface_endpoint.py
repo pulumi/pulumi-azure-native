@@ -217,7 +217,7 @@ def get_interface_endpoint(expand: Optional[str] = None,
 def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                   interface_endpoint_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInterfaceEndpointResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInterfaceEndpointResult]:
     """
     Gets the specified interface endpoint by resource group.
 
@@ -230,7 +230,7 @@ def get_interface_endpoint_output(expand: Optional[pulumi.Input[Optional[str]]] 
     __args__['expand'] = expand
     __args__['interfaceEndpointName'] = interface_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20190201:getInterfaceEndpoint', __args__, opts=opts, typ=GetInterfaceEndpointResult)
     return __ret__.apply(lambda __response__: GetInterfaceEndpointResult(
         endpoint_service=pulumi.get(__response__, 'endpoint_service'),

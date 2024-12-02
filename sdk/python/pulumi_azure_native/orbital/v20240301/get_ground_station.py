@@ -239,7 +239,7 @@ def get_ground_station(ground_station_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_ground_station_output(ground_station_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroundStationResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroundStationResult]:
     """
     Gets the specified ground station in a specified resource group.
 
@@ -250,7 +250,7 @@ def get_ground_station_output(ground_station_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['groundStationName'] = ground_station_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital/v20240301:getGroundStation', __args__, opts=opts, typ=GetGroundStationResult)
     return __ret__.apply(lambda __response__: GetGroundStationResult(
         altitude_meters=pulumi.get(__response__, 'altitude_meters'),

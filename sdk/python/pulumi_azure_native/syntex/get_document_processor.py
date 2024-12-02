@@ -149,7 +149,7 @@ def get_document_processor(processor_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_document_processor_output(processor_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentProcessorResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentProcessorResult]:
     """
     Returns a document processor for a given name.
     Azure REST API version: 2022-09-15-preview.
@@ -161,7 +161,7 @@ def get_document_processor_output(processor_name: Optional[pulumi.Input[str]] = 
     __args__ = dict()
     __args__['processorName'] = processor_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:syntex:getDocumentProcessor', __args__, opts=opts, typ=GetDocumentProcessorResult)
     return __ret__.apply(lambda __response__: GetDocumentProcessorResult(
         id=pulumi.get(__response__, 'id'),

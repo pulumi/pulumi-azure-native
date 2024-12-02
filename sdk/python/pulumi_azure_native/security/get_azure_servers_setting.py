@@ -133,7 +133,7 @@ def get_azure_servers_setting(setting_kind: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_azure_servers_setting_output(setting_kind: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureServersSettingResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureServersSettingResult]:
     """
     Get a server vulnerability assessments setting of the requested kind, that is set on the subscription
     Azure REST API version: 2023-05-01.
@@ -143,7 +143,7 @@ def get_azure_servers_setting_output(setting_kind: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['settingKind'] = setting_kind
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAzureServersSetting', __args__, opts=opts, typ=GetAzureServersSettingResult)
     return __ret__.apply(lambda __response__: GetAzureServersSettingResult(
         id=pulumi.get(__response__, 'id'),

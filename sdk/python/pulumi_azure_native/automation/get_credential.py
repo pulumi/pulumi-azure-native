@@ -154,7 +154,7 @@ def get_credential(automation_account_name: Optional[str] = None,
 def get_credential_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                           credential_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCredentialResult]:
     """
     Retrieve the credential identified by credential name.
     Azure REST API version: 2022-08-08.
@@ -170,7 +170,7 @@ def get_credential_output(automation_account_name: Optional[pulumi.Input[str]] =
     __args__['automationAccountName'] = automation_account_name
     __args__['credentialName'] = credential_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getCredential', __args__, opts=opts, typ=GetCredentialResult)
     return __ret__.apply(lambda __response__: GetCredentialResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

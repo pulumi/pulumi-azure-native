@@ -260,7 +260,7 @@ def get_live_output_output(account_name: Optional[pulumi.Input[str]] = None,
                            live_event_name: Optional[pulumi.Input[str]] = None,
                            live_output_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveOutputResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLiveOutputResult]:
     """
     Gets a live output.
 
@@ -275,7 +275,7 @@ def get_live_output_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['liveEventName'] = live_event_name
     __args__['liveOutputName'] = live_output_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media/v20221101:getLiveOutput', __args__, opts=opts, typ=GetLiveOutputResult)
     return __ret__.apply(lambda __response__: GetLiveOutputResult(
         archive_window_length=pulumi.get(__response__, 'archive_window_length'),

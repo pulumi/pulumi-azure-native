@@ -148,7 +148,7 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
         type=pulumi.get(__ret__, 'type'))
 def get_role_management_policy_assignment_output(role_management_policy_assignment_name: Optional[pulumi.Input[str]] = None,
                                                  scope: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleManagementPolicyAssignmentResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleManagementPolicyAssignmentResult]:
     """
     Get the specified role management policy assignment for a resource scope
 
@@ -159,7 +159,7 @@ def get_role_management_policy_assignment_output(role_management_policy_assignme
     __args__ = dict()
     __args__['roleManagementPolicyAssignmentName'] = role_management_policy_assignment_name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment', __args__, opts=opts, typ=GetRoleManagementPolicyAssignmentResult)
     return __ret__.apply(lambda __response__: GetRoleManagementPolicyAssignmentResult(
         id=pulumi.get(__response__, 'id'),

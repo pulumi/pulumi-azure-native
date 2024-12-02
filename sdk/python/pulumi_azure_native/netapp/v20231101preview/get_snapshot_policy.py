@@ -230,7 +230,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
 def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                snapshot_policy_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotPolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotPolicyResult]:
     """
     Get a snapshot Policy
 
@@ -243,7 +243,7 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['snapshotPolicyName'] = snapshot_policy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20231101preview:getSnapshotPolicy', __args__, opts=opts, typ=GetSnapshotPolicyResult)
     return __ret__.apply(lambda __response__: GetSnapshotPolicyResult(
         daily_schedule=pulumi.get(__response__, 'daily_schedule'),

@@ -229,7 +229,7 @@ def get_dedicated_hsm(name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHsmResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHsmResult]:
     """
     Gets the specified Azure dedicated HSM.
     Azure REST API version: 2021-11-30.
@@ -243,7 +243,7 @@ def get_dedicated_hsm_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hardwaresecuritymodules:getDedicatedHsm', __args__, opts=opts, typ=GetDedicatedHsmResult)
     return __ret__.apply(lambda __response__: GetDedicatedHsmResult(
         id=pulumi.get(__response__, 'id'),

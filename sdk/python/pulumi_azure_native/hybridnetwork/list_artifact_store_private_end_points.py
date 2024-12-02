@@ -88,7 +88,7 @@ def list_artifact_store_private_end_points(artifact_store_name: Optional[str] = 
 def list_artifact_store_private_end_points_output(artifact_store_name: Optional[pulumi.Input[str]] = None,
                                                   publisher_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListArtifactStorePrivateEndPointsResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListArtifactStorePrivateEndPointsResult]:
     """
     List manual private endpoints on artifact stores
     Azure REST API version: 2024-04-15.
@@ -102,7 +102,7 @@ def list_artifact_store_private_end_points_output(artifact_store_name: Optional[
     __args__['artifactStoreName'] = artifact_store_name
     __args__['publisherName'] = publisher_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork:listArtifactStorePrivateEndPoints', __args__, opts=opts, typ=ListArtifactStorePrivateEndPointsResult)
     return __ret__.apply(lambda __response__: ListArtifactStorePrivateEndPointsResult(
         next_link=pulumi.get(__response__, 'next_link'),

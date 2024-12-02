@@ -178,7 +178,7 @@ def get_managed_private_endpoint(cluster_name: Optional[str] = None,
 def get_managed_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                         managed_private_endpoint_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrivateEndpointResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPrivateEndpointResult]:
     """
     Gets a managed private endpoint.
 
@@ -191,7 +191,7 @@ def get_managed_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]
     __args__['clusterName'] = cluster_name
     __args__['managedPrivateEndpointName'] = managed_private_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20221229:getManagedPrivateEndpoint', __args__, opts=opts, typ=GetManagedPrivateEndpointResult)
     return __ret__.apply(lambda __response__: GetManagedPrivateEndpointResult(
         group_id=pulumi.get(__response__, 'group_id'),

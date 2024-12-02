@@ -169,7 +169,7 @@ def get_authorization_output(authorization_id: Optional[pulumi.Input[str]] = Non
                              authorization_provider_id: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              service_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationResult]:
     """
     Gets the details of the authorization specified by its identifier.
 
@@ -184,7 +184,7 @@ def get_authorization_output(authorization_id: Optional[pulumi.Input[str]] = Non
     __args__['authorizationProviderId'] = authorization_provider_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getAuthorization', __args__, opts=opts, typ=GetAuthorizationResult)
     return __ret__.apply(lambda __response__: GetAuthorizationResult(
         authorization_type=pulumi.get(__response__, 'authorization_type'),

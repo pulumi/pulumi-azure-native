@@ -281,7 +281,7 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionHostResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBastionHostResult]:
     """
     Gets the specified Bastion Host.
     Azure REST API version: 2023-02-01.
@@ -295,7 +295,7 @@ def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['bastionHostName'] = bastion_host_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getBastionHost', __args__, opts=opts, typ=GetBastionHostResult)
     return __ret__.apply(lambda __response__: GetBastionHostResult(
         disable_copy_paste=pulumi.get(__response__, 'disable_copy_paste'),

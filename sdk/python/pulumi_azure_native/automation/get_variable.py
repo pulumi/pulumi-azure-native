@@ -167,7 +167,7 @@ def get_variable(automation_account_name: Optional[str] = None,
 def get_variable_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         variable_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableResult]:
     """
     Retrieve the variable identified by variable name.
     Azure REST API version: 2022-08-08.
@@ -183,7 +183,7 @@ def get_variable_output(automation_account_name: Optional[pulumi.Input[str]] = N
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['variableName'] = variable_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getVariable', __args__, opts=opts, typ=GetVariableResult)
     return __ret__.apply(lambda __response__: GetVariableResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

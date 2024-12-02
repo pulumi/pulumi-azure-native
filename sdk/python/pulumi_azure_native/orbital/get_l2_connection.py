@@ -190,7 +190,7 @@ def get_l2_connection(l2_connection_name: Optional[str] = None,
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
 def get_l2_connection_output(l2_connection_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL2ConnectionResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL2ConnectionResult]:
     """
     Gets the specified L2 connection in a specified resource group.
     Azure REST API version: 2024-03-01-preview.
@@ -204,7 +204,7 @@ def get_l2_connection_output(l2_connection_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['l2ConnectionName'] = l2_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital:getL2Connection', __args__, opts=opts, typ=GetL2ConnectionResult)
     return __ret__.apply(lambda __response__: GetL2ConnectionResult(
         circuit_id=pulumi.get(__response__, 'circuit_id'),

@@ -116,7 +116,7 @@ def list_user_assigned_identity_associated_resources_output(filter: Optional[pul
                                                             skip: Optional[pulumi.Input[Optional[int]]] = None,
                                                             skiptoken: Optional[pulumi.Input[Optional[str]]] = None,
                                                             top: Optional[pulumi.Input[Optional[int]]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUserAssignedIdentityAssociatedResourcesResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListUserAssignedIdentityAssociatedResourcesResult]:
     """
     Lists the associated resources for this identity.
 
@@ -137,7 +137,7 @@ def list_user_assigned_identity_associated_resources_output(filter: Optional[pul
     __args__['skip'] = skip
     __args__['skiptoken'] = skiptoken
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managedidentity/v20220131preview:listUserAssignedIdentityAssociatedResources', __args__, opts=opts, typ=ListUserAssignedIdentityAssociatedResourcesResult)
     return __ret__.apply(lambda __response__: ListUserAssignedIdentityAssociatedResourcesResult(
         next_link=pulumi.get(__response__, 'next_link'),

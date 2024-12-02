@@ -279,7 +279,7 @@ def get_assignment(assignment_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_assignment_output(assignment_id: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssignmentResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssignmentResult]:
     """
     Get a specific standard assignment for the requested scope by resourceId
     Azure REST API version: 2021-08-01-preview.
@@ -291,7 +291,7 @@ def get_assignment_output(assignment_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['assignmentId'] = assignment_id
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAssignment', __args__, opts=opts, typ=GetAssignmentResult)
     return __ret__.apply(lambda __response__: GetAssignmentResult(
         additional_data=pulumi.get(__response__, 'additional_data'),

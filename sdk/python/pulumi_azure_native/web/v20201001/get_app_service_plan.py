@@ -409,7 +409,7 @@ def get_app_service_plan(name: Optional[str] = None,
         worker_tier_name=pulumi.get(__ret__, 'worker_tier_name'))
 def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServicePlanResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServicePlanResult]:
     """
     Get an App Service plan.
 
@@ -420,7 +420,7 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getAppServicePlan', __args__, opts=opts, typ=GetAppServicePlanResult)
     return __ret__.apply(lambda __response__: GetAppServicePlanResult(
         free_offer_expiration_time=pulumi.get(__response__, 'free_offer_expiration_time'),

@@ -164,7 +164,7 @@ def get_workload_network_dhcp(dhcp_id: Optional[str] = None,
 def get_workload_network_dhcp_output(dhcp_id: Optional[pulumi.Input[str]] = None,
                                      private_cloud_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkDhcpResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadNetworkDhcpResult]:
     """
     NSX DHCP
 
@@ -177,7 +177,7 @@ def get_workload_network_dhcp_output(dhcp_id: Optional[pulumi.Input[str]] = None
     __args__['dhcpId'] = dhcp_id
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20210101preview:getWorkloadNetworkDhcp', __args__, opts=opts, typ=GetWorkloadNetworkDhcpResult)
     return __ret__.apply(lambda __response__: GetWorkloadNetworkDhcpResult(
         dhcp_type=pulumi.get(__response__, 'dhcp_type'),

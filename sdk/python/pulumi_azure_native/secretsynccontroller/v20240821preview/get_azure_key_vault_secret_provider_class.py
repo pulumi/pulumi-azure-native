@@ -213,7 +213,7 @@ def get_azure_key_vault_secret_provider_class(azure_key_vault_secret_provider_cl
         type=pulumi.get(__ret__, 'type'))
 def get_azure_key_vault_secret_provider_class_output(azure_key_vault_secret_provider_class_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureKeyVaultSecretProviderClassResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureKeyVaultSecretProviderClassResult]:
     """
     Gets the properties of an AzureKeyVaultSecretProviderClass instance.
 
@@ -224,7 +224,7 @@ def get_azure_key_vault_secret_provider_class_output(azure_key_vault_secret_prov
     __args__ = dict()
     __args__['azureKeyVaultSecretProviderClassName'] = azure_key_vault_secret_provider_class_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:secretsynccontroller/v20240821preview:getAzureKeyVaultSecretProviderClass', __args__, opts=opts, typ=GetAzureKeyVaultSecretProviderClassResult)
     return __ret__.apply(lambda __response__: GetAzureKeyVaultSecretProviderClassResult(
         client_id=pulumi.get(__response__, 'client_id'),

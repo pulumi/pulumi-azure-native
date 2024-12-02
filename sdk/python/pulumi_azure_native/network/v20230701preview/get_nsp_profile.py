@@ -151,7 +151,7 @@ def get_nsp_profile(network_security_perimeter_name: Optional[str] = None,
 def get_nsp_profile_output(network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
                            profile_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspProfileResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNspProfileResult]:
     """
     Gets the specified NSP profile.
 
@@ -164,7 +164,7 @@ def get_nsp_profile_output(network_security_perimeter_name: Optional[pulumi.Inpu
     __args__['networkSecurityPerimeterName'] = network_security_perimeter_name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230701preview:getNspProfile', __args__, opts=opts, typ=GetNspProfileResult)
     return __ret__.apply(lambda __response__: GetNspProfileResult(
         access_rules_version=pulumi.get(__response__, 'access_rules_version'),

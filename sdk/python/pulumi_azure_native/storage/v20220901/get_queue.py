@@ -122,7 +122,7 @@ def get_queue(account_name: Optional[str] = None,
 def get_queue_output(account_name: Optional[pulumi.Input[str]] = None,
                      queue_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     Gets the queue with the specified queue name, under the specified account if it exists.
 
@@ -135,7 +135,7 @@ def get_queue_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['queueName'] = queue_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20220901:getQueue', __args__, opts=opts, typ=GetQueueResult)
     return __ret__.apply(lambda __response__: GetQueueResult(
         approximate_message_count=pulumi.get(__response__, 'approximate_message_count'),

@@ -126,7 +126,7 @@ def get_firewall_rule(account_name: Optional[str] = None,
 def get_firewall_rule_output(account_name: Optional[pulumi.Input[str]] = None,
                              firewall_rule_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets the specified Data Lake Store firewall rule.
     Azure REST API version: 2016-11-01.
@@ -140,7 +140,7 @@ def get_firewall_rule_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['firewallRuleName'] = firewall_rule_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datalakestore:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult)
     return __ret__.apply(lambda __response__: GetFirewallRuleResult(
         end_ip_address=pulumi.get(__response__, 'end_ip_address'),

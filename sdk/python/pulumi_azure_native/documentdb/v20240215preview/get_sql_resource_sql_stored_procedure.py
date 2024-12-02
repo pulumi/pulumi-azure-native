@@ -157,7 +157,7 @@ def get_sql_resource_sql_stored_procedure_output(account_name: Optional[pulumi.I
                                                  database_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  stored_procedure_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlStoredProcedureResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlResourceSqlStoredProcedureResult]:
     """
     Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
 
@@ -174,7 +174,7 @@ def get_sql_resource_sql_stored_procedure_output(account_name: Optional[pulumi.I
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['storedProcedureName'] = stored_procedure_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240215preview:getSqlResourceSqlStoredProcedure', __args__, opts=opts, typ=GetSqlResourceSqlStoredProcedureResult)
     return __ret__.apply(lambda __response__: GetSqlResourceSqlStoredProcedureResult(
         id=pulumi.get(__response__, 'id'),

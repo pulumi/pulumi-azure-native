@@ -194,7 +194,7 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
 def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              resource_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
     Azure REST API version: 2024-03-02-preview.
@@ -210,7 +210,7 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
     __args__['loadBalancerName'] = load_balancer_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerResult(
         allow_service_placement=pulumi.get(__response__, 'allow_service_placement'),

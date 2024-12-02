@@ -120,7 +120,7 @@ def get_workspace_tag_product_link_output(product_link_id: Optional[pulumi.Input
                                           service_name: Optional[pulumi.Input[str]] = None,
                                           tag_id: Optional[pulumi.Input[str]] = None,
                                           workspace_id: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceTagProductLinkResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceTagProductLinkResult]:
     """
     Gets the product link for the tag.
 
@@ -137,7 +137,7 @@ def get_workspace_tag_product_link_output(product_link_id: Optional[pulumi.Input
     __args__['serviceName'] = service_name
     __args__['tagId'] = tag_id
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240501:getWorkspaceTagProductLink', __args__, opts=opts, typ=GetWorkspaceTagProductLinkResult)
     return __ret__.apply(lambda __response__: GetWorkspaceTagProductLinkResult(
         id=pulumi.get(__response__, 'id'),

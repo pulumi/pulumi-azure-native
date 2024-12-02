@@ -103,7 +103,7 @@ def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_u
                                                             interval_length: Optional[pulumi.Input['IntervalInMins']] = None,
                                                             location: Optional[pulumi.Input[str]] = None,
                                                             to_time: Optional[pulumi.Input[str]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogAnalyticExportRequestRateByIntervalResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAnalyticExportRequestRateByIntervalResult]:
     """
     Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
 
@@ -130,7 +130,7 @@ def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_u
     __args__['intervalLength'] = interval_length
     __args__['location'] = location
     __args__['toTime'] = to_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20220301:getLogAnalyticExportRequestRateByInterval', __args__, opts=opts, typ=GetLogAnalyticExportRequestRateByIntervalResult)
     return __ret__.apply(lambda __response__: GetLogAnalyticExportRequestRateByIntervalResult(
         properties=pulumi.get(__response__, 'properties')))

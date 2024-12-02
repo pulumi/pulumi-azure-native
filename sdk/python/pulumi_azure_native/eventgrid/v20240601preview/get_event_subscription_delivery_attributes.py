@@ -70,7 +70,7 @@ def get_event_subscription_delivery_attributes(event_subscription_name: Optional
         value=pulumi.get(__ret__, 'value'))
 def get_event_subscription_delivery_attributes_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                       scope: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionDeliveryAttributesResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription.
 
@@ -81,7 +81,7 @@ def get_event_subscription_delivery_attributes_output(event_subscription_name: O
     __args__ = dict()
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20240601preview:getEventSubscriptionDeliveryAttributes', __args__, opts=opts, typ=GetEventSubscriptionDeliveryAttributesResult)
     return __ret__.apply(lambda __response__: GetEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__response__, 'value')))

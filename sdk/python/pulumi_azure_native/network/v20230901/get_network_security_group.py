@@ -243,7 +243,7 @@ def get_network_security_group(expand: Optional[str] = None,
 def get_network_security_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                       network_security_group_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSecurityGroupResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityGroupResult]:
     """
     Gets the specified network security group.
 
@@ -256,7 +256,7 @@ def get_network_security_group_output(expand: Optional[pulumi.Input[Optional[str
     __args__['expand'] = expand
     __args__['networkSecurityGroupName'] = network_security_group_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230901:getNetworkSecurityGroup', __args__, opts=opts, typ=GetNetworkSecurityGroupResult)
     return __ret__.apply(lambda __response__: GetNetworkSecurityGroupResult(
         default_security_rules=pulumi.get(__response__, 'default_security_rules'),

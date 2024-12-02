@@ -205,7 +205,7 @@ def get_contact(communications_gateway_name: Optional[str] = None,
 def get_contact_output(communications_gateway_name: Optional[pulumi.Input[str]] = None,
                        contact_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactResult]:
     """
     Get a Contact
     Azure REST API version: 2022-12-01-preview.
@@ -219,7 +219,7 @@ def get_contact_output(communications_gateway_name: Optional[pulumi.Input[str]] 
     __args__['communicationsGatewayName'] = communications_gateway_name
     __args__['contactName'] = contact_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:voiceservices:getContact', __args__, opts=opts, typ=GetContactResult)
     return __ret__.apply(lambda __response__: GetContactResult(
         contact_name=pulumi.get(__response__, 'contact_name'),

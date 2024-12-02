@@ -213,7 +213,7 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_autoscale_setting_output(autoscale_setting_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoscaleSettingResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoscaleSettingResult]:
     """
     Gets an autoscale setting
 
@@ -224,7 +224,7 @@ def get_autoscale_setting_output(autoscale_setting_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['autoscaleSettingName'] = autoscale_setting_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20221001:getAutoscaleSetting', __args__, opts=opts, typ=GetAutoscaleSettingResult)
     return __ret__.apply(lambda __response__: GetAutoscaleSettingResult(
         enabled=pulumi.get(__response__, 'enabled'),

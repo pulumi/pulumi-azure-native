@@ -164,7 +164,7 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
 def get_route_filter_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  route_filter_name: Optional[pulumi.Input[str]] = None,
                                  rule_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteFilterRuleResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteFilterRuleResult]:
     """
     Gets the specified rule from a route filter.
 
@@ -177,7 +177,7 @@ def get_route_filter_rule_output(resource_group_name: Optional[pulumi.Input[str]
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeFilterName'] = route_filter_name
     __args__['ruleName'] = rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240501:getRouteFilterRule', __args__, opts=opts, typ=GetRouteFilterRuleResult)
     return __ret__.apply(lambda __response__: GetRouteFilterRuleResult(
         access=pulumi.get(__response__, 'access'),

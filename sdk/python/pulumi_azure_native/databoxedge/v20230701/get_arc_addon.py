@@ -235,7 +235,7 @@ def get_arc_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                          device_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          role_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArcAddonResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArcAddonResult]:
     """
     Gets a specific addon by name.
 
@@ -250,7 +250,7 @@ def get_arc_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['roleName'] = role_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230701:getArcAddon', __args__, opts=opts, typ=GetArcAddonResult)
     return __ret__.apply(lambda __response__: GetArcAddonResult(
         host_platform=pulumi.get(__response__, 'host_platform'),

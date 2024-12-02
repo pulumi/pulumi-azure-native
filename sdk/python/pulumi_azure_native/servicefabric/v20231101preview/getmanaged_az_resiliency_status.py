@@ -83,7 +83,7 @@ def getmanaged_az_resiliency_status(cluster_name: Optional[str] = None,
         is_cluster_zone_resilient=pulumi.get(__ret__, 'is_cluster_zone_resilient'))
 def getmanaged_az_resiliency_status_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetmanagedAzResiliencyStatusResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetmanagedAzResiliencyStatusResult]:
     """
     Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
 
@@ -94,7 +94,7 @@ def getmanaged_az_resiliency_status_output(cluster_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20231101preview:getmanagedAzResiliencyStatus', __args__, opts=opts, typ=GetmanagedAzResiliencyStatusResult)
     return __ret__.apply(lambda __response__: GetmanagedAzResiliencyStatusResult(
         base_resource_status=pulumi.get(__response__, 'base_resource_status'),

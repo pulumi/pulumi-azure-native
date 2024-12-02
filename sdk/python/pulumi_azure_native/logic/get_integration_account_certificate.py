@@ -194,7 +194,7 @@ def get_integration_account_certificate(certificate_name: Optional[str] = None,
 def get_integration_account_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                                                integration_account_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountCertificateResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountCertificateResult]:
     """
     Gets an integration account certificate.
     Azure REST API version: 2019-05-01.
@@ -210,7 +210,7 @@ def get_integration_account_certificate_output(certificate_name: Optional[pulumi
     __args__['certificateName'] = certificate_name
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationAccountCertificate', __args__, opts=opts, typ=GetIntegrationAccountCertificateResult)
     return __ret__.apply(lambda __response__: GetIntegrationAccountCertificateResult(
         changed_time=pulumi.get(__response__, 'changed_time'),

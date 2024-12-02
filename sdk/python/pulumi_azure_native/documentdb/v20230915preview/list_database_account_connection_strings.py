@@ -70,7 +70,7 @@ def list_database_account_connection_strings(account_name: Optional[str] = None,
         connection_strings=pulumi.get(__ret__, 'connection_strings'))
 def list_database_account_connection_strings_output(account_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabaseAccountConnectionStringsResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDatabaseAccountConnectionStringsResult]:
     """
     Lists the connection strings for the specified Azure Cosmos DB database account.
 
@@ -81,7 +81,7 @@ def list_database_account_connection_strings_output(account_name: Optional[pulum
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20230915preview:listDatabaseAccountConnectionStrings', __args__, opts=opts, typ=ListDatabaseAccountConnectionStringsResult)
     return __ret__.apply(lambda __response__: ListDatabaseAccountConnectionStringsResult(
         connection_strings=pulumi.get(__response__, 'connection_strings')))

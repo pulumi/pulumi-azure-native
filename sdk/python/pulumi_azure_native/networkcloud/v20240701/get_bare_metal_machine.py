@@ -561,7 +561,7 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[str] = None,
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'))
 def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBareMetalMachineResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBareMetalMachineResult]:
     """
     Get properties of the provided bare metal machine.
 
@@ -572,7 +572,7 @@ def get_bare_metal_machine_output(bare_metal_machine_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['bareMetalMachineName'] = bare_metal_machine_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20240701:getBareMetalMachine', __args__, opts=opts, typ=GetBareMetalMachineResult)
     return __ret__.apply(lambda __response__: GetBareMetalMachineResult(
         associated_resource_ids=pulumi.get(__response__, 'associated_resource_ids'),

@@ -124,7 +124,7 @@ def list_static_site_configured_roles(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def list_static_site_configured_roles_output(name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteConfiguredRolesResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStaticSiteConfiguredRolesResult]:
     """
     Description for Lists the roles configured for the static site.
     Azure REST API version: 2022-09-01.
@@ -138,7 +138,7 @@ def list_static_site_configured_roles_output(name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:listStaticSiteConfiguredRoles', __args__, opts=opts, typ=ListStaticSiteConfiguredRolesResult)
     return __ret__.apply(lambda __response__: ListStaticSiteConfiguredRolesResult(
         id=pulumi.get(__response__, 'id'),

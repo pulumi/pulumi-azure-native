@@ -174,7 +174,7 @@ def get_azure_bare_metal_storage_instance(azure_bare_metal_storage_instance_name
         type=pulumi.get(__ret__, 'type'))
 def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instance_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureBareMetalStorageInstanceResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureBareMetalStorageInstanceResult]:
     """
     Gets an Azure Bare Metal Storage instance for the specified subscription, resource group, and instance name.
 
@@ -185,7 +185,7 @@ def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instan
     __args__ = dict()
     __args__['azureBareMetalStorageInstanceName'] = azure_bare_metal_storage_instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:baremetalinfrastructure/v20231101preview:getAzureBareMetalStorageInstance', __args__, opts=opts, typ=GetAzureBareMetalStorageInstanceResult)
     return __ret__.apply(lambda __response__: GetAzureBareMetalStorageInstanceResult(
         azure_bare_metal_storage_instance_unique_identifier=pulumi.get(__response__, 'azure_bare_metal_storage_instance_unique_identifier'),

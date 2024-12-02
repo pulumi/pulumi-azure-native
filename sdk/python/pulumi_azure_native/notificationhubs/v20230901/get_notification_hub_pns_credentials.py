@@ -154,7 +154,7 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[str] = None,
 def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                                 notification_hub_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationHubPnsCredentialsResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationHubPnsCredentialsResult]:
     """
     Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
     PNS credentials.
@@ -168,7 +168,7 @@ def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.
     __args__['namespaceName'] = namespace_name
     __args__['notificationHubName'] = notification_hub_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:notificationhubs/v20230901:getNotificationHubPnsCredentials', __args__, opts=opts, typ=GetNotificationHubPnsCredentialsResult)
     return __ret__.apply(lambda __response__: GetNotificationHubPnsCredentialsResult(
         id=pulumi.get(__response__, 'id'),

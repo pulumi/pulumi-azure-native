@@ -161,7 +161,7 @@ def get_virtual_network_retrieve(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_virtual_network_retrieve_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         virtual_network_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkRetrieveResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkRetrieveResult]:
     """
     Gets the specified virtual network resource
 
@@ -172,7 +172,7 @@ def get_virtual_network_retrieve_output(resource_group_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20240101:getVirtualNetworkRetrieve', __args__, opts=opts, typ=GetVirtualNetworkRetrieveResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkRetrieveResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

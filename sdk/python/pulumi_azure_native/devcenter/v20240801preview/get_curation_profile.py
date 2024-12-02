@@ -152,7 +152,7 @@ def get_curation_profile(curation_profile_name: Optional[str] = None,
 def get_curation_profile_output(curation_profile_name: Optional[pulumi.Input[str]] = None,
                                 dev_center_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCurationProfileResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCurationProfileResult]:
     """
     Gets a specific curation profile.
 
@@ -165,7 +165,7 @@ def get_curation_profile_output(curation_profile_name: Optional[pulumi.Input[str
     __args__['curationProfileName'] = curation_profile_name
     __args__['devCenterName'] = dev_center_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240801preview:getCurationProfile', __args__, opts=opts, typ=GetCurationProfileResult)
     return __ret__.apply(lambda __response__: GetCurationProfileResult(
         id=pulumi.get(__response__, 'id'),

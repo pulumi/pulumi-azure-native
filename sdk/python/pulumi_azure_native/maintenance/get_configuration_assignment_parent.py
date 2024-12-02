@@ -171,7 +171,7 @@ def get_configuration_assignment_parent_output(configuration_assignment_name: Op
                                                resource_parent_name: Optional[pulumi.Input[str]] = None,
                                                resource_parent_type: Optional[pulumi.Input[str]] = None,
                                                resource_type: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAssignmentParentResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentParentResult]:
     """
     Get configuration for resource.
     Azure REST API version: 2022-11-01-preview.
@@ -195,7 +195,7 @@ def get_configuration_assignment_parent_output(configuration_assignment_name: Op
     __args__['resourceParentName'] = resource_parent_name
     __args__['resourceParentType'] = resource_parent_type
     __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance:getConfigurationAssignmentParent', __args__, opts=opts, typ=GetConfigurationAssignmentParentResult)
     return __ret__.apply(lambda __response__: GetConfigurationAssignmentParentResult(
         id=pulumi.get(__response__, 'id'),

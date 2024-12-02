@@ -298,7 +298,7 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
 def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        virtual_network_name: Optional[pulumi.Input[str]] = None,
                                        virtual_network_peering_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkPeeringResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkPeeringResult]:
     """
     Gets the specified virtual network peering.
     Azure REST API version: 2023-02-01.
@@ -314,7 +314,7 @@ def get_virtual_network_peering_output(resource_group_name: Optional[pulumi.Inpu
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name
     __args__['virtualNetworkPeeringName'] = virtual_network_peering_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVirtualNetworkPeering', __args__, opts=opts, typ=GetVirtualNetworkPeeringResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkPeeringResult(
         allow_forwarded_traffic=pulumi.get(__response__, 'allow_forwarded_traffic'),

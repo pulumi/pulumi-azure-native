@@ -129,7 +129,7 @@ def get_product_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
                               product_id: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               service_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductPolicyResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductPolicyResult]:
     """
     Get the policy configuration at the Product level.
 
@@ -144,7 +144,7 @@ def get_product_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
     __args__['productId'] = product_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20180601preview:getProductPolicy', __args__, opts=opts, typ=GetProductPolicyResult)
     return __ret__.apply(lambda __response__: GetProductPolicyResult(
         content_format=pulumi.get(__response__, 'content_format'),

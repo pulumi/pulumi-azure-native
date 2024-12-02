@@ -225,7 +225,7 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
                         resource_name: Optional[pulumi.Input[str]] = None,
                         resource_provider_namespace: Optional[pulumi.Input[str]] = None,
                         resource_type: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
     Gets a resource.
 
@@ -242,7 +242,7 @@ def get_resource_output(parent_resource_path: Optional[pulumi.Input[str]] = None
     __args__['resourceName'] = resource_name
     __args__['resourceProviderNamespace'] = resource_provider_namespace
     __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources/v20220901:getResource', __args__, opts=opts, typ=GetResourceResult)
     return __ret__.apply(lambda __response__: GetResourceResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

@@ -102,7 +102,7 @@ def get_sap_sizing_recommendations_output(app_location: Optional[pulumi.Input[st
                                           location: Optional[pulumi.Input[str]] = None,
                                           sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
                                           saps: Optional[pulumi.Input[float]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPSizingRecommendationsResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPSizingRecommendationsResult]:
     """
     Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
 
@@ -129,7 +129,7 @@ def get_sap_sizing_recommendations_output(app_location: Optional[pulumi.Input[st
     __args__['location'] = location
     __args__['sapProduct'] = sap_product
     __args__['saps'] = saps
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20231001preview:getSAPSizingRecommendations', __args__, opts=opts, typ=GetSAPSizingRecommendationsResult)
     return __ret__.apply(lambda __response__: GetSAPSizingRecommendationsResult(
         deployment_type=pulumi.get(__response__, 'deployment_type')))

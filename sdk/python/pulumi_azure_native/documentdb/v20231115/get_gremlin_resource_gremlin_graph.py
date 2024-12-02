@@ -150,7 +150,7 @@ def get_gremlin_resource_gremlin_graph_output(account_name: Optional[pulumi.Inpu
                                               database_name: Optional[pulumi.Input[str]] = None,
                                               graph_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGremlinResourceGremlinGraphResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGremlinResourceGremlinGraphResult]:
     """
     Gets the Gremlin graph under an existing Azure Cosmos DB database account.
 
@@ -165,7 +165,7 @@ def get_gremlin_resource_gremlin_graph_output(account_name: Optional[pulumi.Inpu
     __args__['databaseName'] = database_name
     __args__['graphName'] = graph_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20231115:getGremlinResourceGremlinGraph', __args__, opts=opts, typ=GetGremlinResourceGremlinGraphResult)
     return __ret__.apply(lambda __response__: GetGremlinResourceGremlinGraphResult(
         id=pulumi.get(__response__, 'id'),

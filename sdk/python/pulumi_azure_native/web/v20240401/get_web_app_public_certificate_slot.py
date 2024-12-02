@@ -155,7 +155,7 @@ def get_web_app_public_certificate_slot_output(name: Optional[pulumi.Input[str]]
                                                public_certificate_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                slot: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPublicCertificateSlotResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppPublicCertificateSlotResult]:
     """
     Description for Get the named public certificate for an app (or deployment slot, if specified).
 
@@ -170,7 +170,7 @@ def get_web_app_public_certificate_slot_output(name: Optional[pulumi.Input[str]]
     __args__['publicCertificateName'] = public_certificate_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:getWebAppPublicCertificateSlot', __args__, opts=opts, typ=GetWebAppPublicCertificateSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppPublicCertificateSlotResult(
         blob=pulumi.get(__response__, 'blob'),

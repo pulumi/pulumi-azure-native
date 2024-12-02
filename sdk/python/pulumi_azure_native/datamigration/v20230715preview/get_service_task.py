@@ -143,7 +143,7 @@ def get_service_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None
                             group_name: Optional[pulumi.Input[str]] = None,
                             service_name: Optional[pulumi.Input[str]] = None,
                             task_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceTaskResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceTaskResult]:
     """
     The service tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a service task.
 
@@ -158,7 +158,7 @@ def get_service_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None
     __args__['groupName'] = group_name
     __args__['serviceName'] = service_name
     __args__['taskName'] = task_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration/v20230715preview:getServiceTask', __args__, opts=opts, typ=GetServiceTaskResult)
     return __ret__.apply(lambda __response__: GetServiceTaskResult(
         etag=pulumi.get(__response__, 'etag'),

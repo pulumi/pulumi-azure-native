@@ -208,7 +208,7 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
                                            expand: Optional[pulumi.Input[Optional[str]]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilityGroupListenerResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityGroupListenerResult]:
     """
     Gets an availability group listener.
 
@@ -223,7 +223,7 @@ def get_availability_group_listener_output(availability_group_listener_name: Opt
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlVirtualMachineGroupName'] = sql_virtual_machine_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sqlvirtualmachine/v20230101preview:getAvailabilityGroupListener', __args__, opts=opts, typ=GetAvailabilityGroupListenerResult)
     return __ret__.apply(lambda __response__: GetAvailabilityGroupListenerResult(
         availability_group_configuration=pulumi.get(__response__, 'availability_group_configuration'),

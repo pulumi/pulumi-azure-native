@@ -216,7 +216,7 @@ def get_app(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_app_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    resource_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResult]:
     """
     Get the metadata of an IoT Central application.
     Azure REST API version: 2021-06-01.
@@ -230,7 +230,7 @@ def get_app_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotcentral:getApp', __args__, opts=opts, typ=GetAppResult)
     return __ret__.apply(lambda __response__: GetAppResult(
         application_id=pulumi.get(__response__, 'application_id'),

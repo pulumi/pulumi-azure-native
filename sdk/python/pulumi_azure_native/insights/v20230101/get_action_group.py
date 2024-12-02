@@ -291,7 +291,7 @@ def get_action_group(action_group_name: Optional[str] = None,
         webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
 def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionGroupResult]:
     """
     Get an action group.
 
@@ -302,7 +302,7 @@ def get_action_group_output(action_group_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['actionGroupName'] = action_group_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20230101:getActionGroup', __args__, opts=opts, typ=GetActionGroupResult)
     return __ret__.apply(lambda __response__: GetActionGroupResult(
         arm_role_receivers=pulumi.get(__response__, 'arm_role_receivers'),

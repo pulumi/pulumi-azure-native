@@ -149,7 +149,7 @@ def get_load_test_mapping(load_test_mapping_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_load_test_mapping_output(load_test_mapping_name: Optional[pulumi.Input[str]] = None,
                                  resource_uri: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadTestMappingResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadTestMappingResult]:
     """
     Get a LoadTestMappingResource
     Azure REST API version: 2023-12-01-preview.
@@ -161,7 +161,7 @@ def get_load_test_mapping_output(load_test_mapping_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['loadTestMappingName'] = load_test_mapping_name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:loadtestservice:getLoadTestMapping', __args__, opts=opts, typ=GetLoadTestMappingResult)
     return __ret__.apply(lambda __response__: GetLoadTestMappingResult(
         azure_load_testing_resource_id=pulumi.get(__response__, 'azure_load_testing_resource_id'),

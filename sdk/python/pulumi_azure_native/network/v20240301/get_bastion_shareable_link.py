@@ -88,7 +88,7 @@ def get_bastion_shareable_link(bastion_host_name: Optional[str] = None,
 def get_bastion_shareable_link_output(bastion_host_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       vms: Optional[pulumi.Input[Optional[Sequence[Union['BastionShareableLink', 'BastionShareableLinkDict']]]]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBastionShareableLinkResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBastionShareableLinkResult]:
     """
     Return the Bastion Shareable Links for all the VMs specified in the request.
 
@@ -101,7 +101,7 @@ def get_bastion_shareable_link_output(bastion_host_name: Optional[pulumi.Input[s
     __args__['bastionHostName'] = bastion_host_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vms'] = vms
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getBastionShareableLink', __args__, opts=opts, typ=GetBastionShareableLinkResult)
     return __ret__.apply(lambda __response__: GetBastionShareableLinkResult(
         next_link=pulumi.get(__response__, 'next_link'),

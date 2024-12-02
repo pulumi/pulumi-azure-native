@@ -215,7 +215,7 @@ def get_incident_task_output(incident_id: Optional[pulumi.Input[str]] = None,
                              incident_task_id: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              workspace_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIncidentTaskResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentTaskResult]:
     """
     Gets an incident task.
 
@@ -230,7 +230,7 @@ def get_incident_task_output(incident_id: Optional[pulumi.Input[str]] = None,
     __args__['incidentTaskId'] = incident_task_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20230901preview:getIncidentTask', __args__, opts=opts, typ=GetIncidentTaskResult)
     return __ret__.apply(lambda __response__: GetIncidentTaskResult(
         created_by=pulumi.get(__response__, 'created_by'),

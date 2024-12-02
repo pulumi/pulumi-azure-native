@@ -65,7 +65,7 @@ def get_diagnostic_service_token_read_only(resource_uri: Optional[str] = None,
     return AwaitableGetDiagnosticServiceTokenReadOnlyResult(
         token=pulumi.get(__ret__, 'token'))
 def get_diagnostic_service_token_read_only_output(resource_uri: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticServiceTokenReadOnlyResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiagnosticServiceTokenReadOnlyResult]:
     """
     Gets an read-only access token for application insights diagnostic service data.
 
@@ -74,7 +74,7 @@ def get_diagnostic_service_token_read_only_output(resource_uri: Optional[pulumi.
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadOnly', __args__, opts=opts, typ=GetDiagnosticServiceTokenReadOnlyResult)
     return __ret__.apply(lambda __response__: GetDiagnosticServiceTokenReadOnlyResult(
         token=pulumi.get(__response__, 'token')))

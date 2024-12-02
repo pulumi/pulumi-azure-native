@@ -174,7 +174,7 @@ def get_site_network_service(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_site_network_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     site_network_service_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteNetworkServiceResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteNetworkServiceResult]:
     """
     Gets information about the specified site network service.
 
@@ -185,7 +185,7 @@ def get_site_network_service_output(resource_group_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteNetworkServiceName'] = site_network_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork/v20240415:getSiteNetworkService', __args__, opts=opts, typ=GetSiteNetworkServiceResult)
     return __ret__.apply(lambda __response__: GetSiteNetworkServiceResult(
         id=pulumi.get(__response__, 'id'),

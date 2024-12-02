@@ -239,7 +239,7 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerNamespaceResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerNamespaceResult]:
     """
     Get properties of a partner namespace.
 
@@ -250,7 +250,7 @@ def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['partnerNamespaceName'] = partner_namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20220615:getPartnerNamespace', __args__, opts=opts, typ=GetPartnerNamespaceResult)
     return __ret__.apply(lambda __response__: GetPartnerNamespaceResult(
         disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),

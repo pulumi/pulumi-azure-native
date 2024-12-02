@@ -138,7 +138,7 @@ def get_action_rule_by_name(action_rule_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_action_rule_by_name_output(action_rule_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionRuleByNameResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionRuleByNameResult]:
     """
     Get a specific action rule
     Azure REST API version: 2019-05-05-preview.
@@ -152,7 +152,7 @@ def get_action_rule_by_name_output(action_rule_name: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['actionRuleName'] = action_rule_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:alertsmanagement:getActionRuleByName', __args__, opts=opts, typ=GetActionRuleByNameResult)
     return __ret__.apply(lambda __response__: GetActionRuleByNameResult(
         id=pulumi.get(__response__, 'id'),

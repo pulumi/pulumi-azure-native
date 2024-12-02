@@ -181,7 +181,7 @@ def get_token(registry_name: Optional[str] = None,
 def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      token_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTokenResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTokenResult]:
     """
     Gets the properties of the specified token.
     Azure REST API version: 2022-12-01.
@@ -197,7 +197,7 @@ def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tokenName'] = token_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getToken', __args__, opts=opts, typ=GetTokenResult)
     return __ret__.apply(lambda __response__: GetTokenResult(
         creation_date=pulumi.get(__response__, 'creation_date'),

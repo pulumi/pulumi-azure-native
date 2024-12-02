@@ -177,7 +177,7 @@ def list_web_app_publishing_credentials_slot(name: Optional[str] = None,
 def list_web_app_publishing_credentials_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     slot: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppPublishingCredentialsSlotResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppPublishingCredentialsSlotResult]:
     """
     Gets the Git/FTP publishing credentials of an app.
 
@@ -190,7 +190,7 @@ def list_web_app_publishing_credentials_slot_output(name: Optional[pulumi.Input[
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20160801:listWebAppPublishingCredentialsSlot', __args__, opts=opts, typ=ListWebAppPublishingCredentialsSlotResult)
     return __ret__.apply(lambda __response__: ListWebAppPublishingCredentialsSlotResult(
         id=pulumi.get(__response__, 'id'),

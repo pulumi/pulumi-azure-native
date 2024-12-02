@@ -121,7 +121,7 @@ def get_application_gateway_backend_health_on_demand_output(application_gateway_
                                                             protocol: Optional[pulumi.Input[Optional[Union[str, 'ApplicationGatewayProtocol']]]] = None,
                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                                             timeout: Optional[pulumi.Input[Optional[int]]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayBackendHealthOnDemandResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGatewayBackendHealthOnDemandResult]:
     """
     Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
 
@@ -150,7 +150,7 @@ def get_application_gateway_backend_health_on_demand_output(application_gateway_
     __args__['protocol'] = protocol
     __args__['resourceGroupName'] = resource_group_name
     __args__['timeout'] = timeout
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:getApplicationGatewayBackendHealthOnDemand', __args__, opts=opts, typ=GetApplicationGatewayBackendHealthOnDemandResult)
     return __ret__.apply(lambda __response__: GetApplicationGatewayBackendHealthOnDemandResult(
         backend_address_pool=pulumi.get(__response__, 'backend_address_pool'),

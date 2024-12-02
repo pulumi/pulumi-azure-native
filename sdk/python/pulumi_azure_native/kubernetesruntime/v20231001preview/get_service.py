@@ -135,7 +135,7 @@ def get_service(resource_uri: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_service_output(resource_uri: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Get a ServiceResource
 
@@ -146,7 +146,7 @@ def get_service_output(resource_uri: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesruntime/v20231001preview:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         id=pulumi.get(__response__, 'id'),

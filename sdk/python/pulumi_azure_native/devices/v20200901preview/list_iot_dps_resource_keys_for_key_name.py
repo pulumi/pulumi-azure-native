@@ -112,7 +112,7 @@ def list_iot_dps_resource_keys_for_key_name(key_name: Optional[str] = None,
 def list_iot_dps_resource_keys_for_key_name_output(key_name: Optional[pulumi.Input[str]] = None,
                                                    provisioning_service_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIotDpsResourceKeysForKeyNameResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIotDpsResourceKeysForKeyNameResult]:
     """
     List primary and secondary keys for a specific key name
 
@@ -125,7 +125,7 @@ def list_iot_dps_resource_keys_for_key_name_output(key_name: Optional[pulumi.Inp
     __args__['keyName'] = key_name
     __args__['provisioningServiceName'] = provisioning_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devices/v20200901preview:listIotDpsResourceKeysForKeyName', __args__, opts=opts, typ=ListIotDpsResourceKeysForKeyNameResult)
     return __ret__.apply(lambda __response__: ListIotDpsResourceKeysForKeyNameResult(
         key_name=pulumi.get(__response__, 'key_name'),

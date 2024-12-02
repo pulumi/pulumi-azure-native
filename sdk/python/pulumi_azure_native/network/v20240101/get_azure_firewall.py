@@ -317,7 +317,7 @@ def get_azure_firewall(azure_firewall_name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_azure_firewall_output(azure_firewall_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureFirewallResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureFirewallResult]:
     """
     Gets the specified Azure Firewall.
 
@@ -328,7 +328,7 @@ def get_azure_firewall_output(azure_firewall_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['azureFirewallName'] = azure_firewall_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101:getAzureFirewall', __args__, opts=opts, typ=GetAzureFirewallResult)
     return __ret__.apply(lambda __response__: GetAzureFirewallResult(
         additional_properties=pulumi.get(__response__, 'additional_properties'),

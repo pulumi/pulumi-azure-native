@@ -181,7 +181,7 @@ def get_deployment_setting(cluster_name: Optional[str] = None,
 def get_deployment_setting_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                   deployment_settings_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentSettingResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentSettingResult]:
     """
     Get a DeploymentSetting
     Azure REST API version: 2023-08-01-preview.
@@ -197,7 +197,7 @@ def get_deployment_setting_output(cluster_name: Optional[pulumi.Input[str]] = No
     __args__['clusterName'] = cluster_name
     __args__['deploymentSettingsName'] = deployment_settings_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getDeploymentSetting', __args__, opts=opts, typ=GetDeploymentSettingResult)
     return __ret__.apply(lambda __response__: GetDeploymentSettingResult(
         arc_node_resource_ids=pulumi.get(__response__, 'arc_node_resource_ids'),

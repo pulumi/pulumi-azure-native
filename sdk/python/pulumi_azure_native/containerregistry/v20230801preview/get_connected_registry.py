@@ -269,7 +269,7 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
 def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input[str]] = None,
                                   registry_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedRegistryResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedRegistryResult]:
     """
     Gets the properties of the connected registry.
 
@@ -282,7 +282,7 @@ def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input
     __args__['connectedRegistryName'] = connected_registry_name
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20230801preview:getConnectedRegistry', __args__, opts=opts, typ=GetConnectedRegistryResult)
     return __ret__.apply(lambda __response__: GetConnectedRegistryResult(
         activation=pulumi.get(__response__, 'activation'),

@@ -183,7 +183,7 @@ def get_registry(registry_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -193,7 +193,7 @@ def get_registry_output(registry_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20240401:getRegistry', __args__, opts=opts, typ=GetRegistryResult)
     return __ret__.apply(lambda __response__: GetRegistryResult(
         id=pulumi.get(__response__, 'id'),

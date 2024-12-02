@@ -252,7 +252,7 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
         vpn_gateway_scale_unit=pulumi.get(__ret__, 'vpn_gateway_scale_unit'))
 def get_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnGatewayResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
     Retrieves the details of a virtual wan vpn gateway.
 
@@ -263,7 +263,7 @@ def get_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['gatewayName'] = gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult)
     return __ret__.apply(lambda __response__: GetVpnGatewayResult(
         bgp_settings=pulumi.get(__response__, 'bgp_settings'),

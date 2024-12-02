@@ -130,7 +130,7 @@ def get_static_cidr_output(network_manager_name: Optional[pulumi.Input[str]] = N
                            pool_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            static_cidr_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticCidrResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticCidrResult]:
     """
     Instance of StaticCidr resource.
 
@@ -145,7 +145,7 @@ def get_static_cidr_output(network_manager_name: Optional[pulumi.Input[str]] = N
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['staticCidrName'] = static_cidr_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101preview:getStaticCidr', __args__, opts=opts, typ=GetStaticCidrResult)
     return __ret__.apply(lambda __response__: GetStaticCidrResult(
         id=pulumi.get(__response__, 'id'),

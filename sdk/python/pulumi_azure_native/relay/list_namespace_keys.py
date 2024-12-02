@@ -128,7 +128,7 @@ def list_namespace_keys(authorization_rule_name: Optional[str] = None,
 def list_namespace_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] = None,
                                namespace_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNamespaceKeysResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNamespaceKeysResult]:
     """
     Primary and secondary connection strings to the namespace.
     Azure REST API version: 2021-11-01.
@@ -144,7 +144,7 @@ def list_namespace_keys_output(authorization_rule_name: Optional[pulumi.Input[st
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:relay:listNamespaceKeys', __args__, opts=opts, typ=ListNamespaceKeysResult)
     return __ret__.apply(lambda __response__: ListNamespaceKeysResult(
         key_name=pulumi.get(__response__, 'key_name'),

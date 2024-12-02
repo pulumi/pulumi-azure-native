@@ -145,7 +145,7 @@ def list_storage_account_service_sas_output(account_name: Optional[pulumi.Input[
                                             row_key_start: Optional[pulumi.Input[Optional[str]]] = None,
                                             shared_access_expiry_time: Optional[pulumi.Input[Optional[str]]] = None,
                                             shared_access_start_time: Optional[pulumi.Input[Optional[str]]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountServiceSASResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStorageAccountServiceSASResult]:
     """
     List service SAS credentials of a specific resource.
     Azure REST API version: 2022-09-01.
@@ -195,7 +195,7 @@ def list_storage_account_service_sas_output(account_name: Optional[pulumi.Input[
     __args__['rowKeyStart'] = row_key_start
     __args__['sharedAccessExpiryTime'] = shared_access_expiry_time
     __args__['sharedAccessStartTime'] = shared_access_start_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:listStorageAccountServiceSAS', __args__, opts=opts, typ=ListStorageAccountServiceSASResult)
     return __ret__.apply(lambda __response__: ListStorageAccountServiceSASResult(
         service_sas_token=pulumi.get(__response__, 'service_sas_token')))

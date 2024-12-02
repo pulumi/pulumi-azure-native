@@ -226,7 +226,7 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
                                      packet_core_control_plane_name: Optional[pulumi.Input[str]] = None,
                                      packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedDataNetworkResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachedDataNetworkResult]:
     """
     Gets information about the specified attached data network.
 
@@ -241,7 +241,7 @@ def get_attached_data_network_output(attached_data_network_name: Optional[pulumi
     __args__['packetCoreControlPlaneName'] = packet_core_control_plane_name
     __args__['packetCoreDataPlaneName'] = packet_core_data_plane_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork/v20230901:getAttachedDataNetwork', __args__, opts=opts, typ=GetAttachedDataNetworkResult)
     return __ret__.apply(lambda __response__: GetAttachedDataNetworkResult(
         dns_addresses=pulumi.get(__response__, 'dns_addresses'),

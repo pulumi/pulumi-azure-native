@@ -138,7 +138,7 @@ def get_integration_runtime_connection_info(integration_runtime_name: Optional[s
 def get_integration_runtime_connection_info_output(integration_runtime_name: Optional[pulumi.Input[str]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    workspace_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationRuntimeConnectionInfoResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationRuntimeConnectionInfoResult]:
     """
     Get connection info for an integration runtime
 
@@ -151,7 +151,7 @@ def get_integration_runtime_connection_info_output(integration_runtime_name: Opt
     __args__['integrationRuntimeName'] = integration_runtime_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601preview:getIntegrationRuntimeConnectionInfo', __args__, opts=opts, typ=GetIntegrationRuntimeConnectionInfoResult)
     return __ret__.apply(lambda __response__: GetIntegrationRuntimeConnectionInfoResult(
         host_service_uri=pulumi.get(__response__, 'host_service_uri'),

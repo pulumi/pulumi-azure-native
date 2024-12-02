@@ -86,7 +86,7 @@ def list_server_sites_controller_health_summary(resource_group_name: Optional[st
         value=pulumi.get(__ret__, 'value'))
 def list_server_sites_controller_health_summary_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                        site_name: Optional[pulumi.Input[str]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServerSitesControllerHealthSummaryResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServerSitesControllerHealthSummaryResult]:
     """
     Method to get site health summary.
     Azure REST API version: 2023-06-06.
@@ -100,7 +100,7 @@ def list_server_sites_controller_health_summary_output(resource_group_name: Opti
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:listServerSitesControllerHealthSummary', __args__, opts=opts, typ=ListServerSitesControllerHealthSummaryResult)
     return __ret__.apply(lambda __response__: ListServerSitesControllerHealthSummaryResult(
         next_link=pulumi.get(__response__, 'next_link'),

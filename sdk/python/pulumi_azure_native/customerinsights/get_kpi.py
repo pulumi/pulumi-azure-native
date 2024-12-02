@@ -348,7 +348,7 @@ def get_kpi(hub_name: Optional[str] = None,
 def get_kpi_output(hub_name: Optional[pulumi.Input[str]] = None,
                    kpi_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKpiResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKpiResult]:
     """
     Gets a KPI in the hub.
     Azure REST API version: 2017-04-26.
@@ -362,7 +362,7 @@ def get_kpi_output(hub_name: Optional[pulumi.Input[str]] = None,
     __args__['hubName'] = hub_name
     __args__['kpiName'] = kpi_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getKpi', __args__, opts=opts, typ=GetKpiResult)
     return __ret__.apply(lambda __response__: GetKpiResult(
         aliases=pulumi.get(__response__, 'aliases'),

@@ -126,7 +126,7 @@ def get_certificate(certificate_name: Optional[str] = None,
 def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Get the certificate resource.
 
@@ -139,7 +139,7 @@ def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
     __args__['certificateName'] = certificate_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20231101preview:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
         id=pulumi.get(__response__, 'id'),

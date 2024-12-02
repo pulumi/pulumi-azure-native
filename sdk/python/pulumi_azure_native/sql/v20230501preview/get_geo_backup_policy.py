@@ -155,7 +155,7 @@ def get_geo_backup_policy_output(database_name: Optional[pulumi.Input[str]] = No
                                  geo_backup_policy_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  server_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGeoBackupPolicyResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGeoBackupPolicyResult]:
     """
     Gets a Geo backup policy for the given database resource.
 
@@ -170,7 +170,7 @@ def get_geo_backup_policy_output(database_name: Optional[pulumi.Input[str]] = No
     __args__['geoBackupPolicyName'] = geo_backup_policy_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230501preview:getGeoBackupPolicy', __args__, opts=opts, typ=GetGeoBackupPolicyResult)
     return __ret__.apply(lambda __response__: GetGeoBackupPolicyResult(
         id=pulumi.get(__response__, 'id'),

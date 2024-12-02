@@ -128,7 +128,7 @@ def get_private_endpoint_connection_proxy_controller(migrate_project_name: Optio
 def get_private_endpoint_connection_proxy_controller_output(migrate_project_name: Optional[pulumi.Input[str]] = None,
                                                             pec_proxy_name: Optional[pulumi.Input[str]] = None,
                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionProxyControllerResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionProxyControllerResult]:
     """
     Get the of private link proxy resources from a migrate project and private link proxy resource.
     Azure REST API version: 2023-01-01.
@@ -142,7 +142,7 @@ def get_private_endpoint_connection_proxy_controller_output(migrate_project_name
     __args__['migrateProjectName'] = migrate_project_name
     __args__['pecProxyName'] = pec_proxy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getPrivateEndpointConnectionProxyController', __args__, opts=opts, typ=GetPrivateEndpointConnectionProxyControllerResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionProxyControllerResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

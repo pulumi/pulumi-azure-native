@@ -188,7 +188,7 @@ def get_private_link_services_for_scc_powershell(resource_group_name: Optional[s
         type=pulumi.get(__ret__, 'type'))
 def get_private_link_services_for_scc_powershell_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         resource_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicesForSCCPowershellResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicesForSCCPowershellResult]:
     """
     Get the metadata of a privateLinkServicesForSCCPowershell resource.
     Azure REST API version: 2021-03-25-preview.
@@ -200,7 +200,7 @@ def get_private_link_services_for_scc_powershell_output(resource_group_name: Opt
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:m365securityandcompliance:getPrivateLinkServicesForSCCPowershell', __args__, opts=opts, typ=GetPrivateLinkServicesForSCCPowershellResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkServicesForSCCPowershellResult(
         etag=pulumi.get(__response__, 'etag'),

@@ -99,7 +99,7 @@ def list_featureset_version_features_output(name: Optional[pulumi.Input[str]] = 
                                             tags: Optional[pulumi.Input[Optional[str]]] = None,
                                             version: Optional[pulumi.Input[str]] = None,
                                             workspace_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFeaturesetVersionFeaturesResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFeaturesetVersionFeaturesResult]:
     """
     A paginated list of Feature entities.
 
@@ -118,7 +118,7 @@ def list_featureset_version_features_output(name: Optional[pulumi.Input[str]] = 
     __args__['tags'] = tags
     __args__['version'] = version
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230201preview:listFeaturesetVersionFeatures', __args__, opts=opts, typ=ListFeaturesetVersionFeaturesResult)
     return __ret__.apply(lambda __response__: ListFeaturesetVersionFeaturesResult(
         next_link=pulumi.get(__response__, 'next_link'),

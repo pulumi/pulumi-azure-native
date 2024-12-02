@@ -126,7 +126,7 @@ def get_java_component(environment_name: Optional[str] = None,
 def get_java_component_output(environment_name: Optional[pulumi.Input[str]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJavaComponentResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJavaComponentResult]:
     """
     Java Component.
 
@@ -139,7 +139,7 @@ def get_java_component_output(environment_name: Optional[pulumi.Input[str]] = No
     __args__['environmentName'] = environment_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240202preview:getJavaComponent', __args__, opts=opts, typ=GetJavaComponentResult)
     return __ret__.apply(lambda __response__: GetJavaComponentResult(
         id=pulumi.get(__response__, 'id'),

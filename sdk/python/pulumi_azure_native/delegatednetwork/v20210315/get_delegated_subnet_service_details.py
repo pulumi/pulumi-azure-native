@@ -174,7 +174,7 @@ def get_delegated_subnet_service_details(resource_group_name: Optional[str] = No
         type=pulumi.get(__ret__, 'type'))
 def get_delegated_subnet_service_details_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 resource_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDelegatedSubnetServiceDetailsResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDelegatedSubnetServiceDetailsResult]:
     """
     Gets details about the specified dnc DelegatedSubnet Link.
 
@@ -185,7 +185,7 @@ def get_delegated_subnet_service_details_output(resource_group_name: Optional[pu
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:delegatednetwork/v20210315:getDelegatedSubnetServiceDetails', __args__, opts=opts, typ=GetDelegatedSubnetServiceDetailsResult)
     return __ret__.apply(lambda __response__: GetDelegatedSubnetServiceDetailsResult(
         controller_details=pulumi.get(__response__, 'controller_details'),

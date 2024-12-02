@@ -136,7 +136,7 @@ def get_configuration_profile_preference(configuration_profile_preference_name: 
         type=pulumi.get(__ret__, 'type'))
 def get_configuration_profile_preference_output(configuration_profile_preference_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfilePreferenceResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfilePreferenceResult]:
     """
     Get information about a configuration profile preference
     Azure REST API version: 2020-06-30-preview.
@@ -148,7 +148,7 @@ def get_configuration_profile_preference_output(configuration_profile_preference
     __args__ = dict()
     __args__['configurationProfilePreferenceName'] = configuration_profile_preference_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automanage:getConfigurationProfilePreference', __args__, opts=opts, typ=GetConfigurationProfilePreferenceResult)
     return __ret__.apply(lambda __response__: GetConfigurationProfilePreferenceResult(
         id=pulumi.get(__response__, 'id'),

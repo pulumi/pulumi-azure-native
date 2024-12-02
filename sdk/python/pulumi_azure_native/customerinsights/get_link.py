@@ -272,7 +272,7 @@ def get_link(hub_name: Optional[str] = None,
 def get_link_output(hub_name: Optional[pulumi.Input[str]] = None,
                     link_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
     Gets a link in the hub.
     Azure REST API version: 2017-04-26.
@@ -288,7 +288,7 @@ def get_link_output(hub_name: Optional[pulumi.Input[str]] = None,
     __args__['hubName'] = hub_name
     __args__['linkName'] = link_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getLink', __args__, opts=opts, typ=GetLinkResult)
     return __ret__.apply(lambda __response__: GetLinkResult(
         description=pulumi.get(__response__, 'description'),

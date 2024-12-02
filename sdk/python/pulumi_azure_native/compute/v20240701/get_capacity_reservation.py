@@ -247,7 +247,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
                                     capacity_reservation_name: Optional[pulumi.Input[str]] = None,
                                     expand: Optional[pulumi.Input[Optional[str]]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     The operation that retrieves information about the capacity reservation.
 
@@ -262,7 +262,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
     __args__['capacityReservationName'] = capacity_reservation_name
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240701:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult)
     return __ret__.apply(lambda __response__: GetCapacityReservationResult(
         id=pulumi.get(__response__, 'id'),

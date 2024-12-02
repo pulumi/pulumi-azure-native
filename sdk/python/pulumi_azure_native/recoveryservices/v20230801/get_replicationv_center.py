@@ -130,7 +130,7 @@ def get_replicationv_center_output(fabric_name: Optional[pulumi.Input[str]] = No
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    resource_name: Optional[pulumi.Input[str]] = None,
                                    vcenter_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationvCenterResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationvCenterResult]:
     """
     Gets the details of a registered vCenter server(Add vCenter server).
 
@@ -145,7 +145,7 @@ def get_replicationv_center_output(fabric_name: Optional[pulumi.Input[str]] = No
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     __args__['vcenterName'] = vcenter_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20230801:getReplicationvCenter', __args__, opts=opts, typ=GetReplicationvCenterResult)
     return __ret__.apply(lambda __response__: GetReplicationvCenterResult(
         id=pulumi.get(__response__, 'id'),

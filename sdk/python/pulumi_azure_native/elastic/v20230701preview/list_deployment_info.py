@@ -135,7 +135,7 @@ def list_deployment_info(monitor_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def list_deployment_info_output(monitor_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeploymentInfoResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDeploymentInfoResult]:
     """
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
 
@@ -146,7 +146,7 @@ def list_deployment_info_output(monitor_name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:elastic/v20230701preview:listDeploymentInfo', __args__, opts=opts, typ=ListDeploymentInfoResult)
     return __ret__.apply(lambda __response__: ListDeploymentInfoResult(
         deployment_url=pulumi.get(__response__, 'deployment_url'),

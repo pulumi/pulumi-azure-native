@@ -98,12 +98,12 @@ def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = 
         key=pulumi.get(__ret__, 'key'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_traffic_manager_user_metrics_key_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficManagerUserMetricsKeyResult]:
+def get_traffic_manager_user_metrics_key_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficManagerUserMetricsKeyResult]:
     """
     Get the subscription-level key used for Real User Metrics collection.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20220401:getTrafficManagerUserMetricsKey', __args__, opts=opts, typ=GetTrafficManagerUserMetricsKeyResult)
     return __ret__.apply(lambda __response__: GetTrafficManagerUserMetricsKeyResult(
         id=pulumi.get(__response__, 'id'),

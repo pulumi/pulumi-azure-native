@@ -178,7 +178,7 @@ def get_virtual_network_gateway_nat_rule(nat_rule_name: Optional[str] = None,
 def get_virtual_network_gateway_nat_rule_output(nat_rule_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayNatRuleResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayNatRuleResult]:
     """
     Retrieves the details of a nat rule.
 
@@ -191,7 +191,7 @@ def get_virtual_network_gateway_nat_rule_output(nat_rule_name: Optional[pulumi.I
     __args__['natRuleName'] = nat_rule_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230901:getVirtualNetworkGatewayNatRule', __args__, opts=opts, typ=GetVirtualNetworkGatewayNatRuleResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayNatRuleResult(
         etag=pulumi.get(__response__, 'etag'),

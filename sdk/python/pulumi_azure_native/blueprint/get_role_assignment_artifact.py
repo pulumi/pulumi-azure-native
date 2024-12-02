@@ -192,7 +192,7 @@ def get_role_assignment_artifact(artifact_name: Optional[str] = None,
 def get_role_assignment_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
                                         blueprint_name: Optional[pulumi.Input[str]] = None,
                                         resource_scope: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentArtifactResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAssignmentArtifactResult]:
     """
     Get a blueprint artifact.
     Azure REST API version: 2018-11-01-preview.
@@ -206,7 +206,7 @@ def get_role_assignment_artifact_output(artifact_name: Optional[pulumi.Input[str
     __args__['artifactName'] = artifact_name
     __args__['blueprintName'] = blueprint_name
     __args__['resourceScope'] = resource_scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint:getRoleAssignmentArtifact', __args__, opts=opts, typ=GetRoleAssignmentArtifactResult)
     return __ret__.apply(lambda __response__: GetRoleAssignmentArtifactResult(
         depends_on=pulumi.get(__response__, 'depends_on'),

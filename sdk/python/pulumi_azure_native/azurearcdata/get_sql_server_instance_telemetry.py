@@ -124,7 +124,7 @@ def get_sql_server_instance_telemetry_output(aggregation_type: Optional[pulumi.I
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              sql_server_instance_name: Optional[pulumi.Input[str]] = None,
                                              start_time: Optional[pulumi.Input[Optional[str]]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerInstanceTelemetryResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerInstanceTelemetryResult]:
     """
     Retrieves SQL Server instance telemetry
     Azure REST API version: 2024-01-01.
@@ -150,7 +150,7 @@ def get_sql_server_instance_telemetry_output(aggregation_type: Optional[pulumi.I
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlServerInstanceName'] = sql_server_instance_name
     __args__['startTime'] = start_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata:getSqlServerInstanceTelemetry', __args__, opts=opts, typ=GetSqlServerInstanceTelemetryResult)
     return __ret__.apply(lambda __response__: GetSqlServerInstanceTelemetryResult(
         columns=pulumi.get(__response__, 'columns'),

@@ -95,7 +95,7 @@ def get_cluster_gateway_settings(cluster_name: Optional[str] = None,
         user_name=pulumi.get(__ret__, 'user_name'))
 def get_cluster_gateway_settings_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterGatewaySettingsResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterGatewaySettingsResult]:
     """
     Gets the gateway settings for the specified cluster.
 
@@ -106,7 +106,7 @@ def get_cluster_gateway_settings_output(cluster_name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hdinsight/v20230415preview:getClusterGatewaySettings', __args__, opts=opts, typ=GetClusterGatewaySettingsResult)
     return __ret__.apply(lambda __response__: GetClusterGatewaySettingsResult(
         is_credential_enabled=pulumi.get(__response__, 'is_credential_enabled'),

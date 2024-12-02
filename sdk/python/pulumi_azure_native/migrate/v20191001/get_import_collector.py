@@ -108,7 +108,7 @@ def get_import_collector(import_collector_name: Optional[str] = None,
 def get_import_collector_output(import_collector_name: Optional[pulumi.Input[str]] = None,
                                 project_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImportCollectorResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImportCollectorResult]:
     """
     Get a Import collector.
 
@@ -121,7 +121,7 @@ def get_import_collector_output(import_collector_name: Optional[pulumi.Input[str
     __args__['importCollectorName'] = import_collector_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20191001:getImportCollector', __args__, opts=opts, typ=GetImportCollectorResult)
     return __ret__.apply(lambda __response__: GetImportCollectorResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

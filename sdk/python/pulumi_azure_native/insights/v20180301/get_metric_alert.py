@@ -291,7 +291,7 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
         window_size=pulumi.get(__ret__, 'window_size'))
 def get_metric_alert_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             rule_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricAlertResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricAlertResult]:
     """
     Retrieve an alert rule definition.
 
@@ -302,7 +302,7 @@ def get_metric_alert_output(resource_group_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20180301:getMetricAlert', __args__, opts=opts, typ=GetMetricAlertResult)
     return __ret__.apply(lambda __response__: GetMetricAlertResult(
         actions=pulumi.get(__response__, 'actions'),

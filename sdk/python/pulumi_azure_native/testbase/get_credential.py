@@ -140,7 +140,7 @@ def get_credential(credential_name: Optional[str] = None,
 def get_credential_output(credential_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           test_base_account_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCredentialResult]:
     """
     Gets a test base credential Resource
     Azure REST API version: 2023-11-01-preview.
@@ -154,7 +154,7 @@ def get_credential_output(credential_name: Optional[pulumi.Input[str]] = None,
     __args__['credentialName'] = credential_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getCredential', __args__, opts=opts, typ=GetCredentialResult)
     return __ret__.apply(lambda __response__: GetCredentialResult(
         credential_type=pulumi.get(__response__, 'credential_type'),

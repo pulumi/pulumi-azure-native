@@ -190,7 +190,7 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_activity_log_alert_output(activity_log_alert_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityLogAlertResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActivityLogAlertResult]:
     """
     Get an Activity Log Alert rule.
     Azure REST API version: 2020-10-01.
@@ -204,7 +204,7 @@ def get_activity_log_alert_output(activity_log_alert_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['activityLogAlertName'] = activity_log_alert_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getActivityLogAlert', __args__, opts=opts, typ=GetActivityLogAlertResult)
     return __ret__.apply(lambda __response__: GetActivityLogAlertResult(
         actions=pulumi.get(__response__, 'actions'),

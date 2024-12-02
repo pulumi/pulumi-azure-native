@@ -74,7 +74,7 @@ def list_application_business_process_development_artifacts(application_name: Op
 def list_application_business_process_development_artifacts_output(application_name: Optional[pulumi.Input[str]] = None,
                                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                    space_name: Optional[pulumi.Input[str]] = None,
-                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplicationBusinessProcessDevelopmentArtifactsResult]:
+                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplicationBusinessProcessDevelopmentArtifactsResult]:
     """
     The list business process development artifacts action.
 
@@ -87,7 +87,7 @@ def list_application_business_process_development_artifacts_output(application_n
     __args__['applicationName'] = application_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['spaceName'] = space_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:integrationspaces/v20231114preview:listApplicationBusinessProcessDevelopmentArtifacts', __args__, opts=opts, typ=ListApplicationBusinessProcessDevelopmentArtifactsResult)
     return __ret__.apply(lambda __response__: ListApplicationBusinessProcessDevelopmentArtifactsResult(
         value=pulumi.get(__response__, 'value')))

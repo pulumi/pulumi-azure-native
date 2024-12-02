@@ -148,7 +148,7 @@ def list_integration_account_schema_content_callback_url_output(integration_acco
                                                                 not_after: Optional[pulumi.Input[Optional[str]]] = None,
                                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                 schema_name: Optional[pulumi.Input[str]] = None,
-                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountSchemaContentCallbackUrlResult]:
+                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountSchemaContentCallbackUrlResult]:
     """
     Get the content callback url.
 
@@ -165,7 +165,7 @@ def list_integration_account_schema_content_callback_url_output(integration_acco
     __args__['notAfter'] = not_after
     __args__['resourceGroupName'] = resource_group_name
     __args__['schemaName'] = schema_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20190501:listIntegrationAccountSchemaContentCallbackUrl', __args__, opts=opts, typ=ListIntegrationAccountSchemaContentCallbackUrlResult)
     return __ret__.apply(lambda __response__: ListIntegrationAccountSchemaContentCallbackUrlResult(
         base_path=pulumi.get(__response__, 'base_path'),

@@ -194,7 +194,7 @@ def get_storage_account(device_name: Optional[str] = None,
 def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                storage_account_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageAccountResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageAccountResult]:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
     Azure REST API version: 2022-03-01.
@@ -210,7 +210,7 @@ def get_storage_account_output(device_name: Optional[pulumi.Input[str]] = None,
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageAccountName'] = storage_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getStorageAccount', __args__, opts=opts, typ=GetStorageAccountResult)
     return __ret__.apply(lambda __response__: GetStorageAccountResult(
         blob_endpoint=pulumi.get(__response__, 'blob_endpoint'),

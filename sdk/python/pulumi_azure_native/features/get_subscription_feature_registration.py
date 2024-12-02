@@ -107,7 +107,7 @@ def get_subscription_feature_registration(feature_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_subscription_feature_registration_output(feature_name: Optional[pulumi.Input[str]] = None,
                                                  provider_namespace: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionFeatureRegistrationResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionFeatureRegistrationResult]:
     """
     Returns a feature registration
     Azure REST API version: 2021-07-01.
@@ -119,7 +119,7 @@ def get_subscription_feature_registration_output(feature_name: Optional[pulumi.I
     __args__ = dict()
     __args__['featureName'] = feature_name
     __args__['providerNamespace'] = provider_namespace
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:features:getSubscriptionFeatureRegistration', __args__, opts=opts, typ=GetSubscriptionFeatureRegistrationResult)
     return __ret__.apply(lambda __response__: GetSubscriptionFeatureRegistrationResult(
         id=pulumi.get(__response__, 'id'),

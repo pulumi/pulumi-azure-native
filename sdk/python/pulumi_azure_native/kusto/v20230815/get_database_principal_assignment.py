@@ -207,7 +207,7 @@ def get_database_principal_assignment_output(cluster_name: Optional[pulumi.Input
                                              database_name: Optional[pulumi.Input[str]] = None,
                                              principal_assignment_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabasePrincipalAssignmentResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabasePrincipalAssignmentResult]:
     """
     Gets a Kusto cluster database principalAssignment.
 
@@ -222,7 +222,7 @@ def get_database_principal_assignment_output(cluster_name: Optional[pulumi.Input
     __args__['databaseName'] = database_name
     __args__['principalAssignmentName'] = principal_assignment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20230815:getDatabasePrincipalAssignment', __args__, opts=opts, typ=GetDatabasePrincipalAssignmentResult)
     return __ret__.apply(lambda __response__: GetDatabasePrincipalAssignmentResult(
         aad_object_id=pulumi.get(__response__, 'aad_object_id'),

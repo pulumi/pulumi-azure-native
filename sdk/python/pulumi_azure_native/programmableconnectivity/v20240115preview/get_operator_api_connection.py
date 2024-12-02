@@ -265,7 +265,7 @@ def get_operator_api_connection(operator_api_connection_name: Optional[str] = No
         type=pulumi.get(__ret__, 'type'))
 def get_operator_api_connection_output(operator_api_connection_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOperatorApiConnectionResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOperatorApiConnectionResult]:
     """
     Get an Operator API Connection.
 
@@ -276,7 +276,7 @@ def get_operator_api_connection_output(operator_api_connection_name: Optional[pu
     __args__ = dict()
     __args__['operatorApiConnectionName'] = operator_api_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:programmableconnectivity/v20240115preview:getOperatorApiConnection', __args__, opts=opts, typ=GetOperatorApiConnectionResult)
     return __ret__.apply(lambda __response__: GetOperatorApiConnectionResult(
         account_type=pulumi.get(__response__, 'account_type'),

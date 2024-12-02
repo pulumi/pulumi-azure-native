@@ -185,7 +185,7 @@ def get_api_issue_output(api_id: Optional[pulumi.Input[str]] = None,
                          issue_id: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          service_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiIssueResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiIssueResult]:
     """
     Gets the details of the Issue for an API specified by its identifier.
 
@@ -202,7 +202,7 @@ def get_api_issue_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__['issueId'] = issue_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getApiIssue', __args__, opts=opts, typ=GetApiIssueResult)
     return __ret__.apply(lambda __response__: GetApiIssueResult(
         api_id=pulumi.get(__response__, 'api_id'),

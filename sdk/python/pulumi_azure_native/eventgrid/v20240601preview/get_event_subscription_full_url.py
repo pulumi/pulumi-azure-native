@@ -69,7 +69,7 @@ def get_event_subscription_full_url(event_subscription_name: Optional[str] = Non
         endpoint_url=pulumi.get(__ret__, 'endpoint_url'))
 def get_event_subscription_full_url_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                            scope: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionFullUrlResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for an event subscription.
 
@@ -80,7 +80,7 @@ def get_event_subscription_full_url_output(event_subscription_name: Optional[pul
     __args__ = dict()
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20240601preview:getEventSubscriptionFullUrl', __args__, opts=opts, typ=GetEventSubscriptionFullUrlResult)
     return __ret__.apply(lambda __response__: GetEventSubscriptionFullUrlResult(
         endpoint_url=pulumi.get(__response__, 'endpoint_url')))

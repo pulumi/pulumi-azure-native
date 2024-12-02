@@ -281,7 +281,7 @@ def get_web_app_function(function_name: Optional[str] = None,
 def get_web_app_function_output(function_name: Optional[pulumi.Input[str]] = None,
                                 name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppFunctionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppFunctionResult]:
     """
     Description for Get function information by its ID for web site, or a deployment slot.
 
@@ -294,7 +294,7 @@ def get_web_app_function_output(function_name: Optional[pulumi.Input[str]] = Non
     __args__['functionName'] = function_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getWebAppFunction', __args__, opts=opts, typ=GetWebAppFunctionResult)
     return __ret__.apply(lambda __response__: GetWebAppFunctionResult(
         config=pulumi.get(__response__, 'config'),

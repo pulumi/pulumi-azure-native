@@ -87,7 +87,7 @@ def list_ipam_pool_associated_resources(network_manager_name: Optional[str] = No
 def list_ipam_pool_associated_resources_output(network_manager_name: Optional[pulumi.Input[str]] = None,
                                                pool_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIpamPoolAssociatedResourcesResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIpamPoolAssociatedResourcesResult]:
     """
     List of PoolAssociation
     Azure REST API version: 2024-01-01-preview.
@@ -103,7 +103,7 @@ def list_ipam_pool_associated_resources_output(network_manager_name: Optional[pu
     __args__['networkManagerName'] = network_manager_name
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:listIpamPoolAssociatedResources', __args__, opts=opts, typ=ListIpamPoolAssociatedResourcesResult)
     return __ret__.apply(lambda __response__: ListIpamPoolAssociatedResourcesResult(
         next_link=pulumi.get(__response__, 'next_link'),

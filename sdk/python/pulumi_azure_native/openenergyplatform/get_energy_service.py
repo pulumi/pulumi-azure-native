@@ -143,7 +143,7 @@ def get_energy_service(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_energy_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               resource_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnergyServiceResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnergyServiceResult]:
     """
     Returns oep resource for a given name.
     Azure REST API version: 2022-04-04-preview.
@@ -155,7 +155,7 @@ def get_energy_service_output(resource_group_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:openenergyplatform:getEnergyService', __args__, opts=opts, typ=GetEnergyServiceResult)
     return __ret__.apply(lambda __response__: GetEnergyServiceResult(
         id=pulumi.get(__response__, 'id'),

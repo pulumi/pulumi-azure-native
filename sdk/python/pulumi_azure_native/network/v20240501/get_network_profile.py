@@ -191,7 +191,7 @@ def get_network_profile(expand: Optional[str] = None,
 def get_network_profile_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                network_profile_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkProfileResult]:
     """
     Gets the specified network profile in a specified resource group.
 
@@ -204,7 +204,7 @@ def get_network_profile_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     __args__['expand'] = expand
     __args__['networkProfileName'] = network_profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240501:getNetworkProfile', __args__, opts=opts, typ=GetNetworkProfileResult)
     return __ret__.apply(lambda __response__: GetNetworkProfileResult(
         container_network_interface_configurations=pulumi.get(__response__, 'container_network_interface_configurations'),

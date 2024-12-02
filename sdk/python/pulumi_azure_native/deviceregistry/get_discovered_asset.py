@@ -370,7 +370,7 @@ def get_discovered_asset(discovered_asset_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_discovered_asset_output(discovered_asset_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiscoveredAssetResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscoveredAssetResult]:
     """
     Get a DiscoveredAsset
     Azure REST API version: 2024-09-01-preview.
@@ -382,7 +382,7 @@ def get_discovered_asset_output(discovered_asset_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['discoveredAssetName'] = discovered_asset_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry:getDiscoveredAsset', __args__, opts=opts, typ=GetDiscoveredAssetResult)
     return __ret__.apply(lambda __response__: GetDiscoveredAssetResult(
         asset_endpoint_profile_ref=pulumi.get(__response__, 'asset_endpoint_profile_ref'),

@@ -91,7 +91,7 @@ def get_sap_disk_configurations_output(app_location: Optional[pulumi.Input[str]]
                                        environment: Optional[pulumi.Input[Union[str, 'SAPEnvironmentType']]] = None,
                                        location: Optional[pulumi.Input[str]] = None,
                                        sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPDiskConfigurationsResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPDiskConfigurationsResult]:
     """
     Get the SAP Disk Configuration Layout prod/non-prod SAP System.
 
@@ -112,7 +112,7 @@ def get_sap_disk_configurations_output(app_location: Optional[pulumi.Input[str]]
     __args__['environment'] = environment
     __args__['location'] = location
     __args__['sapProduct'] = sap_product
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20231001preview:getSAPDiskConfigurations', __args__, opts=opts, typ=GetSAPDiskConfigurationsResult)
     return __ret__.apply(lambda __response__: GetSAPDiskConfigurationsResult(
         volume_configurations=pulumi.get(__response__, 'volume_configurations')))

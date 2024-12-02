@@ -78,7 +78,7 @@ def list_saas_resource_access_token(resource_id: Optional[str] = None,
         publisher_offer_base_uri=pulumi.get(__ret__, 'publisher_offer_base_uri'),
         token=pulumi.get(__ret__, 'token'))
 def list_saas_resource_access_token_output(resource_id: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSaasResourceAccessTokenResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSaasResourceAccessTokenResult]:
     """
     Gets the ISV access token for a SaaS resource.
 
@@ -87,7 +87,7 @@ def list_saas_resource_access_token_output(resource_id: Optional[pulumi.Input[st
     """
     __args__ = dict()
     __args__['resourceId'] = resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:saas/v20180301beta:listSaasResourceAccessToken', __args__, opts=opts, typ=ListSaasResourceAccessTokenResult)
     return __ret__.apply(lambda __response__: ListSaasResourceAccessTokenResult(
         publisher_offer_base_uri=pulumi.get(__response__, 'publisher_offer_base_uri'),

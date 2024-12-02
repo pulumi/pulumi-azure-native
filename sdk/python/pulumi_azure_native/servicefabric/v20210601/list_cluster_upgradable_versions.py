@@ -70,7 +70,7 @@ def list_cluster_upgradable_versions(cluster_name: Optional[str] = None,
 def list_cluster_upgradable_versions_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             target_version: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterUpgradableVersionsResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterUpgradableVersionsResult]:
     """
     If a target is not provided, it will get the minimum and maximum versions available from the current cluster version. If a target is given, it will provide the required path to get from the current cluster version to the target version.
 
@@ -83,7 +83,7 @@ def list_cluster_upgradable_versions_output(cluster_name: Optional[pulumi.Input[
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['targetVersion'] = target_version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20210601:listClusterUpgradableVersions', __args__, opts=opts, typ=ListClusterUpgradableVersionsResult)
     return __ret__.apply(lambda __response__: ListClusterUpgradableVersionsResult(
         supported_path=pulumi.get(__response__, 'supported_path')))

@@ -79,7 +79,7 @@ def list_billing_account_invoice_sections_by_create_subscription_permission(bill
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
 def list_billing_account_invoice_sections_by_create_subscription_permission_output(billing_account_name: Optional[pulumi.Input[str]] = None,
-                                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult]:
+                                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult]:
     """
     Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
 
@@ -88,7 +88,7 @@ def list_billing_account_invoice_sections_by_create_subscription_permission_outp
     """
     __args__ = dict()
     __args__['billingAccountName'] = billing_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:billing/v20191001preview:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission', __args__, opts=opts, typ=ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult)
     return __ret__.apply(lambda __response__: ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult(
         next_link=pulumi.get(__response__, 'next_link'),

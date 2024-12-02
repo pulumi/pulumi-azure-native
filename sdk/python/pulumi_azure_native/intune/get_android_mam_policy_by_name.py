@@ -328,7 +328,7 @@ def get_android_mam_policy_by_name(host_name: Optional[str] = None,
 def get_android_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = None,
                                           policy_name: Optional[pulumi.Input[str]] = None,
                                           select: Optional[pulumi.Input[Optional[str]]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAndroidMAMPolicyByNameResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAndroidMAMPolicyByNameResult]:
     """
     Returns AndroidMAMPolicy with given name.
     Azure REST API version: 2015-01-14-preview.
@@ -344,7 +344,7 @@ def get_android_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]]
     __args__['hostName'] = host_name
     __args__['policyName'] = policy_name
     __args__['select'] = select
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:intune:getAndroidMAMPolicyByName', __args__, opts=opts, typ=GetAndroidMAMPolicyByNameResult)
     return __ret__.apply(lambda __response__: GetAndroidMAMPolicyByNameResult(
         access_recheck_offline_timeout=pulumi.get(__response__, 'access_recheck_offline_timeout'),

@@ -187,7 +187,7 @@ def get_auto_scale_v_core(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_auto_scale_v_core_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  vcore_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoScaleVCoreResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoScaleVCoreResult]:
     """
     Gets details about the specified auto scale v-core.
 
@@ -198,7 +198,7 @@ def get_auto_scale_v_core_output(resource_group_name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vcoreName'] = vcore_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:powerbidedicated/v20210101:getAutoScaleVCore', __args__, opts=opts, typ=GetAutoScaleVCoreResult)
     return __ret__.apply(lambda __response__: GetAutoScaleVCoreResult(
         capacity_limit=pulumi.get(__response__, 'capacity_limit'),

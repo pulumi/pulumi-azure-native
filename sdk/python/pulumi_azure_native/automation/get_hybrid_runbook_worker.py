@@ -198,7 +198,7 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
                                      hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
                                      hybrid_runbook_worker_id: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridRunbookWorkerResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridRunbookWorkerResult]:
     """
     Retrieve a hybrid runbook worker.
     Azure REST API version: 2022-08-08.
@@ -216,7 +216,7 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
     __args__['hybridRunbookWorkerGroupName'] = hybrid_runbook_worker_group_name
     __args__['hybridRunbookWorkerId'] = hybrid_runbook_worker_id
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getHybridRunbookWorker', __args__, opts=opts, typ=GetHybridRunbookWorkerResult)
     return __ret__.apply(lambda __response__: GetHybridRunbookWorkerResult(
         id=pulumi.get(__response__, 'id'),

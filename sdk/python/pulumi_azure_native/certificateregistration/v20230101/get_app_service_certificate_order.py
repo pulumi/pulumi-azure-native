@@ -395,7 +395,7 @@ def get_app_service_certificate_order(certificate_order_name: Optional[str] = No
         validity_in_years=pulumi.get(__ret__, 'validity_in_years'))
 def get_app_service_certificate_order_output(certificate_order_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceCertificateOrderResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceCertificateOrderResult]:
     """
     Description for Get a certificate order.
 
@@ -406,7 +406,7 @@ def get_app_service_certificate_order_output(certificate_order_name: Optional[pu
     __args__ = dict()
     __args__['certificateOrderName'] = certificate_order_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:certificateregistration/v20230101:getAppServiceCertificateOrder', __args__, opts=opts, typ=GetAppServiceCertificateOrderResult)
     return __ret__.apply(lambda __response__: GetAppServiceCertificateOrderResult(
         app_service_certificate_not_renewable_reasons=pulumi.get(__response__, 'app_service_certificate_not_renewable_reasons'),

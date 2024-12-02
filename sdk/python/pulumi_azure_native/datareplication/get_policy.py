@@ -124,7 +124,7 @@ def get_policy(policy_name: Optional[str] = None,
 def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       vault_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Gets the details of the policy.
     Azure REST API version: 2021-02-16-preview.
@@ -138,7 +138,7 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datareplication:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
     return __ret__.apply(lambda __response__: GetPolicyResult(
         id=pulumi.get(__response__, 'id'),

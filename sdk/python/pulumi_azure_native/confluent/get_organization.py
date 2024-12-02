@@ -216,7 +216,7 @@ def get_organization(organization_name: Optional[str] = None,
         user_detail=pulumi.get(__ret__, 'user_detail'))
 def get_organization_output(organization_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Organization resource.
     Azure REST API version: 2021-12-01.
@@ -230,7 +230,7 @@ def get_organization_output(organization_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['organizationName'] = organization_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:confluent:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
     return __ret__.apply(lambda __response__: GetOrganizationResult(
         created_time=pulumi.get(__response__, 'created_time'),

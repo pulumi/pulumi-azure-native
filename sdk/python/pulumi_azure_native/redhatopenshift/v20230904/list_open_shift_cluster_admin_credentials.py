@@ -69,7 +69,7 @@ def list_open_shift_cluster_admin_credentials(resource_group_name: Optional[str]
         kubeconfig=pulumi.get(__ret__, 'kubeconfig'))
 def list_open_shift_cluster_admin_credentials_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      resource_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOpenShiftClusterAdminCredentialsResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOpenShiftClusterAdminCredentialsResult]:
     """
     The operation returns the admin kubeconfig.
 
@@ -80,7 +80,7 @@ def list_open_shift_cluster_admin_credentials_output(resource_group_name: Option
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:redhatopenshift/v20230904:listOpenShiftClusterAdminCredentials', __args__, opts=opts, typ=ListOpenShiftClusterAdminCredentialsResult)
     return __ret__.apply(lambda __response__: ListOpenShiftClusterAdminCredentialsResult(
         kubeconfig=pulumi.get(__response__, 'kubeconfig')))

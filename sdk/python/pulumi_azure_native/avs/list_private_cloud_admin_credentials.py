@@ -111,7 +111,7 @@ def list_private_cloud_admin_credentials(private_cloud_name: Optional[str] = Non
         vcenter_username=pulumi.get(__ret__, 'vcenter_username'))
 def list_private_cloud_admin_credentials_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateCloudAdminCredentialsResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPrivateCloudAdminCredentialsResult]:
     """
     Administrative credentials for accessing vCenter and NSX-T
     Azure REST API version: 2022-05-01.
@@ -125,7 +125,7 @@ def list_private_cloud_admin_credentials_output(private_cloud_name: Optional[pul
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs:listPrivateCloudAdminCredentials', __args__, opts=opts, typ=ListPrivateCloudAdminCredentialsResult)
     return __ret__.apply(lambda __response__: ListPrivateCloudAdminCredentialsResult(
         nsxt_password=pulumi.get(__response__, 'nsxt_password'),

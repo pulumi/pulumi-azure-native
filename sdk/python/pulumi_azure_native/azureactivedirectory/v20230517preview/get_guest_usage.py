@@ -148,7 +148,7 @@ def get_guest_usage(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            resource_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestUsageResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestUsageResult]:
     """
     Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
 
@@ -159,7 +159,7 @@ def get_guest_usage_output(resource_group_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azureactivedirectory/v20230517preview:getGuestUsage', __args__, opts=opts, typ=GetGuestUsageResult)
     return __ret__.apply(lambda __response__: GetGuestUsageResult(
         id=pulumi.get(__response__, 'id'),

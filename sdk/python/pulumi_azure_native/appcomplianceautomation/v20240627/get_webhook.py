@@ -278,7 +278,7 @@ def get_webhook(report_name: Optional[str] = None,
         webhook_key_enabled=pulumi.get(__ret__, 'webhook_key_enabled'))
 def get_webhook_output(report_name: Optional[pulumi.Input[str]] = None,
                        webhook_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebhookResult]:
     """
     Get the AppComplianceAutomation webhook and its properties.
 
@@ -289,7 +289,7 @@ def get_webhook_output(report_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['reportName'] = report_name
     __args__['webhookName'] = webhook_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation/v20240627:getWebhook', __args__, opts=opts, typ=GetWebhookResult)
     return __ret__.apply(lambda __response__: GetWebhookResult(
         content_type=pulumi.get(__response__, 'content_type'),

@@ -146,7 +146,7 @@ def get_authorization_access_policy_output(authorization_access_policy_id: Optio
                                            authorization_provider_id: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            service_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationAccessPolicyResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationAccessPolicyResult]:
     """
     Gets the details of the authorization access policy specified by its identifier.
 
@@ -163,7 +163,7 @@ def get_authorization_access_policy_output(authorization_access_policy_id: Optio
     __args__['authorizationProviderId'] = authorization_provider_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getAuthorizationAccessPolicy', __args__, opts=opts, typ=GetAuthorizationAccessPolicyResult)
     return __ret__.apply(lambda __response__: GetAuthorizationAccessPolicyResult(
         app_ids=pulumi.get(__response__, 'app_ids'),

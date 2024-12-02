@@ -74,7 +74,7 @@ def get_domain_event_subscription_delivery_attributes(domain_name: Optional[str]
 def get_domain_event_subscription_delivery_attributes_output(domain_name: Optional[pulumi.Input[str]] = None,
                                                              event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainEventSubscriptionDeliveryAttributesResult]:
+                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription for domain.
 
@@ -87,7 +87,7 @@ def get_domain_event_subscription_delivery_attributes_output(domain_name: Option
     __args__['domainName'] = domain_name
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20240601preview:getDomainEventSubscriptionDeliveryAttributes', __args__, opts=opts, typ=GetDomainEventSubscriptionDeliveryAttributesResult)
     return __ret__.apply(lambda __response__: GetDomainEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__response__, 'value')))

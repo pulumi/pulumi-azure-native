@@ -166,7 +166,7 @@ def get_microsoft_purview_information_protection_data_connector(data_connector_i
 def get_microsoft_purview_information_protection_data_connector_output(data_connector_id: Optional[pulumi.Input[str]] = None,
                                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                        workspace_name: Optional[pulumi.Input[str]] = None,
-                                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftPurviewInformationProtectionDataConnectorResult]:
+                                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMicrosoftPurviewInformationProtectionDataConnectorResult]:
     """
     Gets a data connector.
 
@@ -179,7 +179,7 @@ def get_microsoft_purview_information_protection_data_connector_output(data_conn
     __args__['dataConnectorId'] = data_connector_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20230601preview:getMicrosoftPurviewInformationProtectionDataConnector', __args__, opts=opts, typ=GetMicrosoftPurviewInformationProtectionDataConnectorResult)
     return __ret__.apply(lambda __response__: GetMicrosoftPurviewInformationProtectionDataConnectorResult(
         data_types=pulumi.get(__response__, 'data_types'),

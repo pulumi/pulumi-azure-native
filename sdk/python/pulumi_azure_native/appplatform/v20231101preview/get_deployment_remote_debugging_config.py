@@ -90,7 +90,7 @@ def get_deployment_remote_debugging_config_output(app_name: Optional[pulumi.Inpu
                                                   deployment_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   service_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentRemoteDebuggingConfigResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentRemoteDebuggingConfigResult]:
     """
     Get remote debugging config.
 
@@ -105,7 +105,7 @@ def get_deployment_remote_debugging_config_output(app_name: Optional[pulumi.Inpu
     __args__['deploymentName'] = deployment_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20231101preview:getDeploymentRemoteDebuggingConfig', __args__, opts=opts, typ=GetDeploymentRemoteDebuggingConfigResult)
     return __ret__.apply(lambda __response__: GetDeploymentRemoteDebuggingConfigResult(
         enabled=pulumi.get(__response__, 'enabled'),

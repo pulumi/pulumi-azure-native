@@ -244,7 +244,7 @@ def get_ml_behavior_analytics_alert_rule(resource_group_name: Optional[str] = No
 def get_ml_behavior_analytics_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 rule_id: Optional[pulumi.Input[str]] = None,
                                                 workspace_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMLBehaviorAnalyticsAlertRuleResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMLBehaviorAnalyticsAlertRuleResult]:
     """
     Gets the alert rule.
 
@@ -257,7 +257,7 @@ def get_ml_behavior_analytics_alert_rule_output(resource_group_name: Optional[pu
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleId'] = rule_id
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20230801preview:getMLBehaviorAnalyticsAlertRule', __args__, opts=opts, typ=GetMLBehaviorAnalyticsAlertRuleResult)
     return __ret__.apply(lambda __response__: GetMLBehaviorAnalyticsAlertRuleResult(
         alert_rule_template_name=pulumi.get(__response__, 'alert_rule_template_name'),

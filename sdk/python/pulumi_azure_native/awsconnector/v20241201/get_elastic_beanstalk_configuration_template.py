@@ -148,7 +148,7 @@ def get_elastic_beanstalk_configuration_template(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_elastic_beanstalk_configuration_template_output(name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticBeanstalkConfigurationTemplateResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticBeanstalkConfigurationTemplateResult]:
     """
     Get a ElasticBeanstalkConfigurationTemplate
 
@@ -159,7 +159,7 @@ def get_elastic_beanstalk_configuration_template_output(name: Optional[pulumi.In
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector/v20241201:getElasticBeanstalkConfigurationTemplate', __args__, opts=opts, typ=GetElasticBeanstalkConfigurationTemplateResult)
     return __ret__.apply(lambda __response__: GetElasticBeanstalkConfigurationTemplateResult(
         id=pulumi.get(__response__, 'id'),

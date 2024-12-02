@@ -130,7 +130,7 @@ def get_build_service_build_output(build_name: Optional[pulumi.Input[str]] = Non
                                    build_service_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    service_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildServiceBuildResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildServiceBuildResult]:
     """
     Get a KPack build.
 
@@ -145,7 +145,7 @@ def get_build_service_build_output(build_name: Optional[pulumi.Input[str]] = Non
     __args__['buildServiceName'] = build_service_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20230901preview:getBuildServiceBuild', __args__, opts=opts, typ=GetBuildServiceBuildResult)
     return __ret__.apply(lambda __response__: GetBuildServiceBuildResult(
         id=pulumi.get(__response__, 'id'),

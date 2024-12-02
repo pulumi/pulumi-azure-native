@@ -165,7 +165,7 @@ def get_authorization(authorization_name: Optional[str] = None,
 def get_authorization_output(authorization_name: Optional[pulumi.Input[str]] = None,
                              private_cloud_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationResult]:
     """
     Get a ExpressRouteAuthorization
 
@@ -178,7 +178,7 @@ def get_authorization_output(authorization_name: Optional[pulumi.Input[str]] = N
     __args__['authorizationName'] = authorization_name
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20230901:getAuthorization', __args__, opts=opts, typ=GetAuthorizationResult)
     return __ret__.apply(lambda __response__: GetAuthorizationResult(
         express_route_authorization_id=pulumi.get(__response__, 'express_route_authorization_id'),

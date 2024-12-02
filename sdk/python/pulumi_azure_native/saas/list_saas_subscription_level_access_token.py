@@ -83,7 +83,7 @@ def list_saas_subscription_level_access_token(resource_group_name: Optional[str]
         token=pulumi.get(__ret__, 'token'))
 def list_saas_subscription_level_access_token_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      resource_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSaasSubscriptionLevelAccessTokenResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSaasSubscriptionLevelAccessTokenResult]:
     """
     Gets the ISV access token for a specified Subscription Level SaaS.
     Azure REST API version: 2018-03-01-beta.
@@ -95,7 +95,7 @@ def list_saas_subscription_level_access_token_output(resource_group_name: Option
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:saas:listSaasSubscriptionLevelAccessToken', __args__, opts=opts, typ=ListSaasSubscriptionLevelAccessTokenResult)
     return __ret__.apply(lambda __response__: ListSaasSubscriptionLevelAccessTokenResult(
         publisher_offer_base_uri=pulumi.get(__response__, 'publisher_offer_base_uri'),

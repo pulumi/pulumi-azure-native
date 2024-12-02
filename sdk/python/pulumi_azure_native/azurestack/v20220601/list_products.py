@@ -87,7 +87,7 @@ def list_products(product_name: Optional[str] = None,
 def list_products_output(product_name: Optional[pulumi.Input[str]] = None,
                          registration_name: Optional[pulumi.Input[str]] = None,
                          resource_group: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductsResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductsResult]:
     """
     Returns a list of products.
 
@@ -100,7 +100,7 @@ def list_products_output(product_name: Optional[pulumi.Input[str]] = None,
     __args__['productName'] = product_name
     __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack/v20220601:listProducts', __args__, opts=opts, typ=ListProductsResult)
     return __ret__.apply(lambda __response__: ListProductsResult(
         next_link=pulumi.get(__response__, 'next_link'),

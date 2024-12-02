@@ -176,7 +176,7 @@ def get_network_security_perimeter(network_security_perimeter_name: Optional[str
         type=pulumi.get(__ret__, 'type'))
 def get_network_security_perimeter_output(network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSecurityPerimeterResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityPerimeterResult]:
     """
     Gets the specified network security perimeter by the name.
     Azure REST API version: 2021-03-01-preview.
@@ -190,7 +190,7 @@ def get_network_security_perimeter_output(network_security_perimeter_name: Optio
     __args__ = dict()
     __args__['networkSecurityPerimeterName'] = network_security_perimeter_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkSecurityPerimeter', __args__, opts=opts, typ=GetNetworkSecurityPerimeterResult)
     return __ret__.apply(lambda __response__: GetNetworkSecurityPerimeterResult(
         description=pulumi.get(__response__, 'description'),

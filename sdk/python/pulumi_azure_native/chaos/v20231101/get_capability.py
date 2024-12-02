@@ -138,7 +138,7 @@ def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
                           parent_resource_type: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           target_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapabilityResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapabilityResult]:
     """
     Get a Capability resource that extends a Target resource.
 
@@ -157,7 +157,7 @@ def get_capability_output(capability_name: Optional[pulumi.Input[str]] = None,
     __args__['parentResourceType'] = parent_resource_type
     __args__['resourceGroupName'] = resource_group_name
     __args__['targetName'] = target_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:chaos/v20231101:getCapability', __args__, opts=opts, typ=GetCapabilityResult)
     return __ret__.apply(lambda __response__: GetCapabilityResult(
         id=pulumi.get(__response__, 'id'),

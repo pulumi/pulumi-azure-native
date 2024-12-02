@@ -87,7 +87,7 @@ def list_network_manager_effective_security_admin_rules(resource_group_name: Opt
 def list_network_manager_effective_security_admin_rules_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                                virtual_network_name: Optional[pulumi.Input[str]] = None,
-                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerEffectiveSecurityAdminRulesResult]:
+                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNetworkManagerEffectiveSecurityAdminRulesResult]:
     """
     List all effective security admin rules applied on a virtual network.
 
@@ -100,7 +100,7 @@ def list_network_manager_effective_security_admin_rules_output(resource_group_na
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
     __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20220401preview:listNetworkManagerEffectiveSecurityAdminRules', __args__, opts=opts, typ=ListNetworkManagerEffectiveSecurityAdminRulesResult)
     return __ret__.apply(lambda __response__: ListNetworkManagerEffectiveSecurityAdminRulesResult(
         skip_token=pulumi.get(__response__, 'skip_token'),

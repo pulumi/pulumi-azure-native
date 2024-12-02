@@ -196,7 +196,7 @@ def get_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                       peering_service_name: Optional[pulumi.Input[str]] = None,
                       prefix_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixResult]:
     """
     Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
     Azure REST API version: 2022-10-01.
@@ -212,7 +212,7 @@ def get_prefix_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['peeringServiceName'] = peering_service_name
     __args__['prefixName'] = prefix_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:peering:getPrefix', __args__, opts=opts, typ=GetPrefixResult)
     return __ret__.apply(lambda __response__: GetPrefixResult(
         error_message=pulumi.get(__response__, 'error_message'),

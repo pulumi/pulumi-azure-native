@@ -191,7 +191,7 @@ def get_assessment(assessment_name: Optional[str] = None,
 def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                           expand: Optional[pulumi.Input[Optional[str]]] = None,
                           resource_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     Get a security assessment on your scanned resource
 
@@ -204,7 +204,7 @@ def get_assessment_output(assessment_name: Optional[pulumi.Input[str]] = None,
     __args__['assessmentName'] = assessment_name
     __args__['expand'] = expand
     __args__['resourceId'] = resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20210601:getAssessment', __args__, opts=opts, typ=GetAssessmentResult)
     return __ret__.apply(lambda __response__: GetAssessmentResult(
         additional_data=pulumi.get(__response__, 'additional_data'),

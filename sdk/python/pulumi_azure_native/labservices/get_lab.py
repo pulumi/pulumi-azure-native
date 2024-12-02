@@ -281,7 +281,7 @@ def get_lab(lab_name: Optional[str] = None,
         virtual_machine_profile=pulumi.get(__ret__, 'virtual_machine_profile'))
 def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabResult]:
     """
     Returns the properties of a lab resource.
     Azure REST API version: 2022-08-01.
@@ -295,7 +295,7 @@ def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getLab', __args__, opts=opts, typ=GetLabResult)
     return __ret__.apply(lambda __response__: GetLabResult(
         auto_shutdown_profile=pulumi.get(__response__, 'auto_shutdown_profile'),

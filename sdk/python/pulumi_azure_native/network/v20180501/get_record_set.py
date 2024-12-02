@@ -312,7 +312,7 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
                           relative_record_set_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           zone_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecordSetResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecordSetResult]:
     """
     Gets a record set.
 
@@ -327,7 +327,7 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
     __args__['relativeRecordSetName'] = relative_record_set_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['zoneName'] = zone_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20180501:getRecordSet', __args__, opts=opts, typ=GetRecordSetResult)
     return __ret__.apply(lambda __response__: GetRecordSetResult(
         a_records=pulumi.get(__response__, 'a_records'),

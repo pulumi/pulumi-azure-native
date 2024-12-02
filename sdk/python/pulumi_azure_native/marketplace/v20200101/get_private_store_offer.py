@@ -239,7 +239,7 @@ def get_private_store_offer(offer_id: Optional[str] = None,
         update_suppressed_due_idempotence=pulumi.get(__ret__, 'update_suppressed_due_idempotence'))
 def get_private_store_offer_output(offer_id: Optional[pulumi.Input[str]] = None,
                                    private_store_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreOfferResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateStoreOfferResult]:
     """
     Gets information about a specific offer.
 
@@ -250,7 +250,7 @@ def get_private_store_offer_output(offer_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['offerId'] = offer_id
     __args__['privateStoreId'] = private_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:marketplace/v20200101:getPrivateStoreOffer', __args__, opts=opts, typ=GetPrivateStoreOfferResult)
     return __ret__.apply(lambda __response__: GetPrivateStoreOfferResult(
         created_at=pulumi.get(__response__, 'created_at'),

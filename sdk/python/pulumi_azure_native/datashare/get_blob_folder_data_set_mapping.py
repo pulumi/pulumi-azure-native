@@ -236,7 +236,7 @@ def get_blob_folder_data_set_mapping_output(account_name: Optional[pulumi.Input[
                                             data_set_mapping_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             share_subscription_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobFolderDataSetMappingResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobFolderDataSetMappingResult]:
     """
     Get a DataSetMapping in a shareSubscription
     Azure REST API version: 2021-08-01.
@@ -252,7 +252,7 @@ def get_blob_folder_data_set_mapping_output(account_name: Optional[pulumi.Input[
     __args__['dataSetMappingName'] = data_set_mapping_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareSubscriptionName'] = share_subscription_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getBlobFolderDataSetMapping', __args__, opts=opts, typ=GetBlobFolderDataSetMappingResult)
     return __ret__.apply(lambda __response__: GetBlobFolderDataSetMappingResult(
         container_name=pulumi.get(__response__, 'container_name'),

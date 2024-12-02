@@ -88,7 +88,7 @@ def list_global_rulestack_advanced_security_objects_output(global_rulestack_name
                                                            skip: Optional[pulumi.Input[Optional[str]]] = None,
                                                            top: Optional[pulumi.Input[Optional[int]]] = None,
                                                            type: Optional[pulumi.Input[str]] = None,
-                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalRulestackAdvancedSecurityObjectsResult]:
+                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGlobalRulestackAdvancedSecurityObjectsResult]:
     """
     Get the list of advanced security objects
 
@@ -100,7 +100,7 @@ def list_global_rulestack_advanced_security_objects_output(global_rulestack_name
     __args__['skip'] = skip
     __args__['top'] = top
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20220829:listGlobalRulestackAdvancedSecurityObjects', __args__, opts=opts, typ=ListGlobalRulestackAdvancedSecurityObjectsResult)
     return __ret__.apply(lambda __response__: ListGlobalRulestackAdvancedSecurityObjectsResult(
         next_link=pulumi.get(__response__, 'next_link'),

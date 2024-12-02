@@ -86,7 +86,7 @@ def get_app_resource_upload_url(app_name: Optional[str] = None,
 def get_app_resource_upload_url_output(app_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        service_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResourceUploadUrlResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResourceUploadUrlResult]:
     """
     Get an resource upload URL for an App, which may be artifacts or source archive.
 
@@ -99,7 +99,7 @@ def get_app_resource_upload_url_output(app_name: Optional[pulumi.Input[str]] = N
     __args__['appName'] = app_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20231101preview:getAppResourceUploadUrl', __args__, opts=opts, typ=GetAppResourceUploadUrlResult)
     return __ret__.apply(lambda __response__: GetAppResourceUploadUrlResult(
         relative_path=pulumi.get(__response__, 'relative_path'),

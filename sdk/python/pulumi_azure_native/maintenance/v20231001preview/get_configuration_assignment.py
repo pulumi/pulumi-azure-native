@@ -173,7 +173,7 @@ def get_configuration_assignment_output(configuration_assignment_name: Optional[
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         resource_name: Optional[pulumi.Input[str]] = None,
                                         resource_type: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAssignmentResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentResult]:
     """
     Get configuration assignment for resource..
 
@@ -190,7 +190,7 @@ def get_configuration_assignment_output(configuration_assignment_name: Optional[
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance/v20231001preview:getConfigurationAssignment', __args__, opts=opts, typ=GetConfigurationAssignmentResult)
     return __ret__.apply(lambda __response__: GetConfigurationAssignmentResult(
         filter=pulumi.get(__response__, 'filter'),

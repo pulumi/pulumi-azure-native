@@ -255,7 +255,7 @@ def get_subscription(resource_group_name: Optional[str] = None,
 def get_subscription_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             service_name: Optional[pulumi.Input[str]] = None,
                             sid: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Gets the specified Subscription entity.
 
@@ -268,7 +268,7 @@ def get_subscription_output(resource_group_name: Optional[pulumi.Input[str]] = N
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['sid'] = sid
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20180101:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult)
     return __ret__.apply(lambda __response__: GetSubscriptionResult(
         created_date=pulumi.get(__response__, 'created_date'),

@@ -166,7 +166,7 @@ def list_web_app_site_push_settings(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def list_web_app_site_push_settings_output(name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSitePushSettingsResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppSitePushSettingsResult]:
     """
     Description for Gets the Push settings associated with web app.
     Azure REST API version: 2022-09-01.
@@ -180,7 +180,7 @@ def list_web_app_site_push_settings_output(name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:listWebAppSitePushSettings', __args__, opts=opts, typ=ListWebAppSitePushSettingsResult)
     return __ret__.apply(lambda __response__: ListWebAppSitePushSettingsResult(
         dynamic_tags_json=pulumi.get(__response__, 'dynamic_tags_json'),

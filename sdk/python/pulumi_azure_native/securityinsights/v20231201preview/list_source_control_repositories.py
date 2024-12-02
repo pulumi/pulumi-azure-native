@@ -108,7 +108,7 @@ def list_source_control_repositories_output(client_id: Optional[pulumi.Input[Opt
                                             state: Optional[pulumi.Input[Optional[str]]] = None,
                                             token: Optional[pulumi.Input[Optional[str]]] = None,
                                             workspace_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
     """
     Gets a list of repositories metadata.
 
@@ -131,7 +131,7 @@ def list_source_control_repositories_output(client_id: Optional[pulumi.Input[Opt
     __args__['state'] = state
     __args__['token'] = token
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20231201preview:listSourceControlRepositories', __args__, opts=opts, typ=ListSourceControlRepositoriesResult)
     return __ret__.apply(lambda __response__: ListSourceControlRepositoriesResult(
         next_link=pulumi.get(__response__, 'next_link'),

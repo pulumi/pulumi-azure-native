@@ -138,7 +138,7 @@ def get_web_app_swift_virtual_network_connection_slot(name: Optional[str] = None
 def get_web_app_swift_virtual_network_connection_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                                              slot: Optional[pulumi.Input[str]] = None,
-                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSwiftVirtualNetworkConnectionSlotResult]:
+                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSwiftVirtualNetworkConnectionSlotResult]:
     """
     Description for Gets a Swift Virtual Network connection.
 
@@ -151,7 +151,7 @@ def get_web_app_swift_virtual_network_connection_slot_output(name: Optional[pulu
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:getWebAppSwiftVirtualNetworkConnectionSlot', __args__, opts=opts, typ=GetWebAppSwiftVirtualNetworkConnectionSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppSwiftVirtualNetworkConnectionSlotResult(
         id=pulumi.get(__response__, 'id'),

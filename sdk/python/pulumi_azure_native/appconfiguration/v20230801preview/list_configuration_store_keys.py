@@ -87,7 +87,7 @@ def list_configuration_store_keys(config_store_name: Optional[str] = None,
 def list_configuration_store_keys_output(config_store_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          skip_token: Optional[pulumi.Input[Optional[str]]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConfigurationStoreKeysResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConfigurationStoreKeysResult]:
     """
     Lists the access key for the specified configuration store.
 
@@ -100,7 +100,7 @@ def list_configuration_store_keys_output(config_store_name: Optional[pulumi.Inpu
     __args__['configStoreName'] = config_store_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appconfiguration/v20230801preview:listConfigurationStoreKeys', __args__, opts=opts, typ=ListConfigurationStoreKeysResult)
     return __ret__.apply(lambda __response__: ListConfigurationStoreKeysResult(
         next_link=pulumi.get(__response__, 'next_link'),

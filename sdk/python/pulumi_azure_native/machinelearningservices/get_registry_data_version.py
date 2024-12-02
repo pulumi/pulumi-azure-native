@@ -133,7 +133,7 @@ def get_registry_data_version_output(name: Optional[pulumi.Input[str]] = None,
                                      registry_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      version: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryDataVersionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryDataVersionResult]:
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2023-04-01.
@@ -151,7 +151,7 @@ def get_registry_data_version_output(name: Optional[pulumi.Input[str]] = None,
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getRegistryDataVersion', __args__, opts=opts, typ=GetRegistryDataVersionResult)
     return __ret__.apply(lambda __response__: GetRegistryDataVersionResult(
         data_version_base_properties=pulumi.get(__response__, 'data_version_base_properties'),

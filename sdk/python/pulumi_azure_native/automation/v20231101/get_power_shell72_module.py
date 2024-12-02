@@ -269,7 +269,7 @@ def get_power_shell72_module(automation_account_name: Optional[str] = None,
 def get_power_shell72_module_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                     module_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPowerShell72ModuleResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPowerShell72ModuleResult]:
     """
     Retrieve the module identified by module name.
 
@@ -282,7 +282,7 @@ def get_power_shell72_module_output(automation_account_name: Optional[pulumi.Inp
     __args__['automationAccountName'] = automation_account_name
     __args__['moduleName'] = module_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20231101:getPowerShell72Module', __args__, opts=opts, typ=GetPowerShell72ModuleResult)
     return __ret__.apply(lambda __response__: GetPowerShell72ModuleResult(
         activity_count=pulumi.get(__response__, 'activity_count'),

@@ -59,7 +59,7 @@ def get_custom_domain_verification_id(opts: Optional[pulumi.InvokeOptions] = Non
 
     return AwaitableGetCustomDomainVerificationIdResult(
         value=pulumi.get(__ret__, 'value'))
-def get_custom_domain_verification_id_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDomainVerificationIdResult]:
+def get_custom_domain_verification_id_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomDomainVerificationIdResult]:
     """
     Get the verification id of a subscription used for verifying custom domains
     Azure REST API version: 2023-05-02-preview.
@@ -67,7 +67,7 @@ def get_custom_domain_verification_id_output(opts: Optional[pulumi.InvokeOptions
     Other available API versions: 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getCustomDomainVerificationId', __args__, opts=opts, typ=GetCustomDomainVerificationIdResult)
     return __ret__.apply(lambda __response__: GetCustomDomainVerificationIdResult(
         value=pulumi.get(__response__, 'value')))

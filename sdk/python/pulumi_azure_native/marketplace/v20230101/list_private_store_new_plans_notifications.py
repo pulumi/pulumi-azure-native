@@ -63,7 +63,7 @@ def list_private_store_new_plans_notifications(private_store_id: Optional[str] =
     return AwaitableListPrivateStoreNewPlansNotificationsResult(
         new_plans_notifications=pulumi.get(__ret__, 'new_plans_notifications'))
 def list_private_store_new_plans_notifications_output(private_store_id: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateStoreNewPlansNotificationsResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPrivateStoreNewPlansNotificationsResult]:
     """
     List new plans notifications
 
@@ -72,7 +72,7 @@ def list_private_store_new_plans_notifications_output(private_store_id: Optional
     """
     __args__ = dict()
     __args__['privateStoreId'] = private_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:marketplace/v20230101:listPrivateStoreNewPlansNotifications', __args__, opts=opts, typ=ListPrivateStoreNewPlansNotificationsResult)
     return __ret__.apply(lambda __response__: ListPrivateStoreNewPlansNotificationsResult(
         new_plans_notifications=pulumi.get(__response__, 'new_plans_notifications')))

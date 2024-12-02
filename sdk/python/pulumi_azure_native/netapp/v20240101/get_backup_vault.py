@@ -152,7 +152,7 @@ def get_backup_vault(account_name: Optional[str] = None,
 def get_backup_vault_output(account_name: Optional[pulumi.Input[str]] = None,
                             backup_vault_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
     Get the Backup Vault
 
@@ -165,7 +165,7 @@ def get_backup_vault_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['backupVaultName'] = backup_vault_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20240101:getBackupVault', __args__, opts=opts, typ=GetBackupVaultResult)
     return __ret__.apply(lambda __response__: GetBackupVaultResult(
         id=pulumi.get(__response__, 'id'),

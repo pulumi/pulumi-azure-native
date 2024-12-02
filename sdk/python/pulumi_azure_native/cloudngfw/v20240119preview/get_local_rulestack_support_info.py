@@ -216,7 +216,7 @@ def get_local_rulestack_support_info(email: Optional[str] = None,
 def get_local_rulestack_support_info_output(email: Optional[pulumi.Input[Optional[str]]] = None,
                                             local_rulestack_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalRulestackSupportInfoResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalRulestackSupportInfoResult]:
     """
     support info for rulestack.
 
@@ -229,7 +229,7 @@ def get_local_rulestack_support_info_output(email: Optional[pulumi.Input[Optiona
     __args__['email'] = email
     __args__['localRulestackName'] = local_rulestack_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240119preview:getLocalRulestackSupportInfo', __args__, opts=opts, typ=GetLocalRulestackSupportInfoResult)
     return __ret__.apply(lambda __response__: GetLocalRulestackSupportInfoResult(
         account_id=pulumi.get(__response__, 'account_id'),

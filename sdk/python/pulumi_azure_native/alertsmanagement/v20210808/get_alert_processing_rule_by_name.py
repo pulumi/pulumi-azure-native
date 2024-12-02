@@ -148,7 +148,7 @@ def get_alert_processing_rule_by_name(alert_processing_rule_name: Optional[str] 
         type=pulumi.get(__ret__, 'type'))
 def get_alert_processing_rule_by_name_output(alert_processing_rule_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertProcessingRuleByNameResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertProcessingRuleByNameResult]:
     """
     Get an alert processing rule by name.
 
@@ -159,7 +159,7 @@ def get_alert_processing_rule_by_name_output(alert_processing_rule_name: Optiona
     __args__ = dict()
     __args__['alertProcessingRuleName'] = alert_processing_rule_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:alertsmanagement/v20210808:getAlertProcessingRuleByName', __args__, opts=opts, typ=GetAlertProcessingRuleByNameResult)
     return __ret__.apply(lambda __response__: GetAlertProcessingRuleByNameResult(
         id=pulumi.get(__response__, 'id'),

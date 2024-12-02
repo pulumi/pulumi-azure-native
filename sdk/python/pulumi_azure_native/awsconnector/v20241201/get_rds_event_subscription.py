@@ -148,7 +148,7 @@ def get_rds_event_subscription(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_rds_event_subscription_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRdsEventSubscriptionResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRdsEventSubscriptionResult]:
     """
     Get a RdsEventSubscription
 
@@ -159,7 +159,7 @@ def get_rds_event_subscription_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector/v20241201:getRdsEventSubscription', __args__, opts=opts, typ=GetRdsEventSubscriptionResult)
     return __ret__.apply(lambda __response__: GetRdsEventSubscriptionResult(
         id=pulumi.get(__response__, 'id'),

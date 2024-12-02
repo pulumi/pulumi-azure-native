@@ -70,7 +70,7 @@ def get_virtual_network_gateway_learned_routes(resource_group_name: Optional[str
         value=pulumi.get(__ret__, 'value'))
 def get_virtual_network_gateway_learned_routes_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                       virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayLearnedRoutesResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayLearnedRoutesResult]:
     """
     This operation retrieves a list of routes the virtual network gateway has learned, including routes learned from BGP peers.
 
@@ -81,7 +81,7 @@ def get_virtual_network_gateway_learned_routes_output(resource_group_name: Optio
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getVirtualNetworkGatewayLearnedRoutes', __args__, opts=opts, typ=GetVirtualNetworkGatewayLearnedRoutesResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayLearnedRoutesResult(
         value=pulumi.get(__response__, 'value')))

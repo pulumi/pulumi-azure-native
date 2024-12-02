@@ -107,7 +107,7 @@ def list_connection_keys_output(connection_name: Optional[pulumi.Input[str]] = N
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 type: Optional[pulumi.Input[Optional[str]]] = None,
                                 validity_time_span: Optional[pulumi.Input[Optional[str]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionKeysResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectionKeysResult]:
     """
     Lists connection keys.
 
@@ -132,7 +132,7 @@ def list_connection_keys_output(connection_name: Optional[pulumi.Input[str]] = N
     __args__['tags'] = tags
     __args__['type'] = type
     __args__['validityTimeSpan'] = validity_time_span
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20150801preview:listConnectionKeys', __args__, opts=opts, typ=ListConnectionKeysResult)
     return __ret__.apply(lambda __response__: ListConnectionKeysResult(
         connection_key=pulumi.get(__response__, 'connection_key'),

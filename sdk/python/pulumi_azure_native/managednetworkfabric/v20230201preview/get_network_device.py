@@ -239,7 +239,7 @@ def get_network_device(network_device_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_network_device_output(network_device_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkDeviceResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkDeviceResult]:
     """
     Get the Network Device resource details.
 
@@ -250,7 +250,7 @@ def get_network_device_output(network_device_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['networkDeviceName'] = network_device_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230201preview:getNetworkDevice', __args__, opts=opts, typ=GetNetworkDeviceResult)
     return __ret__.apply(lambda __response__: GetNetworkDeviceResult(
         annotation=pulumi.get(__response__, 'annotation'),

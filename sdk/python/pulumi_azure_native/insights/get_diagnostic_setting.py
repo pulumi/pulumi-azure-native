@@ -227,7 +227,7 @@ def get_diagnostic_setting(name: Optional[str] = None,
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_uri: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticSettingResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiagnosticSettingResult]:
     """
     Gets the active diagnostic settings for the specified resource.
     Azure REST API version: 2021-05-01-preview.
@@ -239,7 +239,7 @@ def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getDiagnosticSetting', __args__, opts=opts, typ=GetDiagnosticSettingResult)
     return __ret__.apply(lambda __response__: GetDiagnosticSettingResult(
         event_hub_authorization_rule_id=pulumi.get(__response__, 'event_hub_authorization_rule_id'),

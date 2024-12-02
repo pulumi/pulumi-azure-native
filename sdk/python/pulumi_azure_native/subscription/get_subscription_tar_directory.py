@@ -106,7 +106,7 @@ def get_subscription_tar_directory(subscription_id: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
 def get_subscription_tar_directory_output(subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionTarDirectoryResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionTarDirectoryResult]:
     """
     The operation to view Initiator Subscription Changed Request
     Azure REST API version: 2024-08-01-preview.
@@ -116,7 +116,7 @@ def get_subscription_tar_directory_output(subscription_id: Optional[pulumi.Input
     """
     __args__ = dict()
     __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:subscription:getSubscriptionTarDirectory', __args__, opts=opts, typ=GetSubscriptionTarDirectoryResult)
     return __ret__.apply(lambda __response__: GetSubscriptionTarDirectoryResult(
         id=pulumi.get(__response__, 'id'),

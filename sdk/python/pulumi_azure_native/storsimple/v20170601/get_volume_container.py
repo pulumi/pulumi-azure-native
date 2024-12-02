@@ -221,7 +221,7 @@ def get_volume_container_output(device_name: Optional[pulumi.Input[str]] = None,
                                 manager_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 volume_container_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeContainerResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeContainerResult]:
     """
     Gets the properties of the specified volume container name.
 
@@ -236,7 +236,7 @@ def get_volume_container_output(device_name: Optional[pulumi.Input[str]] = None,
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['volumeContainerName'] = volume_container_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple/v20170601:getVolumeContainer', __args__, opts=opts, typ=GetVolumeContainerResult)
     return __ret__.apply(lambda __response__: GetVolumeContainerResult(
         band_width_rate_in_mbps=pulumi.get(__response__, 'band_width_rate_in_mbps'),

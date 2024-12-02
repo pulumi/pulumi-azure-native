@@ -89,7 +89,7 @@ def list_web_app_sync_function_triggers_slot(name: Optional[str] = None,
 def list_web_app_sync_function_triggers_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     slot: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSyncFunctionTriggersSlotResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppSyncFunctionTriggersSlotResult]:
     """
     Description for This is to allow calling via powershell and ARM template.
     Azure REST API version: 2022-09-01.
@@ -105,7 +105,7 @@ def list_web_app_sync_function_triggers_slot_output(name: Optional[pulumi.Input[
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:listWebAppSyncFunctionTriggersSlot', __args__, opts=opts, typ=ListWebAppSyncFunctionTriggersSlotResult)
     return __ret__.apply(lambda __response__: ListWebAppSyncFunctionTriggersSlotResult(
         key=pulumi.get(__response__, 'key'),

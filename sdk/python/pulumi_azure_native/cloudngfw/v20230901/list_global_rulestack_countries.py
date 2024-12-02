@@ -85,7 +85,7 @@ def list_global_rulestack_countries(global_rulestack_name: Optional[str] = None,
 def list_global_rulestack_countries_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                            skip: Optional[pulumi.Input[Optional[str]]] = None,
                                            top: Optional[pulumi.Input[Optional[int]]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalRulestackCountriesResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGlobalRulestackCountriesResult]:
     """
     List of countries for Rulestack
 
@@ -96,7 +96,7 @@ def list_global_rulestack_countries_output(global_rulestack_name: Optional[pulum
     __args__['globalRulestackName'] = global_rulestack_name
     __args__['skip'] = skip
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20230901:listGlobalRulestackCountries', __args__, opts=opts, typ=ListGlobalRulestackCountriesResult)
     return __ret__.apply(lambda __response__: ListGlobalRulestackCountriesResult(
         next_link=pulumi.get(__response__, 'next_link'),

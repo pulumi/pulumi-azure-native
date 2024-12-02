@@ -824,7 +824,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         workload_auto_scaler_profile=pulumi.get(__ret__, 'workload_auto_scaler_profile'))
 def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                resource_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterResult]:
     """
     Managed cluster.
 
@@ -835,7 +835,7 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20240402preview:getManagedCluster', __args__, opts=opts, typ=GetManagedClusterResult)
     return __ret__.apply(lambda __response__: GetManagedClusterResult(
         aad_profile=pulumi.get(__response__, 'aad_profile'),

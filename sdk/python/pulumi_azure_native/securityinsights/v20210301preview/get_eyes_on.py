@@ -157,7 +157,7 @@ def get_eyes_on_output(operational_insights_resource_provider: Optional[pulumi.I
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        settings_name: Optional[pulumi.Input[str]] = None,
                        workspace_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEyesOnResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEyesOnResult]:
     """
     Gets a setting.
 
@@ -172,7 +172,7 @@ def get_eyes_on_output(operational_insights_resource_provider: Optional[pulumi.I
     __args__['resourceGroupName'] = resource_group_name
     __args__['settingsName'] = settings_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210301preview:getEyesOn', __args__, opts=opts, typ=GetEyesOnResult)
     return __ret__.apply(lambda __response__: GetEyesOnResult(
         etag=pulumi.get(__response__, 'etag'),

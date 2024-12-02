@@ -165,7 +165,7 @@ def get_throughput_pool_account(resource_group_name: Optional[str] = None,
 def get_throughput_pool_account_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        throughput_pool_account_name: Optional[pulumi.Input[str]] = None,
                                        throughput_pool_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThroughputPoolAccountResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThroughputPoolAccountResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
 
@@ -178,7 +178,7 @@ def get_throughput_pool_account_output(resource_group_name: Optional[pulumi.Inpu
     __args__['resourceGroupName'] = resource_group_name
     __args__['throughputPoolAccountName'] = throughput_pool_account_name
     __args__['throughputPoolName'] = throughput_pool_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240901preview:getThroughputPoolAccount', __args__, opts=opts, typ=GetThroughputPoolAccountResult)
     return __ret__.apply(lambda __response__: GetThroughputPoolAccountResult(
         account_instance_id=pulumi.get(__response__, 'account_instance_id'),

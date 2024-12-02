@@ -176,7 +176,7 @@ def get_tunnel_policy(profile_name: Optional[str] = None,
 def get_tunnel_policy_output(profile_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              tunnel_policy_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTunnelPolicyResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTunnelPolicyResult]:
     """
     Gets an existing tunnel policy within a profile.
     Azure REST API version: 2024-06-01-preview.
@@ -190,7 +190,7 @@ def get_tunnel_policy_output(profile_name: Optional[pulumi.Input[str]] = None,
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tunnelPolicyName'] = tunnel_policy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getTunnelPolicy', __args__, opts=opts, typ=GetTunnelPolicyResult)
     return __ret__.apply(lambda __response__: GetTunnelPolicyResult(
         deployment_status=pulumi.get(__response__, 'deployment_status'),

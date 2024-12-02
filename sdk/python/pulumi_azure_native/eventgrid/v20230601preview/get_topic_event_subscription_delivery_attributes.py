@@ -74,7 +74,7 @@ def get_topic_event_subscription_delivery_attributes(event_subscription_name: Op
 def get_topic_event_subscription_delivery_attributes_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                                             topic_name: Optional[pulumi.Input[str]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicEventSubscriptionDeliveryAttributesResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription for topic.
 
@@ -87,7 +87,7 @@ def get_topic_event_subscription_delivery_attributes_output(event_subscription_n
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20230601preview:getTopicEventSubscriptionDeliveryAttributes', __args__, opts=opts, typ=GetTopicEventSubscriptionDeliveryAttributesResult)
     return __ret__.apply(lambda __response__: GetTopicEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__response__, 'value')))

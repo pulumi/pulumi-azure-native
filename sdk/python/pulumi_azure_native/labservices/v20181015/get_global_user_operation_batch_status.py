@@ -70,7 +70,7 @@ def get_global_user_operation_batch_status(urls: Optional[Sequence[str]] = None,
         items=pulumi.get(__ret__, 'items'))
 def get_global_user_operation_batch_status_output(urls: Optional[pulumi.Input[Sequence[str]]] = None,
                                                   user_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserOperationBatchStatusResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalUserOperationBatchStatusResult]:
     """
     Get batch operation status
 
@@ -81,7 +81,7 @@ def get_global_user_operation_batch_status_output(urls: Optional[pulumi.Input[Se
     __args__ = dict()
     __args__['urls'] = urls
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices/v20181015:getGlobalUserOperationBatchStatus', __args__, opts=opts, typ=GetGlobalUserOperationBatchStatusResult)
     return __ret__.apply(lambda __response__: GetGlobalUserOperationBatchStatusResult(
         items=pulumi.get(__response__, 'items')))

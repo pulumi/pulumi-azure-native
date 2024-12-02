@@ -194,7 +194,7 @@ def get_nsp_association(association_name: Optional[str] = None,
 def get_nsp_association_output(association_name: Optional[pulumi.Input[str]] = None,
                                network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspAssociationResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNspAssociationResult]:
     """
     Gets the specified NSP association by name.
     Azure REST API version: 2021-02-01-preview.
@@ -210,7 +210,7 @@ def get_nsp_association_output(association_name: Optional[pulumi.Input[str]] = N
     __args__['associationName'] = association_name
     __args__['networkSecurityPerimeterName'] = network_security_perimeter_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNspAssociation', __args__, opts=opts, typ=GetNspAssociationResult)
     return __ret__.apply(lambda __response__: GetNspAssociationResult(
         access_mode=pulumi.get(__response__, 'access_mode'),

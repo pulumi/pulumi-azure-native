@@ -157,7 +157,7 @@ def get_security_contact(security_contact_name: Optional[str] = None,
         phone=pulumi.get(__ret__, 'phone'),
         type=pulumi.get(__ret__, 'type'))
 def get_security_contact_output(security_contact_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityContactResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityContactResult]:
     """
     Get Default Security contact configurations for the subscription
 
@@ -166,7 +166,7 @@ def get_security_contact_output(security_contact_name: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['securityContactName'] = security_contact_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20231201preview:getSecurityContact', __args__, opts=opts, typ=GetSecurityContactResult)
     return __ret__.apply(lambda __response__: GetSecurityContactResult(
         emails=pulumi.get(__response__, 'emails'),

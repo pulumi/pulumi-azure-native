@@ -343,7 +343,7 @@ def get_network_fabric(network_fabric_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_network_fabric_output(network_fabric_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkFabricResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFabricResult]:
     """
     Get Network Fabric resource details.
 
@@ -354,7 +354,7 @@ def get_network_fabric_output(network_fabric_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['networkFabricName'] = network_fabric_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230201preview:getNetworkFabric', __args__, opts=opts, typ=GetNetworkFabricResult)
     return __ret__.apply(lambda __response__: GetNetworkFabricResult(
         annotation=pulumi.get(__response__, 'annotation'),

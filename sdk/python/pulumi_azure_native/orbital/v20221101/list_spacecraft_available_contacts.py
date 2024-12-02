@@ -100,7 +100,7 @@ def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.I
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               spacecraft_name: Optional[pulumi.Input[str]] = None,
                                               start_time: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSpacecraftAvailableContactsResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSpacecraftAvailableContactsResult]:
     """
     Returns list of available contacts. A contact is available if the spacecraft is visible from the ground station for more than the minimum viable contact duration provided in the contact profile.
 
@@ -119,7 +119,7 @@ def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.I
     __args__['resourceGroupName'] = resource_group_name
     __args__['spacecraftName'] = spacecraft_name
     __args__['startTime'] = start_time
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital/v20221101:listSpacecraftAvailableContacts', __args__, opts=opts, typ=ListSpacecraftAvailableContactsResult)
     return __ret__.apply(lambda __response__: ListSpacecraftAvailableContactsResult(
         next_link=pulumi.get(__response__, 'next_link'),

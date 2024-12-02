@@ -131,7 +131,7 @@ def get_deployment_at_subscription_scope(deployment_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_deployment_at_subscription_scope_output(deployment_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtSubscriptionScopeResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentAtSubscriptionScopeResult]:
     """
     Gets a deployment.
 
@@ -140,7 +140,7 @@ def get_deployment_at_subscription_scope_output(deployment_name: Optional[pulumi
     """
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources/v20240301:getDeploymentAtSubscriptionScope', __args__, opts=opts, typ=GetDeploymentAtSubscriptionScopeResult)
     return __ret__.apply(lambda __response__: GetDeploymentAtSubscriptionScopeResult(
         id=pulumi.get(__response__, 'id'),

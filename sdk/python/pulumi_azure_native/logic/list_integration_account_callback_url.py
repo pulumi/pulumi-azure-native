@@ -81,7 +81,7 @@ def list_integration_account_callback_url_output(integration_account_name: Optio
                                                  key_type: Optional[pulumi.Input[Optional[Union[str, 'KeyType']]]] = None,
                                                  not_after: Optional[pulumi.Input[Optional[str]]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountCallbackUrlResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountCallbackUrlResult]:
     """
     Gets the integration account callback URL.
     Azure REST API version: 2019-05-01.
@@ -99,7 +99,7 @@ def list_integration_account_callback_url_output(integration_account_name: Optio
     __args__['keyType'] = key_type
     __args__['notAfter'] = not_after
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic:listIntegrationAccountCallbackUrl', __args__, opts=opts, typ=ListIntegrationAccountCallbackUrlResult)
     return __ret__.apply(lambda __response__: ListIntegrationAccountCallbackUrlResult(
         value=pulumi.get(__response__, 'value')))

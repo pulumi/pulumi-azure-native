@@ -73,7 +73,7 @@ def get_partner_topic_event_subscription_full_url(event_subscription_name: Optio
 def get_partner_topic_event_subscription_full_url_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                          partner_topic_name: Optional[pulumi.Input[str]] = None,
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionFullUrlResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerTopicEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for an event subscription of a partner topic.
 
@@ -86,7 +86,7 @@ def get_partner_topic_event_subscription_full_url_output(event_subscription_name
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['partnerTopicName'] = partner_topic_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20240601preview:getPartnerTopicEventSubscriptionFullUrl', __args__, opts=opts, typ=GetPartnerTopicEventSubscriptionFullUrlResult)
     return __ret__.apply(lambda __response__: GetPartnerTopicEventSubscriptionFullUrlResult(
         endpoint_url=pulumi.get(__response__, 'endpoint_url')))

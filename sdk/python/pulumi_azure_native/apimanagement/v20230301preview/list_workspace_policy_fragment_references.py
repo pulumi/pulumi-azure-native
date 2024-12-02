@@ -112,7 +112,7 @@ def list_workspace_policy_fragment_references_output(id: Optional[pulumi.Input[s
                                                      skip: Optional[pulumi.Input[Optional[int]]] = None,
                                                      top: Optional[pulumi.Input[Optional[int]]] = None,
                                                      workspace_id: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspacePolicyFragmentReferencesResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspacePolicyFragmentReferencesResult]:
     """
     Lists policy resources that reference the policy fragment.
 
@@ -131,7 +131,7 @@ def list_workspace_policy_fragment_references_output(id: Optional[pulumi.Input[s
     __args__['skip'] = skip
     __args__['top'] = top
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230301preview:listWorkspacePolicyFragmentReferences', __args__, opts=opts, typ=ListWorkspacePolicyFragmentReferencesResult)
     return __ret__.apply(lambda __response__: ListWorkspacePolicyFragmentReferencesResult(
         count=pulumi.get(__response__, 'count'),

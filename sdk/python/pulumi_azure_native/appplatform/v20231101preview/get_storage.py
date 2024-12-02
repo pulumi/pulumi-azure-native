@@ -126,7 +126,7 @@ def get_storage(resource_group_name: Optional[str] = None,
 def get_storage_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
                        storage_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageResult]:
     """
     Get the storage resource.
 
@@ -139,7 +139,7 @@ def get_storage_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['storageName'] = storage_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20231101preview:getStorage', __args__, opts=opts, typ=GetStorageResult)
     return __ret__.apply(lambda __response__: GetStorageResult(
         id=pulumi.get(__response__, 'id'),

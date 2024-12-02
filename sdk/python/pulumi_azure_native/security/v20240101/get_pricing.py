@@ -239,7 +239,7 @@ def get_pricing(pricing_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_pricing_output(pricing_name: Optional[pulumi.Input[str]] = None,
                        scope_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPricingResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPricingResult]:
     """
     Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
 
@@ -250,7 +250,7 @@ def get_pricing_output(pricing_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['pricingName'] = pricing_name
     __args__['scopeId'] = scope_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20240101:getPricing', __args__, opts=opts, typ=GetPricingResult)
     return __ret__.apply(lambda __response__: GetPricingResult(
         deprecated=pulumi.get(__response__, 'deprecated'),

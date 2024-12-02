@@ -130,7 +130,7 @@ def get_sub_account_tag_rule_output(monitor_name: Optional[pulumi.Input[str]] = 
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     rule_set_name: Optional[pulumi.Input[str]] = None,
                                     sub_account_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubAccountTagRuleResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubAccountTagRuleResult]:
     """
     Capture logs and metrics of Azure resources based on ARM tags.
     Azure REST API version: 2022-01-01-preview.
@@ -145,7 +145,7 @@ def get_sub_account_tag_rule_output(monitor_name: Optional[pulumi.Input[str]] = 
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleSetName'] = rule_set_name
     __args__['subAccountName'] = sub_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logz:getSubAccountTagRule', __args__, opts=opts, typ=GetSubAccountTagRuleResult)
     return __ret__.apply(lambda __response__: GetSubAccountTagRuleResult(
         id=pulumi.get(__response__, 'id'),

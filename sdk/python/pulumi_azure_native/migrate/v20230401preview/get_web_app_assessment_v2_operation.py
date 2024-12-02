@@ -485,7 +485,7 @@ def get_web_app_assessment_v2_operation_output(assessment_name: Optional[pulumi.
                                                group_name: Optional[pulumi.Input[str]] = None,
                                                project_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppAssessmentV2OperationResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppAssessmentV2OperationResult]:
     """
     Get a WebAppAssessmentV2
 
@@ -500,7 +500,7 @@ def get_web_app_assessment_v2_operation_output(assessment_name: Optional[pulumi.
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230401preview:getWebAppAssessmentV2Operation', __args__, opts=opts, typ=GetWebAppAssessmentV2OperationResult)
     return __ret__.apply(lambda __response__: GetWebAppAssessmentV2OperationResult(
         app_svc_container_settings=pulumi.get(__response__, 'app_svc_container_settings'),

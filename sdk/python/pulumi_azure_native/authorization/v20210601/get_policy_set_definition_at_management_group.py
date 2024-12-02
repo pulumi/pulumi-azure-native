@@ -200,7 +200,7 @@ def get_policy_set_definition_at_management_group(management_group_id: Optional[
         type=pulumi.get(__ret__, 'type'))
 def get_policy_set_definition_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                                          policy_set_definition_name: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionAtManagementGroupResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionAtManagementGroupResult]:
     """
     This operation retrieves the policy set definition in the given management group with the given name.
 
@@ -211,7 +211,7 @@ def get_policy_set_definition_at_management_group_output(management_group_id: Op
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['policySetDefinitionName'] = policy_set_definition_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20210601:getPolicySetDefinitionAtManagementGroup', __args__, opts=opts, typ=GetPolicySetDefinitionAtManagementGroupResult)
     return __ret__.apply(lambda __response__: GetPolicySetDefinitionAtManagementGroupResult(
         description=pulumi.get(__response__, 'description'),

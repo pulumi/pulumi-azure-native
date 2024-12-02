@@ -342,7 +342,7 @@ def get_l3_network(l3_network_name: Optional[str] = None,
         vlan=pulumi.get(__ret__, 'vlan'))
 def get_l3_network_output(l3_network_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL3NetworkResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL3NetworkResult]:
     """
     Get properties of the provided layer 3 (L3) network.
 
@@ -353,7 +353,7 @@ def get_l3_network_output(l3_network_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['l3NetworkName'] = l3_network_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20231001preview:getL3Network', __args__, opts=opts, typ=GetL3NetworkResult)
     return __ret__.apply(lambda __response__: GetL3NetworkResult(
         associated_resource_ids=pulumi.get(__response__, 'associated_resource_ids'),

@@ -128,7 +128,7 @@ def get_vm_skus(custom_location_resource_uri: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_vm_skus_output(custom_location_resource_uri: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVMSkusResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVMSkusResult]:
     """
     Gets the supported VM skus from the underlying custom location
 
@@ -137,7 +137,7 @@ def get_vm_skus_output(custom_location_resource_uri: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['customLocationResourceUri'] = custom_location_resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20231115preview:getVMSkus', __args__, opts=opts, typ=GetVMSkusResult)
     return __ret__.apply(lambda __response__: GetVMSkusResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

@@ -260,7 +260,7 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               host_group_name: Optional[pulumi.Input[str]] = None,
                               host_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
     Retrieves information about a dedicated host.
 
@@ -275,7 +275,7 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
     __args__['hostGroupName'] = host_group_name
     __args__['hostName'] = host_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230701:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult)
     return __ret__.apply(lambda __response__: GetDedicatedHostResult(
         auto_replace_on_failure=pulumi.get(__response__, 'auto_replace_on_failure'),

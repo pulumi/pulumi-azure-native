@@ -675,7 +675,7 @@ def get_assessments_operation_output(assessment_name: Optional[pulumi.Input[str]
                                      group_name: Optional[pulumi.Input[str]] = None,
                                      project_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentsOperationResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentsOperationResult]:
     """
     Get a Assessment
 
@@ -690,7 +690,7 @@ def get_assessments_operation_output(assessment_name: Optional[pulumi.Input[str]
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230909preview:getAssessmentsOperation', __args__, opts=opts, typ=GetAssessmentsOperationResult)
     return __ret__.apply(lambda __response__: GetAssessmentsOperationResult(
         assessment_error_summary=pulumi.get(__response__, 'assessment_error_summary'),

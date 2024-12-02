@@ -148,7 +148,7 @@ def get_scheduler(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_scheduler_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          scheduler_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchedulerResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchedulerResult]:
     """
     Get a Scheduler
 
@@ -159,7 +159,7 @@ def get_scheduler_output(resource_group_name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['schedulerName'] = scheduler_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:durabletask/v20241001preview:getScheduler', __args__, opts=opts, typ=GetSchedulerResult)
     return __ret__.apply(lambda __response__: GetSchedulerResult(
         id=pulumi.get(__response__, 'id'),

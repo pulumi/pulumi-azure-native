@@ -217,7 +217,7 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
 def get_software_update_configuration_by_name_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      software_update_configuration_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSoftwareUpdateConfigurationByNameResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwareUpdateConfigurationByNameResult]:
     """
     Get a single software update configuration by name.
 
@@ -230,7 +230,7 @@ def get_software_update_configuration_by_name_output(automation_account_name: Op
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['softwareUpdateConfigurationName'] = software_update_configuration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20190601:getSoftwareUpdateConfigurationByName', __args__, opts=opts, typ=GetSoftwareUpdateConfigurationByNameResult)
     return __ret__.apply(lambda __response__: GetSoftwareUpdateConfigurationByNameResult(
         created_by=pulumi.get(__response__, 'created_by'),

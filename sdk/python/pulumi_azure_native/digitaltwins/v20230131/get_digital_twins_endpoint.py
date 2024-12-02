@@ -126,7 +126,7 @@ def get_digital_twins_endpoint(endpoint_name: Optional[str] = None,
 def get_digital_twins_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       resource_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDigitalTwinsEndpointResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDigitalTwinsEndpointResult]:
     """
     Get DigitalTwinsInstances Endpoint.
 
@@ -139,7 +139,7 @@ def get_digital_twins_endpoint_output(endpoint_name: Optional[pulumi.Input[str]]
     __args__['endpointName'] = endpoint_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:digitaltwins/v20230131:getDigitalTwinsEndpoint', __args__, opts=opts, typ=GetDigitalTwinsEndpointResult)
     return __ret__.apply(lambda __response__: GetDigitalTwinsEndpointResult(
         id=pulumi.get(__response__, 'id'),

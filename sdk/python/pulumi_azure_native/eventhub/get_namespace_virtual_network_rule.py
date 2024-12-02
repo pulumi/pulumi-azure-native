@@ -113,7 +113,7 @@ def get_namespace_virtual_network_rule(namespace_name: Optional[str] = None,
 def get_namespace_virtual_network_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceVirtualNetworkRuleResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceVirtualNetworkRuleResult]:
     """
     Gets an VirtualNetworkRule for a Namespace by rule name.
     Azure REST API version: 2018-01-01-preview.
@@ -127,7 +127,7 @@ def get_namespace_virtual_network_rule_output(namespace_name: Optional[pulumi.In
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkRuleName'] = virtual_network_rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getNamespaceVirtualNetworkRule', __args__, opts=opts, typ=GetNamespaceVirtualNetworkRuleResult)
     return __ret__.apply(lambda __response__: GetNamespaceVirtualNetworkRuleResult(
         id=pulumi.get(__response__, 'id'),

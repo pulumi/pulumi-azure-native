@@ -209,7 +209,7 @@ def get_kusto_pool_attached_database_configuration_output(attached_database_conf
                                                           kusto_pool_name: Optional[pulumi.Input[str]] = None,
                                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                                           workspace_name: Optional[pulumi.Input[str]] = None,
-                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoPoolAttachedDatabaseConfigurationResult]:
+                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKustoPoolAttachedDatabaseConfigurationResult]:
     """
     Returns an attached database configuration.
     Azure REST API version: 2021-06-01-preview.
@@ -225,7 +225,7 @@ def get_kusto_pool_attached_database_configuration_output(attached_database_conf
     __args__['kustoPoolName'] = kusto_pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse:getKustoPoolAttachedDatabaseConfiguration', __args__, opts=opts, typ=GetKustoPoolAttachedDatabaseConfigurationResult)
     return __ret__.apply(lambda __response__: GetKustoPoolAttachedDatabaseConfigurationResult(
         attached_database_names=pulumi.get(__response__, 'attached_database_names'),

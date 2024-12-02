@@ -256,7 +256,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
 def get_ou_container_output(domain_service_name: Optional[pulumi.Input[str]] = None,
                             ou_container_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOuContainerResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOuContainerResult]:
     """
     Get OuContainer in DomainService instance.
 
@@ -269,7 +269,7 @@ def get_ou_container_output(domain_service_name: Optional[pulumi.Input[str]] = N
     __args__['domainServiceName'] = domain_service_name
     __args__['ouContainerName'] = ou_container_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:aad/v20221201:getOuContainer', __args__, opts=opts, typ=GetOuContainerResult)
     return __ret__.apply(lambda __response__: GetOuContainerResult(
         accounts=pulumi.get(__response__, 'accounts'),

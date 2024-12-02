@@ -278,7 +278,7 @@ def get_monitor(monitor_name: Optional[str] = None,
         zone_redundancy_preference=pulumi.get(__ret__, 'zone_redundancy_preference'))
 def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
 
@@ -289,7 +289,7 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20230401:getMonitor', __args__, opts=opts, typ=GetMonitorResult)
     return __ret__.apply(lambda __response__: GetMonitorResult(
         app_location=pulumi.get(__response__, 'app_location'),

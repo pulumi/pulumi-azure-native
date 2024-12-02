@@ -118,7 +118,7 @@ def get_report(report_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportResult]:
     """
     Get the AppComplianceAutomation report and its properties.
 
@@ -127,7 +127,7 @@ def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['reportName'] = report_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation/v20221116preview:getReport', __args__, opts=opts, typ=GetReportResult)
     return __ret__.apply(lambda __response__: GetReportResult(
         id=pulumi.get(__response__, 'id'),

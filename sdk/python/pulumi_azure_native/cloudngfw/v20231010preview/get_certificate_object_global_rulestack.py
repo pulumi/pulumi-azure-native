@@ -187,7 +187,7 @@ def get_certificate_object_global_rulestack(global_rulestack_name: Optional[str]
         type=pulumi.get(__ret__, 'type'))
 def get_certificate_object_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                                    name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateObjectGlobalRulestackResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateObjectGlobalRulestackResult]:
     """
     Get a CertificateObjectGlobalRulestackResource
 
@@ -198,7 +198,7 @@ def get_certificate_object_global_rulestack_output(global_rulestack_name: Option
     __args__ = dict()
     __args__['globalRulestackName'] = global_rulestack_name
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20231010preview:getCertificateObjectGlobalRulestack', __args__, opts=opts, typ=GetCertificateObjectGlobalRulestackResult)
     return __ret__.apply(lambda __response__: GetCertificateObjectGlobalRulestackResult(
         audit_comment=pulumi.get(__response__, 'audit_comment'),

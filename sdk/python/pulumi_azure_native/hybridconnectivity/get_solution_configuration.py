@@ -123,7 +123,7 @@ def get_solution_configuration(resource_uri: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_solution_configuration_output(resource_uri: Optional[pulumi.Input[str]] = None,
                                       solution_configuration: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionConfigurationResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionConfigurationResult]:
     """
     Get a SolutionConfiguration
     Azure REST API version: 2024-12-01.
@@ -135,7 +135,7 @@ def get_solution_configuration_output(resource_uri: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
     __args__['solutionConfiguration'] = solution_configuration
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity:getSolutionConfiguration', __args__, opts=opts, typ=GetSolutionConfigurationResult)
     return __ret__.apply(lambda __response__: GetSolutionConfigurationResult(
         id=pulumi.get(__response__, 'id'),

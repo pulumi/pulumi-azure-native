@@ -148,7 +148,7 @@ def get_sql_server_esu_license(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_sql_server_esu_license_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       sql_server_esu_license_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerEsuLicenseResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerEsuLicenseResult]:
     """
     Retrieves a SQL Server ESU license resource
 
@@ -159,7 +159,7 @@ def get_sql_server_esu_license_output(resource_group_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlServerEsuLicenseName'] = sql_server_esu_license_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata/v20240501preview:getSqlServerEsuLicense', __args__, opts=opts, typ=GetSqlServerEsuLicenseResult)
     return __ret__.apply(lambda __response__: GetSqlServerEsuLicenseResult(
         id=pulumi.get(__response__, 'id'),

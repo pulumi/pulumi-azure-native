@@ -133,7 +133,7 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
         token_type=pulumi.get(__ret__, 'token_type'))
 def list_workspace_notebook_access_token_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 workspace_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookAccessTokenResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceNotebookAccessTokenResult]:
     """
     return notebook access token and refresh token
 
@@ -144,7 +144,7 @@ def list_workspace_notebook_access_token_output(resource_group_name: Optional[pu
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230401:listWorkspaceNotebookAccessToken', __args__, opts=opts, typ=ListWorkspaceNotebookAccessTokenResult)
     return __ret__.apply(lambda __response__: ListWorkspaceNotebookAccessTokenResult(
         access_token=pulumi.get(__response__, 'access_token'),

@@ -152,7 +152,7 @@ def get_managed_cluster_application_type(application_type_name: Optional[str] = 
 def get_managed_cluster_application_type_output(application_type_name: Optional[pulumi.Input[str]] = None,
                                                 cluster_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterApplicationTypeResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterApplicationTypeResult]:
     """
     Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.
 
@@ -165,7 +165,7 @@ def get_managed_cluster_application_type_output(application_type_name: Optional[
     __args__['applicationTypeName'] = application_type_name
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20231201preview:getManagedClusterApplicationType', __args__, opts=opts, typ=GetManagedClusterApplicationTypeResult)
     return __ret__.apply(lambda __response__: GetManagedClusterApplicationTypeResult(
         id=pulumi.get(__response__, 'id'),

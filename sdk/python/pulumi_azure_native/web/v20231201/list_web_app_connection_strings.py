@@ -122,7 +122,7 @@ def list_web_app_connection_strings(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def list_web_app_connection_strings_output(name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppConnectionStringsResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppConnectionStringsResult]:
     """
     Description for Gets the connection strings of an app.
 
@@ -133,7 +133,7 @@ def list_web_app_connection_strings_output(name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:listWebAppConnectionStrings', __args__, opts=opts, typ=ListWebAppConnectionStringsResult)
     return __ret__.apply(lambda __response__: ListWebAppConnectionStringsResult(
         id=pulumi.get(__response__, 'id'),

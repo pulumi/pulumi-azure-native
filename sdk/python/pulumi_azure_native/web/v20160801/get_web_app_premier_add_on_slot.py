@@ -220,7 +220,7 @@ def get_web_app_premier_add_on_slot_output(name: Optional[pulumi.Input[str]] = N
                                            premier_add_on_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            slot: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPremierAddOnSlotResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppPremierAddOnSlotResult]:
     """
     Gets a named add-on of an app.
 
@@ -235,7 +235,7 @@ def get_web_app_premier_add_on_slot_output(name: Optional[pulumi.Input[str]] = N
     __args__['premierAddOnName'] = premier_add_on_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20160801:getWebAppPremierAddOnSlot', __args__, opts=opts, typ=GetWebAppPremierAddOnSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppPremierAddOnSlotResult(
         id=pulumi.get(__response__, 'id'),

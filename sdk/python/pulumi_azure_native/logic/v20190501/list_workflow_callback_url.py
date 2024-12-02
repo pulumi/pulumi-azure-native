@@ -144,7 +144,7 @@ def list_workflow_callback_url_output(key_type: Optional[pulumi.Input[Optional[U
                                       not_after: Optional[pulumi.Input[Optional[str]]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       workflow_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowCallbackUrlResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkflowCallbackUrlResult]:
     """
     Get the workflow callback Url.
 
@@ -159,7 +159,7 @@ def list_workflow_callback_url_output(key_type: Optional[pulumi.Input[Optional[U
     __args__['notAfter'] = not_after
     __args__['resourceGroupName'] = resource_group_name
     __args__['workflowName'] = workflow_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20190501:listWorkflowCallbackUrl', __args__, opts=opts, typ=ListWorkflowCallbackUrlResult)
     return __ret__.apply(lambda __response__: ListWorkflowCallbackUrlResult(
         base_path=pulumi.get(__response__, 'base_path'),

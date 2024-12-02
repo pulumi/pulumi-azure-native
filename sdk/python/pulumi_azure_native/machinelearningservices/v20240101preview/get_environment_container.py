@@ -126,7 +126,7 @@ def get_environment_container(name: Optional[str] = None,
 def get_environment_container_output(name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      workspace_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentContainerResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentContainerResult]:
     """
     Azure Resource Manager resource envelope.
 
@@ -139,7 +139,7 @@ def get_environment_container_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20240101preview:getEnvironmentContainer', __args__, opts=opts, typ=GetEnvironmentContainerResult)
     return __ret__.apply(lambda __response__: GetEnvironmentContainerResult(
         environment_container_properties=pulumi.get(__response__, 'environment_container_properties'),

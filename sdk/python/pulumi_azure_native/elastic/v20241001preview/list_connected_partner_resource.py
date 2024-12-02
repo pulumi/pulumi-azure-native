@@ -83,7 +83,7 @@ def list_connected_partner_resource(monitor_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_connected_partner_resource_output(monitor_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectedPartnerResourceResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectedPartnerResourceResult]:
     """
      List of all active elastic deployments.
 
@@ -94,7 +94,7 @@ def list_connected_partner_resource_output(monitor_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:elastic/v20241001preview:listConnectedPartnerResource', __args__, opts=opts, typ=ListConnectedPartnerResourceResult)
     return __ret__.apply(lambda __response__: ListConnectedPartnerResourceResult(
         next_link=pulumi.get(__response__, 'next_link'),

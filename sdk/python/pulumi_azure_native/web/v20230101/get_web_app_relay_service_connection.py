@@ -182,7 +182,7 @@ def get_web_app_relay_service_connection(entity_name: Optional[str] = None,
 def get_web_app_relay_service_connection_output(entity_name: Optional[pulumi.Input[str]] = None,
                                                 name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppRelayServiceConnectionResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppRelayServiceConnectionResult]:
     """
     Description for Gets a hybrid connection configuration by its name.
 
@@ -195,7 +195,7 @@ def get_web_app_relay_service_connection_output(entity_name: Optional[pulumi.Inp
     __args__['entityName'] = entity_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:getWebAppRelayServiceConnection', __args__, opts=opts, typ=GetWebAppRelayServiceConnectionResult)
     return __ret__.apply(lambda __response__: GetWebAppRelayServiceConnectionResult(
         biztalk_uri=pulumi.get(__response__, 'biztalk_uri'),

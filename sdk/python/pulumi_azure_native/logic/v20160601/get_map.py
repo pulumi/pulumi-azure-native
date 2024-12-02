@@ -230,7 +230,7 @@ def get_map(integration_account_name: Optional[str] = None,
 def get_map_output(integration_account_name: Optional[pulumi.Input[str]] = None,
                    map_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMapResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMapResult]:
     """
     Gets an integration account map.
 
@@ -243,7 +243,7 @@ def get_map_output(integration_account_name: Optional[pulumi.Input[str]] = None,
     __args__['integrationAccountName'] = integration_account_name
     __args__['mapName'] = map_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20160601:getMap', __args__, opts=opts, typ=GetMapResult)
     return __ret__.apply(lambda __response__: GetMapResult(
         changed_time=pulumi.get(__response__, 'changed_time'),

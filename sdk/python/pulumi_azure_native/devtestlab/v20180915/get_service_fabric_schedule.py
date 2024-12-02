@@ -281,7 +281,7 @@ def get_service_fabric_schedule_output(expand: Optional[pulumi.Input[Optional[st
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        service_fabric_name: Optional[pulumi.Input[str]] = None,
                                        user_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceFabricScheduleResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceFabricScheduleResult]:
     """
     Get schedule.
 
@@ -300,7 +300,7 @@ def get_service_fabric_schedule_output(expand: Optional[pulumi.Input[Optional[st
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceFabricName'] = service_fabric_name
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getServiceFabricSchedule', __args__, opts=opts, typ=GetServiceFabricScheduleResult)
     return __ret__.apply(lambda __response__: GetServiceFabricScheduleResult(
         created_date=pulumi.get(__response__, 'created_date'),

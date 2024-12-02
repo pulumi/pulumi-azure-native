@@ -187,7 +187,7 @@ def get_fluid_relay_server(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_fluid_relay_server_output(name: Optional[pulumi.Input[str]] = None,
                                   resource_group: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluidRelayServerResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFluidRelayServerResult]:
     """
     A FluidRelay Server.
 
@@ -198,7 +198,7 @@ def get_fluid_relay_server_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:fluidrelay/v20210615preview:getFluidRelayServer', __args__, opts=opts, typ=GetFluidRelayServerResult)
     return __ret__.apply(lambda __response__: GetFluidRelayServerResult(
         fluid_relay_endpoints=pulumi.get(__response__, 'fluid_relay_endpoints'),

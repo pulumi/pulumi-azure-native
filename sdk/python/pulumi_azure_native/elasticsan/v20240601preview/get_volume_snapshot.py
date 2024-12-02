@@ -169,7 +169,7 @@ def get_volume_snapshot_output(elastic_san_name: Optional[pulumi.Input[str]] = N
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                snapshot_name: Optional[pulumi.Input[str]] = None,
                                volume_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeSnapshotResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeSnapshotResult]:
     """
     Get a Volume Snapshot.
 
@@ -184,7 +184,7 @@ def get_volume_snapshot_output(elastic_san_name: Optional[pulumi.Input[str]] = N
     __args__['resourceGroupName'] = resource_group_name
     __args__['snapshotName'] = snapshot_name
     __args__['volumeGroupName'] = volume_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:elasticsan/v20240601preview:getVolumeSnapshot', __args__, opts=opts, typ=GetVolumeSnapshotResult)
     return __ret__.apply(lambda __response__: GetVolumeSnapshotResult(
         creation_data=pulumi.get(__response__, 'creation_data'),

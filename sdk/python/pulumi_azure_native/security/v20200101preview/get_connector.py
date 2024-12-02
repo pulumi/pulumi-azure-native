@@ -118,7 +118,7 @@ def get_connector(connector_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
 def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Details of a specific cloud account connector
 
@@ -127,7 +127,7 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['connectorName'] = connector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20200101preview:getConnector', __args__, opts=opts, typ=GetConnectorResult)
     return __ret__.apply(lambda __response__: GetConnectorResult(
         authentication_details=pulumi.get(__response__, 'authentication_details'),

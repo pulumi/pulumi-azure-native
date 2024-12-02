@@ -134,7 +134,7 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               ssh_public_key_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSshPublicKeyResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSshPublicKeyResult]:
     """
     Retrieves information about an SSH public key.
 
@@ -145,7 +145,7 @@ def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sshPublicKeyName'] = ssh_public_key_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240301:getSshPublicKey', __args__, opts=opts, typ=GetSshPublicKeyResult)
     return __ret__.apply(lambda __response__: GetSshPublicKeyResult(
         id=pulumi.get(__response__, 'id'),

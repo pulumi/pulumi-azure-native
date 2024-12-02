@@ -183,7 +183,7 @@ def get_schema_version_output(resource_group_name: Optional[pulumi.Input[str]] =
                               schema_name: Optional[pulumi.Input[str]] = None,
                               schema_registry_name: Optional[pulumi.Input[str]] = None,
                               schema_version_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaVersionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaVersionResult]:
     """
     Get a SchemaVersion
     Azure REST API version: 2024-09-01-preview.
@@ -199,7 +199,7 @@ def get_schema_version_output(resource_group_name: Optional[pulumi.Input[str]] =
     __args__['schemaName'] = schema_name
     __args__['schemaRegistryName'] = schema_registry_name
     __args__['schemaVersionName'] = schema_version_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry:getSchemaVersion', __args__, opts=opts, typ=GetSchemaVersionResult)
     return __ret__.apply(lambda __response__: GetSchemaVersionResult(
         description=pulumi.get(__response__, 'description'),

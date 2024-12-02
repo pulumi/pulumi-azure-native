@@ -177,7 +177,7 @@ def get_sync_agent(resource_group_name: Optional[str] = None,
 def get_sync_agent_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                           server_name: Optional[pulumi.Input[str]] = None,
                           sync_agent_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncAgentResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncAgentResult]:
     """
     Gets a sync agent.
 
@@ -190,7 +190,7 @@ def get_sync_agent_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
     __args__['syncAgentName'] = sync_agent_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230201preview:getSyncAgent', __args__, opts=opts, typ=GetSyncAgentResult)
     return __ret__.apply(lambda __response__: GetSyncAgentResult(
         expiry_time=pulumi.get(__response__, 'expiry_time'),

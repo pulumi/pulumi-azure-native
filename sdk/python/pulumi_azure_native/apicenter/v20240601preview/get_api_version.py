@@ -147,7 +147,7 @@ def get_api_version_output(api_name: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
                            version_name: Optional[pulumi.Input[str]] = None,
                            workspace_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiVersionResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiVersionResult]:
     """
     Returns details of the API version.
 
@@ -164,7 +164,7 @@ def get_api_version_output(api_name: Optional[pulumi.Input[str]] = None,
     __args__['serviceName'] = service_name
     __args__['versionName'] = version_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter/v20240601preview:getApiVersion', __args__, opts=opts, typ=GetApiVersionResult)
     return __ret__.apply(lambda __response__: GetApiVersionResult(
         id=pulumi.get(__response__, 'id'),

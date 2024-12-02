@@ -91,7 +91,7 @@ def list_storage_account_sas_tokens_output(account_name: Optional[pulumi.Input[s
                                            container_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            storage_account_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountSasTokensResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStorageAccountSasTokensResult]:
     """
     Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
 
@@ -106,7 +106,7 @@ def list_storage_account_sas_tokens_output(account_name: Optional[pulumi.Input[s
     __args__['containerName'] = container_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageAccountName'] = storage_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datalakeanalytics/v20191101preview:listStorageAccountSasTokens', __args__, opts=opts, typ=ListStorageAccountSasTokensResult)
     return __ret__.apply(lambda __response__: ListStorageAccountSasTokensResult(
         next_link=pulumi.get(__response__, 'next_link'),

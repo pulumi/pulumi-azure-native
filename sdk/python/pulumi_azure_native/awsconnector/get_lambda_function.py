@@ -149,7 +149,7 @@ def get_lambda_function(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_lambda_function_output(name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLambdaFunctionResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLambdaFunctionResult]:
     """
     Get a LambdaFunction
     Azure REST API version: 2024-12-01.
@@ -161,7 +161,7 @@ def get_lambda_function_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector:getLambdaFunction', __args__, opts=opts, typ=GetLambdaFunctionResult)
     return __ret__.apply(lambda __response__: GetLambdaFunctionResult(
         id=pulumi.get(__response__, 'id'),

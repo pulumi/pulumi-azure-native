@@ -174,7 +174,7 @@ def get_managed_cluster_snapshot(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_managed_cluster_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         resource_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterSnapshotResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterSnapshotResult]:
     """
     A managed cluster snapshot resource.
 
@@ -185,7 +185,7 @@ def get_managed_cluster_snapshot_output(resource_group_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20231002preview:getManagedClusterSnapshot', __args__, opts=opts, typ=GetManagedClusterSnapshotResult)
     return __ret__.apply(lambda __response__: GetManagedClusterSnapshotResult(
         creation_data=pulumi.get(__response__, 'creation_data'),

@@ -109,7 +109,7 @@ def get_security_operator(pricing_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_security_operator_output(pricing_name: Optional[pulumi.Input[str]] = None,
                                  security_operator_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityOperatorResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityOperatorResult]:
     """
     Get a specific security operator for the requested scope.
 
@@ -120,7 +120,7 @@ def get_security_operator_output(pricing_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['pricingName'] = pricing_name
     __args__['securityOperatorName'] = security_operator_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20230101preview:getSecurityOperator', __args__, opts=opts, typ=GetSecurityOperatorResult)
     return __ret__.apply(lambda __response__: GetSecurityOperatorResult(
         id=pulumi.get(__response__, 'id'),

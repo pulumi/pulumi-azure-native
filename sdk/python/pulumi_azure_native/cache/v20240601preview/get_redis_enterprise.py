@@ -252,7 +252,7 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRedisEnterpriseResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRedisEnterpriseResult]:
     """
     Gets information about a RedisEnterprise cluster
 
@@ -263,7 +263,7 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cache/v20240601preview:getRedisEnterprise', __args__, opts=opts, typ=GetRedisEnterpriseResult)
     return __ret__.apply(lambda __response__: GetRedisEnterpriseResult(
         encryption=pulumi.get(__response__, 'encryption'),

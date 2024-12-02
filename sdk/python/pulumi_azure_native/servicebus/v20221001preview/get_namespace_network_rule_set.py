@@ -187,7 +187,7 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
         virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'))
 def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceNetworkRuleSetResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceNetworkRuleSetResult]:
     """
     Gets NetworkRuleSet for a Namespace.
 
@@ -198,7 +198,7 @@ def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus/v20221001preview:getNamespaceNetworkRuleSet', __args__, opts=opts, typ=GetNamespaceNetworkRuleSetResult)
     return __ret__.apply(lambda __response__: GetNamespaceNetworkRuleSetResult(
         default_action=pulumi.get(__response__, 'default_action'),

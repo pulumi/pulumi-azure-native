@@ -360,7 +360,7 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
 def get_custom_ip_prefix_output(custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
                                 expand: Optional[pulumi.Input[Optional[str]]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomIPPrefixResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomIPPrefixResult]:
     """
     Gets the specified custom IP prefix in a specified resource group.
 
@@ -373,7 +373,7 @@ def get_custom_ip_prefix_output(custom_ip_prefix_name: Optional[pulumi.Input[str
     __args__['customIpPrefixName'] = custom_ip_prefix_name
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getCustomIPPrefix', __args__, opts=opts, typ=GetCustomIPPrefixResult)
     return __ret__.apply(lambda __response__: GetCustomIPPrefixResult(
         asn=pulumi.get(__response__, 'asn'),

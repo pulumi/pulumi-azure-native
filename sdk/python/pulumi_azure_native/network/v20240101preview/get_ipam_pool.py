@@ -152,7 +152,7 @@ def get_ipam_pool(network_manager_name: Optional[str] = None,
 def get_ipam_pool_output(network_manager_name: Optional[pulumi.Input[str]] = None,
                          pool_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamPoolResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPoolResult]:
     """
     Instance of Pool resource.
 
@@ -165,7 +165,7 @@ def get_ipam_pool_output(network_manager_name: Optional[pulumi.Input[str]] = Non
     __args__['networkManagerName'] = network_manager_name
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240101preview:getIpamPool', __args__, opts=opts, typ=GetIpamPoolResult)
     return __ret__.apply(lambda __response__: GetIpamPoolResult(
         id=pulumi.get(__response__, 'id'),

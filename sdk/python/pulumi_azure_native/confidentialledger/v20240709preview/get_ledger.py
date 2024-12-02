@@ -148,7 +148,7 @@ def get_ledger(ledger_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_ledger_output(ledger_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLedgerResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLedgerResult]:
     """
     Retrieves the properties of a Confidential Ledger.
 
@@ -159,7 +159,7 @@ def get_ledger_output(ledger_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['ledgerName'] = ledger_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:confidentialledger/v20240709preview:getLedger', __args__, opts=opts, typ=GetLedgerResult)
     return __ret__.apply(lambda __response__: GetLedgerResult(
         id=pulumi.get(__response__, 'id'),

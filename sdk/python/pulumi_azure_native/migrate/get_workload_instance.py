@@ -141,7 +141,7 @@ def get_workload_instance_output(modernize_project_name: Optional[pulumi.Input[s
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                                  workload_instance_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadInstanceResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadInstanceResult]:
     """
     Gets the details of the workload instance.
     Azure REST API version: 2022-05-01-preview.
@@ -157,7 +157,7 @@ def get_workload_instance_output(modernize_project_name: Optional[pulumi.Input[s
     __args__['resourceGroupName'] = resource_group_name
     __args__['subscriptionId'] = subscription_id
     __args__['workloadInstanceName'] = workload_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getWorkloadInstance', __args__, opts=opts, typ=GetWorkloadInstanceResult)
     return __ret__.apply(lambda __response__: GetWorkloadInstanceResult(
         id=pulumi.get(__response__, 'id'),

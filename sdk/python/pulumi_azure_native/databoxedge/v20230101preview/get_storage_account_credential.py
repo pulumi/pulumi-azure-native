@@ -217,7 +217,7 @@ def get_storage_account_credential(device_name: Optional[str] = None,
 def get_storage_account_credential_output(device_name: Optional[pulumi.Input[str]] = None,
                                           name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageAccountCredentialResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageAccountCredentialResult]:
     """
     Gets the properties of the specified storage account credential.
 
@@ -230,7 +230,7 @@ def get_storage_account_credential_output(device_name: Optional[pulumi.Input[str
     __args__['deviceName'] = device_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230101preview:getStorageAccountCredential', __args__, opts=opts, typ=GetStorageAccountCredentialResult)
     return __ret__.apply(lambda __response__: GetStorageAccountCredentialResult(
         account_key=pulumi.get(__response__, 'account_key'),

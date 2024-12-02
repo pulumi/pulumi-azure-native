@@ -265,7 +265,7 @@ def get_local_rulestack(local_rulestack_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_local_rulestack_output(local_rulestack_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalRulestackResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalRulestackResult]:
     """
     Get a LocalRulestackResource
 
@@ -276,7 +276,7 @@ def get_local_rulestack_output(local_rulestack_name: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['localRulestackName'] = local_rulestack_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20231010preview:getLocalRulestack', __args__, opts=opts, typ=GetLocalRulestackResult)
     return __ret__.apply(lambda __response__: GetLocalRulestackResult(
         associated_subscriptions=pulumi.get(__response__, 'associated_subscriptions'),

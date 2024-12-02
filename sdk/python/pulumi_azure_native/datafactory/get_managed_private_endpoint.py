@@ -131,7 +131,7 @@ def get_managed_private_endpoint_output(factory_name: Optional[pulumi.Input[str]
                                         managed_private_endpoint_name: Optional[pulumi.Input[str]] = None,
                                         managed_virtual_network_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPrivateEndpointResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPrivateEndpointResult]:
     """
     Gets a managed private endpoint.
     Azure REST API version: 2018-06-01.
@@ -147,7 +147,7 @@ def get_managed_private_endpoint_output(factory_name: Optional[pulumi.Input[str]
     __args__['managedPrivateEndpointName'] = managed_private_endpoint_name
     __args__['managedVirtualNetworkName'] = managed_virtual_network_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getManagedPrivateEndpoint', __args__, opts=opts, typ=GetManagedPrivateEndpointResult)
     return __ret__.apply(lambda __response__: GetManagedPrivateEndpointResult(
         etag=pulumi.get(__response__, 'etag'),

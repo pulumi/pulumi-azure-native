@@ -303,7 +303,7 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          cluster_rp: Optional[pulumi.Input[str]] = None,
                          extension_instance_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Gets details of the Kubernetes Cluster Extension Instance.
 
@@ -320,7 +320,7 @@ def get_extension_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__['clusterRp'] = cluster_rp
     __args__['extensionInstanceName'] = extension_instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration/v20200701preview:getExtension', __args__, opts=opts, typ=GetExtensionResult)
     return __ret__.apply(lambda __response__: GetExtensionResult(
         auto_upgrade_minor_version=pulumi.get(__response__, 'auto_upgrade_minor_version'),

@@ -346,7 +346,7 @@ def get_deployment_stack_at_resource_group(deployment_stack_name: Optional[str] 
         type=pulumi.get(__ret__, 'type'))
 def get_deployment_stack_at_resource_group_output(deployment_stack_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentStackAtResourceGroupResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStackAtResourceGroupResult]:
     """
     Gets a Deployment Stack with a given name.
     Azure REST API version: 2022-08-01-preview.
@@ -360,7 +360,7 @@ def get_deployment_stack_at_resource_group_output(deployment_stack_name: Optiona
     __args__ = dict()
     __args__['deploymentStackName'] = deployment_stack_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getDeploymentStackAtResourceGroup', __args__, opts=opts, typ=GetDeploymentStackAtResourceGroupResult)
     return __ret__.apply(lambda __response__: GetDeploymentStackAtResourceGroupResult(
         action_on_unmanage=pulumi.get(__response__, 'action_on_unmanage'),

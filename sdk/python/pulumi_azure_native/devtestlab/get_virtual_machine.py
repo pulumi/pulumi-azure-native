@@ -588,7 +588,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                lab_name: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Get virtual machine.
     Azure REST API version: 2018-09-15.
@@ -606,7 +606,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     __args__['labName'] = lab_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineResult(
         allow_claim=pulumi.get(__response__, 'allow_claim'),

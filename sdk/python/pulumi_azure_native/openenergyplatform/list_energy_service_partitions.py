@@ -71,7 +71,7 @@ def list_energy_service_partitions(resource_group_name: Optional[str] = None,
         data_partition_info=pulumi.get(__ret__, 'data_partition_info'))
 def list_energy_service_partitions_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                           resource_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEnergyServicePartitionsResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEnergyServicePartitionsResult]:
     """
     Method that gets called when list of partitions is requested.
     Azure REST API version: 2022-04-04-preview.
@@ -83,7 +83,7 @@ def list_energy_service_partitions_output(resource_group_name: Optional[pulumi.I
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:openenergyplatform:listEnergyServicePartitions', __args__, opts=opts, typ=ListEnergyServicePartitionsResult)
     return __ret__.apply(lambda __response__: ListEnergyServicePartitionsResult(
         data_partition_info=pulumi.get(__response__, 'data_partition_info')))

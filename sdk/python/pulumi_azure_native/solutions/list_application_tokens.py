@@ -81,7 +81,7 @@ def list_application_tokens_output(application_name: Optional[pulumi.Input[str]]
                                    authorization_audience: Optional[pulumi.Input[Optional[str]]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    user_assigned_identities: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplicationTokensResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplicationTokensResult]:
     """
     List tokens for application.
     Azure REST API version: 2021-07-01.
@@ -99,7 +99,7 @@ def list_application_tokens_output(application_name: Optional[pulumi.Input[str]]
     __args__['authorizationAudience'] = authorization_audience
     __args__['resourceGroupName'] = resource_group_name
     __args__['userAssignedIdentities'] = user_assigned_identities
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:solutions:listApplicationTokens', __args__, opts=opts, typ=ListApplicationTokensResult)
     return __ret__.apply(lambda __response__: ListApplicationTokensResult(
         value=pulumi.get(__response__, 'value')))

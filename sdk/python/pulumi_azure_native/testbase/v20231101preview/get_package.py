@@ -360,7 +360,7 @@ def get_package(package_name: Optional[str] = None,
 def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        test_base_account_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageResult]:
     """
     Gets a Test Base Package.
 
@@ -373,7 +373,7 @@ def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
     __args__['packageName'] = package_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20231101preview:getPackage', __args__, opts=opts, typ=GetPackageResult)
     return __ret__.apply(lambda __response__: GetPackageResult(
         application_name=pulumi.get(__response__, 'application_name'),

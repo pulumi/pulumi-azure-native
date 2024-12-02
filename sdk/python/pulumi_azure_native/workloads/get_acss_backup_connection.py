@@ -179,7 +179,7 @@ def get_acss_backup_connection(backup_name: Optional[str] = None,
 def get_acss_backup_connection_output(backup_name: Optional[pulumi.Input[str]] = None,
                                       connector_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetACSSBackupConnectionResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetACSSBackupConnectionResult]:
     """
     Gets the backup connection resource of virtual instance for SAP.
     Azure REST API version: 2023-10-01-preview.
@@ -193,7 +193,7 @@ def get_acss_backup_connection_output(backup_name: Optional[pulumi.Input[str]] =
     __args__['backupName'] = backup_name
     __args__['connectorName'] = connector_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getACSSBackupConnection', __args__, opts=opts, typ=GetACSSBackupConnectionResult)
     return __ret__.apply(lambda __response__: GetACSSBackupConnectionResult(
         backup_data=pulumi.get(__response__, 'backup_data'),

@@ -305,7 +305,7 @@ def get_dedicated_cloud_node(dedicated_cloud_node_name: Optional[str] = None,
         vmware_cluster_name=pulumi.get(__ret__, 'vmware_cluster_name'))
 def get_dedicated_cloud_node_output(dedicated_cloud_node_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedCloudNodeResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedCloudNodeResult]:
     """
     Returns dedicated cloud node
     Azure REST API version: 2019-04-01.
@@ -317,7 +317,7 @@ def get_dedicated_cloud_node_output(dedicated_cloud_node_name: Optional[pulumi.I
     __args__ = dict()
     __args__['dedicatedCloudNodeName'] = dedicated_cloud_node_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:vmwarecloudsimple:getDedicatedCloudNode', __args__, opts=opts, typ=GetDedicatedCloudNodeResult)
     return __ret__.apply(lambda __response__: GetDedicatedCloudNodeResult(
         availability_zone_id=pulumi.get(__response__, 'availability_zone_id'),

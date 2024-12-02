@@ -86,7 +86,7 @@ def list_subscription_secrets(resource_group_name: Optional[str] = None,
 def list_subscription_secrets_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      service_name: Optional[pulumi.Input[str]] = None,
                                      sid: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSubscriptionSecretsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSubscriptionSecretsResult]:
     """
     Gets the specified Subscription keys.
 
@@ -99,7 +99,7 @@ def list_subscription_secrets_output(resource_group_name: Optional[pulumi.Input[
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['sid'] = sid
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:listSubscriptionSecrets', __args__, opts=opts, typ=ListSubscriptionSecretsResult)
     return __ret__.apply(lambda __response__: ListSubscriptionSecretsResult(
         primary_key=pulumi.get(__response__, 'primary_key'),

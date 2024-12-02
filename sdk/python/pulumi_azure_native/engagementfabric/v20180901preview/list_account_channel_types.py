@@ -70,7 +70,7 @@ def list_account_channel_types(account_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_account_channel_types_output(account_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountChannelTypesResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccountChannelTypesResult]:
     """
     List of the EngagementFabric channel descriptions
 
@@ -81,7 +81,7 @@ def list_account_channel_types_output(account_name: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:engagementfabric/v20180901preview:listAccountChannelTypes', __args__, opts=opts, typ=ListAccountChannelTypesResult)
     return __ret__.apply(lambda __response__: ListAccountChannelTypesResult(
         value=pulumi.get(__response__, 'value')))

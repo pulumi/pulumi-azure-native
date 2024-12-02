@@ -66,7 +66,7 @@ def get_report_scoping_questions(report_name: Optional[str] = None,
     return AwaitableGetReportScopingQuestionsResult(
         questions=pulumi.get(__ret__, 'questions'))
 def get_report_scoping_questions_output(report_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportScopingQuestionsResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportScopingQuestionsResult]:
     """
     Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.
 
@@ -75,7 +75,7 @@ def get_report_scoping_questions_output(report_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['reportName'] = report_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation/v20240627:getReportScopingQuestions', __args__, opts=opts, typ=GetReportScopingQuestionsResult)
     return __ret__.apply(lambda __response__: GetReportScopingQuestionsResult(
         questions=pulumi.get(__response__, 'questions')))

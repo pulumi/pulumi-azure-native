@@ -188,7 +188,7 @@ def get_hub(hub_name: Optional[str] = None,
         web_endpoint=pulumi.get(__ret__, 'web_endpoint'))
 def get_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHubResult]:
     """
     Gets information about the specified hub.
     Azure REST API version: 2017-04-26.
@@ -200,7 +200,7 @@ def get_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getHub', __args__, opts=opts, typ=GetHubResult)
     return __ret__.apply(lambda __response__: GetHubResult(
         api_endpoint=pulumi.get(__response__, 'api_endpoint'),

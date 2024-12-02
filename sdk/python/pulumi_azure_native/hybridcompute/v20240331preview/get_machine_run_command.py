@@ -308,7 +308,7 @@ def get_machine_run_command(machine_name: Optional[str] = None,
 def get_machine_run_command_output(machine_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    run_command_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineRunCommandResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineRunCommandResult]:
     """
     The operation to get a run command.
 
@@ -321,7 +321,7 @@ def get_machine_run_command_output(machine_name: Optional[pulumi.Input[str]] = N
     __args__['machineName'] = machine_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['runCommandName'] = run_command_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute/v20240331preview:getMachineRunCommand', __args__, opts=opts, typ=GetMachineRunCommandResult)
     return __ret__.apply(lambda __response__: GetMachineRunCommandResult(
         async_execution=pulumi.get(__response__, 'async_execution'),

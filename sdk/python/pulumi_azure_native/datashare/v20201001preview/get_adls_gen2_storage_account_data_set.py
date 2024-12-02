@@ -183,7 +183,7 @@ def get_adls_gen2_storage_account_data_set_output(account_name: Optional[pulumi.
                                                   data_set_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   share_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen2StorageAccountDataSetResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetADLSGen2StorageAccountDataSetResult]:
     """
     Get a DataSet in a share
 
@@ -198,7 +198,7 @@ def get_adls_gen2_storage_account_data_set_output(account_name: Optional[pulumi.
     __args__['dataSetName'] = data_set_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSet', __args__, opts=opts, typ=GetADLSGen2StorageAccountDataSetResult)
     return __ret__.apply(lambda __response__: GetADLSGen2StorageAccountDataSetResult(
         data_set_id=pulumi.get(__response__, 'data_set_id'),

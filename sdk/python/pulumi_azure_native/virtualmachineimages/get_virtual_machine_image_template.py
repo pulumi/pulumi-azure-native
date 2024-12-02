@@ -307,7 +307,7 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
         vm_profile=pulumi.get(__ret__, 'vm_profile'))
 def get_virtual_machine_image_template_output(image_template_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineImageTemplateResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineImageTemplateResult]:
     """
     Get information about a virtual machine image template
     Azure REST API version: 2022-07-01.
@@ -321,7 +321,7 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
     __args__ = dict()
     __args__['imageTemplateName'] = image_template_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:virtualmachineimages:getVirtualMachineImageTemplate', __args__, opts=opts, typ=GetVirtualMachineImageTemplateResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineImageTemplateResult(
         build_timeout_in_minutes=pulumi.get(__response__, 'build_timeout_in_minutes'),

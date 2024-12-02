@@ -230,7 +230,7 @@ def get_ip_allocation(expand: Optional[str] = None,
 def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                              ip_allocation_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpAllocationResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpAllocationResult]:
     """
     Gets the specified IpAllocation by resource group.
 
@@ -243,7 +243,7 @@ def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     __args__['expand'] = expand
     __args__['ipAllocationName'] = ip_allocation_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getIpAllocation', __args__, opts=opts, typ=GetIpAllocationResult)
     return __ret__.apply(lambda __response__: GetIpAllocationResult(
         allocation_tags=pulumi.get(__response__, 'allocation_tags'),

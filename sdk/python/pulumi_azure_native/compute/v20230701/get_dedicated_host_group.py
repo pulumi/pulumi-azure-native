@@ -204,7 +204,7 @@ def get_dedicated_host_group(expand: Optional[str] = None,
 def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                     host_group_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostGroupResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHostGroupResult]:
     """
     Retrieves information about a dedicated host group.
 
@@ -217,7 +217,7 @@ def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[str]]
     __args__['expand'] = expand
     __args__['hostGroupName'] = host_group_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230701:getDedicatedHostGroup', __args__, opts=opts, typ=GetDedicatedHostGroupResult)
     return __ret__.apply(lambda __response__: GetDedicatedHostGroupResult(
         additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),

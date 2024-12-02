@@ -113,7 +113,7 @@ def get_virtual_network_rule(account_name: Optional[str] = None,
 def get_virtual_network_rule_output(account_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     virtual_network_rule_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
     """
     Gets the specified Data Lake Store virtual network rule.
     Azure REST API version: 2016-11-01.
@@ -127,7 +127,7 @@ def get_virtual_network_rule_output(account_name: Optional[pulumi.Input[str]] = 
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkRuleName'] = virtual_network_rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datalakestore:getVirtualNetworkRule', __args__, opts=opts, typ=GetVirtualNetworkRuleResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkRuleResult(
         id=pulumi.get(__response__, 'id'),

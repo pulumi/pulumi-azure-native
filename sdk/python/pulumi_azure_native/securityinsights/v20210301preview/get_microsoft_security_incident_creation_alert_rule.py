@@ -261,7 +261,7 @@ def get_microsoft_security_incident_creation_alert_rule_output(operational_insig
                                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                rule_id: Optional[pulumi.Input[str]] = None,
                                                                workspace_name: Optional[pulumi.Input[str]] = None,
-                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMicrosoftSecurityIncidentCreationAlertRuleResult]:
+                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMicrosoftSecurityIncidentCreationAlertRuleResult]:
     """
     Gets the alert rule.
 
@@ -276,7 +276,7 @@ def get_microsoft_security_incident_creation_alert_rule_output(operational_insig
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleId'] = rule_id
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210301preview:getMicrosoftSecurityIncidentCreationAlertRule', __args__, opts=opts, typ=GetMicrosoftSecurityIncidentCreationAlertRuleResult)
     return __ret__.apply(lambda __response__: GetMicrosoftSecurityIncidentCreationAlertRuleResult(
         alert_rule_template_name=pulumi.get(__response__, 'alert_rule_template_name'),

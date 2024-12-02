@@ -254,7 +254,7 @@ def get_azure_large_instance(azure_large_instance_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_azure_large_instance_output(azure_large_instance_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureLargeInstanceResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureLargeInstanceResult]:
     """
     Gets an Azure Large Instance for the specified subscription, resource group,
     and instance name.
@@ -266,7 +266,7 @@ def get_azure_large_instance_output(azure_large_instance_name: Optional[pulumi.I
     __args__ = dict()
     __args__['azureLargeInstanceName'] = azure_large_instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurelargeinstance/v20240801preview:getAzureLargeInstance', __args__, opts=opts, typ=GetAzureLargeInstanceResult)
     return __ret__.apply(lambda __response__: GetAzureLargeInstanceResult(
         azure_large_instance_id=pulumi.get(__response__, 'azure_large_instance_id'),

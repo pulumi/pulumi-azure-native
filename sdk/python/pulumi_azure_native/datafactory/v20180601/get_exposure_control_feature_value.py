@@ -86,7 +86,7 @@ def get_exposure_control_feature_value(feature_name: Optional[str] = None,
 def get_exposure_control_feature_value_output(feature_name: Optional[pulumi.Input[Optional[str]]] = None,
                                               feature_type: Optional[pulumi.Input[Optional[str]]] = None,
                                               location_id: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExposureControlFeatureValueResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExposureControlFeatureValueResult]:
     """
     Get exposure control feature for specific location.
 
@@ -99,7 +99,7 @@ def get_exposure_control_feature_value_output(feature_name: Optional[pulumi.Inpu
     __args__['featureName'] = feature_name
     __args__['featureType'] = feature_type
     __args__['locationId'] = location_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory/v20180601:getExposureControlFeatureValue', __args__, opts=opts, typ=GetExposureControlFeatureValueResult)
     return __ret__.apply(lambda __response__: GetExposureControlFeatureValueResult(
         feature_name=pulumi.get(__response__, 'feature_name'),

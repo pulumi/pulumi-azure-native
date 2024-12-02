@@ -187,7 +187,7 @@ def get_private_link_for_azure_ad(policy_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_private_link_for_azure_ad_output(policy_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkForAzureAdResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkForAzureAdResult]:
     """
     Gets a private link policy with a given name.
     Azure REST API version: 2020-03-01.
@@ -199,7 +199,7 @@ def get_private_link_for_azure_ad_output(policy_name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:aadiam:getPrivateLinkForAzureAd', __args__, opts=opts, typ=GetPrivateLinkForAzureAdResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkForAzureAdResult(
         all_tenants=pulumi.get(__response__, 'all_tenants'),

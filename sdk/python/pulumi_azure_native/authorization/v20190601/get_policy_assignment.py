@@ -239,7 +239,7 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[str]] = None,
                                  scope: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """
     This operation retrieves a single policy assignment, given its name and the scope it was created at.
 
@@ -250,7 +250,7 @@ def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['policyAssignmentName'] = policy_assignment_name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20190601:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult)
     return __ret__.apply(lambda __response__: GetPolicyAssignmentResult(
         description=pulumi.get(__response__, 'description'),

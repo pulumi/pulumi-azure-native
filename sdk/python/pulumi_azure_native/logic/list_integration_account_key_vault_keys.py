@@ -93,7 +93,7 @@ def list_integration_account_key_vault_keys_output(integration_account_name: Opt
                                                    key_vault: Optional[pulumi.Input[Union['KeyVaultReference', 'KeyVaultReferenceDict']]] = None,
                                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                                    skip_token: Optional[pulumi.Input[Optional[str]]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountKeyVaultKeysResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountKeyVaultKeysResult]:
     """
     Gets the integration account's Key Vault keys.
     Azure REST API version: 2019-05-01.
@@ -109,7 +109,7 @@ def list_integration_account_key_vault_keys_output(integration_account_name: Opt
     __args__['keyVault'] = key_vault
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic:listIntegrationAccountKeyVaultKeys', __args__, opts=opts, typ=ListIntegrationAccountKeyVaultKeysResult)
     return __ret__.apply(lambda __response__: ListIntegrationAccountKeyVaultKeysResult(
         skip_token=pulumi.get(__response__, 'skip_token'),

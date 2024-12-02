@@ -217,7 +217,7 @@ def get_virtual_router(expand: Optional[str] = None,
 def get_virtual_router_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               virtual_router_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRouterResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualRouterResult]:
     """
     Gets the specified Virtual Router.
 
@@ -230,7 +230,7 @@ def get_virtual_router_output(expand: Optional[pulumi.Input[Optional[str]]] = No
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualRouterName'] = virtual_router_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:getVirtualRouter', __args__, opts=opts, typ=GetVirtualRouterResult)
     return __ret__.apply(lambda __response__: GetVirtualRouterResult(
         etag=pulumi.get(__response__, 'etag'),

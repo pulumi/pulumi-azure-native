@@ -66,7 +66,7 @@ def get_user_settings(user_settings_name: Optional[str] = None,
     return AwaitableGetUserSettingsResult(
         properties=pulumi.get(__ret__, 'properties'))
 def get_user_settings_output(user_settings_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSettingsResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSettingsResult]:
     """
     Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
 
@@ -75,7 +75,7 @@ def get_user_settings_output(user_settings_name: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['userSettingsName'] = user_settings_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:portal/v20181001:getUserSettings', __args__, opts=opts, typ=GetUserSettingsResult)
     return __ret__.apply(lambda __response__: GetUserSettingsResult(
         properties=pulumi.get(__response__, 'properties')))

@@ -125,7 +125,7 @@ def get_firewall_rule(cache_name: Optional[str] = None,
 def get_firewall_rule_output(cache_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              rule_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """
     Gets a single firewall rule in a specified redis cache.
 
@@ -138,7 +138,7 @@ def get_firewall_rule_output(cache_name: Optional[pulumi.Input[str]] = None,
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cache/v20240401preview:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult)
     return __ret__.apply(lambda __response__: GetFirewallRuleResult(
         end_ip=pulumi.get(__response__, 'end_ip'),

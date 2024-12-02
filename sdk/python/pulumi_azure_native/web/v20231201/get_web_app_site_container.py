@@ -269,7 +269,7 @@ def get_web_app_site_container(container_name: Optional[str] = None,
 def get_web_app_site_container_output(container_name: Optional[pulumi.Input[str]] = None,
                                       name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSiteContainerResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSiteContainerResult]:
     """
     Container of a site
 
@@ -282,7 +282,7 @@ def get_web_app_site_container_output(container_name: Optional[pulumi.Input[str]
     __args__['containerName'] = container_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:getWebAppSiteContainer', __args__, opts=opts, typ=GetWebAppSiteContainerResult)
     return __ret__.apply(lambda __response__: GetWebAppSiteContainerResult(
         auth_type=pulumi.get(__response__, 'auth_type'),

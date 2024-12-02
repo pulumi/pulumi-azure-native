@@ -261,7 +261,7 @@ def get_view(view_name: Optional[str] = None,
         timeframe=pulumi.get(__ret__, 'timeframe'),
         type=pulumi.get(__ret__, 'type'))
 def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewResult]:
     """
     Gets the view by view name.
 
@@ -270,7 +270,7 @@ def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['viewName'] = view_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20200601:getView', __args__, opts=opts, typ=GetViewResult)
     return __ret__.apply(lambda __response__: GetViewResult(
         accumulated=pulumi.get(__response__, 'accumulated'),

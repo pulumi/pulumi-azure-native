@@ -152,7 +152,7 @@ def list_workflow_version_callback_url_output(key_type: Optional[pulumi.Input[Op
                                               trigger_name: Optional[pulumi.Input[str]] = None,
                                               version_id: Optional[pulumi.Input[str]] = None,
                                               workflow_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowVersionCallbackUrlResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkflowVersionCallbackUrlResult]:
     """
     Get the callback url for a trigger of a workflow version.
 
@@ -171,7 +171,7 @@ def list_workflow_version_callback_url_output(key_type: Optional[pulumi.Input[Op
     __args__['triggerName'] = trigger_name
     __args__['versionId'] = version_id
     __args__['workflowName'] = workflow_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20160601:listWorkflowVersionCallbackUrl', __args__, opts=opts, typ=ListWorkflowVersionCallbackUrlResult)
     return __ret__.apply(lambda __response__: ListWorkflowVersionCallbackUrlResult(
         base_path=pulumi.get(__response__, 'base_path'),

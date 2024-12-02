@@ -165,7 +165,7 @@ def get_scope_connection(network_manager_name: Optional[str] = None,
 def get_scope_connection_output(network_manager_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 scope_connection_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeConnectionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeConnectionResult]:
     """
     Get specified scope connection created by this Network Manager.
 
@@ -178,7 +178,7 @@ def get_scope_connection_output(network_manager_name: Optional[pulumi.Input[str]
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['scopeConnectionName'] = scope_connection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getScopeConnection', __args__, opts=opts, typ=GetScopeConnectionResult)
     return __ret__.apply(lambda __response__: GetScopeConnectionResult(
         description=pulumi.get(__response__, 'description'),

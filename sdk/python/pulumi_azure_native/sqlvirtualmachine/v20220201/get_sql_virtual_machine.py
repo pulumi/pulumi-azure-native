@@ -347,7 +347,7 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
 def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    sql_virtual_machine_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlVirtualMachineResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlVirtualMachineResult]:
     """
     Gets a SQL virtual machine.
 
@@ -360,7 +360,7 @@ def get_sql_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]]
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlVirtualMachineName'] = sql_virtual_machine_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sqlvirtualmachine/v20220201:getSqlVirtualMachine', __args__, opts=opts, typ=GetSqlVirtualMachineResult)
     return __ret__.apply(lambda __response__: GetSqlVirtualMachineResult(
         assessment_settings=pulumi.get(__response__, 'assessment_settings'),

@@ -299,7 +299,7 @@ def get_event_grid_data_connection_output(cluster_name: Optional[pulumi.Input[st
                                           data_connection_name: Optional[pulumi.Input[str]] = None,
                                           database_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventGridDataConnectionResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventGridDataConnectionResult]:
     """
     Returns a data connection.
 
@@ -314,7 +314,7 @@ def get_event_grid_data_connection_output(cluster_name: Optional[pulumi.Input[st
     __args__['dataConnectionName'] = data_connection_name
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20240413:getEventGridDataConnection', __args__, opts=opts, typ=GetEventGridDataConnectionResult)
     return __ret__.apply(lambda __response__: GetEventGridDataConnectionResult(
         blob_storage_event_type=pulumi.get(__response__, 'blob_storage_event_type'),

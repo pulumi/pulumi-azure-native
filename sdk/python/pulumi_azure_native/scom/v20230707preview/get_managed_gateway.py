@@ -126,7 +126,7 @@ def get_managed_gateway(instance_name: Optional[str] = None,
 def get_managed_gateway_output(instance_name: Optional[pulumi.Input[str]] = None,
                                managed_gateway_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedGatewayResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedGatewayResult]:
     """
     Retrieve the details of the gateway resource.
 
@@ -139,7 +139,7 @@ def get_managed_gateway_output(instance_name: Optional[pulumi.Input[str]] = None
     __args__['instanceName'] = instance_name
     __args__['managedGatewayName'] = managed_gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scom/v20230707preview:getManagedGateway', __args__, opts=opts, typ=GetManagedGatewayResult)
     return __ret__.apply(lambda __response__: GetManagedGatewayResult(
         id=pulumi.get(__response__, 'id'),

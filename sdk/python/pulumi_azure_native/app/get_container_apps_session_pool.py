@@ -281,7 +281,7 @@ def get_container_apps_session_pool(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_container_apps_session_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                            session_pool_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppsSessionPoolResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerAppsSessionPoolResult]:
     """
     Container App session pool.
     Azure REST API version: 2024-02-02-preview.
@@ -295,7 +295,7 @@ def get_container_apps_session_pool_output(resource_group_name: Optional[pulumi.
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sessionPoolName'] = session_pool_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getContainerAppsSessionPool', __args__, opts=opts, typ=GetContainerAppsSessionPoolResult)
     return __ret__.apply(lambda __response__: GetContainerAppsSessionPoolResult(
         container_type=pulumi.get(__response__, 'container_type'),

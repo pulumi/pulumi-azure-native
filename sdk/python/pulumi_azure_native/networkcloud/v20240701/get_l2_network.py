@@ -275,7 +275,7 @@ def get_l2_network(l2_network_name: Optional[str] = None,
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'))
 def get_l2_network_output(l2_network_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL2NetworkResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL2NetworkResult]:
     """
     Get properties of the provided layer 2 (L2) network.
 
@@ -286,7 +286,7 @@ def get_l2_network_output(l2_network_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['l2NetworkName'] = l2_network_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20240701:getL2Network', __args__, opts=opts, typ=GetL2NetworkResult)
     return __ret__.apply(lambda __response__: GetL2NetworkResult(
         associated_resource_ids=pulumi.get(__response__, 'associated_resource_ids'),

@@ -221,7 +221,7 @@ def get_database_threat_detection_policy_output(database_name: Optional[pulumi.I
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 security_alert_policy_name: Optional[pulumi.Input[str]] = None,
                                                 server_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseThreatDetectionPolicyResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseThreatDetectionPolicyResult]:
     """
     Gets a database's threat detection policy.
     Azure REST API version: 2014-04-01.
@@ -237,7 +237,7 @@ def get_database_threat_detection_policy_output(database_name: Optional[pulumi.I
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityAlertPolicyName'] = security_alert_policy_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDatabaseThreatDetectionPolicy', __args__, opts=opts, typ=GetDatabaseThreatDetectionPolicyResult)
     return __ret__.apply(lambda __response__: GetDatabaseThreatDetectionPolicyResult(
         disabled_alerts=pulumi.get(__response__, 'disabled_alerts'),

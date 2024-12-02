@@ -174,7 +174,7 @@ def get_backup_vault(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_backup_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             vault_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
     Returns a resource belonging to a resource group.
 
@@ -185,7 +185,7 @@ def get_backup_vault_output(resource_group_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dataprotection/v20230501:getBackupVault', __args__, opts=opts, typ=GetBackupVaultResult)
     return __ret__.apply(lambda __response__: GetBackupVaultResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

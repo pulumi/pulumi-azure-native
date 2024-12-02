@@ -82,7 +82,7 @@ def list_policy_set_definition_version_all_at_management_group(management_group_
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
 def list_policy_set_definition_version_all_at_management_group_output(management_group_name: Optional[pulumi.Input[str]] = None,
-                                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicySetDefinitionVersionAllAtManagementGroupResult]:
+                                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPolicySetDefinitionVersionAllAtManagementGroupResult]:
     """
     This operation lists all the policy set definition versions for all policy set definitions at the management group scope.
     Azure REST API version: 2023-04-01.
@@ -94,7 +94,7 @@ def list_policy_set_definition_version_all_at_management_group_output(management
     """
     __args__ = dict()
     __args__['managementGroupName'] = management_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:listPolicySetDefinitionVersionAllAtManagementGroup', __args__, opts=opts, typ=ListPolicySetDefinitionVersionAllAtManagementGroupResult)
     return __ret__.apply(lambda __response__: ListPolicySetDefinitionVersionAllAtManagementGroupResult(
         next_link=pulumi.get(__response__, 'next_link'),

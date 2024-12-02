@@ -412,7 +412,7 @@ def get_registered_server(resource_group_name: Optional[str] = None,
 def get_registered_server_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  server_id: Optional[pulumi.Input[str]] = None,
                                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegisteredServerResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegisteredServerResult]:
     """
     Get a given registered server.
 
@@ -425,7 +425,7 @@ def get_registered_server_output(resource_group_name: Optional[pulumi.Input[str]
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverId'] = server_id
     __args__['storageSyncServiceName'] = storage_sync_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync/v20220601:getRegisteredServer', __args__, opts=opts, typ=GetRegisteredServerResult)
     return __ret__.apply(lambda __response__: GetRegisteredServerResult(
         agent_version=pulumi.get(__response__, 'agent_version'),

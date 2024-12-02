@@ -170,7 +170,7 @@ def get_suppression_list_output(domain_name: Optional[pulumi.Input[str]] = None,
                                 email_service_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 suppression_list_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSuppressionListResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuppressionListResult]:
     """
     Get a SuppressionList resource.
     Azure REST API version: 2023-06-01-preview.
@@ -186,7 +186,7 @@ def get_suppression_list_output(domain_name: Optional[pulumi.Input[str]] = None,
     __args__['emailServiceName'] = email_service_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['suppressionListName'] = suppression_list_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:communication:getSuppressionList', __args__, opts=opts, typ=GetSuppressionListResult)
     return __ret__.apply(lambda __response__: GetSuppressionListResult(
         created_time_stamp=pulumi.get(__response__, 'created_time_stamp'),

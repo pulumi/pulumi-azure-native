@@ -128,7 +128,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          service_name: Optional[pulumi.Input[str]] = None,
                          workspace_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets the details of the workspace specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
@@ -144,7 +144,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
         description=pulumi.get(__response__, 'description'),

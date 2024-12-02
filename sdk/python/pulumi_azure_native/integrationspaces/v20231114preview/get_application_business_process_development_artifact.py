@@ -104,7 +104,7 @@ def get_application_business_process_development_artifact_output(application_nam
                                                                  name: Optional[pulumi.Input[str]] = None,
                                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                  space_name: Optional[pulumi.Input[str]] = None,
-                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationBusinessProcessDevelopmentArtifactResult]:
+                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationBusinessProcessDevelopmentArtifactResult]:
     """
     The get business process development artifact action.
 
@@ -119,7 +119,7 @@ def get_application_business_process_development_artifact_output(application_nam
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['spaceName'] = space_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:integrationspaces/v20231114preview:getApplicationBusinessProcessDevelopmentArtifact', __args__, opts=opts, typ=GetApplicationBusinessProcessDevelopmentArtifactResult)
     return __ret__.apply(lambda __response__: GetApplicationBusinessProcessDevelopmentArtifactResult(
         name=pulumi.get(__response__, 'name'),

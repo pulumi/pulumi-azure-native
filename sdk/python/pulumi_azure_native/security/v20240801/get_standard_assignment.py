@@ -213,7 +213,7 @@ def get_standard_assignment(resource_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_standard_assignment_output(resource_id: Optional[pulumi.Input[str]] = None,
                                    standard_assignment_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardAssignmentResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardAssignmentResult]:
     """
     This operation retrieves a single standard assignment, given its name and the scope it was created at.
 
@@ -224,7 +224,7 @@ def get_standard_assignment_output(resource_id: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['resourceId'] = resource_id
     __args__['standardAssignmentName'] = standard_assignment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20240801:getStandardAssignment', __args__, opts=opts, typ=GetStandardAssignmentResult)
     return __ret__.apply(lambda __response__: GetStandardAssignmentResult(
         assigned_standard=pulumi.get(__response__, 'assigned_standard'),

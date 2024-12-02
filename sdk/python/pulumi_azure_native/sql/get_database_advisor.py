@@ -211,7 +211,7 @@ def get_database_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None
                                 database_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 server_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseAdvisorResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAdvisorResult]:
     """
     Gets a database advisor.
     Azure REST API version: 2021-11-01.
@@ -229,7 +229,7 @@ def get_database_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDatabaseAdvisor', __args__, opts=opts, typ=GetDatabaseAdvisorResult)
     return __ret__.apply(lambda __response__: GetDatabaseAdvisorResult(
         advisor_status=pulumi.get(__response__, 'advisor_status'),

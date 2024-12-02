@@ -168,7 +168,7 @@ def get_api_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    service_name: Optional[pulumi.Input[str]] = None,
                                    tag_description_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiTagDescriptionResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiTagDescriptionResult]:
     """
     Get Tag description in scope of API
 
@@ -183,7 +183,7 @@ def get_api_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['tagDescriptionId'] = tag_description_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getApiTagDescription', __args__, opts=opts, typ=GetApiTagDescriptionResult)
     return __ret__.apply(lambda __response__: GetApiTagDescriptionResult(
         description=pulumi.get(__response__, 'description'),

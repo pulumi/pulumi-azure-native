@@ -347,7 +347,7 @@ def get_license_profile(license_profile_name: Optional[str] = None,
 def get_license_profile_output(license_profile_name: Optional[pulumi.Input[str]] = None,
                                machine_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicenseProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicenseProfileResult]:
     """
     Retrieves information about the view of a license profile.
 
@@ -360,7 +360,7 @@ def get_license_profile_output(license_profile_name: Optional[pulumi.Input[str]]
     __args__['licenseProfileName'] = license_profile_name
     __args__['machineName'] = machine_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute/v20240910preview:getLicenseProfile', __args__, opts=opts, typ=GetLicenseProfileResult)
     return __ret__.apply(lambda __response__: GetLicenseProfileResult(
         assigned_license=pulumi.get(__response__, 'assigned_license'),

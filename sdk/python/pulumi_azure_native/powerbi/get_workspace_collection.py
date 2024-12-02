@@ -140,7 +140,7 @@ def get_workspace_collection(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_workspace_collection_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     workspace_collection_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceCollectionResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceCollectionResult]:
     """
     Retrieves an existing Power BI Workspace Collection.
     Azure REST API version: 2016-01-29.
@@ -152,7 +152,7 @@ def get_workspace_collection_output(resource_group_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceCollectionName'] = workspace_collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:powerbi:getWorkspaceCollection', __args__, opts=opts, typ=GetWorkspaceCollectionResult)
     return __ret__.apply(lambda __response__: GetWorkspaceCollectionResult(
         id=pulumi.get(__response__, 'id'),

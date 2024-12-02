@@ -168,7 +168,7 @@ def get_private_resolver_virtual_network_link(dns_forwarding_ruleset_name: Optio
 def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      virtual_network_link_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateResolverVirtualNetworkLinkResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateResolverVirtualNetworkLinkResult]:
     """
     Gets properties of a virtual network link to a DNS forwarding ruleset.
     Azure REST API version: 2022-07-01.
@@ -184,7 +184,7 @@ def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name
     __args__['dnsForwardingRulesetName'] = dns_forwarding_ruleset_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkLinkName'] = virtual_network_link_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getPrivateResolverVirtualNetworkLink', __args__, opts=opts, typ=GetPrivateResolverVirtualNetworkLinkResult)
     return __ret__.apply(lambda __response__: GetPrivateResolverVirtualNetworkLinkResult(
         etag=pulumi.get(__response__, 'etag'),

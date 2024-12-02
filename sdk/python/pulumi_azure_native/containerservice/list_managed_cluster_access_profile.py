@@ -141,7 +141,7 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[str] = Non
 def list_managed_cluster_access_profile_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                resource_name: Optional[pulumi.Input[str]] = None,
                                                role_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterAccessProfileResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManagedClusterAccessProfileResult]:
     """
     Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
     Azure REST API version: 2020-03-01.
@@ -157,7 +157,7 @@ def list_managed_cluster_access_profile_output(resource_group_name: Optional[pul
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     __args__['roleName'] = role_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:listManagedClusterAccessProfile', __args__, opts=opts, typ=ListManagedClusterAccessProfileResult)
     return __ret__.apply(lambda __response__: ListManagedClusterAccessProfileResult(
         id=pulumi.get(__response__, 'id'),

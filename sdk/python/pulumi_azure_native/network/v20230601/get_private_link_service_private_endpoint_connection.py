@@ -182,7 +182,7 @@ def get_private_link_service_private_endpoint_connection_output(expand: Optional
                                                                 pe_connection_name: Optional[pulumi.Input[str]] = None,
                                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                 service_name: Optional[pulumi.Input[str]] = None,
-                                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicePrivateEndpointConnectionResult]:
+                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicePrivateEndpointConnectionResult]:
     """
     Get the specific private end point connection by specific private link service in the resource group.
 
@@ -197,7 +197,7 @@ def get_private_link_service_private_endpoint_connection_output(expand: Optional
     __args__['peConnectionName'] = pe_connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getPrivateLinkServicePrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateLinkServicePrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkServicePrivateEndpointConnectionResult(
         etag=pulumi.get(__response__, 'etag'),

@@ -149,7 +149,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   scope_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkScopeResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkScopeResult]:
     """
     Returns a Azure Arc PrivateLinkScope.
     Azure REST API version: 2022-04-02-preview.
@@ -161,7 +161,7 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['scopeName'] = scope_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration:getPrivateLinkScope', __args__, opts=opts, typ=GetPrivateLinkScopeResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkScopeResult(
         id=pulumi.get(__response__, 'id'),

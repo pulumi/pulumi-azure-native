@@ -214,7 +214,7 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                           rule_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertRuleResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertRuleResult]:
     """
     Gets a classic metric alert rule
     Azure REST API version: 2016-03-01.
@@ -226,7 +226,7 @@ def get_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getAlertRule', __args__, opts=opts, typ=GetAlertRuleResult)
     return __ret__.apply(lambda __response__: GetAlertRuleResult(
         action=pulumi.get(__response__, 'action'),

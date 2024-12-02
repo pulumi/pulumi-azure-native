@@ -146,7 +146,7 @@ def get_file_output(file_name: Optional[pulumi.Input[str]] = None,
                     group_name: Optional[pulumi.Input[str]] = None,
                     project_name: Optional[pulumi.Input[str]] = None,
                     service_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileResult]:
     """
     The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
     Azure REST API version: 2021-06-30.
@@ -164,7 +164,7 @@ def get_file_output(file_name: Optional[pulumi.Input[str]] = None,
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getFile', __args__, opts=opts, typ=GetFileResult)
     return __ret__.apply(lambda __response__: GetFileResult(
         etag=pulumi.get(__response__, 'etag'),

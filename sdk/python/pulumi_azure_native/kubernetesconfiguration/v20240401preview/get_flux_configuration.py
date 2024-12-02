@@ -381,7 +381,7 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
                                   cluster_rp: Optional[pulumi.Input[str]] = None,
                                   flux_configuration_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluxConfigurationResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFluxConfigurationResult]:
     """
     Gets details of the Flux Configuration.
 
@@ -398,7 +398,7 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
     __args__['clusterRp'] = cluster_rp
     __args__['fluxConfigurationName'] = flux_configuration_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration/v20240401preview:getFluxConfiguration', __args__, opts=opts, typ=GetFluxConfigurationResult)
     return __ret__.apply(lambda __response__: GetFluxConfigurationResult(
         azure_blob=pulumi.get(__response__, 'azure_blob'),

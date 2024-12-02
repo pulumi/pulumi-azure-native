@@ -174,7 +174,7 @@ def get_custom_resource_provider(resource_group_name: Optional[str] = None,
         validations=pulumi.get(__ret__, 'validations'))
 def get_custom_resource_provider_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         resource_provider_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomResourceProviderResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomResourceProviderResult]:
     """
     Gets the custom resource provider manifest.
 
@@ -185,7 +185,7 @@ def get_custom_resource_provider_output(resource_group_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceProviderName'] = resource_provider_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customproviders/v20180901preview:getCustomResourceProvider', __args__, opts=opts, typ=GetCustomResourceProviderResult)
     return __ret__.apply(lambda __response__: GetCustomResourceProviderResult(
         actions=pulumi.get(__response__, 'actions'),

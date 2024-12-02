@@ -162,7 +162,7 @@ def get_space(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_space_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      space_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpaceResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpaceResult]:
     """
     Get a Space
     Azure REST API version: 2023-11-14-preview.
@@ -174,7 +174,7 @@ def get_space_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['spaceName'] = space_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:integrationspaces:getSpace', __args__, opts=opts, typ=GetSpaceResult)
     return __ret__.apply(lambda __response__: GetSpaceResult(
         description=pulumi.get(__response__, 'description'),

@@ -327,7 +327,7 @@ def get_storage_appliance(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  storage_appliance_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageApplianceResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageApplianceResult]:
     """
     Get properties of the provided storage appliance.
 
@@ -338,7 +338,7 @@ def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageApplianceName'] = storage_appliance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud/v20230701:getStorageAppliance', __args__, opts=opts, typ=GetStorageApplianceResult)
     return __ret__.apply(lambda __response__: GetStorageApplianceResult(
         administrator_credentials=pulumi.get(__response__, 'administrator_credentials'),

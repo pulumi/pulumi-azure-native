@@ -133,7 +133,7 @@ def get_endpoint_deployment_output(deployment_name: Optional[pulumi.Input[str]] 
                                    endpoint_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    workspace_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointDeploymentResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointDeploymentResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -147,7 +147,7 @@ def get_endpoint_deployment_output(deployment_name: Optional[pulumi.Input[str]] 
     __args__['endpointName'] = endpoint_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20240401preview:getEndpointDeployment', __args__, opts=opts, typ=GetEndpointDeploymentResult)
     return __ret__.apply(lambda __response__: GetEndpointDeploymentResult(
         id=pulumi.get(__response__, 'id'),

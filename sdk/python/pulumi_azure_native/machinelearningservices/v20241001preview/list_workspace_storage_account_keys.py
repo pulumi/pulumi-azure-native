@@ -65,7 +65,7 @@ def list_workspace_storage_account_keys(resource_group_name: Optional[str] = Non
         user_storage_key=pulumi.get(__ret__, 'user_storage_key'))
 def list_workspace_storage_account_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                workspace_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceStorageAccountKeysResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceStorageAccountKeysResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -75,7 +75,7 @@ def list_workspace_storage_account_keys_output(resource_group_name: Optional[pul
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20241001preview:listWorkspaceStorageAccountKeys', __args__, opts=opts, typ=ListWorkspaceStorageAccountKeysResult)
     return __ret__.apply(lambda __response__: ListWorkspaceStorageAccountKeysResult(
         user_storage_key=pulumi.get(__response__, 'user_storage_key')))

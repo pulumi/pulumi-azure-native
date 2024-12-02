@@ -148,7 +148,7 @@ def get_wafv2_logging_configuration(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_wafv2_logging_configuration_output(name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafv2LoggingConfigurationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWafv2LoggingConfigurationResult]:
     """
     Get a Wafv2LoggingConfiguration
 
@@ -159,7 +159,7 @@ def get_wafv2_logging_configuration_output(name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector/v20241201:getWafv2LoggingConfiguration', __args__, opts=opts, typ=GetWafv2LoggingConfigurationResult)
     return __ret__.apply(lambda __response__: GetWafv2LoggingConfigurationResult(
         id=pulumi.get(__response__, 'id'),

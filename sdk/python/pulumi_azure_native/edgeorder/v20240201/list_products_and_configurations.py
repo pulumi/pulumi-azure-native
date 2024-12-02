@@ -89,7 +89,7 @@ def list_products_and_configurations(configuration_filter: Optional[Union['Confi
 def list_products_and_configurations_output(configuration_filter: Optional[pulumi.Input[Optional[Union['ConfigurationFilter', 'ConfigurationFilterDict']]]] = None,
                                             customer_subscription_details: Optional[pulumi.Input[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
                                             skip_token: Optional[pulumi.Input[Optional[str]]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductsAndConfigurationsResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductsAndConfigurationsResult]:
     """
     List configurations for the given product family, product line and product for the given subscription.
 
@@ -102,7 +102,7 @@ def list_products_and_configurations_output(configuration_filter: Optional[pulum
     __args__['configurationFilter'] = configuration_filter
     __args__['customerSubscriptionDetails'] = customer_subscription_details
     __args__['skipToken'] = skip_token
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:edgeorder/v20240201:listProductsAndConfigurations', __args__, opts=opts, typ=ListProductsAndConfigurationsResult)
     return __ret__.apply(lambda __response__: ListProductsAndConfigurationsResult(
         next_link=pulumi.get(__response__, 'next_link'),

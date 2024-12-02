@@ -157,7 +157,7 @@ def get_protection_intent_output(fabric_name: Optional[pulumi.Input[str]] = None
                                  intent_object_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  vault_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionIntentResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectionIntentResult]:
     """
     Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
     call the GetItemOperationResult API.
@@ -173,7 +173,7 @@ def get_protection_intent_output(fabric_name: Optional[pulumi.Input[str]] = None
     __args__['intentObjectName'] = intent_object_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20241001:getProtectionIntent', __args__, opts=opts, typ=GetProtectionIntentResult)
     return __ret__.apply(lambda __response__: GetProtectionIntentResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

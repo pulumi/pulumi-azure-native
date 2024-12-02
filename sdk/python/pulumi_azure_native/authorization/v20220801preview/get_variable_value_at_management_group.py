@@ -126,7 +126,7 @@ def get_variable_value_at_management_group(management_group_id: Optional[str] = 
 def get_variable_value_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                                   variable_name: Optional[pulumi.Input[str]] = None,
                                                   variable_value_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableValueAtManagementGroupResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableValueAtManagementGroupResult]:
     """
     This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
 
@@ -139,7 +139,7 @@ def get_variable_value_at_management_group_output(management_group_id: Optional[
     __args__['managementGroupId'] = management_group_id
     __args__['variableName'] = variable_name
     __args__['variableValueName'] = variable_value_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20220801preview:getVariableValueAtManagementGroup', __args__, opts=opts, typ=GetVariableValueAtManagementGroupResult)
     return __ret__.apply(lambda __response__: GetVariableValueAtManagementGroupResult(
         id=pulumi.get(__response__, 'id'),

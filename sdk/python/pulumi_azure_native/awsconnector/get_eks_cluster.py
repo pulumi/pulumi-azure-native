@@ -119,7 +119,7 @@ def get_eks_cluster(resource_uri: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_eks_cluster_output(resource_uri: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEksClusterResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEksClusterResult]:
     """
     Get a EksCluster
     Azure REST API version: 2024-12-01.
@@ -129,7 +129,7 @@ def get_eks_cluster_output(resource_uri: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector:getEksCluster', __args__, opts=opts, typ=GetEksClusterResult)
     return __ret__.apply(lambda __response__: GetEksClusterResult(
         id=pulumi.get(__response__, 'id'),

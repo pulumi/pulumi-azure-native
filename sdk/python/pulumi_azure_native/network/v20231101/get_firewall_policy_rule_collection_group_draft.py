@@ -139,7 +139,7 @@ def get_firewall_policy_rule_collection_group_draft(firewall_policy_name: Option
 def get_firewall_policy_rule_collection_group_draft_output(firewall_policy_name: Optional[pulumi.Input[str]] = None,
                                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                                            rule_collection_group_name: Optional[pulumi.Input[str]] = None,
-                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyRuleCollectionGroupDraftResult]:
+                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyRuleCollectionGroupDraftResult]:
     """
     Get Rule Collection Group Draft.
 
@@ -152,7 +152,7 @@ def get_firewall_policy_rule_collection_group_draft_output(firewall_policy_name:
     __args__['firewallPolicyName'] = firewall_policy_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleCollectionGroupName'] = rule_collection_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:getFirewallPolicyRuleCollectionGroupDraft', __args__, opts=opts, typ=GetFirewallPolicyRuleCollectionGroupDraftResult)
     return __ret__.apply(lambda __response__: GetFirewallPolicyRuleCollectionGroupDraftResult(
         id=pulumi.get(__response__, 'id'),

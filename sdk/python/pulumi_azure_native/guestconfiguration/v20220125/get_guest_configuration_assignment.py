@@ -139,7 +139,7 @@ def get_guest_configuration_assignment(guest_configuration_assignment_name: Opti
 def get_guest_configuration_assignment_output(guest_configuration_assignment_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               vm_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestConfigurationAssignmentResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestConfigurationAssignmentResult]:
     """
     Get information about a guest configuration assignment
 
@@ -152,7 +152,7 @@ def get_guest_configuration_assignment_output(guest_configuration_assignment_nam
     __args__['guestConfigurationAssignmentName'] = guest_configuration_assignment_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmName'] = vm_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:guestconfiguration/v20220125:getGuestConfigurationAssignment', __args__, opts=opts, typ=GetGuestConfigurationAssignmentResult)
     return __ret__.apply(lambda __response__: GetGuestConfigurationAssignmentResult(
         id=pulumi.get(__response__, 'id'),

@@ -73,7 +73,7 @@ def get_channel_full_url(channel_name: Optional[str] = None,
 def get_channel_full_url_output(channel_name: Optional[pulumi.Input[str]] = None,
                                 partner_namespace_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelFullUrlResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelFullUrlResult]:
     """
     Get the full endpoint URL of a partner destination channel.
 
@@ -86,7 +86,7 @@ def get_channel_full_url_output(channel_name: Optional[pulumi.Input[str]] = None
     __args__['channelName'] = channel_name
     __args__['partnerNamespaceName'] = partner_namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20220615:getChannelFullUrl', __args__, opts=opts, typ=GetChannelFullUrlResult)
     return __ret__.apply(lambda __response__: GetChannelFullUrlResult(
         endpoint_url=pulumi.get(__response__, 'endpoint_url')))

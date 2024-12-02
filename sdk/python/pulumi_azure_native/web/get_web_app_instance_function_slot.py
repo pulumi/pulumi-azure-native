@@ -288,7 +288,7 @@ def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Inp
                                               name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               slot: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppInstanceFunctionSlotResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppInstanceFunctionSlotResult]:
     """
     Description for Get function information by its ID for web site, or a deployment slot.
     Azure REST API version: 2022-09-01.
@@ -306,7 +306,7 @@ def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Inp
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppInstanceFunctionSlot', __args__, opts=opts, typ=GetWebAppInstanceFunctionSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppInstanceFunctionSlotResult(
         config=pulumi.get(__response__, 'config'),

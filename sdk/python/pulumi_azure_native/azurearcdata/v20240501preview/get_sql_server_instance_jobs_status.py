@@ -78,7 +78,7 @@ def get_sql_server_instance_jobs_status_output(feature_name: Optional[pulumi.Inp
                                                job_type: Optional[pulumi.Input[Optional[str]]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                sql_server_instance_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerInstanceJobsStatusResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerInstanceJobsStatusResult]:
     """
     Gets jobs status details for sql arc resource
 
@@ -93,7 +93,7 @@ def get_sql_server_instance_jobs_status_output(feature_name: Optional[pulumi.Inp
     __args__['jobType'] = job_type
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlServerInstanceName'] = sql_server_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata/v20240501preview:getSqlServerInstanceJobsStatus', __args__, opts=opts, typ=GetSqlServerInstanceJobsStatusResult)
     return __ret__.apply(lambda __response__: GetSqlServerInstanceJobsStatusResult(
         jobs_status=pulumi.get(__response__, 'jobs_status')))

@@ -256,7 +256,7 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
 def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         sql_pool_name: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolResult]:
     """
     Get SQL pool properties
 
@@ -269,7 +269,7 @@ def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlPoolName'] = sql_pool_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601preview:getSqlPool', __args__, opts=opts, typ=GetSqlPoolResult)
     return __ret__.apply(lambda __response__: GetSqlPoolResult(
         collation=pulumi.get(__response__, 'collation'),

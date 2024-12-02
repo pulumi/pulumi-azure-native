@@ -86,7 +86,7 @@ def list_build_auth_token(build_name: Optional[str] = None,
 def list_build_auth_token_output(build_name: Optional[pulumi.Input[str]] = None,
                                  builder_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBuildAuthTokenResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBuildAuthTokenResult]:
     """
     Gets the token used to connect to the endpoint where source code can be uploaded for a build.
 
@@ -99,7 +99,7 @@ def list_build_auth_token_output(build_name: Optional[pulumi.Input[str]] = None,
     __args__['buildName'] = build_name
     __args__['builderName'] = builder_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20231102preview:listBuildAuthToken', __args__, opts=opts, typ=ListBuildAuthTokenResult)
     return __ret__.apply(lambda __response__: ListBuildAuthTokenResult(
         expires=pulumi.get(__response__, 'expires'),

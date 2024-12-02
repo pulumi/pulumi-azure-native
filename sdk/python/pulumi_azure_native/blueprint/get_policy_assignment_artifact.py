@@ -193,7 +193,7 @@ def get_policy_assignment_artifact(artifact_name: Optional[str] = None,
 def get_policy_assignment_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
                                           blueprint_name: Optional[pulumi.Input[str]] = None,
                                           resource_scope: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssignmentArtifactResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssignmentArtifactResult]:
     """
     Get a blueprint artifact.
     Azure REST API version: 2018-11-01-preview.
@@ -207,7 +207,7 @@ def get_policy_assignment_artifact_output(artifact_name: Optional[pulumi.Input[s
     __args__['artifactName'] = artifact_name
     __args__['blueprintName'] = blueprint_name
     __args__['resourceScope'] = resource_scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint:getPolicyAssignmentArtifact', __args__, opts=opts, typ=GetPolicyAssignmentArtifactResult)
     return __ret__.apply(lambda __response__: GetPolicyAssignmentArtifactResult(
         depends_on=pulumi.get(__response__, 'depends_on'),

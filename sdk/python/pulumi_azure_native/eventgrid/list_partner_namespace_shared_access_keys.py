@@ -85,7 +85,7 @@ def list_partner_namespace_shared_access_keys(partner_namespace_name: Optional[s
         key2=pulumi.get(__ret__, 'key2'))
 def list_partner_namespace_shared_access_keys_output(partner_namespace_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPartnerNamespaceSharedAccessKeysResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPartnerNamespaceSharedAccessKeysResult]:
     """
     List the two keys used to publish to a partner namespace.
     Azure REST API version: 2022-06-15.
@@ -99,7 +99,7 @@ def list_partner_namespace_shared_access_keys_output(partner_namespace_name: Opt
     __args__ = dict()
     __args__['partnerNamespaceName'] = partner_namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:listPartnerNamespaceSharedAccessKeys', __args__, opts=opts, typ=ListPartnerNamespaceSharedAccessKeysResult)
     return __ret__.apply(lambda __response__: ListPartnerNamespaceSharedAccessKeysResult(
         key1=pulumi.get(__response__, 'key1'),

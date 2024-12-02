@@ -190,7 +190,7 @@ def get_post_rule_counters(firewall_name: Optional[str] = None,
 def get_post_rule_counters_output(firewall_name: Optional[pulumi.Input[Optional[str]]] = None,
                                   global_rulestack_name: Optional[pulumi.Input[str]] = None,
                                   priority: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPostRuleCountersResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPostRuleCountersResult]:
     """
     Get counters
 
@@ -202,7 +202,7 @@ def get_post_rule_counters_output(firewall_name: Optional[pulumi.Input[Optional[
     __args__['firewallName'] = firewall_name
     __args__['globalRulestackName'] = global_rulestack_name
     __args__['priority'] = priority
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20220829:getPostRuleCounters', __args__, opts=opts, typ=GetPostRuleCountersResult)
     return __ret__.apply(lambda __response__: GetPostRuleCountersResult(
         app_seen=pulumi.get(__response__, 'app_seen'),

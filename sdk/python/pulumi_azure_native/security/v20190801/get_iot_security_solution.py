@@ -278,7 +278,7 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
         workspace=pulumi.get(__ret__, 'workspace'))
 def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      solution_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotSecuritySolutionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotSecuritySolutionResult]:
     """
     User this method to get details of a specific IoT Security solution based on solution name
 
@@ -289,7 +289,7 @@ def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['solutionName'] = solution_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20190801:getIotSecuritySolution', __args__, opts=opts, typ=GetIotSecuritySolutionResult)
     return __ret__.apply(lambda __response__: GetIotSecuritySolutionResult(
         additional_workspaces=pulumi.get(__response__, 'additional_workspaces'),

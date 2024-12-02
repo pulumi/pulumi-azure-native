@@ -199,7 +199,7 @@ def get_volume_quota_rule_output(account_name: Optional[pulumi.Input[str]] = Non
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  volume_name: Optional[pulumi.Input[str]] = None,
                                  volume_quota_rule_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeQuotaRuleResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeQuotaRuleResult]:
     """
     Get details of the specified quota rule
 
@@ -216,7 +216,7 @@ def get_volume_quota_rule_output(account_name: Optional[pulumi.Input[str]] = Non
     __args__['resourceGroupName'] = resource_group_name
     __args__['volumeName'] = volume_name
     __args__['volumeQuotaRuleName'] = volume_quota_rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp/v20240501preview:getVolumeQuotaRule', __args__, opts=opts, typ=GetVolumeQuotaRuleResult)
     return __ret__.apply(lambda __response__: GetVolumeQuotaRuleResult(
         id=pulumi.get(__response__, 'id'),

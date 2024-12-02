@@ -217,7 +217,7 @@ def get_connected_environments_dapr_component(component_name: Optional[str] = No
 def get_connected_environments_dapr_component_output(component_name: Optional[pulumi.Input[str]] = None,
                                                      connected_environment_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentsDaprComponentResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedEnvironmentsDaprComponentResult]:
     """
     Dapr Component.
 
@@ -230,7 +230,7 @@ def get_connected_environments_dapr_component_output(component_name: Optional[pu
     __args__['componentName'] = component_name
     __args__['connectedEnvironmentName'] = connected_environment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230401preview:getConnectedEnvironmentsDaprComponent', __args__, opts=opts, typ=GetConnectedEnvironmentsDaprComponentResult)
     return __ret__.apply(lambda __response__: GetConnectedEnvironmentsDaprComponentResult(
         component_type=pulumi.get(__response__, 'component_type'),

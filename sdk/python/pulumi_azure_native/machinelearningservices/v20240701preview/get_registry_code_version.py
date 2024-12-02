@@ -130,7 +130,7 @@ def get_registry_code_version_output(code_name: Optional[pulumi.Input[str]] = No
                                      registry_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      version: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryCodeVersionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryCodeVersionResult]:
     """
     Azure Resource Manager resource envelope.
 
@@ -145,7 +145,7 @@ def get_registry_code_version_output(code_name: Optional[pulumi.Input[str]] = No
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20240701preview:getRegistryCodeVersion', __args__, opts=opts, typ=GetRegistryCodeVersionResult)
     return __ret__.apply(lambda __response__: GetRegistryCodeVersionResult(
         code_version_properties=pulumi.get(__response__, 'code_version_properties'),

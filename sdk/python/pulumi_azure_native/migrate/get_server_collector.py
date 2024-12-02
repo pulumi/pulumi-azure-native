@@ -109,7 +109,7 @@ def get_server_collector(project_name: Optional[str] = None,
 def get_server_collector_output(project_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 server_collector_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerCollectorResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerCollectorResult]:
     """
     Get a Server collector.
     Azure REST API version: 2019-10-01.
@@ -123,7 +123,7 @@ def get_server_collector_output(project_name: Optional[pulumi.Input[str]] = None
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverCollectorName'] = server_collector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getServerCollector', __args__, opts=opts, typ=GetServerCollectorResult)
     return __ret__.apply(lambda __response__: GetServerCollectorResult(
         e_tag=pulumi.get(__response__, 'e_tag'),
