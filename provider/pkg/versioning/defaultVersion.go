@@ -231,7 +231,13 @@ func (b providerSpecBuilder) buildSpec(versions VersionResources, curations Cura
 			}
 			if existingVersion, ok := existingAdditions[resourceName]; ok {
 				additions[resourceName] = existingVersion
-			} else if !trackingResources.Has(resourceName) {
+				continue
+			}
+			if !b.providerList.HasProviderVersion(b.providerName, apiVersion) {
+				// Don't add if not marked as live
+				continue
+			}
+			if !trackingResources.Has(resourceName) {
 				additions[resourceName] = apiVersion
 			}
 		}
