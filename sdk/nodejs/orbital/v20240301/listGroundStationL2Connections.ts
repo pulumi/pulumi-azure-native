@@ -45,7 +45,7 @@ export interface ListGroundStationL2ConnectionsResult {
 /**
  * Returns a list of L2 Connections attached to an ground station.
  */
-export function listGroundStationL2ConnectionsOutput(args: ListGroundStationL2ConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGroundStationL2ConnectionsResult> {
+export function listGroundStationL2ConnectionsOutput(args: ListGroundStationL2ConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGroundStationL2ConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital/v20240301:listGroundStationL2Connections", {
         "groundStationName": args.groundStationName,

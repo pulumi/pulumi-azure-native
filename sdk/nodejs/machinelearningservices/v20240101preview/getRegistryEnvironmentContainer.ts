@@ -62,7 +62,7 @@ export interface GetRegistryEnvironmentContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getRegistryEnvironmentContainerOutput(args: GetRegistryEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryEnvironmentContainerResult> {
+export function getRegistryEnvironmentContainerOutput(args: GetRegistryEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryEnvironmentContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:getRegistryEnvironmentContainer", {
         "environmentName": args.environmentName,

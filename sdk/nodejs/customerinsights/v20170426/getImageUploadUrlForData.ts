@@ -61,7 +61,7 @@ export interface GetImageUploadUrlForDataResult {
 /**
  * Gets data image upload URL.
  */
-export function getImageUploadUrlForDataOutput(args: GetImageUploadUrlForDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForDataResult> {
+export function getImageUploadUrlForDataOutput(args: GetImageUploadUrlForDataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageUploadUrlForDataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getImageUploadUrlForData", {
         "entityType": args.entityType,

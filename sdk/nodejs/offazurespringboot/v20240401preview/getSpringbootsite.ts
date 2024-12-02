@@ -69,7 +69,7 @@ export interface GetSpringbootsiteResult {
 /**
  * Get a springbootsites resource.
  */
-export function getSpringbootsiteOutput(args: GetSpringbootsiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringbootsiteResult> {
+export function getSpringbootsiteOutput(args: GetSpringbootsiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpringbootsiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazurespringboot/v20240401preview:getSpringbootsite", {
         "resourceGroupName": args.resourceGroupName,

@@ -81,7 +81,7 @@ export interface ListStorageAccountSASResult {
 /**
  * List SAS credentials of a storage account.
  */
-export function listStorageAccountSASOutput(args: ListStorageAccountSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountSASResult> {
+export function listStorageAccountSASOutput(args: ListStorageAccountSASOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStorageAccountSASResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230101:listStorageAccountSAS", {
         "accountName": args.accountName,

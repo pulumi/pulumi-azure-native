@@ -44,7 +44,7 @@ export interface ListClusterCalloutPoliciesResult {
  * Returns the allowed callout policies for the specified service.
  * Azure REST API version: 2024-04-13.
  */
-export function listClusterCalloutPoliciesOutput(args: ListClusterCalloutPoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterCalloutPoliciesResult> {
+export function listClusterCalloutPoliciesOutput(args: ListClusterCalloutPoliciesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListClusterCalloutPoliciesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto:listClusterCalloutPolicies", {
         "clusterName": args.clusterName,

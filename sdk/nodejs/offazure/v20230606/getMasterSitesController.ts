@@ -92,7 +92,7 @@ export interface GetMasterSitesControllerResult {
 /**
  * Get a MasterSite
  */
-export function getMasterSitesControllerOutput(args: GetMasterSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMasterSitesControllerResult> {
+export function getMasterSitesControllerOutput(args: GetMasterSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMasterSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getMasterSitesController", {
         "resourceGroupName": args.resourceGroupName,

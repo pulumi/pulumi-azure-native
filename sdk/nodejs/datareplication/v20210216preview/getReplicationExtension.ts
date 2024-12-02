@@ -59,7 +59,7 @@ export interface GetReplicationExtensionResult {
 /**
  * Gets the details of the replication extension.
  */
-export function getReplicationExtensionOutput(args: GetReplicationExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationExtensionResult> {
+export function getReplicationExtensionOutput(args: GetReplicationExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datareplication/v20210216preview:getReplicationExtension", {
         "replicationExtensionName": args.replicationExtensionName,

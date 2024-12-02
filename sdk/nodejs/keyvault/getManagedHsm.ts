@@ -75,7 +75,7 @@ export interface GetManagedHsmResult {
  *
  * Other available API versions: 2023-07-01, 2024-04-01-preview.
  */
-export function getManagedHsmOutput(args: GetManagedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHsmResult> {
+export function getManagedHsmOutput(args: GetManagedHsmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedHsmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:keyvault:getManagedHsm", {
         "name": args.name,

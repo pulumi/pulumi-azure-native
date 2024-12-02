@@ -82,7 +82,7 @@ export interface GetExpressRouteConnectionResult {
 /**
  * Gets the specified ExpressRouteConnection.
  */
-export function getExpressRouteConnectionOutput(args: GetExpressRouteConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteConnectionResult> {
+export function getExpressRouteConnectionOutput(args: GetExpressRouteConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExpressRouteConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getExpressRouteConnection", {
         "connectionName": args.connectionName,

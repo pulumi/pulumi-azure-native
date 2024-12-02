@@ -58,7 +58,7 @@ export interface GetApiWikiResult {
 /**
  * Gets the details of the Wiki for an API specified by its identifier.
  */
-export function getApiWikiOutput(args: GetApiWikiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiWikiResult> {
+export function getApiWikiOutput(args: GetApiWikiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiWikiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getApiWiki", {
         "apiId": args.apiId,

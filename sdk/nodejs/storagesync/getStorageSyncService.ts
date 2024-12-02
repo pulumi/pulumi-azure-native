@@ -95,7 +95,7 @@ export interface GetStorageSyncServiceResult {
  *
  * Other available API versions: 2017-06-05-preview, 2019-10-01, 2022-09-01.
  */
-export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSyncServiceResult> {
+export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageSyncServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagesync:getStorageSyncService", {
         "resourceGroupName": args.resourceGroupName,

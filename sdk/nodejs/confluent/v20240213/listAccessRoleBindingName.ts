@@ -54,7 +54,7 @@ export interface ListAccessRoleBindingNameResult {
 /**
  * Details of the role binding names returned on successful response
  */
-export function listAccessRoleBindingNameOutput(args: ListAccessRoleBindingNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessRoleBindingNameResult> {
+export function listAccessRoleBindingNameOutput(args: ListAccessRoleBindingNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessRoleBindingNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confluent/v20240213:listAccessRoleBindingName", {
         "organizationName": args.organizationName,

@@ -65,7 +65,7 @@ export interface GetEdgeSiteResult {
 /**
  * Gets the specified edge site in a specified resource group.
  */
-export function getEdgeSiteOutput(args: GetEdgeSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeSiteResult> {
+export function getEdgeSiteOutput(args: GetEdgeSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEdgeSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital/v20240301:getEdgeSite", {
         "edgeSiteName": args.edgeSiteName,

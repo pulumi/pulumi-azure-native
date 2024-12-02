@@ -76,7 +76,7 @@ export interface GetTransformResult {
  * Gets a Transform.
  * Azure REST API version: 2022-07-01.
  */
-export function getTransformOutput(args: GetTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransformResult> {
+export function getTransformOutput(args: GetTransformOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransformResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getTransform", {
         "accountName": args.accountName,

@@ -48,7 +48,7 @@ export interface GetRequiredAmlFSSubnetsSizeResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-11-01-preview, 2024-03-01.
  */
-export function getRequiredAmlFSSubnetsSizeOutput(args?: GetRequiredAmlFSSubnetsSizeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRequiredAmlFSSubnetsSizeResult> {
+export function getRequiredAmlFSSubnetsSizeOutput(args?: GetRequiredAmlFSSubnetsSizeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRequiredAmlFSSubnetsSizeResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagecache:getRequiredAmlFSSubnetsSize", {

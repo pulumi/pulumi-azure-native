@@ -90,7 +90,7 @@ export interface GetPartnerDestinationResult {
 /**
  * Get properties of a partner destination.
  */
-export function getPartnerDestinationOutput(args: GetPartnerDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerDestinationResult> {
+export function getPartnerDestinationOutput(args: GetPartnerDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerDestinationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20211015preview:getPartnerDestination", {
         "partnerDestinationName": args.partnerDestinationName,

@@ -93,7 +93,7 @@ export interface GetFirewallPolicyDraftResult {
 /**
  * Get a draft Firewall Policy.
  */
-export function getFirewallPolicyDraftOutput(args: GetFirewallPolicyDraftOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyDraftResult> {
+export function getFirewallPolicyDraftOutput(args: GetFirewallPolicyDraftOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallPolicyDraftResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240101:getFirewallPolicyDraft", {
         "firewallPolicyName": args.firewallPolicyName,

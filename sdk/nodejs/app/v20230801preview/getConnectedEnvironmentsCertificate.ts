@@ -70,7 +70,7 @@ export interface GetConnectedEnvironmentsCertificateResult {
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
  */
-export function getConnectedEnvironmentsCertificateOutput(args: GetConnectedEnvironmentsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsCertificateResult> {
+export function getConnectedEnvironmentsCertificateOutput(args: GetConnectedEnvironmentsCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectedEnvironmentsCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20230801preview:getConnectedEnvironmentsCertificate", {
         "certificateName": args.certificateName,

@@ -78,7 +78,7 @@ export interface GetVirtualHubBgpConnectionResult {
 /**
  * Retrieves the details of a Virtual Hub Bgp Connection.
  */
-export function getVirtualHubBgpConnectionOutput(args: GetVirtualHubBgpConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubBgpConnectionResult> {
+export function getVirtualHubBgpConnectionOutput(args: GetVirtualHubBgpConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHubBgpConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getVirtualHubBgpConnection", {
         "connectionName": args.connectionName,

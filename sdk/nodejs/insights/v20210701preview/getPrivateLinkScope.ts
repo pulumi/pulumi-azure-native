@@ -73,7 +73,7 @@ export interface GetPrivateLinkScopeResult {
 /**
  * Returns a Azure Monitor PrivateLinkScope.
  */
-export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
+export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20210701preview:getPrivateLinkScope", {
         "resourceGroupName": args.resourceGroupName,

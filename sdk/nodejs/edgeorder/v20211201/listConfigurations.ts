@@ -50,7 +50,7 @@ export interface ListConfigurationsResult {
 /**
  * This method provides the list of configurations for the given product family, product line and product under subscription.
  */
-export function listConfigurationsOutput(args: ListConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationsResult> {
+export function listConfigurationsOutput(args: ListConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConfigurationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edgeorder/v20211201:listConfigurations", {
         "configurationFilters": args.configurationFilters,

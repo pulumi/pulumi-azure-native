@@ -95,7 +95,7 @@ export interface GetSqlVirtualMachineGroupResult {
  *
  * Other available API versions: 2023-01-01-preview, 2023-10-01.
  */
-export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
+export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup", {
         "resourceGroupName": args.resourceGroupName,

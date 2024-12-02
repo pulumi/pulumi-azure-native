@@ -52,7 +52,7 @@ export interface GetIntegrationRuntimeStatusResult {
  * Gets detailed status information for an integration runtime.
  * Azure REST API version: 2018-06-01.
  */
-export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
+export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getIntegrationRuntimeStatus", {
         "factoryName": args.factoryName,

@@ -72,7 +72,7 @@ export interface GetSnapshotResult {
  * Get a Snapshot
  * Azure REST API version: 2023-07-01-preview.
  */
-export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
+export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerstorage:getSnapshot", {
         "poolName": args.poolName,

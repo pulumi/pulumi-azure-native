@@ -121,7 +121,7 @@ export interface GetAdminRuleResult {
 /**
  * Gets a network manager security configuration admin rule.
  */
-export function getAdminRuleOutput(args: GetAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleResult> {
+export function getAdminRuleOutput(args: GetAdminRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAdminRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20210201preview:getAdminRule", {
         "configurationName": args.configurationName,

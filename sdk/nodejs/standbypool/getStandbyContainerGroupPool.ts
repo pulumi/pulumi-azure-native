@@ -79,7 +79,7 @@ export interface GetStandbyContainerGroupPoolResult {
  *
  * Other available API versions: 2024-03-01, 2024-03-01-preview.
  */
-export function getStandbyContainerGroupPoolOutput(args: GetStandbyContainerGroupPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandbyContainerGroupPoolResult> {
+export function getStandbyContainerGroupPoolOutput(args: GetStandbyContainerGroupPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandbyContainerGroupPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:standbypool:getStandbyContainerGroupPool", {
         "resourceGroupName": args.resourceGroupName,

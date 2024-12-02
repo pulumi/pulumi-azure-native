@@ -60,7 +60,7 @@ export interface GetProductApiLinkResult {
 /**
  * Gets the API link for the product.
  */
-export function getProductApiLinkOutput(args: GetProductApiLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductApiLinkResult> {
+export function getProductApiLinkOutput(args: GetProductApiLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProductApiLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getProductApiLink", {
         "apiLinkId": args.apiLinkId,

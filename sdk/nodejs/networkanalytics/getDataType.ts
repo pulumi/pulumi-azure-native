@@ -88,7 +88,7 @@ export interface GetDataTypeResult {
  * Retrieve data type resource.
  * Azure REST API version: 2023-11-15.
  */
-export function getDataTypeOutput(args: GetDataTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataTypeResult> {
+export function getDataTypeOutput(args: GetDataTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkanalytics:getDataType", {
         "dataProductName": args.dataProductName,

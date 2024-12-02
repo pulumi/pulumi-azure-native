@@ -52,7 +52,7 @@ export interface GetAliasResult {
 /**
  * Get Alias Subscription.
  */
-export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:subscription/v20240801preview:getAlias", {
         "aliasName": args.aliasName,

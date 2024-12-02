@@ -66,7 +66,7 @@ export interface GetSapVirtualInstanceInvokeDiskConfigurationsResult {
 /**
  * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
  */
-export function getSapVirtualInstanceInvokeDiskConfigurationsOutput(args: GetSapVirtualInstanceInvokeDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeDiskConfigurationsResult> {
+export function getSapVirtualInstanceInvokeDiskConfigurationsOutput(args: GetSapVirtualInstanceInvokeDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapVirtualInstanceInvokeDiskConfigurationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeDiskConfigurations", {
         "appLocation": args.appLocation,

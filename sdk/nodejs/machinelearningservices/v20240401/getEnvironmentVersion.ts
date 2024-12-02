@@ -67,7 +67,7 @@ export interface GetEnvironmentVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getEnvironmentVersionOutput(args: GetEnvironmentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentVersionResult> {
+export function getEnvironmentVersionOutput(args: GetEnvironmentVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401:getEnvironmentVersion", {
         "name": args.name,

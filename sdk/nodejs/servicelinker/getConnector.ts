@@ -105,7 +105,7 @@ export interface GetConnectorResult {
  *
  * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
  */
-export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
+export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicelinker:getConnector", {
         "connectorName": args.connectorName,

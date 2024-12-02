@@ -126,7 +126,7 @@ export interface GetContactResult {
 /**
  * Gets the specified contact in a specified resource group.
  */
-export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
+export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital/v20220301:getContact", {
         "contactName": args.contactName,

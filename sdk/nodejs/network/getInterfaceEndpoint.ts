@@ -92,7 +92,7 @@ export interface GetInterfaceEndpointResult {
  * Gets the specified interface endpoint by resource group.
  * Azure REST API version: 2019-02-01.
  */
-export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInterfaceEndpointResult> {
+export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInterfaceEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getInterfaceEndpoint", {
         "expand": args.expand,

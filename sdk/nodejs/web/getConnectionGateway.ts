@@ -69,7 +69,7 @@ export interface GetConnectionGatewayResult {
  * Gets a specific gateway under a subscription and in a specific resource group
  * Azure REST API version: 2016-06-01.
  */
-export function getConnectionGatewayOutput(args: GetConnectionGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionGatewayResult> {
+export function getConnectionGatewayOutput(args: GetConnectionGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getConnectionGateway", {
         "connectionGatewayName": args.connectionGatewayName,

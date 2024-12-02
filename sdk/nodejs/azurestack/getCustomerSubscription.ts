@@ -65,7 +65,7 @@ export interface GetCustomerSubscriptionResult {
  *
  * Other available API versions: 2020-06-01-preview.
  */
-export function getCustomerSubscriptionOutput(args: GetCustomerSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerSubscriptionResult> {
+export function getCustomerSubscriptionOutput(args: GetCustomerSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomerSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestack:getCustomerSubscription", {
         "customerSubscriptionName": args.customerSubscriptionName,

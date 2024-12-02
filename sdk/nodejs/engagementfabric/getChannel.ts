@@ -65,7 +65,7 @@ export interface GetChannelResult {
  * The EngagementFabric channel
  * Azure REST API version: 2018-09-01-preview.
  */
-export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
+export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:engagementfabric:getChannel", {
         "accountName": args.accountName,

@@ -61,7 +61,7 @@ export interface GetImageUploadUrlForEntityTypeResult {
 /**
  * Gets entity type (profile or interaction) image upload URL.
  */
-export function getImageUploadUrlForEntityTypeOutput(args: GetImageUploadUrlForEntityTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageUploadUrlForEntityTypeResult> {
+export function getImageUploadUrlForEntityTypeOutput(args: GetImageUploadUrlForEntityTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageUploadUrlForEntityTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getImageUploadUrlForEntityType", {
         "entityType": args.entityType,

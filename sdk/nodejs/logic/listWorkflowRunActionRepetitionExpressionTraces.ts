@@ -59,7 +59,7 @@ export interface ListWorkflowRunActionRepetitionExpressionTracesResult {
  *
  * Other available API versions: 2016-06-01, 2018-07-01-preview.
  */
-export function listWorkflowRunActionRepetitionExpressionTracesOutput(args: ListWorkflowRunActionRepetitionExpressionTracesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowRunActionRepetitionExpressionTracesResult> {
+export function listWorkflowRunActionRepetitionExpressionTracesOutput(args: ListWorkflowRunActionRepetitionExpressionTracesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkflowRunActionRepetitionExpressionTracesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:listWorkflowRunActionRepetitionExpressionTraces", {
         "actionName": args.actionName,

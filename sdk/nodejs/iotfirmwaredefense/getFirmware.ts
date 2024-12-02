@@ -100,7 +100,7 @@ export interface GetFirmwareResult {
  *
  * Other available API versions: 2024-01-10.
  */
-export function getFirmwareOutput(args: GetFirmwareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirmwareResult> {
+export function getFirmwareOutput(args: GetFirmwareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirmwareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotfirmwaredefense:getFirmware", {
         "firmwareId": args.firmwareId,

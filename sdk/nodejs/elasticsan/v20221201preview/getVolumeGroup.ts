@@ -78,7 +78,7 @@ export interface GetVolumeGroupResult {
 /**
  * Get an VolumeGroups.
  */
-export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
+export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elasticsan/v20221201preview:getVolumeGroup", {
         "elasticSanName": args.elasticSanName,

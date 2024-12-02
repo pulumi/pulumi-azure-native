@@ -91,7 +91,7 @@ export interface GetDiagnosticSettingResult {
  * Gets the active diagnostic settings for the specified resource.
  * Azure REST API version: 2021-05-01-preview.
  */
-export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
+export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getDiagnosticSetting", {
         "name": args.name,

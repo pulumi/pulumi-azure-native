@@ -115,7 +115,7 @@ export interface GetDefaultUserRuleResult {
  * Gets a user rule.
  * Azure REST API version: 2022-04-01-preview.
  */
-export function getDefaultUserRuleOutput(args: GetDefaultUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultUserRuleResult> {
+export function getDefaultUserRuleOutput(args: GetDefaultUserRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultUserRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getDefaultUserRule", {
         "configurationName": args.configurationName,

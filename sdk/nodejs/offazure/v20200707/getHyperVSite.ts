@@ -66,7 +66,7 @@ export interface GetHyperVSiteResult {
 /**
  * Site REST Resource.
  */
-export function getHyperVSiteOutput(args: GetHyperVSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVSiteResult> {
+export function getHyperVSiteOutput(args: GetHyperVSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHyperVSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20200707:getHyperVSite", {
         "resourceGroupName": args.resourceGroupName,

@@ -69,7 +69,7 @@ export interface GetIntegrationFabricResult {
  * The integration fabric resource type.
  * Azure REST API version: 2023-10-01-preview.
  */
-export function getIntegrationFabricOutput(args: GetIntegrationFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationFabricResult> {
+export function getIntegrationFabricOutput(args: GetIntegrationFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dashboard:getIntegrationFabric", {
         "integrationFabricName": args.integrationFabricName,

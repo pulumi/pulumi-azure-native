@@ -88,7 +88,7 @@ export interface GetOutboundEndpointResult {
  *
  * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
-export function getOutboundEndpointOutput(args: GetOutboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundEndpointResult> {
+export function getOutboundEndpointOutput(args: GetOutboundEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOutboundEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getOutboundEndpoint", {
         "dnsResolverName": args.dnsResolverName,

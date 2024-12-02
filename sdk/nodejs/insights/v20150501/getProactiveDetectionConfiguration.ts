@@ -66,7 +66,7 @@ export interface GetProactiveDetectionConfigurationResult {
 /**
  * Get the ProactiveDetection configuration for this configuration id.
  */
-export function getProactiveDetectionConfigurationOutput(args: GetProactiveDetectionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProactiveDetectionConfigurationResult> {
+export function getProactiveDetectionConfigurationOutput(args: GetProactiveDetectionConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProactiveDetectionConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20150501:getProactiveDetectionConfiguration", {
         "configurationId": args.configurationId,

@@ -62,7 +62,7 @@ export interface GetJavaComponentResult {
 /**
  * Java Component.
  */
-export function getJavaComponentOutput(args: GetJavaComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJavaComponentResult> {
+export function getJavaComponentOutput(args: GetJavaComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJavaComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240202preview:getJavaComponent", {
         "environmentName": args.environmentName,

@@ -67,7 +67,7 @@ export interface GetRegistryCodeVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getRegistryCodeVersionOutput(args: GetRegistryCodeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryCodeVersionResult> {
+export function getRegistryCodeVersionOutput(args: GetRegistryCodeVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryCodeVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401preview:getRegistryCodeVersion", {
         "codeName": args.codeName,

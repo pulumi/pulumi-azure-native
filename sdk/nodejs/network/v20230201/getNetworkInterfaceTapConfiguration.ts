@@ -66,7 +66,7 @@ export interface GetNetworkInterfaceTapConfigurationResult {
 /**
  * Get the specified tap configuration on a network interface.
  */
-export function getNetworkInterfaceTapConfigurationOutput(args: GetNetworkInterfaceTapConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceTapConfigurationResult> {
+export function getNetworkInterfaceTapConfigurationOutput(args: GetNetworkInterfaceTapConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceTapConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getNetworkInterfaceTapConfiguration", {
         "networkInterfaceName": args.networkInterfaceName,

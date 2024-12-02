@@ -110,7 +110,7 @@ export interface GetRemediationAtManagementGroupResult {
 /**
  * Gets an existing remediation at management group scope.
  */
-export function getRemediationAtManagementGroupOutput(args: GetRemediationAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtManagementGroupResult> {
+export function getRemediationAtManagementGroupOutput(args: GetRemediationAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemediationAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights/v20211001:getRemediationAtManagementGroup", {
         "managementGroupId": args.managementGroupId,

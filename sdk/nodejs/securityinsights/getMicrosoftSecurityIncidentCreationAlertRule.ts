@@ -105,7 +105,7 @@ export interface GetMicrosoftSecurityIncidentCreationAlertRuleResult {
  * Gets the alert rule.
  * Azure REST API version: 2023-02-01.
  */
-export function getMicrosoftSecurityIncidentCreationAlertRuleOutput(args: GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
+export function getMicrosoftSecurityIncidentCreationAlertRuleOutput(args: GetMicrosoftSecurityIncidentCreationAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMicrosoftSecurityIncidentCreationAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getMicrosoftSecurityIncidentCreationAlertRule", {
         "resourceGroupName": args.resourceGroupName,

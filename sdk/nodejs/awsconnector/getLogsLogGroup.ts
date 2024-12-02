@@ -67,7 +67,7 @@ export interface GetLogsLogGroupResult {
  * Get a LogsLogGroup
  * Azure REST API version: 2024-12-01.
  */
-export function getLogsLogGroupOutput(args: GetLogsLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsLogGroupResult> {
+export function getLogsLogGroupOutput(args: GetLogsLogGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsLogGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getLogsLogGroup", {
         "name": args.name,

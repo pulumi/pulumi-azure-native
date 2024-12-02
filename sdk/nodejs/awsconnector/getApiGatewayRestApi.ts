@@ -67,7 +67,7 @@ export interface GetApiGatewayRestApiResult {
  * Get a ApiGatewayRestApi
  * Azure REST API version: 2024-12-01.
  */
-export function getApiGatewayRestApiOutput(args: GetApiGatewayRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayRestApiResult> {
+export function getApiGatewayRestApiOutput(args: GetApiGatewayRestApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiGatewayRestApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getApiGatewayRestApi", {
         "name": args.name,

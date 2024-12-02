@@ -76,7 +76,7 @@ export interface GetContainerAppsSourceControlResult {
 /**
  * Container App SourceControl.
  */
-export function getContainerAppsSourceControlOutput(args: GetContainerAppsSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsSourceControlResult> {
+export function getContainerAppsSourceControlOutput(args: GetContainerAppsSourceControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerAppsSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20230401preview:getContainerAppsSourceControl", {
         "containerAppName": args.containerAppName,

@@ -67,7 +67,7 @@ export interface GetLambdaFunctionCodeLocationResult {
  * Get a LambdaFunctionCodeLocation
  * Azure REST API version: 2024-12-01.
  */
-export function getLambdaFunctionCodeLocationOutput(args: GetLambdaFunctionCodeLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLambdaFunctionCodeLocationResult> {
+export function getLambdaFunctionCodeLocationOutput(args: GetLambdaFunctionCodeLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLambdaFunctionCodeLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getLambdaFunctionCodeLocation", {
         "name": args.name,

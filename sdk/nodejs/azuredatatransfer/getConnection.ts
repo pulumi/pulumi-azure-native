@@ -71,7 +71,7 @@ export interface GetConnectionResult {
  *
  * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
  */
-export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
+export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:getConnection", {
         "connectionName": args.connectionName,

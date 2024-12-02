@@ -106,7 +106,7 @@ export interface GetDiagnosticServiceResult {
 /**
  * Get a DiagnosticServiceResource
  */
-export function getDiagnosticServiceOutput(args: GetDiagnosticServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticServiceResult> {
+export function getDiagnosticServiceOutput(args: GetDiagnosticServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq/v20231004preview:getDiagnosticService", {
         "diagnosticServiceName": args.diagnosticServiceName,

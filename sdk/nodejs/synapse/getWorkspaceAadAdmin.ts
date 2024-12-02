@@ -68,7 +68,7 @@ export interface GetWorkspaceAadAdminResult {
  *
  * Other available API versions: 2021-06-01-preview.
  */
-export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
+export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getWorkspaceAadAdmin", {
         "resourceGroupName": args.resourceGroupName,

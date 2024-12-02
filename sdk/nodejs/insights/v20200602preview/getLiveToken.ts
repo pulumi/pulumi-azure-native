@@ -33,7 +33,7 @@ export interface GetLiveTokenResult {
 /**
  * **Gets an access token for live metrics stream data.**
  */
-export function getLiveTokenOutput(args: GetLiveTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveTokenResult> {
+export function getLiveTokenOutput(args: GetLiveTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20200602preview:getLiveToken", {
         "resourceUri": args.resourceUri,

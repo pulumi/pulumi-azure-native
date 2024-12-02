@@ -67,7 +67,7 @@ export interface GetIamServerCertificateResult {
  * Get a IamServerCertificate
  * Azure REST API version: 2024-12-01.
  */
-export function getIamServerCertificateOutput(args: GetIamServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamServerCertificateResult> {
+export function getIamServerCertificateOutput(args: GetIamServerCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamServerCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamServerCertificate", {
         "name": args.name,

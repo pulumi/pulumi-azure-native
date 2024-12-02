@@ -64,7 +64,7 @@ export interface GetIntegrationRuntimeResult {
  * Gets an integration runtime.
  * Azure REST API version: 2018-06-01.
  */
-export function getIntegrationRuntimeOutput(args: GetIntegrationRuntimeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeResult> {
+export function getIntegrationRuntimeOutput(args: GetIntegrationRuntimeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationRuntimeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getIntegrationRuntime", {
         "factoryName": args.factoryName,

@@ -98,7 +98,7 @@ export interface GetDistributedAvailabilityGroupResult {
 /**
  * Gets a distributed availability group info.
  */
-export function getDistributedAvailabilityGroupOutput(args: GetDistributedAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributedAvailabilityGroupResult> {
+export function getDistributedAvailabilityGroupOutput(args: GetDistributedAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDistributedAvailabilityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getDistributedAvailabilityGroup", {
         "distributedAvailabilityGroupName": args.distributedAvailabilityGroupName,

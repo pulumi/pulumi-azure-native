@@ -64,7 +64,7 @@ export interface ListPolicyFragmentReferencesResult {
 /**
  * Lists policy resources that reference the policy fragment.
  */
-export function listPolicyFragmentReferencesOutput(args: ListPolicyFragmentReferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicyFragmentReferencesResult> {
+export function listPolicyFragmentReferencesOutput(args: ListPolicyFragmentReferencesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPolicyFragmentReferencesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:listPolicyFragmentReferences", {
         "id": args.id,

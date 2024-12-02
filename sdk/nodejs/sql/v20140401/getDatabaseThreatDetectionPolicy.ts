@@ -92,7 +92,7 @@ export interface GetDatabaseThreatDetectionPolicyResult {
 /**
  * Gets a database's threat detection policy.
  */
-export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
+export function getDatabaseThreatDetectionPolicyOutput(args: GetDatabaseThreatDetectionPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseThreatDetectionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", {
         "databaseName": args.databaseName,

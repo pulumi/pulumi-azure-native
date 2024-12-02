@@ -71,7 +71,7 @@ export interface GetMqResult {
  * Get a MqResource
  * Azure REST API version: 2023-10-04-preview.
  */
-export function getMqOutput(args: GetMqOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMqResult> {
+export function getMqOutput(args: GetMqOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMqResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq:getMq", {
         "mqName": args.mqName,

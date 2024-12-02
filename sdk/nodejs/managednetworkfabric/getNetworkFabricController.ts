@@ -115,7 +115,7 @@ export interface GetNetworkFabricControllerResult {
  *
  * Other available API versions: 2023-06-15.
  */
-export function getNetworkFabricControllerOutput(args: GetNetworkFabricControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFabricControllerResult> {
+export function getNetworkFabricControllerOutput(args: GetNetworkFabricControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFabricControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkFabricController", {
         "networkFabricControllerName": args.networkFabricControllerName,

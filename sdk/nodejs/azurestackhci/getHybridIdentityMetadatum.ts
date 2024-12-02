@@ -76,7 +76,7 @@ export interface GetHybridIdentityMetadatumResult {
  * Implements HybridIdentityMetadata GET method.
  * Azure REST API version: 2022-12-15-preview.
  */
-export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
+export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getHybridIdentityMetadatum", {
         "metadataName": args.metadataName,

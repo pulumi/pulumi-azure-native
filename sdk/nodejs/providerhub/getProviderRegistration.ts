@@ -48,7 +48,7 @@ export interface GetProviderRegistrationResult {
  * Gets the provider registration details.
  * Azure REST API version: 2021-09-01-preview.
  */
-export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderRegistrationResult> {
+export function getProviderRegistrationOutput(args: GetProviderRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:providerhub:getProviderRegistration", {
         "providerNamespace": args.providerNamespace,

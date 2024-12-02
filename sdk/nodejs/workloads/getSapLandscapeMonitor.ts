@@ -71,7 +71,7 @@ export interface GetSapLandscapeMonitorResult {
  *
  * Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
  */
-export function getSapLandscapeMonitorOutput(args: GetSapLandscapeMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapLandscapeMonitorResult> {
+export function getSapLandscapeMonitorOutput(args: GetSapLandscapeMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapLandscapeMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getSapLandscapeMonitor", {
         "monitorName": args.monitorName,

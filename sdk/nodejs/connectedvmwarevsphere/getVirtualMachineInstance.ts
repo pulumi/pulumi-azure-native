@@ -102,7 +102,7 @@ export interface GetVirtualMachineInstanceResult {
  *
  * Other available API versions: 2023-10-01, 2023-12-01.
  */
-export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineInstanceResult> {
+export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere:getVirtualMachineInstance", {
         "resourceUri": args.resourceUri,

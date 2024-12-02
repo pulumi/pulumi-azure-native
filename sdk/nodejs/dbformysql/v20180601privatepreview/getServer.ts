@@ -125,7 +125,7 @@ export interface GetServerResult {
 /**
  * Gets information about a server.
  */
-export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
+export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbformysql/v20180601privatepreview:getServer", {
         "resourceGroupName": args.resourceGroupName,

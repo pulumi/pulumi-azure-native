@@ -115,7 +115,7 @@ export interface GetActionGroupResult {
  *
  * Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
  */
-export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionGroupResult> {
+export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getActionGroup", {
         "actionGroupName": args.actionGroupName,

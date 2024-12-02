@@ -137,7 +137,7 @@ export interface ListStorageAccountServiceSASResult {
  *
  * Other available API versions: 2018-11-01, 2023-01-01, 2023-04-01, 2023-05-01.
  */
-export function listStorageAccountServiceSASOutput(args: ListStorageAccountServiceSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountServiceSASResult> {
+export function listStorageAccountServiceSASOutput(args: ListStorageAccountServiceSASOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStorageAccountServiceSASResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage:listStorageAccountServiceSAS", {
         "accountName": args.accountName,

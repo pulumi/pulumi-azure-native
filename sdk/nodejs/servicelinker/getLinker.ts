@@ -95,7 +95,7 @@ export interface GetLinkerResult {
  *
  * Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
  */
-export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerResult> {
+export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicelinker:getLinker", {
         "linkerName": args.linkerName,

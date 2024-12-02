@@ -78,7 +78,7 @@ export interface GetSqlServerResult {
  * Gets a SQL Server.
  * Azure REST API version: 2019-07-24-preview.
  */
-export function getSqlServerOutput(args: GetSqlServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerResult> {
+export function getSqlServerOutput(args: GetSqlServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredata:getSqlServer", {
         "expand": args.expand,

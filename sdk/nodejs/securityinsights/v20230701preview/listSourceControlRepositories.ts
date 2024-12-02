@@ -45,7 +45,7 @@ export interface ListSourceControlRepositoriesResult {
 /**
  * Gets a list of repositories metadata.
  */
-export function listSourceControlRepositoriesOutput(args: ListSourceControlRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSourceControlRepositoriesResult> {
+export function listSourceControlRepositoriesOutput(args: ListSourceControlRepositoriesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSourceControlRepositoriesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230701preview:listSourceControlRepositories", {
         "resourceGroupName": args.resourceGroupName,

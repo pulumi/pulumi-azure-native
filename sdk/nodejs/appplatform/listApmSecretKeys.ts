@@ -49,7 +49,7 @@ export interface ListApmSecretKeysResult {
  *
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
-export function listApmSecretKeysOutput(args: ListApmSecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApmSecretKeysResult> {
+export function listApmSecretKeysOutput(args: ListApmSecretKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListApmSecretKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform:listApmSecretKeys", {
         "apmName": args.apmName,

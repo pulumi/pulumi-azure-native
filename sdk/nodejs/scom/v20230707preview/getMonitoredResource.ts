@@ -62,7 +62,7 @@ export interface GetMonitoredResourceResult {
 /**
  * Retrieve the details of the monitored resource.
  */
-export function getMonitoredResourceOutput(args: GetMonitoredResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoredResourceResult> {
+export function getMonitoredResourceOutput(args: GetMonitoredResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoredResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scom/v20230707preview:getMonitoredResource", {
         "instanceName": args.instanceName,

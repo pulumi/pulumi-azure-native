@@ -113,7 +113,7 @@ export interface GetViewByScopeResult {
 /**
  * Gets the view for the defined scope by view name.
  */
-export function getViewByScopeOutput(args: GetViewByScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewByScopeResult> {
+export function getViewByScopeOutput(args: GetViewByScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetViewByScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20231101:getViewByScope", {
         "scope": args.scope,

@@ -33,7 +33,7 @@ export interface GetDiagnosticServiceTokenReadOnlyResult {
 /**
  * Gets an read-only access token for application insights diagnostic service data.
  */
-export function getDiagnosticServiceTokenReadOnlyOutput(args: GetDiagnosticServiceTokenReadOnlyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticServiceTokenReadOnlyResult> {
+export function getDiagnosticServiceTokenReadOnlyOutput(args: GetDiagnosticServiceTokenReadOnlyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticServiceTokenReadOnlyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadOnly", {
         "resourceUri": args.resourceUri,

@@ -114,7 +114,7 @@ export interface GetSecurityUserRuleResult {
  *
  * Other available API versions: 2024-05-01.
  */
-export function getSecurityUserRuleOutput(args: GetSecurityUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityUserRuleResult> {
+export function getSecurityUserRuleOutput(args: GetSecurityUserRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityUserRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getSecurityUserRule", {
         "configurationName": args.configurationName,

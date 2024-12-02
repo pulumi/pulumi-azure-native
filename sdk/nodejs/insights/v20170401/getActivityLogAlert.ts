@@ -77,7 +77,7 @@ export interface GetActivityLogAlertResult {
 /**
  * Get an activity log alert.
  */
-export function getActivityLogAlertOutput(args: GetActivityLogAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityLogAlertResult> {
+export function getActivityLogAlertOutput(args: GetActivityLogAlertOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActivityLogAlertResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20170401:getActivityLogAlert", {
         "activityLogAlertName": args.activityLogAlertName,

@@ -135,7 +135,7 @@ export interface GetLocalRuleResult {
 /**
  * Get a LocalRulesResource
  */
-export function getLocalRuleOutput(args: GetLocalRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRuleResult> {
+export function getLocalRuleOutput(args: GetLocalRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:getLocalRule", {
         "localRulestackName": args.localRulestackName,

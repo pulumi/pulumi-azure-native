@@ -71,7 +71,7 @@ export interface GetMigrateProjectsControllerMigrateProjectResult {
  *
  * Other available API versions: 2023-01-01.
  */
-export function getMigrateProjectsControllerMigrateProjectOutput(args: GetMigrateProjectsControllerMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectsControllerMigrateProjectResult> {
+export function getMigrateProjectsControllerMigrateProjectOutput(args: GetMigrateProjectsControllerMigrateProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrateProjectsControllerMigrateProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getMigrateProjectsControllerMigrateProject", {
         "migrateProjectName": args.migrateProjectName,

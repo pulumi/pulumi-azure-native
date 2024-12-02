@@ -59,7 +59,7 @@ export interface GetDomainOwnershipIdentifierResult {
 /**
  * Description for Get ownership identifier for domain
  */
-export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
+export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:domainregistration/v20220901:getDomainOwnershipIdentifier", {
         "domainName": args.domainName,

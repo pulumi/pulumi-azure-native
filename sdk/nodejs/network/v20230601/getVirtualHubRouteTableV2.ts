@@ -66,7 +66,7 @@ export interface GetVirtualHubRouteTableV2Result {
 /**
  * Retrieves the details of a VirtualHubRouteTableV2.
  */
-export function getVirtualHubRouteTableV2Output(args: GetVirtualHubRouteTableV2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubRouteTableV2Result> {
+export function getVirtualHubRouteTableV2Output(args: GetVirtualHubRouteTableV2OutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHubRouteTableV2Result> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getVirtualHubRouteTableV2", {
         "resourceGroupName": args.resourceGroupName,

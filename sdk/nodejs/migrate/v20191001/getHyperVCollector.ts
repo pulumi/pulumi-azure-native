@@ -44,7 +44,7 @@ export interface GetHyperVCollectorResult {
 /**
  * Get a Hyper-V collector.
  */
-export function getHyperVCollectorOutput(args: GetHyperVCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVCollectorResult> {
+export function getHyperVCollectorOutput(args: GetHyperVCollectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHyperVCollectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20191001:getHyperVCollector", {
         "hyperVCollectorName": args.hyperVCollectorName,

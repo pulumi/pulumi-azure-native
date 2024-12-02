@@ -92,7 +92,7 @@ export interface GetProjectCatalogImageDefinitionBuildDetailsResult {
 /**
  * Gets Build details
  */
-export function getProjectCatalogImageDefinitionBuildDetailsOutput(args: GetProjectCatalogImageDefinitionBuildDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogImageDefinitionBuildDetailsResult> {
+export function getProjectCatalogImageDefinitionBuildDetailsOutput(args: GetProjectCatalogImageDefinitionBuildDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectCatalogImageDefinitionBuildDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240801preview:getProjectCatalogImageDefinitionBuildDetails", {
         "buildName": args.buildName,

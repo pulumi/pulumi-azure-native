@@ -93,7 +93,7 @@ export interface GetGatewayResult {
 /**
  * Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
  */
-export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh/v20180901preview:getGateway", {
         "gatewayResourceName": args.gatewayResourceName,

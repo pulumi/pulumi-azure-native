@@ -123,7 +123,7 @@ export interface GetAgentPoolResult {
 /**
  * Get properties of the provided Kubernetes cluster agent pool.
  */
-export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
+export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgentPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20230701:getAgentPool", {
         "agentPoolName": args.agentPoolName,

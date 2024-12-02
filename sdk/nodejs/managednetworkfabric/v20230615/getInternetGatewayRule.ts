@@ -77,7 +77,7 @@ export interface GetInternetGatewayRuleResult {
 /**
  * Gets an Internet Gateway Rule resource.
  */
-export function getInternetGatewayRuleOutput(args: GetInternetGatewayRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayRuleResult> {
+export function getInternetGatewayRuleOutput(args: GetInternetGatewayRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInternetGatewayRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getInternetGatewayRule", {
         "internetGatewayRuleName": args.internetGatewayRuleName,

@@ -78,7 +78,7 @@ export interface GetFqdnListLocalRulestackResult {
 /**
  * Get a FqdnListLocalRulestackResource
  */
-export function getFqdnListLocalRulestackOutput(args: GetFqdnListLocalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFqdnListLocalRulestackResult> {
+export function getFqdnListLocalRulestackOutput(args: GetFqdnListLocalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFqdnListLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240119preview:getFqdnListLocalRulestack", {
         "localRulestackName": args.localRulestackName,

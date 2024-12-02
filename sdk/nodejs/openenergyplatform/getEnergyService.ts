@@ -61,7 +61,7 @@ export interface GetEnergyServiceResult {
  * Returns oep resource for a given name.
  * Azure REST API version: 2022-04-04-preview.
  */
-export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnergyServiceResult> {
+export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnergyServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:openenergyplatform:getEnergyService", {
         "resourceGroupName": args.resourceGroupName,

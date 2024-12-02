@@ -90,7 +90,7 @@ export interface GetInterfaceEndpointResult {
 /**
  * Gets the specified interface endpoint by resource group.
  */
-export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInterfaceEndpointResult> {
+export function getInterfaceEndpointOutput(args: GetInterfaceEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInterfaceEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20190201:getInterfaceEndpoint", {
         "expand": args.expand,

@@ -67,7 +67,7 @@ export interface GetEc2IpamResult {
  * Get a Ec2Ipam
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2IpamOutput(args: GetEc2IpamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2IpamResult> {
+export function getEc2IpamOutput(args: GetEc2IpamOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2IpamResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Ipam", {
         "name": args.name,

@@ -56,7 +56,7 @@ export interface GetPrivateEndpointConnectionProxyControllerResult {
  * Get the of private link proxy resources from a migrate project and private link proxy resource.
  * Azure REST API version: 2023-01-01.
  */
-export function getPrivateEndpointConnectionProxyControllerOutput(args: GetPrivateEndpointConnectionProxyControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionProxyControllerResult> {
+export function getPrivateEndpointConnectionProxyControllerOutput(args: GetPrivateEndpointConnectionProxyControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionProxyControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getPrivateEndpointConnectionProxyController", {
         "migrateProjectName": args.migrateProjectName,

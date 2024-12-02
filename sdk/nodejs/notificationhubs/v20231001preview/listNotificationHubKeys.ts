@@ -65,7 +65,7 @@ export interface ListNotificationHubKeysResult {
 /**
  * Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
  */
-export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotificationHubKeysResult> {
+export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNotificationHubKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20231001preview:listNotificationHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,

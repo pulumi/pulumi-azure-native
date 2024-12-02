@@ -105,7 +105,7 @@ export interface GetRemediationAtResourceResult {
 /**
  * Gets an existing remediation at resource scope.
  */
-export function getRemediationAtResourceOutput(args: GetRemediationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceResult> {
+export function getRemediationAtResourceOutput(args: GetRemediationAtResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemediationAtResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights/v20211001:getRemediationAtResource", {
         "remediationName": args.remediationName,

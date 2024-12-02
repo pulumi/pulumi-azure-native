@@ -100,7 +100,7 @@ export interface GetWorkspaceBackendResult {
 /**
  * Gets the details of the backend specified by its identifier.
  */
-export function getWorkspaceBackendOutput(args: GetWorkspaceBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceBackendResult> {
+export function getWorkspaceBackendOutput(args: GetWorkspaceBackendOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceBackendResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:getWorkspaceBackend", {
         "backendId": args.backendId,

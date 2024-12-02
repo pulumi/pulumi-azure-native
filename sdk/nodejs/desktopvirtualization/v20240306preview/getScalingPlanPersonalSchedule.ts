@@ -162,7 +162,7 @@ export interface GetScalingPlanPersonalScheduleResult {
 /**
  * Get a ScalingPlanPersonalSchedule.
  */
-export function getScalingPlanPersonalScheduleOutput(args: GetScalingPlanPersonalScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanPersonalScheduleResult> {
+export function getScalingPlanPersonalScheduleOutput(args: GetScalingPlanPersonalScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScalingPlanPersonalScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20240306preview:getScalingPlanPersonalSchedule", {
         "resourceGroupName": args.resourceGroupName,

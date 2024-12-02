@@ -65,7 +65,7 @@ export interface GetRdsDbSnapshotAttributesResultResult {
 /**
  * Get a RdsDBSnapshotAttributesResult
  */
-export function getRdsDbSnapshotAttributesResultOutput(args: GetRdsDbSnapshotAttributesResultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsDbSnapshotAttributesResultResult> {
+export function getRdsDbSnapshotAttributesResultOutput(args: GetRdsDbSnapshotAttributesResultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRdsDbSnapshotAttributesResultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRdsDbSnapshotAttributesResult", {
         "name": args.name,

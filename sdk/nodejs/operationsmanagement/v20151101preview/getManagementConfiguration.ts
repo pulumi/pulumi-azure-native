@@ -57,7 +57,7 @@ export interface GetManagementConfigurationResult {
 /**
  * Retrieves the user ManagementConfiguration.
  */
-export function getManagementConfigurationOutput(args: GetManagementConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementConfigurationResult> {
+export function getManagementConfigurationOutput(args: GetManagementConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationsmanagement/v20151101preview:getManagementConfiguration", {
         "managementConfigurationName": args.managementConfigurationName,

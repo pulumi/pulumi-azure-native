@@ -61,7 +61,7 @@ export interface GetHierarchySettingResult {
  *
  * Other available API versions: 2023-04-01.
  */
-export function getHierarchySettingOutput(args: GetHierarchySettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHierarchySettingResult> {
+export function getHierarchySettingOutput(args: GetHierarchySettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHierarchySettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:management:getHierarchySetting", {
         "groupId": args.groupId,

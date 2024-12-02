@@ -76,7 +76,7 @@ export interface GetFleetUpdateStrategyResult {
  *
  * Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
  */
-export function getFleetUpdateStrategyOutput(args: GetFleetUpdateStrategyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetUpdateStrategyResult> {
+export function getFleetUpdateStrategyOutput(args: GetFleetUpdateStrategyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetUpdateStrategyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice:getFleetUpdateStrategy", {
         "fleetName": args.fleetName,

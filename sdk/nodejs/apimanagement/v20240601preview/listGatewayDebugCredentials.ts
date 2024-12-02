@@ -61,7 +61,7 @@ export interface ListGatewayDebugCredentialsResult {
 /**
  * Create new debug credentials for gateway.
  */
-export function listGatewayDebugCredentialsOutput(args: ListGatewayDebugCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGatewayDebugCredentialsResult> {
+export function listGatewayDebugCredentialsOutput(args: ListGatewayDebugCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGatewayDebugCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:listGatewayDebugCredentials", {
         "apiId": args.apiId,

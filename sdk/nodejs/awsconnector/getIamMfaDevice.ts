@@ -67,7 +67,7 @@ export interface GetIamMfaDeviceResult {
  * Get a IamMFADevice
  * Azure REST API version: 2024-12-01.
  */
-export function getIamMfaDeviceOutput(args: GetIamMfaDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamMfaDeviceResult> {
+export function getIamMfaDeviceOutput(args: GetIamMfaDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamMfaDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamMfaDevice", {
         "name": args.name,

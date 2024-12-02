@@ -67,7 +67,7 @@ export interface GetRaiPolicyResult {
 /**
  * Azure OpenAI Content Filters resource.
  */
-export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiPolicyResult> {
+export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRaiPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001preview:getRaiPolicy", {
         "endpointName": args.endpointName,

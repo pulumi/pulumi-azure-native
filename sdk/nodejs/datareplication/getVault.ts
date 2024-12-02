@@ -64,7 +64,7 @@ export interface GetVaultResult {
  * Gets the details of the vault.
  * Azure REST API version: 2021-02-16-preview.
  */
-export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
+export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datareplication:getVault", {
         "resourceGroupName": args.resourceGroupName,

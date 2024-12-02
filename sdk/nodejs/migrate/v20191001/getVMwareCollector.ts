@@ -44,7 +44,7 @@ export interface GetVMwareCollectorResult {
 /**
  * Get a VMware collector.
  */
-export function getVMwareCollectorOutput(args: GetVMwareCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMwareCollectorResult> {
+export function getVMwareCollectorOutput(args: GetVMwareCollectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVMwareCollectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20191001:getVMwareCollector", {
         "projectName": args.projectName,

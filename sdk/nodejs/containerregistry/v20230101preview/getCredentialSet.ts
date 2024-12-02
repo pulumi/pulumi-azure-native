@@ -79,7 +79,7 @@ export interface GetCredentialSetResult {
 /**
  * Gets the properties of the specified credential set resource.
  */
-export function getCredentialSetOutput(args: GetCredentialSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialSetResult> {
+export function getCredentialSetOutput(args: GetCredentialSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCredentialSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230101preview:getCredentialSet", {
         "credentialSetName": args.credentialSetName,

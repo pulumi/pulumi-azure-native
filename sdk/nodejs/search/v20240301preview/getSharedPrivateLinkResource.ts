@@ -58,7 +58,7 @@ export interface GetSharedPrivateLinkResourceResult {
 /**
  * Gets the details of the shared private link resource managed by the search service in the given resource group.
  */
-export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {
+export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:search/v20240301preview:getSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,

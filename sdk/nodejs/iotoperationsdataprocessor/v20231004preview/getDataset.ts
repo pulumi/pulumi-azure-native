@@ -94,7 +94,7 @@ export interface GetDatasetResult {
 /**
  * Get a Dataset
  */
-export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
+export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsdataprocessor/v20231004preview:getDataset", {
         "datasetName": args.datasetName,

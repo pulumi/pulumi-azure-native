@@ -85,7 +85,7 @@ export interface GetWorkspaceNamedValueResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getWorkspaceNamedValueOutput(args: GetWorkspaceNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceNamedValueResult> {
+export function getWorkspaceNamedValueOutput(args: GetWorkspaceNamedValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceNamedValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceNamedValue", {
         "namedValueId": args.namedValueId,

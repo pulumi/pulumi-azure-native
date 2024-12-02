@@ -67,7 +67,7 @@ export interface GetMacieAllowListResult {
  * Get a MacieAllowList
  * Azure REST API version: 2024-12-01.
  */
-export function getMacieAllowListOutput(args: GetMacieAllowListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMacieAllowListResult> {
+export function getMacieAllowListOutput(args: GetMacieAllowListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMacieAllowListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getMacieAllowList", {
         "name": args.name,

@@ -75,7 +75,7 @@ export interface GetProtectionContainerResult {
 /**
  * Gets details of the specific container registered to your Recovery Services Vault.
  */
-export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionContainerResult> {
+export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectionContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230801:getProtectionContainer", {
         "containerName": args.containerName,

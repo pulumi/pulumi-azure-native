@@ -62,7 +62,7 @@ export interface GetMoveResourceResult {
 /**
  * Gets the Move Resource.
  */
-export function getMoveResourceOutput(args: GetMoveResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveResourceResult> {
+export function getMoveResourceOutput(args: GetMoveResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMoveResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230801:getMoveResource", {
         "moveCollectionName": args.moveCollectionName,

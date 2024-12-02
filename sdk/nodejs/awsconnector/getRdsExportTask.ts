@@ -67,7 +67,7 @@ export interface GetRdsExportTaskResult {
  * Get a RdsExportTask
  * Azure REST API version: 2024-12-01.
  */
-export function getRdsExportTaskOutput(args: GetRdsExportTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsExportTaskResult> {
+export function getRdsExportTaskOutput(args: GetRdsExportTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRdsExportTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getRdsExportTask", {
         "name": args.name,

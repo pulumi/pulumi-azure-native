@@ -64,7 +64,7 @@ export interface ListWCFRelayKeysResult {
 /**
  * Primary and secondary connection strings to the WCF relay.
  */
-export function listWCFRelayKeysOutput(args: ListWCFRelayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWCFRelayKeysResult> {
+export function listWCFRelayKeysOutput(args: ListWCFRelayKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWCFRelayKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay/v20211101:listWCFRelayKeys", {
         "authorizationRuleName": args.authorizationRuleName,

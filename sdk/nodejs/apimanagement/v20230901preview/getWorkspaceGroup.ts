@@ -72,7 +72,7 @@ export interface GetWorkspaceGroupResult {
 /**
  * Gets the details of the group specified by its identifier.
  */
-export function getWorkspaceGroupOutput(args: GetWorkspaceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceGroupResult> {
+export function getWorkspaceGroupOutput(args: GetWorkspaceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getWorkspaceGroup", {
         "groupId": args.groupId,

@@ -67,7 +67,7 @@ export interface GetIamAccessKeyMetadataInfoResult {
  * Get a IamAccessKeyMetadata
  * Azure REST API version: 2024-12-01.
  */
-export function getIamAccessKeyMetadataInfoOutput(args: GetIamAccessKeyMetadataInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamAccessKeyMetadataInfoResult> {
+export function getIamAccessKeyMetadataInfoOutput(args: GetIamAccessKeyMetadataInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamAccessKeyMetadataInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamAccessKeyMetadataInfo", {
         "name": args.name,

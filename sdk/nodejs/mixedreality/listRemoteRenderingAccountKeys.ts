@@ -48,7 +48,7 @@ export interface ListRemoteRenderingAccountKeysResult {
  *
  * Other available API versions: 2021-03-01-preview.
  */
-export function listRemoteRenderingAccountKeysOutput(args: ListRemoteRenderingAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemoteRenderingAccountKeysResult> {
+export function listRemoteRenderingAccountKeysOutput(args: ListRemoteRenderingAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRemoteRenderingAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mixedreality:listRemoteRenderingAccountKeys", {
         "accountName": args.accountName,

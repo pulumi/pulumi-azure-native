@@ -63,7 +63,7 @@ export interface GetContentTypeResult {
 /**
  * Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
  */
-export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTypeResult> {
+export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:getContentType", {
         "contentTypeId": args.contentTypeId,

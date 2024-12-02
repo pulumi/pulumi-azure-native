@@ -67,7 +67,7 @@ export interface GetDataSourceResult {
 /**
  * Gets a datasource instance.
  */
-export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
+export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20230901:getDataSource", {
         "dataSourceName": args.dataSourceName,

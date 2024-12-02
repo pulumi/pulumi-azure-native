@@ -75,7 +75,7 @@ export interface GetIoTDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getIoTDataConnectorOutput(args: GetIoTDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTDataConnectorResult> {
+export function getIoTDataConnectorOutput(args: GetIoTDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoTDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230801preview:getIoTDataConnector", {
         "dataConnectorId": args.dataConnectorId,

@@ -73,7 +73,7 @@ export interface GetRoutePolicyResult {
 /**
  * Implements Route Policy GET method.
  */
-export function getRoutePolicyOutput(args: GetRoutePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutePolicyResult> {
+export function getRoutePolicyOutput(args: GetRoutePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoutePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getRoutePolicy", {
         "resourceGroupName": args.resourceGroupName,

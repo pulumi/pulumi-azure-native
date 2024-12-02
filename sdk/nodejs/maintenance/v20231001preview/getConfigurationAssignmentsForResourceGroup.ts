@@ -69,7 +69,7 @@ export interface GetConfigurationAssignmentsForResourceGroupResult {
 /**
  * Get configuration assignment for resource..
  */
-export function getConfigurationAssignmentsForResourceGroupOutput(args: GetConfigurationAssignmentsForResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentsForResourceGroupResult> {
+export function getConfigurationAssignmentsForResourceGroupOutput(args: GetConfigurationAssignmentsForResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationAssignmentsForResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maintenance/v20231001preview:getConfigurationAssignmentsForResourceGroup", {
         "configurationAssignmentName": args.configurationAssignmentName,

@@ -83,7 +83,7 @@ export interface GetPeeringResult {
  * Gets an existing peering with the specified name under the given subscription and resource group.
  * Azure REST API version: 2022-10-01.
  */
-export function getPeeringOutput(args: GetPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringResult> {
+export function getPeeringOutput(args: GetPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:peering:getPeering", {
         "peeringName": args.peeringName,

@@ -79,7 +79,7 @@ export interface GetGrafanaResult {
  *
  * Other available API versions: 2021-09-01-preview, 2022-10-01-preview, 2023-09-01, 2023-10-01-preview.
  */
-export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrafanaResult> {
+export function getGrafanaOutput(args: GetGrafanaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGrafanaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dashboard:getGrafana", {
         "resourceGroupName": args.resourceGroupName,

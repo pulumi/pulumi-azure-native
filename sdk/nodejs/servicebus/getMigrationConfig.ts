@@ -88,7 +88,7 @@ export interface GetMigrationConfigResult {
  *
  * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
  */
-export function getMigrationConfigOutput(args: GetMigrationConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationConfigResult> {
+export function getMigrationConfigOutput(args: GetMigrationConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrationConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus:getMigrationConfig", {
         "configName": args.configName,

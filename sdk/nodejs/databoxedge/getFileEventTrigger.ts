@@ -77,7 +77,7 @@ export interface GetFileEventTriggerResult {
  * Get a specific trigger by name.
  * Azure REST API version: 2022-03-01.
  */
-export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileEventTriggerResult> {
+export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileEventTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge:getFileEventTrigger", {
         "deviceName": args.deviceName,

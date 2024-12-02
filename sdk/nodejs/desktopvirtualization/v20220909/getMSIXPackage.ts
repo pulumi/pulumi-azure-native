@@ -102,7 +102,7 @@ export interface GetMSIXPackageResult {
 /**
  * Get a msixpackage.
  */
-export function getMSIXPackageOutput(args: GetMSIXPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSIXPackageResult> {
+export function getMSIXPackageOutput(args: GetMSIXPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMSIXPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20220909:getMSIXPackage", {
         "hostPoolName": args.hostPoolName,

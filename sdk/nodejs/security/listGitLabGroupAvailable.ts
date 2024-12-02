@@ -51,7 +51,7 @@ export interface ListGitLabGroupAvailableResult {
  *
  * Other available API versions: 2024-04-01, 2024-05-15-preview.
  */
-export function listGitLabGroupAvailableOutput(args: ListGitLabGroupAvailableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGitLabGroupAvailableResult> {
+export function listGitLabGroupAvailableOutput(args: ListGitLabGroupAvailableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGitLabGroupAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:listGitLabGroupAvailable", {
         "resourceGroupName": args.resourceGroupName,

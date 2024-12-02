@@ -78,7 +78,7 @@ export interface GetSecurityPoliciesInterfaceResult {
 /**
  * Get a SecurityPolicy
  */
-export function getSecurityPoliciesInterfaceOutput(args: GetSecurityPoliciesInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPoliciesInterfaceResult> {
+export function getSecurityPoliciesInterfaceOutput(args: GetSecurityPoliciesInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityPoliciesInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicenetworking/v20240501preview:getSecurityPoliciesInterface", {
         "resourceGroupName": args.resourceGroupName,

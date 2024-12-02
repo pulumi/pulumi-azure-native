@@ -72,7 +72,7 @@ export interface GetSubscriptionDiagnosticSettingResult {
 /**
  * Gets the active subscription diagnostic settings for the specified resource.
  */
-export function getSubscriptionDiagnosticSettingOutput(args: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {
+export function getSubscriptionDiagnosticSettingOutput(args: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20170501preview:getSubscriptionDiagnosticSetting", {
         "name": args.name,

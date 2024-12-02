@@ -72,7 +72,7 @@ export interface GetReplicationProtectedItemResult {
 /**
  * Gets the details of an ASR replication protected item.
  */
-export function getReplicationProtectedItemOutput(args: GetReplicationProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectedItemResult> {
+export function getReplicationProtectedItemOutput(args: GetReplicationProtectedItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationProtectedItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20240101:getReplicationProtectedItem", {
         "fabricName": args.fabricName,

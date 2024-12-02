@@ -78,7 +78,7 @@ export interface GetDeploymentSettingResult {
 /**
  * Get a DeploymentSetting
  */
-export function getDeploymentSettingOutput(args: GetDeploymentSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentSettingResult> {
+export function getDeploymentSettingOutput(args: GetDeploymentSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20230801preview:getDeploymentSetting", {
         "clusterName": args.clusterName,

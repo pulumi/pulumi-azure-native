@@ -85,7 +85,7 @@ export interface GetNetworkManagerResult {
 /**
  * Gets the specified Network Manager.
  */
-export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerResult> {
+export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getNetworkManager", {
         "networkManagerName": args.networkManagerName,

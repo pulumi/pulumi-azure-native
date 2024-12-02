@@ -151,7 +151,7 @@ export interface GetPoolResult {
  *
  * Other available API versions: 2020-05-01, 2023-11-01, 2024-02-01, 2024-07-01.
  */
-export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
+export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:batch:getPool", {
         "accountName": args.accountName,

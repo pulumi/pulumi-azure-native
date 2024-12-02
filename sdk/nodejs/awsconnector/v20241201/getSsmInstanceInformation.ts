@@ -65,7 +65,7 @@ export interface GetSsmInstanceInformationResult {
 /**
  * Get a SsmInstanceInformation
  */
-export function getSsmInstanceInformationOutput(args: GetSsmInstanceInformationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmInstanceInformationResult> {
+export function getSsmInstanceInformationOutput(args: GetSsmInstanceInformationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSsmInstanceInformationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSsmInstanceInformation", {
         "name": args.name,

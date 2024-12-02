@@ -70,7 +70,7 @@ export interface GetIspCacheNodesOperationBgpCidrsResult {
 /**
  * This api gets ispCacheNode resource information
  */
-export function getIspCacheNodesOperationBgpCidrsOutput(args: GetIspCacheNodesOperationBgpCidrsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIspCacheNodesOperationBgpCidrsResult> {
+export function getIspCacheNodesOperationBgpCidrsOutput(args: GetIspCacheNodesOperationBgpCidrsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIspCacheNodesOperationBgpCidrsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedcache/v20230501preview:getIspCacheNodesOperationBgpCidrs", {
         "cacheNodeResourceName": args.cacheNodeResourceName,

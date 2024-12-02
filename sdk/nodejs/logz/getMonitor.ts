@@ -57,7 +57,7 @@ export interface GetMonitorResult {
 /**
  * Azure REST API version: 2022-01-01-preview.
  */
-export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
+export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logz:getMonitor", {
         "monitorName": args.monitorName,

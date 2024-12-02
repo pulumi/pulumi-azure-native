@@ -50,7 +50,7 @@ export interface ListLocalUserKeysResult {
 /**
  * List SSH authorized keys and shared key of the local user.
  */
-export function listLocalUserKeysOutput(args: ListLocalUserKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalUserKeysResult> {
+export function listLocalUserKeysOutput(args: ListLocalUserKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLocalUserKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230501:listLocalUserKeys", {
         "accountName": args.accountName,

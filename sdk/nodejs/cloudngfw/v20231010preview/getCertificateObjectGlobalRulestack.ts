@@ -77,7 +77,7 @@ export interface GetCertificateObjectGlobalRulestackResult {
 /**
  * Get a CertificateObjectGlobalRulestackResource
  */
-export function getCertificateObjectGlobalRulestackOutput(args: GetCertificateObjectGlobalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateObjectGlobalRulestackResult> {
+export function getCertificateObjectGlobalRulestackOutput(args: GetCertificateObjectGlobalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateObjectGlobalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20231010preview:getCertificateObjectGlobalRulestack", {
         "globalRulestackName": args.globalRulestackName,

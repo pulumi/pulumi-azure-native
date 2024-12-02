@@ -65,7 +65,7 @@ export interface GetKmsAliasResult {
 /**
  * Get a KmsAlias
  */
-export function getKmsAliasOutput(args: GetKmsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKmsAliasResult> {
+export function getKmsAliasOutput(args: GetKmsAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKmsAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getKmsAlias", {
         "name": args.name,

@@ -70,7 +70,7 @@ export interface GetManagedCertificateResult {
 /**
  * Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
  */
-export function getManagedCertificateOutput(args: GetManagedCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedCertificateResult> {
+export function getManagedCertificateOutput(args: GetManagedCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20241002preview:getManagedCertificate", {
         "environmentName": args.environmentName,

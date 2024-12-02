@@ -62,7 +62,7 @@ export interface GetMaintenanceConfigurationResult {
 /**
  * Gets the maintenance configuration of a ManagedEnvironment .
  */
-export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
+export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20241002preview:getMaintenanceConfiguration", {
         "configName": args.configName,

@@ -117,7 +117,7 @@ export interface GetNetworkFabricControllerResult {
 /**
  * Shows the provisioning status of Network Fabric Controller.
  */
-export function getNetworkFabricControllerOutput(args: GetNetworkFabricControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFabricControllerResult> {
+export function getNetworkFabricControllerOutput(args: GetNetworkFabricControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFabricControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkFabricController", {
         "networkFabricControllerName": args.networkFabricControllerName,

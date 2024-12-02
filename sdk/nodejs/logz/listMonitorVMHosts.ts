@@ -47,7 +47,7 @@ export interface ListMonitorVMHostsResult {
  * Response of a list VM Host Update Operation.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function listMonitorVMHostsOutput(args: ListMonitorVMHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorVMHostsResult> {
+export function listMonitorVMHostsOutput(args: ListMonitorVMHostsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMonitorVMHostsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logz:listMonitorVMHosts", {
         "monitorName": args.monitorName,

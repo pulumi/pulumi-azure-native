@@ -70,7 +70,7 @@ export interface GetArtifactStoreResult {
 /**
  * Gets information about the specified artifact store.
  */
-export function getArtifactStoreOutput(args: GetArtifactStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactStoreResult> {
+export function getArtifactStoreOutput(args: GetArtifactStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArtifactStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20230901:getArtifactStore", {
         "artifactStoreName": args.artifactStoreName,

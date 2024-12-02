@@ -65,7 +65,7 @@ export interface GetIamAccessKeyMetadataInfoResult {
 /**
  * Get a IamAccessKeyMetadata
  */
-export function getIamAccessKeyMetadataInfoOutput(args: GetIamAccessKeyMetadataInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamAccessKeyMetadataInfoResult> {
+export function getIamAccessKeyMetadataInfoOutput(args: GetIamAccessKeyMetadataInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamAccessKeyMetadataInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamAccessKeyMetadataInfo", {
         "name": args.name,

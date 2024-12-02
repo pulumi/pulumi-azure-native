@@ -47,7 +47,7 @@ export interface GetTriggerEventSubscriptionStatusResult {
 /**
  * Get a trigger's event subscription status.
  */
-export function getTriggerEventSubscriptionStatusOutput(args: GetTriggerEventSubscriptionStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerEventSubscriptionStatusResult> {
+export function getTriggerEventSubscriptionStatusOutput(args: GetTriggerEventSubscriptionStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTriggerEventSubscriptionStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus", {
         "factoryName": args.factoryName,

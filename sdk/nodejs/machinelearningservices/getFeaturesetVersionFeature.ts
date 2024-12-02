@@ -67,7 +67,7 @@ export interface GetFeaturesetVersionFeatureResult {
  * Dto object representing feature
  * Azure REST API version: 2023-02-01-preview.
  */
-export function getFeaturesetVersionFeatureOutput(args: GetFeaturesetVersionFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeaturesetVersionFeatureResult> {
+export function getFeaturesetVersionFeatureOutput(args: GetFeaturesetVersionFeatureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFeaturesetVersionFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getFeaturesetVersionFeature", {
         "featureName": args.featureName,

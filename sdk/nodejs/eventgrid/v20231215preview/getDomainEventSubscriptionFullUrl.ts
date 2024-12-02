@@ -43,7 +43,7 @@ export interface GetDomainEventSubscriptionFullUrlResult {
 /**
  * Get the full endpoint URL for an event subscription for domain.
  */
-export function getDomainEventSubscriptionFullUrlOutput(args: GetDomainEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainEventSubscriptionFullUrlResult> {
+export function getDomainEventSubscriptionFullUrlOutput(args: GetDomainEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getDomainEventSubscriptionFullUrl", {
         "domainName": args.domainName,

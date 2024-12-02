@@ -99,7 +99,7 @@ export interface GetRoleAssignmentResult {
 /**
  * Get a role assignment by scope and name.
  */
-export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
+export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20220401:getRoleAssignment", {
         "roleAssignmentName": args.roleAssignmentName,

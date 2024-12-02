@@ -42,7 +42,7 @@ export interface ListUpgradableVersionDetailsResult {
 /**
  * Stack Versions that this version can upgrade to
  */
-export function listUpgradableVersionDetailsOutput(args: ListUpgradableVersionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUpgradableVersionDetailsResult> {
+export function listUpgradableVersionDetailsOutput(args: ListUpgradableVersionDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListUpgradableVersionDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20240301:listUpgradableVersionDetails", {
         "monitorName": args.monitorName,

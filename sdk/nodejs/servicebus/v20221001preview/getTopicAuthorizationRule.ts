@@ -71,7 +71,7 @@ export interface GetTopicAuthorizationRuleResult {
 /**
  * Returns the specified authorization rule.
  */
-export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
+export function getTopicAuthorizationRuleOutput(args: GetTopicAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20221001preview:getTopicAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

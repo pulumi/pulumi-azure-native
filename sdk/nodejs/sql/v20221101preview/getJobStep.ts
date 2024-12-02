@@ -88,7 +88,7 @@ export interface GetJobStepResult {
 /**
  * Gets a job step in a job's current version.
  */
-export function getJobStepOutput(args: GetJobStepOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobStepResult> {
+export function getJobStepOutput(args: GetJobStepOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobStepResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20221101preview:getJobStep", {
         "jobAgentName": args.jobAgentName,

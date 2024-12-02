@@ -107,7 +107,7 @@ export interface GetLocalRulestackResult {
  *
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
-export function getLocalRulestackOutput(args: GetLocalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRulestackResult> {
+export function getLocalRulestackOutput(args: GetLocalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw:getLocalRulestack", {
         "localRulestackName": args.localRulestackName,

@@ -51,7 +51,7 @@ export interface ListLocalRulestackAdvancedSecurityObjectsResult {
 /**
  * Get the list of advanced security objects
  */
-export function listLocalRulestackAdvancedSecurityObjectsOutput(args: ListLocalRulestackAdvancedSecurityObjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalRulestackAdvancedSecurityObjectsResult> {
+export function listLocalRulestackAdvancedSecurityObjectsOutput(args: ListLocalRulestackAdvancedSecurityObjectsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLocalRulestackAdvancedSecurityObjectsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:listLocalRulestackAdvancedSecurityObjects", {
         "localRulestackName": args.localRulestackName,

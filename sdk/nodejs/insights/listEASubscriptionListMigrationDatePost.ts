@@ -35,7 +35,7 @@ export interface ListEASubscriptionListMigrationDatePostResult {
  * list date to migrate to new pricing model.
  * Azure REST API version: 2017-10-01.
  */
-export function listEASubscriptionListMigrationDatePostOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListEASubscriptionListMigrationDatePostResult> {
+export function listEASubscriptionListMigrationDatePostOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEASubscriptionListMigrationDatePostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:listEASubscriptionListMigrationDatePost", {
     }, opts);

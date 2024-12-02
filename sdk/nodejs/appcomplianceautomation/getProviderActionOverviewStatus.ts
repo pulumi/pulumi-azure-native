@@ -39,7 +39,7 @@ export interface GetProviderActionOverviewStatusResult {
  * Get the resource overview status.
  * Azure REST API version: 2024-06-27.
  */
-export function getProviderActionOverviewStatusOutput(args?: GetProviderActionOverviewStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderActionOverviewStatusResult> {
+export function getProviderActionOverviewStatusOutput(args?: GetProviderActionOverviewStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderActionOverviewStatusResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation:getProviderActionOverviewStatus", {

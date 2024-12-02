@@ -76,7 +76,7 @@ export interface GetServiceEndpointResult {
  *
  * Other available API versions: 2022-03-01-preview.
  */
-export function getServiceEndpointOutput(args: GetServiceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointResult> {
+export function getServiceEndpointOutput(args: GetServiceEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recommendationsservice:getServiceEndpoint", {
         "accountName": args.accountName,

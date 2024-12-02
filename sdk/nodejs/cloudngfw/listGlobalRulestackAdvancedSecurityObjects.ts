@@ -52,7 +52,7 @@ export interface ListGlobalRulestackAdvancedSecurityObjectsResult {
  *
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
-export function listGlobalRulestackAdvancedSecurityObjectsOutput(args: ListGlobalRulestackAdvancedSecurityObjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalRulestackAdvancedSecurityObjectsResult> {
+export function listGlobalRulestackAdvancedSecurityObjectsOutput(args: ListGlobalRulestackAdvancedSecurityObjectsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGlobalRulestackAdvancedSecurityObjectsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw:listGlobalRulestackAdvancedSecurityObjects", {
         "globalRulestackName": args.globalRulestackName,

@@ -78,7 +78,7 @@ export interface GetAzureLargeStorageInstanceResult {
  * group, and instance name.
  * Azure REST API version: 2024-08-01-preview.
  */
-export function getAzureLargeStorageInstanceOutput(args: GetAzureLargeStorageInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureLargeStorageInstanceResult> {
+export function getAzureLargeStorageInstanceOutput(args: GetAzureLargeStorageInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureLargeStorageInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurelargeinstance:getAzureLargeStorageInstance", {
         "azureLargeStorageInstanceName": args.azureLargeStorageInstanceName,

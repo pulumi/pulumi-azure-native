@@ -81,7 +81,7 @@ export interface GetAssessmentsMetadataSubscriptionResult {
  * Get metadata information on an assessment type in a specific subscription
  * Azure REST API version: 2019-01-01-preview.
  */
-export function getAssessmentsMetadataSubscriptionOutput(args: GetAssessmentsMetadataSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentsMetadataSubscriptionResult> {
+export function getAssessmentsMetadataSubscriptionOutput(args: GetAssessmentsMetadataSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentsMetadataSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getAssessmentsMetadataSubscription", {
         "assessmentMetadataName": args.assessmentMetadataName,

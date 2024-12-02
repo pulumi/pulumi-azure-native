@@ -43,7 +43,7 @@ export interface GetConsoleWithLocationResult {
  * Gets the console for the user.
  * Azure REST API version: 2018-10-01.
  */
-export function getConsoleWithLocationOutput(args: GetConsoleWithLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleWithLocationResult> {
+export function getConsoleWithLocationOutput(args: GetConsoleWithLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsoleWithLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portal:getConsoleWithLocation", {
         "consoleName": args.consoleName,

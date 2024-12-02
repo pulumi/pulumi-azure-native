@@ -67,7 +67,7 @@ export interface GetServiceEndpointPolicyDefinitionResult {
 /**
  * Get the specified service endpoint policy definitions from service endpoint policy.
  */
-export function getServiceEndpointPolicyDefinitionOutput(args: GetServiceEndpointPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyDefinitionResult> {
+export function getServiceEndpointPolicyDefinitionOutput(args: GetServiceEndpointPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceEndpointPolicyDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20180701:getServiceEndpointPolicyDefinition", {
         "resourceGroupName": args.resourceGroupName,

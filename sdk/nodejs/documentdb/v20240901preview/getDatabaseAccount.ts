@@ -253,7 +253,7 @@ export interface GetDatabaseAccountResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
  */
-export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountResult> {
+export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240901preview:getDatabaseAccount", {
         "accountName": args.accountName,

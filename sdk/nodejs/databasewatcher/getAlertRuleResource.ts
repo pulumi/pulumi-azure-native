@@ -88,7 +88,7 @@ export interface GetAlertRuleResourceResult {
  *
  * Other available API versions: 2024-10-01-preview.
  */
-export function getAlertRuleResourceOutput(args: GetAlertRuleResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResourceResult> {
+export function getAlertRuleResourceOutput(args: GetAlertRuleResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertRuleResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databasewatcher:getAlertRuleResource", {
         "alertRuleResourceName": args.alertRuleResourceName,

@@ -95,7 +95,7 @@ export interface GetApplianceResult {
  *
  * Other available API versions: 2021-10-31-preview.
  */
-export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceResult> {
+export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resourceconnector:getAppliance", {
         "resourceGroupName": args.resourceGroupName,

@@ -75,7 +75,7 @@ export interface GetServerKeyResult {
 /**
  * Gets a server key.
  */
-export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerKeyResult> {
+export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getServerKey", {
         "keyName": args.keyName,

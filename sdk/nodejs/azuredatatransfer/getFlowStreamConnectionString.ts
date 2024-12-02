@@ -45,7 +45,7 @@ export interface GetFlowStreamConnectionStringResult {
  * Get the connection string for the specified flow.
  * Azure REST API version: 2024-09-27.
  */
-export function getFlowStreamConnectionStringOutput(args: GetFlowStreamConnectionStringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowStreamConnectionStringResult> {
+export function getFlowStreamConnectionStringOutput(args: GetFlowStreamConnectionStringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowStreamConnectionStringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:getFlowStreamConnectionString", {
         "connectionName": args.connectionName,

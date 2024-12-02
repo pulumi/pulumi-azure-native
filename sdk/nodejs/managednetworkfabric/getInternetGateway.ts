@@ -87,7 +87,7 @@ export interface GetInternetGatewayResult {
  * Implements Gateway GET method.
  * Azure REST API version: 2023-06-15.
  */
-export function getInternetGatewayOutput(args: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
+export function getInternetGatewayOutput(args: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInternetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getInternetGateway", {
         "internetGatewayName": args.internetGatewayName,

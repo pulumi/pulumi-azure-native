@@ -78,7 +78,7 @@ export interface GetServerCollectorsOperationResult {
 /**
  * Get a ServerCollector
  */
-export function getServerCollectorsOperationOutput(args: GetServerCollectorsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCollectorsOperationResult> {
+export function getServerCollectorsOperationOutput(args: GetServerCollectorsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerCollectorsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230909preview:getServerCollectorsOperation", {
         "projectName": args.projectName,

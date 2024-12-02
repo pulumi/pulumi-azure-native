@@ -89,7 +89,7 @@ export interface GetCommunicationServiceResult {
 /**
  * Get the CommunicationService and its properties.
  */
-export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationServiceResult> {
+export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommunicationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:communication/v20230331:getCommunicationService", {
         "communicationServiceName": args.communicationServiceName,

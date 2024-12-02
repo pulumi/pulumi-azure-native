@@ -61,7 +61,7 @@ export interface GetApplicationBusinessProcessDevelopmentArtifactResult {
  * The get business process development artifact action.
  * Azure REST API version: 2023-11-14-preview.
  */
-export function getApplicationBusinessProcessDevelopmentArtifactOutput(args: GetApplicationBusinessProcessDevelopmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationBusinessProcessDevelopmentArtifactResult> {
+export function getApplicationBusinessProcessDevelopmentArtifactOutput(args: GetApplicationBusinessProcessDevelopmentArtifactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationBusinessProcessDevelopmentArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:integrationspaces:getApplicationBusinessProcessDevelopmentArtifact", {
         "applicationName": args.applicationName,

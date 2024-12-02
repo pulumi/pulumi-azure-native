@@ -116,7 +116,7 @@ export interface GetKustoPoolResult {
  * Gets a Kusto pool.
  * Azure REST API version: 2021-06-01-preview.
  */
-export function getKustoPoolOutput(args: GetKustoPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolResult> {
+export function getKustoPoolOutput(args: GetKustoPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKustoPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getKustoPool", {
         "kustoPoolName": args.kustoPoolName,

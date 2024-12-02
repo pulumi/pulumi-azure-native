@@ -75,7 +75,7 @@ export interface GetMicrosoftPurviewInformationProtectionDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getMicrosoftPurviewInformationProtectionDataConnectorOutput(args: GetMicrosoftPurviewInformationProtectionDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftPurviewInformationProtectionDataConnectorResult> {
+export function getMicrosoftPurviewInformationProtectionDataConnectorOutput(args: GetMicrosoftPurviewInformationProtectionDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMicrosoftPurviewInformationProtectionDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:getMicrosoftPurviewInformationProtectionDataConnector", {
         "dataConnectorId": args.dataConnectorId,

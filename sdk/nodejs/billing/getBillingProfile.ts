@@ -63,7 +63,7 @@ export interface GetBillingProfileResult {
  * Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
  * Azure REST API version: 2024-04-01.
  */
-export function getBillingProfileOutput(args: GetBillingProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingProfileResult> {
+export function getBillingProfileOutput(args: GetBillingProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:billing:getBillingProfile", {
         "billingAccountName": args.billingAccountName,

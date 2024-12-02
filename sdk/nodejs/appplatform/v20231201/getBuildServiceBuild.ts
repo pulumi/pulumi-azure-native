@@ -67,7 +67,7 @@ export interface GetBuildServiceBuildResult {
 /**
  * Get a KPack build.
  */
-export function getBuildServiceBuildOutput(args: GetBuildServiceBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceBuildResult> {
+export function getBuildServiceBuildOutput(args: GetBuildServiceBuildOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuildServiceBuildResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231201:getBuildServiceBuild", {
         "buildName": args.buildName,

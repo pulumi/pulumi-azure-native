@@ -88,7 +88,7 @@ export interface GetBotConnectionResult {
  *
  * Other available API versions: 2023-09-15-preview.
  */
-export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotConnectionResult> {
+export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice:getBotConnection", {
         "connectionName": args.connectionName,

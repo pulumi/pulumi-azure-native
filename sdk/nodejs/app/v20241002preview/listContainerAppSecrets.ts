@@ -41,7 +41,7 @@ export interface ListContainerAppSecretsResult {
 /**
  * Container App Secrets Collection ARM resource.
  */
-export function listContainerAppSecretsOutput(args: ListContainerAppSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppSecretsResult> {
+export function listContainerAppSecretsOutput(args: ListContainerAppSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListContainerAppSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20241002preview:listContainerAppSecrets", {
         "containerAppName": args.containerAppName,

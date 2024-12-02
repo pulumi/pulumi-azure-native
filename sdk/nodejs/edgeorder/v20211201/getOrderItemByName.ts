@@ -82,7 +82,7 @@ export interface GetOrderItemByNameResult {
 /**
  * Gets an order item.
  */
-export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemByNameResult> {
+export function getOrderItemByNameOutput(args: GetOrderItemByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderItemByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edgeorder/v20211201:getOrderItemByName", {
         "expand": args.expand,

@@ -106,7 +106,7 @@ export interface GetWebAppSiteContainerResult {
 /**
  * Container of a site
  */
-export function getWebAppSiteContainerOutput(args: GetWebAppSiteContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteContainerResult> {
+export function getWebAppSiteContainerOutput(args: GetWebAppSiteContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSiteContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getWebAppSiteContainer", {
         "containerName": args.containerName,

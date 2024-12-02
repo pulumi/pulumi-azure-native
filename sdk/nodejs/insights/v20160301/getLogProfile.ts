@@ -72,7 +72,7 @@ export interface GetLogProfileResult {
 /**
  * Gets the log profile.
  */
-export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogProfileResult> {
+export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20160301:getLogProfile", {
         "logProfileName": args.logProfileName,

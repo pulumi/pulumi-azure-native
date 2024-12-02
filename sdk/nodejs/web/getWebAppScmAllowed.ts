@@ -60,7 +60,7 @@ export interface GetWebAppScmAllowedResult {
  *
  * Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getWebAppScmAllowedOutput(args: GetWebAppScmAllowedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppScmAllowedResult> {
+export function getWebAppScmAllowedOutput(args: GetWebAppScmAllowedOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppScmAllowedResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getWebAppScmAllowed", {
         "name": args.name,

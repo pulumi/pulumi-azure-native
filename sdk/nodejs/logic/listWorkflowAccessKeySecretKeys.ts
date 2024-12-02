@@ -46,7 +46,7 @@ export interface ListWorkflowAccessKeySecretKeysResult {
  * Lists secret keys.
  * Azure REST API version: 2015-02-01-preview.
  */
-export function listWorkflowAccessKeySecretKeysOutput(args: ListWorkflowAccessKeySecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowAccessKeySecretKeysResult> {
+export function listWorkflowAccessKeySecretKeysOutput(args: ListWorkflowAccessKeySecretKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkflowAccessKeySecretKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:listWorkflowAccessKeySecretKeys", {
         "accessKeyName": args.accessKeyName,

@@ -62,7 +62,7 @@ export interface GetVariableValueAtManagementGroupResult {
 /**
  * This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.
  */
-export function getVariableValueAtManagementGroupOutput(args: GetVariableValueAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableValueAtManagementGroupResult> {
+export function getVariableValueAtManagementGroupOutput(args: GetVariableValueAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableValueAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20220801preview:getVariableValueAtManagementGroup", {
         "managementGroupId": args.managementGroupId,

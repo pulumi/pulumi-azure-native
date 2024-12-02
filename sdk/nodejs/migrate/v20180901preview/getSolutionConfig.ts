@@ -43,7 +43,7 @@ export interface GetSolutionConfigResult {
 /**
  * Class representing the config for the solution in the migrate project.
  */
-export function getSolutionConfigOutput(args: GetSolutionConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionConfigResult> {
+export function getSolutionConfigOutput(args: GetSolutionConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20180901preview:getSolutionConfig", {
         "migrateProjectName": args.migrateProjectName,

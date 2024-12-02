@@ -94,7 +94,7 @@ export interface GetBackupScheduleResult {
  * Gets the properties of the specified backup schedule name.
  * Azure REST API version: 2017-06-01.
  */
-export function getBackupScheduleOutput(args: GetBackupScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupScheduleResult> {
+export function getBackupScheduleOutput(args: GetBackupScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple:getBackupSchedule", {
         "backupPolicyName": args.backupPolicyName,

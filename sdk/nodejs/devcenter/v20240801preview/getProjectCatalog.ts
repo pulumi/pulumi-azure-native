@@ -98,7 +98,7 @@ export interface GetProjectCatalogResult {
 /**
  * Gets an associated project catalog.
  */
-export function getProjectCatalogOutput(args: GetProjectCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogResult> {
+export function getProjectCatalogOutput(args: GetProjectCatalogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240801preview:getProjectCatalog", {
         "catalogName": args.catalogName,

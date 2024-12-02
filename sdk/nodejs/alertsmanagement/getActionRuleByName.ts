@@ -67,7 +67,7 @@ export interface GetActionRuleByNameResult {
  *
  * Other available API versions: 2018-11-02-privatepreview.
  */
-export function getActionRuleByNameOutput(args: GetActionRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionRuleByNameResult> {
+export function getActionRuleByNameOutput(args: GetActionRuleByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionRuleByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:alertsmanagement:getActionRuleByName", {
         "actionRuleName": args.actionRuleName,

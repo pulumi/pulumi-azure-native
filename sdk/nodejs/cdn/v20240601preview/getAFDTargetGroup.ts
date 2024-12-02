@@ -67,7 +67,7 @@ export interface GetAFDTargetGroupResult {
 /**
  * Gets an existing target group within a profile.
  */
-export function getAFDTargetGroupOutput(args: GetAFDTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDTargetGroupResult> {
+export function getAFDTargetGroupOutput(args: GetAFDTargetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAFDTargetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20240601preview:getAFDTargetGroup", {
         "profileName": args.profileName,

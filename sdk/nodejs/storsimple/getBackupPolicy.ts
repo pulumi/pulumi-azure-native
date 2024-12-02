@@ -90,7 +90,7 @@ export interface GetBackupPolicyResult {
  * Gets the properties of the specified backup policy name.
  * Azure REST API version: 2017-06-01.
  */
-export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
+export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple:getBackupPolicy", {
         "backupPolicyName": args.backupPolicyName,

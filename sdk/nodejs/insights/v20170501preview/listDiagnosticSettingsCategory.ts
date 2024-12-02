@@ -36,7 +36,7 @@ export interface ListDiagnosticSettingsCategoryResult {
 /**
  * Lists the diagnostic settings categories for the specified resource.
  */
-export function listDiagnosticSettingsCategoryOutput(args: ListDiagnosticSettingsCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDiagnosticSettingsCategoryResult> {
+export function listDiagnosticSettingsCategoryOutput(args: ListDiagnosticSettingsCategoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDiagnosticSettingsCategoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20170501preview:listDiagnosticSettingsCategory", {
         "resourceUri": args.resourceUri,

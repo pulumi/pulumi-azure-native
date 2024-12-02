@@ -84,7 +84,7 @@ export interface GetApplicationPackageResult {
 /**
  * Gets information about the specified application package.
  */
-export function getApplicationPackageOutput(args: GetApplicationPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationPackageResult> {
+export function getApplicationPackageOutput(args: GetApplicationPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:batch/v20240701:getApplicationPackage", {
         "accountName": args.accountName,

@@ -64,7 +64,7 @@ export interface GetIotHubResourceEventHubConsumerGroupResult {
 /**
  * Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
  */
-export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {
+export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices/v20221115preview:getIotHubResourceEventHubConsumerGroup", {
         "eventHubEndpointName": args.eventHubEndpointName,

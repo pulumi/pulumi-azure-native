@@ -90,7 +90,7 @@ export interface GetProximityPlacementGroupResult {
 /**
  * Retrieves information about a proximity placement group .
  */
-export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
+export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProximityPlacementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20230701:getProximityPlacementGroup", {
         "includeColocationStatus": args.includeColocationStatus,

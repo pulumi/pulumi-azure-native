@@ -73,7 +73,7 @@ export interface GetSiteNetworkServiceResult {
 /**
  * Gets information about the specified site network service.
  */
-export function getSiteNetworkServiceOutput(args: GetSiteNetworkServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteNetworkServiceResult> {
+export function getSiteNetworkServiceOutput(args: GetSiteNetworkServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSiteNetworkServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20230901:getSiteNetworkService", {
         "resourceGroupName": args.resourceGroupName,

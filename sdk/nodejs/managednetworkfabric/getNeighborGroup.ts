@@ -83,7 +83,7 @@ export interface GetNeighborGroupResult {
  * Gets the Neighbor Group.
  * Azure REST API version: 2023-06-15.
  */
-export function getNeighborGroupOutput(args: GetNeighborGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNeighborGroupResult> {
+export function getNeighborGroupOutput(args: GetNeighborGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNeighborGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNeighborGroup", {
         "neighborGroupName": args.neighborGroupName,

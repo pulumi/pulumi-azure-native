@@ -88,7 +88,7 @@ export interface GetScheduledSynchronizationSettingResult {
 /**
  * Get a synchronizationSetting in a share
  */
-export function getScheduledSynchronizationSettingOutput(args: GetScheduledSynchronizationSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledSynchronizationSettingResult> {
+export function getScheduledSynchronizationSettingOutput(args: GetScheduledSynchronizationSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledSynchronizationSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getScheduledSynchronizationSetting", {
         "accountName": args.accountName,

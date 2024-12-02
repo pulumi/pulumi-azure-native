@@ -72,7 +72,7 @@ export interface GetHybridRunbookWorkerGroupResult {
  *
  * Other available API versions: 2021-06-22, 2023-05-15-preview, 2023-11-01.
  */
-export function getHybridRunbookWorkerGroupOutput(args: GetHybridRunbookWorkerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerGroupResult> {
+export function getHybridRunbookWorkerGroupOutput(args: GetHybridRunbookWorkerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridRunbookWorkerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getHybridRunbookWorkerGroup", {
         "automationAccountName": args.automationAccountName,

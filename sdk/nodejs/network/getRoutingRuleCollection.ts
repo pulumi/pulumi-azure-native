@@ -93,7 +93,7 @@ export interface GetRoutingRuleCollectionResult {
  *
  * Other available API versions: 2024-05-01.
  */
-export function getRoutingRuleCollectionOutput(args: GetRoutingRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingRuleCollectionResult> {
+export function getRoutingRuleCollectionOutput(args: GetRoutingRuleCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoutingRuleCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getRoutingRuleCollection", {
         "configurationName": args.configurationName,

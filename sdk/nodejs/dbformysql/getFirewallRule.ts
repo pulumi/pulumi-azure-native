@@ -72,7 +72,7 @@ export interface GetFirewallRuleResult {
  *
  * Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
  */
-export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
+export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbformysql:getFirewallRule", {
         "firewallRuleName": args.firewallRuleName,

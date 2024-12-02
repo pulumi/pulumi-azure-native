@@ -55,7 +55,7 @@ export interface ListSystemActionsResult {
 /**
  * List of actions for a business application system.
  */
-export function listSystemActionsOutput(args: ListSystemActionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSystemActionsResult> {
+export function listSystemActionsOutput(args: ListSystemActionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSystemActionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:listSystemActions", {
         "agentResourceName": args.agentResourceName,

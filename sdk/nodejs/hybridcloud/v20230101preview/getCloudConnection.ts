@@ -85,7 +85,7 @@ export interface GetCloudConnectionResult {
 /**
  * Gets the specified cloud connection in a specified resource group.
  */
-export function getCloudConnectionOutput(args: GetCloudConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudConnectionResult> {
+export function getCloudConnectionOutput(args: GetCloudConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcloud/v20230101preview:getCloudConnection", {
         "cloudConnectionName": args.cloudConnectionName,

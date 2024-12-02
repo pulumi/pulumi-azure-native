@@ -43,7 +43,7 @@ export interface ListNamedValueResult {
 /**
  * Gets the secret of the named value specified by its identifier.
  */
-export function listNamedValueOutput(args: ListNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamedValueResult> {
+export function listNamedValueOutput(args: ListNamedValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNamedValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:listNamedValue", {
         "namedValueId": args.namedValueId,

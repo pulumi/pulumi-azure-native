@@ -45,7 +45,7 @@ export interface ListWebAppSiteBackupsResult {
 /**
  * Description for Gets existing backups of an app.
  */
-export function listWebAppSiteBackupsOutput(args: ListWebAppSiteBackupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppSiteBackupsResult> {
+export function listWebAppSiteBackupsOutput(args: ListWebAppSiteBackupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppSiteBackupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20231201:listWebAppSiteBackups", {
         "name": args.name,

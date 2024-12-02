@@ -101,7 +101,7 @@ export interface GetGalleryInVMAccessControlProfileVersionResult {
  * Retrieves information about a gallery inVMAccessControlProfile version.
  * Azure REST API version: 2024-03-03.
  */
-export function getGalleryInVMAccessControlProfileVersionOutput(args: GetGalleryInVMAccessControlProfileVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryInVMAccessControlProfileVersionResult> {
+export function getGalleryInVMAccessControlProfileVersionOutput(args: GetGalleryInVMAccessControlProfileVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryInVMAccessControlProfileVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute:getGalleryInVMAccessControlProfileVersion", {
         "galleryName": args.galleryName,

@@ -95,7 +95,7 @@ export interface GetSitesControllerResult {
 /**
  * Get a VmwareSite
  */
-export function getSitesControllerOutput(args: GetSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesControllerResult> {
+export function getSitesControllerOutput(args: GetSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getSitesController", {
         "resourceGroupName": args.resourceGroupName,

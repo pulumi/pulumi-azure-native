@@ -97,7 +97,7 @@ export interface GetHypervSitesControllerResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getHypervSitesControllerOutput(args: GetHypervSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervSitesControllerResult> {
+export function getHypervSitesControllerOutput(args: GetHypervSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHypervSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure:getHypervSitesController", {
         "resourceGroupName": args.resourceGroupName,

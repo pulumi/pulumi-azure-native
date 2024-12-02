@@ -77,7 +77,7 @@ export interface GetStandbyVirtualMachinePoolResult {
 /**
  * Get a StandbyVirtualMachinePoolResource
  */
-export function getStandbyVirtualMachinePoolOutput(args: GetStandbyVirtualMachinePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandbyVirtualMachinePoolResult> {
+export function getStandbyVirtualMachinePoolOutput(args: GetStandbyVirtualMachinePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandbyVirtualMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:standbypool/v20231201preview:getStandbyVirtualMachinePool", {
         "resourceGroupName": args.resourceGroupName,

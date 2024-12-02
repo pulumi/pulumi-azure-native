@@ -75,7 +75,7 @@ export interface ListWebAppPublishingCredentialsSlotResult {
 /**
  * Description for Gets the Git/FTP publishing credentials of an app.
  */
-export function listWebAppPublishingCredentialsSlotOutput(args: ListWebAppPublishingCredentialsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppPublishingCredentialsSlotResult> {
+export function listWebAppPublishingCredentialsSlotOutput(args: ListWebAppPublishingCredentialsSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppPublishingCredentialsSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20230101:listWebAppPublishingCredentialsSlot", {
         "name": args.name,

@@ -68,7 +68,7 @@ export interface GetNetworkExperimentProfileResult {
  * Defines an Network Experiment Profile and lists of Experiments
  * Azure REST API version: 2019-11-01.
  */
-export function getNetworkExperimentProfileOutput(args: GetNetworkExperimentProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkExperimentProfileResult> {
+export function getNetworkExperimentProfileOutput(args: GetNetworkExperimentProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkExperimentProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getNetworkExperimentProfile", {
         "profileName": args.profileName,

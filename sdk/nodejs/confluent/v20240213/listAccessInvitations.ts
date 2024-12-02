@@ -54,7 +54,7 @@ export interface ListAccessInvitationsResult {
 /**
  * List invitations success response
  */
-export function listAccessInvitationsOutput(args: ListAccessInvitationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessInvitationsResult> {
+export function listAccessInvitationsOutput(args: ListAccessInvitationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessInvitationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confluent/v20240213:listAccessInvitations", {
         "organizationName": args.organizationName,

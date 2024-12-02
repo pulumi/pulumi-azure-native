@@ -44,7 +44,7 @@ export interface ListKeyByAutomationAccountResult {
  *
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
-export function listKeyByAutomationAccountOutput(args: ListKeyByAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKeyByAutomationAccountResult> {
+export function listKeyByAutomationAccountOutput(args: ListKeyByAutomationAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListKeyByAutomationAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:listKeyByAutomationAccount", {
         "automationAccountName": args.automationAccountName,

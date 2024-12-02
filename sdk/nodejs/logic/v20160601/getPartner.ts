@@ -82,7 +82,7 @@ export interface GetPartnerResult {
 /**
  * Gets an integration account partner.
  */
-export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerResult> {
+export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20160601:getPartner", {
         "integrationAccountName": args.integrationAccountName,

@@ -66,7 +66,7 @@ export interface GetPrivateAtlaseResult {
 /**
  * [Deprecated] Get a Private Atlas resource.
  */
-export function getPrivateAtlaseOutput(args: GetPrivateAtlaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateAtlaseResult> {
+export function getPrivateAtlaseOutput(args: GetPrivateAtlaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateAtlaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maps/v20200201preview:getPrivateAtlase", {
         "accountName": args.accountName,

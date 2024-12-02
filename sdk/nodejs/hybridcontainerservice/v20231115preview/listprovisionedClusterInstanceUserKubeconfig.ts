@@ -50,7 +50,7 @@ export interface ListprovisionedClusterInstanceUserKubeconfigResult {
 /**
  * Lists the AAD user credentials of a provisioned cluster instance used only in direct mode.
  */
-export function listprovisionedClusterInstanceUserKubeconfigOutput(args: ListprovisionedClusterInstanceUserKubeconfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListprovisionedClusterInstanceUserKubeconfigResult> {
+export function listprovisionedClusterInstanceUserKubeconfigOutput(args: ListprovisionedClusterInstanceUserKubeconfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListprovisionedClusterInstanceUserKubeconfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20231115preview:listprovisionedClusterInstanceUserKubeconfig", {
         "connectedClusterResourceUri": args.connectedClusterResourceUri,

@@ -65,7 +65,7 @@ export interface GetSqsQueueResult {
 /**
  * Get a SqsQueue
  */
-export function getSqsQueueOutput(args: GetSqsQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqsQueueResult> {
+export function getSqsQueueOutput(args: GetSqsQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqsQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSqsQueue", {
         "name": args.name,

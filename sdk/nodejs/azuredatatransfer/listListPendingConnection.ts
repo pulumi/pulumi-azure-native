@@ -51,7 +51,7 @@ export interface ListListPendingConnectionResult {
  *
  * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
  */
-export function listListPendingConnectionOutput(args: ListListPendingConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListPendingConnectionResult> {
+export function listListPendingConnectionOutput(args: ListListPendingConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListPendingConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:listListPendingConnection", {
         "connectionName": args.connectionName,

@@ -50,7 +50,7 @@ export interface ListCommunicationServiceKeysResult {
 /**
  * Get the access keys of the CommunicationService resource.
  */
-export function listCommunicationServiceKeysOutput(args: ListCommunicationServiceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCommunicationServiceKeysResult> {
+export function listCommunicationServiceKeysOutput(args: ListCommunicationServiceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListCommunicationServiceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:communication/v20230601preview:listCommunicationServiceKeys", {
         "communicationServiceName": args.communicationServiceName,

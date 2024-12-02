@@ -71,7 +71,7 @@ export interface GetEventHubAuthorizationRuleResult {
 /**
  * Gets an AuthorizationRule for an Event Hub by rule name.
  */
-export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
+export function getEventHubAuthorizationRuleOutput(args: GetEventHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventHubAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub/v20230101preview:getEventHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

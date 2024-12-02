@@ -50,7 +50,7 @@ export interface ListPrivateCloudAdminCredentialsResult {
 /**
  * Administrative credentials for accessing vCenter and NSX-T
  */
-export function listPrivateCloudAdminCredentialsOutput(args: ListPrivateCloudAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateCloudAdminCredentialsResult> {
+export function listPrivateCloudAdminCredentialsOutput(args: ListPrivateCloudAdminCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPrivateCloudAdminCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230301:listPrivateCloudAdminCredentials", {
         "privateCloudName": args.privateCloudName,

@@ -65,7 +65,7 @@ export interface GetSchedulerResult {
 /**
  * Get a Scheduler
  */
-export function getSchedulerOutput(args: GetSchedulerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchedulerResult> {
+export function getSchedulerOutput(args: GetSchedulerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchedulerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:durabletask/v20241001preview:getScheduler", {
         "resourceGroupName": args.resourceGroupName,

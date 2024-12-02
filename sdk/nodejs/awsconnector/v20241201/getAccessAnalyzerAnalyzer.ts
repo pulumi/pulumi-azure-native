@@ -65,7 +65,7 @@ export interface GetAccessAnalyzerAnalyzerResult {
 /**
  * Get a AccessAnalyzerAnalyzer
  */
-export function getAccessAnalyzerAnalyzerOutput(args: GetAccessAnalyzerAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessAnalyzerAnalyzerResult> {
+export function getAccessAnalyzerAnalyzerOutput(args: GetAccessAnalyzerAnalyzerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessAnalyzerAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getAccessAnalyzerAnalyzer", {
         "name": args.name,

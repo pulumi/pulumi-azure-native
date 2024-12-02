@@ -82,7 +82,7 @@ export interface GetDisasterRecoveryConfigResult {
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
  */
-export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {
+export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20220101preview:getDisasterRecoveryConfig", {
         "alias": args.alias,

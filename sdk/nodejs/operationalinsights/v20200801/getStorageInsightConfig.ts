@@ -78,7 +78,7 @@ export interface GetStorageInsightConfigResult {
 /**
  * Gets a storage insight instance.
  */
-export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageInsightConfigResult> {
+export function getStorageInsightConfigOutput(args: GetStorageInsightConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageInsightConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20200801:getStorageInsightConfig", {
         "resourceGroupName": args.resourceGroupName,

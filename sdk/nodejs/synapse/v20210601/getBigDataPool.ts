@@ -138,7 +138,7 @@ export interface GetBigDataPoolResult {
 /**
  * Get a Big Data pool.
  */
-export function getBigDataPoolOutput(args: GetBigDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBigDataPoolResult> {
+export function getBigDataPoolOutput(args: GetBigDataPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBigDataPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601:getBigDataPool", {
         "bigDataPoolName": args.bigDataPoolName,

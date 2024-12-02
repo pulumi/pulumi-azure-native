@@ -69,7 +69,7 @@ export interface GetBgpPeerResult {
 /**
  * Get a BgpPeer
  */
-export function getBgpPeerOutput(args: GetBgpPeerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBgpPeerResult> {
+export function getBgpPeerOutput(args: GetBgpPeerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBgpPeerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kubernetesruntime/v20231001preview:getBgpPeer", {
         "bgpPeerName": args.bgpPeerName,

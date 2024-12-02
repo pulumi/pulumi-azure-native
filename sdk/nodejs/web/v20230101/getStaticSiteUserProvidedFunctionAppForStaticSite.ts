@@ -67,7 +67,7 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteResult {
 /**
  * Description for Gets the details of the user provided function app registered with a static site
  */
-export function getStaticSiteUserProvidedFunctionAppForStaticSiteOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
+export function getStaticSiteUserProvidedFunctionAppForStaticSiteOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20230101:getStaticSiteUserProvidedFunctionAppForStaticSite", {
         "functionAppName": args.functionAppName,

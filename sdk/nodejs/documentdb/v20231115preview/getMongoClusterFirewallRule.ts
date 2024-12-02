@@ -70,7 +70,7 @@ export interface GetMongoClusterFirewallRuleResult {
 /**
  * Gets information about a mongo cluster firewall rule.
  */
-export function getMongoClusterFirewallRuleOutput(args: GetMongoClusterFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoClusterFirewallRuleResult> {
+export function getMongoClusterFirewallRuleOutput(args: GetMongoClusterFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMongoClusterFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20231115preview:getMongoClusterFirewallRule", {
         "firewallRuleName": args.firewallRuleName,

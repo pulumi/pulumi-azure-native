@@ -90,7 +90,7 @@ export interface GetVMInstanceGuestAgentResult {
  *
  * Other available API versions: 2023-10-01, 2023-12-01.
  */
-export function getVMInstanceGuestAgentOutput(args: GetVMInstanceGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVMInstanceGuestAgentResult> {
+export function getVMInstanceGuestAgentOutput(args: GetVMInstanceGuestAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVMInstanceGuestAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere:getVMInstanceGuestAgent", {
         "resourceUri": args.resourceUri,

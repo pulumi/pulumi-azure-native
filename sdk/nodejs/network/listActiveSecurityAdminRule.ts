@@ -57,7 +57,7 @@ export interface ListActiveSecurityAdminRuleResult {
  * Lists active security admin rules in a network manager.
  * Azure REST API version: 2021-02-01-preview.
  */
-export function listActiveSecurityAdminRuleOutput(args: ListActiveSecurityAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityAdminRuleResult> {
+export function listActiveSecurityAdminRuleOutput(args: ListActiveSecurityAdminRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListActiveSecurityAdminRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:listActiveSecurityAdminRule", {
         "networkManagerName": args.networkManagerName,

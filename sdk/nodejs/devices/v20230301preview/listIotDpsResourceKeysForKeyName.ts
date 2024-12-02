@@ -55,7 +55,7 @@ export interface ListIotDpsResourceKeysForKeyNameResult {
 /**
  * List primary and secondary keys for a specific key name
  */
-export function listIotDpsResourceKeysForKeyNameOutput(args: ListIotDpsResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysForKeyNameResult> {
+export function listIotDpsResourceKeysForKeyNameOutput(args: ListIotDpsResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIotDpsResourceKeysForKeyNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices/v20230301preview:listIotDpsResourceKeysForKeyName", {
         "keyName": args.keyName,

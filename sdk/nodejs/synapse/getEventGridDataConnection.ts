@@ -115,7 +115,7 @@ export interface GetEventGridDataConnectionResult {
  * Returns a data connection.
  * Azure REST API version: 2021-06-01-preview.
  */
-export function getEventGridDataConnectionOutput(args: GetEventGridDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventGridDataConnectionResult> {
+export function getEventGridDataConnectionOutput(args: GetEventGridDataConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventGridDataConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getEventGridDataConnection", {
         "dataConnectionName": args.dataConnectionName,

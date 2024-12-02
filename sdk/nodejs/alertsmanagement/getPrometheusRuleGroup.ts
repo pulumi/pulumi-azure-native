@@ -87,7 +87,7 @@ export interface GetPrometheusRuleGroupResult {
  * Retrieve a Prometheus rule group definition.
  * Azure REST API version: 2023-03-01.
  */
-export function getPrometheusRuleGroupOutput(args: GetPrometheusRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrometheusRuleGroupResult> {
+export function getPrometheusRuleGroupOutput(args: GetPrometheusRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrometheusRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:alertsmanagement:getPrometheusRuleGroup", {
         "resourceGroupName": args.resourceGroupName,

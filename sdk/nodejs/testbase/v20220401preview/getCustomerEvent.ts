@@ -66,7 +66,7 @@ export interface GetCustomerEventResult {
 /**
  * Gets a Test Base CustomerEvent.
  */
-export function getCustomerEventOutput(args: GetCustomerEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerEventResult> {
+export function getCustomerEventOutput(args: GetCustomerEventOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomerEventResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getCustomerEvent", {
         "customerEventName": args.customerEventName,

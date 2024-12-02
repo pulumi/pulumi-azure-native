@@ -51,7 +51,7 @@ export interface GetOfferAccessTokenResult {
 /**
  * get access token.
  */
-export function getOfferAccessTokenOutput(args: GetOfferAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfferAccessTokenResult> {
+export function getOfferAccessTokenOutput(args: GetOfferAccessTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOfferAccessTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edgemarketplace/v20230801preview:getOfferAccessToken", {
         "offerId": args.offerId,

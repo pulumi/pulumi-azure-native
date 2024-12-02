@@ -69,7 +69,7 @@ export interface GetCloudServiceResult {
 /**
  * Display information about a cloud service.
  */
-export function getCloudServiceOutput(args: GetCloudServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServiceResult> {
+export function getCloudServiceOutput(args: GetCloudServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20220904:getCloudService", {
         "cloudServiceName": args.cloudServiceName,

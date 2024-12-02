@@ -117,7 +117,7 @@ export interface GetWebAppSiteContainerSlotResult {
  *
  * Other available API versions: 2024-04-01.
  */
-export function getWebAppSiteContainerSlotOutput(args: GetWebAppSiteContainerSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteContainerSlotResult> {
+export function getWebAppSiteContainerSlotOutput(args: GetWebAppSiteContainerSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSiteContainerSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getWebAppSiteContainerSlot", {
         "containerName": args.containerName,

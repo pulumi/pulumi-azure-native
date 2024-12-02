@@ -92,7 +92,7 @@ export interface GetServiceFabricResult {
 /**
  * Get service fabric.
  */
-export function getServiceFabricOutput(args: GetServiceFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceFabricResult> {
+export function getServiceFabricOutput(args: GetServiceFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getServiceFabric", {
         "expand": args.expand,

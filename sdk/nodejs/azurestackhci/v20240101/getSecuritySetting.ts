@@ -70,7 +70,7 @@ export interface GetSecuritySettingResult {
 /**
  * Get a SecuritySetting
  */
-export function getSecuritySettingOutput(args: GetSecuritySettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecuritySettingResult> {
+export function getSecuritySettingOutput(args: GetSecuritySettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecuritySettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240101:getSecuritySetting", {
         "clusterName": args.clusterName,

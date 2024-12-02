@@ -75,7 +75,7 @@ export interface GetPublisherResult {
  *
  * Other available API versions: 2024-04-15.
  */
-export function getPublisherOutput(args: GetPublisherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublisherResult> {
+export function getPublisherOutput(args: GetPublisherOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublisherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getPublisher", {
         "publisherName": args.publisherName,

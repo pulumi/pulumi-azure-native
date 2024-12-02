@@ -100,7 +100,7 @@ export interface GetHuntResult {
  *
  * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview.
  */
-export function getHuntOutput(args: GetHuntOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHuntResult> {
+export function getHuntOutput(args: GetHuntOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHuntResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getHunt", {
         "huntId": args.huntId,

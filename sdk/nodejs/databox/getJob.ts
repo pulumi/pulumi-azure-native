@@ -140,7 +140,7 @@ export interface GetJobResult {
  *
  * Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
  */
-export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
+export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databox:getJob", {
         "expand": args.expand,

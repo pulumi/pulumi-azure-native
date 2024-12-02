@@ -110,7 +110,7 @@ export interface GetScheduleResult {
 /**
  * Retrieve the schedule identified by schedule name.
  */
-export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
+export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20220808:getSchedule", {
         "automationAccountName": args.automationAccountName,

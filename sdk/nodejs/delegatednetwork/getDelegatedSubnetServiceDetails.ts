@@ -79,7 +79,7 @@ export interface GetDelegatedSubnetServiceDetailsResult {
  *
  * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
  */
-export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {
+export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:delegatednetwork:getDelegatedSubnetServiceDetails", {
         "resourceGroupName": args.resourceGroupName,

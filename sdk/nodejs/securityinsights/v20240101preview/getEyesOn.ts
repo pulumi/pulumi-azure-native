@@ -71,7 +71,7 @@ export interface GetEyesOnResult {
 /**
  * Gets a setting.
  */
-export function getEyesOnOutput(args: GetEyesOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEyesOnResult> {
+export function getEyesOnOutput(args: GetEyesOnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEyesOnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getEyesOn", {
         "resourceGroupName": args.resourceGroupName,

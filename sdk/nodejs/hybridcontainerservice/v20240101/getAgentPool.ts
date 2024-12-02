@@ -113,7 +113,7 @@ export interface GetAgentPoolResult {
 /**
  * Gets the specified agent pool in the provisioned cluster
  */
-export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
+export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgentPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20240101:getAgentPool", {
         "agentPoolName": args.agentPoolName,

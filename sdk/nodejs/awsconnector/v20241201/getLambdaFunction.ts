@@ -65,7 +65,7 @@ export interface GetLambdaFunctionResult {
 /**
  * Get a LambdaFunction
  */
-export function getLambdaFunctionOutput(args: GetLambdaFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLambdaFunctionResult> {
+export function getLambdaFunctionOutput(args: GetLambdaFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLambdaFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLambdaFunction", {
         "name": args.name,

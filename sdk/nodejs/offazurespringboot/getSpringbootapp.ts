@@ -64,7 +64,7 @@ export interface GetSpringbootappResult {
  * Get a springbootapps resource.
  * Azure REST API version: 2024-04-01-preview.
  */
-export function getSpringbootappOutput(args: GetSpringbootappOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpringbootappResult> {
+export function getSpringbootappOutput(args: GetSpringbootappOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpringbootappResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazurespringboot:getSpringbootapp", {
         "resourceGroupName": args.resourceGroupName,

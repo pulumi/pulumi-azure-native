@@ -75,7 +75,7 @@ export interface GetFileEventTriggerResult {
 /**
  * Get a specific trigger by name.
  */
-export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileEventTriggerResult> {
+export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileEventTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230101preview:getFileEventTrigger", {
         "deviceName": args.deviceName,

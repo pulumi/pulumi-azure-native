@@ -113,7 +113,7 @@ export interface GetAmlFilesystemResult {
 /**
  * Returns an AML file system.
  */
-export function getAmlFilesystemOutput(args: GetAmlFilesystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmlFilesystemResult> {
+export function getAmlFilesystemOutput(args: GetAmlFilesystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAmlFilesystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagecache/v20231101preview:getAmlFilesystem", {
         "amlFilesystemName": args.amlFilesystemName,

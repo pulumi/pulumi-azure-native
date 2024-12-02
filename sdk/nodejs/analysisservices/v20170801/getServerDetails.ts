@@ -101,7 +101,7 @@ export interface GetServerDetailsResult {
 /**
  * Gets details about the specified Analysis Services server.
  */
-export function getServerDetailsOutput(args: GetServerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerDetailsResult> {
+export function getServerDetailsOutput(args: GetServerDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:analysisservices/v20170801:getServerDetails", {
         "resourceGroupName": args.resourceGroupName,

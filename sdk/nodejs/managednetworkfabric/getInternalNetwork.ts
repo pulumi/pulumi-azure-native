@@ -124,7 +124,7 @@ export interface GetInternalNetworkResult {
  *
  * Other available API versions: 2023-06-15.
  */
-export function getInternalNetworkOutput(args: GetInternalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternalNetworkResult> {
+export function getInternalNetworkOutput(args: GetInternalNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInternalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getInternalNetwork", {
         "internalNetworkName": args.internalNetworkName,

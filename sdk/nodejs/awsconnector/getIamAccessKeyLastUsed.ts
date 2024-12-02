@@ -67,7 +67,7 @@ export interface GetIamAccessKeyLastUsedResult {
  * Get a IamAccessKeyLastUsed
  * Azure REST API version: 2024-12-01.
  */
-export function getIamAccessKeyLastUsedOutput(args: GetIamAccessKeyLastUsedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamAccessKeyLastUsedResult> {
+export function getIamAccessKeyLastUsedOutput(args: GetIamAccessKeyLastUsedOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamAccessKeyLastUsedResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamAccessKeyLastUsed", {
         "name": args.name,

@@ -84,7 +84,7 @@ export interface GetPolicyDefinitionResult {
 /**
  * This operation retrieves the policy definition in the given subscription with the given name.
  */
-export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionResult> {
+export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20230401:getPolicyDefinition", {
         "policyDefinitionName": args.policyDefinitionName,

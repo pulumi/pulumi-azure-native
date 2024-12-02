@@ -104,7 +104,7 @@ export interface GetClusterManagerResult {
  *
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
-export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterManagerResult> {
+export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud:getClusterManager", {
         "clusterManagerName": args.clusterManagerName,

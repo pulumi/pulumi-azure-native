@@ -78,7 +78,7 @@ export interface GetGovernanceAssignmentResult {
 /**
  * Get a specific governanceAssignment for the requested scope by AssignmentKey
  */
-export function getGovernanceAssignmentOutput(args: GetGovernanceAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGovernanceAssignmentResult> {
+export function getGovernanceAssignmentOutput(args: GetGovernanceAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGovernanceAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20220101preview:getGovernanceAssignment", {
         "assessmentName": args.assessmentName,

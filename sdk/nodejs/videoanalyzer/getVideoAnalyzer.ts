@@ -103,7 +103,7 @@ export interface GetVideoAnalyzerResult {
  *
  * Other available API versions: 2021-05-01-preview.
  */
-export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoAnalyzerResult> {
+export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVideoAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:videoanalyzer:getVideoAnalyzer", {
         "accountName": args.accountName,

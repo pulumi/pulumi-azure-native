@@ -145,7 +145,7 @@ export interface GetWebPubSubResult {
  *
  * Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
-export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubResult> {
+export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebPubSubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:webpubsub:getWebPubSub", {
         "resourceGroupName": args.resourceGroupName,

@@ -42,7 +42,7 @@ export interface ListRedisKeysResult {
 /**
  * Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
  */
-export function listRedisKeysOutput(args: ListRedisKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRedisKeysResult> {
+export function listRedisKeysOutput(args: ListRedisKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRedisKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache/v20240401preview:listRedisKeys", {
         "name": args.name,

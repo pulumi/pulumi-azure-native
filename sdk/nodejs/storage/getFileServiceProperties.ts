@@ -76,7 +76,7 @@ export interface GetFileServicePropertiesResult {
  *
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
-export function getFileServicePropertiesOutput(args: GetFileServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileServicePropertiesResult> {
+export function getFileServicePropertiesOutput(args: GetFileServicePropertiesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileServicePropertiesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage:getFileServiceProperties", {
         "accountName": args.accountName,

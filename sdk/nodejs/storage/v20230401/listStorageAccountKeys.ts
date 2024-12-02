@@ -46,7 +46,7 @@ export interface ListStorageAccountKeysResult {
 /**
  * Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
  */
-export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountKeysResult> {
+export function listStorageAccountKeysOutput(args: ListStorageAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStorageAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230401:listStorageAccountKeys", {
         "accountName": args.accountName,

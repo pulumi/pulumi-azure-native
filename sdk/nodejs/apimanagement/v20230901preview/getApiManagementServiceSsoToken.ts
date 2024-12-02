@@ -38,7 +38,7 @@ export interface GetApiManagementServiceSsoTokenResult {
 /**
  * Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
  */
-export function getApiManagementServiceSsoTokenOutput(args: GetApiManagementServiceSsoTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceSsoTokenResult> {
+export function getApiManagementServiceSsoTokenOutput(args: GetApiManagementServiceSsoTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiManagementServiceSsoTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getApiManagementServiceSsoToken", {
         "resourceGroupName": args.resourceGroupName,

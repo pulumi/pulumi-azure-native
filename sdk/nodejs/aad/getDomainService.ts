@@ -143,7 +143,7 @@ export interface GetDomainServiceResult {
  *
  * Other available API versions: 2017-06-01.
  */
-export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainServiceResult> {
+export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:aad:getDomainService", {
         "domainServiceName": args.domainServiceName,

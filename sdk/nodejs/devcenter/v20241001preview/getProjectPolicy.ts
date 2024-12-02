@@ -70,7 +70,7 @@ export interface GetProjectPolicyResult {
 /**
  * Gets a specific project policy.
  */
-export function getProjectPolicyOutput(args: GetProjectPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectPolicyResult> {
+export function getProjectPolicyOutput(args: GetProjectPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20241001preview:getProjectPolicy", {
         "devCenterName": args.devCenterName,

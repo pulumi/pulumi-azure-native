@@ -58,7 +58,7 @@ export interface ListWorkspaceSubscriptionSecretsResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function listWorkspaceSubscriptionSecretsOutput(args: ListWorkspaceSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceSubscriptionSecretsResult> {
+export function listWorkspaceSubscriptionSecretsOutput(args: ListWorkspaceSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceSubscriptionSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:listWorkspaceSubscriptionSecrets", {
         "resourceGroupName": args.resourceGroupName,

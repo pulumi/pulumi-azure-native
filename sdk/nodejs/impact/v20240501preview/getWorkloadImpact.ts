@@ -52,7 +52,7 @@ export interface GetWorkloadImpactResult {
 /**
  * Get a WorkloadImpact
  */
-export function getWorkloadImpactOutput(args: GetWorkloadImpactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadImpactResult> {
+export function getWorkloadImpactOutput(args: GetWorkloadImpactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadImpactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:impact/v20240501preview:getWorkloadImpact", {
         "workloadImpactName": args.workloadImpactName,

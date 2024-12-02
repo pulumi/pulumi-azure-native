@@ -67,7 +67,7 @@ export interface GetPropertyResult {
 /**
  * Gets the details of the property specified by its identifier.
  */
-export function getPropertyOutput(args: GetPropertyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPropertyResult> {
+export function getPropertyOutput(args: GetPropertyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPropertyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20190101:getProperty", {
         "propId": args.propId,

@@ -75,7 +75,7 @@ export interface GetActionResult {
 /**
  * Gets the action of alert rule.
  */
-export function getActionOutput(args: GetActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionResult> {
+export function getActionOutput(args: GetActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230601preview:getAction", {
         "actionId": args.actionId,

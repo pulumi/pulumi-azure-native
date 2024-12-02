@@ -96,7 +96,7 @@ export interface GetAssetResult {
  * Get the details of an Asset in the Media Services account
  * Azure REST API version: 2023-01-01.
  */
-export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
+export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getAsset", {
         "accountName": args.accountName,

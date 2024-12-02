@@ -65,7 +65,7 @@ export interface GetS3AccessControlPolicyResult {
 /**
  * Get a S3AccessControlPolicy
  */
-export function getS3AccessControlPolicyOutput(args: GetS3AccessControlPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3AccessControlPolicyResult> {
+export function getS3AccessControlPolicyOutput(args: GetS3AccessControlPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetS3AccessControlPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getS3AccessControlPolicy", {
         "name": args.name,

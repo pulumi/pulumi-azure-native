@@ -65,7 +65,7 @@ export interface GetCodeBuildSourceCredentialsInfoResult {
 /**
  * Get a CodeBuildSourceCredentialsInfo
  */
-export function getCodeBuildSourceCredentialsInfoOutput(args: GetCodeBuildSourceCredentialsInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeBuildSourceCredentialsInfoResult> {
+export function getCodeBuildSourceCredentialsInfoOutput(args: GetCodeBuildSourceCredentialsInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeBuildSourceCredentialsInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getCodeBuildSourceCredentialsInfo", {
         "name": args.name,

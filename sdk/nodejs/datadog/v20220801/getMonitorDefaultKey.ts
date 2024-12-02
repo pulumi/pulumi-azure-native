@@ -41,7 +41,7 @@ export interface GetMonitorDefaultKeyResult {
      */
     readonly name?: string;
 }
-export function getMonitorDefaultKeyOutput(args: GetMonitorDefaultKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorDefaultKeyResult> {
+export function getMonitorDefaultKeyOutput(args: GetMonitorDefaultKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitorDefaultKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datadog/v20220801:getMonitorDefaultKey", {
         "monitorName": args.monitorName,

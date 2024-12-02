@@ -98,7 +98,7 @@ export interface GetStorageTargetResult {
 /**
  * Returns a Storage Target from a cache.
  */
-export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
+export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagecache/v20230501:getStorageTarget", {
         "cacheName": args.cacheName,

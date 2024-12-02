@@ -74,7 +74,7 @@ export interface GetTransformResult {
 /**
  * Gets a Transform.
  */
-export function getTransformOutput(args: GetTransformOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransformResult> {
+export function getTransformOutput(args: GetTransformOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransformResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20220701:getTransform", {
         "accountName": args.accountName,

@@ -110,7 +110,7 @@ export interface GetNetworkToNetworkInterconnectResult {
 /**
  * Implements NetworkToNetworkInterconnects GET method.
  */
-export function getNetworkToNetworkInterconnectOutput(args: GetNetworkToNetworkInterconnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkToNetworkInterconnectResult> {
+export function getNetworkToNetworkInterconnectOutput(args: GetNetworkToNetworkInterconnectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkToNetworkInterconnectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkToNetworkInterconnect", {
         "networkFabricName": args.networkFabricName,

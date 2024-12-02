@@ -77,7 +77,7 @@ export interface GetProfileResult {
 /**
  * Gets a CDN profile with the specified profile name under the specified subscription and resource group.
  */
-export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
+export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20200901:getProfile", {
         "profileName": args.profileName,

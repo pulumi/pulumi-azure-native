@@ -56,7 +56,7 @@ export interface GetManagedServerDnsAliasResult {
 /**
  * Gets a server DNS alias.
  */
-export function getManagedServerDnsAliasOutput(args: GetManagedServerDnsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedServerDnsAliasResult> {
+export function getManagedServerDnsAliasOutput(args: GetManagedServerDnsAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedServerDnsAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getManagedServerDnsAlias", {
         "dnsAliasName": args.dnsAliasName,

@@ -94,7 +94,7 @@ export interface GetEntityResult {
  *
  * Other available API versions: 2018-01-01-preview, 2018-03-01-preview, 2019-11-01, 2020-02-01, 2020-05-01, 2020-10-01, 2023-04-01.
  */
-export function getEntityOutput(args?: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
+export function getEntityOutput(args?: GetEntityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntityResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:management:getEntity", {

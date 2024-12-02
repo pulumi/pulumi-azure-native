@@ -79,7 +79,7 @@ export interface GetConnectorDryrunResult {
 /**
  * get a dryrun job
  */
-export function getConnectorDryrunOutput(args: GetConnectorDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorDryrunResult> {
+export function getConnectorDryrunOutput(args: GetConnectorDryrunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorDryrunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicelinker/v20230401preview:getConnectorDryrun", {
         "dryrunName": args.dryrunName,

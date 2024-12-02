@@ -74,7 +74,7 @@ export interface GetDotNetComponentResult {
 /**
  * .NET Component.
  */
-export function getDotNetComponentOutput(args: GetDotNetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDotNetComponentResult> {
+export function getDotNetComponentOutput(args: GetDotNetComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDotNetComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20241002preview:getDotNetComponent", {
         "environmentName": args.environmentName,

@@ -95,7 +95,7 @@ export interface GetAccountResult {
  * Returns account details for the given account name.
  * Azure REST API version: 2023-07-01.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:deviceupdate:getAccount", {
         "accountName": args.accountName,

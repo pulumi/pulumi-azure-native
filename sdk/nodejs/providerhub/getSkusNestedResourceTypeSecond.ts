@@ -68,7 +68,7 @@ export interface GetSkusNestedResourceTypeSecondResult {
  * Gets the sku details for the given resource type and sku name.
  * Azure REST API version: 2021-09-01-preview.
  */
-export function getSkusNestedResourceTypeSecondOutput(args: GetSkusNestedResourceTypeSecondOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeSecondResult> {
+export function getSkusNestedResourceTypeSecondOutput(args: GetSkusNestedResourceTypeSecondOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSkusNestedResourceTypeSecondResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:providerhub:getSkusNestedResourceTypeSecond", {
         "nestedResourceTypeFirst": args.nestedResourceTypeFirst,

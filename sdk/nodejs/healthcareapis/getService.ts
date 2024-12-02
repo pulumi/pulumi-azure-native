@@ -83,7 +83,7 @@ export interface GetServiceResult {
  *
  * Other available API versions: 2020-03-15, 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
  */
-export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthcareapis:getService", {
         "resourceGroupName": args.resourceGroupName,

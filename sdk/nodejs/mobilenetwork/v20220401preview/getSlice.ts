@@ -102,7 +102,7 @@ export interface GetSliceResult {
 /**
  * Gets information about the specified network slice.
  */
-export function getSliceOutput(args: GetSliceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSliceResult> {
+export function getSliceOutput(args: GetSliceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSliceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20220401preview:getSlice", {
         "mobileNetworkName": args.mobileNetworkName,

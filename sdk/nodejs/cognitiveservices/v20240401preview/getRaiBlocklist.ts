@@ -70,7 +70,7 @@ export interface GetRaiBlocklistResult {
 /**
  * Gets the specified custom blocklist associated with the Azure OpenAI account.
  */
-export function getRaiBlocklistOutput(args: GetRaiBlocklistOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiBlocklistResult> {
+export function getRaiBlocklistOutput(args: GetRaiBlocklistOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRaiBlocklistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20240401preview:getRaiBlocklist", {
         "accountName": args.accountName,

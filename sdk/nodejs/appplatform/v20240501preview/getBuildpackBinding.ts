@@ -72,7 +72,7 @@ export interface GetBuildpackBindingResult {
 /**
  * Get a buildpack binding by name.
  */
-export function getBuildpackBindingOutput(args: GetBuildpackBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildpackBindingResult> {
+export function getBuildpackBindingOutput(args: GetBuildpackBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuildpackBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240501preview:getBuildpackBinding", {
         "buildServiceName": args.buildServiceName,

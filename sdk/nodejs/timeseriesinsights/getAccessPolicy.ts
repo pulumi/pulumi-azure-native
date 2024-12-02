@@ -69,7 +69,7 @@ export interface GetAccessPolicyResult {
  *
  * Other available API versions: 2017-11-15, 2021-06-30-preview.
  */
-export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
+export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights:getAccessPolicy", {
         "accessPolicyName": args.accessPolicyName,

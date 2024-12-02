@@ -73,7 +73,7 @@ export interface GetFleetResult {
 /**
  * The Fleet resource which contains multiple Kubernetes clusters as its members.
  */
-export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
+export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20220702preview:getFleet", {
         "fleetName": args.fleetName,

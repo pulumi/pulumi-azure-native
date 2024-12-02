@@ -62,7 +62,7 @@ export interface GetCapabilityHostResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getCapabilityHostOutput(args: GetCapabilityHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapabilityHostResult> {
+export function getCapabilityHostOutput(args: GetCapabilityHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapabilityHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001preview:getCapabilityHost", {
         "name": args.name,

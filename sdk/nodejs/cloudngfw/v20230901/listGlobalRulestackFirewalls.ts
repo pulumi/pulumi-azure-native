@@ -37,7 +37,7 @@ export interface ListGlobalRulestackFirewallsResult {
 /**
  * List of Firewalls associated with Rulestack
  */
-export function listGlobalRulestackFirewallsOutput(args: ListGlobalRulestackFirewallsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalRulestackFirewallsResult> {
+export function listGlobalRulestackFirewallsOutput(args: ListGlobalRulestackFirewallsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGlobalRulestackFirewallsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901:listGlobalRulestackFirewalls", {
         "globalRulestackName": args.globalRulestackName,

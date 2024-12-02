@@ -66,7 +66,7 @@ export interface GetDataflowProfileResult {
 /**
  * Get a DataflowProfileResource
  */
-export function getDataflowProfileOutput(args: GetDataflowProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataflowProfileResult> {
+export function getDataflowProfileOutput(args: GetDataflowProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataflowProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperations/v20241101:getDataflowProfile", {
         "dataflowProfileName": args.dataflowProfileName,

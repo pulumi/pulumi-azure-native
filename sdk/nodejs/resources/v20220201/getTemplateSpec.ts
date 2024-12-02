@@ -82,7 +82,7 @@ export interface GetTemplateSpecResult {
 /**
  * Gets a Template Spec with a given name.
  */
-export function getTemplateSpecOutput(args: GetTemplateSpecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecResult> {
+export function getTemplateSpecOutput(args: GetTemplateSpecOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplateSpecResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources/v20220201:getTemplateSpec", {
         "expand": args.expand,

@@ -67,7 +67,7 @@ export interface GetEcsTaskDefinitionResult {
  * Get a EcsTaskDefinition
  * Azure REST API version: 2024-12-01.
  */
-export function getEcsTaskDefinitionOutput(args: GetEcsTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcsTaskDefinitionResult> {
+export function getEcsTaskDefinitionOutput(args: GetEcsTaskDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcsTaskDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEcsTaskDefinition", {
         "name": args.name,

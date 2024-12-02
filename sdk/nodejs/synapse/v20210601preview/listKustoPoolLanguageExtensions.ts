@@ -46,7 +46,7 @@ export interface ListKustoPoolLanguageExtensionsResult {
 /**
  * Returns a list of language extensions that can run within KQL queries.
  */
-export function listKustoPoolLanguageExtensionsOutput(args: ListKustoPoolLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolLanguageExtensionsResult> {
+export function listKustoPoolLanguageExtensionsOutput(args: ListKustoPoolLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListKustoPoolLanguageExtensionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:listKustoPoolLanguageExtensions", {
         "kustoPoolName": args.kustoPoolName,

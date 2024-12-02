@@ -82,7 +82,7 @@ export interface GetPolicyDefinitionResult {
  *
  * Other available API versions: 2016-04-01, 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
  */
-export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDefinitionResult> {
+export function getPolicyDefinitionOutput(args: GetPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicyDefinition", {
         "policyDefinitionName": args.policyDefinitionName,

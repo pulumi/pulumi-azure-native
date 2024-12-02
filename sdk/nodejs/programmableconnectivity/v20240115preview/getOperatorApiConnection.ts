@@ -101,7 +101,7 @@ export interface GetOperatorApiConnectionResult {
 /**
  * Get an Operator API Connection.
  */
-export function getOperatorApiConnectionOutput(args: GetOperatorApiConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOperatorApiConnectionResult> {
+export function getOperatorApiConnectionOutput(args: GetOperatorApiConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOperatorApiConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:programmableconnectivity/v20240115preview:getOperatorApiConnection", {
         "operatorApiConnectionName": args.operatorApiConnectionName,

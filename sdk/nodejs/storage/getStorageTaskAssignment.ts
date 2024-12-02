@@ -60,7 +60,7 @@ export interface GetStorageTaskAssignmentResult {
  * Get the storage task assignment properties
  * Azure REST API version: 2023-05-01.
  */
-export function getStorageTaskAssignmentOutput(args: GetStorageTaskAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTaskAssignmentResult> {
+export function getStorageTaskAssignmentOutput(args: GetStorageTaskAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageTaskAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage:getStorageTaskAssignment", {
         "accountName": args.accountName,

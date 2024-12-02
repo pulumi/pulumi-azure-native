@@ -81,7 +81,7 @@ export interface GetTenantActivityLogAlertResult {
 /**
  * Get Tenant Activity Log Alert rule.
  */
-export function getTenantActivityLogAlertOutput(args: GetTenantActivityLogAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantActivityLogAlertResult> {
+export function getTenantActivityLogAlertOutput(args: GetTenantActivityLogAlertOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTenantActivityLogAlertResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:alertsmanagement/v20230401preview:getTenantActivityLogAlert", {
         "alertRuleName": args.alertRuleName,

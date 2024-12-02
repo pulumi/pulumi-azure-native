@@ -55,7 +55,7 @@ export interface ListStorageAccountSasTokensResult {
 /**
  * Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
  */
-export function listStorageAccountSasTokensOutput(args: ListStorageAccountSasTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStorageAccountSasTokensResult> {
+export function listStorageAccountSasTokensOutput(args: ListStorageAccountSasTokensOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStorageAccountSasTokensResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datalakeanalytics/v20191101preview:listStorageAccountSasTokens", {
         "accountName": args.accountName,

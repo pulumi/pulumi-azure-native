@@ -107,7 +107,7 @@ export interface GetElasticSanResult {
  *
  * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
  */
-export function getElasticSanOutput(args: GetElasticSanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticSanResult> {
+export function getElasticSanOutput(args: GetElasticSanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticSanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elasticsan:getElasticSan", {
         "elasticSanName": args.elasticSanName,

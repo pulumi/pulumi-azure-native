@@ -68,7 +68,7 @@ export interface GetModernizeProjectResult {
 /**
  * Gets the details of the modernize project.
  */
-export function getModernizeProjectOutput(args: GetModernizeProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModernizeProjectResult> {
+export function getModernizeProjectOutput(args: GetModernizeProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModernizeProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20220501preview:getModernizeProject", {
         "modernizeProjectName": args.modernizeProjectName,

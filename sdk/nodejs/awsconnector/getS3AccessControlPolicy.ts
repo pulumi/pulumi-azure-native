@@ -67,7 +67,7 @@ export interface GetS3AccessControlPolicyResult {
  * Get a S3AccessControlPolicy
  * Azure REST API version: 2024-12-01.
  */
-export function getS3AccessControlPolicyOutput(args: GetS3AccessControlPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3AccessControlPolicyResult> {
+export function getS3AccessControlPolicyOutput(args: GetS3AccessControlPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetS3AccessControlPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getS3AccessControlPolicy", {
         "name": args.name,

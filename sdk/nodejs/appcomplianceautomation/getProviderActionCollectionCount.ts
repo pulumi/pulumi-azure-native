@@ -36,7 +36,7 @@ export interface GetProviderActionCollectionCountResult {
  * Get the count of reports.
  * Azure REST API version: 2024-06-27.
  */
-export function getProviderActionCollectionCountOutput(args?: GetProviderActionCollectionCountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderActionCollectionCountResult> {
+export function getProviderActionCollectionCountOutput(args?: GetProviderActionCollectionCountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderActionCollectionCountResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation:getProviderActionCollectionCount", {

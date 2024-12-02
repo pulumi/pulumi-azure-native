@@ -65,7 +65,7 @@ export interface GetDnssecConfigResult {
 /**
  * Gets the DNSSEC configuration.
  */
-export function getDnssecConfigOutput(args: GetDnssecConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnssecConfigResult> {
+export function getDnssecConfigOutput(args: GetDnssecConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnssecConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:getDnssecConfig", {
         "resourceGroupName": args.resourceGroupName,

@@ -58,7 +58,7 @@ export interface GetProductWikiResult {
 /**
  * Gets the details of the Wiki for a Product specified by its identifier.
  */
-export function getProductWikiOutput(args: GetProductWikiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductWikiResult> {
+export function getProductWikiOutput(args: GetProductWikiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProductWikiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getProductWiki", {
         "productId": args.productId,

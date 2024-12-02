@@ -42,7 +42,7 @@ export interface ListAdminKeyResult {
 /**
  * Gets the primary and secondary admin API keys for the specified search service.
  */
-export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAdminKeyResult> {
+export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAdminKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:search/v20231101:listAdminKey", {
         "resourceGroupName": args.resourceGroupName,

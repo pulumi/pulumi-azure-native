@@ -78,7 +78,7 @@ export interface GetTargetResult {
 /**
  * Get a Target
  */
-export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetResult> {
+export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databasewatcher/v20241001preview:getTarget", {
         "resourceGroupName": args.resourceGroupName,

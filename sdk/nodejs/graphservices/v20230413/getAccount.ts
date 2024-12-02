@@ -65,7 +65,7 @@ export interface GetAccountResult {
 /**
  * Returns account resource for a given name.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:graphservices/v20230413:getAccount", {
         "resourceGroupName": args.resourceGroupName,

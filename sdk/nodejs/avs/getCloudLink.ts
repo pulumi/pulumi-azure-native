@@ -65,7 +65,7 @@ export interface GetCloudLinkResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function getCloudLinkOutput(args: GetCloudLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudLinkResult> {
+export function getCloudLinkOutput(args: GetCloudLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getCloudLink", {
         "cloudLinkName": args.cloudLinkName,

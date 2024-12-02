@@ -76,7 +76,7 @@ export interface GetApiVersionResult {
 /**
  * Returns details of the API version.
  */
-export function getApiVersionOutput(args: GetApiVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiVersionResult> {
+export function getApiVersionOutput(args: GetApiVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apicenter/v20240301:getApiVersion", {
         "apiName": args.apiName,

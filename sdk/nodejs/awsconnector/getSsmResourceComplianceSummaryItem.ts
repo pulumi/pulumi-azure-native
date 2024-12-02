@@ -67,7 +67,7 @@ export interface GetSsmResourceComplianceSummaryItemResult {
  * Get a SsmResourceComplianceSummaryItem
  * Azure REST API version: 2024-12-01.
  */
-export function getSsmResourceComplianceSummaryItemOutput(args: GetSsmResourceComplianceSummaryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmResourceComplianceSummaryItemResult> {
+export function getSsmResourceComplianceSummaryItemOutput(args: GetSsmResourceComplianceSummaryItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSsmResourceComplianceSummaryItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSsmResourceComplianceSummaryItem", {
         "name": args.name,

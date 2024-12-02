@@ -65,7 +65,7 @@ export interface GetIamRoleResult {
 /**
  * Get a IamRole
  */
-export function getIamRoleOutput(args: GetIamRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamRoleResult> {
+export function getIamRoleOutput(args: GetIamRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamRole", {
         "name": args.name,

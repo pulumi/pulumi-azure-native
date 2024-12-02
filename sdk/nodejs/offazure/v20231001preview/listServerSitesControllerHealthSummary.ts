@@ -45,7 +45,7 @@ export interface ListServerSitesControllerHealthSummaryResult {
 /**
  * Method to get site health summary.
  */
-export function listServerSitesControllerHealthSummaryOutput(args: ListServerSitesControllerHealthSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerSitesControllerHealthSummaryResult> {
+export function listServerSitesControllerHealthSummaryOutput(args: ListServerSitesControllerHealthSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListServerSitesControllerHealthSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20231001preview:listServerSitesControllerHealthSummary", {
         "resourceGroupName": args.resourceGroupName,

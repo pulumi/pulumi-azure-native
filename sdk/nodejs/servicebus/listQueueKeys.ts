@@ -78,7 +78,7 @@ export interface ListQueueKeysResult {
  *
  * Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
  */
-export function listQueueKeysOutput(args: ListQueueKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQueueKeysResult> {
+export function listQueueKeysOutput(args: ListQueueKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListQueueKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus:listQueueKeys", {
         "authorizationRuleName": args.authorizationRuleName,

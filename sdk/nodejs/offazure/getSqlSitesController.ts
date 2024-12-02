@@ -82,7 +82,7 @@ export interface GetSqlSitesControllerResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getSqlSitesControllerOutput(args: GetSqlSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlSitesControllerResult> {
+export function getSqlSitesControllerOutput(args: GetSqlSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure:getSqlSitesController", {
         "resourceGroupName": args.resourceGroupName,

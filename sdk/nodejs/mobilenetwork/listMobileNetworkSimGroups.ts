@@ -47,7 +47,7 @@ export interface ListMobileNetworkSimGroupsResult {
  * Gets all the SIM groups assigned to a mobile network.
  * Azure REST API version: 2024-04-01.
  */
-export function listMobileNetworkSimGroupsOutput(args: ListMobileNetworkSimGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMobileNetworkSimGroupsResult> {
+export function listMobileNetworkSimGroupsOutput(args: ListMobileNetworkSimGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMobileNetworkSimGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork:listMobileNetworkSimGroups", {
         "mobileNetworkName": args.mobileNetworkName,

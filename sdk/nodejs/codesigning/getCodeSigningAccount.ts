@@ -79,7 +79,7 @@ export interface GetCodeSigningAccountResult {
  *
  * Other available API versions: 2024-09-30-preview.
  */
-export function getCodeSigningAccountOutput(args: GetCodeSigningAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningAccountResult> {
+export function getCodeSigningAccountOutput(args: GetCodeSigningAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeSigningAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:codesigning:getCodeSigningAccount", {
         "accountName": args.accountName,

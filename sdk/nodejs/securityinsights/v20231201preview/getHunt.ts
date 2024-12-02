@@ -94,7 +94,7 @@ export interface GetHuntResult {
 /**
  * Gets a hunt, without relations and comments.
  */
-export function getHuntOutput(args: GetHuntOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHuntResult> {
+export function getHuntOutput(args: GetHuntOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHuntResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231201preview:getHunt", {
         "huntId": args.huntId,

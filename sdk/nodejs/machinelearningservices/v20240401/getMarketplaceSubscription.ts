@@ -62,7 +62,7 @@ export interface GetMarketplaceSubscriptionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getMarketplaceSubscriptionOutput(args: GetMarketplaceSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplaceSubscriptionResult> {
+export function getMarketplaceSubscriptionOutput(args: GetMarketplaceSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMarketplaceSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401:getMarketplaceSubscription", {
         "name": args.name,

@@ -95,7 +95,7 @@ export interface GetCapacityDetailsResult {
  *
  * Other available API versions: 2017-10-01.
  */
-export function getCapacityDetailsOutput(args: GetCapacityDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityDetailsResult> {
+export function getCapacityDetailsOutput(args: GetCapacityDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:powerbidedicated:getCapacityDetails", {
         "dedicatedCapacityName": args.dedicatedCapacityName,

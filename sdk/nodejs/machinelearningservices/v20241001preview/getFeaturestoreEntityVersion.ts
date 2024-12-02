@@ -67,7 +67,7 @@ export interface GetFeaturestoreEntityVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getFeaturestoreEntityVersionOutput(args: GetFeaturestoreEntityVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeaturestoreEntityVersionResult> {
+export function getFeaturestoreEntityVersionOutput(args: GetFeaturestoreEntityVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFeaturestoreEntityVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001preview:getFeaturestoreEntityVersion", {
         "name": args.name,

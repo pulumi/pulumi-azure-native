@@ -90,7 +90,7 @@ export interface GetADLSGen1FolderDataSetResult {
  * Get a DataSet in a share
  * Azure REST API version: 2021-08-01.
  */
-export function getADLSGen1FolderDataSetOutput(args: GetADLSGen1FolderDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen1FolderDataSetResult> {
+export function getADLSGen1FolderDataSetOutput(args: GetADLSGen1FolderDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetADLSGen1FolderDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:getADLSGen1FolderDataSet", {
         "accountName": args.accountName,

@@ -59,7 +59,7 @@ export interface GetAzureServersSettingResult {
  * Get a server vulnerability assessments setting of the requested kind, that is set on the subscription
  * Azure REST API version: 2023-05-01.
  */
-export function getAzureServersSettingOutput(args: GetAzureServersSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureServersSettingResult> {
+export function getAzureServersSettingOutput(args: GetAzureServersSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureServersSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getAzureServersSetting", {
         "settingKind": args.settingKind,

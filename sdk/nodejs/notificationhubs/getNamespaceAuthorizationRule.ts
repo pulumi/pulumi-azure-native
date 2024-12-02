@@ -76,7 +76,7 @@ export interface GetNamespaceAuthorizationRuleResult {
  *
  * Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
  */
-export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
+export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs:getNamespaceAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

@@ -67,7 +67,7 @@ export interface GetEc2RouteTableResult {
  * Get a Ec2RouteTable
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2RouteTableOutput(args: GetEc2RouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2RouteTableResult> {
+export function getEc2RouteTableOutput(args: GetEc2RouteTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2RouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2RouteTable", {
         "name": args.name,

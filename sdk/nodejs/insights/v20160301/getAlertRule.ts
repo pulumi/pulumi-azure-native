@@ -85,7 +85,7 @@ export interface GetAlertRuleResult {
 /**
  * Gets a classic metric alert rule
  */
-export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {
+export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20160301:getAlertRule", {
         "resourceGroupName": args.resourceGroupName,

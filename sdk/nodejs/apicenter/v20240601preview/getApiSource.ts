@@ -83,7 +83,7 @@ export interface GetApiSourceResult {
 /**
  * Returns details of the API source.
  */
-export function getApiSourceOutput(args: GetApiSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiSourceResult> {
+export function getApiSourceOutput(args: GetApiSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apicenter/v20240601preview:getApiSource", {
         "apiSourceName": args.apiSourceName,

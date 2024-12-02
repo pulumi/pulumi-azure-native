@@ -64,7 +64,7 @@ export interface GetPredictionTrainingResultsResult {
  * Gets training results.
  * Azure REST API version: 2017-04-26.
  */
-export function getPredictionTrainingResultsOutput(args: GetPredictionTrainingResultsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionTrainingResultsResult> {
+export function getPredictionTrainingResultsOutput(args: GetPredictionTrainingResultsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPredictionTrainingResultsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getPredictionTrainingResults", {
         "hubName": args.hubName,

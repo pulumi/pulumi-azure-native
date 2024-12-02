@@ -89,7 +89,7 @@ export interface GetNGroupResult {
 /**
  * Get the properties of the specified NGroups resource.
  */
-export function getNGroupOutput(args: GetNGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNGroupResult> {
+export function getNGroupOutput(args: GetNGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerinstance/v20241101preview:getNGroup", {
         "ngroupsName": args.ngroupsName,

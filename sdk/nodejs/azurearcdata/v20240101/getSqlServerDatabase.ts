@@ -70,7 +70,7 @@ export interface GetSqlServerDatabaseResult {
 /**
  * Retrieves an Arc Sql Server database.
  */
-export function getSqlServerDatabaseOutput(args: GetSqlServerDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerDatabaseResult> {
+export function getSqlServerDatabaseOutput(args: GetSqlServerDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240101:getSqlServerDatabase", {
         "databaseName": args.databaseName,

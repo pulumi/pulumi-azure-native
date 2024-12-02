@@ -89,7 +89,7 @@ export interface GetUpdateSummaryResult {
 /**
  * Get all Update summaries under the HCI cluster
  */
-export function getUpdateSummaryOutput(args: GetUpdateSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateSummaryResult> {
+export function getUpdateSummaryOutput(args: GetUpdateSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUpdateSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20231101preview:getUpdateSummary", {
         "clusterName": args.clusterName,

@@ -68,7 +68,7 @@ export interface GetReplicationProtectionClusterResult {
 /**
  * Gets the details of an ASR replication protection cluster.
  */
-export function getReplicationProtectionClusterOutput(args: GetReplicationProtectionClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionClusterResult> {
+export function getReplicationProtectionClusterOutput(args: GetReplicationProtectionClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationProtectionClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20240201:getReplicationProtectionCluster", {
         "fabricName": args.fabricName,

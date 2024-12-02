@@ -65,7 +65,7 @@ export interface GetManagementGroupNetworkManagerConnectionResult {
 /**
  * Get a specified connection created by this management group.
  */
-export function getManagementGroupNetworkManagerConnectionOutput(args: GetManagementGroupNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupNetworkManagerConnectionResult> {
+export function getManagementGroupNetworkManagerConnectionOutput(args: GetManagementGroupNetworkManagerConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementGroupNetworkManagerConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getManagementGroupNetworkManagerConnection", {
         "managementGroupId": args.managementGroupId,

@@ -60,7 +60,7 @@ export interface ListAccessClustersResult {
  *
  * Other available API versions: 2024-02-13.
  */
-export function listAccessClustersOutput(args: ListAccessClustersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessClustersResult> {
+export function listAccessClustersOutput(args: ListAccessClustersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessClustersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confluent:listAccessClusters", {
         "organizationName": args.organizationName,

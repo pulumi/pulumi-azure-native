@@ -66,7 +66,7 @@ export interface GetSapVirtualInstanceInvokeSapSupportedSkuResult {
 /**
  * Get a list of SAP supported SKUs for ASCS, Application and Database tier.
  */
-export function getSapVirtualInstanceInvokeSapSupportedSkuOutput(args: GetSapVirtualInstanceInvokeSapSupportedSkuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeSapSupportedSkuResult> {
+export function getSapVirtualInstanceInvokeSapSupportedSkuOutput(args: GetSapVirtualInstanceInvokeSapSupportedSkuOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapVirtualInstanceInvokeSapSupportedSkuResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeSapSupportedSku", {
         "appLocation": args.appLocation,

@@ -99,7 +99,7 @@ export interface GetGalleryInVMAccessControlProfileVersionResult {
 /**
  * Retrieves information about a gallery inVMAccessControlProfile version.
  */
-export function getGalleryInVMAccessControlProfileVersionOutput(args: GetGalleryInVMAccessControlProfileVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryInVMAccessControlProfileVersionResult> {
+export function getGalleryInVMAccessControlProfileVersionOutput(args: GetGalleryInVMAccessControlProfileVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryInVMAccessControlProfileVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20240303:getGalleryInVMAccessControlProfileVersion", {
         "galleryName": args.galleryName,

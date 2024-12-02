@@ -76,7 +76,7 @@ export interface GetUserResult {
  *
  * Other available API versions: 2019-07-01, 2019-08-01, 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
-export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge:getUser", {
         "deviceName": args.deviceName,

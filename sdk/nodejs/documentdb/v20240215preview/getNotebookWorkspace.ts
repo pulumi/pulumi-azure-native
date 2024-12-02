@@ -59,7 +59,7 @@ export interface GetNotebookWorkspaceResult {
 /**
  * Gets the notebook workspace for a Cosmos DB account.
  */
-export function getNotebookWorkspaceOutput(args: GetNotebookWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookWorkspaceResult> {
+export function getNotebookWorkspaceOutput(args: GetNotebookWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotebookWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240215preview:getNotebookWorkspace", {
         "accountName": args.accountName,

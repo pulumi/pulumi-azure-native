@@ -57,7 +57,7 @@ export interface GetSAPAvailabilityZoneDetailsResult {
  *
  * Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
  */
-export function getSAPAvailabilityZoneDetailsOutput(args: GetSAPAvailabilityZoneDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPAvailabilityZoneDetailsResult> {
+export function getSAPAvailabilityZoneDetailsOutput(args: GetSAPAvailabilityZoneDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPAvailabilityZoneDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPAvailabilityZoneDetails", {
         "appLocation": args.appLocation,

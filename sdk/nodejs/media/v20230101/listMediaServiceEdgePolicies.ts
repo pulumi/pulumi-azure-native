@@ -40,7 +40,7 @@ export interface ListMediaServiceEdgePoliciesResult {
 /**
  * List all the media edge policies associated with the Media Services account.
  */
-export function listMediaServiceEdgePoliciesOutput(args: ListMediaServiceEdgePoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceEdgePoliciesResult> {
+export function listMediaServiceEdgePoliciesOutput(args: ListMediaServiceEdgePoliciesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMediaServiceEdgePoliciesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20230101:listMediaServiceEdgePolicies", {
         "accountName": args.accountName,

@@ -67,7 +67,7 @@ export interface GetLogsSubscriptionFilterResult {
  * Get a LogsSubscriptionFilter
  * Azure REST API version: 2024-12-01.
  */
-export function getLogsSubscriptionFilterOutput(args: GetLogsSubscriptionFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsSubscriptionFilterResult> {
+export function getLogsSubscriptionFilterOutput(args: GetLogsSubscriptionFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsSubscriptionFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getLogsSubscriptionFilter", {
         "name": args.name,

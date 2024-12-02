@@ -68,7 +68,7 @@ export interface GetConfigurationProfileHCRPAssignmentResult {
  * Get information about a configuration profile assignment
  * Azure REST API version: 2022-05-04.
  */
-export function getConfigurationProfileHCRPAssignmentOutput(args: GetConfigurationProfileHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileHCRPAssignmentResult> {
+export function getConfigurationProfileHCRPAssignmentOutput(args: GetConfigurationProfileHCRPAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfileHCRPAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automanage:getConfigurationProfileHCRPAssignment", {
         "configurationProfileAssignmentName": args.configurationProfileAssignmentName,

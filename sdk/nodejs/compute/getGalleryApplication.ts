@@ -96,7 +96,7 @@ export interface GetGalleryApplicationResult {
  *
  * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
  */
-export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationResult> {
+export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute:getGalleryApplication", {
         "galleryApplicationName": args.galleryApplicationName,

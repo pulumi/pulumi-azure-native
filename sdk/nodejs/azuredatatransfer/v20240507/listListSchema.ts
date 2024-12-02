@@ -71,7 +71,7 @@ export interface ListListSchemaResult {
 /**
  * Lists the schemas for the specified connection in a pipeline.
  */
-export function listListSchemaOutput(args: ListListSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListSchemaResult> {
+export function listListSchemaOutput(args: ListListSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240507:listListSchema", {
         "connectionId": args.connectionId,

@@ -67,7 +67,7 @@ export interface GetConfigServiceDeliveryChannelResult {
  * Get a ConfigServiceDeliveryChannel
  * Azure REST API version: 2024-12-01.
  */
-export function getConfigServiceDeliveryChannelOutput(args: GetConfigServiceDeliveryChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServiceDeliveryChannelResult> {
+export function getConfigServiceDeliveryChannelOutput(args: GetConfigServiceDeliveryChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigServiceDeliveryChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getConfigServiceDeliveryChannel", {
         "name": args.name,

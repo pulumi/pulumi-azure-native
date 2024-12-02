@@ -112,7 +112,7 @@ export interface GetConnectedRegistryResult {
  *
  * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
  */
-export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedRegistryResult> {
+export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectedRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry:getConnectedRegistry", {
         "connectedRegistryName": args.connectedRegistryName,

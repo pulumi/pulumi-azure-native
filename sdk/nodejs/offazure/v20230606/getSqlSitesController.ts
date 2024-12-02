@@ -76,7 +76,7 @@ export interface GetSqlSitesControllerResult {
 /**
  * Method to get a site.
  */
-export function getSqlSitesControllerOutput(args: GetSqlSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlSitesControllerResult> {
+export function getSqlSitesControllerOutput(args: GetSqlSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getSqlSitesController", {
         "resourceGroupName": args.resourceGroupName,

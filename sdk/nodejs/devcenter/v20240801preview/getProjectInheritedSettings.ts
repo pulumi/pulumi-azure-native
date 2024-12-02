@@ -45,7 +45,7 @@ export interface GetProjectInheritedSettingsResult {
 /**
  * Gets applicable inherited settings for this project.
  */
-export function getProjectInheritedSettingsOutput(args: GetProjectInheritedSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectInheritedSettingsResult> {
+export function getProjectInheritedSettingsOutput(args: GetProjectInheritedSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectInheritedSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240801preview:getProjectInheritedSettings", {
         "projectName": args.projectName,

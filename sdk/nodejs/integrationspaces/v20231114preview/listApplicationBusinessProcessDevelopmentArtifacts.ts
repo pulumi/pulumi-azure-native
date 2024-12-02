@@ -46,7 +46,7 @@ export interface ListApplicationBusinessProcessDevelopmentArtifactsResult {
 /**
  * The list business process development artifacts action.
  */
-export function listApplicationBusinessProcessDevelopmentArtifactsOutput(args: ListApplicationBusinessProcessDevelopmentArtifactsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationBusinessProcessDevelopmentArtifactsResult> {
+export function listApplicationBusinessProcessDevelopmentArtifactsOutput(args: ListApplicationBusinessProcessDevelopmentArtifactsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListApplicationBusinessProcessDevelopmentArtifactsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:integrationspaces/v20231114preview:listApplicationBusinessProcessDevelopmentArtifacts", {
         "applicationName": args.applicationName,

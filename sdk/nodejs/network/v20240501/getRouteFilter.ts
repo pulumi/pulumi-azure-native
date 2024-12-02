@@ -82,7 +82,7 @@ export interface GetRouteFilterResult {
 /**
  * Gets the specified route filter.
  */
-export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterResult> {
+export function getRouteFilterOutput(args: GetRouteFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getRouteFilter", {
         "expand": args.expand,

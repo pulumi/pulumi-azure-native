@@ -77,7 +77,7 @@ export interface GetHybridConnectionAuthorizationRuleResult {
  *
  * Other available API versions: 2017-04-01, 2024-01-01.
  */
-export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
+export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay:getHybridConnectionAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

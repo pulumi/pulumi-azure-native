@@ -94,7 +94,7 @@ export interface GetSourceControlResult {
 /**
  * Gets a source control byt its identifier.
  */
-export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
+export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230501preview:getSourceControl", {
         "resourceGroupName": args.resourceGroupName,

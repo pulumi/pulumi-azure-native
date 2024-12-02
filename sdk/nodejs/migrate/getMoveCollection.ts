@@ -79,7 +79,7 @@ export interface GetMoveCollectionResult {
  *
  * Other available API versions: 2023-08-01.
  */
-export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveCollectionResult> {
+export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMoveCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getMoveCollection", {
         "moveCollectionName": args.moveCollectionName,

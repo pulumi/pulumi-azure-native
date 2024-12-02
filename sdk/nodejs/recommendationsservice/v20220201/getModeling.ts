@@ -70,7 +70,7 @@ export interface GetModelingResult {
 /**
  * Returns Modeling resources for a given name.
  */
-export function getModelingOutput(args: GetModelingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelingResult> {
+export function getModelingOutput(args: GetModelingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModelingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recommendationsservice/v20220201:getModeling", {
         "accountName": args.accountName,

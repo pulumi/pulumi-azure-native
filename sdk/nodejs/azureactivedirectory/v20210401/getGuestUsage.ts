@@ -65,7 +65,7 @@ export interface GetGuestUsageResult {
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  */
-export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestUsageResult> {
+export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azureactivedirectory/v20210401:getGuestUsage", {
         "resourceGroupName": args.resourceGroupName,

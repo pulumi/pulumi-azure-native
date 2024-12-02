@@ -66,7 +66,7 @@ export interface GetSolutionResult {
 /**
  * Get installed Solution details by Solution id.
  */
-export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
+export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:agfoodplatform/v20230601preview:getSolution", {
         "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,

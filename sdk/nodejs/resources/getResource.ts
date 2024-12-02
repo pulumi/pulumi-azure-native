@@ -106,7 +106,7 @@ export interface GetResourceResult {
  *
  * Other available API versions: 2015-11-01, 2023-07-01, 2024-03-01, 2024-07-01.
  */
-export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
+export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getResource", {
         "parentResourcePath": args.parentResourcePath,

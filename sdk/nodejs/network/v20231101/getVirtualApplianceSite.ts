@@ -70,7 +70,7 @@ export interface GetVirtualApplianceSiteResult {
 /**
  * Gets the specified Virtual Appliance Site.
  */
-export function getVirtualApplianceSiteOutput(args: GetVirtualApplianceSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualApplianceSiteResult> {
+export function getVirtualApplianceSiteOutput(args: GetVirtualApplianceSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualApplianceSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getVirtualApplianceSite", {
         "networkVirtualApplianceName": args.networkVirtualApplianceName,

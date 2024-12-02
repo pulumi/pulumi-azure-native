@@ -73,7 +73,7 @@ export interface GetMoveCollectionResult {
 /**
  * Gets the move collection.
  */
-export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveCollectionResult> {
+export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMoveCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20220801:getMoveCollection", {
         "moveCollectionName": args.moveCollectionName,

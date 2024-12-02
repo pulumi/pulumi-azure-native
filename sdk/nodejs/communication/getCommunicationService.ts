@@ -95,7 +95,7 @@ export interface GetCommunicationServiceResult {
  *
  * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
  */
-export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationServiceResult> {
+export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommunicationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:communication:getCommunicationService", {
         "communicationServiceName": args.communicationServiceName,

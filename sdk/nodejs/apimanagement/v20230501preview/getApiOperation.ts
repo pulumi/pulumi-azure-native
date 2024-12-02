@@ -91,7 +91,7 @@ export interface GetApiOperationResult {
 /**
  * Gets the details of the API Operation specified by its identifier.
  */
-export function getApiOperationOutput(args: GetApiOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationResult> {
+export function getApiOperationOutput(args: GetApiOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getApiOperation", {
         "apiId": args.apiId,

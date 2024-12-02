@@ -70,7 +70,7 @@ export interface GetFirewallPolicyRuleGroupResult {
 /**
  * Gets the specified FirewallPolicyRuleGroup.
  */
-export function getFirewallPolicyRuleGroupOutput(args: GetFirewallPolicyRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyRuleGroupResult> {
+export function getFirewallPolicyRuleGroupOutput(args: GetFirewallPolicyRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallPolicyRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20200401:getFirewallPolicyRuleGroup", {
         "firewallPolicyName": args.firewallPolicyName,

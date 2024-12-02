@@ -65,7 +65,7 @@ export interface GetMacieAllowListResult {
 /**
  * Get a MacieAllowList
  */
-export function getMacieAllowListOutput(args: GetMacieAllowListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMacieAllowListResult> {
+export function getMacieAllowListOutput(args: GetMacieAllowListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMacieAllowListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getMacieAllowList", {
         "name": args.name,

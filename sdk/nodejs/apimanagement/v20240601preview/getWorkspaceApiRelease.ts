@@ -77,7 +77,7 @@ export interface GetWorkspaceApiReleaseResult {
 /**
  * Returns the details of an API release.
  */
-export function getWorkspaceApiReleaseOutput(args: GetWorkspaceApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiReleaseResult> {
+export function getWorkspaceApiReleaseOutput(args: GetWorkspaceApiReleaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceApiReleaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:getWorkspaceApiRelease", {
         "apiId": args.apiId,

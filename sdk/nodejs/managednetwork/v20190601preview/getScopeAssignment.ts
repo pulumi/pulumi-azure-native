@@ -62,7 +62,7 @@ export interface GetScopeAssignmentResult {
 /**
  * Get the specified scope assignment.
  */
-export function getScopeAssignmentOutput(args: GetScopeAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeAssignmentResult> {
+export function getScopeAssignmentOutput(args: GetScopeAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScopeAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetwork/v20190601preview:getScopeAssignment", {
         "scope": args.scope,

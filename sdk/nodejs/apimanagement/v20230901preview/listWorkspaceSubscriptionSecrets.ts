@@ -52,7 +52,7 @@ export interface ListWorkspaceSubscriptionSecretsResult {
 /**
  * Gets the specified Subscription keys.
  */
-export function listWorkspaceSubscriptionSecretsOutput(args: ListWorkspaceSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceSubscriptionSecretsResult> {
+export function listWorkspaceSubscriptionSecretsOutput(args: ListWorkspaceSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceSubscriptionSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:listWorkspaceSubscriptionSecrets", {
         "resourceGroupName": args.resourceGroupName,

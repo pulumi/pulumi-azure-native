@@ -87,7 +87,7 @@ export interface GetWebAppVnetConnectionResult {
 /**
  * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
  */
-export function getWebAppVnetConnectionOutput(args: GetWebAppVnetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionResult> {
+export function getWebAppVnetConnectionOutput(args: GetWebAppVnetConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppVnetConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20230101:getWebAppVnetConnection", {
         "name": args.name,

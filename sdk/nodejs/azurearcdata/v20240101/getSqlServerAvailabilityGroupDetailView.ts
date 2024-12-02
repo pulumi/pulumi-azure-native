@@ -70,7 +70,7 @@ export interface GetSqlServerAvailabilityGroupDetailViewResult {
 /**
  * Retrieves detailed properties of the Availability Group.
  */
-export function getSqlServerAvailabilityGroupDetailViewOutput(args: GetSqlServerAvailabilityGroupDetailViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerAvailabilityGroupDetailViewResult> {
+export function getSqlServerAvailabilityGroupDetailViewOutput(args: GetSqlServerAvailabilityGroupDetailViewOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerAvailabilityGroupDetailViewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240101:getSqlServerAvailabilityGroupDetailView", {
         "availabilityGroupName": args.availabilityGroupName,

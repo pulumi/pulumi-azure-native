@@ -59,7 +59,7 @@ export interface GetManagementConfigurationResult {
  * Retrieves the user ManagementConfiguration.
  * Azure REST API version: 2015-11-01-preview.
  */
-export function getManagementConfigurationOutput(args: GetManagementConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementConfigurationResult> {
+export function getManagementConfigurationOutput(args: GetManagementConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationsmanagement:getManagementConfiguration", {
         "managementConfigurationName": args.managementConfigurationName,

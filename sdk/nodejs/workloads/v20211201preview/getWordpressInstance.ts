@@ -73,7 +73,7 @@ export interface GetWordpressInstanceResult {
 /**
  * Gets the WordPress instance resource.
  */
-export function getWordpressInstanceOutput(args: GetWordpressInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWordpressInstanceResult> {
+export function getWordpressInstanceOutput(args: GetWordpressInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWordpressInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20211201preview:getWordpressInstance", {
         "phpWorkloadName": args.phpWorkloadName,

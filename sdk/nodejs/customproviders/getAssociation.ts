@@ -56,7 +56,7 @@ export interface GetAssociationResult {
  * Get an association.
  * Azure REST API version: 2018-09-01-preview.
  */
-export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {
+export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customproviders:getAssociation", {
         "associationName": args.associationName,

@@ -65,7 +65,7 @@ export interface GetEfsMountTargetResult {
 /**
  * Get a EfsMountTarget
  */
-export function getEfsMountTargetOutput(args: GetEfsMountTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEfsMountTargetResult> {
+export function getEfsMountTargetOutput(args: GetEfsMountTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEfsMountTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEfsMountTarget", {
         "name": args.name,

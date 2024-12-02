@@ -73,7 +73,7 @@ export interface GetFqdnListGlobalRulestackResult {
 /**
  * Get a FqdnListGlobalRulestackResource
  */
-export function getFqdnListGlobalRulestackOutput(args: GetFqdnListGlobalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFqdnListGlobalRulestackResult> {
+export function getFqdnListGlobalRulestackOutput(args: GetFqdnListGlobalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFqdnListGlobalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901:getFqdnListGlobalRulestack", {
         "globalRulestackName": args.globalRulestackName,

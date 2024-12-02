@@ -67,7 +67,7 @@ export interface GetDynamoDbContinuousBackupsDescriptionResult {
  * Get a DynamoDBContinuousBackupsDescription
  * Azure REST API version: 2024-12-01.
  */
-export function getDynamoDbContinuousBackupsDescriptionOutput(args: GetDynamoDbContinuousBackupsDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamoDbContinuousBackupsDescriptionResult> {
+export function getDynamoDbContinuousBackupsDescriptionOutput(args: GetDynamoDbContinuousBackupsDescriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDynamoDbContinuousBackupsDescriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getDynamoDbContinuousBackupsDescription", {
         "name": args.name,

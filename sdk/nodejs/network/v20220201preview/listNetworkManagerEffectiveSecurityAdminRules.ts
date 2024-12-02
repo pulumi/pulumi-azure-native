@@ -50,7 +50,7 @@ export interface ListNetworkManagerEffectiveSecurityAdminRulesResult {
 /**
  * List all effective security admin rules applied on a virtual network.
  */
-export function listNetworkManagerEffectiveSecurityAdminRulesOutput(args: ListNetworkManagerEffectiveSecurityAdminRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerEffectiveSecurityAdminRulesResult> {
+export function listNetworkManagerEffectiveSecurityAdminRulesOutput(args: ListNetworkManagerEffectiveSecurityAdminRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNetworkManagerEffectiveSecurityAdminRulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20220201preview:listNetworkManagerEffectiveSecurityAdminRules", {
         "resourceGroupName": args.resourceGroupName,

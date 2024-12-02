@@ -52,7 +52,7 @@ export interface GetComputeAllowedResizeSizesResult {
  *
  * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
  */
-export function getComputeAllowedResizeSizesOutput(args: GetComputeAllowedResizeSizesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeAllowedResizeSizesResult> {
+export function getComputeAllowedResizeSizesOutput(args: GetComputeAllowedResizeSizesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComputeAllowedResizeSizesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getComputeAllowedResizeSizes", {
         "computeName": args.computeName,

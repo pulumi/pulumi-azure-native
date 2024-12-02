@@ -59,7 +59,7 @@ export interface GetDefaultRolloutResult {
  * Gets the default rollout details.
  * Azure REST API version: 2021-09-01-preview.
  */
-export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultRolloutResult> {
+export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultRolloutResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:providerhub:getDefaultRollout", {
         "providerNamespace": args.providerNamespace,

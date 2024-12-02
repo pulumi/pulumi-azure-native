@@ -115,7 +115,7 @@ export interface GetNetworkFunctionResult {
  *
  * Other available API versions: 2023-09-01, 2024-04-15.
  */
-export function getNetworkFunctionOutput(args: GetNetworkFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionResult> {
+export function getNetworkFunctionOutput(args: GetNetworkFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getNetworkFunction", {
         "networkFunctionName": args.networkFunctionName,

@@ -85,7 +85,7 @@ export interface GetSpacecraftResult {
 /**
  * Gets the specified spacecraft in a specified resource group.
  */
-export function getSpacecraftOutput(args: GetSpacecraftOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpacecraftResult> {
+export function getSpacecraftOutput(args: GetSpacecraftOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpacecraftResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital/v20220301:getSpacecraft", {
         "resourceGroupName": args.resourceGroupName,

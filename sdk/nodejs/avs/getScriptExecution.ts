@@ -120,7 +120,7 @@ export interface GetScriptExecutionResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function getScriptExecutionOutput(args: GetScriptExecutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptExecutionResult> {
+export function getScriptExecutionOutput(args: GetScriptExecutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScriptExecutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getScriptExecution", {
         "privateCloudName": args.privateCloudName,

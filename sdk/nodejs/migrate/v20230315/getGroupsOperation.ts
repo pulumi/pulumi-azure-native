@@ -94,7 +94,7 @@ export interface GetGroupsOperationResult {
 /**
  * Get a Group
  */
-export function getGroupsOperationOutput(args: GetGroupsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupsOperationResult> {
+export function getGroupsOperationOutput(args: GetGroupsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230315:getGroupsOperation", {
         "groupName": args.groupName,

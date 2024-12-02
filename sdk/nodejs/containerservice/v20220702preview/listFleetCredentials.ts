@@ -41,7 +41,7 @@ export interface ListFleetCredentialsResult {
 /**
  * The list credential result response.
  */
-export function listFleetCredentialsOutput(args: ListFleetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFleetCredentialsResult> {
+export function listFleetCredentialsOutput(args: ListFleetCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFleetCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20220702preview:listFleetCredentials", {
         "fleetName": args.fleetName,

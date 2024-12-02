@@ -78,7 +78,7 @@ export interface GetComputeResult {
 /**
  * Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
  */
-export function getComputeOutput(args: GetComputeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeResult> {
+export function getComputeOutput(args: GetComputeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComputeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:getCompute", {
         "computeName": args.computeName,

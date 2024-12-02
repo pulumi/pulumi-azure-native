@@ -71,7 +71,7 @@ export interface GetCustomizedAcceleratorResult {
 /**
  * Get the customized accelerator.
  */
-export function getCustomizedAcceleratorOutput(args: GetCustomizedAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomizedAcceleratorResult> {
+export function getCustomizedAcceleratorOutput(args: GetCustomizedAcceleratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomizedAcceleratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240501preview:getCustomizedAccelerator", {
         "applicationAcceleratorName": args.applicationAcceleratorName,

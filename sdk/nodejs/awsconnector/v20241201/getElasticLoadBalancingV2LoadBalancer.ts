@@ -65,7 +65,7 @@ export interface GetElasticLoadBalancingV2LoadBalancerResult {
 /**
  * Get a ElasticLoadBalancingV2LoadBalancer
  */
-export function getElasticLoadBalancingV2LoadBalancerOutput(args: GetElasticLoadBalancingV2LoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticLoadBalancingV2LoadBalancerResult> {
+export function getElasticLoadBalancingV2LoadBalancerOutput(args: GetElasticLoadBalancingV2LoadBalancerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticLoadBalancingV2LoadBalancerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getElasticLoadBalancingV2LoadBalancer", {
         "name": args.name,

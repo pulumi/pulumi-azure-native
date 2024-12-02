@@ -73,7 +73,7 @@ export interface GetUebaResult {
  * Gets a setting.
  * Azure REST API version: 2023-06-01-preview.
  */
-export function getUebaOutput(args: GetUebaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUebaResult> {
+export function getUebaOutput(args: GetUebaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUebaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getUeba", {
         "resourceGroupName": args.resourceGroupName,

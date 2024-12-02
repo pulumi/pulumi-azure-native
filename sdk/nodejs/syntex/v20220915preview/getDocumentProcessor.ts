@@ -65,7 +65,7 @@ export interface GetDocumentProcessorResult {
 /**
  * Returns a document processor for a given name.
  */
-export function getDocumentProcessorOutput(args: GetDocumentProcessorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentProcessorResult> {
+export function getDocumentProcessorOutput(args: GetDocumentProcessorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDocumentProcessorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:syntex/v20220915preview:getDocumentProcessor", {
         "processorName": args.processorName,

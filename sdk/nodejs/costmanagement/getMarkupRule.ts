@@ -80,7 +80,7 @@ export interface GetMarkupRuleResult {
  * Get a markup rule by its rule name.
  * Azure REST API version: 2022-10-05-preview.
  */
-export function getMarkupRuleOutput(args: GetMarkupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarkupRuleResult> {
+export function getMarkupRuleOutput(args: GetMarkupRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMarkupRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getMarkupRule", {
         "billingAccountId": args.billingAccountId,

@@ -41,7 +41,7 @@ export interface ListApplicationAllowedUpgradePlansResult {
 /**
  * List allowed upgrade plans for application.
  */
-export function listApplicationAllowedUpgradePlansOutput(args: ListApplicationAllowedUpgradePlansOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListApplicationAllowedUpgradePlansResult> {
+export function listApplicationAllowedUpgradePlansOutput(args: ListApplicationAllowedUpgradePlansOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListApplicationAllowedUpgradePlansResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:solutions/v20210701:listApplicationAllowedUpgradePlans", {
         "applicationName": args.applicationName,

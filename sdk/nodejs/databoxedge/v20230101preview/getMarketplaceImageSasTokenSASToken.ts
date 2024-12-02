@@ -32,7 +32,7 @@ export interface GetMarketplaceImageSasTokenSASTokenResult {
     readonly sasUri?: string;
     readonly status?: string;
 }
-export function getMarketplaceImageSasTokenSASTokenOutput(args: GetMarketplaceImageSasTokenSASTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplaceImageSasTokenSASTokenResult> {
+export function getMarketplaceImageSasTokenSASTokenOutput(args: GetMarketplaceImageSasTokenSASTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMarketplaceImageSasTokenSASTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230101preview:getMarketplaceImageSasTokenSASToken", {
         "deviceName": args.deviceName,

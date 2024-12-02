@@ -52,7 +52,7 @@ export interface GetOpenAIStatusResult {
  *
  * Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
  */
-export function getOpenAIStatusOutput(args: GetOpenAIStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenAIStatusResult> {
+export function getOpenAIStatusOutput(args: GetOpenAIStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenAIStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic:getOpenAIStatus", {
         "integrationName": args.integrationName,

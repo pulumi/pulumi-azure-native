@@ -46,7 +46,7 @@ export interface ListClusterZonesResult {
 /**
  * List of all zones and associated hosts for a cluster
  */
-export function listClusterZonesOutput(args: ListClusterZonesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterZonesResult> {
+export function listClusterZonesOutput(args: ListClusterZonesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListClusterZonesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230301:listClusterZones", {
         "clusterName": args.clusterName,

@@ -91,7 +91,7 @@ export interface GetServerSitesControllerResult {
 /**
  * Get a ServerSiteResource
  */
-export function getServerSitesControllerOutput(args: GetServerSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerSitesControllerResult> {
+export function getServerSitesControllerOutput(args: GetServerSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20231001preview:getServerSitesController", {
         "resourceGroupName": args.resourceGroupName,

@@ -47,7 +47,7 @@ export interface ListVideoContentTokenResult {
 /**
  * Generates a streaming token which can be used for accessing content from video content URLs, for a video resource with the given name.
  */
-export function listVideoContentTokenOutput(args: ListVideoContentTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVideoContentTokenResult> {
+export function listVideoContentTokenOutput(args: ListVideoContentTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVideoContentTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20211101preview:listVideoContentToken", {
         "accountName": args.accountName,

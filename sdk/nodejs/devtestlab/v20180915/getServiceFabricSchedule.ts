@@ -121,7 +121,7 @@ export interface GetServiceFabricScheduleResult {
 /**
  * Get schedule.
  */
-export function getServiceFabricScheduleOutput(args: GetServiceFabricScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceFabricScheduleResult> {
+export function getServiceFabricScheduleOutput(args: GetServiceFabricScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceFabricScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getServiceFabricSchedule", {
         "expand": args.expand,

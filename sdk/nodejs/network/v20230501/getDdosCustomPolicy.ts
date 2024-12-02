@@ -66,7 +66,7 @@ export interface GetDdosCustomPolicyResult {
 /**
  * Gets information about the specified DDoS custom policy.
  */
-export function getDdosCustomPolicyOutput(args: GetDdosCustomPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosCustomPolicyResult> {
+export function getDdosCustomPolicyOutput(args: GetDdosCustomPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDdosCustomPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getDdosCustomPolicy", {
         "ddosCustomPolicyName": args.ddosCustomPolicyName,

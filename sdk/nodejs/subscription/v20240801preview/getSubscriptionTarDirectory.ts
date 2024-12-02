@@ -49,7 +49,7 @@ export interface GetSubscriptionTarDirectoryResult {
 /**
  * The operation to view Initiator Subscription Changed Request
  */
-export function getSubscriptionTarDirectoryOutput(args?: GetSubscriptionTarDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionTarDirectoryResult> {
+export function getSubscriptionTarDirectoryOutput(args?: GetSubscriptionTarDirectoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionTarDirectoryResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:subscription/v20240801preview:getSubscriptionTarDirectory", {

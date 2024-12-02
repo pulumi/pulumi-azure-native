@@ -69,7 +69,7 @@ export interface GetContentTypeResult {
  *
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTypeResult> {
+export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getContentType", {
         "contentTypeId": args.contentTypeId,

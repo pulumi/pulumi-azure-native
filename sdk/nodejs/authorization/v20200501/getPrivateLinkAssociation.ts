@@ -50,7 +50,7 @@ export interface GetPrivateLinkAssociationResult {
 /**
  * Get a single private link association
  */
-export function getPrivateLinkAssociationOutput(args: GetPrivateLinkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAssociationResult> {
+export function getPrivateLinkAssociationOutput(args: GetPrivateLinkAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20200501:getPrivateLinkAssociation", {
         "groupId": args.groupId,

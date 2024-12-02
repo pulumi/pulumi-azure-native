@@ -53,7 +53,7 @@ export interface GetSecurityOperatorResult {
 /**
  * Get a specific security operator for the requested scope.
  */
-export function getSecurityOperatorOutput(args: GetSecurityOperatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityOperatorResult> {
+export function getSecurityOperatorOutput(args: GetSecurityOperatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityOperatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20230101preview:getSecurityOperator", {
         "pricingName": args.pricingName,

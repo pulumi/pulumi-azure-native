@@ -68,7 +68,7 @@ export interface GetSapVirtualInstanceInvokeDiskConfigurationsResult {
  * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
  * Azure REST API version: 2024-09-01.
  */
-export function getSapVirtualInstanceInvokeDiskConfigurationsOutput(args: GetSapVirtualInstanceInvokeDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeDiskConfigurationsResult> {
+export function getSapVirtualInstanceInvokeDiskConfigurationsOutput(args: GetSapVirtualInstanceInvokeDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapVirtualInstanceInvokeDiskConfigurationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getSapVirtualInstanceInvokeDiskConfigurations", {
         "appLocation": args.appLocation,

@@ -129,7 +129,7 @@ export interface GetPhpWorkloadResult {
 /**
  * Gets the PHP workload resource.
  */
-export function getPhpWorkloadOutput(args: GetPhpWorkloadOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPhpWorkloadResult> {
+export function getPhpWorkloadOutput(args: GetPhpWorkloadOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPhpWorkloadResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20211201preview:getPhpWorkload", {
         "phpWorkloadName": args.phpWorkloadName,

@@ -93,7 +93,7 @@ export interface GetOrderResult {
 /**
  * The order details.
  */
-export function getOrderOutput(args: GetOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderResult> {
+export function getOrderOutput(args: GetOrderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20231201:getOrder", {
         "deviceName": args.deviceName,

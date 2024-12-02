@@ -57,7 +57,7 @@ export interface GetGlobalUserPersonalPreferencesResult {
  * Get personal preferences for a user
  * Azure REST API version: 2018-10-15.
  */
-export function getGlobalUserPersonalPreferencesOutput(args: GetGlobalUserPersonalPreferencesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserPersonalPreferencesResult> {
+export function getGlobalUserPersonalPreferencesOutput(args: GetGlobalUserPersonalPreferencesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalUserPersonalPreferencesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices:getGlobalUserPersonalPreferences", {
         "addRemove": args.addRemove,

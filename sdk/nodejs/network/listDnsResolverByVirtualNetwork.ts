@@ -56,7 +56,7 @@ export interface ListDnsResolverByVirtualNetworkResult {
  *
  * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
-export function listDnsResolverByVirtualNetworkOutput(args: ListDnsResolverByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverByVirtualNetworkResult> {
+export function listDnsResolverByVirtualNetworkOutput(args: ListDnsResolverByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDnsResolverByVirtualNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:listDnsResolverByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,

@@ -77,7 +77,7 @@ export interface GetWebAppDiscoverySiteDataSourcesControllerResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getWebAppDiscoverySiteDataSourcesControllerOutput(args: GetWebAppDiscoverySiteDataSourcesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDiscoverySiteDataSourcesControllerResult> {
+export function getWebAppDiscoverySiteDataSourcesControllerOutput(args: GetWebAppDiscoverySiteDataSourcesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppDiscoverySiteDataSourcesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure:getWebAppDiscoverySiteDataSourcesController", {
         "discoverySiteDataSourceName": args.discoverySiteDataSourceName,

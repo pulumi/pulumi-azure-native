@@ -74,7 +74,7 @@ export interface GetReplicationProtectionClusterResult {
  *
  * Other available API versions: 2024-04-01, 2024-10-01.
  */
-export function getReplicationProtectionClusterOutput(args: GetReplicationProtectionClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationProtectionClusterResult> {
+export function getReplicationProtectionClusterOutput(args: GetReplicationProtectionClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationProtectionClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices:getReplicationProtectionCluster", {
         "fabricName": args.fabricName,

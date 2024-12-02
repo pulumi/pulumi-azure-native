@@ -67,7 +67,7 @@ export interface GetDeploymentResult {
  *
  * Other available API versions: 2016-07-01, 2023-07-01, 2024-03-01, 2024-07-01.
  */
-export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
+export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getDeployment", {
         "deploymentName": args.deploymentName,

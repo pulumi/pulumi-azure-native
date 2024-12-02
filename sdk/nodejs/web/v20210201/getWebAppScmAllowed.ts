@@ -54,7 +54,7 @@ export interface GetWebAppScmAllowedResult {
 /**
  * Returns whether Scm basic auth is allowed on the site or not.
  */
-export function getWebAppScmAllowedOutput(args: GetWebAppScmAllowedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppScmAllowedResult> {
+export function getWebAppScmAllowedOutput(args: GetWebAppScmAllowedOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppScmAllowedResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20210201:getWebAppScmAllowed", {
         "name": args.name,

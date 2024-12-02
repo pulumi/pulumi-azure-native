@@ -45,7 +45,7 @@ export interface GetActiveSessionsResult {
 /**
  * Returns the list of currently active sessions on the Bastion.
  */
-export function getActiveSessionsOutput(args: GetActiveSessionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveSessionsResult> {
+export function getActiveSessionsOutput(args: GetActiveSessionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActiveSessionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getActiveSessions", {
         "bastionHostName": args.bastionHostName,

@@ -67,7 +67,7 @@ export interface GetEc2SubnetResult {
  * Get a Ec2Subnet
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2SubnetOutput(args: GetEc2SubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2SubnetResult> {
+export function getEc2SubnetOutput(args: GetEc2SubnetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2SubnetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Subnet", {
         "name": args.name,

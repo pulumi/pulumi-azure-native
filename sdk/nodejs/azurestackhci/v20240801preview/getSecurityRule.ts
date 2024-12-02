@@ -102,7 +102,7 @@ export interface GetSecurityRuleResult {
 /**
  * Gets the specified security rule.
  */
-export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityRuleResult> {
+export function getSecurityRuleOutput(args: GetSecurityRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240801preview:getSecurityRule", {
         "networkSecurityGroupName": args.networkSecurityGroupName,

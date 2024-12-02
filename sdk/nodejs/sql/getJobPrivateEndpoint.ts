@@ -70,7 +70,7 @@ export interface GetJobPrivateEndpointResult {
  *
  * Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
  */
-export function getJobPrivateEndpointOutput(args: GetJobPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobPrivateEndpointResult> {
+export function getJobPrivateEndpointOutput(args: GetJobPrivateEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql:getJobPrivateEndpoint", {
         "jobAgentName": args.jobAgentName,

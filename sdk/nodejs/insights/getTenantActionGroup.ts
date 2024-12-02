@@ -87,7 +87,7 @@ export interface GetTenantActionGroupResult {
  * Get a tenant action group.
  * Azure REST API version: 2023-05-01-preview.
  */
-export function getTenantActionGroupOutput(args: GetTenantActionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantActionGroupResult> {
+export function getTenantActionGroupOutput(args: GetTenantActionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTenantActionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getTenantActionGroup", {
         "managementGroupId": args.managementGroupId,

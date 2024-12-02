@@ -134,7 +134,7 @@ export interface GetBlobContainerResult {
 /**
  * Gets properties of a specified container.
  */
-export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerResult> {
+export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230501:getBlobContainer", {
         "accountName": args.accountName,

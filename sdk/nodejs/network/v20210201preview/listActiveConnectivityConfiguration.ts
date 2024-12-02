@@ -55,7 +55,7 @@ export interface ListActiveConnectivityConfigurationResult {
 /**
  * Lists active connectivity configurations in a network manager.
  */
-export function listActiveConnectivityConfigurationOutput(args: ListActiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveConnectivityConfigurationResult> {
+export function listActiveConnectivityConfigurationOutput(args: ListActiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListActiveConnectivityConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20210201preview:listActiveConnectivityConfiguration", {
         "networkManagerName": args.networkManagerName,

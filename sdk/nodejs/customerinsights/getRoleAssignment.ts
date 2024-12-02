@@ -136,7 +136,7 @@ export interface GetRoleAssignmentResult {
  * Gets the role assignment in the hub.
  * Azure REST API version: 2017-04-26.
  */
-export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentResult> {
+export function getRoleAssignmentOutput(args: GetRoleAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getRoleAssignment", {
         "assignmentName": args.assignmentName,

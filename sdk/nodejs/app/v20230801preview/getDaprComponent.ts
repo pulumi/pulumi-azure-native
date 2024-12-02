@@ -94,7 +94,7 @@ export interface GetDaprComponentResult {
 /**
  * Dapr Component.
  */
-export function getDaprComponentOutput(args: GetDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprComponentResult> {
+export function getDaprComponentOutput(args: GetDaprComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDaprComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20230801preview:getDaprComponent", {
         "componentName": args.componentName,

@@ -119,7 +119,7 @@ export interface GetWebTestResult {
  *
  * Other available API versions: 2020-10-05-preview.
  */
-export function getWebTestOutput(args: GetWebTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebTestResult> {
+export function getWebTestOutput(args: GetWebTestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebTestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getWebTest", {
         "resourceGroupName": args.resourceGroupName,

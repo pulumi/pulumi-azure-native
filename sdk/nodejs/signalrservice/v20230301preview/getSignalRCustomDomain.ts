@@ -70,7 +70,7 @@ export interface GetSignalRCustomDomainResult {
 /**
  * Get a custom domain.
  */
-export function getSignalRCustomDomainOutput(args: GetSignalRCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRCustomDomainResult> {
+export function getSignalRCustomDomainOutput(args: GetSignalRCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSignalRCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:signalrservice/v20230301preview:getSignalRCustomDomain", {
         "name": args.name,

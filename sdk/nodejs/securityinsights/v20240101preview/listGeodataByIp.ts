@@ -112,7 +112,7 @@ export interface ListGeodataByIpResult {
 /**
  * Get geodata for a single IP address
  */
-export function listGeodataByIpOutput(args: ListGeodataByIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGeodataByIpResult> {
+export function listGeodataByIpOutput(args: ListGeodataByIpOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGeodataByIpResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:listGeodataByIp", {
         "enrichmentType": args.enrichmentType,

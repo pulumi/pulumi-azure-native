@@ -113,7 +113,7 @@ export interface GetAutomationAccountResult {
 /**
  * Get information about an Automation Account.
  */
-export function getAutomationAccountOutput(args: GetAutomationAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationAccountResult> {
+export function getAutomationAccountOutput(args: GetAutomationAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutomationAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getAutomationAccount", {
         "automationAccountName": args.automationAccountName,

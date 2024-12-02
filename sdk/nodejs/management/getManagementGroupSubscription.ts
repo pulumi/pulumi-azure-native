@@ -73,7 +73,7 @@ export interface GetManagementGroupSubscriptionResult {
  *
  * Other available API versions: 2023-04-01.
  */
-export function getManagementGroupSubscriptionOutput(args: GetManagementGroupSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupSubscriptionResult> {
+export function getManagementGroupSubscriptionOutput(args: GetManagementGroupSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementGroupSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:management:getManagementGroupSubscription", {
         "groupId": args.groupId,

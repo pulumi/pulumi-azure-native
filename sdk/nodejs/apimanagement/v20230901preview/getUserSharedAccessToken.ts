@@ -56,7 +56,7 @@ export interface GetUserSharedAccessTokenResult {
 /**
  * Gets the Shared Access Authorization Token for the User.
  */
-export function getUserSharedAccessTokenOutput(args: GetUserSharedAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSharedAccessTokenResult> {
+export function getUserSharedAccessTokenOutput(args: GetUserSharedAccessTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserSharedAccessTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getUserSharedAccessToken", {
         "expiry": args.expiry,

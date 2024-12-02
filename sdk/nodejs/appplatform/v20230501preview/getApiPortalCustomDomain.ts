@@ -67,7 +67,7 @@ export interface GetApiPortalCustomDomainResult {
 /**
  * Get the API portal custom domain.
  */
-export function getApiPortalCustomDomainOutput(args: GetApiPortalCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiPortalCustomDomainResult> {
+export function getApiPortalCustomDomainOutput(args: GetApiPortalCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiPortalCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230501preview:getApiPortalCustomDomain", {
         "apiPortalName": args.apiPortalName,

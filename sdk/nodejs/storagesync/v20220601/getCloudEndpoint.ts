@@ -103,7 +103,7 @@ export interface GetCloudEndpointResult {
 /**
  * Get a given CloudEndpoint.
  */
-export function getCloudEndpointOutput(args: GetCloudEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudEndpointResult> {
+export function getCloudEndpointOutput(args: GetCloudEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagesync/v20220601:getCloudEndpoint", {
         "cloudEndpointName": args.cloudEndpointName,

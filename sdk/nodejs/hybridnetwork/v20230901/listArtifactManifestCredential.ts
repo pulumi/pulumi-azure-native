@@ -48,7 +48,7 @@ export interface ListArtifactManifestCredentialResult {
 /**
  * List credential for publishing artifacts defined in artifact manifest.
  */
-export function listArtifactManifestCredentialOutput(args: ListArtifactManifestCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListArtifactManifestCredentialResult> {
+export function listArtifactManifestCredentialOutput(args: ListArtifactManifestCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListArtifactManifestCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20230901:listArtifactManifestCredential", {
         "artifactManifestName": args.artifactManifestName,

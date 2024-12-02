@@ -47,7 +47,7 @@ export interface GetBuildServiceResourceUploadUrlResult {
 /**
  * Get an resource upload URL for build service, which may be artifacts or source archive.
  */
-export function getBuildServiceResourceUploadUrlOutput(args: GetBuildServiceResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceResourceUploadUrlResult> {
+export function getBuildServiceResourceUploadUrlOutput(args: GetBuildServiceResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuildServiceResourceUploadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231201:getBuildServiceResourceUploadUrl", {
         "buildServiceName": args.buildServiceName,

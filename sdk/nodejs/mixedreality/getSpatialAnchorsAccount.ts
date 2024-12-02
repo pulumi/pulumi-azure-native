@@ -95,7 +95,7 @@ export interface GetSpatialAnchorsAccountResult {
  *
  * Other available API versions: 2019-02-28-preview, 2021-03-01-preview.
  */
-export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
+export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mixedreality:getSpatialAnchorsAccount", {
         "accountName": args.accountName,

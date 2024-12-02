@@ -72,7 +72,7 @@ export interface GetPrivateEndpointConnectionsSecResult {
  * Gets the specified private endpoint connection associated with the service.
  * Azure REST API version: 2021-03-25-preview.
  */
-export function getPrivateEndpointConnectionsSecOutput(args: GetPrivateEndpointConnectionsSecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsSecResult> {
+export function getPrivateEndpointConnectionsSecOutput(args: GetPrivateEndpointConnectionsSecOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionsSecResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance:getPrivateEndpointConnectionsSec", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

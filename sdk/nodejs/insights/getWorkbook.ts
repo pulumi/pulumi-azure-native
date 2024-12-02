@@ -124,7 +124,7 @@ export interface GetWorkbookResult {
  *
  * Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
  */
-export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
+export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getWorkbook", {
         "canFetchContent": args.canFetchContent,

@@ -87,7 +87,7 @@ export interface GetAutoUpgradeProfileResult {
  * Get a AutoUpgradeProfile
  * Azure REST API version: 2024-05-02-preview.
  */
-export function getAutoUpgradeProfileOutput(args: GetAutoUpgradeProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoUpgradeProfileResult> {
+export function getAutoUpgradeProfileOutput(args: GetAutoUpgradeProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutoUpgradeProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice:getAutoUpgradeProfile", {
         "autoUpgradeProfileName": args.autoUpgradeProfileName,

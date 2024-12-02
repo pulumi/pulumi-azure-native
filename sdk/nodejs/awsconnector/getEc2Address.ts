@@ -67,7 +67,7 @@ export interface GetEc2AddressResult {
  * Get a Ec2Address
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2AddressOutput(args: GetEc2AddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2AddressResult> {
+export function getEc2AddressOutput(args: GetEc2AddressOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2AddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Address", {
         "name": args.name,

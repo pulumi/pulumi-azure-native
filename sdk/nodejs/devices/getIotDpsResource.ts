@@ -87,7 +87,7 @@ export interface GetIotDpsResourceResult {
  *
  * Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
  */
-export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotDpsResourceResult> {
+export function getIotDpsResourceOutput(args: GetIotDpsResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotDpsResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices:getIotDpsResource", {
         "provisioningServiceName": args.provisioningServiceName,

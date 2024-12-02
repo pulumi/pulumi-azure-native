@@ -53,7 +53,7 @@ export interface ListIntegrationRuntimeAuthKeyResult {
  *
  * Other available API versions: 2021-06-01-preview.
  */
-export function listIntegrationRuntimeAuthKeyOutput(args: ListIntegrationRuntimeAuthKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationRuntimeAuthKeyResult> {
+export function listIntegrationRuntimeAuthKeyOutput(args: ListIntegrationRuntimeAuthKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIntegrationRuntimeAuthKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:listIntegrationRuntimeAuthKey", {
         "integrationRuntimeName": args.integrationRuntimeName,

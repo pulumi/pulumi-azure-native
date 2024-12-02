@@ -78,7 +78,7 @@ export interface GetManagerExtendedInfoResult {
 /**
  * Returns the extended information of the specified manager name.
  */
-export function getManagerExtendedInfoOutput(args: GetManagerExtendedInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerExtendedInfoResult> {
+export function getManagerExtendedInfoOutput(args: GetManagerExtendedInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagerExtendedInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getManagerExtendedInfo", {
         "managerName": args.managerName,

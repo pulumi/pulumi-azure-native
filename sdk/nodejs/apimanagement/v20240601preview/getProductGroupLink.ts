@@ -60,7 +60,7 @@ export interface GetProductGroupLinkResult {
 /**
  * Gets the group link for the product.
  */
-export function getProductGroupLinkOutput(args: GetProductGroupLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductGroupLinkResult> {
+export function getProductGroupLinkOutput(args: GetProductGroupLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProductGroupLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:getProductGroupLink", {
         "groupLinkId": args.groupLinkId,

@@ -74,7 +74,7 @@ export interface GetGraphQueryResult {
 /**
  * Get a single graph query by its resourceName.
  */
-export function getGraphQueryOutput(args: GetGraphQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQueryResult> {
+export function getGraphQueryOutput(args: GetGraphQueryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGraphQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resourcegraph/v20180901preview:getGraphQuery", {
         "resourceGroupName": args.resourceGroupName,

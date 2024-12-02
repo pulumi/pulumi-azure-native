@@ -65,7 +65,7 @@ export interface GetAcmCertificateSummaryResult {
 /**
  * Get a AcmCertificateSummary
  */
-export function getAcmCertificateSummaryOutput(args: GetAcmCertificateSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcmCertificateSummaryResult> {
+export function getAcmCertificateSummaryOutput(args: GetAcmCertificateSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAcmCertificateSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getAcmCertificateSummary", {
         "name": args.name,

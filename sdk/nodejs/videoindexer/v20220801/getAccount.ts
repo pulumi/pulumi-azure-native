@@ -89,7 +89,7 @@ export interface GetAccountResult {
 /**
  * Gets the properties of an Azure Video Indexer account.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:videoindexer/v20220801:getAccount", {
         "accountName": args.accountName,

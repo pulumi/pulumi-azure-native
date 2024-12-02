@@ -102,7 +102,7 @@ export interface GetOuContainerResult {
 /**
  * Get OuContainer in DomainService instance.
  */
-export function getOuContainerOutput(args: GetOuContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOuContainerResult> {
+export function getOuContainerOutput(args: GetOuContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOuContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:aad/v20221201:getOuContainer", {
         "domainServiceName": args.domainServiceName,

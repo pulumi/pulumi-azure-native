@@ -77,7 +77,7 @@ export interface GetLicenseResult {
 /**
  * Retrieves information about the view of a license.
  */
-export function getLicenseOutput(args: GetLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseResult> {
+export function getLicenseOutput(args: GetLicenseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLicenseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcompute/v20240331preview:getLicense", {
         "licenseName": args.licenseName,

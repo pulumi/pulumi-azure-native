@@ -75,7 +75,7 @@ export interface ListFeaturesetVersionMaterializationJobsResult {
 /**
  * A paginated list of FeaturesetJob entities.
  */
-export function listFeaturesetVersionMaterializationJobsOutput(args: ListFeaturesetVersionMaterializationJobsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeaturesetVersionMaterializationJobsResult> {
+export function listFeaturesetVersionMaterializationJobsOutput(args: ListFeaturesetVersionMaterializationJobsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFeaturesetVersionMaterializationJobsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:listFeaturesetVersionMaterializationJobs", {
         "featureWindowEnd": args.featureWindowEnd,

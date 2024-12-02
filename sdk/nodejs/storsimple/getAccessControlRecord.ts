@@ -65,7 +65,7 @@ export interface GetAccessControlRecordResult {
  * Returns the properties of the specified access control record name.
  * Azure REST API version: 2017-06-01.
  */
-export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlRecordResult> {
+export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessControlRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple:getAccessControlRecord", {
         "accessControlRecordName": args.accessControlRecordName,

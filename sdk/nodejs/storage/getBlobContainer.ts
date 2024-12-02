@@ -140,7 +140,7 @@ export interface GetBlobContainerResult {
  *
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
-export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerResult> {
+export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage:getBlobContainer", {
         "accountName": args.accountName,

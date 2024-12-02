@@ -169,7 +169,7 @@ export interface GetWorkflowResult {
  *
  * Other available API versions: 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
  */
-export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
+export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devhub:getWorkflow", {
         "resourceGroupName": args.resourceGroupName,

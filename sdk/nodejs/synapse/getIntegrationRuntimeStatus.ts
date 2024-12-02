@@ -56,7 +56,7 @@ export interface GetIntegrationRuntimeStatusResult {
  *
  * Other available API versions: 2021-06-01-preview.
  */
-export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
+export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getIntegrationRuntimeStatus", {
         "integrationRuntimeName": args.integrationRuntimeName,

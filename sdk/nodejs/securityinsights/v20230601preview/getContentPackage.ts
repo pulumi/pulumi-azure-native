@@ -146,7 +146,7 @@ export interface GetContentPackageResult {
 /**
  * Gets an installed packages by its id.
  */
-export function getContentPackageOutput(args: GetContentPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentPackageResult> {
+export function getContentPackageOutput(args: GetContentPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230601preview:getContentPackage", {
         "packageId": args.packageId,

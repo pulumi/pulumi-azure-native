@@ -105,7 +105,7 @@ export interface GetNotificationHubPnsCredentialsResult {
  * Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
  * PNS credentials.
  */
-export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
+export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20231001preview:getNotificationHubPnsCredentials", {
         "namespaceName": args.namespaceName,

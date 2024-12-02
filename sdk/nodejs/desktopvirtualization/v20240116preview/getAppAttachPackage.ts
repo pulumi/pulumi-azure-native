@@ -65,7 +65,7 @@ export interface GetAppAttachPackageResult {
 /**
  * Get an app attach package.
  */
-export function getAppAttachPackageOutput(args: GetAppAttachPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppAttachPackageResult> {
+export function getAppAttachPackageOutput(args: GetAppAttachPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppAttachPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20240116preview:getAppAttachPackage", {
         "appAttachPackageName": args.appAttachPackageName,

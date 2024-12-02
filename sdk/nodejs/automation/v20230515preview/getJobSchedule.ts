@@ -74,7 +74,7 @@ export interface GetJobScheduleResult {
 /**
  * Retrieve the job schedule identified by job schedule name.
  */
-export function getJobScheduleOutput(args: GetJobScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobScheduleResult> {
+export function getJobScheduleOutput(args: GetJobScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getJobSchedule", {
         "automationAccountName": args.automationAccountName,

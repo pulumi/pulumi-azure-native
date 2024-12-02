@@ -97,7 +97,7 @@ export interface GetApiGatewayResult {
 /**
  * Gets an API Management gateway resource description.
  */
-export function getApiGatewayOutput(args: GetApiGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayResult> {
+export function getApiGatewayOutput(args: GetApiGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getApiGateway", {
         "gatewayName": args.gatewayName,

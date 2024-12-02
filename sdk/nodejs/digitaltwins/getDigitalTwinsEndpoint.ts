@@ -68,7 +68,7 @@ export interface GetDigitalTwinsEndpointResult {
  *
  * Other available API versions: 2020-03-01-preview.
  */
-export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {
+export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:digitaltwins:getDigitalTwinsEndpoint", {
         "endpointName": args.endpointName,

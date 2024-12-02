@@ -91,7 +91,7 @@ export interface GetEnterprisePolicyResult {
  * Get information about an EnterprisePolicy
  * Azure REST API version: 2020-10-30-preview.
  */
-export function getEnterprisePolicyOutput(args: GetEnterprisePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePolicyResult> {
+export function getEnterprisePolicyOutput(args: GetEnterprisePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterprisePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:powerplatform:getEnterprisePolicy", {
         "enterprisePolicyName": args.enterprisePolicyName,

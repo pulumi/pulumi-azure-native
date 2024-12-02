@@ -100,7 +100,7 @@ export interface GetSourceControlResult {
  *
  * Other available API versions: 2021-03-01-preview.
  */
-export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
+export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getSourceControl", {
         "resourceGroupName": args.resourceGroupName,

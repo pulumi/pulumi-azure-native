@@ -46,7 +46,7 @@ export interface GetHostPoolRegistrationTokenResult {
 /**
  * Registration token of the host pool.
  */
-export function getHostPoolRegistrationTokenOutput(args: GetHostPoolRegistrationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolRegistrationTokenResult> {
+export function getHostPoolRegistrationTokenOutput(args: GetHostPoolRegistrationTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostPoolRegistrationTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20240408preview:getHostPoolRegistrationToken", {
         "hostPoolName": args.hostPoolName,

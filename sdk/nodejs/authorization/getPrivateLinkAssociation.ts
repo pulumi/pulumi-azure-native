@@ -52,7 +52,7 @@ export interface GetPrivateLinkAssociationResult {
  * Get a single private link association
  * Azure REST API version: 2020-05-01.
  */
-export function getPrivateLinkAssociationOutput(args: GetPrivateLinkAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkAssociationResult> {
+export function getPrivateLinkAssociationOutput(args: GetPrivateLinkAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getPrivateLinkAssociation", {
         "groupId": args.groupId,

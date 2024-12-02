@@ -104,7 +104,7 @@ export interface GetStorageTargetResult {
  *
  * Other available API versions: 2019-11-01, 2021-03-01, 2023-11-01-preview, 2024-03-01.
  */
-export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
+export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagecache:getStorageTarget", {
         "cacheName": args.cacheName,

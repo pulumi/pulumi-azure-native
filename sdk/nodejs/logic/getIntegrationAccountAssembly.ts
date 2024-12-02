@@ -68,7 +68,7 @@ export interface GetIntegrationAccountAssemblyResult {
  * Get an assembly for an integration account.
  * Azure REST API version: 2019-05-01.
  */
-export function getIntegrationAccountAssemblyOutput(args: GetIntegrationAccountAssemblyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAssemblyResult> {
+export function getIntegrationAccountAssemblyOutput(args: GetIntegrationAccountAssemblyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountAssemblyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:getIntegrationAccountAssembly", {
         "assemblyArtifactName": args.assemblyArtifactName,

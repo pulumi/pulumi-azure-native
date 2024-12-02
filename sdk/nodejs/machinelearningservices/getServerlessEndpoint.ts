@@ -83,7 +83,7 @@ export interface GetServerlessEndpointResult {
  *
  * Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
  */
-export function getServerlessEndpointOutput(args: GetServerlessEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessEndpointResult> {
+export function getServerlessEndpointOutput(args: GetServerlessEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getServerlessEndpoint", {
         "name": args.name,

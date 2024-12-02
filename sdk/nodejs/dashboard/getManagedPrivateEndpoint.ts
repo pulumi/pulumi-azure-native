@@ -104,7 +104,7 @@ export interface GetManagedPrivateEndpointResult {
  *
  * Other available API versions: 2023-09-01, 2023-10-01-preview.
  */
-export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
+export function getManagedPrivateEndpointOutput(args: GetManagedPrivateEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dashboard:getManagedPrivateEndpoint", {
         "managedPrivateEndpointName": args.managedPrivateEndpointName,

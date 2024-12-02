@@ -81,7 +81,7 @@ export interface GetSapVirtualInstanceInvokeSizingRecommendationsResult {
 /**
  * Gets the sizing recommendations.
  */
-export function getSapVirtualInstanceInvokeSizingRecommendationsOutput(args: GetSapVirtualInstanceInvokeSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeSizingRecommendationsResult> {
+export function getSapVirtualInstanceInvokeSizingRecommendationsOutput(args: GetSapVirtualInstanceInvokeSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapVirtualInstanceInvokeSizingRecommendationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeSizingRecommendations", {
         "appLocation": args.appLocation,

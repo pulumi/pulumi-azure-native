@@ -89,7 +89,7 @@ export interface GetWorkspaceResult {
 /**
  * Returns the Workspace resource associated with the given name.
  */
-export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:quantum/v20231113preview:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,

@@ -88,7 +88,7 @@ export interface GetSqlDWTableDataSetResult {
 /**
  * Get a DataSet in a share
  */
-export function getSqlDWTableDataSetOutput(args: GetSqlDWTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDWTableDataSetResult> {
+export function getSqlDWTableDataSetOutput(args: GetSqlDWTableDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlDWTableDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getSqlDWTableDataSet", {
         "accountName": args.accountName,

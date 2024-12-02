@@ -84,7 +84,7 @@ export interface GetTemplateSpecResult {
  * Gets a Template Spec with a given name.
  * Azure REST API version: 2022-02-01.
  */
-export function getTemplateSpecOutput(args: GetTemplateSpecOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecResult> {
+export function getTemplateSpecOutput(args: GetTemplateSpecOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplateSpecResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getTemplateSpec", {
         "expand": args.expand,

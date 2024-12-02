@@ -73,7 +73,7 @@ export interface GetGatewayResult {
 /**
  * Get a Gateway resource by name.
  */
-export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:programmableconnectivity/v20240115preview:getGateway", {
         "gatewayName": args.gatewayName,

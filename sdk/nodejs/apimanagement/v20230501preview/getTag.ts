@@ -55,7 +55,7 @@ export interface GetTagResult {
 /**
  * Gets the details of the tag specified by its identifier.
  */
-export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {
+export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getTag", {
         "resourceGroupName": args.resourceGroupName,

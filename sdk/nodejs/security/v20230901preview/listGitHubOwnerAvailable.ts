@@ -45,7 +45,7 @@ export interface ListGitHubOwnerAvailableResult {
 /**
  * List of RP resources which supports pagination.
  */
-export function listGitHubOwnerAvailableOutput(args: ListGitHubOwnerAvailableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGitHubOwnerAvailableResult> {
+export function listGitHubOwnerAvailableOutput(args: ListGitHubOwnerAvailableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGitHubOwnerAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20230901preview:listGitHubOwnerAvailable", {
         "resourceGroupName": args.resourceGroupName,

@@ -80,7 +80,7 @@ export interface GetGovernanceAssignmentResult {
  * Get a specific governanceAssignment for the requested scope by AssignmentKey
  * Azure REST API version: 2022-01-01-preview.
  */
-export function getGovernanceAssignmentOutput(args: GetGovernanceAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGovernanceAssignmentResult> {
+export function getGovernanceAssignmentOutput(args: GetGovernanceAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGovernanceAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getGovernanceAssignment", {
         "assessmentName": args.assessmentName,

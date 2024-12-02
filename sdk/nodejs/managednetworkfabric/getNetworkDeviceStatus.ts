@@ -48,7 +48,7 @@ export interface GetNetworkDeviceStatusResult {
  * Get the running status of the Network Device.
  * Azure REST API version: 2023-02-01-preview.
  */
-export function getNetworkDeviceStatusOutput(args: GetNetworkDeviceStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkDeviceStatusResult> {
+export function getNetworkDeviceStatusOutput(args: GetNetworkDeviceStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkDeviceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkDeviceStatus", {
         "networkDeviceName": args.networkDeviceName,

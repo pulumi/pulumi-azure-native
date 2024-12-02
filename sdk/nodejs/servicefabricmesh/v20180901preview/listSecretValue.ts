@@ -43,7 +43,7 @@ export interface ListSecretValueResult {
 /**
  * Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
  */
-export function listSecretValueOutput(args: ListSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecretValueResult> {
+export function listSecretValueOutput(args: ListSecretValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSecretValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh/v20180901preview:listSecretValue", {
         "resourceGroupName": args.resourceGroupName,

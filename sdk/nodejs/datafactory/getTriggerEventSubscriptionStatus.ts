@@ -49,7 +49,7 @@ export interface GetTriggerEventSubscriptionStatusResult {
  * Get a trigger's event subscription status.
  * Azure REST API version: 2018-06-01.
  */
-export function getTriggerEventSubscriptionStatusOutput(args: GetTriggerEventSubscriptionStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerEventSubscriptionStatusResult> {
+export function getTriggerEventSubscriptionStatusOutput(args: GetTriggerEventSubscriptionStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTriggerEventSubscriptionStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getTriggerEventSubscriptionStatus", {
         "factoryName": args.factoryName,

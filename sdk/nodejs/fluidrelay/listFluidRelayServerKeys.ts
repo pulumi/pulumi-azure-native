@@ -44,7 +44,7 @@ export interface ListFluidRelayServerKeysResult {
  * The set of available keys for this server.
  * Azure REST API version: 2022-06-01.
  */
-export function listFluidRelayServerKeysOutput(args: ListFluidRelayServerKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFluidRelayServerKeysResult> {
+export function listFluidRelayServerKeysOutput(args: ListFluidRelayServerKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFluidRelayServerKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:fluidrelay:listFluidRelayServerKeys", {
         "fluidRelayServerName": args.fluidRelayServerName,

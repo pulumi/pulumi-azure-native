@@ -64,7 +64,7 @@ export interface GetJobPrivateEndpointResult {
 /**
  * Gets a private endpoint.
  */
-export function getJobPrivateEndpointOutput(args: GetJobPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobPrivateEndpointResult> {
+export function getJobPrivateEndpointOutput(args: GetJobPrivateEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobPrivateEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getJobPrivateEndpoint", {
         "jobAgentName": args.jobAgentName,

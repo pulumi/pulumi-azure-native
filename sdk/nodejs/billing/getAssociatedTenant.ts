@@ -63,7 +63,7 @@ export interface GetAssociatedTenantResult {
  * Gets an associated tenant by ID.
  * Azure REST API version: 2024-04-01.
  */
-export function getAssociatedTenantOutput(args: GetAssociatedTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociatedTenantResult> {
+export function getAssociatedTenantOutput(args: GetAssociatedTenantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssociatedTenantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:billing:getAssociatedTenant", {
         "associatedTenantName": args.associatedTenantName,

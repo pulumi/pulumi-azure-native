@@ -48,7 +48,7 @@ export interface ListJobEnvSecretsResult {
  * List sensitive environment variables of the Job.
  * Azure REST API version: 2024-05-01-preview.
  */
-export function listJobEnvSecretsOutput(args: ListJobEnvSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobEnvSecretsResult> {
+export function listJobEnvSecretsOutput(args: ListJobEnvSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListJobEnvSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform:listJobEnvSecrets", {
         "jobName": args.jobName,

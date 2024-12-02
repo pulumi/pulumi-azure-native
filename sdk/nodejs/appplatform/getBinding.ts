@@ -73,7 +73,7 @@ export interface GetBindingResult {
  *
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
  */
-export function getBindingOutput(args: GetBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBindingResult> {
+export function getBindingOutput(args: GetBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform:getBinding", {
         "appName": args.appName,

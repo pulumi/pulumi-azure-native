@@ -64,7 +64,7 @@ export interface GetDatasetResult {
  * Gets a dataset.
  * Azure REST API version: 2018-06-01.
  */
-export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
+export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getDataset", {
         "datasetName": args.datasetName,

@@ -69,7 +69,7 @@ export interface GetBatchEndpointResult {
      */
     readonly type: string;
 }
-export function getBatchEndpointOutput(args: GetBatchEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchEndpointResult> {
+export function getBatchEndpointOutput(args: GetBatchEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBatchEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20210301preview:getBatchEndpoint", {
         "endpointName": args.endpointName,

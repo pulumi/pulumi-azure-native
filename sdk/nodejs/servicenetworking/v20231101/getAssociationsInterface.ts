@@ -78,7 +78,7 @@ export interface GetAssociationsInterfaceResult {
 /**
  * Get a Association
  */
-export function getAssociationsInterfaceOutput(args: GetAssociationsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationsInterfaceResult> {
+export function getAssociationsInterfaceOutput(args: GetAssociationsInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssociationsInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicenetworking/v20231101:getAssociationsInterface", {
         "associationName": args.associationName,

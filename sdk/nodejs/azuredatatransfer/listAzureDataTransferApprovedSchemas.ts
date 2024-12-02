@@ -48,7 +48,7 @@ export interface ListAzureDataTransferApprovedSchemasResult {
  *
  * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
  */
-export function listAzureDataTransferApprovedSchemasOutput(args?: ListAzureDataTransferApprovedSchemasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAzureDataTransferApprovedSchemasResult> {
+export function listAzureDataTransferApprovedSchemasOutput(args?: ListAzureDataTransferApprovedSchemasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAzureDataTransferApprovedSchemasResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:listAzureDataTransferApprovedSchemas", {

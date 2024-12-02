@@ -74,7 +74,7 @@ export interface GetScopeConnectionResult {
 /**
  * Get specified scope connection created by this Network Manager.
  */
-export function getScopeConnectionOutput(args: GetScopeConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeConnectionResult> {
+export function getScopeConnectionOutput(args: GetScopeConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScopeConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230401:getScopeConnection", {
         "networkManagerName": args.networkManagerName,

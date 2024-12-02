@@ -58,7 +58,7 @@ export interface GetMonitoredSubscriptionResult {
 /**
  * The request to update subscriptions needed to be monitored by the Elastic monitor resource.
  */
-export function getMonitoredSubscriptionOutput(args: GetMonitoredSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoredSubscriptionResult> {
+export function getMonitoredSubscriptionOutput(args: GetMonitoredSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoredSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20241001preview:getMonitoredSubscription", {
         "configurationName": args.configurationName,

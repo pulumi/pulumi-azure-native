@@ -65,7 +65,7 @@ export interface GetMigrateProjectsControllerMigrateProjectResult {
 /**
  * Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
  */
-export function getMigrateProjectsControllerMigrateProjectOutput(args: GetMigrateProjectsControllerMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectsControllerMigrateProjectResult> {
+export function getMigrateProjectsControllerMigrateProjectOutput(args: GetMigrateProjectsControllerMigrateProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrateProjectsControllerMigrateProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", {
         "migrateProjectName": args.migrateProjectName,

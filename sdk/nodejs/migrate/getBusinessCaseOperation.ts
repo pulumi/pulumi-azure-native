@@ -80,7 +80,7 @@ export interface GetBusinessCaseOperationResult {
  *
  * Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
  */
-export function getBusinessCaseOperationOutput(args: GetBusinessCaseOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessCaseOperationResult> {
+export function getBusinessCaseOperationOutput(args: GetBusinessCaseOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessCaseOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getBusinessCaseOperation", {
         "businessCaseName": args.businessCaseName,

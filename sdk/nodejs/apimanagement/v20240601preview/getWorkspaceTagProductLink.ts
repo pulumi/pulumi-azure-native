@@ -65,7 +65,7 @@ export interface GetWorkspaceTagProductLinkResult {
 /**
  * Gets the product link for the tag.
  */
-export function getWorkspaceTagProductLinkOutput(args: GetWorkspaceTagProductLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceTagProductLinkResult> {
+export function getWorkspaceTagProductLinkOutput(args: GetWorkspaceTagProductLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceTagProductLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:getWorkspaceTagProductLink", {
         "productLinkId": args.productLinkId,

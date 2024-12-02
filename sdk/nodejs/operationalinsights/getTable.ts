@@ -112,7 +112,7 @@ export interface GetTableResult {
  *
  * Other available API versions: 2023-09-01.
  */
-export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
+export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getTable", {
         "resourceGroupName": args.resourceGroupName,

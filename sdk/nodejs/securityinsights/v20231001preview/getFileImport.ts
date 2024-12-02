@@ -110,7 +110,7 @@ export interface GetFileImportResult {
 /**
  * Gets a file import.
  */
-export function getFileImportOutput(args: GetFileImportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileImportResult> {
+export function getFileImportOutput(args: GetFileImportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileImportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231001preview:getFileImport", {
         "fileImportId": args.fileImportId,

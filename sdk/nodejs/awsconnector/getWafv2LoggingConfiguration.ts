@@ -67,7 +67,7 @@ export interface GetWafv2LoggingConfigurationResult {
  * Get a Wafv2LoggingConfiguration
  * Azure REST API version: 2024-12-01.
  */
-export function getWafv2LoggingConfigurationOutput(args: GetWafv2LoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafv2LoggingConfigurationResult> {
+export function getWafv2LoggingConfigurationOutput(args: GetWafv2LoggingConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWafv2LoggingConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getWafv2LoggingConfiguration", {
         "name": args.name,

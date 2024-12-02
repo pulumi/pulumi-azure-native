@@ -53,7 +53,7 @@ export interface ListDatastoreSecretsResult {
 /**
  * Base definition for datastore secrets.
  */
-export function listDatastoreSecretsOutput(args: ListDatastoreSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatastoreSecretsResult> {
+export function listDatastoreSecretsOutput(args: ListDatastoreSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDatastoreSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240701preview:listDatastoreSecrets", {
         "expirableSecret": args.expirableSecret,

@@ -76,7 +76,7 @@ export interface ListCatalogDeviceGroupsResult {
  *
  * Other available API versions: 2024-04-01.
  */
-export function listCatalogDeviceGroupsOutput(args: ListCatalogDeviceGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDeviceGroupsResult> {
+export function listCatalogDeviceGroupsOutput(args: ListCatalogDeviceGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListCatalogDeviceGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere:listCatalogDeviceGroups", {
         "catalogName": args.catalogName,

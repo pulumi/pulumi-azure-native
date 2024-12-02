@@ -79,7 +79,7 @@ export interface GetCloudConnectorResult {
  * Gets the specified cloud connector in a specified resource group.
  * Azure REST API version: 2023-01-01-preview.
  */
-export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudConnectorResult> {
+export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcloud:getCloudConnector", {
         "cloudConnectorName": args.cloudConnectorName,

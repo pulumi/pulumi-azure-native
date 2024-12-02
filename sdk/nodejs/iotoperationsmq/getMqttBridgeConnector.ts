@@ -108,7 +108,7 @@ export interface GetMqttBridgeConnectorResult {
  * Get a MqttBridgeConnectorResource
  * Azure REST API version: 2023-10-04-preview.
  */
-export function getMqttBridgeConnectorOutput(args: GetMqttBridgeConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMqttBridgeConnectorResult> {
+export function getMqttBridgeConnectorOutput(args: GetMqttBridgeConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMqttBridgeConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq:getMqttBridgeConnector", {
         "mqName": args.mqName,

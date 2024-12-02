@@ -84,7 +84,7 @@ export interface GetEncryptionScopeResult {
  *
  * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
  */
-export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
+export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage:getEncryptionScope", {
         "accountName": args.accountName,

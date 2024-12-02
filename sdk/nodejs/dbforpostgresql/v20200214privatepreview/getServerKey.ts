@@ -67,7 +67,7 @@ export interface GetServerKeyResult {
 /**
  * Gets a PostgreSQL Server key.
  */
-export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerKeyResult> {
+export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20200214privatepreview:getServerKey", {
         "keyName": args.keyName,

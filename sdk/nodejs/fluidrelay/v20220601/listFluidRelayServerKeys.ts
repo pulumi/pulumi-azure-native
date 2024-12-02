@@ -42,7 +42,7 @@ export interface ListFluidRelayServerKeysResult {
 /**
  * The set of available keys for this server.
  */
-export function listFluidRelayServerKeysOutput(args: ListFluidRelayServerKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFluidRelayServerKeysResult> {
+export function listFluidRelayServerKeysOutput(args: ListFluidRelayServerKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFluidRelayServerKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:fluidrelay/v20220601:listFluidRelayServerKeys", {
         "fluidRelayServerName": args.fluidRelayServerName,

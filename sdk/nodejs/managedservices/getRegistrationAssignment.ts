@@ -64,7 +64,7 @@ export interface GetRegistrationAssignmentResult {
  * Gets the details of the specified registration assignment.
  * Azure REST API version: 2022-10-01.
  */
-export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationAssignmentResult> {
+export function getRegistrationAssignmentOutput(args: GetRegistrationAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managedservices:getRegistrationAssignment", {
         "expandRegistrationDefinition": args.expandRegistrationDefinition,

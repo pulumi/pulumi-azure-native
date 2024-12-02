@@ -69,7 +69,7 @@ export interface ListInferenceGroupDeltaModelsAsyncResult {
  * A paginated list of String entities.
  * Azure REST API version: 2024-10-01-preview.
  */
-export function listInferenceGroupDeltaModelsAsyncOutput(args: ListInferenceGroupDeltaModelsAsyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListInferenceGroupDeltaModelsAsyncResult> {
+export function listInferenceGroupDeltaModelsAsyncOutput(args: ListInferenceGroupDeltaModelsAsyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListInferenceGroupDeltaModelsAsyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listInferenceGroupDeltaModelsAsync", {
         "count": args.count,

@@ -90,7 +90,7 @@ export interface GetAnalyticsItemResult {
  * Gets a specific Analytics Items defined within an Application Insights component.
  * Azure REST API version: 2015-05-01.
  */
-export function getAnalyticsItemOutput(args: GetAnalyticsItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsItemResult> {
+export function getAnalyticsItemOutput(args: GetAnalyticsItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnalyticsItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getAnalyticsItem", {
         "id": args.id,

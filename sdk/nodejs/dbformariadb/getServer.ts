@@ -119,7 +119,7 @@ export interface GetServerResult {
  *
  * Other available API versions: 2018-06-01-preview.
  */
-export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
+export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbformariadb:getServer", {
         "resourceGroupName": args.resourceGroupName,

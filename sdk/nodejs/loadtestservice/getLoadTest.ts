@@ -87,7 +87,7 @@ export interface GetLoadTestResult {
  *
  * Other available API versions: 2021-12-01-preview, 2023-12-01-preview.
  */
-export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestResult> {
+export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadTestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:loadtestservice:getLoadTest", {
         "loadTestName": args.loadTestName,

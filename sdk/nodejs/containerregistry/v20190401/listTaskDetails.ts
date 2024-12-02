@@ -103,7 +103,7 @@ export interface ListTaskDetailsResult {
 /**
  * Returns a task with extended information that includes all secrets.
  */
-export function listTaskDetailsOutput(args: ListTaskDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTaskDetailsResult> {
+export function listTaskDetailsOutput(args: ListTaskDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListTaskDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190401:listTaskDetails", {
         "registryName": args.registryName,

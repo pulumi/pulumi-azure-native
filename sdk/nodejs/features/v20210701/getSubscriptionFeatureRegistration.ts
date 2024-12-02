@@ -50,7 +50,7 @@ export interface GetSubscriptionFeatureRegistrationResult {
 /**
  * Returns a feature registration
  */
-export function getSubscriptionFeatureRegistrationOutput(args: GetSubscriptionFeatureRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFeatureRegistrationResult> {
+export function getSubscriptionFeatureRegistrationOutput(args: GetSubscriptionFeatureRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionFeatureRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:features/v20210701:getSubscriptionFeatureRegistration", {
         "featureName": args.featureName,

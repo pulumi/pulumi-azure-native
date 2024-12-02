@@ -76,7 +76,7 @@ export interface GetFederatedIdentityCredentialResult {
  *
  * Other available API versions: 2023-07-31-preview.
  */
-export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
+export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managedidentity:getFederatedIdentityCredential", {
         "federatedIdentityCredentialResourceName": args.federatedIdentityCredentialResourceName,

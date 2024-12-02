@@ -46,7 +46,7 @@ export interface ListJobEnvSecretsResult {
 /**
  * List sensitive environment variables of the Job.
  */
-export function listJobEnvSecretsOutput(args: ListJobEnvSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobEnvSecretsResult> {
+export function listJobEnvSecretsOutput(args: ListJobEnvSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListJobEnvSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240501preview:listJobEnvSecrets", {
         "jobName": args.jobName,

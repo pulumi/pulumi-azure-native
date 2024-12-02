@@ -78,7 +78,7 @@ export interface GetWebAppDiagnosticLogsConfigurationSlotResult {
 /**
  * Gets the logging configuration of an app.
  */
-export function getWebAppDiagnosticLogsConfigurationSlotOutput(args: GetWebAppDiagnosticLogsConfigurationSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationSlotResult> {
+export function getWebAppDiagnosticLogsConfigurationSlotOutput(args: GetWebAppDiagnosticLogsConfigurationSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20200901:getWebAppDiagnosticLogsConfigurationSlot", {
         "name": args.name,

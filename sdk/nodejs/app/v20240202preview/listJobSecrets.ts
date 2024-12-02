@@ -41,7 +41,7 @@ export interface ListJobSecretsResult {
 /**
  * Container Apps Job Secrets Collection ARM resource.
  */
-export function listJobSecretsOutput(args: ListJobSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobSecretsResult> {
+export function listJobSecretsOutput(args: ListJobSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListJobSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240202preview:listJobSecrets", {
         "jobName": args.jobName,

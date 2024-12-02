@@ -78,7 +78,7 @@ export interface GetAzureADAdministratorResult {
 /**
  * Gets information about an azure ad administrator.
  */
-export function getAzureADAdministratorOutput(args: GetAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureADAdministratorResult> {
+export function getAzureADAdministratorOutput(args: GetAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureADAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbformysql/v20220101:getAzureADAdministrator", {
         "administratorName": args.administratorName,

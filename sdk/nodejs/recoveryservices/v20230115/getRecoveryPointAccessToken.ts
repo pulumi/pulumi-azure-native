@@ -96,7 +96,7 @@ export interface GetRecoveryPointAccessTokenResult {
      */
     readonly type: string;
 }
-export function getRecoveryPointAccessTokenOutput(args: GetRecoveryPointAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecoveryPointAccessTokenResult> {
+export function getRecoveryPointAccessTokenOutput(args: GetRecoveryPointAccessTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRecoveryPointAccessTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230115:getRecoveryPointAccessToken", {
         "containerName": args.containerName,

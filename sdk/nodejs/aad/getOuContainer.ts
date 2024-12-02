@@ -104,7 +104,7 @@ export interface GetOuContainerResult {
  * Get OuContainer in DomainService instance.
  * Azure REST API version: 2022-12-01.
  */
-export function getOuContainerOutput(args: GetOuContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOuContainerResult> {
+export function getOuContainerOutput(args: GetOuContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOuContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:aad:getOuContainer", {
         "domainServiceName": args.domainServiceName,

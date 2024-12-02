@@ -65,7 +65,7 @@ export interface GetEc2InstanceStatusResult {
 /**
  * Get a Ec2InstanceStatus
  */
-export function getEc2InstanceStatusOutput(args: GetEc2InstanceStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2InstanceStatusResult> {
+export function getEc2InstanceStatusOutput(args: GetEc2InstanceStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2InstanceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2InstanceStatus", {
         "name": args.name,

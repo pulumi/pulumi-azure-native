@@ -62,7 +62,7 @@ export interface GetManagedNetworkSettingsRuleResult {
 /**
  * Outbound Rule Basic Resource for the managed network of a machine learning workspace.
  */
-export function getManagedNetworkSettingsRuleOutput(args: GetManagedNetworkSettingsRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkSettingsRuleResult> {
+export function getManagedNetworkSettingsRuleOutput(args: GetManagedNetworkSettingsRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedNetworkSettingsRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401:getManagedNetworkSettingsRule", {
         "resourceGroupName": args.resourceGroupName,

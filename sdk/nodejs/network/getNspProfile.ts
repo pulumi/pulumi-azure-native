@@ -73,7 +73,7 @@ export interface GetNspProfileResult {
  *
  * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
  */
-export function getNspProfileOutput(args: GetNspProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspProfileResult> {
+export function getNspProfileOutput(args: GetNspProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNspProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getNspProfile", {
         "networkSecurityPerimeterName": args.networkSecurityPerimeterName,

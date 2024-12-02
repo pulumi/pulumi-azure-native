@@ -47,7 +47,7 @@ export interface ListNotebookWorkspaceConnectionInfoResult {
 /**
  * Retrieves the connection info for the notebook workspace
  */
-export function listNotebookWorkspaceConnectionInfoOutput(args: ListNotebookWorkspaceConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotebookWorkspaceConnectionInfoResult> {
+export function listNotebookWorkspaceConnectionInfoOutput(args: ListNotebookWorkspaceConnectionInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNotebookWorkspaceConnectionInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240815:listNotebookWorkspaceConnectionInfo", {
         "accountName": args.accountName,

@@ -139,7 +139,7 @@ export interface GetNrtAlertRuleResult {
 /**
  * Gets the alert rule.
  */
-export function getNrtAlertRuleOutput(args: GetNrtAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNrtAlertRuleResult> {
+export function getNrtAlertRuleOutput(args: GetNrtAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNrtAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230601preview:getNrtAlertRule", {
         "resourceGroupName": args.resourceGroupName,

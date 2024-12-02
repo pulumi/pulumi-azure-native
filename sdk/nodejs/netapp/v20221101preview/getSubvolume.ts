@@ -80,7 +80,7 @@ export interface GetSubvolumeResult {
 /**
  * Returns the path associated with the subvolumeName provided
  */
-export function getSubvolumeOutput(args: GetSubvolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubvolumeResult> {
+export function getSubvolumeOutput(args: GetSubvolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubvolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:netapp/v20221101preview:getSubvolume", {
         "accountName": args.accountName,

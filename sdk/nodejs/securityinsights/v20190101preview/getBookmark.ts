@@ -115,7 +115,7 @@ export interface GetBookmarkResult {
 /**
  * Gets a bookmark.
  */
-export function getBookmarkOutput(args: GetBookmarkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkResult> {
+export function getBookmarkOutput(args: GetBookmarkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBookmarkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20190101preview:getBookmark", {
         "bookmarkId": args.bookmarkId,

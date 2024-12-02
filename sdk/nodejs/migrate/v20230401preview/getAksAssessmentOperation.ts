@@ -78,7 +78,7 @@ export interface GetAksAssessmentOperationResult {
 /**
  * Get a AKSAssessment
  */
-export function getAksAssessmentOperationOutput(args: GetAksAssessmentOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAksAssessmentOperationResult> {
+export function getAksAssessmentOperationOutput(args: GetAksAssessmentOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAksAssessmentOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230401preview:getAksAssessmentOperation", {
         "assessmentName": args.assessmentName,

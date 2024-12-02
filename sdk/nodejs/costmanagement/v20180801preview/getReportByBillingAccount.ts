@@ -69,7 +69,7 @@ export interface GetReportByBillingAccountResult {
 /**
  * Gets the report for a billing account by report name.
  */
-export function getReportByBillingAccountOutput(args: GetReportByBillingAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByBillingAccountResult> {
+export function getReportByBillingAccountOutput(args: GetReportByBillingAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportByBillingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20180801preview:getReportByBillingAccount", {
         "billingAccountId": args.billingAccountId,

@@ -75,7 +75,7 @@ export interface GetThroughputPoolResult {
  *
  * Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
  */
-export function getThroughputPoolOutput(args: GetThroughputPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThroughputPoolResult> {
+export function getThroughputPoolOutput(args: GetThroughputPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThroughputPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb:getThroughputPool", {
         "resourceGroupName": args.resourceGroupName,

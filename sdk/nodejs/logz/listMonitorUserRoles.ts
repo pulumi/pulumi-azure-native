@@ -52,7 +52,7 @@ export interface ListMonitorUserRolesResult {
  * Response for list of user's role for Logz.io account.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function listMonitorUserRolesOutput(args: ListMonitorUserRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorUserRolesResult> {
+export function listMonitorUserRolesOutput(args: ListMonitorUserRolesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMonitorUserRolesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logz:listMonitorUserRoles", {
         "emailAddress": args.emailAddress,

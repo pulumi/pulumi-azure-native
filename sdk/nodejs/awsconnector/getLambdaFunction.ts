@@ -67,7 +67,7 @@ export interface GetLambdaFunctionResult {
  * Get a LambdaFunction
  * Azure REST API version: 2024-12-01.
  */
-export function getLambdaFunctionOutput(args: GetLambdaFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLambdaFunctionResult> {
+export function getLambdaFunctionOutput(args: GetLambdaFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLambdaFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getLambdaFunction", {
         "name": args.name,

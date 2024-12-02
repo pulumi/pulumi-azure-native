@@ -76,7 +76,7 @@ export interface GetSqlServerResult {
 /**
  * Gets a SQL Server.
  */
-export function getSqlServerOutput(args: GetSqlServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerResult> {
+export function getSqlServerOutput(args: GetSqlServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredata/v20190724preview:getSqlServer", {
         "expand": args.expand,

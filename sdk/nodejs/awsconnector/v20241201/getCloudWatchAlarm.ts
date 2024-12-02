@@ -65,7 +65,7 @@ export interface GetCloudWatchAlarmResult {
 /**
  * Get a CloudWatchAlarm
  */
-export function getCloudWatchAlarmOutput(args: GetCloudWatchAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudWatchAlarmResult> {
+export function getCloudWatchAlarmOutput(args: GetCloudWatchAlarmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudWatchAlarmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getCloudWatchAlarm", {
         "name": args.name,

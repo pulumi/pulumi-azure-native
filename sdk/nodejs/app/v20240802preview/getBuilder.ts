@@ -77,7 +77,7 @@ export interface GetBuilderResult {
 /**
  * Get a BuilderResource
  */
-export function getBuilderOutput(args: GetBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuilderResult> {
+export function getBuilderOutput(args: GetBuilderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuilderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240802preview:getBuilder", {
         "builderName": args.builderName,

@@ -49,7 +49,7 @@ export interface ListLocalRulestackCountriesResult {
 /**
  * List of countries for Rulestack
  */
-export function listLocalRulestackCountriesOutput(args: ListLocalRulestackCountriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalRulestackCountriesResult> {
+export function listLocalRulestackCountriesOutput(args: ListLocalRulestackCountriesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLocalRulestackCountriesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240119preview:listLocalRulestackCountries", {
         "localRulestackName": args.localRulestackName,

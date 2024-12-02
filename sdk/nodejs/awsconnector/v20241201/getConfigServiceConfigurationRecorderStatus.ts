@@ -65,7 +65,7 @@ export interface GetConfigServiceConfigurationRecorderStatusResult {
 /**
  * Get a ConfigServiceConfigurationRecorderStatus
  */
-export function getConfigServiceConfigurationRecorderStatusOutput(args: GetConfigServiceConfigurationRecorderStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServiceConfigurationRecorderStatusResult> {
+export function getConfigServiceConfigurationRecorderStatusOutput(args: GetConfigServiceConfigurationRecorderStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigServiceConfigurationRecorderStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getConfigServiceConfigurationRecorderStatus", {
         "name": args.name,

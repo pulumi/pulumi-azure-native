@@ -91,7 +91,7 @@ export interface GetApiDefinitionResult {
  *
  * Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
  */
-export function getApiDefinitionOutput(args: GetApiDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDefinitionResult> {
+export function getApiDefinitionOutput(args: GetApiDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apicenter:getApiDefinition", {
         "apiName": args.apiName,

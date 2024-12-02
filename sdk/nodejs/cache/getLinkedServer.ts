@@ -81,7 +81,7 @@ export interface GetLinkedServerResult {
  *
  * Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
  */
-export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServerResult> {
+export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache:getLinkedServer", {
         "linkedServerName": args.linkedServerName,

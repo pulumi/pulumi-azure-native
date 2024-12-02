@@ -46,7 +46,7 @@ export interface GetNetworkDeviceStatusResult {
 /**
  * Get the running status of the Network Device.
  */
-export function getNetworkDeviceStatusOutput(args: GetNetworkDeviceStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkDeviceStatusResult> {
+export function getNetworkDeviceStatusOutput(args: GetNetworkDeviceStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkDeviceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getNetworkDeviceStatus", {
         "networkDeviceName": args.networkDeviceName,

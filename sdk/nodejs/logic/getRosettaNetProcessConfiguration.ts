@@ -104,7 +104,7 @@ export interface GetRosettaNetProcessConfigurationResult {
  * Gets an integration account RosettaNetProcessConfiguration.
  * Azure REST API version: 2016-06-01.
  */
-export function getRosettaNetProcessConfigurationOutput(args: GetRosettaNetProcessConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRosettaNetProcessConfigurationResult> {
+export function getRosettaNetProcessConfigurationOutput(args: GetRosettaNetProcessConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRosettaNetProcessConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:getRosettaNetProcessConfiguration", {
         "integrationAccountName": args.integrationAccountName,

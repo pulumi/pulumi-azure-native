@@ -52,7 +52,7 @@ export interface ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult 
  * List network fabric controllers to artifact stores
  * Azure REST API version: 2024-04-15.
  */
-export function listArtifactStoreNetworkFabricControllerPrivateEndPointsOutput(args: ListArtifactStoreNetworkFabricControllerPrivateEndPointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> {
+export function listArtifactStoreNetworkFabricControllerPrivateEndPointsOutput(args: ListArtifactStoreNetworkFabricControllerPrivateEndPointsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:listArtifactStoreNetworkFabricControllerPrivateEndPoints", {
         "artifactStoreName": args.artifactStoreName,

@@ -96,7 +96,7 @@ export interface GetScheduledTriggerResult {
 /**
  * Get a Trigger in a shareSubscription
  */
-export function getScheduledTriggerOutput(args: GetScheduledTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledTriggerResult> {
+export function getScheduledTriggerOutput(args: GetScheduledTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getScheduledTrigger", {
         "accountName": args.accountName,

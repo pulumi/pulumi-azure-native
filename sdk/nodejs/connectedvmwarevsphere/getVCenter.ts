@@ -115,7 +115,7 @@ export interface GetVCenterResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
  */
-export function getVCenterOutput(args: GetVCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVCenterResult> {
+export function getVCenterOutput(args: GetVCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere:getVCenter", {
         "resourceGroupName": args.resourceGroupName,

@@ -86,7 +86,7 @@ export interface GetPermissionBindingResult {
  *
  * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
-export function getPermissionBindingOutput(args: GetPermissionBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionBindingResult> {
+export function getPermissionBindingOutput(args: GetPermissionBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid:getPermissionBinding", {
         "namespaceName": args.namespaceName,

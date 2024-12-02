@@ -82,7 +82,7 @@ export interface ListBotConnectionWithSecretsResult {
 /**
  * Get a Connection Setting registration for a Bot Service
  */
-export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {
+export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice/v20220915:listBotConnectionWithSecrets", {
         "connectionName": args.connectionName,

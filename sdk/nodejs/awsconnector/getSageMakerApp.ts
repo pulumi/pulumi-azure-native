@@ -67,7 +67,7 @@ export interface GetSageMakerAppResult {
  * Get a SageMakerApp
  * Azure REST API version: 2024-12-01.
  */
-export function getSageMakerAppOutput(args: GetSageMakerAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSageMakerAppResult> {
+export function getSageMakerAppOutput(args: GetSageMakerAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSageMakerAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSageMakerApp", {
         "name": args.name,

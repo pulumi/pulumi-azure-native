@@ -69,7 +69,7 @@ export interface GetWebAppSlotConfigurationNamesResult {
 /**
  * Gets the names of app settings and connection strings that stick to the slot (not swapped).
  */
-export function getWebAppSlotConfigurationNamesOutput(args: GetWebAppSlotConfigurationNamesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSlotConfigurationNamesResult> {
+export function getWebAppSlotConfigurationNamesOutput(args: GetWebAppSlotConfigurationNamesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSlotConfigurationNamesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20201001:getWebAppSlotConfigurationNames", {
         "name": args.name,

@@ -60,7 +60,7 @@ export interface GetContentItemResult {
 /**
  * Returns the developer portal's content item specified by its identifier.
  */
-export function getContentItemOutput(args: GetContentItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentItemResult> {
+export function getContentItemOutput(args: GetContentItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getContentItem", {
         "contentItemId": args.contentItemId,

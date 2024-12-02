@@ -98,7 +98,7 @@ export interface GetAttestationAtSubscriptionResult {
  *
  * Other available API versions: 2024-10-01.
  */
-export function getAttestationAtSubscriptionOutput(args: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
+export function getAttestationAtSubscriptionOutput(args: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights:getAttestationAtSubscription", {
         "attestationName": args.attestationName,

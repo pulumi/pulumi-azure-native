@@ -70,7 +70,7 @@ export interface GetFederatedIdentityCredentialResult {
 /**
  * Gets the federated identity credential.
  */
-export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
+export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managedidentity/v20230731preview:getFederatedIdentityCredential", {
         "federatedIdentityCredentialResourceName": args.federatedIdentityCredentialResourceName,

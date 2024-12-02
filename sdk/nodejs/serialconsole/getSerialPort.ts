@@ -67,7 +67,7 @@ export interface GetSerialPortResult {
  * Gets the configured settings for a serial port
  * Azure REST API version: 2018-05-01.
  */
-export function getSerialPortOutput(args: GetSerialPortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSerialPortResult> {
+export function getSerialPortOutput(args: GetSerialPortOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSerialPortResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:serialconsole:getSerialPort", {
         "parentResource": args.parentResource,

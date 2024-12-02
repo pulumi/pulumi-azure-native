@@ -141,7 +141,7 @@ export interface GetDataProductResult {
 /**
  * Retrieve data product resource.
  */
-export function getDataProductOutput(args: GetDataProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataProductResult> {
+export function getDataProductOutput(args: GetDataProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkanalytics/v20231115:getDataProduct", {
         "dataProductName": args.dataProductName,

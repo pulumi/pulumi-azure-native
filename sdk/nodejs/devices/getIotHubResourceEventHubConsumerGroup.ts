@@ -70,7 +70,7 @@ export interface GetIotHubResourceEventHubConsumerGroupResult {
  *
  * Other available API versions: 2017-07-01, 2021-03-03-preview, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
  */
-export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {
+export function getIotHubResourceEventHubConsumerGroupOutput(args: GetIotHubResourceEventHubConsumerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotHubResourceEventHubConsumerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices:getIotHubResourceEventHubConsumerGroup", {
         "eventHubEndpointName": args.eventHubEndpointName,

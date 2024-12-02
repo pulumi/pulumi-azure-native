@@ -72,7 +72,7 @@ export interface GetBrokerResult {
  *
  * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
  */
-export function getBrokerOutput(args: GetBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerResult> {
+export function getBrokerOutput(args: GetBrokerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperations:getBroker", {
         "brokerName": args.brokerName,

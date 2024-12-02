@@ -67,7 +67,7 @@ export interface GetGuardDutyDetectorResult {
  * Get a GuardDutyDetector
  * Azure REST API version: 2024-12-01.
  */
-export function getGuardDutyDetectorOutput(args: GetGuardDutyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuardDutyDetectorResult> {
+export function getGuardDutyDetectorOutput(args: GetGuardDutyDetectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuardDutyDetectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getGuardDutyDetector", {
         "name": args.name,

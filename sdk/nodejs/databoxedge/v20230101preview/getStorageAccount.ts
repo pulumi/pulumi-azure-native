@@ -82,7 +82,7 @@ export interface GetStorageAccountResult {
 /**
  * Represents a Storage Account on the  Data Box Edge/Gateway device.
  */
-export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
+export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230101preview:getStorageAccount", {
         "deviceName": args.deviceName,

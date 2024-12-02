@@ -70,7 +70,7 @@ export interface GetMongoDBResourceMongoRoleDefinitionResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Mongo Role Definition with the given Id.
  */
-export function getMongoDBResourceMongoRoleDefinitionOutput(args: GetMongoDBResourceMongoRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoRoleDefinitionResult> {
+export function getMongoDBResourceMongoRoleDefinitionOutput(args: GetMongoDBResourceMongoRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMongoDBResourceMongoRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20230915:getMongoDBResourceMongoRoleDefinition", {
         "accountName": args.accountName,

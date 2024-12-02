@@ -107,7 +107,7 @@ export interface GetVirtualMachineResult {
  * Gets a virtual machine
  * Azure REST API version: 2022-12-15-preview.
  */
-export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
+export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getVirtualMachine", {
         "resourceGroupName": args.resourceGroupName,

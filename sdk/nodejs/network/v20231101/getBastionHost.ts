@@ -114,7 +114,7 @@ export interface GetBastionHostResult {
 /**
  * Gets the specified Bastion Host.
  */
-export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionHostResult> {
+export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBastionHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getBastionHost", {
         "bastionHostName": args.bastionHostName,

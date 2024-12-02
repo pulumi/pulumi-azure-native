@@ -77,7 +77,7 @@ export interface GetAssetFilterResult {
  * Get the details of an Asset Filter associated with the specified Asset.
  * Azure REST API version: 2023-01-01.
  */
-export function getAssetFilterOutput(args: GetAssetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetFilterResult> {
+export function getAssetFilterOutput(args: GetAssetFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getAssetFilter", {
         "accountName": args.accountName,

@@ -83,7 +83,7 @@ export interface GetAwsS3DataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getAwsS3DataConnectorOutput(args: GetAwsS3DataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsS3DataConnectorResult> {
+export function getAwsS3DataConnectorOutput(args: GetAwsS3DataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAwsS3DataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getAwsS3DataConnector", {
         "dataConnectorId": args.dataConnectorId,

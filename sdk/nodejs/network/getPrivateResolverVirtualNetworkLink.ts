@@ -80,7 +80,7 @@ export interface GetPrivateResolverVirtualNetworkLinkResult {
  *
  * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
-export function getPrivateResolverVirtualNetworkLinkOutput(args: GetPrivateResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateResolverVirtualNetworkLinkResult> {
+export function getPrivateResolverVirtualNetworkLinkOutput(args: GetPrivateResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateResolverVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getPrivateResolverVirtualNetworkLink", {
         "dnsForwardingRulesetName": args.dnsForwardingRulesetName,

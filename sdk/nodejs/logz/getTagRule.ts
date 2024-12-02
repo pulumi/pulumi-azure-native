@@ -61,7 +61,7 @@ export interface GetTagRuleResult {
  * Capture logs and metrics of Azure resources based on ARM tags.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function getTagRuleOutput(args: GetTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagRuleResult> {
+export function getTagRuleOutput(args: GetTagRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logz:getTagRule", {
         "monitorName": args.monitorName,

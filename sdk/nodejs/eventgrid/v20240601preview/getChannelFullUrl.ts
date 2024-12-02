@@ -43,7 +43,7 @@ export interface GetChannelFullUrlResult {
 /**
  * Get the full endpoint URL of a partner destination channel.
  */
-export function getChannelFullUrlOutput(args: GetChannelFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelFullUrlResult> {
+export function getChannelFullUrlOutput(args: GetChannelFullUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getChannelFullUrl", {
         "channelName": args.channelName,

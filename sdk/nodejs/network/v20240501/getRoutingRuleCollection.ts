@@ -87,7 +87,7 @@ export interface GetRoutingRuleCollectionResult {
 /**
  * Gets a network manager routing configuration rule collection.
  */
-export function getRoutingRuleCollectionOutput(args: GetRoutingRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingRuleCollectionResult> {
+export function getRoutingRuleCollectionOutput(args: GetRoutingRuleCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoutingRuleCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getRoutingRuleCollection", {
         "configurationName": args.configurationName,

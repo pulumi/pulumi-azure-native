@@ -74,7 +74,7 @@ export interface GetBatchDeploymentResult {
      */
     readonly type: string;
 }
-export function getBatchDeploymentOutput(args: GetBatchDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchDeploymentResult> {
+export function getBatchDeploymentOutput(args: GetBatchDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBatchDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20210301preview:getBatchDeployment", {
         "deploymentName": args.deploymentName,

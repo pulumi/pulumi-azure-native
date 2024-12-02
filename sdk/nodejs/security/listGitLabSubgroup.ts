@@ -56,7 +56,7 @@ export interface ListGitLabSubgroupResult {
  *
  * Other available API versions: 2024-04-01, 2024-05-15-preview.
  */
-export function listGitLabSubgroupOutput(args: ListGitLabSubgroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGitLabSubgroupResult> {
+export function listGitLabSubgroupOutput(args: ListGitLabSubgroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGitLabSubgroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:listGitLabSubgroup", {
         "groupFQName": args.groupFQName,

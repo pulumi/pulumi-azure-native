@@ -43,7 +43,7 @@ export interface GetLabAccountRegionalAvailabilityResult {
  * Get regional availability information for each size category configured under a lab account
  * Azure REST API version: 2018-10-15.
  */
-export function getLabAccountRegionalAvailabilityOutput(args: GetLabAccountRegionalAvailabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabAccountRegionalAvailabilityResult> {
+export function getLabAccountRegionalAvailabilityOutput(args: GetLabAccountRegionalAvailabilityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabAccountRegionalAvailabilityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices:getLabAccountRegionalAvailability", {
         "labAccountName": args.labAccountName,

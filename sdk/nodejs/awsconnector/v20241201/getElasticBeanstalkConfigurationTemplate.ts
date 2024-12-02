@@ -65,7 +65,7 @@ export interface GetElasticBeanstalkConfigurationTemplateResult {
 /**
  * Get a ElasticBeanstalkConfigurationTemplate
  */
-export function getElasticBeanstalkConfigurationTemplateOutput(args: GetElasticBeanstalkConfigurationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticBeanstalkConfigurationTemplateResult> {
+export function getElasticBeanstalkConfigurationTemplateOutput(args: GetElasticBeanstalkConfigurationTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticBeanstalkConfigurationTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getElasticBeanstalkConfigurationTemplate", {
         "name": args.name,

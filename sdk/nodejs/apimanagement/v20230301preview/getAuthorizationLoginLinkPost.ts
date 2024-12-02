@@ -53,7 +53,7 @@ export interface GetAuthorizationLoginLinkPostResult {
 /**
  * Gets authorization login links.
  */
-export function getAuthorizationLoginLinkPostOutput(args: GetAuthorizationLoginLinkPostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationLoginLinkPostResult> {
+export function getAuthorizationLoginLinkPostOutput(args: GetAuthorizationLoginLinkPostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationLoginLinkPostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getAuthorizationLoginLinkPost", {
         "authorizationId": args.authorizationId,

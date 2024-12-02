@@ -88,7 +88,7 @@ export interface GetCIAMTenantResult {
  * Get the Azure AD for customers tenant resource.
  * Azure REST API version: 2023-05-17-preview.
  */
-export function getCIAMTenantOutput(args: GetCIAMTenantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCIAMTenantResult> {
+export function getCIAMTenantOutput(args: GetCIAMTenantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCIAMTenantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azureactivedirectory:getCIAMTenant", {
         "resourceGroupName": args.resourceGroupName,

@@ -45,7 +45,7 @@ export interface ListIotDpsResourceKeysResult {
 /**
  * List the primary and secondary keys for a provisioning service.
  */
-export function listIotDpsResourceKeysOutput(args: ListIotDpsResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysResult> {
+export function listIotDpsResourceKeysOutput(args: ListIotDpsResourceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIotDpsResourceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices/v20230301preview:listIotDpsResourceKeys", {
         "provisioningServiceName": args.provisioningServiceName,

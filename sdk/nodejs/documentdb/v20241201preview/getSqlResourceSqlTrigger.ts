@@ -77,7 +77,7 @@ export interface GetSqlResourceSqlTriggerResult {
 /**
  * Gets the SQL trigger under an existing Azure Cosmos DB database account.
  */
-export function getSqlResourceSqlTriggerOutput(args: GetSqlResourceSqlTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlTriggerResult> {
+export function getSqlResourceSqlTriggerOutput(args: GetSqlResourceSqlTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlResourceSqlTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20241201preview:getSqlResourceSqlTrigger", {
         "accountName": args.accountName,

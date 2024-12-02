@@ -73,7 +73,7 @@ export interface GetDiskAccessResult {
 /**
  * Gets information about a disk access resource.
  */
-export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskAccessResult> {
+export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiskAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20220702:getDiskAccess", {
         "diskAccessName": args.diskAccessName,

@@ -67,7 +67,7 @@ export interface GetSsmParameterResult {
  * Get a SsmParameter
  * Azure REST API version: 2024-12-01.
  */
-export function getSsmParameterOutput(args: GetSsmParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmParameterResult> {
+export function getSsmParameterOutput(args: GetSsmParameterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSsmParameterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getSsmParameter", {
         "name": args.name,

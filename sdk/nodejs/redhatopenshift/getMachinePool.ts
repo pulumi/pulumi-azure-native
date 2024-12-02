@@ -65,7 +65,7 @@ export interface GetMachinePoolResult {
  *
  * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
  */
-export function getMachinePoolOutput(args: GetMachinePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachinePoolResult> {
+export function getMachinePoolOutput(args: GetMachinePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:redhatopenshift:getMachinePool", {
         "childResourceName": args.childResourceName,

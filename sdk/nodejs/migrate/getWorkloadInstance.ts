@@ -70,7 +70,7 @@ export interface GetWorkloadInstanceResult {
  * Gets the details of the workload instance.
  * Azure REST API version: 2022-05-01-preview.
  */
-export function getWorkloadInstanceOutput(args: GetWorkloadInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadInstanceResult> {
+export function getWorkloadInstanceOutput(args: GetWorkloadInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getWorkloadInstance", {
         "modernizeProjectName": args.modernizeProjectName,

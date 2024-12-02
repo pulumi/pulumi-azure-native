@@ -65,7 +65,7 @@ export interface GetDynamoDbTableResult {
 /**
  * Get a DynamoDBTable
  */
-export function getDynamoDbTableOutput(args: GetDynamoDbTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamoDbTableResult> {
+export function getDynamoDbTableOutput(args: GetDynamoDbTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDynamoDbTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getDynamoDbTable", {
         "name": args.name,

@@ -49,7 +49,7 @@ export interface ListLocalRulestackPredefinedUrlCategoriesResult {
 /**
  * List predefined URL categories for rulestack
  */
-export function listLocalRulestackPredefinedUrlCategoriesOutput(args: ListLocalRulestackPredefinedUrlCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLocalRulestackPredefinedUrlCategoriesResult> {
+export function listLocalRulestackPredefinedUrlCategoriesOutput(args: ListLocalRulestackPredefinedUrlCategoriesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLocalRulestackPredefinedUrlCategoriesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20231010preview:listLocalRulestackPredefinedUrlCategories", {
         "localRulestackName": args.localRulestackName,

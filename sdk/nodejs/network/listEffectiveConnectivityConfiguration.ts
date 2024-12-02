@@ -52,7 +52,7 @@ export interface ListEffectiveConnectivityConfigurationResult {
  * List all effective connectivity configurations applied on a virtual network.
  * Azure REST API version: 2021-02-01-preview.
  */
-export function listEffectiveConnectivityConfigurationOutput(args: ListEffectiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveConnectivityConfigurationResult> {
+export function listEffectiveConnectivityConfigurationOutput(args: ListEffectiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEffectiveConnectivityConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:listEffectiveConnectivityConfiguration", {
         "resourceGroupName": args.resourceGroupName,

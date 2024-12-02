@@ -39,7 +39,7 @@ export interface ListProviderActionInUseStorageAccountsResult {
  * List the storage accounts which are in use by related reports
  * Azure REST API version: 2024-06-27.
  */
-export function listProviderActionInUseStorageAccountsOutput(args?: ListProviderActionInUseStorageAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProviderActionInUseStorageAccountsResult> {
+export function listProviderActionInUseStorageAccountsOutput(args?: ListProviderActionInUseStorageAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProviderActionInUseStorageAccountsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation:listProviderActionInUseStorageAccounts", {

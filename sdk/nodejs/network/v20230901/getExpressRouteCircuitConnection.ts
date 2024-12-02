@@ -91,7 +91,7 @@ export interface GetExpressRouteCircuitConnectionResult {
 /**
  * Gets the specified Express Route Circuit Connection from the specified express route circuit.
  */
-export function getExpressRouteCircuitConnectionOutput(args: GetExpressRouteCircuitConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitConnectionResult> {
+export function getExpressRouteCircuitConnectionOutput(args: GetExpressRouteCircuitConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExpressRouteCircuitConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getExpressRouteCircuitConnection", {
         "circuitName": args.circuitName,

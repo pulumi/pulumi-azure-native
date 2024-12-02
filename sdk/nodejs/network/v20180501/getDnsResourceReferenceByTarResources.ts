@@ -37,7 +37,7 @@ export interface GetDnsResourceReferenceByTarResourcesResult {
 /**
  * Returns the DNS records specified by the referencing targetResourceIds.
  */
-export function getDnsResourceReferenceByTarResourcesOutput(args?: GetDnsResourceReferenceByTarResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResourceReferenceByTarResourcesResult> {
+export function getDnsResourceReferenceByTarResourcesOutput(args?: GetDnsResourceReferenceByTarResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsResourceReferenceByTarResourcesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20180501:getDnsResourceReferenceByTarResources", {

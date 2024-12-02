@@ -75,7 +75,7 @@ export interface GetAccessConnectorResult {
  *
  * Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
  */
-export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {
+export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databricks:getAccessConnector", {
         "connectorName": args.connectorName,

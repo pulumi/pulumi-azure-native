@@ -104,7 +104,7 @@ export interface GetExternalNetworkResult {
  *
  * Other available API versions: 2023-06-15.
  */
-export function getExternalNetworkOutput(args: GetExternalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExternalNetworkResult> {
+export function getExternalNetworkOutput(args: GetExternalNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExternalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getExternalNetwork", {
         "externalNetworkName": args.externalNetworkName,

@@ -32,7 +32,7 @@ export interface GetVirtualNetworkGatewayConnectionIkeSasResult {
 /**
  * Lists IKE Security Associations for the virtual network gateway connection in the specified resource group.
  */
-export function getVirtualNetworkGatewayConnectionIkeSasOutput(args: GetVirtualNetworkGatewayConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionIkeSasResult> {
+export function getVirtualNetworkGatewayConnectionIkeSasOutput(args: GetVirtualNetworkGatewayConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionIkeSasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getVirtualNetworkGatewayConnectionIkeSas", {
         "resourceGroupName": args.resourceGroupName,

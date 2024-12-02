@@ -77,7 +77,7 @@ export interface GetIotHubResourceResult {
 /**
  * Get the non-security related metadata of an IoT hub.
  */
-export function getIotHubResourceOutput(args: GetIotHubResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceResult> {
+export function getIotHubResourceOutput(args: GetIotHubResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotHubResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices/v20221115preview:getIotHubResource", {
         "resourceGroupName": args.resourceGroupName,

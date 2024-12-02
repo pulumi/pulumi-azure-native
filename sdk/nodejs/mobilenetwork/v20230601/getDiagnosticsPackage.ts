@@ -70,7 +70,7 @@ export interface GetDiagnosticsPackageResult {
 /**
  * Gets information about the specified diagnostics package.
  */
-export function getDiagnosticsPackageOutput(args: GetDiagnosticsPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticsPackageResult> {
+export function getDiagnosticsPackageOutput(args: GetDiagnosticsPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticsPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20230601:getDiagnosticsPackage", {
         "diagnosticsPackageName": args.diagnosticsPackageName,

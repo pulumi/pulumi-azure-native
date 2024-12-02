@@ -85,7 +85,7 @@ export interface GetDevCenterResult {
 /**
  * Gets a devcenter.
  */
-export function getDevCenterOutput(args: GetDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevCenterResult> {
+export function getDevCenterOutput(args: GetDevCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240201:getDevCenter", {
         "devCenterName": args.devCenterName,

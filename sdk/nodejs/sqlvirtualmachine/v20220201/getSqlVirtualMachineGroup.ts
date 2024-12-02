@@ -89,7 +89,7 @@ export interface GetSqlVirtualMachineGroupResult {
 /**
  * Gets a SQL virtual machine group.
  */
-export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
+export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sqlvirtualmachine/v20220201:getSqlVirtualMachineGroup", {
         "resourceGroupName": args.resourceGroupName,

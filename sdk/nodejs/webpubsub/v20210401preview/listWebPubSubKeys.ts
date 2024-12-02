@@ -50,7 +50,7 @@ export interface ListWebPubSubKeysResult {
 /**
  * Get the access keys of the resource.
  */
-export function listWebPubSubKeysOutput(args: ListWebPubSubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebPubSubKeysResult> {
+export function listWebPubSubKeysOutput(args: ListWebPubSubKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebPubSubKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20210401preview:listWebPubSubKeys", {
         "resourceGroupName": args.resourceGroupName,

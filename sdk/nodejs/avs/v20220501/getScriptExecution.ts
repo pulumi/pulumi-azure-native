@@ -114,7 +114,7 @@ export interface GetScriptExecutionResult {
 /**
  * An instance of a script executed by a user - custom or AVS
  */
-export function getScriptExecutionOutput(args: GetScriptExecutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptExecutionResult> {
+export function getScriptExecutionOutput(args: GetScriptExecutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScriptExecutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20220501:getScriptExecution", {
         "privateCloudName": args.privateCloudName,

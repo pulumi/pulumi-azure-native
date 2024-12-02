@@ -91,7 +91,7 @@ export interface GetAppResult {
  *
  * Other available API versions: 2018-09-01, 2021-11-01-preview.
  */
-export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
+export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotcentral:getApp", {
         "resourceGroupName": args.resourceGroupName,

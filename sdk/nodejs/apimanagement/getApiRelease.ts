@@ -78,7 +78,7 @@ export interface GetApiReleaseResult {
  *
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiReleaseResult> {
+export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiReleaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getApiRelease", {
         "apiId": args.apiId,

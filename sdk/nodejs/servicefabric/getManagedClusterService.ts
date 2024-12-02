@@ -81,7 +81,7 @@ export interface GetManagedClusterServiceResult {
  *
  * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
  */
-export function getManagedClusterServiceOutput(args: GetManagedClusterServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterServiceResult> {
+export function getManagedClusterServiceOutput(args: GetManagedClusterServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabric:getManagedClusterService", {
         "applicationName": args.applicationName,

@@ -78,7 +78,7 @@ export interface GetStaticSiteDatabaseConnectionResult {
 /**
  * Static Site Database Connection resource.
  */
-export function getStaticSiteDatabaseConnectionOutput(args: GetStaticSiteDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteDatabaseConnectionResult> {
+export function getStaticSiteDatabaseConnectionOutput(args: GetStaticSiteDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteDatabaseConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20220901:getStaticSiteDatabaseConnection", {
         "databaseConnectionName": args.databaseConnectionName,

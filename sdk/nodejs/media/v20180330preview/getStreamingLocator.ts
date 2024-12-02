@@ -86,7 +86,7 @@ export interface GetStreamingLocatorResult {
 /**
  * Get the details of a Streaming Locator in the Media Services account
  */
-export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingLocatorResult> {
+export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamingLocatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20180330preview:getStreamingLocator", {
         "accountName": args.accountName,

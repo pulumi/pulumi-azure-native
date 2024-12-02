@@ -106,7 +106,7 @@ export interface GetNamespaceResult {
  *
  * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
-export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
+export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid:getNamespace", {
         "namespaceName": args.namespaceName,

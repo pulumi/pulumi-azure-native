@@ -87,7 +87,7 @@ export interface GetMqttBridgeTopicMapResult {
 /**
  * Get a MqttBridgeTopicMapResource
  */
-export function getMqttBridgeTopicMapOutput(args: GetMqttBridgeTopicMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMqttBridgeTopicMapResult> {
+export function getMqttBridgeTopicMapOutput(args: GetMqttBridgeTopicMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMqttBridgeTopicMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq/v20231004preview:getMqttBridgeTopicMap", {
         "mqName": args.mqName,

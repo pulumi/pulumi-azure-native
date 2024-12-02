@@ -107,7 +107,7 @@ export interface GetDedicatedHostResult {
 /**
  * Retrieves information about a dedicated host.
  */
-export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
+export function getDedicatedHostOutput(args: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDedicatedHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20230701:getDedicatedHost", {
         "expand": args.expand,

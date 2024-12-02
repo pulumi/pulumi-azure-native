@@ -74,7 +74,7 @@ export interface GetPrivateEndpointConnectionControllerResult {
 /**
  * Gets the private link resource.
  */
-export function getPrivateEndpointConnectionControllerOutput(args: GetPrivateEndpointConnectionControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionControllerResult> {
+export function getPrivateEndpointConnectionControllerOutput(args: GetPrivateEndpointConnectionControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20231001preview:getPrivateEndpointConnectionController", {
         "peConnectionName": args.peConnectionName,

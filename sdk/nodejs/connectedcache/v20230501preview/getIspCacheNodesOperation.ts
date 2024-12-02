@@ -70,7 +70,7 @@ export interface GetIspCacheNodesOperationResult {
 /**
  * This api gets ispCacheNode resource information
  */
-export function getIspCacheNodesOperationOutput(args: GetIspCacheNodesOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIspCacheNodesOperationResult> {
+export function getIspCacheNodesOperationOutput(args: GetIspCacheNodesOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIspCacheNodesOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedcache/v20230501preview:getIspCacheNodesOperation", {
         "cacheNodeResourceName": args.cacheNodeResourceName,

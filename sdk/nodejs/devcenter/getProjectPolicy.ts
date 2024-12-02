@@ -72,7 +72,7 @@ export interface GetProjectPolicyResult {
  * Gets a specific project policy.
  * Azure REST API version: 2024-10-01-preview.
  */
-export function getProjectPolicyOutput(args: GetProjectPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectPolicyResult> {
+export function getProjectPolicyOutput(args: GetProjectPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter:getProjectPolicy", {
         "devCenterName": args.devCenterName,

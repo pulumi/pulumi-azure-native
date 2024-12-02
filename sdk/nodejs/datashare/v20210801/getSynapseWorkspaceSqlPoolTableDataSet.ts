@@ -76,7 +76,7 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetResult {
 /**
  * Get a DataSet in a share
  */
-export function getSynapseWorkspaceSqlPoolTableDataSetOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
+export function getSynapseWorkspaceSqlPoolTableDataSetOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getSynapseWorkspaceSqlPoolTableDataSet", {
         "accountName": args.accountName,

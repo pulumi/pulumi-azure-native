@@ -106,7 +106,7 @@ export interface GetDicomServiceResult {
 /**
  * Gets the properties of the specified DICOM Service.
  */
-export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
+export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDicomServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthcareapis/v20231101:getDicomService", {
         "dicomServiceName": args.dicomServiceName,

@@ -45,7 +45,7 @@ export interface GetVirtualMachineRdpFileContentsResult {
  * Gets a string that represents the contents of the RDP file for the virtual machine
  * Azure REST API version: 2018-09-15.
  */
-export function getVirtualMachineRdpFileContentsOutput(args: GetVirtualMachineRdpFileContentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRdpFileContentsResult> {
+export function getVirtualMachineRdpFileContentsOutput(args: GetVirtualMachineRdpFileContentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineRdpFileContentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab:getVirtualMachineRdpFileContents", {
         "labName": args.labName,

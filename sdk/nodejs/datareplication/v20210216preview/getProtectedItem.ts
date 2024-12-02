@@ -59,7 +59,7 @@ export interface GetProtectedItemResult {
 /**
  * Gets the details of the protected item.
  */
-export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
+export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectedItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datareplication/v20210216preview:getProtectedItem", {
         "protectedItemName": args.protectedItemName,

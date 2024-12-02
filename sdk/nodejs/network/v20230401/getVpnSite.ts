@@ -101,7 +101,7 @@ export interface GetVpnSiteResult {
 /**
  * Retrieves the details of a VPN site.
  */
-export function getVpnSiteOutput(args: GetVpnSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnSiteResult> {
+export function getVpnSiteOutput(args: GetVpnSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230401:getVpnSite", {
         "resourceGroupName": args.resourceGroupName,

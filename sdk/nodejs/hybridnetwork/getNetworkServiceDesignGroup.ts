@@ -76,7 +76,7 @@ export interface GetNetworkServiceDesignGroupResult {
  *
  * Other available API versions: 2024-04-15.
  */
-export function getNetworkServiceDesignGroupOutput(args: GetNetworkServiceDesignGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkServiceDesignGroupResult> {
+export function getNetworkServiceDesignGroupOutput(args: GetNetworkServiceDesignGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkServiceDesignGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getNetworkServiceDesignGroup", {
         "networkServiceDesignGroupName": args.networkServiceDesignGroupName,

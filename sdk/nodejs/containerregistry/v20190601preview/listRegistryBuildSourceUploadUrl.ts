@@ -42,7 +42,7 @@ export interface ListRegistryBuildSourceUploadUrlResult {
 /**
  * Get the upload location for the user to be able to upload the source.
  */
-export function listRegistryBuildSourceUploadUrlOutput(args: ListRegistryBuildSourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryBuildSourceUploadUrlResult> {
+export function listRegistryBuildSourceUploadUrlOutput(args: ListRegistryBuildSourceUploadUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRegistryBuildSourceUploadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190601preview:listRegistryBuildSourceUploadUrl", {
         "registryName": args.registryName,

@@ -66,7 +66,7 @@ export interface GetApplicationAcceleratorResult {
 /**
  * Get the application accelerator.
  */
-export function getApplicationAcceleratorOutput(args: GetApplicationAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationAcceleratorResult> {
+export function getApplicationAcceleratorOutput(args: GetApplicationAcceleratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationAcceleratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:getApplicationAccelerator", {
         "applicationAcceleratorName": args.applicationAcceleratorName,

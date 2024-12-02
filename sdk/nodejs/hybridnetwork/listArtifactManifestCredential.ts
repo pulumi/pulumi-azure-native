@@ -54,7 +54,7 @@ export interface ListArtifactManifestCredentialResult {
  *
  * Other available API versions: 2024-04-15.
  */
-export function listArtifactManifestCredentialOutput(args: ListArtifactManifestCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListArtifactManifestCredentialResult> {
+export function listArtifactManifestCredentialOutput(args: ListArtifactManifestCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListArtifactManifestCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:listArtifactManifestCredential", {
         "artifactManifestName": args.artifactManifestName,

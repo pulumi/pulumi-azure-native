@@ -42,7 +42,7 @@ export interface ListDiagnosticSettingsCategoryResult {
  *
  * Other available API versions: 2017-05-01-preview.
  */
-export function listDiagnosticSettingsCategoryOutput(args: ListDiagnosticSettingsCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDiagnosticSettingsCategoryResult> {
+export function listDiagnosticSettingsCategoryOutput(args: ListDiagnosticSettingsCategoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDiagnosticSettingsCategoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:listDiagnosticSettingsCategory", {
         "resourceUri": args.resourceUri,

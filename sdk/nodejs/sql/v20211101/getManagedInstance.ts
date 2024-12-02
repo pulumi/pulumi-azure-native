@@ -168,7 +168,7 @@ export interface GetManagedInstanceResult {
 /**
  * Gets a managed instance.
  */
-export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceResult> {
+export function getManagedInstanceOutput(args: GetManagedInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getManagedInstance", {
         "expand": args.expand,

@@ -99,7 +99,7 @@ export interface GetPipelineGroupResult {
  *
  * Other available API versions: 2024-10-01-preview.
  */
-export function getPipelineGroupOutput(args: GetPipelineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineGroupResult> {
+export function getPipelineGroupOutput(args: GetPipelineGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:monitor:getPipelineGroup", {
         "pipelineGroupName": args.pipelineGroupName,

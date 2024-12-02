@@ -42,7 +42,7 @@ export interface GetSharedKeysResult {
 /**
  * Gets the shared keys for a workspace.
  */
-export function getSharedKeysOutput(args: GetSharedKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedKeysResult> {
+export function getSharedKeysOutput(args: GetSharedKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20200801:getSharedKeys", {
         "resourceGroupName": args.resourceGroupName,

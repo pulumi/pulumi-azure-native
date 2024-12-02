@@ -67,7 +67,7 @@ export interface GetReplicationvCenterResult {
 /**
  * Gets the details of a registered vCenter server(Add vCenter server.)
  */
-export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationvCenterResult> {
+export function getReplicationvCenterOutput(args: GetReplicationvCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationvCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20210301:getReplicationvCenter", {
         "fabricName": args.fabricName,

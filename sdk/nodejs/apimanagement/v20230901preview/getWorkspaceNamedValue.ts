@@ -83,7 +83,7 @@ export interface GetWorkspaceNamedValueResult {
 /**
  * Gets the details of the named value specified by its identifier.
  */
-export function getWorkspaceNamedValueOutput(args: GetWorkspaceNamedValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceNamedValueResult> {
+export function getWorkspaceNamedValueOutput(args: GetWorkspaceNamedValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceNamedValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getWorkspaceNamedValue", {
         "namedValueId": args.namedValueId,

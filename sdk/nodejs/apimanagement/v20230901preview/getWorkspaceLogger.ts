@@ -77,7 +77,7 @@ export interface GetWorkspaceLoggerResult {
 /**
  * Gets the details of the logger specified by its identifier.
  */
-export function getWorkspaceLoggerOutput(args: GetWorkspaceLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceLoggerResult> {
+export function getWorkspaceLoggerOutput(args: GetWorkspaceLoggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceLoggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getWorkspaceLogger", {
         "loggerId": args.loggerId,

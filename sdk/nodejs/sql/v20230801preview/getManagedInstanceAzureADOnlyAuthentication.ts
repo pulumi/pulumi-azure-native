@@ -55,7 +55,7 @@ export interface GetManagedInstanceAzureADOnlyAuthenticationResult {
 /**
  * Gets a specific Azure Active Directory only authentication property.
  */
-export function getManagedInstanceAzureADOnlyAuthenticationOutput(args: GetManagedInstanceAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAzureADOnlyAuthenticationResult> {
+export function getManagedInstanceAzureADOnlyAuthenticationOutput(args: GetManagedInstanceAzureADOnlyAuthenticationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedInstanceAzureADOnlyAuthenticationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getManagedInstanceAzureADOnlyAuthentication", {
         "authenticationName": args.authenticationName,

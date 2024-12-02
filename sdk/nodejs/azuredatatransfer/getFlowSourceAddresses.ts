@@ -45,7 +45,7 @@ export interface GetFlowSourceAddressesResult {
  * Get the source addresses for the specified flow.
  * Azure REST API version: 2024-09-27.
  */
-export function getFlowSourceAddressesOutput(args: GetFlowSourceAddressesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowSourceAddressesResult> {
+export function getFlowSourceAddressesOutput(args: GetFlowSourceAddressesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowSourceAddressesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:getFlowSourceAddresses", {
         "connectionName": args.connectionName,

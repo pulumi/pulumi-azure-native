@@ -85,7 +85,7 @@ export interface GetConnectorDryrunResult {
  *
  * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
  */
-export function getConnectorDryrunOutput(args: GetConnectorDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorDryrunResult> {
+export function getConnectorDryrunOutput(args: GetConnectorDryrunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorDryrunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicelinker:getConnectorDryrun", {
         "dryrunName": args.dryrunName,

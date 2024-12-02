@@ -105,7 +105,7 @@ export interface GetLabResult {
  * Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
  * Azure REST API version: 2021-12-01-preview.
  */
-export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
+export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:education:getLab", {
         "billingAccountName": args.billingAccountName,

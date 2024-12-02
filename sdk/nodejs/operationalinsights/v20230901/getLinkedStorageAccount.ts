@@ -59,7 +59,7 @@ export interface GetLinkedStorageAccountResult {
 /**
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
  */
-export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedStorageAccountResult> {
+export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20230901:getLinkedStorageAccount", {
         "dataSourceType": args.dataSourceType,

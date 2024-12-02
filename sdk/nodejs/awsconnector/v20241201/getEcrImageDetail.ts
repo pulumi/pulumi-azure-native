@@ -65,7 +65,7 @@ export interface GetEcrImageDetailResult {
 /**
  * Get a EcrImageDetail
  */
-export function getEcrImageDetailOutput(args: GetEcrImageDetailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcrImageDetailResult> {
+export function getEcrImageDetailOutput(args: GetEcrImageDetailOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcrImageDetailResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEcrImageDetail", {
         "name": args.name,

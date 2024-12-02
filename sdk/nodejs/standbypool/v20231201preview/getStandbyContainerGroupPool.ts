@@ -73,7 +73,7 @@ export interface GetStandbyContainerGroupPoolResult {
 /**
  * Get a StandbyContainerGroupPoolResource
  */
-export function getStandbyContainerGroupPoolOutput(args: GetStandbyContainerGroupPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandbyContainerGroupPoolResult> {
+export function getStandbyContainerGroupPoolOutput(args: GetStandbyContainerGroupPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandbyContainerGroupPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:standbypool/v20231201preview:getStandbyContainerGroupPool", {
         "resourceGroupName": args.resourceGroupName,

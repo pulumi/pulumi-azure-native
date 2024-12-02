@@ -78,7 +78,7 @@ export interface GetAttachedNetworkByDevCenterResult {
 /**
  * Gets an attached NetworkConnection.
  */
-export function getAttachedNetworkByDevCenterOutput(args: GetAttachedNetworkByDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedNetworkByDevCenterResult> {
+export function getAttachedNetworkByDevCenterOutput(args: GetAttachedNetworkByDevCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttachedNetworkByDevCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240601preview:getAttachedNetworkByDevCenter", {
         "attachedNetworkConnectionName": args.attachedNetworkConnectionName,

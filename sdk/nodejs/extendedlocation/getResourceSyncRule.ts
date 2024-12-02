@@ -84,7 +84,7 @@ export interface GetResourceSyncRuleResult {
  * Gets the details of the resourceSyncRule with a specified resource group, subscription id Custom Location resource name and Resource Sync Rule name.
  * Azure REST API version: 2021-08-31-preview.
  */
-export function getResourceSyncRuleOutput(args: GetResourceSyncRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSyncRuleResult> {
+export function getResourceSyncRuleOutput(args: GetResourceSyncRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceSyncRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:extendedlocation:getResourceSyncRule", {
         "childResourceName": args.childResourceName,

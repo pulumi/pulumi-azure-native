@@ -47,7 +47,7 @@ export interface GetBusinessCaseOperationReportDownloadUrlResult {
 /**
  * Get the URL for downloading the business case in a report format.
  */
-export function getBusinessCaseOperationReportDownloadUrlOutput(args: GetBusinessCaseOperationReportDownloadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessCaseOperationReportDownloadUrlResult> {
+export function getBusinessCaseOperationReportDownloadUrlOutput(args: GetBusinessCaseOperationReportDownloadUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessCaseOperationReportDownloadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230909preview:getBusinessCaseOperationReportDownloadUrl", {
         "businessCaseName": args.businessCaseName,

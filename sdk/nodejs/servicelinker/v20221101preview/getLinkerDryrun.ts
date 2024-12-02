@@ -69,7 +69,7 @@ export interface GetLinkerDryrunResult {
 /**
  * get a dryrun job
  */
-export function getLinkerDryrunOutput(args: GetLinkerDryrunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerDryrunResult> {
+export function getLinkerDryrunOutput(args: GetLinkerDryrunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkerDryrunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicelinker/v20221101preview:getLinkerDryrun", {
         "dryrunName": args.dryrunName,

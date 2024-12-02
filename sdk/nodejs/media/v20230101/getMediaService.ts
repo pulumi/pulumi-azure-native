@@ -98,7 +98,7 @@ export interface GetMediaServiceResult {
 /**
  * Get the details of a Media Services account
  */
-export function getMediaServiceOutput(args: GetMediaServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaServiceResult> {
+export function getMediaServiceOutput(args: GetMediaServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMediaServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getMediaService", {
         "accountName": args.accountName,

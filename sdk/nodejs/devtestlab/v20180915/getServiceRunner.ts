@@ -66,7 +66,7 @@ export interface GetServiceRunnerResult {
 /**
  * Get service runner.
  */
-export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceRunnerResult> {
+export function getServiceRunnerOutput(args: GetServiceRunnerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceRunnerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getServiceRunner", {
         "labName": args.labName,

@@ -130,7 +130,7 @@ export interface GetL3NetworkResult {
  *
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
-export function getL3NetworkOutput(args: GetL3NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL3NetworkResult> {
+export function getL3NetworkOutput(args: GetL3NetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL3NetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud:getL3Network", {
         "l3NetworkName": args.l3NetworkName,

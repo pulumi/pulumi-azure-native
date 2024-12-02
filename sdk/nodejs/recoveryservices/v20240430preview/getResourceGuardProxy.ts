@@ -64,7 +64,7 @@ export interface GetResourceGuardProxyResult {
 /**
  * Returns ResourceGuardProxy under vault and with the name referenced in request
  */
-export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardProxyResult> {
+export function getResourceGuardProxyOutput(args: GetResourceGuardProxyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGuardProxyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20240430preview:getResourceGuardProxy", {
         "resourceGroupName": args.resourceGroupName,

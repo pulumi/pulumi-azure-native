@@ -67,7 +67,7 @@ export interface GetGatewayCustomDomainResult {
 /**
  * Get the Spring Cloud Gateway custom domain.
  */
-export function getGatewayCustomDomainOutput(args: GetGatewayCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCustomDomainResult> {
+export function getGatewayCustomDomainOutput(args: GetGatewayCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230901preview:getGatewayCustomDomain", {
         "domainName": args.domainName,

@@ -74,7 +74,7 @@ export interface GetBandwidthScheduleResult {
 /**
  * Gets the properties of the specified bandwidth schedule.
  */
-export function getBandwidthScheduleOutput(args: GetBandwidthScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBandwidthScheduleResult> {
+export function getBandwidthScheduleOutput(args: GetBandwidthScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBandwidthScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20220301:getBandwidthSchedule", {
         "deviceName": args.deviceName,

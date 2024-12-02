@@ -56,7 +56,7 @@ export interface GetVendorResult {
 /**
  * Gets information about the specified vendor.
  */
-export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
+export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVendorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20220101preview:getVendor", {
         "vendorName": args.vendorName,

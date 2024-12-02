@@ -41,7 +41,7 @@ export interface GetConsoleWithLocationResult {
 /**
  * Gets the console for the user.
  */
-export function getConsoleWithLocationOutput(args: GetConsoleWithLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleWithLocationResult> {
+export function getConsoleWithLocationOutput(args: GetConsoleWithLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsoleWithLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portal/v20181001:getConsoleWithLocation", {
         "consoleName": args.consoleName,

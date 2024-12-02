@@ -77,7 +77,7 @@ export interface GetSqlDiscoverySiteDataSourceControllerResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getSqlDiscoverySiteDataSourceControllerOutput(args: GetSqlDiscoverySiteDataSourceControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDiscoverySiteDataSourceControllerResult> {
+export function getSqlDiscoverySiteDataSourceControllerOutput(args: GetSqlDiscoverySiteDataSourceControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlDiscoverySiteDataSourceControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure:getSqlDiscoverySiteDataSourceController", {
         "discoverySiteDataSourceName": args.discoverySiteDataSourceName,

@@ -79,7 +79,7 @@ export interface GetOpenIdConnectProviderResult {
 /**
  * Gets specific OpenID Connect Provider without secrets.
  */
-export function getOpenIdConnectProviderOutput(args: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
+export function getOpenIdConnectProviderOutput(args: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getOpenIdConnectProvider", {
         "opid": args.opid,

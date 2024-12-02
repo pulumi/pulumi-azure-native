@@ -95,7 +95,7 @@ export interface GetBusinessProcessResult {
 /**
  * Get a BusinessProcess
  */
-export function getBusinessProcessOutput(args: GetBusinessProcessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessProcessResult> {
+export function getBusinessProcessOutput(args: GetBusinessProcessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessProcessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:integrationspaces/v20231114preview:getBusinessProcess", {
         "applicationName": args.applicationName,

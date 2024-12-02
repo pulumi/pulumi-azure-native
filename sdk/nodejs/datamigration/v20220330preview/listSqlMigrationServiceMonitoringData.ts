@@ -45,7 +45,7 @@ export interface ListSqlMigrationServiceMonitoringDataResult {
 /**
  * Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
  */
-export function listSqlMigrationServiceMonitoringDataOutput(args: ListSqlMigrationServiceMonitoringDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSqlMigrationServiceMonitoringDataResult> {
+export function listSqlMigrationServiceMonitoringDataOutput(args: ListSqlMigrationServiceMonitoringDataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSqlMigrationServiceMonitoringDataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration/v20220330preview:listSqlMigrationServiceMonitoringData", {
         "resourceGroupName": args.resourceGroupName,

@@ -100,7 +100,7 @@ export interface GetAzureLargeInstanceResult {
  * Gets an Azure Large Instance for the specified subscription, resource group,
  * and instance name.
  */
-export function getAzureLargeInstanceOutput(args: GetAzureLargeInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureLargeInstanceResult> {
+export function getAzureLargeInstanceOutput(args: GetAzureLargeInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureLargeInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurelargeinstance/v20240801preview:getAzureLargeInstance", {
         "azureLargeInstanceName": args.azureLargeInstanceName,

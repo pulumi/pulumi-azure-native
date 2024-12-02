@@ -70,7 +70,7 @@ export interface GetNamespaceAuthorizationRuleResult {
 /**
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  */
-export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
+export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20230901:getNamespaceAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

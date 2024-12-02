@@ -64,7 +64,7 @@ export interface GetResourceGuardResult {
      */
     readonly type: string;
 }
-export function getResourceGuardOutput(args: GetResourceGuardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardResult> {
+export function getResourceGuardOutput(args: GetResourceGuardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGuardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dataprotection/v20221101preview:getResourceGuard", {
         "resourceGroupName": args.resourceGroupName,

@@ -42,7 +42,7 @@ export interface GetVpnLinkConnectionIkeSasResult {
 /**
  * Lists IKE Security Associations for Vpn Site Link Connection in the specified resource group.
  */
-export function getVpnLinkConnectionIkeSasOutput(args: GetVpnLinkConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnLinkConnectionIkeSasResult> {
+export function getVpnLinkConnectionIkeSasOutput(args: GetVpnLinkConnectionIkeSasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnLinkConnectionIkeSasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230401:getVpnLinkConnectionIkeSas", {
         "connectionName": args.connectionName,

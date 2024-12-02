@@ -107,7 +107,7 @@ export interface GetEventSubscriptionResult {
  *
  * Other available API versions: 2017-06-15-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
-export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
+export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid:getEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,

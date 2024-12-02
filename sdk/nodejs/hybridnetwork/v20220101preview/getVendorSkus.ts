@@ -85,7 +85,7 @@ export interface GetVendorSkusResult {
 /**
  * Gets information about the specified sku.
  */
-export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkusResult> {
+export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVendorSkusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20220101preview:getVendorSkus", {
         "skuName": args.skuName,

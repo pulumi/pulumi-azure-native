@@ -87,7 +87,7 @@ export interface GetDnsResolverResult {
  *
  * Other available API versions: 2023-07-01-preview.
  */
-export function getDnsResolverOutput(args: GetDnsResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverResult> {
+export function getDnsResolverOutput(args: GetDnsResolverOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsResolverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getDnsResolver", {
         "dnsResolverName": args.dnsResolverName,

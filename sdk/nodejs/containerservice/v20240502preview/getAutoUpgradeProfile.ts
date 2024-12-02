@@ -85,7 +85,7 @@ export interface GetAutoUpgradeProfileResult {
 /**
  * Get a AutoUpgradeProfile
  */
-export function getAutoUpgradeProfileOutput(args: GetAutoUpgradeProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoUpgradeProfileResult> {
+export function getAutoUpgradeProfileOutput(args: GetAutoUpgradeProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutoUpgradeProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20240502preview:getAutoUpgradeProfile", {
         "autoUpgradeProfileName": args.autoUpgradeProfileName,

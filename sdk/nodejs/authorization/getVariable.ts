@@ -54,7 +54,7 @@ export interface GetVariableResult {
  * This operation retrieves a single variable, given its name and the subscription it was created at.
  * Azure REST API version: 2022-08-01-preview.
  */
-export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
+export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getVariable", {
         "variableName": args.variableName,

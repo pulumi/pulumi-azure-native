@@ -153,7 +153,7 @@ export interface GetVirtualHubResult {
 /**
  * Retrieves the details of a VirtualHub.
  */
-export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubResult> {
+export function getVirtualHubOutput(args: GetVirtualHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getVirtualHub", {
         "resourceGroupName": args.resourceGroupName,

@@ -141,7 +141,7 @@ export interface GetLocalRuleResult {
  *
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
-export function getLocalRuleOutput(args: GetLocalRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRuleResult> {
+export function getLocalRuleOutput(args: GetLocalRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw:getLocalRule", {
         "localRulestackName": args.localRulestackName,

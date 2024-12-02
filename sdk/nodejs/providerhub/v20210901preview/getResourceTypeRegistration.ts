@@ -51,7 +51,7 @@ export interface GetResourceTypeRegistrationResult {
 /**
  * Gets a resource type details in the given subscription and provider.
  */
-export function getResourceTypeRegistrationOutput(args: GetResourceTypeRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTypeRegistrationResult> {
+export function getResourceTypeRegistrationOutput(args: GetResourceTypeRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceTypeRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:providerhub/v20210901preview:getResourceTypeRegistration", {
         "providerNamespace": args.providerNamespace,

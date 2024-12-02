@@ -81,7 +81,7 @@ export interface ListFeaturesetVersionMaterializationJobsResult {
  *
  * Other available API versions: 2023-06-01-preview.
  */
-export function listFeaturesetVersionMaterializationJobsOutput(args: ListFeaturesetVersionMaterializationJobsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeaturesetVersionMaterializationJobsResult> {
+export function listFeaturesetVersionMaterializationJobsOutput(args: ListFeaturesetVersionMaterializationJobsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFeaturesetVersionMaterializationJobsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listFeaturesetVersionMaterializationJobs", {
         "featureWindowEnd": args.featureWindowEnd,

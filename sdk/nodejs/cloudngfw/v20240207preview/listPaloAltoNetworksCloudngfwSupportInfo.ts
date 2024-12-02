@@ -85,7 +85,7 @@ export interface ListPaloAltoNetworksCloudngfwSupportInfoResult {
 /**
  * Support information for the service
  */
-export function listPaloAltoNetworksCloudngfwSupportInfoOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> {
+export function listPaloAltoNetworksCloudngfwSupportInfoOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:listPaloAltoNetworksCloudngfwSupportInfo", {
     }, opts);

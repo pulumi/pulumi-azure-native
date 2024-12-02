@@ -67,7 +67,7 @@ export interface GetSchedulerResult {
  * Get a Scheduler
  * Azure REST API version: 2024-10-01-preview.
  */
-export function getSchedulerOutput(args: GetSchedulerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchedulerResult> {
+export function getSchedulerOutput(args: GetSchedulerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchedulerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:durabletask:getScheduler", {
         "resourceGroupName": args.resourceGroupName,

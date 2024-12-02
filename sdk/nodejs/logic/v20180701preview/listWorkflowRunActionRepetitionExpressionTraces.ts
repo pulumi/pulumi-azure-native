@@ -50,7 +50,7 @@ export interface ListWorkflowRunActionRepetitionExpressionTracesResult {
 /**
  * Lists a workflow run expression trace.
  */
-export function listWorkflowRunActionRepetitionExpressionTracesOutput(args: ListWorkflowRunActionRepetitionExpressionTracesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowRunActionRepetitionExpressionTracesResult> {
+export function listWorkflowRunActionRepetitionExpressionTracesOutput(args: ListWorkflowRunActionRepetitionExpressionTracesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkflowRunActionRepetitionExpressionTracesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20180701preview:listWorkflowRunActionRepetitionExpressionTraces", {
         "actionName": args.actionName,

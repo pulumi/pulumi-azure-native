@@ -47,7 +47,7 @@ export interface ListVideoStreamingTokenResult {
 /**
  * Generates a streaming token used for authenticating video playback.
  */
-export function listVideoStreamingTokenOutput(args: ListVideoStreamingTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVideoStreamingTokenResult> {
+export function listVideoStreamingTokenOutput(args: ListVideoStreamingTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVideoStreamingTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken", {
         "accountName": args.accountName,

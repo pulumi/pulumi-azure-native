@@ -50,7 +50,7 @@ export interface ListStaticSiteUsersResult {
 /**
  * Description for Gets the list of users of a static site.
  */
-export function listStaticSiteUsersOutput(args: ListStaticSiteUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteUsersResult> {
+export function listStaticSiteUsersOutput(args: ListStaticSiteUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStaticSiteUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20230101:listStaticSiteUsers", {
         "authprovider": args.authprovider,

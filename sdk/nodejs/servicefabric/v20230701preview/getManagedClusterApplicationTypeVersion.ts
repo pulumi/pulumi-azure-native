@@ -79,7 +79,7 @@ export interface GetManagedClusterApplicationTypeVersionResult {
 /**
  * Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
  */
-export function getManagedClusterApplicationTypeVersionOutput(args: GetManagedClusterApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterApplicationTypeVersionResult> {
+export function getManagedClusterApplicationTypeVersionOutput(args: GetManagedClusterApplicationTypeVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterApplicationTypeVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20230701preview:getManagedClusterApplicationTypeVersion", {
         "applicationTypeName": args.applicationTypeName,

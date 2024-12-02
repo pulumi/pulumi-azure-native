@@ -71,7 +71,7 @@ export interface GetEntityAnalyticsResult {
 /**
  * Gets a setting.
  */
-export function getEntityAnalyticsOutput(args: GetEntityAnalyticsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityAnalyticsResult> {
+export function getEntityAnalyticsOutput(args: GetEntityAnalyticsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntityAnalyticsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20220101preview:getEntityAnalytics", {
         "resourceGroupName": args.resourceGroupName,

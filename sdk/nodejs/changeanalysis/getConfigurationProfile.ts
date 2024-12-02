@@ -62,7 +62,7 @@ export interface GetConfigurationProfileResult {
  * A profile object that contains change analysis configuration, such as notification settings, for this subscription
  * Azure REST API version: 2020-04-01-preview.
  */
-export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
+export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:changeanalysis:getConfigurationProfile", {
         "profileName": args.profileName,

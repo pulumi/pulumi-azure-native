@@ -71,7 +71,7 @@ export interface GetSqlServerInstanceResult {
  *
  * Other available API versions: 2024-01-01, 2024-05-01-preview.
  */
-export function getSqlServerInstanceOutput(args: GetSqlServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceResult> {
+export function getSqlServerInstanceOutput(args: GetSqlServerInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getSqlServerInstance", {
         "resourceGroupName": args.resourceGroupName,

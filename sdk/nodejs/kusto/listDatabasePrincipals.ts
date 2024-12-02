@@ -52,7 +52,7 @@ export interface ListDatabasePrincipalsResult {
  *
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
  */
-export function listDatabasePrincipalsOutput(args: ListDatabasePrincipalsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabasePrincipalsResult> {
+export function listDatabasePrincipalsOutput(args: ListDatabasePrincipalsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDatabasePrincipalsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto:listDatabasePrincipals", {
         "clusterName": args.clusterName,

@@ -75,7 +75,7 @@ export interface GetAzureBareMetalStorageInstanceResult {
  *
  * Other available API versions: 2023-08-04-preview, 2023-11-01-preview, 2024-08-01-preview.
  */
-export function getAzureBareMetalStorageInstanceOutput(args: GetAzureBareMetalStorageInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureBareMetalStorageInstanceResult> {
+export function getAzureBareMetalStorageInstanceOutput(args: GetAzureBareMetalStorageInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureBareMetalStorageInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:baremetalinfrastructure:getAzureBareMetalStorageInstance", {
         "azureBareMetalStorageInstanceName": args.azureBareMetalStorageInstanceName,

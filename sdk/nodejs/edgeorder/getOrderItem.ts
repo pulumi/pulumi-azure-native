@@ -88,7 +88,7 @@ export interface GetOrderItemResult {
  *
  * Other available API versions: 2024-02-01.
  */
-export function getOrderItemOutput(args: GetOrderItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderItemResult> {
+export function getOrderItemOutput(args: GetOrderItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edgeorder:getOrderItem", {
         "expand": args.expand,

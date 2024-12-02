@@ -41,7 +41,7 @@ export interface ListManagedClusterAdminCredentialsResult {
 /**
  * Gets cluster admin credential of the managed cluster with a specified resource group and name.
  */
-export function listManagedClusterAdminCredentialsOutput(args: ListManagedClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagedClusterAdminCredentialsResult> {
+export function listManagedClusterAdminCredentialsOutput(args: ListManagedClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListManagedClusterAdminCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20190601:listManagedClusterAdminCredentials", {
         "resourceGroupName": args.resourceGroupName,

@@ -86,7 +86,7 @@ export interface GetAlertResult {
 /**
  * Gets properties of an alert for the specified subscription, resource group, SAP monitor name, and resource name.
  */
-export function getAlertOutput(args: GetAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertResult> {
+export function getAlertOutput(args: GetAlertOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20240201preview:getAlert", {
         "alertName": args.alertName,

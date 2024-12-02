@@ -75,7 +75,7 @@ export interface GetConfigurationAssignmentsForResourceGroupResult {
  *
  * Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
  */
-export function getConfigurationAssignmentsForResourceGroupOutput(args: GetConfigurationAssignmentsForResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentsForResourceGroupResult> {
+export function getConfigurationAssignmentsForResourceGroupOutput(args: GetConfigurationAssignmentsForResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationAssignmentsForResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maintenance:getConfigurationAssignmentsForResourceGroup", {
         "configurationAssignmentName": args.configurationAssignmentName,

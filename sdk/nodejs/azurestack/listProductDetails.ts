@@ -92,7 +92,7 @@ export interface ListProductDetailsResult {
  *
  * Other available API versions: 2020-06-01-preview.
  */
-export function listProductDetailsOutput(args: ListProductDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductDetailsResult> {
+export function listProductDetailsOutput(args: ListProductDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProductDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestack:listProductDetails", {
         "productName": args.productName,

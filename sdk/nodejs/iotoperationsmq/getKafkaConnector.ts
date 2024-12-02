@@ -104,7 +104,7 @@ export interface GetKafkaConnectorResult {
  * Get a KafkaConnectorResource
  * Azure REST API version: 2023-10-04-preview.
  */
-export function getKafkaConnectorOutput(args: GetKafkaConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaConnectorResult> {
+export function getKafkaConnectorOutput(args: GetKafkaConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKafkaConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq:getKafkaConnector", {
         "kafkaConnectorName": args.kafkaConnectorName,

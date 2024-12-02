@@ -45,7 +45,7 @@ export interface ListHypervSitesControllerHealthSummaryResult {
 /**
  * Method to get site health summary.
  */
-export function listHypervSitesControllerHealthSummaryOutput(args: ListHypervSitesControllerHealthSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHypervSitesControllerHealthSummaryResult> {
+export function listHypervSitesControllerHealthSummaryOutput(args: ListHypervSitesControllerHealthSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListHypervSitesControllerHealthSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20231001preview:listHypervSitesControllerHealthSummary", {
         "resourceGroupName": args.resourceGroupName,

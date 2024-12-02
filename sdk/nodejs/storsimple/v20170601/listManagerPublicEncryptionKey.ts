@@ -46,7 +46,7 @@ export interface ListManagerPublicEncryptionKeyResult {
 /**
  * Returns the symmetric encrypted public encryption key of the manager.
  */
-export function listManagerPublicEncryptionKeyOutput(args: ListManagerPublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerPublicEncryptionKeyResult> {
+export function listManagerPublicEncryptionKeyOutput(args: ListManagerPublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListManagerPublicEncryptionKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:listManagerPublicEncryptionKey", {
         "managerName": args.managerName,

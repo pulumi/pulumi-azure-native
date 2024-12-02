@@ -62,7 +62,7 @@ export interface GetLabelingJobResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelingJobResult> {
+export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabelingJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:getLabelingJob", {
         "id": args.id,

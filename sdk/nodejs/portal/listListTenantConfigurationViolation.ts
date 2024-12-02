@@ -42,7 +42,7 @@ export interface ListListTenantConfigurationViolationResult {
  *
  * Other available API versions: 2022-12-01-preview.
  */
-export function listListTenantConfigurationViolationOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListListTenantConfigurationViolationResult> {
+export function listListTenantConfigurationViolationOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListTenantConfigurationViolationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portal:listListTenantConfigurationViolation", {
     }, opts);

@@ -62,7 +62,7 @@ export interface GetManagedNetworkPeeringPolicyResult {
 /**
  * The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name
  */
-export function getManagedNetworkPeeringPolicyOutput(args: GetManagedNetworkPeeringPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkPeeringPolicyResult> {
+export function getManagedNetworkPeeringPolicyOutput(args: GetManagedNetworkPeeringPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedNetworkPeeringPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy", {
         "managedNetworkName": args.managedNetworkName,

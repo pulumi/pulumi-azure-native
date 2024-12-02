@@ -46,7 +46,7 @@ export interface ListDomainRecommendationsResult {
 /**
  * Get domain name recommendations based on keywords.
  */
-export function listDomainRecommendationsOutput(args?: ListDomainRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDomainRecommendationsResult> {
+export function listDomainRecommendationsOutput(args?: ListDomainRecommendationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDomainRecommendationsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:domainregistration/v20210115:listDomainRecommendations", {

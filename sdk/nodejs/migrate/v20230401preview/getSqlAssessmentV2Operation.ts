@@ -220,7 +220,7 @@ export interface GetSqlAssessmentV2OperationResult {
 /**
  * Get a SqlAssessmentV2
  */
-export function getSqlAssessmentV2OperationOutput(args: GetSqlAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlAssessmentV2OperationResult> {
+export function getSqlAssessmentV2OperationOutput(args: GetSqlAssessmentV2OperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlAssessmentV2OperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230401preview:getSqlAssessmentV2Operation", {
         "assessmentName": args.assessmentName,

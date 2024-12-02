@@ -69,7 +69,7 @@ export interface GetBotResult {
 /**
  * Get a Healthcare Bot.
  */
-export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
+export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthbot/v20201208preview:getBot", {
         "botName": args.botName,

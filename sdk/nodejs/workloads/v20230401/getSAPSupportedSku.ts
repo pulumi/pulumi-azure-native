@@ -66,7 +66,7 @@ export interface GetSAPSupportedSkuResult {
 /**
  * Get a list of SAP supported SKUs for ASCS, Application and Database tier.
  */
-export function getSAPSupportedSkuOutput(args: GetSAPSupportedSkuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSupportedSkuResult> {
+export function getSAPSupportedSkuOutput(args: GetSAPSupportedSkuOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPSupportedSkuResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20230401:getSAPSupportedSku", {
         "appLocation": args.appLocation,

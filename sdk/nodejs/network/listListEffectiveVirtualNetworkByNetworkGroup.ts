@@ -61,7 +61,7 @@ export interface ListListEffectiveVirtualNetworkByNetworkGroupResult {
  *
  * Other available API versions: 2021-05-01-preview.
  */
-export function listListEffectiveVirtualNetworkByNetworkGroupOutput(args: ListListEffectiveVirtualNetworkByNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListListEffectiveVirtualNetworkByNetworkGroupResult> {
+export function listListEffectiveVirtualNetworkByNetworkGroupOutput(args: ListListEffectiveVirtualNetworkByNetworkGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListEffectiveVirtualNetworkByNetworkGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:listListEffectiveVirtualNetworkByNetworkGroup", {
         "networkGroupName": args.networkGroupName,

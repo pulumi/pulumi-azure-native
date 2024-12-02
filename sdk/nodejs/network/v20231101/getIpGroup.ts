@@ -82,7 +82,7 @@ export interface GetIpGroupResult {
 /**
  * Gets the specified ipGroups.
  */
-export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupResult> {
+export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getIpGroup", {
         "expand": args.expand,

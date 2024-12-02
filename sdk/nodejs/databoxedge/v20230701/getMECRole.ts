@@ -79,7 +79,7 @@ export interface GetMECRoleResult {
 /**
  * Gets a specific role by name.
  */
-export function getMECRoleOutput(args: GetMECRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMECRoleResult> {
+export function getMECRoleOutput(args: GetMECRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMECRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230701:getMECRole", {
         "deviceName": args.deviceName,

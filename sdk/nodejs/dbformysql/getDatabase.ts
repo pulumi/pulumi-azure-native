@@ -72,7 +72,7 @@ export interface GetDatabaseResult {
  *
  * Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
  */
-export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
+export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbformysql:getDatabase", {
         "databaseName": args.databaseName,

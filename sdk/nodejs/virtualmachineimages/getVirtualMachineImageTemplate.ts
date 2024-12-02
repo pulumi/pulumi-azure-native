@@ -119,7 +119,7 @@ export interface GetVirtualMachineImageTemplateResult {
  *
  * Other available API versions: 2018-02-01-preview, 2019-05-01-preview, 2023-07-01, 2024-02-01.
  */
-export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
+export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", {
         "imageTemplateName": args.imageTemplateName,

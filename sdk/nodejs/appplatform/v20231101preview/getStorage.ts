@@ -62,7 +62,7 @@ export interface GetStorageResult {
 /**
  * Get the storage resource.
  */
-export function getStorageOutput(args: GetStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageResult> {
+export function getStorageOutput(args: GetStorageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:getStorage", {
         "resourceGroupName": args.resourceGroupName,

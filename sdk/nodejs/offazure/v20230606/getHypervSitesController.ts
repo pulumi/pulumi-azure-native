@@ -91,7 +91,7 @@ export interface GetHypervSitesControllerResult {
 /**
  * Get a HypervSite
  */
-export function getHypervSitesControllerOutput(args: GetHypervSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervSitesControllerResult> {
+export function getHypervSitesControllerOutput(args: GetHypervSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHypervSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getHypervSitesController", {
         "resourceGroupName": args.resourceGroupName,

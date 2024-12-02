@@ -83,7 +83,7 @@ export interface GetAzureTrafficCollectorResult {
  *
  * Other available API versions: 2022-08-01.
  */
-export function getAzureTrafficCollectorOutput(args: GetAzureTrafficCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureTrafficCollectorResult> {
+export function getAzureTrafficCollectorOutput(args: GetAzureTrafficCollectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureTrafficCollectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkfunction:getAzureTrafficCollector", {
         "azureTrafficCollectorName": args.azureTrafficCollectorName,

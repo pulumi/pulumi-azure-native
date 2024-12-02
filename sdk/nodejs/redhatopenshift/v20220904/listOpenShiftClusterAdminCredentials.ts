@@ -38,7 +38,7 @@ export interface ListOpenShiftClusterAdminCredentialsResult {
 /**
  * The operation returns the admin kubeconfig.
  */
-export function listOpenShiftClusterAdminCredentialsOutput(args: ListOpenShiftClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenShiftClusterAdminCredentialsResult> {
+export function listOpenShiftClusterAdminCredentialsOutput(args: ListOpenShiftClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListOpenShiftClusterAdminCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:redhatopenshift/v20220904:listOpenShiftClusterAdminCredentials", {
         "resourceGroupName": args.resourceGroupName,

@@ -104,7 +104,7 @@ export interface GetReplicationLinkResult {
 /**
  * Gets a replication link.
  */
-export function getReplicationLinkOutput(args: GetReplicationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationLinkResult> {
+export function getReplicationLinkOutput(args: GetReplicationLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getReplicationLink", {
         "databaseName": args.databaseName,

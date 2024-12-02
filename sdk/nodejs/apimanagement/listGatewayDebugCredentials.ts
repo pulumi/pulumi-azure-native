@@ -67,7 +67,7 @@ export interface ListGatewayDebugCredentialsResult {
  *
  * Other available API versions: 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function listGatewayDebugCredentialsOutput(args: ListGatewayDebugCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGatewayDebugCredentialsResult> {
+export function listGatewayDebugCredentialsOutput(args: ListGatewayDebugCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGatewayDebugCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:listGatewayDebugCredentials", {
         "apiId": args.apiId,

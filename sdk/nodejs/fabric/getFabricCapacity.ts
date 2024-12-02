@@ -79,7 +79,7 @@ export interface GetFabricCapacityResult {
  * Get a FabricCapacity
  * Azure REST API version: 2023-11-01.
  */
-export function getFabricCapacityOutput(args: GetFabricCapacityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFabricCapacityResult> {
+export function getFabricCapacityOutput(args: GetFabricCapacityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFabricCapacityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:fabric:getFabricCapacity", {
         "capacityName": args.capacityName,

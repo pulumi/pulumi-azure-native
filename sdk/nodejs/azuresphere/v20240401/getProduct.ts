@@ -66,7 +66,7 @@ export interface GetProductResult {
 /**
  * Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
  */
-export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
+export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20240401:getProduct", {
         "catalogName": args.catalogName,

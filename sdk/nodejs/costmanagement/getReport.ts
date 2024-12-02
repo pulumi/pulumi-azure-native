@@ -66,7 +66,7 @@ export interface GetReportResult {
  * Gets the report for a subscription by report name.
  * Azure REST API version: 2018-08-01-preview.
  */
-export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportResult> {
+export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getReport", {
         "reportName": args.reportName,

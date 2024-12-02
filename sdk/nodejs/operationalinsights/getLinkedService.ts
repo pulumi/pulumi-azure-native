@@ -73,7 +73,7 @@ export interface GetLinkedServiceResult {
  *
  * Other available API versions: 2015-11-01-preview, 2023-09-01.
  */
-export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
+export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getLinkedService", {
         "linkedServiceName": args.linkedServiceName,

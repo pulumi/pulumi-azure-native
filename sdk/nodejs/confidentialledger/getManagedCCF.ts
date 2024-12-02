@@ -71,7 +71,7 @@ export interface GetManagedCCFResult {
  *
  * Other available API versions: 2023-06-28-preview, 2024-07-09-preview.
  */
-export function getManagedCCFOutput(args: GetManagedCCFOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedCCFResult> {
+export function getManagedCCFOutput(args: GetManagedCCFOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedCCFResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confidentialledger:getManagedCCF", {
         "appName": args.appName,

@@ -73,7 +73,7 @@ export interface GetOnlineEndpointResult {
      */
     readonly type: string;
 }
-export function getOnlineEndpointOutput(args: GetOnlineEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineEndpointResult> {
+export function getOnlineEndpointOutput(args: GetOnlineEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOnlineEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401preview:getOnlineEndpoint", {
         "endpointName": args.endpointName,

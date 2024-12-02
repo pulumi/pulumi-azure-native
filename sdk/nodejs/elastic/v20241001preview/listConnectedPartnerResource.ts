@@ -45,7 +45,7 @@ export interface ListConnectedPartnerResourceResult {
 /**
  *  List of all active elastic deployments.
  */
-export function listConnectedPartnerResourceOutput(args: ListConnectedPartnerResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedPartnerResourceResult> {
+export function listConnectedPartnerResourceOutput(args: ListConnectedPartnerResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectedPartnerResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20241001preview:listConnectedPartnerResource", {
         "monitorName": args.monitorName,

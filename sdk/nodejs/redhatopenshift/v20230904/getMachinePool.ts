@@ -59,7 +59,7 @@ export interface GetMachinePoolResult {
 /**
  * The operation returns properties of a MachinePool.
  */
-export function getMachinePoolOutput(args: GetMachinePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachinePoolResult> {
+export function getMachinePoolOutput(args: GetMachinePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:redhatopenshift/v20230904:getMachinePool", {
         "childResourceName": args.childResourceName,

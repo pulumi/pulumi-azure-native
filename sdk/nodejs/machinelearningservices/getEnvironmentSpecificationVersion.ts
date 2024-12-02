@@ -69,7 +69,7 @@ export interface GetEnvironmentSpecificationVersionResult {
  * Azure Resource Manager resource envelope.
  * Azure REST API version: 2021-03-01-preview.
  */
-export function getEnvironmentSpecificationVersionOutput(args: GetEnvironmentSpecificationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSpecificationVersionResult> {
+export function getEnvironmentSpecificationVersionOutput(args: GetEnvironmentSpecificationVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentSpecificationVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getEnvironmentSpecificationVersion", {
         "name": args.name,

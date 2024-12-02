@@ -58,7 +58,7 @@ export interface GetTenantConfigurationResult {
  *
  * Other available API versions: 2022-12-01-preview.
  */
-export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantConfigurationResult> {
+export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTenantConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portal:getTenantConfiguration", {
         "configurationName": args.configurationName,

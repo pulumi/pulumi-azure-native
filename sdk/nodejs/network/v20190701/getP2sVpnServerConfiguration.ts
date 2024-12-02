@@ -94,7 +94,7 @@ export interface GetP2sVpnServerConfigurationResult {
 /**
  * Retrieves the details of a P2SVpnServerConfiguration.
  */
-export function getP2sVpnServerConfigurationOutput(args: GetP2sVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnServerConfigurationResult> {
+export function getP2sVpnServerConfigurationOutput(args: GetP2sVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetP2sVpnServerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20190701:getP2sVpnServerConfiguration", {
         "p2SVpnServerConfigurationName": args.p2SVpnServerConfigurationName,

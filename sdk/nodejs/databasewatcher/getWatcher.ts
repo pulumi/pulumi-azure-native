@@ -83,7 +83,7 @@ export interface GetWatcherResult {
  *
  * Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
  */
-export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWatcherResult> {
+export function getWatcherOutput(args: GetWatcherOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWatcherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databasewatcher:getWatcher", {
         "resourceGroupName": args.resourceGroupName,

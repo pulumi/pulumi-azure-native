@@ -73,7 +73,7 @@ export interface GetManagedNetworkResult {
 /**
  * The Get ManagedNetworks operation gets a Managed Network Resource, specified by the resource group and Managed Network name
  */
-export function getManagedNetworkOutput(args: GetManagedNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkResult> {
+export function getManagedNetworkOutput(args: GetManagedNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetwork/v20190601preview:getManagedNetwork", {
         "managedNetworkName": args.managedNetworkName,

@@ -73,7 +73,7 @@ export interface GetCodeSigningAccountResult {
 /**
  * Get a trusted Signing Account.
  */
-export function getCodeSigningAccountOutput(args: GetCodeSigningAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningAccountResult> {
+export function getCodeSigningAccountOutput(args: GetCodeSigningAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeSigningAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:codesigning/v20240205preview:getCodeSigningAccount", {
         "accountName": args.accountName,

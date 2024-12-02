@@ -78,7 +78,7 @@ export interface GetOnlineDeploymentResult {
      */
     readonly type: string;
 }
-export function getOnlineDeploymentOutput(args: GetOnlineDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineDeploymentResult> {
+export function getOnlineDeploymentOutput(args: GetOnlineDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOnlineDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230801preview:getOnlineDeployment", {
         "deploymentName": args.deploymentName,

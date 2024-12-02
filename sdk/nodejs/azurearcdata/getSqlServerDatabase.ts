@@ -76,7 +76,7 @@ export interface GetSqlServerDatabaseResult {
  *
  * Other available API versions: 2024-01-01, 2024-05-01-preview.
  */
-export function getSqlServerDatabaseOutput(args: GetSqlServerDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerDatabaseResult> {
+export function getSqlServerDatabaseOutput(args: GetSqlServerDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getSqlServerDatabase", {
         "databaseName": args.databaseName,

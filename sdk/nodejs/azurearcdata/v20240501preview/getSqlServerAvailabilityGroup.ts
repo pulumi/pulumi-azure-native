@@ -70,7 +70,7 @@ export interface GetSqlServerAvailabilityGroupResult {
 /**
  * Retrieves an Arc Sql Server availability group.
  */
-export function getSqlServerAvailabilityGroupOutput(args: GetSqlServerAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerAvailabilityGroupResult> {
+export function getSqlServerAvailabilityGroupOutput(args: GetSqlServerAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerAvailabilityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240501preview:getSqlServerAvailabilityGroup", {
         "availabilityGroupName": args.availabilityGroupName,

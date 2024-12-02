@@ -79,7 +79,7 @@ export interface GetPreRuleCountersResult {
 /**
  * Get counters
  */
-export function getPreRuleCountersOutput(args: GetPreRuleCountersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPreRuleCountersResult> {
+export function getPreRuleCountersOutput(args: GetPreRuleCountersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPreRuleCountersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829preview:getPreRuleCounters", {
         "firewallName": args.firewallName,

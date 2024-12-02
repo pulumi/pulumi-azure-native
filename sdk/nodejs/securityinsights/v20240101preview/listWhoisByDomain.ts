@@ -71,7 +71,7 @@ export interface ListWhoisByDomainResult {
 /**
  * Get whois information for a single domain name
  */
-export function listWhoisByDomainOutput(args: ListWhoisByDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWhoisByDomainResult> {
+export function listWhoisByDomainOutput(args: ListWhoisByDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWhoisByDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:listWhoisByDomain", {
         "domain": args.domain,

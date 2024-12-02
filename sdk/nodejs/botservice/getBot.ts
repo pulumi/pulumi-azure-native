@@ -83,7 +83,7 @@ export interface GetBotResult {
  *
  * Other available API versions: 2023-09-15-preview.
  */
-export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
+export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice:getBot", {
         "resourceGroupName": args.resourceGroupName,

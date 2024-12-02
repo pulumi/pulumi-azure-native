@@ -79,7 +79,7 @@ export interface GetPrivateLinkServicesForMIPPolicySyncResult {
  * Get the metadata of a privateLinkServicesForMIPPolicySync resource.
  * Azure REST API version: 2021-03-25-preview.
  */
-export function getPrivateLinkServicesForMIPPolicySyncOutput(args: GetPrivateLinkServicesForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForMIPPolicySyncResult> {
+export function getPrivateLinkServicesForMIPPolicySyncOutput(args: GetPrivateLinkServicesForMIPPolicySyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkServicesForMIPPolicySyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance:getPrivateLinkServicesForMIPPolicySync", {
         "resourceGroupName": args.resourceGroupName,

@@ -95,7 +95,7 @@ export interface GetDigitalTwinResult {
  *
  * Other available API versions: 2020-03-01-preview.
  */
-export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinResult> {
+export function getDigitalTwinOutput(args: GetDigitalTwinOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDigitalTwinResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:digitaltwins:getDigitalTwin", {
         "resourceGroupName": args.resourceGroupName,

@@ -38,7 +38,7 @@ export interface ListServerGatewayStatusResult {
 /**
  * Return the gateway status of the specified Analysis Services server instance.
  */
-export function listServerGatewayStatusOutput(args: ListServerGatewayStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerGatewayStatusResult> {
+export function listServerGatewayStatusOutput(args: ListServerGatewayStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListServerGatewayStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:analysisservices/v20170801:listServerGatewayStatus", {
         "resourceGroupName": args.resourceGroupName,

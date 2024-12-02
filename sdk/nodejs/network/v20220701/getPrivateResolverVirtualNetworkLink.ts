@@ -74,7 +74,7 @@ export interface GetPrivateResolverVirtualNetworkLinkResult {
 /**
  * Gets properties of a virtual network link to a DNS forwarding ruleset.
  */
-export function getPrivateResolverVirtualNetworkLinkOutput(args: GetPrivateResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateResolverVirtualNetworkLinkResult> {
+export function getPrivateResolverVirtualNetworkLinkOutput(args: GetPrivateResolverVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateResolverVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20220701:getPrivateResolverVirtualNetworkLink", {
         "dnsForwardingRulesetName": args.dnsForwardingRulesetName,

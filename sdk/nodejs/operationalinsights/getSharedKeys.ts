@@ -48,7 +48,7 @@ export interface GetSharedKeysResult {
  *
  * Other available API versions: 2023-09-01.
  */
-export function getSharedKeysOutput(args: GetSharedKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSharedKeysResult> {
+export function getSharedKeysOutput(args: GetSharedKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getSharedKeys", {
         "resourceGroupName": args.resourceGroupName,

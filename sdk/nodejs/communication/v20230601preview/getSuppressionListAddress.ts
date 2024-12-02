@@ -92,7 +92,7 @@ export interface GetSuppressionListAddressResult {
 /**
  * Get a SuppressionListAddress.
  */
-export function getSuppressionListAddressOutput(args: GetSuppressionListAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionListAddressResult> {
+export function getSuppressionListAddressOutput(args: GetSuppressionListAddressOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSuppressionListAddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:communication/v20230601preview:getSuppressionListAddress", {
         "addressId": args.addressId,

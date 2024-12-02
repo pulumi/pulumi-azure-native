@@ -153,7 +153,7 @@ export interface GetScheduledAlertRuleResult {
  * Gets the alert rule.
  * Azure REST API version: 2023-02-01.
  */
-export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAlertRuleResult> {
+export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getScheduledAlertRule", {
         "resourceGroupName": args.resourceGroupName,

@@ -37,7 +37,7 @@ export interface ListEndpointKeysResult {
      */
     readonly keys?: outputs.machinelearningservices.v20241001preview.AccountApiKeysResponse;
 }
-export function listEndpointKeysOutput(args: ListEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointKeysResult> {
+export function listEndpointKeysOutput(args: ListEndpointKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001preview:listEndpointKeys", {
         "endpointName": args.endpointName,

@@ -65,7 +65,7 @@ export interface GetIamInstanceProfileResult {
 /**
  * Get a IamInstanceProfile
  */
-export function getIamInstanceProfileOutput(args: GetIamInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamInstanceProfileResult> {
+export function getIamInstanceProfileOutput(args: GetIamInstanceProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamInstanceProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamInstanceProfile", {
         "name": args.name,

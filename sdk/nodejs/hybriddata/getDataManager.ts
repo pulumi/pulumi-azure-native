@@ -70,7 +70,7 @@ export interface GetDataManagerResult {
  * Gets information about the specified data manager resource.
  * Azure REST API version: 2019-06-01.
  */
-export function getDataManagerOutput(args: GetDataManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataManagerResult> {
+export function getDataManagerOutput(args: GetDataManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybriddata:getDataManager", {
         "dataManagerName": args.dataManagerName,

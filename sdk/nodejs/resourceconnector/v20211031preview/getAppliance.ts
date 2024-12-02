@@ -89,7 +89,7 @@ export interface GetApplianceResult {
 /**
  * Gets the details of an Appliance with a specified resource group and name.
  */
-export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplianceResult> {
+export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resourceconnector/v20211031preview:getAppliance", {
         "resourceGroupName": args.resourceGroupName,

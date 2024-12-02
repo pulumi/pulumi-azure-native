@@ -84,7 +84,7 @@ export interface GetAksAssessmentOperationResult {
  *
  * Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
  */
-export function getAksAssessmentOperationOutput(args: GetAksAssessmentOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAksAssessmentOperationResult> {
+export function getAksAssessmentOperationOutput(args: GetAksAssessmentOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAksAssessmentOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getAksAssessmentOperation", {
         "assessmentName": args.assessmentName,

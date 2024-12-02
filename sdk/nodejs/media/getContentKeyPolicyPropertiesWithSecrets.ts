@@ -64,7 +64,7 @@ export interface GetContentKeyPolicyPropertiesWithSecretsResult {
  * Get a Content Key Policy including secret values
  * Azure REST API version: 2023-01-01.
  */
-export function getContentKeyPolicyPropertiesWithSecretsOutput(args: GetContentKeyPolicyPropertiesWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyPropertiesWithSecretsResult> {
+export function getContentKeyPolicyPropertiesWithSecretsOutput(args: GetContentKeyPolicyPropertiesWithSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentKeyPolicyPropertiesWithSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getContentKeyPolicyPropertiesWithSecrets", {
         "accountName": args.accountName,

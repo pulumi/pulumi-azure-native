@@ -67,7 +67,7 @@ export interface GetOrganizationsAccountResult {
  * Get a OrganizationsAccount
  * Azure REST API version: 2024-12-01.
  */
-export function getOrganizationsAccountOutput(args: GetOrganizationsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationsAccountResult> {
+export function getOrganizationsAccountOutput(args: GetOrganizationsAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationsAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getOrganizationsAccount", {
         "name": args.name,

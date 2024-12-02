@@ -76,7 +76,7 @@ export interface GetMachineLearningDatasetResult {
  * Get a Dataset by name.
  * Azure REST API version: 2020-05-01-preview.
  */
-export function getMachineLearningDatasetOutput(args: GetMachineLearningDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatasetResult> {
+export function getMachineLearningDatasetOutput(args: GetMachineLearningDatasetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineLearningDatasetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getMachineLearningDataset", {
         "datasetName": args.datasetName,

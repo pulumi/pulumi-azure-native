@@ -64,7 +64,7 @@ export interface ListNotificationHubKeysResult {
 /**
  * Gets the Primary and Secondary ConnectionStrings to the NotificationHub
  */
-export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNotificationHubKeysResult> {
+export function listNotificationHubKeysOutput(args: ListNotificationHubKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNotificationHubKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20170401:listNotificationHubKeys", {
         "authorizationRuleName": args.authorizationRuleName,

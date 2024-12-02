@@ -97,7 +97,7 @@ export interface GetVmmServerResult {
 /**
  * Implements VMMServer GET method.
  */
-export function getVmmServerOutput(args: GetVmmServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVmmServerResult> {
+export function getVmmServerOutput(args: GetVmmServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVmmServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm/v20220521preview:getVmmServer", {
         "resourceGroupName": args.resourceGroupName,

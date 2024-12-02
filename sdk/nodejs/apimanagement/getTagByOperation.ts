@@ -71,7 +71,7 @@ export interface GetTagByOperationResult {
  *
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getTagByOperationOutput(args: GetTagByOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagByOperationResult> {
+export function getTagByOperationOutput(args: GetTagByOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagByOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getTagByOperation", {
         "apiId": args.apiId,

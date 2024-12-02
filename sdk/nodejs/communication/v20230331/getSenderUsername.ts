@@ -79,7 +79,7 @@ export interface GetSenderUsernameResult {
 /**
  * Get a valid sender username for a domains resource.
  */
-export function getSenderUsernameOutput(args: GetSenderUsernameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSenderUsernameResult> {
+export function getSenderUsernameOutput(args: GetSenderUsernameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSenderUsernameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:communication/v20230331:getSenderUsername", {
         "domainName": args.domainName,

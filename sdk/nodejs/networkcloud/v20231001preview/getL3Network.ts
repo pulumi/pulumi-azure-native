@@ -124,7 +124,7 @@ export interface GetL3NetworkResult {
 /**
  * Get properties of the provided layer 3 (L3) network.
  */
-export function getL3NetworkOutput(args: GetL3NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL3NetworkResult> {
+export function getL3NetworkOutput(args: GetL3NetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL3NetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20231001preview:getL3Network", {
         "l3NetworkName": args.l3NetworkName,

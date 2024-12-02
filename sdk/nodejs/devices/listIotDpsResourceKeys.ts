@@ -51,7 +51,7 @@ export interface ListIotDpsResourceKeysResult {
  *
  * Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
  */
-export function listIotDpsResourceKeysOutput(args: ListIotDpsResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysResult> {
+export function listIotDpsResourceKeysOutput(args: ListIotDpsResourceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIotDpsResourceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices:listIotDpsResourceKeys", {
         "provisioningServiceName": args.provisioningServiceName,

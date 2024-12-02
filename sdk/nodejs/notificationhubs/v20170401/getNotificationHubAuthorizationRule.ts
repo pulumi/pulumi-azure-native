@@ -107,7 +107,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
 /**
  * Gets an authorization rule for a NotificationHub by name.
  */
-export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
+export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20170401:getNotificationHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

@@ -94,7 +94,7 @@ export interface GetDiagnosticResult {
 /**
  * Gets the details of the Diagnostic specified by its identifier.
  */
-export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticResult> {
+export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getDiagnostic", {
         "diagnosticId": args.diagnosticId,

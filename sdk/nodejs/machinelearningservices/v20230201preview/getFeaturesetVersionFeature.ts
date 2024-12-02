@@ -65,7 +65,7 @@ export interface GetFeaturesetVersionFeatureResult {
 /**
  * Dto object representing feature
  */
-export function getFeaturesetVersionFeatureOutput(args: GetFeaturesetVersionFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeaturesetVersionFeatureResult> {
+export function getFeaturesetVersionFeatureOutput(args: GetFeaturesetVersionFeatureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFeaturesetVersionFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230201preview:getFeaturesetVersionFeature", {
         "featureName": args.featureName,

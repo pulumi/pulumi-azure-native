@@ -77,7 +77,7 @@ export interface GetVideoAnalyzerResult {
 /**
  * Get the details of the specified Video Analyzer account
  */
-export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoAnalyzerResult> {
+export function getVideoAnalyzerOutput(args: GetVideoAnalyzerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVideoAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:videoanalyzer/v20210501preview:getVideoAnalyzer", {
         "accountName": args.accountName,

@@ -72,7 +72,7 @@ export interface ListTopicKeysResult {
 /**
  * Gets the primary and secondary connection strings for the topic.
  */
-export function listTopicKeysOutput(args: ListTopicKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopicKeysResult> {
+export function listTopicKeysOutput(args: ListTopicKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListTopicKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20220101preview:listTopicKeys", {
         "authorizationRuleName": args.authorizationRuleName,

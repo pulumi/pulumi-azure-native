@@ -80,7 +80,7 @@ export interface GetTopicSpaceResult {
  *
  * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
-export function getTopicSpaceOutput(args: GetTopicSpaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicSpaceResult> {
+export function getTopicSpaceOutput(args: GetTopicSpaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicSpaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid:getTopicSpace", {
         "namespaceName": args.namespaceName,

@@ -41,7 +41,7 @@ export interface GetBillingHubServiceUsageResult {
     readonly totalUsedBillableHours?: number;
     readonly totalUsedFreeHours?: number;
 }
-export function getBillingHubServiceUsageOutput(args: GetBillingHubServiceUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingHubServiceUsageResult> {
+export function getBillingHubServiceUsageOutput(args: GetBillingHubServiceUsageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingHubServiceUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getBillingHubServiceUsage", {
         "endTimeStamp": args.endTimeStamp,

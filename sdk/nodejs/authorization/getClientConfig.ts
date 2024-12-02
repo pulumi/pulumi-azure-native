@@ -37,7 +37,7 @@ export interface GetClientConfigResult {
 /**
  * Use this function to access the current configuration of the native Azure provider.
  */
-export function getClientConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClientConfigResult> {
+export function getClientConfigOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClientConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getClientConfig", {
     }, opts);

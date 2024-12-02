@@ -70,7 +70,7 @@ export interface GetIpamPoolResult {
 /**
  * Instance of Pool resource.
  */
-export function getIpamPoolOutput(args: GetIpamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPoolResult> {
+export function getIpamPoolOutput(args: GetIpamPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpamPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240101preview:getIpamPool", {
         "networkManagerName": args.networkManagerName,

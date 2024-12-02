@@ -65,7 +65,7 @@ export interface GetAutoScalingAutoScalingGroupResult {
 /**
  * Get a AutoScalingAutoScalingGroup
  */
-export function getAutoScalingAutoScalingGroupOutput(args: GetAutoScalingAutoScalingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScalingAutoScalingGroupResult> {
+export function getAutoScalingAutoScalingGroupOutput(args: GetAutoScalingAutoScalingGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutoScalingAutoScalingGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getAutoScalingAutoScalingGroup", {
         "name": args.name,

@@ -62,7 +62,7 @@ export interface GetSyncSetResult {
 /**
  * The operation returns properties of a SyncSet.
  */
-export function getSyncSetOutput(args: GetSyncSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncSetResult> {
+export function getSyncSetOutput(args: GetSyncSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyncSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:redhatopenshift/v20230701preview:getSyncSet", {
         "childResourceName": args.childResourceName,

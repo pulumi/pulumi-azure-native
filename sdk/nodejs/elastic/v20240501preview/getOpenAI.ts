@@ -58,7 +58,7 @@ export interface GetOpenAIResult {
 /**
  * Capture properties of Open AI resource Integration.
  */
-export function getOpenAIOutput(args: GetOpenAIOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenAIResult> {
+export function getOpenAIOutput(args: GetOpenAIOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenAIResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20240501preview:getOpenAI", {
         "integrationName": args.integrationName,

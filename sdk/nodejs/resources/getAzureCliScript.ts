@@ -132,7 +132,7 @@ export interface GetAzureCliScriptResult {
  * Gets a deployment script with a given name.
  * Azure REST API version: 2020-10-01.
  */
-export function getAzureCliScriptOutput(args: GetAzureCliScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureCliScriptResult> {
+export function getAzureCliScriptOutput(args: GetAzureCliScriptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureCliScriptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getAzureCliScript", {
         "resourceGroupName": args.resourceGroupName,

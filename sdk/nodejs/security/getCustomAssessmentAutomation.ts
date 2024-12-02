@@ -83,7 +83,7 @@ export interface GetCustomAssessmentAutomationResult {
  * Gets a single custom assessment automation by name for the provided subscription and resource group.
  * Azure REST API version: 2021-07-01-preview.
  */
-export function getCustomAssessmentAutomationOutput(args: GetCustomAssessmentAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomAssessmentAutomationResult> {
+export function getCustomAssessmentAutomationOutput(args: GetCustomAssessmentAutomationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomAssessmentAutomationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getCustomAssessmentAutomation", {
         "customAssessmentAutomationName": args.customAssessmentAutomationName,

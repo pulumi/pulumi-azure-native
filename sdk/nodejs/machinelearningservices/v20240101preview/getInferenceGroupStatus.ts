@@ -54,7 +54,7 @@ export interface GetInferenceGroupStatusResult {
      */
     readonly requestedCapacity?: number;
 }
-export function getInferenceGroupStatusOutput(args: GetInferenceGroupStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceGroupStatusResult> {
+export function getInferenceGroupStatusOutput(args: GetInferenceGroupStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceGroupStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:getInferenceGroupStatus", {
         "groupName": args.groupName,

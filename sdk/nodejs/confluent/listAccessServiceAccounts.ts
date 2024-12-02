@@ -60,7 +60,7 @@ export interface ListAccessServiceAccountsResult {
  *
  * Other available API versions: 2024-02-13.
  */
-export function listAccessServiceAccountsOutput(args: ListAccessServiceAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessServiceAccountsResult> {
+export function listAccessServiceAccountsOutput(args: ListAccessServiceAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessServiceAccountsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confluent:listAccessServiceAccounts", {
         "organizationName": args.organizationName,

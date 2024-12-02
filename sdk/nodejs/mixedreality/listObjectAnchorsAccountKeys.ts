@@ -44,7 +44,7 @@ export interface ListObjectAnchorsAccountKeysResult {
  * List Both of the 2 Keys of an object anchors Account
  * Azure REST API version: 2021-03-01-preview.
  */
-export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {
+export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mixedreality:listObjectAnchorsAccountKeys", {
         "accountName": args.accountName,

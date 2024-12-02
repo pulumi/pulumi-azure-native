@@ -49,7 +49,7 @@ export interface GetNetworkFabricTopologyResult {
 /**
  * Gets Topology of the underlying resources in the given Network Fabric instance.
  */
-export function getNetworkFabricTopologyOutput(args: GetNetworkFabricTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFabricTopologyResult> {
+export function getNetworkFabricTopologyOutput(args: GetNetworkFabricTopologyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFabricTopologyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkFabricTopology", {
         "networkFabricName": args.networkFabricName,

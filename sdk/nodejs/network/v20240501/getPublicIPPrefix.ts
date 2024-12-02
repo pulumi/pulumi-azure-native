@@ -118,7 +118,7 @@ export interface GetPublicIPPrefixResult {
 /**
  * Gets the specified public IP prefix in a specified resource group.
  */
-export function getPublicIPPrefixOutput(args: GetPublicIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPPrefixResult> {
+export function getPublicIPPrefixOutput(args: GetPublicIPPrefixOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicIPPrefixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getPublicIPPrefix", {
         "expand": args.expand,

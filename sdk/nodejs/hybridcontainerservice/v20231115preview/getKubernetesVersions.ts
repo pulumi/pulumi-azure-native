@@ -53,7 +53,7 @@ export interface GetKubernetesVersionsResult {
 /**
  * Gets the supported kubernetes versions from the underlying custom location
  */
-export function getKubernetesVersionsOutput(args: GetKubernetesVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesVersionsResult> {
+export function getKubernetesVersionsOutput(args: GetKubernetesVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20231115preview:getKubernetesVersions", {
         "customLocationResourceUri": args.customLocationResourceUri,

@@ -95,7 +95,7 @@ export interface GetDedicatedHsmResult {
  *
  * Other available API versions: 2024-06-30-preview.
  */
-export function getDedicatedHsmOutput(args: GetDedicatedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHsmResult> {
+export function getDedicatedHsmOutput(args: GetDedicatedHsmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDedicatedHsmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hardwaresecuritymodules:getDedicatedHsm", {
         "name": args.name,

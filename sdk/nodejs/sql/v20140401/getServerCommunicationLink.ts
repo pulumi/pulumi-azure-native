@@ -67,7 +67,7 @@ export interface GetServerCommunicationLinkResult {
 /**
  * Returns a server communication link.
  */
-export function getServerCommunicationLinkOutput(args: GetServerCommunicationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCommunicationLinkResult> {
+export function getServerCommunicationLinkOutput(args: GetServerCommunicationLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerCommunicationLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20140401:getServerCommunicationLink", {
         "communicationLinkName": args.communicationLinkName,

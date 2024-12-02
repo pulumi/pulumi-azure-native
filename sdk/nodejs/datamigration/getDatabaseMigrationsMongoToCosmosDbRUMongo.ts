@@ -113,7 +113,7 @@ export interface GetDatabaseMigrationsMongoToCosmosDbRUMongoResult {
  * Get Database Migration resource.
  * Azure REST API version: 2023-07-15-preview.
  */
-export function getDatabaseMigrationsMongoToCosmosDbRUMongoOutput(args: GetDatabaseMigrationsMongoToCosmosDbRUMongoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> {
+export function getDatabaseMigrationsMongoToCosmosDbRUMongoOutput(args: GetDatabaseMigrationsMongoToCosmosDbRUMongoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbRUMongo", {
         "migrationName": args.migrationName,

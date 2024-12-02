@@ -81,7 +81,7 @@ export interface GetNetworkRackResult {
 /**
  * Get Network Rack resource details.
  */
-export function getNetworkRackOutput(args: GetNetworkRackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkRackResult> {
+export function getNetworkRackOutput(args: GetNetworkRackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkRackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkRack", {
         "networkRackName": args.networkRackName,

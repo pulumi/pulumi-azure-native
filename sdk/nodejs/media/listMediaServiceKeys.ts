@@ -56,7 +56,7 @@ export interface ListMediaServiceKeysResult {
  * Lists the keys for a Media Service.
  * Azure REST API version: 2015-10-01.
  */
-export function listMediaServiceKeysOutput(args: ListMediaServiceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceKeysResult> {
+export function listMediaServiceKeysOutput(args: ListMediaServiceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMediaServiceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:listMediaServiceKeys", {
         "mediaServiceName": args.mediaServiceName,

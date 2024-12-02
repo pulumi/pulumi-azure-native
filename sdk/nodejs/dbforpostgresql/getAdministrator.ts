@@ -80,7 +80,7 @@ export interface GetAdministratorResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
  */
-export function getAdministratorOutput(args: GetAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdministratorResult> {
+export function getAdministratorOutput(args: GetAdministratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql:getAdministrator", {
         "objectId": args.objectId,

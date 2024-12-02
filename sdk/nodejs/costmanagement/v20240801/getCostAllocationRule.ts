@@ -53,7 +53,7 @@ export interface GetCostAllocationRuleResult {
 /**
  * Get a cost allocation rule by rule name and billing account or enterprise enrollment.
  */
-export function getCostAllocationRuleOutput(args: GetCostAllocationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostAllocationRuleResult> {
+export function getCostAllocationRuleOutput(args: GetCostAllocationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCostAllocationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20240801:getCostAllocationRule", {
         "billingAccountId": args.billingAccountId,

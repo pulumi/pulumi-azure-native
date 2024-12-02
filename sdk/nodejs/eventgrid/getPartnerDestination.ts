@@ -96,7 +96,7 @@ export interface GetPartnerDestinationResult {
  *
  * Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview.
  */
-export function getPartnerDestinationOutput(args: GetPartnerDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerDestinationResult> {
+export function getPartnerDestinationOutput(args: GetPartnerDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerDestinationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid:getPartnerDestination", {
         "partnerDestinationName": args.partnerDestinationName,

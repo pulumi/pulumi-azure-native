@@ -67,7 +67,7 @@ export interface GetMacie2JobSummaryResult {
  * Get a Macie2JobSummary
  * Azure REST API version: 2024-12-01.
  */
-export function getMacie2JobSummaryOutput(args: GetMacie2JobSummaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMacie2JobSummaryResult> {
+export function getMacie2JobSummaryOutput(args: GetMacie2JobSummaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMacie2JobSummaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getMacie2JobSummary", {
         "name": args.name,

@@ -94,7 +94,7 @@ export interface GetConnectivityConfigurationResult {
 /**
  * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
  */
-export function getConnectivityConfigurationOutput(args: GetConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectivityConfigurationResult> {
+export function getConnectivityConfigurationOutput(args: GetConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectivityConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getConnectivityConfiguration", {
         "configurationName": args.configurationName,

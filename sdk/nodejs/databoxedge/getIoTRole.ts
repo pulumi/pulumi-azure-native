@@ -97,7 +97,7 @@ export interface GetIoTRoleResult {
  * Gets a specific role by name.
  * Azure REST API version: 2022-03-01.
  */
-export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTRoleResult> {
+export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoTRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge:getIoTRole", {
         "deviceName": args.deviceName,

@@ -107,7 +107,7 @@ export interface GetNetworkTapRuleResult {
  * Get Network Tap Rule resource details.
  * Azure REST API version: 2023-06-15.
  */
-export function getNetworkTapRuleOutput(args: GetNetworkTapRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkTapRuleResult> {
+export function getNetworkTapRuleOutput(args: GetNetworkTapRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkTapRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkTapRule", {
         "networkTapRuleName": args.networkTapRuleName,

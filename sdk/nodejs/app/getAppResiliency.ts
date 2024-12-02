@@ -88,7 +88,7 @@ export interface GetAppResiliencyResult {
  *
  * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
  */
-export function getAppResiliencyOutput(args: GetAppResiliencyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResiliencyResult> {
+export function getAppResiliencyOutput(args: GetAppResiliencyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppResiliencyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:getAppResiliency", {
         "appName": args.appName,

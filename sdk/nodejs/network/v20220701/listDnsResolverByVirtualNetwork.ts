@@ -50,7 +50,7 @@ export interface ListDnsResolverByVirtualNetworkResult {
 /**
  * Lists DNS resolver resource IDs linked to a virtual network.
  */
-export function listDnsResolverByVirtualNetworkOutput(args: ListDnsResolverByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverByVirtualNetworkResult> {
+export function listDnsResolverByVirtualNetworkOutput(args: ListDnsResolverByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDnsResolverByVirtualNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20220701:listDnsResolverByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,

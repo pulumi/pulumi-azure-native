@@ -59,7 +59,7 @@ export interface GetInsightResult {
  * Get Insight resources by workloadImpactName and insightName
  * Azure REST API version: 2024-05-01-preview.
  */
-export function getInsightOutput(args: GetInsightOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightResult> {
+export function getInsightOutput(args: GetInsightOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInsightResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:impact:getInsight", {
         "insightName": args.insightName,

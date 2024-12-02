@@ -118,7 +118,7 @@ export interface GetLiveEventResult {
 /**
  * Gets properties of a live event.
  */
-export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventResult> {
+export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveEventResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20221101:getLiveEvent", {
         "accountName": args.accountName,

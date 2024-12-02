@@ -52,7 +52,7 @@ export interface ListClusterZonesResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function listClusterZonesOutput(args: ListClusterZonesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterZonesResult> {
+export function listClusterZonesOutput(args: ListClusterZonesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListClusterZonesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:listClusterZones", {
         "clusterName": args.clusterName,

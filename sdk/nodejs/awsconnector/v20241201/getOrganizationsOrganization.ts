@@ -65,7 +65,7 @@ export interface GetOrganizationsOrganizationResult {
 /**
  * Get a OrganizationsOrganization
  */
-export function getOrganizationsOrganizationOutput(args: GetOrganizationsOrganizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationsOrganizationResult> {
+export function getOrganizationsOrganizationOutput(args: GetOrganizationsOrganizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationsOrganizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getOrganizationsOrganization", {
         "name": args.name,

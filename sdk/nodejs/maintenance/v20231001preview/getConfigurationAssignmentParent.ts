@@ -94,7 +94,7 @@ export interface GetConfigurationAssignmentParentResult {
 /**
  * Get configuration assignment for resource..
  */
-export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
+export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maintenance/v20231001preview:getConfigurationAssignmentParent", {
         "configurationAssignmentName": args.configurationAssignmentName,

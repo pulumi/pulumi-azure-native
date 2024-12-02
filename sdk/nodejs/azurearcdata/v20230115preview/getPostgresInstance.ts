@@ -73,7 +73,7 @@ export interface GetPostgresInstanceResult {
 /**
  * Retrieves a postgres Instance resource
  */
-export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostgresInstanceResult> {
+export function getPostgresInstanceOutput(args: GetPostgresInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPostgresInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20230115preview:getPostgresInstance", {
         "postgresInstanceName": args.postgresInstanceName,
