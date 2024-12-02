@@ -74,7 +74,7 @@ export interface ListAppServicePlanHybridConnectionKeysResult {
  *
  * Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function listAppServicePlanHybridConnectionKeysOutput(args: ListAppServicePlanHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAppServicePlanHybridConnectionKeysResult> {
+export function listAppServicePlanHybridConnectionKeysOutput(args: ListAppServicePlanHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAppServicePlanHybridConnectionKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:listAppServicePlanHybridConnectionKeys", {
         "name": args.name,

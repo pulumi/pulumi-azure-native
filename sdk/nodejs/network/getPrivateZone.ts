@@ -96,7 +96,7 @@ export interface GetPrivateZoneResult {
  *
  * Other available API versions: 2024-06-01.
  */
-export function getPrivateZoneOutput(args: GetPrivateZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateZoneResult> {
+export function getPrivateZoneOutput(args: GetPrivateZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateZoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getPrivateZone", {
         "privateZoneName": args.privateZoneName,

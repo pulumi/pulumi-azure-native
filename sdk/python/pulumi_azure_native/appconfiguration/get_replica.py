@@ -155,7 +155,7 @@ def get_replica(config_store_name: Optional[str] = None,
 def get_replica_output(config_store_name: Optional[pulumi.Input[str]] = None,
                        replica_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicaResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicaResult]:
     """
     Gets the properties of the specified replica.
     Azure REST API version: 2023-03-01.
@@ -171,7 +171,7 @@ def get_replica_output(config_store_name: Optional[pulumi.Input[str]] = None,
     __args__['configStoreName'] = config_store_name
     __args__['replicaName'] = replica_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appconfiguration:getReplica', __args__, opts=opts, typ=GetReplicaResult)
     return __ret__.apply(lambda __response__: GetReplicaResult(
         endpoint=pulumi.get(__response__, 'endpoint'),

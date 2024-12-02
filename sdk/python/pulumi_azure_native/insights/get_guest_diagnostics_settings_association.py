@@ -135,7 +135,7 @@ def get_guest_diagnostics_settings_association(association_name: Optional[str] =
         type=pulumi.get(__ret__, 'type'))
 def get_guest_diagnostics_settings_association_output(association_name: Optional[pulumi.Input[str]] = None,
                                                       resource_uri: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuestDiagnosticsSettingsAssociationResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestDiagnosticsSettingsAssociationResult]:
     """
     Gets guest diagnostics association settings.
     Azure REST API version: 2018-06-01-preview.
@@ -147,7 +147,7 @@ def get_guest_diagnostics_settings_association_output(association_name: Optional
     __args__ = dict()
     __args__['associationName'] = association_name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getGuestDiagnosticsSettingsAssociation', __args__, opts=opts, typ=GetGuestDiagnosticsSettingsAssociationResult)
     return __ret__.apply(lambda __response__: GetGuestDiagnosticsSettingsAssociationResult(
         guest_diagnostic_settings_name=pulumi.get(__response__, 'guest_diagnostic_settings_name'),

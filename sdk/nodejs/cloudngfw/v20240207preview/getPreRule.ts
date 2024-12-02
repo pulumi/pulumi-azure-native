@@ -130,7 +130,7 @@ export interface GetPreRuleResult {
 /**
  * Get a PreRulesResource
  */
-export function getPreRuleOutput(args: GetPreRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPreRuleResult> {
+export function getPreRuleOutput(args: GetPreRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPreRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:getPreRule", {
         "globalRulestackName": args.globalRulestackName,

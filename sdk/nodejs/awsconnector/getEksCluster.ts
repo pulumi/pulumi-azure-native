@@ -54,7 +54,7 @@ export interface GetEksClusterResult {
  * Get a EksCluster
  * Azure REST API version: 2024-12-01.
  */
-export function getEksClusterOutput(args: GetEksClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEksClusterResult> {
+export function getEksClusterOutput(args: GetEksClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEksClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEksCluster", {
         "resourceUri": args.resourceUri,

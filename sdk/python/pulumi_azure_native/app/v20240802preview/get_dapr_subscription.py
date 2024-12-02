@@ -204,7 +204,7 @@ def get_dapr_subscription(environment_name: Optional[str] = None,
 def get_dapr_subscription_output(environment_name: Optional[pulumi.Input[str]] = None,
                                  name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDaprSubscriptionResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaprSubscriptionResult]:
     """
     Dapr PubSub Event Subscription.
 
@@ -217,7 +217,7 @@ def get_dapr_subscription_output(environment_name: Optional[pulumi.Input[str]] =
     __args__['environmentName'] = environment_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240802preview:getDaprSubscription', __args__, opts=opts, typ=GetDaprSubscriptionResult)
     return __ret__.apply(lambda __response__: GetDaprSubscriptionResult(
         bulk_subscribe=pulumi.get(__response__, 'bulk_subscribe'),

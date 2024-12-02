@@ -163,7 +163,7 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_ddos_custom_policy_output(ddos_custom_policy_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDdosCustomPolicyResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDdosCustomPolicyResult]:
     """
     Gets information about the specified DDoS custom policy.
     Azure REST API version: 2023-02-01.
@@ -177,7 +177,7 @@ def get_ddos_custom_policy_output(ddos_custom_policy_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['ddosCustomPolicyName'] = ddos_custom_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDdosCustomPolicy', __args__, opts=opts, typ=GetDdosCustomPolicyResult)
     return __ret__.apply(lambda __response__: GetDdosCustomPolicyResult(
         etag=pulumi.get(__response__, 'etag'),

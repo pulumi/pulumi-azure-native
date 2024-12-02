@@ -80,7 +80,7 @@ export interface GetStoragecontainerRetrieveResult {
 /**
  * Gets storagecontainers by resource name
  */
-export function getStoragecontainerRetrieveOutput(args: GetStoragecontainerRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStoragecontainerRetrieveResult> {
+export function getStoragecontainerRetrieveOutput(args: GetStoragecontainerRetrieveOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStoragecontainerRetrieveResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20210901preview:getStoragecontainerRetrieve", {
         "resourceGroupName": args.resourceGroupName,

@@ -161,7 +161,7 @@ def get_springbootsite(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_springbootsite_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               springbootsites_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpringbootsiteResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpringbootsiteResult]:
     """
     Get a springbootsites resource.
 
@@ -172,7 +172,7 @@ def get_springbootsite_output(resource_group_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['springbootsitesName'] = springbootsites_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazurespringboot/v20240401preview:getSpringbootsite', __args__, opts=opts, typ=GetSpringbootsiteResult)
     return __ret__.apply(lambda __response__: GetSpringbootsiteResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

@@ -142,7 +142,7 @@ def get_private_endpoint_connection(automation_account_name: Optional[str] = Non
 def get_private_endpoint_connection_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                            private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets a private endpoint connection.
     Azure REST API version: 2020-01-13-preview.
@@ -158,7 +158,7 @@ def get_private_endpoint_connection_output(automation_account_name: Optional[pul
     __args__['automationAccountName'] = automation_account_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionResult(
         group_ids=pulumi.get(__response__, 'group_ids'),

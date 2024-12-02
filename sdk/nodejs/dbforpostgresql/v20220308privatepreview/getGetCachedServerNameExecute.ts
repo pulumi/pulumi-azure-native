@@ -56,7 +56,7 @@ export interface GetGetCachedServerNameExecuteResult {
 /**
  * Get available cached server name for fast provisioning
  */
-export function getGetCachedServerNameExecuteOutput(args: GetGetCachedServerNameExecuteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGetCachedServerNameExecuteResult> {
+export function getGetCachedServerNameExecuteOutput(args: GetGetCachedServerNameExecuteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGetCachedServerNameExecuteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute", {
         "locationName": args.locationName,

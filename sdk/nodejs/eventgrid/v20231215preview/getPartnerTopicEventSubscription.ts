@@ -106,7 +106,7 @@ export interface GetPartnerTopicEventSubscriptionResult {
 /**
  * Get properties of an event subscription of a partner topic.
  */
-export function getPartnerTopicEventSubscriptionOutput(args: GetPartnerTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionResult> {
+export function getPartnerTopicEventSubscriptionOutput(args: GetPartnerTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerTopicEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getPartnerTopicEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,

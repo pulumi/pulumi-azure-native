@@ -64,7 +64,7 @@ export interface GetConfigurationAssignmentsForSubscriptionResult {
 /**
  * Get configuration assignment for resource..
  */
-export function getConfigurationAssignmentsForSubscriptionOutput(args: GetConfigurationAssignmentsForSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentsForSubscriptionResult> {
+export function getConfigurationAssignmentsForSubscriptionOutput(args: GetConfigurationAssignmentsForSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationAssignmentsForSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maintenance/v20231001preview:getConfigurationAssignmentsForSubscription", {
         "configurationAssignmentName": args.configurationAssignmentName,

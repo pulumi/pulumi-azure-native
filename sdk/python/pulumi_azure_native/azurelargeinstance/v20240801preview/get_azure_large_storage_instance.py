@@ -176,7 +176,7 @@ def get_azure_large_storage_instance(azure_large_storage_instance_name: Optional
         type=pulumi.get(__ret__, 'type'))
 def get_azure_large_storage_instance_output(azure_large_storage_instance_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureLargeStorageInstanceResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureLargeStorageInstanceResult]:
     """
     Gets an Azure Large Storage instance for the specified subscription, resource
     group, and instance name.
@@ -188,7 +188,7 @@ def get_azure_large_storage_instance_output(azure_large_storage_instance_name: O
     __args__ = dict()
     __args__['azureLargeStorageInstanceName'] = azure_large_storage_instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurelargeinstance/v20240801preview:getAzureLargeStorageInstance', __args__, opts=opts, typ=GetAzureLargeStorageInstanceResult)
     return __ret__.apply(lambda __response__: GetAzureLargeStorageInstanceResult(
         azure_large_storage_instance_unique_identifier=pulumi.get(__response__, 'azure_large_storage_instance_unique_identifier'),

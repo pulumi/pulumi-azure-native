@@ -167,7 +167,7 @@ export interface GetExtendedDatabaseBlobAuditingPolicyResult {
 /**
  * Gets an extended database's blob auditing policy.
  */
-export function getExtendedDatabaseBlobAuditingPolicyOutput(args: GetExtendedDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtendedDatabaseBlobAuditingPolicyResult> {
+export function getExtendedDatabaseBlobAuditingPolicyOutput(args: GetExtendedDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExtendedDatabaseBlobAuditingPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20240501preview:getExtendedDatabaseBlobAuditingPolicy", {
         "blobAuditingPolicyName": args.blobAuditingPolicyName,

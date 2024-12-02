@@ -85,7 +85,7 @@ export interface GetNetworkPacketBrokerResult {
 /**
  * Retrieves details of this Network Packet Broker.
  */
-export function getNetworkPacketBrokerOutput(args: GetNetworkPacketBrokerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkPacketBrokerResult> {
+export function getNetworkPacketBrokerOutput(args: GetNetworkPacketBrokerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkPacketBrokerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkPacketBroker", {
         "networkPacketBrokerName": args.networkPacketBrokerName,

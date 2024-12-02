@@ -139,7 +139,7 @@ def get_service_runner(lab_name: Optional[str] = None,
 def get_service_runner_output(lab_name: Optional[pulumi.Input[str]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceRunnerResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceRunnerResult]:
     """
     Get service runner.
 
@@ -152,7 +152,7 @@ def get_service_runner_output(lab_name: Optional[pulumi.Input[str]] = None,
     __args__['labName'] = lab_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getServiceRunner', __args__, opts=opts, typ=GetServiceRunnerResult)
     return __ret__.apply(lambda __response__: GetServiceRunnerResult(
         id=pulumi.get(__response__, 'id'),

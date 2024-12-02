@@ -57,7 +57,7 @@ export interface ListWebAppHostKeysSlotResult {
  *
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function listWebAppHostKeysSlotOutput(args: ListWebAppHostKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHostKeysSlotResult> {
+export function listWebAppHostKeysSlotOutput(args: ListWebAppHostKeysSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppHostKeysSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:listWebAppHostKeysSlot", {
         "name": args.name,

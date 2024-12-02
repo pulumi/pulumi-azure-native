@@ -83,7 +83,7 @@ export interface GetReadWriteDatabaseResult {
 /**
  * Returns a database.
  */
-export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
+export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReadWriteDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto/v20191109:getReadWriteDatabase", {
         "clusterName": args.clusterName,

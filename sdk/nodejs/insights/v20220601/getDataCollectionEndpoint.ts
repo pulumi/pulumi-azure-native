@@ -113,7 +113,7 @@ export interface GetDataCollectionEndpointResult {
 /**
  * Definition of ARM tracked top level resource.
  */
-export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionEndpointResult> {
+export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCollectionEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20220601:getDataCollectionEndpoint", {
         "dataCollectionEndpointName": args.dataCollectionEndpointName,

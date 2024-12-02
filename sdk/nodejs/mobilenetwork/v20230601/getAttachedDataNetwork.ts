@@ -100,7 +100,7 @@ export interface GetAttachedDataNetworkResult {
 /**
  * Gets information about the specified attached data network.
  */
-export function getAttachedDataNetworkOutput(args: GetAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDataNetworkResult> {
+export function getAttachedDataNetworkOutput(args: GetAttachedDataNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttachedDataNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20230601:getAttachedDataNetwork", {
         "attachedDataNetworkName": args.attachedDataNetworkName,

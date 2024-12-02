@@ -281,7 +281,7 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
         visibility=pulumi.get(__ret__, 'visibility'))
 def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                          resource_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
     Maintenance configuration record type
     Azure REST API version: 2022-11-01-preview.
@@ -295,7 +295,7 @@ def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.In
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult)
     return __ret__.apply(lambda __response__: GetMaintenanceConfigurationResult(
         duration=pulumi.get(__response__, 'duration'),

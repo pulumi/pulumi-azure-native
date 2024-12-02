@@ -67,7 +67,7 @@ export interface GetIntegrationFabricResult {
 /**
  * The integration fabric resource type.
  */
-export function getIntegrationFabricOutput(args: GetIntegrationFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationFabricResult> {
+export function getIntegrationFabricOutput(args: GetIntegrationFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dashboard/v20231001preview:getIntegrationFabric", {
         "integrationFabricName": args.integrationFabricName,

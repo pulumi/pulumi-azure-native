@@ -81,7 +81,7 @@ export interface ListWorkflowVersionTriggerCallbackUrlResult {
 /**
  * Get the callback url for a trigger of a workflow version.
  */
-export function listWorkflowVersionTriggerCallbackUrlOutput(args: ListWorkflowVersionTriggerCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowVersionTriggerCallbackUrlResult> {
+export function listWorkflowVersionTriggerCallbackUrlOutput(args: ListWorkflowVersionTriggerCallbackUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkflowVersionTriggerCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20190501:listWorkflowVersionTriggerCallbackUrl", {
         "keyType": args.keyType,

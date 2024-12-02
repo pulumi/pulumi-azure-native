@@ -85,7 +85,7 @@ export interface GetInternetGatewayResult {
 /**
  * Implements Gateway GET method.
  */
-export function getInternetGatewayOutput(args: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
+export function getInternetGatewayOutput(args: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInternetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getInternetGateway", {
         "internetGatewayName": args.internetGatewayName,

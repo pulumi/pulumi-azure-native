@@ -143,7 +143,7 @@ export interface GetDataProductResult {
  * Retrieve data product resource.
  * Azure REST API version: 2023-11-15.
  */
-export function getDataProductOutput(args: GetDataProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataProductResult> {
+export function getDataProductOutput(args: GetDataProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkanalytics:getDataProduct", {
         "dataProductName": args.dataProductName,

@@ -75,7 +75,7 @@ export interface GetManagedClusterServiceResult {
 /**
  * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
  */
-export function getManagedClusterServiceOutput(args: GetManagedClusterServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterServiceResult> {
+export function getManagedClusterServiceOutput(args: GetManagedClusterServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20230901preview:getManagedClusterService", {
         "applicationName": args.applicationName,

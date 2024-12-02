@@ -92,7 +92,7 @@ export interface GetADLSGen1FileDataSetResult {
 /**
  * Get a DataSet in a share
  */
-export function getADLSGen1FileDataSetOutput(args: GetADLSGen1FileDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen1FileDataSetResult> {
+export function getADLSGen1FileDataSetOutput(args: GetADLSGen1FileDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetADLSGen1FileDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getADLSGen1FileDataSet", {
         "accountName": args.accountName,

@@ -148,7 +148,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Get firmware analysis workspace.
 
@@ -159,7 +159,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotfirmwaredefense/v20240110:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
         id=pulumi.get(__response__, 'id'),

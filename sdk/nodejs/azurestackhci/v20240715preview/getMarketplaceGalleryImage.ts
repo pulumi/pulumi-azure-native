@@ -97,7 +97,7 @@ export interface GetMarketplaceGalleryImageResult {
 /**
  * Gets a marketplace gallery image
  */
-export function getMarketplaceGalleryImageOutput(args: GetMarketplaceGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarketplaceGalleryImageResult> {
+export function getMarketplaceGalleryImageOutput(args: GetMarketplaceGalleryImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMarketplaceGalleryImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240715preview:getMarketplaceGalleryImage", {
         "marketplaceGalleryImageName": args.marketplaceGalleryImageName,

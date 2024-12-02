@@ -191,7 +191,7 @@ def get_inbound_endpoint(dns_resolver_name: Optional[str] = None,
 def get_inbound_endpoint_output(dns_resolver_name: Optional[pulumi.Input[str]] = None,
                                 inbound_endpoint_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInboundEndpointResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInboundEndpointResult]:
     """
     Gets properties of an inbound endpoint for a DNS resolver.
 
@@ -204,7 +204,7 @@ def get_inbound_endpoint_output(dns_resolver_name: Optional[pulumi.Input[str]] =
     __args__['dnsResolverName'] = dns_resolver_name
     __args__['inboundEndpointName'] = inbound_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230701preview:getInboundEndpoint', __args__, opts=opts, typ=GetInboundEndpointResult)
     return __ret__.apply(lambda __response__: GetInboundEndpointResult(
         etag=pulumi.get(__response__, 'etag'),

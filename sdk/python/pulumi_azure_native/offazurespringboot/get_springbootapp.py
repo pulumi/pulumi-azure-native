@@ -127,7 +127,7 @@ def get_springbootapp(resource_group_name: Optional[str] = None,
 def get_springbootapp_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                              site_name: Optional[pulumi.Input[str]] = None,
                              springbootapps_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpringbootappResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpringbootappResult]:
     """
     Get a springbootapps resource.
     Azure REST API version: 2024-04-01-preview.
@@ -141,7 +141,7 @@ def get_springbootapp_output(resource_group_name: Optional[pulumi.Input[str]] = 
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
     __args__['springbootappsName'] = springbootapps_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazurespringboot:getSpringbootapp', __args__, opts=opts, typ=GetSpringbootappResult)
     return __ret__.apply(lambda __response__: GetSpringbootappResult(
         id=pulumi.get(__response__, 'id'),

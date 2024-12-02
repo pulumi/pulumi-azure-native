@@ -226,7 +226,7 @@ def get_storage_task(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_storage_task_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             storage_task_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageTaskResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageTaskResult]:
     """
     Get the storage task properties
 
@@ -237,7 +237,7 @@ def get_storage_task_output(resource_group_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageTaskName'] = storage_task_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storageactions/v20230101:getStorageTask', __args__, opts=opts, typ=GetStorageTaskResult)
     return __ret__.apply(lambda __response__: GetStorageTaskResult(
         action=pulumi.get(__response__, 'action'),

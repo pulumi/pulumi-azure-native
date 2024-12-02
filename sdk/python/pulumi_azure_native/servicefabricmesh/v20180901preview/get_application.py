@@ -252,7 +252,7 @@ def get_application(application_resource_name: Optional[str] = None,
         unhealthy_evaluation=pulumi.get(__ret__, 'unhealthy_evaluation'))
 def get_application_output(application_resource_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Gets the information about the application resource with the given name. The information include the description and other properties of the application.
 
@@ -263,7 +263,7 @@ def get_application_output(application_resource_name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['applicationResourceName'] = application_resource_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh/v20180901preview:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         debug_params=pulumi.get(__response__, 'debug_params'),

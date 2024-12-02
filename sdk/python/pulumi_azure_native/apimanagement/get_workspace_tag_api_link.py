@@ -123,7 +123,7 @@ def get_workspace_tag_api_link_output(api_link_id: Optional[pulumi.Input[str]] =
                                       service_name: Optional[pulumi.Input[str]] = None,
                                       tag_id: Optional[pulumi.Input[str]] = None,
                                       workspace_id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceTagApiLinkResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceTagApiLinkResult]:
     """
     Gets the API link for the tag.
     Azure REST API version: 2022-09-01-preview.
@@ -143,7 +143,7 @@ def get_workspace_tag_api_link_output(api_link_id: Optional[pulumi.Input[str]] =
     __args__['serviceName'] = service_name
     __args__['tagId'] = tag_id
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceTagApiLink', __args__, opts=opts, typ=GetWorkspaceTagApiLinkResult)
     return __ret__.apply(lambda __response__: GetWorkspaceTagApiLinkResult(
         api_id=pulumi.get(__response__, 'api_id'),

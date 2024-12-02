@@ -217,7 +217,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
 def get_proximity_placement_group_output(include_colocation_status: Optional[pulumi.Input[Optional[str]]] = None,
                                          proximity_placement_group_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProximityPlacementGroupResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProximityPlacementGroupResult]:
     """
     Retrieves information about a proximity placement group .
 
@@ -230,7 +230,7 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
     __args__['includeColocationStatus'] = include_colocation_status
     __args__['proximityPlacementGroupName'] = proximity_placement_group_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230901:getProximityPlacementGroup', __args__, opts=opts, typ=GetProximityPlacementGroupResult)
     return __ret__.apply(lambda __response__: GetProximityPlacementGroupResult(
         availability_sets=pulumi.get(__response__, 'availability_sets'),

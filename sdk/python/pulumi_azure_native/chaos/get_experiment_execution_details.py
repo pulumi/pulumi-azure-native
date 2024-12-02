@@ -181,7 +181,7 @@ def get_experiment_execution_details(execution_id: Optional[str] = None,
 def get_experiment_execution_details_output(execution_id: Optional[pulumi.Input[str]] = None,
                                             experiment_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentExecutionDetailsResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentExecutionDetailsResult]:
     """
     Execution details of an experiment resource.
     Azure REST API version: 2023-11-01.
@@ -197,7 +197,7 @@ def get_experiment_execution_details_output(execution_id: Optional[pulumi.Input[
     __args__['executionId'] = execution_id
     __args__['experimentName'] = experiment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:chaos:getExperimentExecutionDetails', __args__, opts=opts, typ=GetExperimentExecutionDetailsResult)
     return __ret__.apply(lambda __response__: GetExperimentExecutionDetailsResult(
         failure_reason=pulumi.get(__response__, 'failure_reason'),

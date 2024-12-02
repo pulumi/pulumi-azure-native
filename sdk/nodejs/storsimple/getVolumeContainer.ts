@@ -97,7 +97,7 @@ export interface GetVolumeContainerResult {
  * Gets the properties of the specified volume container name.
  * Azure REST API version: 2017-06-01.
  */
-export function getVolumeContainerOutput(args: GetVolumeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeContainerResult> {
+export function getVolumeContainerOutput(args: GetVolumeContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple:getVolumeContainer", {
         "deviceName": args.deviceName,

@@ -80,7 +80,7 @@ export interface GetUpdateRunResult {
 /**
  * Get a UpdateRun
  */
-export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUpdateRunResult> {
+export function getUpdateRunOutput(args: GetUpdateRunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUpdateRunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20230615preview:getUpdateRun", {
         "fleetName": args.fleetName,

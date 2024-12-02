@@ -98,7 +98,7 @@ export interface GetPolicyResult {
 /**
  * Retrieve protection policy with specified name within a resource group.
  */
-export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
+export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20240901:getPolicy", {
         "policyName": args.policyName,

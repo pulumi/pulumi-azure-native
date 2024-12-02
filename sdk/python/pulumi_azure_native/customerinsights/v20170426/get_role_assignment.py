@@ -360,7 +360,7 @@ def get_role_assignment(assignment_name: Optional[str] = None,
 def get_role_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
                                hub_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
     Gets the role assignment in the hub.
 
@@ -373,7 +373,7 @@ def get_role_assignment_output(assignment_name: Optional[pulumi.Input[str]] = No
     __args__['assignmentName'] = assignment_name
     __args__['hubName'] = hub_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights/v20170426:getRoleAssignment', __args__, opts=opts, typ=GetRoleAssignmentResult)
     return __ret__.apply(lambda __response__: GetRoleAssignmentResult(
         assignment_name=pulumi.get(__response__, 'assignment_name'),

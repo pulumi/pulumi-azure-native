@@ -84,7 +84,7 @@ export interface GetWebPubSubSharedPrivateLinkResourceResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
-export function getWebPubSubSharedPrivateLinkResourceOutput(args: GetWebPubSubSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubSharedPrivateLinkResourceResult> {
+export function getWebPubSubSharedPrivateLinkResourceOutput(args: GetWebPubSubSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebPubSubSharedPrivateLinkResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:webpubsub:getWebPubSubSharedPrivateLinkResource", {
         "resourceGroupName": args.resourceGroupName,

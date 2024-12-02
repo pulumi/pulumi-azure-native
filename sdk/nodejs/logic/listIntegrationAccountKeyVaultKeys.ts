@@ -57,7 +57,7 @@ export interface ListIntegrationAccountKeyVaultKeysResult {
  * Gets the integration account's Key Vault keys.
  * Azure REST API version: 2019-05-01.
  */
-export function listIntegrationAccountKeyVaultKeysOutput(args: ListIntegrationAccountKeyVaultKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountKeyVaultKeysResult> {
+export function listIntegrationAccountKeyVaultKeysOutput(args: ListIntegrationAccountKeyVaultKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIntegrationAccountKeyVaultKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:listIntegrationAccountKeyVaultKeys", {
         "integrationAccountName": args.integrationAccountName,

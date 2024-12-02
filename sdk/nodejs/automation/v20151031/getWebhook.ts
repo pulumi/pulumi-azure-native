@@ -98,7 +98,7 @@ export interface GetWebhookResult {
 /**
  * Retrieve the webhook identified by webhook name.
  */
-export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookResult> {
+export function getWebhookOutput(args: GetWebhookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebhookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20151031:getWebhook", {
         "automationAccountName": args.automationAccountName,

@@ -59,7 +59,7 @@ export interface GetFirewallRuleResult {
 /**
  * Gets a single firewall rule in a specified redis cache.
  */
-export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
+export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache/v20230401:getFirewallRule", {
         "cacheName": args.cacheName,

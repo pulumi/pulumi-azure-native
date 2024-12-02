@@ -129,7 +129,7 @@ export interface GetApplicationDefinitionResult {
 /**
  * Gets the managed application definition.
  */
-export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationDefinitionResult> {
+export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:solutions/v20231201preview:getApplicationDefinition", {
         "applicationDefinitionName": args.applicationDefinitionName,

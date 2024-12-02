@@ -77,7 +77,7 @@ export interface GetStaticSiteLinkedBackendResult {
  *
  * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getStaticSiteLinkedBackendOutput(args: GetStaticSiteLinkedBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteLinkedBackendResult> {
+export function getStaticSiteLinkedBackendOutput(args: GetStaticSiteLinkedBackendOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteLinkedBackendResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getStaticSiteLinkedBackend", {
         "linkedBackendName": args.linkedBackendName,

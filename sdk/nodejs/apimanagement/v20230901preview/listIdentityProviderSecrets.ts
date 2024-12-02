@@ -43,7 +43,7 @@ export interface ListIdentityProviderSecretsResult {
 /**
  * Gets the client secret details of the Identity Provider.
  */
-export function listIdentityProviderSecretsOutput(args: ListIdentityProviderSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIdentityProviderSecretsResult> {
+export function listIdentityProviderSecretsOutput(args: ListIdentityProviderSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIdentityProviderSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:listIdentityProviderSecrets", {
         "identityProviderName": args.identityProviderName,

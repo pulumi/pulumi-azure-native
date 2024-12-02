@@ -111,7 +111,7 @@ export interface GetDatabaseMigrationsMongoToCosmosDbRUMongoResult {
 /**
  * Get Database Migration resource.
  */
-export function getDatabaseMigrationsMongoToCosmosDbRUMongoOutput(args: GetDatabaseMigrationsMongoToCosmosDbRUMongoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> {
+export function getDatabaseMigrationsMongoToCosmosDbRUMongoOutput(args: GetDatabaseMigrationsMongoToCosmosDbRUMongoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration/v20230715preview:getDatabaseMigrationsMongoToCosmosDbRUMongo", {
         "migrationName": args.migrationName,

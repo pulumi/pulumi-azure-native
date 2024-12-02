@@ -75,7 +75,7 @@ export interface GetCodelessApiPollingDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getCodelessApiPollingDataConnectorOutput(args: GetCodelessApiPollingDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodelessApiPollingDataConnectorResult> {
+export function getCodelessApiPollingDataConnectorOutput(args: GetCodelessApiPollingDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodelessApiPollingDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231001preview:getCodelessApiPollingDataConnector", {
         "dataConnectorId": args.dataConnectorId,

@@ -101,7 +101,7 @@ export interface GetVirtualNetworkResult {
 /**
  * Implements virtual network GET method.
  */
-export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
+export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20220715preview:getVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,

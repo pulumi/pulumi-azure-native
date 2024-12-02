@@ -76,7 +76,7 @@ export interface GetQueryPackResult {
  *
  * Other available API versions: 2019-09-01-preview, 2023-09-01.
  */
-export function getQueryPackOutput(args: GetQueryPackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryPackResult> {
+export function getQueryPackOutput(args: GetQueryPackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueryPackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getQueryPack", {
         "queryPackName": args.queryPackName,

@@ -75,7 +75,7 @@ export interface GetCustomResourceProviderResult {
  * Gets the custom resource provider manifest.
  * Azure REST API version: 2018-09-01-preview.
  */
-export function getCustomResourceProviderOutput(args: GetCustomResourceProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomResourceProviderResult> {
+export function getCustomResourceProviderOutput(args: GetCustomResourceProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomResourceProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customproviders:getCustomResourceProvider", {
         "resourceGroupName": args.resourceGroupName,

@@ -66,7 +66,7 @@ export interface GetConfigurationProfileHCIAssignmentResult {
 /**
  * Get information about a configuration profile assignment
  */
-export function getConfigurationProfileHCIAssignmentOutput(args: GetConfigurationProfileHCIAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileHCIAssignmentResult> {
+export function getConfigurationProfileHCIAssignmentOutput(args: GetConfigurationProfileHCIAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfileHCIAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automanage/v20220504:getConfigurationProfileHCIAssignment", {
         "clusterName": args.clusterName,

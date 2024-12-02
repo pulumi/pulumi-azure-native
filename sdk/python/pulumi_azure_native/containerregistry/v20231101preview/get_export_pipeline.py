@@ -178,7 +178,7 @@ def get_export_pipeline(export_pipeline_name: Optional[str] = None,
 def get_export_pipeline_output(export_pipeline_name: Optional[pulumi.Input[str]] = None,
                                registry_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportPipelineResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportPipelineResult]:
     """
     Gets the properties of the export pipeline.
 
@@ -191,7 +191,7 @@ def get_export_pipeline_output(export_pipeline_name: Optional[pulumi.Input[str]]
     __args__['exportPipelineName'] = export_pipeline_name
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20231101preview:getExportPipeline', __args__, opts=opts, typ=GetExportPipelineResult)
     return __ret__.apply(lambda __response__: GetExportPipelineResult(
         id=pulumi.get(__response__, 'id'),

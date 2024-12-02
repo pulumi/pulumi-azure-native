@@ -66,7 +66,7 @@ export interface GetBackupInstanceResult {
 /**
  * Gets a backup instance with name in a backup vault
  */
-export function getBackupInstanceOutput(args: GetBackupInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupInstanceResult> {
+export function getBackupInstanceOutput(args: GetBackupInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dataprotection/v20230401preview:getBackupInstance", {
         "backupInstanceName": args.backupInstanceName,

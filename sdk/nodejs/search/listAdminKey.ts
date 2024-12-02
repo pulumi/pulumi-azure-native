@@ -48,7 +48,7 @@ export interface ListAdminKeyResult {
  *
  * Other available API versions: 2015-02-28, 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
  */
-export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAdminKeyResult> {
+export function listAdminKeyOutput(args: ListAdminKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAdminKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:search:listAdminKey", {
         "resourceGroupName": args.resourceGroupName,

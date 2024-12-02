@@ -128,7 +128,7 @@ export interface GetContactResult {
  *
  * Other available API versions: 2022-03-01.
  */
-export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
+export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital:getContact", {
         "contactName": args.contactName,

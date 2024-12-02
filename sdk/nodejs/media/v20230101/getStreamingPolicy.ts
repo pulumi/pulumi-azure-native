@@ -82,7 +82,7 @@ export interface GetStreamingPolicyResult {
 /**
  * Get the details of a Streaming Policy in the Media Services account
  */
-export function getStreamingPolicyOutput(args: GetStreamingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingPolicyResult> {
+export function getStreamingPolicyOutput(args: GetStreamingPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamingPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20230101:getStreamingPolicy", {
         "accountName": args.accountName,

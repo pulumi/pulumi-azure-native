@@ -117,7 +117,7 @@ export interface GetExportConfigurationResult {
  * Get the Continuous Export configuration for this export id.
  * Azure REST API version: 2015-05-01.
  */
-export function getExportConfigurationOutput(args: GetExportConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportConfigurationResult> {
+export function getExportConfigurationOutput(args: GetExportConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExportConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getExportConfiguration", {
         "exportId": args.exportId,

@@ -65,7 +65,7 @@ export interface GetOpenSearchDomainStatusResult {
 /**
  * Get a OpenSearchDomainStatus
  */
-export function getOpenSearchDomainStatusOutput(args: GetOpenSearchDomainStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenSearchDomainStatusResult> {
+export function getOpenSearchDomainStatusOutput(args: GetOpenSearchDomainStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenSearchDomainStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getOpenSearchDomainStatus", {
         "name": args.name,

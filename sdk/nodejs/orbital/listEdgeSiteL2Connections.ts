@@ -51,7 +51,7 @@ export interface ListEdgeSiteL2ConnectionsResult {
  *
  * Other available API versions: 2024-03-01.
  */
-export function listEdgeSiteL2ConnectionsOutput(args: ListEdgeSiteL2ConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEdgeSiteL2ConnectionsResult> {
+export function listEdgeSiteL2ConnectionsOutput(args: ListEdgeSiteL2ConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEdgeSiteL2ConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital:listEdgeSiteL2Connections", {
         "edgeSiteName": args.edgeSiteName,

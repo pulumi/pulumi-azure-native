@@ -72,7 +72,7 @@ export interface GetManagementAssociationResult {
 /**
  * Retrieves the user ManagementAssociation.
  */
-export function getManagementAssociationOutput(args: GetManagementAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementAssociationResult> {
+export function getManagementAssociationOutput(args: GetManagementAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", {
         "managementAssociationName": args.managementAssociationName,

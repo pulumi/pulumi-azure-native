@@ -477,7 +477,7 @@ def get_virtual_machine_scale_set(expand: Optional[str] = None,
 def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          vm_scale_set_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScaleSetResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetResult]:
     """
     Display information about a virtual machine scale set.
 
@@ -490,7 +490,7 @@ def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmScaleSetName'] = vm_scale_set_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240301:getVirtualMachineScaleSet', __args__, opts=opts, typ=GetVirtualMachineScaleSetResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineScaleSetResult(
         additional_capabilities=pulumi.get(__response__, 'additional_capabilities'),

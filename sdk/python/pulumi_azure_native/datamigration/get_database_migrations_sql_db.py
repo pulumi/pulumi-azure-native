@@ -127,7 +127,7 @@ def get_database_migrations_sql_db_output(expand: Optional[pulumi.Input[Optional
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           sql_db_instance_name: Optional[pulumi.Input[str]] = None,
                                           target_db_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseMigrationsSqlDbResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseMigrationsSqlDbResult]:
     """
     Retrieve the Database Migration resource.
     Azure REST API version: 2022-03-30-preview.
@@ -146,7 +146,7 @@ def get_database_migrations_sql_db_output(expand: Optional[pulumi.Input[Optional
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlDbInstanceName'] = sql_db_instance_name
     __args__['targetDbName'] = target_db_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getDatabaseMigrationsSqlDb', __args__, opts=opts, typ=GetDatabaseMigrationsSqlDbResult)
     return __ret__.apply(lambda __response__: GetDatabaseMigrationsSqlDbResult(
         id=pulumi.get(__response__, 'id'),

@@ -99,7 +99,7 @@ export interface GetAssignmentResult {
  *
  * Other available API versions: 2017-11-11-preview.
  */
-export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssignmentResult> {
+export function getAssignmentOutput(args: GetAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:blueprint:getAssignment", {
         "assignmentName": args.assignmentName,

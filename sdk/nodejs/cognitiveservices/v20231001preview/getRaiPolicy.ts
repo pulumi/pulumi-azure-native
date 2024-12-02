@@ -70,7 +70,7 @@ export interface GetRaiPolicyResult {
 /**
  * Gets the specified Content Filters associated with the Azure OpenAI account.
  */
-export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiPolicyResult> {
+export function getRaiPolicyOutput(args: GetRaiPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRaiPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20231001preview:getRaiPolicy", {
         "accountName": args.accountName,

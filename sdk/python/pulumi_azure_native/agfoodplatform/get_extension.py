@@ -207,7 +207,7 @@ def get_extension(data_manager_for_agriculture_resource_name: Optional[str] = No
 def get_extension_output(data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                          extension_id: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Get installed extension details by extension id.
     Azure REST API version: 2023-06-01-preview.
@@ -223,7 +223,7 @@ def get_extension_output(data_manager_for_agriculture_resource_name: Optional[pu
     __args__['dataManagerForAgricultureResourceName'] = data_manager_for_agriculture_resource_name
     __args__['extensionId'] = extension_id
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:agfoodplatform:getExtension', __args__, opts=opts, typ=GetExtensionResult)
     return __ret__.apply(lambda __response__: GetExtensionResult(
         additional_api_properties=pulumi.get(__response__, 'additional_api_properties'),

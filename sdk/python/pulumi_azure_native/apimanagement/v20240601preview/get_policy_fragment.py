@@ -155,7 +155,7 @@ def get_policy_fragment_output(format: Optional[pulumi.Input[Optional[str]]] = N
                                id: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                service_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyFragmentResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyFragmentResult]:
     """
     Gets a policy fragment.
 
@@ -170,7 +170,7 @@ def get_policy_fragment_output(format: Optional[pulumi.Input[Optional[str]]] = N
     __args__['id'] = id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240601preview:getPolicyFragment', __args__, opts=opts, typ=GetPolicyFragmentResult)
     return __ret__.apply(lambda __response__: GetPolicyFragmentResult(
         description=pulumi.get(__response__, 'description'),

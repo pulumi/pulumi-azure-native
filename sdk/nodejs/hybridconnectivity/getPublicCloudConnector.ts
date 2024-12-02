@@ -67,7 +67,7 @@ export interface GetPublicCloudConnectorResult {
  * Get a PublicCloudConnector
  * Azure REST API version: 2024-12-01.
  */
-export function getPublicCloudConnectorOutput(args: GetPublicCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicCloudConnectorResult> {
+export function getPublicCloudConnectorOutput(args: GetPublicCloudConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicCloudConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity:getPublicCloudConnector", {
         "publicCloudConnector": args.publicCloudConnector,

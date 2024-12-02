@@ -116,7 +116,7 @@ def get_function(function_name: Optional[str] = None,
 def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
                         job_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Gets details about the specified function.
     Azure REST API version: 2020-03-01.
@@ -132,7 +132,7 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
     __args__['functionName'] = function_name
     __args__['jobName'] = job_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics:getFunction', __args__, opts=opts, typ=GetFunctionResult)
     return __ret__.apply(lambda __response__: GetFunctionResult(
         id=pulumi.get(__response__, 'id'),

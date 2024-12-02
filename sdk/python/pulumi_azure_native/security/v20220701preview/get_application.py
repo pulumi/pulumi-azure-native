@@ -130,7 +130,7 @@ def get_application(application_id: Optional[str] = None,
         source_resource_type=pulumi.get(__ret__, 'source_resource_type'),
         type=pulumi.get(__ret__, 'type'))
 def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Get a specific application for the requested scope by applicationId
 
@@ -139,7 +139,7 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20220701preview:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         description=pulumi.get(__response__, 'description'),

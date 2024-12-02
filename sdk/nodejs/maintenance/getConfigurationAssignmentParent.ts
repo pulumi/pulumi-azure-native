@@ -96,7 +96,7 @@ export interface GetConfigurationAssignmentParentResult {
  *
  * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
  */
-export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
+export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maintenance:getConfigurationAssignmentParent", {
         "configurationAssignmentName": args.configurationAssignmentName,

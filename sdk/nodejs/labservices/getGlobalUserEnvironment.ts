@@ -48,7 +48,7 @@ export interface GetGlobalUserEnvironmentResult {
  * Gets the virtual machine details
  * Azure REST API version: 2018-10-15.
  */
-export function getGlobalUserEnvironmentOutput(args: GetGlobalUserEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserEnvironmentResult> {
+export function getGlobalUserEnvironmentOutput(args: GetGlobalUserEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalUserEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices:getGlobalUserEnvironment", {
         "environmentId": args.environmentId,

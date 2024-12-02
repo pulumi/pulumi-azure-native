@@ -69,7 +69,7 @@ export interface GetIntegrationServiceEnvironmentResult {
 /**
  * Gets an integration service environment.
  */
-export function getIntegrationServiceEnvironmentOutput(args: GetIntegrationServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationServiceEnvironmentResult> {
+export function getIntegrationServiceEnvironmentOutput(args: GetIntegrationServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationServiceEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20190501:getIntegrationServiceEnvironment", {
         "integrationServiceEnvironmentName": args.integrationServiceEnvironmentName,

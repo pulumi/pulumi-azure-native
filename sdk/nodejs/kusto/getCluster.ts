@@ -175,7 +175,7 @@ export interface GetClusterResult {
  *
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
  */
-export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto:getCluster", {
         "clusterName": args.clusterName,

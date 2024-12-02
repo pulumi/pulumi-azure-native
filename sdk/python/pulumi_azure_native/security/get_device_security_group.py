@@ -149,7 +149,7 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_device_security_group_output(device_security_group_name: Optional[pulumi.Input[str]] = None,
                                      resource_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceSecurityGroupResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceSecurityGroupResult]:
     """
     Use this method to get the device security group for the specified IoT Hub resource.
     Azure REST API version: 2019-08-01.
@@ -161,7 +161,7 @@ def get_device_security_group_output(device_security_group_name: Optional[pulumi
     __args__ = dict()
     __args__['deviceSecurityGroupName'] = device_security_group_name
     __args__['resourceId'] = resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getDeviceSecurityGroup', __args__, opts=opts, typ=GetDeviceSecurityGroupResult)
     return __ret__.apply(lambda __response__: GetDeviceSecurityGroupResult(
         allowlist_rules=pulumi.get(__response__, 'allowlist_rules'),

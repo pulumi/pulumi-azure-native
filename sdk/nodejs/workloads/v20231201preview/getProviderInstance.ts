@@ -74,7 +74,7 @@ export interface GetProviderInstanceResult {
 /**
  * Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
  */
-export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderInstanceResult> {
+export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20231201preview:getProviderInstance", {
         "monitorName": args.monitorName,

@@ -111,7 +111,7 @@ export interface GetIotSecuritySolutionResult {
  *
  * Other available API versions: 2017-08-01-preview.
  */
-export function getIotSecuritySolutionOutput(args: GetIotSecuritySolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotSecuritySolutionResult> {
+export function getIotSecuritySolutionOutput(args: GetIotSecuritySolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotSecuritySolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getIotSecuritySolution", {
         "resourceGroupName": args.resourceGroupName,

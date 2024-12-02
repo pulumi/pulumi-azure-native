@@ -129,7 +129,7 @@ export interface GetApiManagementServiceResult {
 /**
  * Gets an API Management service resource description.
  */
-export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceResult> {
+export function getApiManagementServiceOutput(args: GetApiManagementServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiManagementServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20161010:getApiManagementService", {
         "resourceGroupName": args.resourceGroupName,

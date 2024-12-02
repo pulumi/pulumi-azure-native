@@ -147,7 +147,7 @@ def getmanaged_maintenance_window_status(cluster_name: Optional[str] = None,
         last_window_status_update_at_utc=pulumi.get(__ret__, 'last_window_status_update_at_utc'))
 def getmanaged_maintenance_window_status_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetmanagedMaintenanceWindowStatusResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetmanagedMaintenanceWindowStatusResult]:
     """
     Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
 
@@ -158,7 +158,7 @@ def getmanaged_maintenance_window_status_output(cluster_name: Optional[pulumi.In
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20231201preview:getmanagedMaintenanceWindowStatus', __args__, opts=opts, typ=GetmanagedMaintenanceWindowStatusResult)
     return __ret__.apply(lambda __response__: GetmanagedMaintenanceWindowStatusResult(
         can_apply_updates=pulumi.get(__response__, 'can_apply_updates'),

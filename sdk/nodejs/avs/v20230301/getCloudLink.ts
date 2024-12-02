@@ -59,7 +59,7 @@ export interface GetCloudLinkResult {
 /**
  * A cloud link resource
  */
-export function getCloudLinkOutput(args: GetCloudLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudLinkResult> {
+export function getCloudLinkOutput(args: GetCloudLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230301:getCloudLink", {
         "cloudLinkName": args.cloudLinkName,

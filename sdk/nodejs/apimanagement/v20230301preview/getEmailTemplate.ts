@@ -78,7 +78,7 @@ export interface GetEmailTemplateResult {
 /**
  * Gets the details of the email template specified by its identifier.
  */
-export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
+export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getEmailTemplate", {
         "resourceGroupName": args.resourceGroupName,

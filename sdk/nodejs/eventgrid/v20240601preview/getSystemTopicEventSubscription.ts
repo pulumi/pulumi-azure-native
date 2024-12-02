@@ -106,7 +106,7 @@ export interface GetSystemTopicEventSubscriptionResult {
 /**
  * Get an event subscription.
  */
-export function getSystemTopicEventSubscriptionOutput(args: GetSystemTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicEventSubscriptionResult> {
+export function getSystemTopicEventSubscriptionOutput(args: GetSystemTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemTopicEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getSystemTopicEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,

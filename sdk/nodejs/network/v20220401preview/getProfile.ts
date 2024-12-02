@@ -89,7 +89,7 @@ export interface GetProfileResult {
 /**
  * Gets a Traffic Manager profile.
  */
-export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
+export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20220401preview:getProfile", {
         "profileName": args.profileName,

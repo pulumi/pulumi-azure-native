@@ -70,7 +70,7 @@ export interface GetPrivateEndpointConnectionsForEDMResult {
 /**
  * Gets the specified private endpoint connection associated with the service.
  */
-export function getPrivateEndpointConnectionsForEDMOutput(args: GetPrivateEndpointConnectionsForEDMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForEDMResult> {
+export function getPrivateEndpointConnectionsForEDMOutput(args: GetPrivateEndpointConnectionsForEDMOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionsForEDMResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsForEDM", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

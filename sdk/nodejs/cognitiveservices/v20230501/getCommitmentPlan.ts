@@ -82,7 +82,7 @@ export interface GetCommitmentPlanResult {
 /**
  * Gets the specified commitmentPlans associated with the Cognitive Services account.
  */
-export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {
+export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommitmentPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20230501:getCommitmentPlan", {
         "accountName": args.accountName,

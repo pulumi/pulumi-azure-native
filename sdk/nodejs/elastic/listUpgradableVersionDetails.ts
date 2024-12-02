@@ -48,7 +48,7 @@ export interface ListUpgradableVersionDetailsResult {
  *
  * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
  */
-export function listUpgradableVersionDetailsOutput(args: ListUpgradableVersionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUpgradableVersionDetailsResult> {
+export function listUpgradableVersionDetailsOutput(args: ListUpgradableVersionDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListUpgradableVersionDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic:listUpgradableVersionDetails", {
         "monitorName": args.monitorName,

@@ -192,7 +192,7 @@ def get_aws_s3_data_connector(data_connector_id: Optional[str] = None,
 def get_aws_s3_data_connector_output(data_connector_id: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      workspace_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAwsS3DataConnectorResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAwsS3DataConnectorResult]:
     """
     Gets a data connector.
 
@@ -205,7 +205,7 @@ def get_aws_s3_data_connector_output(data_connector_id: Optional[pulumi.Input[st
     __args__['dataConnectorId'] = data_connector_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20230801preview:getAwsS3DataConnector', __args__, opts=opts, typ=GetAwsS3DataConnectorResult)
     return __ret__.apply(lambda __response__: GetAwsS3DataConnectorResult(
         data_types=pulumi.get(__response__, 'data_types'),

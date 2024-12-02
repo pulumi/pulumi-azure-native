@@ -144,7 +144,7 @@ def get_resource_group(resource_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_resource_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceGroupResult]:
     """
     Gets a resource group.
 
@@ -153,7 +153,7 @@ def get_resource_group_output(resource_group_name: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources/v20240301:getResourceGroup', __args__, opts=opts, typ=GetResourceGroupResult)
     return __ret__.apply(lambda __response__: GetResourceGroupResult(
         id=pulumi.get(__response__, 'id'),

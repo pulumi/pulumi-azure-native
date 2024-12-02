@@ -278,7 +278,7 @@ def get_remediation_at_resource(remediation_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_remediation_at_resource_output(remediation_name: Optional[pulumi.Input[str]] = None,
                                        resource_id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtResourceResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemediationAtResourceResult]:
     """
     Gets an existing remediation at resource scope.
 
@@ -289,7 +289,7 @@ def get_remediation_at_resource_output(remediation_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     __args__['resourceId'] = resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights/v20211001:getRemediationAtResource', __args__, opts=opts, typ=GetRemediationAtResourceResult)
     return __ret__.apply(lambda __response__: GetRemediationAtResourceResult(
         correlation_id=pulumi.get(__response__, 'correlation_id'),

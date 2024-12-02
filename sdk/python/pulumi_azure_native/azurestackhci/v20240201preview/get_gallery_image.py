@@ -265,7 +265,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryImageResult]:
     """
     Gets a gallery image
 
@@ -276,7 +276,7 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['galleryImageName'] = gallery_image_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240201preview:getGalleryImage', __args__, opts=opts, typ=GetGalleryImageResult)
     return __ret__.apply(lambda __response__: GetGalleryImageResult(
         cloud_init_data_source=pulumi.get(__response__, 'cloud_init_data_source'),

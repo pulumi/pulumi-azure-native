@@ -82,7 +82,7 @@ export interface GetWorkloadNetworkSegmentResult {
 /**
  * NSX Segment
  */
-export function getWorkloadNetworkSegmentOutput(args: GetWorkloadNetworkSegmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkSegmentResult> {
+export function getWorkloadNetworkSegmentOutput(args: GetWorkloadNetworkSegmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadNetworkSegmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230301:getWorkloadNetworkSegment", {
         "privateCloudName": args.privateCloudName,

@@ -71,7 +71,7 @@ export interface GetSpaceResult {
  * Get a Space
  * Azure REST API version: 2023-11-14-preview.
  */
-export function getSpaceOutput(args: GetSpaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpaceResult> {
+export function getSpaceOutput(args: GetSpaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:integrationspaces:getSpace", {
         "resourceGroupName": args.resourceGroupName,

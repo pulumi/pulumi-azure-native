@@ -67,7 +67,7 @@ def list_provider_action_in_use_storage_accounts(subscription_ids: Optional[Sequ
     return AwaitableListProviderActionInUseStorageAccountsResult(
         storage_account_list=pulumi.get(__ret__, 'storage_account_list'))
 def list_provider_action_in_use_storage_accounts_output(subscription_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProviderActionInUseStorageAccountsResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProviderActionInUseStorageAccountsResult]:
     """
     List the storage accounts which are in use by related reports
     Azure REST API version: 2024-06-27.
@@ -77,7 +77,7 @@ def list_provider_action_in_use_storage_accounts_output(subscription_ids: Option
     """
     __args__ = dict()
     __args__['subscriptionIds'] = subscription_ids
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation:listProviderActionInUseStorageAccounts', __args__, opts=opts, typ=ListProviderActionInUseStorageAccountsResult)
     return __ret__.apply(lambda __response__: ListProviderActionInUseStorageAccountsResult(
         storage_account_list=pulumi.get(__response__, 'storage_account_list')))

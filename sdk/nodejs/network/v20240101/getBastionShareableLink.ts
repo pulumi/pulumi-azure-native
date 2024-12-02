@@ -50,7 +50,7 @@ export interface GetBastionShareableLinkResult {
 /**
  * Return the Bastion Shareable Links for all the VMs specified in the request.
  */
-export function getBastionShareableLinkOutput(args: GetBastionShareableLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBastionShareableLinkResult> {
+export function getBastionShareableLinkOutput(args: GetBastionShareableLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBastionShareableLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240101:getBastionShareableLink", {
         "bastionHostName": args.bastionHostName,

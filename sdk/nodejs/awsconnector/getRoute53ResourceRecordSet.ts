@@ -67,7 +67,7 @@ export interface GetRoute53ResourceRecordSetResult {
  * Get a Route53ResourceRecordSet
  * Azure REST API version: 2024-12-01.
  */
-export function getRoute53ResourceRecordSetOutput(args: GetRoute53ResourceRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoute53ResourceRecordSetResult> {
+export function getRoute53ResourceRecordSetOutput(args: GetRoute53ResourceRecordSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoute53ResourceRecordSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getRoute53ResourceRecordSet", {
         "name": args.name,

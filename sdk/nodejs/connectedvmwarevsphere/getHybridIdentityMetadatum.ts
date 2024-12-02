@@ -80,7 +80,7 @@ export interface GetHybridIdentityMetadatumResult {
  *
  * Other available API versions: 2023-03-01-preview.
  */
-export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
+export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum", {
         "metadataName": args.metadataName,

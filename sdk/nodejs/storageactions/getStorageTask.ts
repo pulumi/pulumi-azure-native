@@ -91,7 +91,7 @@ export interface GetStorageTaskResult {
  * Get the storage task properties
  * Azure REST API version: 2023-01-01.
  */
-export function getStorageTaskOutput(args: GetStorageTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTaskResult> {
+export function getStorageTaskOutput(args: GetStorageTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storageactions:getStorageTask", {
         "resourceGroupName": args.resourceGroupName,

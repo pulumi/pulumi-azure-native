@@ -33,7 +33,7 @@ export interface ListWorkspaceNotebookKeysResult {
      */
     readonly secondaryAccessKey: string;
 }
-export function listWorkspaceNotebookKeysOutput(args: ListWorkspaceNotebookKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookKeysResult> {
+export function listWorkspaceNotebookKeysOutput(args: ListWorkspaceNotebookKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceNotebookKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:listWorkspaceNotebookKeys", {
         "resourceGroupName": args.resourceGroupName,

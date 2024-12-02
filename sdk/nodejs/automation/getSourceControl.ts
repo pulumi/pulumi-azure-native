@@ -93,7 +93,7 @@ export interface GetSourceControlResult {
  *
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
-export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
+export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getSourceControl", {
         "automationAccountName": args.automationAccountName,

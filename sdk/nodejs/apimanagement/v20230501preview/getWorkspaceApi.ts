@@ -147,7 +147,7 @@ export interface GetWorkspaceApiResult {
 /**
  * Gets the details of the API specified by its identifier.
  */
-export function getWorkspaceApiOutput(args: GetWorkspaceApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiResult> {
+export function getWorkspaceApiOutput(args: GetWorkspaceApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getWorkspaceApi", {
         "apiId": args.apiId,

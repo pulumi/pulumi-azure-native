@@ -101,7 +101,7 @@ export interface GetPackageResult {
  * Retrieve the Package identified by Package name.
  * Azure REST API version: 2023-05-15-preview.
  */
-export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
+export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getPackage", {
         "automationAccountName": args.automationAccountName,

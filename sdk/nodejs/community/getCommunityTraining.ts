@@ -99,7 +99,7 @@ export interface GetCommunityTrainingResult {
  * Get a CommunityTraining
  * Azure REST API version: 2023-11-01.
  */
-export function getCommunityTrainingOutput(args: GetCommunityTrainingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunityTrainingResult> {
+export function getCommunityTrainingOutput(args: GetCommunityTrainingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommunityTrainingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:community:getCommunityTraining", {
         "communityTrainingName": args.communityTrainingName,

@@ -68,7 +68,7 @@ export interface GetAccessPolicyResult {
  * Retrieves an existing access policy resource with the given name.
  * Azure REST API version: 2021-11-01-preview.
  */
-export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
+export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:videoanalyzer:getAccessPolicy", {
         "accessPolicyName": args.accessPolicyName,

@@ -58,7 +58,7 @@ export interface GetTableServicePropertiesResult {
 /**
  * Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
  */
-export function getTableServicePropertiesOutput(args: GetTableServicePropertiesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableServicePropertiesResult> {
+export function getTableServicePropertiesOutput(args: GetTableServicePropertiesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableServicePropertiesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230401:getTableServiceProperties", {
         "accountName": args.accountName,

@@ -43,7 +43,7 @@ export interface GetFlowDestinationEndpointPortsResult {
 /**
  * Get the destination endpoint ports for the specified flow and stream ID.
  */
-export function getFlowDestinationEndpointPortsOutput(args: GetFlowDestinationEndpointPortsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowDestinationEndpointPortsResult> {
+export function getFlowDestinationEndpointPortsOutput(args: GetFlowDestinationEndpointPortsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowDestinationEndpointPortsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer/v20240927:getFlowDestinationEndpointPorts", {
         "connectionName": args.connectionName,

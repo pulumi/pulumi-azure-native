@@ -82,7 +82,7 @@ export interface GetTaskResult {
  *
  * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
-export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
+export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration:getTask", {
         "expand": args.expand,

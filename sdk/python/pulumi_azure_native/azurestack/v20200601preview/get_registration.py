@@ -200,7 +200,7 @@ def get_registration(registration_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_registration_output(registration_name: Optional[pulumi.Input[str]] = None,
                             resource_group: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationResult]:
     """
     Returns the properties of an Azure Stack registration.
 
@@ -211,7 +211,7 @@ def get_registration_output(registration_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack/v20200601preview:getRegistration', __args__, opts=opts, typ=GetRegistrationResult)
     return __ret__.apply(lambda __response__: GetRegistrationResult(
         billing_model=pulumi.get(__response__, 'billing_model'),

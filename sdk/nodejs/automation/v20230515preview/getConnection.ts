@@ -78,7 +78,7 @@ export interface GetConnectionResult {
 /**
  * Retrieve the connection identified by connection name.
  */
-export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
+export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getConnection", {
         "automationAccountName": args.automationAccountName,

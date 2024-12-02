@@ -256,7 +256,7 @@ def get_slice(mobile_network_name: Optional[str] = None,
 def get_slice_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      slice_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSliceResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSliceResult]:
     """
     Gets information about the specified network slice.
 
@@ -269,7 +269,7 @@ def get_slice_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
     __args__['mobileNetworkName'] = mobile_network_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sliceName'] = slice_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork/v20220401preview:getSlice', __args__, opts=opts, typ=GetSliceResult)
     return __ret__.apply(lambda __response__: GetSliceResult(
         created_at=pulumi.get(__response__, 'created_at'),

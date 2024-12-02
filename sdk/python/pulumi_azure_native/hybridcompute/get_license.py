@@ -190,7 +190,7 @@ def get_license(license_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_license_output(license_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicenseResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicenseResult]:
     """
     Retrieves information about the view of a license.
     Azure REST API version: 2023-06-20-preview.
@@ -204,7 +204,7 @@ def get_license_output(license_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['licenseName'] = license_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute:getLicense', __args__, opts=opts, typ=GetLicenseResult)
     return __ret__.apply(lambda __response__: GetLicenseResult(
         id=pulumi.get(__response__, 'id'),

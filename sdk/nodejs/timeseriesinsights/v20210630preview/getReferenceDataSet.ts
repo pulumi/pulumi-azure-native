@@ -78,7 +78,7 @@ export interface GetReferenceDataSetResult {
 /**
  * Gets the reference data set with the specified name in the specified environment.
  */
-export function getReferenceDataSetOutput(args: GetReferenceDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReferenceDataSetResult> {
+export function getReferenceDataSetOutput(args: GetReferenceDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReferenceDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights/v20210630preview:getReferenceDataSet", {
         "environmentName": args.environmentName,

@@ -91,7 +91,7 @@ export interface GetSchemaRegistryResult {
  * Get a SchemaRegistry
  * Azure REST API version: 2024-09-01-preview.
  */
-export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
+export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:deviceregistry:getSchemaRegistry", {
         "resourceGroupName": args.resourceGroupName,

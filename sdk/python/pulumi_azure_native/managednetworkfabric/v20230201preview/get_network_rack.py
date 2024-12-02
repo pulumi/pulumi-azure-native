@@ -200,7 +200,7 @@ def get_network_rack(network_rack_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_network_rack_output(network_rack_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkRackResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkRackResult]:
     """
     Get Network Rack resource details.
 
@@ -211,7 +211,7 @@ def get_network_rack_output(network_rack_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['networkRackName'] = network_rack_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230201preview:getNetworkRack', __args__, opts=opts, typ=GetNetworkRackResult)
     return __ret__.apply(lambda __response__: GetNetworkRackResult(
         annotation=pulumi.get(__response__, 'annotation'),

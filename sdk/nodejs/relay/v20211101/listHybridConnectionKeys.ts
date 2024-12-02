@@ -64,7 +64,7 @@ export interface ListHybridConnectionKeysResult {
 /**
  * Primary and secondary connection strings to the hybrid connection.
  */
-export function listHybridConnectionKeysOutput(args: ListHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHybridConnectionKeysResult> {
+export function listHybridConnectionKeysOutput(args: ListHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListHybridConnectionKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay/v20211101:listHybridConnectionKeys", {
         "authorizationRuleName": args.authorizationRuleName,

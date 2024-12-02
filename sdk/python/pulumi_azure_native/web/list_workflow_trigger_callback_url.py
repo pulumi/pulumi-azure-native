@@ -146,7 +146,7 @@ def list_workflow_trigger_callback_url_output(name: Optional[pulumi.Input[str]] 
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               trigger_name: Optional[pulumi.Input[str]] = None,
                                               workflow_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowTriggerCallbackUrlResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkflowTriggerCallbackUrlResult]:
     """
     Get the callback URL for a workflow trigger.
     Azure REST API version: 2022-09-01.
@@ -164,7 +164,7 @@ def list_workflow_trigger_callback_url_output(name: Optional[pulumi.Input[str]] 
     __args__['resourceGroupName'] = resource_group_name
     __args__['triggerName'] = trigger_name
     __args__['workflowName'] = workflow_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:listWorkflowTriggerCallbackUrl', __args__, opts=opts, typ=ListWorkflowTriggerCallbackUrlResult)
     return __ret__.apply(lambda __response__: ListWorkflowTriggerCallbackUrlResult(
         base_path=pulumi.get(__response__, 'base_path'),

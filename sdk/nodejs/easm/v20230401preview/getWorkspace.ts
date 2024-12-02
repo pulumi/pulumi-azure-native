@@ -69,7 +69,7 @@ export interface GetWorkspaceResult {
 /**
  * Returns a workspace with the given name.
  */
-export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:easm/v20230401preview:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,

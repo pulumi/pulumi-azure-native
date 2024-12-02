@@ -67,7 +67,7 @@ export interface GetRegistryModelVersionResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getRegistryModelVersionOutput(args: GetRegistryModelVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryModelVersionResult> {
+export function getRegistryModelVersionOutput(args: GetRegistryModelVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryModelVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230401:getRegistryModelVersion", {
         "modelName": args.modelName,

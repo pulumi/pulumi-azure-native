@@ -76,7 +76,7 @@ export interface GetConfigurationGroupSchemaResult {
  *
  * Other available API versions: 2024-04-15.
  */
-export function getConfigurationGroupSchemaOutput(args: GetConfigurationGroupSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationGroupSchemaResult> {
+export function getConfigurationGroupSchemaOutput(args: GetConfigurationGroupSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationGroupSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getConfigurationGroupSchema", {
         "configurationGroupSchemaName": args.configurationGroupSchemaName,

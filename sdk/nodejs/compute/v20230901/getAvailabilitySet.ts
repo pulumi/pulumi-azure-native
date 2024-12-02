@@ -81,7 +81,7 @@ export interface GetAvailabilitySetResult {
 /**
  * Retrieves information about an availability set.
  */
-export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
+export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAvailabilitySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20230901:getAvailabilitySet", {
         "availabilitySetName": args.availabilitySetName,

@@ -67,7 +67,7 @@ export interface GetRdsDbSnapshotResult {
  * Get a RdsDBSnapshot
  * Azure REST API version: 2024-12-01.
  */
-export function getRdsDbSnapshotOutput(args: GetRdsDbSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsDbSnapshotResult> {
+export function getRdsDbSnapshotOutput(args: GetRdsDbSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRdsDbSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getRdsDbSnapshot", {
         "name": args.name,

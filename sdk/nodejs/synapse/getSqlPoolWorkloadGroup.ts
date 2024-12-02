@@ -86,7 +86,7 @@ export interface GetSqlPoolWorkloadGroupResult {
  *
  * Other available API versions: 2021-06-01-preview.
  */
-export function getSqlPoolWorkloadGroupOutput(args: GetSqlPoolWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadGroupResult> {
+export function getSqlPoolWorkloadGroupOutput(args: GetSqlPoolWorkloadGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlPoolWorkloadGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getSqlPoolWorkloadGroup", {
         "resourceGroupName": args.resourceGroupName,

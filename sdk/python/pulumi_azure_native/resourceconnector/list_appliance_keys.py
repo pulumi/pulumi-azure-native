@@ -101,7 +101,7 @@ def list_appliance_keys(artifact_type: Optional[str] = None,
 def list_appliance_keys_output(artifact_type: Optional[pulumi.Input[Optional[str]]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                resource_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplianceKeysResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceKeysResult]:
     """
     Returns the cluster customer credentials for the dedicated appliance.
     Azure REST API version: 2022-10-27.
@@ -115,7 +115,7 @@ def list_appliance_keys_output(artifact_type: Optional[pulumi.Input[Optional[str
     __args__['artifactType'] = artifact_type
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resourceconnector:listApplianceKeys', __args__, opts=opts, typ=ListApplianceKeysResult)
     return __ret__.apply(lambda __response__: ListApplianceKeysResult(
         artifact_profiles=pulumi.get(__response__, 'artifact_profiles'),

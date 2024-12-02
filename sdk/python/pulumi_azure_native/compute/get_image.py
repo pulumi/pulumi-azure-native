@@ -194,7 +194,7 @@ def get_image(expand: Optional[str] = None,
 def get_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                      image_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Gets an image.
     Azure REST API version: 2023-03-01.
@@ -210,7 +210,7 @@ def get_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['expand'] = expand
     __args__['imageName'] = image_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getImage', __args__, opts=opts, typ=GetImageResult)
     return __ret__.apply(lambda __response__: GetImageResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

@@ -74,7 +74,7 @@ export interface GetAuthorizationResult {
 /**
  * Get a ExpressRouteAuthorization
  */
-export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationResult> {
+export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getAuthorization", {
         "authorizationName": args.authorizationName,

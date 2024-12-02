@@ -72,7 +72,7 @@ export interface GetGuestConfigurationConnectedVMwarevSphereAssignmentResult {
  *
  * Other available API versions: 2024-04-05.
  */
-export function getGuestConfigurationConnectedVMwarevSphereAssignmentOutput(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
+export function getGuestConfigurationConnectedVMwarevSphereAssignmentOutput(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:guestconfiguration:getGuestConfigurationConnectedVMwarevSphereAssignment", {
         "guestConfigurationAssignmentName": args.guestConfigurationAssignmentName,

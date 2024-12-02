@@ -42,7 +42,7 @@ export interface ListConnectionModelsResult {
 /**
  * Azure REST API version: 2024-07-01-preview.
  */
-export function listConnectionModelsOutput(args: ListConnectionModelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionModelsResult> {
+export function listConnectionModelsOutput(args: ListConnectionModelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectionModelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listConnectionModels", {
         "resourceGroupName": args.resourceGroupName,

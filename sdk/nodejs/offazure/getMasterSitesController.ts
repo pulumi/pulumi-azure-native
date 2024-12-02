@@ -98,7 +98,7 @@ export interface GetMasterSitesControllerResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getMasterSitesControllerOutput(args: GetMasterSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMasterSitesControllerResult> {
+export function getMasterSitesControllerOutput(args: GetMasterSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMasterSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure:getMasterSitesController", {
         "resourceGroupName": args.resourceGroupName,

@@ -62,7 +62,7 @@ export interface GetMonitoringConfigResult {
 /**
  * The metric setting details for the role
  */
-export function getMonitoringConfigOutput(args: GetMonitoringConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringConfigResult> {
+export function getMonitoringConfigOutput(args: GetMonitoringConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoringConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230101preview:getMonitoringConfig", {
         "deviceName": args.deviceName,

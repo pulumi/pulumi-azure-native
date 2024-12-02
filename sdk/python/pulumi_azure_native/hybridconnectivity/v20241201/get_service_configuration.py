@@ -243,7 +243,7 @@ def get_service_configuration(endpoint_name: Optional[str] = None,
 def get_service_configuration_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                                      resource_uri: Optional[pulumi.Input[str]] = None,
                                      service_configuration_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceConfigurationResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceConfigurationResult]:
     """
     Gets the details about the service to the resource.
 
@@ -256,7 +256,7 @@ def get_service_configuration_output(endpoint_name: Optional[pulumi.Input[str]] 
     __args__['endpointName'] = endpoint_name
     __args__['resourceUri'] = resource_uri
     __args__['serviceConfigurationName'] = service_configuration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity/v20241201:getServiceConfiguration', __args__, opts=opts, typ=GetServiceConfigurationResult)
     return __ret__.apply(lambda __response__: GetServiceConfigurationResult(
         created_at=pulumi.get(__response__, 'created_at'),

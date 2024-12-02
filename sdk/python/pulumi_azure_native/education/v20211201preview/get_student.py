@@ -260,7 +260,7 @@ def get_student_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                        billing_profile_name: Optional[pulumi.Input[str]] = None,
                        invoice_section_name: Optional[pulumi.Input[str]] = None,
                        student_alias: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudentResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudentResult]:
     """
     Get the details for a specific student in the specified lab by student alias
 
@@ -275,7 +275,7 @@ def get_student_output(billing_account_name: Optional[pulumi.Input[str]] = None,
     __args__['billingProfileName'] = billing_profile_name
     __args__['invoiceSectionName'] = invoice_section_name
     __args__['studentAlias'] = student_alias
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:education/v20211201preview:getStudent', __args__, opts=opts, typ=GetStudentResult)
     return __ret__.apply(lambda __response__: GetStudentResult(
         budget=pulumi.get(__response__, 'budget'),

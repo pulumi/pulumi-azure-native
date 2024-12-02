@@ -155,7 +155,7 @@ def get_rai_blocklist(account_name: Optional[str] = None,
 def get_rai_blocklist_output(account_name: Optional[pulumi.Input[str]] = None,
                              rai_blocklist_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRaiBlocklistResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRaiBlocklistResult]:
     """
     Gets the specified custom blocklist associated with the Azure OpenAI account.
     Azure REST API version: 2023-10-01-preview.
@@ -171,7 +171,7 @@ def get_rai_blocklist_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['raiBlocklistName'] = rai_blocklist_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cognitiveservices:getRaiBlocklist', __args__, opts=opts, typ=GetRaiBlocklistResult)
     return __ret__.apply(lambda __response__: GetRaiBlocklistResult(
         etag=pulumi.get(__response__, 'etag'),

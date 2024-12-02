@@ -190,7 +190,7 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[str] = No
 def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pulumi.Input[str]] = None,
                                        peering_service_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionMonitorTestResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionMonitorTestResult]:
     """
     Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
 
@@ -203,7 +203,7 @@ def get_connection_monitor_test_output(connection_monitor_test_name: Optional[pu
     __args__['connectionMonitorTestName'] = connection_monitor_test_name
     __args__['peeringServiceName'] = peering_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:peering/v20221001:getConnectionMonitorTest', __args__, opts=opts, typ=GetConnectionMonitorTestResult)
     return __ret__.apply(lambda __response__: GetConnectionMonitorTestResult(
         destination=pulumi.get(__response__, 'destination'),

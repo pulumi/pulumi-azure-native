@@ -45,7 +45,7 @@ export interface ListMonitorHostsResult {
 /**
  * Response of a list operation.
  */
-export function listMonitorHostsOutput(args: ListMonitorHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorHostsResult> {
+export function listMonitorHostsOutput(args: ListMonitorHostsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMonitorHostsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datadog/v20230101:listMonitorHosts", {
         "monitorName": args.monitorName,

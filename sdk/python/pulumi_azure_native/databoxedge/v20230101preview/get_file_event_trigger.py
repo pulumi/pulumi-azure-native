@@ -166,7 +166,7 @@ def get_file_event_trigger(device_name: Optional[str] = None,
 def get_file_event_trigger_output(device_name: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileEventTriggerResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileEventTriggerResult]:
     """
     Get a specific trigger by name.
 
@@ -179,7 +179,7 @@ def get_file_event_trigger_output(device_name: Optional[pulumi.Input[str]] = Non
     __args__['deviceName'] = device_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230101preview:getFileEventTrigger', __args__, opts=opts, typ=GetFileEventTriggerResult)
     return __ret__.apply(lambda __response__: GetFileEventTriggerResult(
         custom_context_tag=pulumi.get(__response__, 'custom_context_tag'),

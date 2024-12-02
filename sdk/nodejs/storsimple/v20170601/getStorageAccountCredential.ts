@@ -74,7 +74,7 @@ export interface GetStorageAccountCredentialResult {
 /**
  * Gets the properties of the specified storage account credential name.
  */
-export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountCredentialResult> {
+export function getStorageAccountCredentialOutput(args: GetStorageAccountCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageAccountCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getStorageAccountCredential", {
         "managerName": args.managerName,

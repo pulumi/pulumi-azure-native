@@ -78,7 +78,7 @@ export interface GetCloudHsmClusterPrivateEndpointConnectionResult {
 /**
  * Gets the private endpoint connection for the Cloud Hsm Cluster.
  */
-export function getCloudHsmClusterPrivateEndpointConnectionOutput(args: GetCloudHsmClusterPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudHsmClusterPrivateEndpointConnectionResult> {
+export function getCloudHsmClusterPrivateEndpointConnectionOutput(args: GetCloudHsmClusterPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudHsmClusterPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hardwaresecuritymodules/v20231210preview:getCloudHsmClusterPrivateEndpointConnection", {
         "cloudHsmClusterName": args.cloudHsmClusterName,

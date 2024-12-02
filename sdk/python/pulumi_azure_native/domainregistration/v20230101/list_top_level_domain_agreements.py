@@ -87,7 +87,7 @@ def list_top_level_domain_agreements(for_transfer: Optional[bool] = None,
 def list_top_level_domain_agreements_output(for_transfer: Optional[pulumi.Input[Optional[bool]]] = None,
                                             include_privacy: Optional[pulumi.Input[Optional[bool]]] = None,
                                             name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopLevelDomainAgreementsResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListTopLevelDomainAgreementsResult]:
     """
     Description for Gets all legal agreements that user needs to accept before purchasing a domain.
 
@@ -100,7 +100,7 @@ def list_top_level_domain_agreements_output(for_transfer: Optional[pulumi.Input[
     __args__['forTransfer'] = for_transfer
     __args__['includePrivacy'] = include_privacy
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:domainregistration/v20230101:listTopLevelDomainAgreements', __args__, opts=opts, typ=ListTopLevelDomainAgreementsResult)
     return __ret__.apply(lambda __response__: ListTopLevelDomainAgreementsResult(
         next_link=pulumi.get(__response__, 'next_link'),

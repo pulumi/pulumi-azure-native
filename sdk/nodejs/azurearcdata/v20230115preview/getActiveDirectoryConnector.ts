@@ -62,7 +62,7 @@ export interface GetActiveDirectoryConnectorResult {
 /**
  * Retrieves an Active Directory connector resource
  */
-export function getActiveDirectoryConnectorOutput(args: GetActiveDirectoryConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActiveDirectoryConnectorResult> {
+export function getActiveDirectoryConnectorOutput(args: GetActiveDirectoryConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActiveDirectoryConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20230115preview:getActiveDirectoryConnector", {
         "activeDirectoryConnectorName": args.activeDirectoryConnectorName,

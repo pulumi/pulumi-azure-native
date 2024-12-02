@@ -143,7 +143,7 @@ def get_dapr_component_resiliency_policy_output(component_name: Optional[pulumi.
                                                 environment_name: Optional[pulumi.Input[str]] = None,
                                                 name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDaprComponentResiliencyPolicyResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaprComponentResiliencyPolicyResult]:
     """
     Dapr Component Resiliency Policy.
 
@@ -158,7 +158,7 @@ def get_dapr_component_resiliency_policy_output(component_name: Optional[pulumi.
     __args__['environmentName'] = environment_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20240802preview:getDaprComponentResiliencyPolicy', __args__, opts=opts, typ=GetDaprComponentResiliencyPolicyResult)
     return __ret__.apply(lambda __response__: GetDaprComponentResiliencyPolicyResult(
         id=pulumi.get(__response__, 'id'),

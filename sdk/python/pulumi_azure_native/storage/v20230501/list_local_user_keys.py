@@ -87,7 +87,7 @@ def list_local_user_keys(account_name: Optional[str] = None,
 def list_local_user_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 username: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLocalUserKeysResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLocalUserKeysResult]:
     """
     List SSH authorized keys and shared key of the local user.
 
@@ -100,7 +100,7 @@ def list_local_user_keys_output(account_name: Optional[pulumi.Input[str]] = None
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['username'] = username
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230501:listLocalUserKeys', __args__, opts=opts, typ=ListLocalUserKeysResult)
     return __ret__.apply(lambda __response__: ListLocalUserKeysResult(
         shared_key=pulumi.get(__response__, 'shared_key'),

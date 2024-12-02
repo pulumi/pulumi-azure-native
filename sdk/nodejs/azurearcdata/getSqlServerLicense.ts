@@ -67,7 +67,7 @@ export interface GetSqlServerLicenseResult {
  * Retrieves a SQL Server license resource
  * Azure REST API version: 2024-05-01-preview.
  */
-export function getSqlServerLicenseOutput(args: GetSqlServerLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerLicenseResult> {
+export function getSqlServerLicenseOutput(args: GetSqlServerLicenseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerLicenseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata:getSqlServerLicense", {
         "resourceGroupName": args.resourceGroupName,

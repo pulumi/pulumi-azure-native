@@ -65,7 +65,7 @@ def get_live_token(resource_uri: Optional[str] = None,
     return AwaitableGetLiveTokenResult(
         live_token=pulumi.get(__ret__, 'live_token'))
 def get_live_token_output(resource_uri: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveTokenResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLiveTokenResult]:
     """
     **Gets an access token for live metrics stream data.**
 
@@ -74,7 +74,7 @@ def get_live_token_output(resource_uri: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20211014:getLiveToken', __args__, opts=opts, typ=GetLiveTokenResult)
     return __ret__.apply(lambda __response__: GetLiveTokenResult(
         live_token=pulumi.get(__response__, 'live_token')))

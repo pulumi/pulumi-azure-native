@@ -66,7 +66,7 @@ export interface GetSyncGroupResult {
 /**
  * Get a given SyncGroup.
  */
-export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
+export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyncGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagesync/v20220901:getSyncGroup", {
         "resourceGroupName": args.resourceGroupName,

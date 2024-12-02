@@ -86,7 +86,7 @@ export interface GetLocalUserResult {
 /**
  * Get the local user of the storage account by username.
  */
-export function getLocalUserOutput(args: GetLocalUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalUserResult> {
+export function getLocalUserOutput(args: GetLocalUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230101:getLocalUser", {
         "accountName": args.accountName,

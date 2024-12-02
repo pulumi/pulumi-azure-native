@@ -213,7 +213,7 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalNetworkGatewayResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalNetworkGatewayResult]:
     """
     Gets the specified local network gateway in a resource group.
 
@@ -224,7 +224,7 @@ def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi
     __args__ = dict()
     __args__['localNetworkGatewayName'] = local_network_gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getLocalNetworkGateway', __args__, opts=opts, typ=GetLocalNetworkGatewayResult)
     return __ret__.apply(lambda __response__: GetLocalNetworkGatewayResult(
         bgp_settings=pulumi.get(__response__, 'bgp_settings'),

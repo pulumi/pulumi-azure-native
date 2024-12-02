@@ -65,7 +65,7 @@ export interface GetS3BucketResult {
 /**
  * Get a S3Bucket
  */
-export function getS3BucketOutput(args: GetS3BucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3BucketResult> {
+export function getS3BucketOutput(args: GetS3BucketOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetS3BucketResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getS3Bucket", {
         "name": args.name,

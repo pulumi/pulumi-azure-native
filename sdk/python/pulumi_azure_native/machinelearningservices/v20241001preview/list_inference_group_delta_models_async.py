@@ -102,7 +102,7 @@ def list_inference_group_delta_models_async_output(count: Optional[pulumi.Input[
                                                    skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                    target_base_model: Optional[pulumi.Input[Optional[str]]] = None,
                                                    workspace_name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListInferenceGroupDeltaModelsAsyncResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListInferenceGroupDeltaModelsAsyncResult]:
     """
     A paginated list of String entities.
 
@@ -123,7 +123,7 @@ def list_inference_group_delta_models_async_output(count: Optional[pulumi.Input[
     __args__['skipToken'] = skip_token
     __args__['targetBaseModel'] = target_base_model
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20241001preview:listInferenceGroupDeltaModelsAsync', __args__, opts=opts, typ=ListInferenceGroupDeltaModelsAsyncResult)
     return __ret__.apply(lambda __response__: ListInferenceGroupDeltaModelsAsyncResult(
         next_link=pulumi.get(__response__, 'next_link'),

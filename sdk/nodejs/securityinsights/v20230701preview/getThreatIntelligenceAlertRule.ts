@@ -99,7 +99,7 @@ export interface GetThreatIntelligenceAlertRuleResult {
 /**
  * Gets the alert rule.
  */
-export function getThreatIntelligenceAlertRuleOutput(args: GetThreatIntelligenceAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelligenceAlertRuleResult> {
+export function getThreatIntelligenceAlertRuleOutput(args: GetThreatIntelligenceAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThreatIntelligenceAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230701preview:getThreatIntelligenceAlertRule", {
         "resourceGroupName": args.resourceGroupName,

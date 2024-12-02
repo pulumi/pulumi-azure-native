@@ -65,7 +65,7 @@ export interface GetSecretsManagerSecretResult {
 /**
  * Get a SecretsManagerSecret
  */
-export function getSecretsManagerSecretOutput(args: GetSecretsManagerSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretsManagerSecretResult> {
+export function getSecretsManagerSecretOutput(args: GetSecretsManagerSecretOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretsManagerSecretResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSecretsManagerSecret", {
         "name": args.name,

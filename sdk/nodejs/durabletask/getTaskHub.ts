@@ -64,7 +64,7 @@ export interface GetTaskHubResult {
  * Get a Task Hub
  * Azure REST API version: 2024-10-01-preview.
  */
-export function getTaskHubOutput(args: GetTaskHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskHubResult> {
+export function getTaskHubOutput(args: GetTaskHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTaskHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:durabletask:getTaskHub", {
         "resourceGroupName": args.resourceGroupName,

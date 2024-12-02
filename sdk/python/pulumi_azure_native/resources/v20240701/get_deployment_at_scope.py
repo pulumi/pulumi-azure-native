@@ -135,7 +135,7 @@ def get_deployment_at_scope(deployment_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_deployment_at_scope_output(deployment_name: Optional[pulumi.Input[str]] = None,
                                    scope: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtScopeResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentAtScopeResult]:
     """
     Gets a deployment.
 
@@ -146,7 +146,7 @@ def get_deployment_at_scope_output(deployment_name: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['deploymentName'] = deployment_name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources/v20240701:getDeploymentAtScope', __args__, opts=opts, typ=GetDeploymentAtScopeResult)
     return __ret__.apply(lambda __response__: GetDeploymentAtScopeResult(
         id=pulumi.get(__response__, 'id'),

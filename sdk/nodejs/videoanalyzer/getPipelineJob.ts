@@ -84,7 +84,7 @@ export interface GetPipelineJobResult {
  * Retrieves a specific pipeline job by name. If a pipeline job with that name has been previously created, the call will return the JSON representation of that instance.
  * Azure REST API version: 2021-11-01-preview.
  */
-export function getPipelineJobOutput(args: GetPipelineJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineJobResult> {
+export function getPipelineJobOutput(args: GetPipelineJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:videoanalyzer:getPipelineJob", {
         "accountName": args.accountName,

@@ -78,7 +78,7 @@ export interface GetSqlCollectorOperationResult {
 /**
  * Get a SqlCollector
  */
-export function getSqlCollectorOperationOutput(args: GetSqlCollectorOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlCollectorOperationResult> {
+export function getSqlCollectorOperationOutput(args: GetSqlCollectorOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlCollectorOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230501preview:getSqlCollectorOperation", {
         "collectorName": args.collectorName,

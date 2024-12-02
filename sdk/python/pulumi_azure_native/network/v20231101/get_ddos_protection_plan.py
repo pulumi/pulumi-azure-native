@@ -187,7 +187,7 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
         virtual_networks=pulumi.get(__ret__, 'virtual_networks'))
 def get_ddos_protection_plan_output(ddos_protection_plan_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDdosProtectionPlanResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDdosProtectionPlanResult]:
     """
     Gets information about the specified DDoS protection plan.
 
@@ -198,7 +198,7 @@ def get_ddos_protection_plan_output(ddos_protection_plan_name: Optional[pulumi.I
     __args__ = dict()
     __args__['ddosProtectionPlanName'] = ddos_protection_plan_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:getDdosProtectionPlan', __args__, opts=opts, typ=GetDdosProtectionPlanResult)
     return __ret__.apply(lambda __response__: GetDdosProtectionPlanResult(
         etag=pulumi.get(__response__, 'etag'),

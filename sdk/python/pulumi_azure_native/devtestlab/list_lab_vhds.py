@@ -86,7 +86,7 @@ def list_lab_vhds(name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_lab_vhds_output(name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLabVhdsResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLabVhdsResult]:
     """
     List disk images available for custom image creation.
     Azure REST API version: 2018-09-15.
@@ -100,7 +100,7 @@ def list_lab_vhds_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:listLabVhds', __args__, opts=opts, typ=ListLabVhdsResult)
     return __ret__.apply(lambda __response__: ListLabVhdsResult(
         next_link=pulumi.get(__response__, 'next_link'),

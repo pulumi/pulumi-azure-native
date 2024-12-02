@@ -152,7 +152,7 @@ def get_certificate(certificate_id: Optional[str] = None,
 def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            service_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Gets the details of the certificate specified by its identifier.
 
@@ -165,7 +165,7 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
     __args__['certificateId'] = certificate_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240601preview:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
         expiration_date=pulumi.get(__response__, 'expiration_date'),

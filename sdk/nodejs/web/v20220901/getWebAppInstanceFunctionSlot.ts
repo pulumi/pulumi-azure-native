@@ -112,7 +112,7 @@ export interface GetWebAppInstanceFunctionSlotResult {
 /**
  * Description for Get function information by its ID for web site, or a deployment slot.
  */
-export function getWebAppInstanceFunctionSlotOutput(args: GetWebAppInstanceFunctionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppInstanceFunctionSlotResult> {
+export function getWebAppInstanceFunctionSlotOutput(args: GetWebAppInstanceFunctionSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppInstanceFunctionSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20220901:getWebAppInstanceFunctionSlot", {
         "functionName": args.functionName,

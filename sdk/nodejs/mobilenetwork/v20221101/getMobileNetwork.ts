@@ -73,7 +73,7 @@ export interface GetMobileNetworkResult {
 /**
  * Gets information about the specified mobile network.
  */
-export function getMobileNetworkOutput(args: GetMobileNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMobileNetworkResult> {
+export function getMobileNetworkOutput(args: GetMobileNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMobileNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20221101:getMobileNetwork", {
         "mobileNetworkName": args.mobileNetworkName,

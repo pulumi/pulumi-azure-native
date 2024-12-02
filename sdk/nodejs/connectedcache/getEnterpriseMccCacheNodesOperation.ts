@@ -72,7 +72,7 @@ export interface GetEnterpriseMccCacheNodesOperationResult {
  * This api gets ispCacheNode resource information
  * Azure REST API version: 2023-05-01-preview.
  */
-export function getEnterpriseMccCacheNodesOperationOutput(args: GetEnterpriseMccCacheNodesOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseMccCacheNodesOperationResult> {
+export function getEnterpriseMccCacheNodesOperationOutput(args: GetEnterpriseMccCacheNodesOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterpriseMccCacheNodesOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedcache:getEnterpriseMccCacheNodesOperation", {
         "cacheNodeResourceName": args.cacheNodeResourceName,

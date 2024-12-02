@@ -47,7 +47,7 @@ export interface ListBotSecretsResult {
  *
  * Other available API versions: 2024-02-01.
  */
-export function listBotSecretsOutput(args: ListBotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotSecretsResult> {
+export function listBotSecretsOutput(args: ListBotSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBotSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthbot:listBotSecrets", {
         "botName": args.botName,

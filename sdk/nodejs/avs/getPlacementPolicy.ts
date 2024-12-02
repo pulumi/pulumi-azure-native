@@ -69,7 +69,7 @@ export interface GetPlacementPolicyResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function getPlacementPolicyOutput(args: GetPlacementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementPolicyResult> {
+export function getPlacementPolicyOutput(args: GetPlacementPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlacementPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getPlacementPolicy", {
         "clusterName": args.clusterName,

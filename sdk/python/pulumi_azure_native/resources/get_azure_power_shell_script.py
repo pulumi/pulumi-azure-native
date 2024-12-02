@@ -358,7 +358,7 @@ def get_azure_power_shell_script(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_azure_power_shell_script_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         script_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzurePowerShellScriptResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzurePowerShellScriptResult]:
     """
     Gets a deployment script with a given name.
     Azure REST API version: 2020-10-01.
@@ -370,7 +370,7 @@ def get_azure_power_shell_script_output(resource_group_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['scriptName'] = script_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getAzurePowerShellScript', __args__, opts=opts, typ=GetAzurePowerShellScriptResult)
     return __ret__.apply(lambda __response__: GetAzurePowerShellScriptResult(
         arguments=pulumi.get(__response__, 'arguments'),

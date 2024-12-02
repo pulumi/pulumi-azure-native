@@ -68,7 +68,7 @@ export interface GetBandwidthSettingResult {
  * Returns the properties of the specified bandwidth setting name.
  * Azure REST API version: 2017-06-01.
  */
-export function getBandwidthSettingOutput(args: GetBandwidthSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBandwidthSettingResult> {
+export function getBandwidthSettingOutput(args: GetBandwidthSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBandwidthSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple:getBandwidthSetting", {
         "bandwidthSettingName": args.bandwidthSettingName,

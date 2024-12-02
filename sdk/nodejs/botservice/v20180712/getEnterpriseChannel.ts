@@ -73,7 +73,7 @@ export interface GetEnterpriseChannelResult {
 /**
  * Returns an Enterprise Channel specified by the parameters.
  */
-export function getEnterpriseChannelOutput(args: GetEnterpriseChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseChannelResult> {
+export function getEnterpriseChannelOutput(args: GetEnterpriseChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterpriseChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice/v20180712:getEnterpriseChannel", {
         "resourceGroupName": args.resourceGroupName,

@@ -69,7 +69,7 @@ def get_global_user_operation_status(operation_url: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'))
 def get_global_user_operation_status_output(operation_url: Optional[pulumi.Input[str]] = None,
                                             user_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserOperationStatusResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalUserOperationStatusResult]:
     """
     Gets the status of long running operation
 
@@ -80,7 +80,7 @@ def get_global_user_operation_status_output(operation_url: Optional[pulumi.Input
     __args__ = dict()
     __args__['operationUrl'] = operation_url
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices/v20181015:getGlobalUserOperationStatus', __args__, opts=opts, typ=GetGlobalUserOperationStatusResult)
     return __ret__.apply(lambda __response__: GetGlobalUserOperationStatusResult(
         status=pulumi.get(__response__, 'status')))

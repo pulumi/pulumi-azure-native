@@ -54,7 +54,7 @@ export interface GetProjectCatalogSyncErrorDetailsResult {
 /**
  * Gets project catalog synchronization error details
  */
-export function getProjectCatalogSyncErrorDetailsOutput(args: GetProjectCatalogSyncErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogSyncErrorDetailsResult> {
+export function getProjectCatalogSyncErrorDetailsOutput(args: GetProjectCatalogSyncErrorDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectCatalogSyncErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240601preview:getProjectCatalogSyncErrorDetails", {
         "catalogName": args.catalogName,

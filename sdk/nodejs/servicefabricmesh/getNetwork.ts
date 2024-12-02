@@ -67,7 +67,7 @@ export interface GetNetworkResult {
  *
  * Other available API versions: 2018-07-01-preview.
  */
-export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkResult> {
+export function getNetworkOutput(args: GetNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh:getNetwork", {
         "networkResourceName": args.networkResourceName,

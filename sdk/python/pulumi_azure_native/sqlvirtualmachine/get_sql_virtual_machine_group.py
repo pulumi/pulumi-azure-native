@@ -229,7 +229,7 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[str] = None,
         wsfc_domain_profile=pulumi.get(__ret__, 'wsfc_domain_profile'))
 def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                          sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlVirtualMachineGroupResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlVirtualMachineGroupResult]:
     """
     Gets a SQL virtual machine group.
     Azure REST API version: 2022-02-01.
@@ -243,7 +243,7 @@ def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.In
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlVirtualMachineGroupName'] = sql_virtual_machine_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sqlvirtualmachine:getSqlVirtualMachineGroup', __args__, opts=opts, typ=GetSqlVirtualMachineGroupResult)
     return __ret__.apply(lambda __response__: GetSqlVirtualMachineGroupResult(
         cluster_configuration=pulumi.get(__response__, 'cluster_configuration'),

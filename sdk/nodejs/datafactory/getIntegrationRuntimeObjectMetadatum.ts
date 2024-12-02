@@ -57,7 +57,7 @@ export interface GetIntegrationRuntimeObjectMetadatumResult {
  * Get a SSIS integration runtime object metadata by specified path. The return is pageable metadata list.
  * Azure REST API version: 2018-06-01.
  */
-export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {
+export function getIntegrationRuntimeObjectMetadatumOutput(args: GetIntegrationRuntimeObjectMetadatumOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationRuntimeObjectMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getIntegrationRuntimeObjectMetadatum", {
         "factoryName": args.factoryName,

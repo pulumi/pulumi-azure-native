@@ -149,7 +149,7 @@ def get_dynamo_db_continuous_backups_description(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_dynamo_db_continuous_backups_description_output(name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDynamoDbContinuousBackupsDescriptionResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDynamoDbContinuousBackupsDescriptionResult]:
     """
     Get a DynamoDBContinuousBackupsDescription
     Azure REST API version: 2024-12-01.
@@ -161,7 +161,7 @@ def get_dynamo_db_continuous_backups_description_output(name: Optional[pulumi.In
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector:getDynamoDbContinuousBackupsDescription', __args__, opts=opts, typ=GetDynamoDbContinuousBackupsDescriptionResult)
     return __ret__.apply(lambda __response__: GetDynamoDbContinuousBackupsDescriptionResult(
         id=pulumi.get(__response__, 'id'),

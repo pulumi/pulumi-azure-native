@@ -83,7 +83,7 @@ export interface GetNetworkinterfaceRetrieveResult {
 /**
  * Gets network interfaces by resource name
  */
-export function getNetworkinterfaceRetrieveOutput(args: GetNetworkinterfaceRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkinterfaceRetrieveResult> {
+export function getNetworkinterfaceRetrieveOutput(args: GetNetworkinterfaceRetrieveOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkinterfaceRetrieveResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20210901preview:getNetworkinterfaceRetrieve", {
         "networkinterfacesName": args.networkinterfacesName,

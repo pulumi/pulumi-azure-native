@@ -67,7 +67,7 @@ export interface GetAccessAnalyzerAnalyzerResult {
  * Get a AccessAnalyzerAnalyzer
  * Azure REST API version: 2024-12-01.
  */
-export function getAccessAnalyzerAnalyzerOutput(args: GetAccessAnalyzerAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessAnalyzerAnalyzerResult> {
+export function getAccessAnalyzerAnalyzerOutput(args: GetAccessAnalyzerAnalyzerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessAnalyzerAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getAccessAnalyzerAnalyzer", {
         "name": args.name,

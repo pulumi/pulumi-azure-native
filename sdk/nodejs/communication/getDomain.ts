@@ -104,7 +104,7 @@ export interface GetDomainResult {
  *
  * Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
  */
-export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:communication:getDomain", {
         "domainName": args.domainName,

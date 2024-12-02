@@ -100,7 +100,7 @@ def list_access_role_bindings(organization_name: Optional[str] = None,
 def list_access_role_bindings_output(organization_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      search_filters: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccessRoleBindingsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessRoleBindingsResult]:
     """
     List cluster success response
 
@@ -113,7 +113,7 @@ def list_access_role_bindings_output(organization_name: Optional[pulumi.Input[st
     __args__['organizationName'] = organization_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchFilters'] = search_filters
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:confluent/v20230822:listAccessRoleBindings', __args__, opts=opts, typ=ListAccessRoleBindingsResult)
     return __ret__.apply(lambda __response__: ListAccessRoleBindingsResult(
         data=pulumi.get(__response__, 'data'),

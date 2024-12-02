@@ -100,7 +100,7 @@ def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                          type: Optional[pulumi.Input[Optional[str]]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionConsentLinksResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectionConsentLinksResult]:
     """
     Lists consent links of a connection.
 
@@ -125,7 +125,7 @@ def list_connection_consent_links_output(connection_name: Optional[pulumi.Input[
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20150801preview:listConnectionConsentLinks', __args__, opts=opts, typ=ListConnectionConsentLinksResult)
     return __ret__.apply(lambda __response__: ListConnectionConsentLinksResult(
         value=pulumi.get(__response__, 'value')))

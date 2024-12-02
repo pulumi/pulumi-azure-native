@@ -73,7 +73,7 @@ export interface GetProvisionedClusterResult {
  *
  * Other available API versions: 2022-05-01-preview.
  */
-export function getProvisionedClusterOutput(args: GetProvisionedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisionedClusterResult> {
+export function getProvisionedClusterOutput(args: GetProvisionedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProvisionedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice:getProvisionedCluster", {
         "resourceGroupName": args.resourceGroupName,

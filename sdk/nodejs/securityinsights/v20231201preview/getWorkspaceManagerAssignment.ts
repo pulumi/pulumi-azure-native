@@ -78,7 +78,7 @@ export interface GetWorkspaceManagerAssignmentResult {
 /**
  * Gets a workspace manager assignment
  */
-export function getWorkspaceManagerAssignmentOutput(args: GetWorkspaceManagerAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerAssignmentResult> {
+export function getWorkspaceManagerAssignmentOutput(args: GetWorkspaceManagerAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceManagerAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231201preview:getWorkspaceManagerAssignment", {
         "resourceGroupName": args.resourceGroupName,

@@ -143,7 +143,7 @@ export interface GetServerEndpointResult {
 /**
  * Get a ServerEndpoint.
  */
-export function getServerEndpointOutput(args: GetServerEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerEndpointResult> {
+export function getServerEndpointOutput(args: GetServerEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagesync/v20220601:getServerEndpoint", {
         "resourceGroupName": args.resourceGroupName,

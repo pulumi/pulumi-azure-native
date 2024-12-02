@@ -147,7 +147,7 @@ def get_network_watcher(network_watcher_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_network_watcher_output(network_watcher_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkWatcherResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkWatcherResult]:
     """
     Gets the specified network watcher by resource group.
 
@@ -158,7 +158,7 @@ def get_network_watcher_output(network_watcher_name: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['networkWatcherName'] = network_watcher_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getNetworkWatcher', __args__, opts=opts, typ=GetNetworkWatcherResult)
     return __ret__.apply(lambda __response__: GetNetworkWatcherResult(
         etag=pulumi.get(__response__, 'etag'),

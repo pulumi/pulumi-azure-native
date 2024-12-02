@@ -243,7 +243,7 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
 def get_distributed_availability_group_output(distributed_availability_group_name: Optional[pulumi.Input[str]] = None,
                                               managed_instance_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributedAvailabilityGroupResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributedAvailabilityGroupResult]:
     """
     Gets a distributed availability group info.
 
@@ -256,7 +256,7 @@ def get_distributed_availability_group_output(distributed_availability_group_nam
     __args__['distributedAvailabilityGroupName'] = distributed_availability_group_name
     __args__['managedInstanceName'] = managed_instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getDistributedAvailabilityGroup', __args__, opts=opts, typ=GetDistributedAvailabilityGroupResult)
     return __ret__.apply(lambda __response__: GetDistributedAvailabilityGroupResult(
         databases=pulumi.get(__response__, 'databases'),

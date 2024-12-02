@@ -108,7 +108,7 @@ export interface GetDiagnosticServiceResult {
  * Get a DiagnosticServiceResource
  * Azure REST API version: 2023-10-04-preview.
  */
-export function getDiagnosticServiceOutput(args: GetDiagnosticServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticServiceResult> {
+export function getDiagnosticServiceOutput(args: GetDiagnosticServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq:getDiagnosticService", {
         "diagnosticServiceName": args.diagnosticServiceName,

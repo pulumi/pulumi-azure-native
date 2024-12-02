@@ -79,7 +79,7 @@ export interface GetInferenceGroupDeltaModelsStatusAsyncResult {
  * Contract returning to user the delta models.
  * Azure REST API version: 2024-10-01-preview.
  */
-export function getInferenceGroupDeltaModelsStatusAsyncOutput(args: GetInferenceGroupDeltaModelsStatusAsyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceGroupDeltaModelsStatusAsyncResult> {
+export function getInferenceGroupDeltaModelsStatusAsyncOutput(args: GetInferenceGroupDeltaModelsStatusAsyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceGroupDeltaModelsStatusAsyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getInferenceGroupDeltaModelsStatusAsync", {
         "deltaModels": args.deltaModels,

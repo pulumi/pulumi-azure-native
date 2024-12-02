@@ -79,7 +79,7 @@ export interface GetPrivateLinkServicesForM365ComplianceCenterResult {
  * Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
  * Azure REST API version: 2021-03-25-preview.
  */
-export function getPrivateLinkServicesForM365ComplianceCenterOutput(args: GetPrivateLinkServicesForM365ComplianceCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForM365ComplianceCenterResult> {
+export function getPrivateLinkServicesForM365ComplianceCenterOutput(args: GetPrivateLinkServicesForM365ComplianceCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkServicesForM365ComplianceCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance:getPrivateLinkServicesForM365ComplianceCenter", {
         "resourceGroupName": args.resourceGroupName,

@@ -67,7 +67,7 @@ export interface GetEc2AccountAttributeResult {
  * Get a Ec2AccountAttribute
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2AccountAttributeOutput(args: GetEc2AccountAttributeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2AccountAttributeResult> {
+export function getEc2AccountAttributeOutput(args: GetEc2AccountAttributeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2AccountAttributeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2AccountAttribute", {
         "name": args.name,

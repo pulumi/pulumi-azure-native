@@ -148,7 +148,7 @@ def get_firewall_log_profile(firewall_name: Optional[str] = None,
         traffic_log_destination=pulumi.get(__ret__, 'traffic_log_destination'))
 def get_firewall_log_profile_output(firewall_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallLogProfileResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallLogProfileResult]:
     """
     Log Profile for Firewall
 
@@ -159,7 +159,7 @@ def get_firewall_log_profile_output(firewall_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['firewallName'] = firewall_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20230901:getFirewallLogProfile', __args__, opts=opts, typ=GetFirewallLogProfileResult)
     return __ret__.apply(lambda __response__: GetFirewallLogProfileResult(
         application_insights=pulumi.get(__response__, 'application_insights'),

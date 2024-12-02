@@ -74,7 +74,7 @@ export interface GetControllerDetailsResult {
 /**
  * Gets details about the specified dnc controller.
  */
-export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerDetailsResult> {
+export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetControllerDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:delegatednetwork/v20210315:getControllerDetails", {
         "resourceGroupName": args.resourceGroupName,

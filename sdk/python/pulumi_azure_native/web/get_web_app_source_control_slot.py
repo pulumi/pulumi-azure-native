@@ -207,7 +207,7 @@ def get_web_app_source_control_slot(name: Optional[str] = None,
 def get_web_app_source_control_slot_output(name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            slot: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSourceControlSlotResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSourceControlSlotResult]:
     """
     Description for Gets the source control configuration of an app.
     Azure REST API version: 2022-09-01.
@@ -223,7 +223,7 @@ def get_web_app_source_control_slot_output(name: Optional[pulumi.Input[str]] = N
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppSourceControlSlot', __args__, opts=opts, typ=GetWebAppSourceControlSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppSourceControlSlotResult(
         branch=pulumi.get(__response__, 'branch'),

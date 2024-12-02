@@ -72,7 +72,7 @@ export interface GetApiReleaseResult {
 /**
  * Returns the details of an API release.
  */
-export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiReleaseResult> {
+export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiReleaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:getApiRelease", {
         "apiId": args.apiId,

@@ -101,7 +101,7 @@ export interface GetVolumeResult {
 /**
  * Returns the properties of the specified volume name.
  */
-export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
+export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getVolume", {
         "deviceName": args.deviceName,

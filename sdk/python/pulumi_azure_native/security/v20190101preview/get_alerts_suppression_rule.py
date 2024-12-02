@@ -183,7 +183,7 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[str] = No
         suppression_alerts_scope=pulumi.get(__ret__, 'suppression_alerts_scope'),
         type=pulumi.get(__ret__, 'type'))
 def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertsSuppressionRuleResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertsSuppressionRuleResult]:
     """
     Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
 
@@ -192,7 +192,7 @@ def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pu
     """
     __args__ = dict()
     __args__['alertsSuppressionRuleName'] = alerts_suppression_rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20190101preview:getAlertsSuppressionRule', __args__, opts=opts, typ=GetAlertsSuppressionRuleResult)
     return __ret__.apply(lambda __response__: GetAlertsSuppressionRuleResult(
         alert_type=pulumi.get(__response__, 'alert_type'),

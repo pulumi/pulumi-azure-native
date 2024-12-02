@@ -204,7 +204,7 @@ def get_security_user_configuration(configuration_name: Optional[str] = None,
 def get_security_user_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
                                            network_manager_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityUserConfigurationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityUserConfigurationResult]:
     """
     Retrieves a network manager security user configuration.
 
@@ -217,7 +217,7 @@ def get_security_user_configuration_output(configuration_name: Optional[pulumi.I
     __args__['configurationName'] = configuration_name
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20210501preview:getSecurityUserConfiguration', __args__, opts=opts, typ=GetSecurityUserConfigurationResult)
     return __ret__.apply(lambda __response__: GetSecurityUserConfigurationResult(
         apply_on_network_intent_policy_based_services=pulumi.get(__response__, 'apply_on_network_intent_policy_based_services'),

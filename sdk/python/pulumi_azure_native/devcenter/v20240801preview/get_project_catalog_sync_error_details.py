@@ -100,7 +100,7 @@ def get_project_catalog_sync_error_details(catalog_name: Optional[str] = None,
 def get_project_catalog_sync_error_details_output(catalog_name: Optional[pulumi.Input[str]] = None,
                                                   project_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectCatalogSyncErrorDetailsResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectCatalogSyncErrorDetailsResult]:
     """
     Gets project catalog synchronization error details
 
@@ -113,7 +113,7 @@ def get_project_catalog_sync_error_details_output(catalog_name: Optional[pulumi.
     __args__['catalogName'] = catalog_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240801preview:getProjectCatalogSyncErrorDetails', __args__, opts=opts, typ=GetProjectCatalogSyncErrorDetailsResult)
     return __ret__.apply(lambda __response__: GetProjectCatalogSyncErrorDetailsResult(
         conflicts=pulumi.get(__response__, 'conflicts'),

@@ -238,7 +238,7 @@ def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[str]
                                      gallery_image_version_name: Optional[pulumi.Input[str]] = None,
                                      gallery_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageVersionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryImageVersionResult]:
     """
     Retrieves information about a gallery image version.
 
@@ -255,7 +255,7 @@ def get_gallery_image_version_output(expand: Optional[pulumi.Input[Optional[str]
     __args__['galleryImageVersionName'] = gallery_image_version_name
     __args__['galleryName'] = gallery_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240303:getGalleryImageVersion', __args__, opts=opts, typ=GetGalleryImageVersionResult)
     return __ret__.apply(lambda __response__: GetGalleryImageVersionResult(
         id=pulumi.get(__response__, 'id'),

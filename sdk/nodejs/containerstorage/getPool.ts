@@ -91,7 +91,7 @@ export interface GetPoolResult {
  * Get a Pool
  * Azure REST API version: 2023-07-01-preview.
  */
-export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
+export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerstorage:getPool", {
         "poolName": args.poolName,

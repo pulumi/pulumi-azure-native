@@ -80,7 +80,7 @@ export interface GetNotificationHubResult {
  *
  * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
  */
-export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubResult> {
+export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs:getNotificationHub", {
         "namespaceName": args.namespaceName,

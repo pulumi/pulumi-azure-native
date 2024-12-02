@@ -50,7 +50,7 @@ export interface GetAdvancedThreatProtectionResult {
 /**
  * Gets the Advanced Threat Protection settings for the specified resource.
  */
-export function getAdvancedThreatProtectionOutput(args: GetAdvancedThreatProtectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdvancedThreatProtectionResult> {
+export function getAdvancedThreatProtectionOutput(args: GetAdvancedThreatProtectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAdvancedThreatProtectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20190101:getAdvancedThreatProtection", {
         "resourceId": args.resourceId,

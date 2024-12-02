@@ -168,7 +168,7 @@ def get_workspace_api_version_set_output(resource_group_name: Optional[pulumi.In
                                          service_name: Optional[pulumi.Input[str]] = None,
                                          version_set_id: Optional[pulumi.Input[str]] = None,
                                          workspace_id: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceApiVersionSetResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceApiVersionSetResult]:
     """
     Gets the details of the Api Version Set specified by its identifier.
 
@@ -183,7 +183,7 @@ def get_workspace_api_version_set_output(resource_group_name: Optional[pulumi.In
     __args__['serviceName'] = service_name
     __args__['versionSetId'] = version_set_id
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getWorkspaceApiVersionSet', __args__, opts=opts, typ=GetWorkspaceApiVersionSetResult)
     return __ret__.apply(lambda __response__: GetWorkspaceApiVersionSetResult(
         description=pulumi.get(__response__, 'description'),

@@ -80,7 +80,7 @@ def list_cluster_callout_policies(cluster_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_cluster_callout_policies_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterCalloutPoliciesResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterCalloutPoliciesResult]:
     """
     Returns the allowed callout policies for the specified service.
 
@@ -91,7 +91,7 @@ def list_cluster_callout_policies_output(cluster_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20240413:listClusterCalloutPolicies', __args__, opts=opts, typ=ListClusterCalloutPoliciesResult)
     return __ret__.apply(lambda __response__: ListClusterCalloutPoliciesResult(
         next_link=pulumi.get(__response__, 'next_link'),

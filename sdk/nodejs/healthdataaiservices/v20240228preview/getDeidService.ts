@@ -69,7 +69,7 @@ export interface GetDeidServiceResult {
 /**
  * Get a DeidService
  */
-export function getDeidServiceOutput(args: GetDeidServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeidServiceResult> {
+export function getDeidServiceOutput(args: GetDeidServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeidServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthdataaiservices/v20240228preview:getDeidService", {
         "deidServiceName": args.deidServiceName,

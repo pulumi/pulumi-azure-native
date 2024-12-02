@@ -277,7 +277,7 @@ def get_virtual_machine_schedule_output(expand: Optional[pulumi.Input[Optional[s
                                         name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         virtual_machine_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScheduleResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScheduleResult]:
     """
     Get schedule.
 
@@ -294,7 +294,7 @@ def get_virtual_machine_schedule_output(expand: Optional[pulumi.Input[Optional[s
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineName'] = virtual_machine_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getVirtualMachineSchedule', __args__, opts=opts, typ=GetVirtualMachineScheduleResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineScheduleResult(
         created_date=pulumi.get(__response__, 'created_date'),

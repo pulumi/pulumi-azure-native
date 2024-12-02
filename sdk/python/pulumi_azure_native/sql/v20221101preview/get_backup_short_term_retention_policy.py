@@ -129,7 +129,7 @@ def get_backup_short_term_retention_policy_output(database_name: Optional[pulumi
                                                   policy_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   server_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupShortTermRetentionPolicyResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupShortTermRetentionPolicyResult]:
     """
     Gets a database's short term retention policy.
 
@@ -144,7 +144,7 @@ def get_backup_short_term_retention_policy_output(database_name: Optional[pulumi
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20221101preview:getBackupShortTermRetentionPolicy', __args__, opts=opts, typ=GetBackupShortTermRetentionPolicyResult)
     return __ret__.apply(lambda __response__: GetBackupShortTermRetentionPolicyResult(
         diff_backup_interval_in_hours=pulumi.get(__response__, 'diff_backup_interval_in_hours'),

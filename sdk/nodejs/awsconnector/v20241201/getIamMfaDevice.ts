@@ -65,7 +65,7 @@ export interface GetIamMfaDeviceResult {
 /**
  * Get a IamMFADevice
  */
-export function getIamMfaDeviceOutput(args: GetIamMfaDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamMfaDeviceResult> {
+export function getIamMfaDeviceOutput(args: GetIamMfaDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamMfaDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamMfaDevice", {
         "name": args.name,

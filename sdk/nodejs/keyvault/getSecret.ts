@@ -72,7 +72,7 @@ export interface GetSecretResult {
  *
  * Other available API versions: 2023-07-01, 2024-04-01-preview.
  */
-export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
+export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:keyvault:getSecret", {
         "resourceGroupName": args.resourceGroupName,

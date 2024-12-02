@@ -73,7 +73,7 @@ def list_identity_provider_secrets(identity_provider_name: Optional[str] = None,
 def list_identity_provider_secrets_output(identity_provider_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           service_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIdentityProviderSecretsResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIdentityProviderSecretsResult]:
     """
     Gets the client secret details of the Identity Provider.
 
@@ -86,7 +86,7 @@ def list_identity_provider_secrets_output(identity_provider_name: Optional[pulum
     __args__['identityProviderName'] = identity_provider_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20240601preview:listIdentityProviderSecrets', __args__, opts=opts, typ=ListIdentityProviderSecretsResult)
     return __ret__.apply(lambda __response__: ListIdentityProviderSecretsResult(
         client_secret=pulumi.get(__response__, 'client_secret')))

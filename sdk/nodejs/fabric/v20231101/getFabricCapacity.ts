@@ -77,7 +77,7 @@ export interface GetFabricCapacityResult {
 /**
  * Get a FabricCapacity
  */
-export function getFabricCapacityOutput(args: GetFabricCapacityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFabricCapacityResult> {
+export function getFabricCapacityOutput(args: GetFabricCapacityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFabricCapacityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:fabric/v20231101:getFabricCapacity", {
         "capacityName": args.capacityName,

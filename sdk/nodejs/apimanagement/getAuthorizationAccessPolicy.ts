@@ -75,7 +75,7 @@ export interface GetAuthorizationAccessPolicyResult {
  *
  * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getAuthorizationAccessPolicyOutput(args: GetAuthorizationAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationAccessPolicyResult> {
+export function getAuthorizationAccessPolicyOutput(args: GetAuthorizationAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getAuthorizationAccessPolicy", {
         "authorizationAccessPolicyId": args.authorizationAccessPolicyId,

@@ -107,7 +107,7 @@ export interface GetReadOnlyFollowingDatabaseResult {
 /**
  * Returns a database.
  */
-export function getReadOnlyFollowingDatabaseOutput(args: GetReadOnlyFollowingDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadOnlyFollowingDatabaseResult> {
+export function getReadOnlyFollowingDatabaseOutput(args: GetReadOnlyFollowingDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReadOnlyFollowingDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto/v20230815:getReadOnlyFollowingDatabase", {
         "clusterName": args.clusterName,

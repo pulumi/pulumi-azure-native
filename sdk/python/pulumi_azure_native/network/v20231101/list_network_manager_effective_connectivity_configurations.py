@@ -91,7 +91,7 @@ def list_network_manager_effective_connectivity_configurations_output(resource_g
                                                                       skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                                       top: Optional[pulumi.Input[Optional[int]]] = None,
                                                                       virtual_network_name: Optional[pulumi.Input[str]] = None,
-                                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNetworkManagerEffectiveConnectivityConfigurationsResult]:
+                                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNetworkManagerEffectiveConnectivityConfigurationsResult]:
     """
     List all effective connectivity configurations applied on a virtual network.
 
@@ -106,7 +106,7 @@ def list_network_manager_effective_connectivity_configurations_output(resource_g
     __args__['skipToken'] = skip_token
     __args__['top'] = top
     __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20231101:listNetworkManagerEffectiveConnectivityConfigurations', __args__, opts=opts, typ=ListNetworkManagerEffectiveConnectivityConfigurationsResult)
     return __ret__.apply(lambda __response__: ListNetworkManagerEffectiveConnectivityConfigurationsResult(
         skip_token=pulumi.get(__response__, 'skip_token'),

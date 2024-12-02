@@ -117,7 +117,7 @@ export interface GetVpnServerConfigurationResult {
 /**
  * Retrieves the details of a VpnServerConfiguration.
  */
-export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnServerConfigurationResult> {
+export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnServerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getVpnServerConfiguration", {
         "resourceGroupName": args.resourceGroupName,

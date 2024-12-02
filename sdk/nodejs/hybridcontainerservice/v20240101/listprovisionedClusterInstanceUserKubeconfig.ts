@@ -50,7 +50,7 @@ export interface ListprovisionedClusterInstanceUserKubeconfigResult {
 /**
  * Lists the user credentials of the provisioned cluster (can only be used within private network)
  */
-export function listprovisionedClusterInstanceUserKubeconfigOutput(args: ListprovisionedClusterInstanceUserKubeconfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListprovisionedClusterInstanceUserKubeconfigResult> {
+export function listprovisionedClusterInstanceUserKubeconfigOutput(args: ListprovisionedClusterInstanceUserKubeconfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListprovisionedClusterInstanceUserKubeconfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20240101:listprovisionedClusterInstanceUserKubeconfig", {
         "connectedClusterResourceUri": args.connectedClusterResourceUri,

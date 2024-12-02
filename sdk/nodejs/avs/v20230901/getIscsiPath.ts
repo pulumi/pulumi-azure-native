@@ -61,7 +61,7 @@ export interface GetIscsiPathResult {
 /**
  * Get a IscsiPath
  */
-export function getIscsiPathOutput(args: GetIscsiPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiPathResult> {
+export function getIscsiPathOutput(args: GetIscsiPathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIscsiPathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getIscsiPath", {
         "privateCloudName": args.privateCloudName,

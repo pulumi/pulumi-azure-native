@@ -102,7 +102,7 @@ export interface ListChannelWithKeysResult {
 /**
  * Lists a Channel registration for a Bot Service including secrets
  */
-export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListChannelWithKeysResult> {
+export function listChannelWithKeysOutput(args: ListChannelWithKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListChannelWithKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice/v20230915preview:listChannelWithKeys", {
         "channelName": args.channelName,

@@ -47,7 +47,7 @@ export interface ListMongoClusterConnectionStringsResult {
  *
  * Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview, 2024-03-01-preview, 2024-06-01-preview, 2024-07-01.
  */
-export function listMongoClusterConnectionStringsOutput(args: ListMongoClusterConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMongoClusterConnectionStringsResult> {
+export function listMongoClusterConnectionStringsOutput(args: ListMongoClusterConnectionStringsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMongoClusterConnectionStringsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb:listMongoClusterConnectionStrings", {
         "mongoClusterName": args.mongoClusterName,

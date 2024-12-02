@@ -79,7 +79,7 @@ export interface GetStaticMemberResult {
 /**
  * Gets the specified static member.
  */
-export function getStaticMemberOutput(args: GetStaticMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticMemberResult> {
+export function getStaticMemberOutput(args: GetStaticMemberOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticMemberResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getStaticMember", {
         "networkGroupName": args.networkGroupName,

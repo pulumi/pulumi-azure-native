@@ -83,7 +83,7 @@ export interface GetFavoriteResult {
 /**
  * Get a single favorite by its FavoriteId, defined within an Application Insights component.
  */
-export function getFavoriteOutput(args: GetFavoriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteResult> {
+export function getFavoriteOutput(args: GetFavoriteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFavoriteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20150501:getFavorite", {
         "favoriteId": args.favoriteId,

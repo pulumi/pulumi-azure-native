@@ -159,7 +159,7 @@ export interface GetWebPubSubResult {
 /**
  * Get the resource and its properties.
  */
-export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubResult> {
+export function getWebPubSubOutput(args: GetWebPubSubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebPubSubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20240101preview:getWebPubSub", {
         "resourceGroupName": args.resourceGroupName,

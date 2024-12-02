@@ -52,7 +52,7 @@ export interface GetTestResultDownloadURLResult {
 /**
  * Gets the download URL of the test result.
  */
-export function getTestResultDownloadURLOutput(args: GetTestResultDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultDownloadURLResult> {
+export function getTestResultDownloadURLOutput(args: GetTestResultDownloadURLOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestResultDownloadURLResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getTestResultDownloadURL", {
         "packageName": args.packageName,

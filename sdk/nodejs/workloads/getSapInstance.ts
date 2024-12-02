@@ -92,7 +92,7 @@ export interface GetSapInstanceResult {
  * Gets the SAP Instance resource.
  * Azure REST API version: 2023-10-01-preview.
  */
-export function getSapInstanceOutput(args: GetSapInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapInstanceResult> {
+export function getSapInstanceOutput(args: GetSapInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getSapInstance", {
         "resourceGroupName": args.resourceGroupName,

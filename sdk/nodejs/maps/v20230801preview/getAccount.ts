@@ -77,7 +77,7 @@ export interface GetAccountResult {
 /**
  * Get a Maps Account.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maps/v20230801preview:getAccount", {
         "accountName": args.accountName,

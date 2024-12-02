@@ -104,7 +104,7 @@ export interface GetIntegrationAccountAgreementResult {
  *
  * Other available API versions: 2015-08-01-preview.
  */
-export function getIntegrationAccountAgreementOutput(args: GetIntegrationAccountAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountAgreementResult> {
+export function getIntegrationAccountAgreementOutput(args: GetIntegrationAccountAgreementOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountAgreementResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:getIntegrationAccountAgreement", {
         "agreementName": args.agreementName,

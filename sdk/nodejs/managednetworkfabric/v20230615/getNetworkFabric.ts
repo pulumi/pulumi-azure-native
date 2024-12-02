@@ -133,7 +133,7 @@ export interface GetNetworkFabricResult {
 /**
  * Get Network Fabric resource details.
  */
-export function getNetworkFabricOutput(args: GetNetworkFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFabricResult> {
+export function getNetworkFabricOutput(args: GetNetworkFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNetworkFabric", {
         "networkFabricName": args.networkFabricName,

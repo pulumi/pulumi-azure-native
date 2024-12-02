@@ -89,7 +89,7 @@ export interface ListEndpointIngressGatewayCredentialsResult {
  *
  * Other available API versions: 2024-12-01.
  */
-export function listEndpointIngressGatewayCredentialsOutput(args: ListEndpointIngressGatewayCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointIngressGatewayCredentialsResult> {
+export function listEndpointIngressGatewayCredentialsOutput(args: ListEndpointIngressGatewayCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointIngressGatewayCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity:listEndpointIngressGatewayCredentials", {
         "endpointName": args.endpointName,

@@ -76,7 +76,7 @@ export interface GetFactoryDataPlaneAccessResult {
  * Get Data Plane access.
  * Azure REST API version: 2018-06-01.
  */
-export function getFactoryDataPlaneAccessOutput(args: GetFactoryDataPlaneAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryDataPlaneAccessResult> {
+export function getFactoryDataPlaneAccessOutput(args: GetFactoryDataPlaneAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFactoryDataPlaneAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getFactoryDataPlaneAccess", {
         "accessResourcePath": args.accessResourcePath,

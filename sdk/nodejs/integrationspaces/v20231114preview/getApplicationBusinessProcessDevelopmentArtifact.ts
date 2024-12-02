@@ -59,7 +59,7 @@ export interface GetApplicationBusinessProcessDevelopmentArtifactResult {
 /**
  * The get business process development artifact action.
  */
-export function getApplicationBusinessProcessDevelopmentArtifactOutput(args: GetApplicationBusinessProcessDevelopmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationBusinessProcessDevelopmentArtifactResult> {
+export function getApplicationBusinessProcessDevelopmentArtifactOutput(args: GetApplicationBusinessProcessDevelopmentArtifactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationBusinessProcessDevelopmentArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:integrationspaces/v20231114preview:getApplicationBusinessProcessDevelopmentArtifact", {
         "applicationName": args.applicationName,

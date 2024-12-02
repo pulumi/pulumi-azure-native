@@ -73,7 +73,7 @@ export interface GetManagedInstanceKeyResult {
  *
  * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
-export function getManagedInstanceKeyOutput(args: GetManagedInstanceKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceKeyResult> {
+export function getManagedInstanceKeyOutput(args: GetManagedInstanceKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedInstanceKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql:getManagedInstanceKey", {
         "keyName": args.keyName,

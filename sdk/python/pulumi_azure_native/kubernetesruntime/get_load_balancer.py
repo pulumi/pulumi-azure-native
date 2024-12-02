@@ -177,7 +177,7 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = None,
                              resource_uri: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Get a LoadBalancer
     Azure REST API version: 2024-03-01.
@@ -191,7 +191,7 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['loadBalancerName'] = load_balancer_name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesruntime:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerResult(
         addresses=pulumi.get(__response__, 'addresses'),

@@ -134,7 +134,7 @@ export interface GetCustomIPPrefixResult {
 /**
  * Gets the specified custom IP prefix in a specified resource group.
  */
-export function getCustomIPPrefixOutput(args: GetCustomIPPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomIPPrefixResult> {
+export function getCustomIPPrefixOutput(args: GetCustomIPPrefixOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomIPPrefixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getCustomIPPrefix", {
         "customIpPrefixName": args.customIpPrefixName,

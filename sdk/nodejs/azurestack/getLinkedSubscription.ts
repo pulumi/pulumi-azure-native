@@ -99,7 +99,7 @@ export interface GetLinkedSubscriptionResult {
  * Returns the properties of a Linked Subscription resource.
  * Azure REST API version: 2020-06-01-preview.
  */
-export function getLinkedSubscriptionOutput(args: GetLinkedSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedSubscriptionResult> {
+export function getLinkedSubscriptionOutput(args: GetLinkedSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestack:getLinkedSubscription", {
         "linkedSubscriptionName": args.linkedSubscriptionName,

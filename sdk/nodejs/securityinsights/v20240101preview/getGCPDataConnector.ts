@@ -83,7 +83,7 @@ export interface GetGCPDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getGCPDataConnectorOutput(args: GetGCPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGCPDataConnectorResult> {
+export function getGCPDataConnectorOutput(args: GetGCPDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGCPDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getGCPDataConnector", {
         "dataConnectorId": args.dataConnectorId,

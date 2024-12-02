@@ -52,7 +52,7 @@ export interface GetSitesBySubscriptionResult {
 /**
  * Get a Site
  */
-export function getSitesBySubscriptionOutput(args: GetSitesBySubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesBySubscriptionResult> {
+export function getSitesBySubscriptionOutput(args: GetSitesBySubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSitesBySubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edge/v20240201preview:getSitesBySubscription", {
         "siteName": args.siteName,

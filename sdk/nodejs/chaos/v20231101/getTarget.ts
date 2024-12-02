@@ -76,7 +76,7 @@ export interface GetTargetResult {
 /**
  * Get a Target resource that extends a tracked regional resource.
  */
-export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetResult> {
+export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:chaos/v20231101:getTarget", {
         "parentProviderNamespace": args.parentProviderNamespace,

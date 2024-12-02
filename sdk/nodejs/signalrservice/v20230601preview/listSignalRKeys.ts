@@ -50,7 +50,7 @@ export interface ListSignalRKeysResult {
 /**
  * Get the access keys of the resource.
  */
-export function listSignalRKeysOutput(args: ListSignalRKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSignalRKeysResult> {
+export function listSignalRKeysOutput(args: ListSignalRKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSignalRKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:signalrservice/v20230601preview:listSignalRKeys", {
         "resourceGroupName": args.resourceGroupName,

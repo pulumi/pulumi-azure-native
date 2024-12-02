@@ -138,7 +138,7 @@ def get_server_trust_certificate(certificate_name: Optional[str] = None,
 def get_server_trust_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                                         managed_instance_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTrustCertificateResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerTrustCertificateResult]:
     """
     Gets a server trust certificate that was uploaded from SQL Server to SQL Managed Instance.
 
@@ -151,7 +151,7 @@ def get_server_trust_certificate_output(certificate_name: Optional[pulumi.Input[
     __args__['certificateName'] = certificate_name
     __args__['managedInstanceName'] = managed_instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20240501preview:getServerTrustCertificate', __args__, opts=opts, typ=GetServerTrustCertificateResult)
     return __ret__.apply(lambda __response__: GetServerTrustCertificateResult(
         certificate_name=pulumi.get(__response__, 'certificate_name'),

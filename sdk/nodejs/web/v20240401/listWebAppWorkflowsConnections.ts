@@ -61,7 +61,7 @@ export interface ListWebAppWorkflowsConnectionsResult {
 /**
  * Workflow properties definition.
  */
-export function listWebAppWorkflowsConnectionsOutput(args: ListWebAppWorkflowsConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppWorkflowsConnectionsResult> {
+export function listWebAppWorkflowsConnectionsOutput(args: ListWebAppWorkflowsConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppWorkflowsConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20240401:listWebAppWorkflowsConnections", {
         "name": args.name,

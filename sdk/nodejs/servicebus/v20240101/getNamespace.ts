@@ -125,7 +125,7 @@ export interface GetNamespaceResult {
 /**
  * Gets a description for the specified namespace.
  */
-export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
+export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20240101:getNamespace", {
         "namespaceName": args.namespaceName,

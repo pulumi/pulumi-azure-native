@@ -139,7 +139,7 @@ def get_api_portal(api_portal_name: Optional[str] = None,
 def get_api_portal_output(api_portal_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           service_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiPortalResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiPortalResult]:
     """
     Get the API portal and its properties.
 
@@ -152,7 +152,7 @@ def get_api_portal_output(api_portal_name: Optional[pulumi.Input[str]] = None,
     __args__['apiPortalName'] = api_portal_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20231201:getApiPortal', __args__, opts=opts, typ=GetApiPortalResult)
     return __ret__.apply(lambda __response__: GetApiPortalResult(
         id=pulumi.get(__response__, 'id'),

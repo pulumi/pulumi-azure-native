@@ -61,7 +61,7 @@ export interface ListIotDpsResourceKeysForKeyNameResult {
  *
  * Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
  */
-export function listIotDpsResourceKeysForKeyNameOutput(args: ListIotDpsResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotDpsResourceKeysForKeyNameResult> {
+export function listIotDpsResourceKeysForKeyNameOutput(args: ListIotDpsResourceKeysForKeyNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIotDpsResourceKeysForKeyNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices:listIotDpsResourceKeysForKeyName", {
         "keyName": args.keyName,

@@ -73,7 +73,7 @@ export interface GetManagerResult {
 /**
  * Returns the properties of the specified manager name.
  */
-export function getManagerOutput(args: GetManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerResult> {
+export function getManagerOutput(args: GetManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple/v20170601:getManager", {
         "managerName": args.managerName,

@@ -123,7 +123,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
 /**
  * The operation to get the run command.
  */
-export function getVirtualMachineRunCommandByVirtualMachineOutput(args: GetVirtualMachineRunCommandByVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineRunCommandByVirtualMachineResult> {
+export function getVirtualMachineRunCommandByVirtualMachineOutput(args: GetVirtualMachineRunCommandByVirtualMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineRunCommandByVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20230901:getVirtualMachineRunCommandByVirtualMachine", {
         "expand": args.expand,

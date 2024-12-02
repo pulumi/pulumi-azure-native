@@ -131,7 +131,7 @@ export interface GetProfileResult {
 /**
  * Gets information about the specified profile.
  */
-export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResult> {
+export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getProfile", {
         "hubName": args.hubName,

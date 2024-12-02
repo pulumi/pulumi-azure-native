@@ -74,7 +74,7 @@ export interface GetMachineLearningDatasetResult {
 /**
  * Get a Dataset by name.
  */
-export function getMachineLearningDatasetOutput(args: GetMachineLearningDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatasetResult> {
+export function getMachineLearningDatasetOutput(args: GetMachineLearningDatasetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineLearningDatasetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset", {
         "datasetName": args.datasetName,

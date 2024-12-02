@@ -89,7 +89,7 @@ def get_package_download_url(package_name: Optional[str] = None,
 def get_package_download_url_output(package_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     test_base_account_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageDownloadURLResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageDownloadURLResult]:
     """
     Gets the download URL of a package.
     Azure REST API version: 2022-04-01-preview.
@@ -105,7 +105,7 @@ def get_package_download_url_output(package_name: Optional[pulumi.Input[str]] = 
     __args__['packageName'] = package_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getPackageDownloadURL', __args__, opts=opts, typ=GetPackageDownloadURLResult)
     return __ret__.apply(lambda __response__: GetPackageDownloadURLResult(
         download_url=pulumi.get(__response__, 'download_url'),

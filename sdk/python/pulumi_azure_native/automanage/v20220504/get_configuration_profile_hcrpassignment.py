@@ -139,7 +139,7 @@ def get_configuration_profile_hcrpassignment(configuration_profile_assignment_na
 def get_configuration_profile_hcrpassignment_output(configuration_profile_assignment_name: Optional[pulumi.Input[str]] = None,
                                                     machine_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileHCRPAssignmentResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileHCRPAssignmentResult]:
     """
     Get information about a configuration profile assignment
 
@@ -152,7 +152,7 @@ def get_configuration_profile_hcrpassignment_output(configuration_profile_assign
     __args__['configurationProfileAssignmentName'] = configuration_profile_assignment_name
     __args__['machineName'] = machine_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automanage/v20220504:getConfigurationProfileHCRPAssignment', __args__, opts=opts, typ=GetConfigurationProfileHCRPAssignmentResult)
     return __ret__.apply(lambda __response__: GetConfigurationProfileHCRPAssignmentResult(
         id=pulumi.get(__response__, 'id'),

@@ -62,7 +62,7 @@ export interface GetNetworkWatcherResult {
 /**
  * Gets the specified network watcher by resource group.
  */
-export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkWatcherResult> {
+export function getNetworkWatcherOutput(args: GetNetworkWatcherOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkWatcherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getNetworkWatcher", {
         "networkWatcherName": args.networkWatcherName,

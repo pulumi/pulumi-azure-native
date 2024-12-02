@@ -59,7 +59,7 @@ export interface GetDefenderForStorageResult {
  *
  * Other available API versions: 2024-10-01-preview.
  */
-export function getDefenderForStorageOutput(args: GetDefenderForStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefenderForStorageResult> {
+export function getDefenderForStorageOutput(args: GetDefenderForStorageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefenderForStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getDefenderForStorage", {
         "resourceId": args.resourceId,

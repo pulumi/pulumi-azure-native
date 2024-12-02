@@ -116,7 +116,7 @@ export interface GetPython2PackageResult {
  *
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
-export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython2PackageResult> {
+export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPython2PackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getPython2Package", {
         "automationAccountName": args.automationAccountName,

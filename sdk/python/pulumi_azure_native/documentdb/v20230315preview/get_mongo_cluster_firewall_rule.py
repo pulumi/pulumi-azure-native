@@ -152,7 +152,7 @@ def get_mongo_cluster_firewall_rule(firewall_rule_name: Optional[str] = None,
 def get_mongo_cluster_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = None,
                                            mongo_cluster_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMongoClusterFirewallRuleResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMongoClusterFirewallRuleResult]:
     """
     Gets information about a mongo cluster firewall rule.
 
@@ -165,7 +165,7 @@ def get_mongo_cluster_firewall_rule_output(firewall_rule_name: Optional[pulumi.I
     __args__['firewallRuleName'] = firewall_rule_name
     __args__['mongoClusterName'] = mongo_cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20230315preview:getMongoClusterFirewallRule', __args__, opts=opts, typ=GetMongoClusterFirewallRuleResult)
     return __ret__.apply(lambda __response__: GetMongoClusterFirewallRuleResult(
         end_ip_address=pulumi.get(__response__, 'end_ip_address'),

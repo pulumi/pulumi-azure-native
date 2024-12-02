@@ -80,7 +80,7 @@ export interface GetApplicationGroupResult {
  *
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
-export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
+export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub:getApplicationGroup", {
         "applicationGroupName": args.applicationGroupName,

@@ -103,7 +103,7 @@ export interface GetOpenShiftClusterResult {
  *
  * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
  */
-export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftClusterResult> {
+export function getOpenShiftClusterOutput(args: GetOpenShiftClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenShiftClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:redhatopenshift:getOpenShiftCluster", {
         "resourceGroupName": args.resourceGroupName,

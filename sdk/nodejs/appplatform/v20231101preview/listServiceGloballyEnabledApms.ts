@@ -38,7 +38,7 @@ export interface ListServiceGloballyEnabledApmsResult {
 /**
  * List globally enabled APMs for a Service.
  */
-export function listServiceGloballyEnabledApmsOutput(args: ListServiceGloballyEnabledApmsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServiceGloballyEnabledApmsResult> {
+export function listServiceGloballyEnabledApmsOutput(args: ListServiceGloballyEnabledApmsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListServiceGloballyEnabledApmsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:listServiceGloballyEnabledApms", {
         "resourceGroupName": args.resourceGroupName,

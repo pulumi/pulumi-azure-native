@@ -55,7 +55,7 @@ export interface GetNamespaceVirtualNetworkRuleResult {
 /**
  * Gets an VirtualNetworkRule for a Namespace by rule name.
  */
-export function getNamespaceVirtualNetworkRuleOutput(args: GetNamespaceVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceVirtualNetworkRuleResult> {
+export function getNamespaceVirtualNetworkRuleOutput(args: GetNamespaceVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceVirtualNetworkRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule", {
         "namespaceName": args.namespaceName,

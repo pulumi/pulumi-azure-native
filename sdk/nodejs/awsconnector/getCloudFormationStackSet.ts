@@ -67,7 +67,7 @@ export interface GetCloudFormationStackSetResult {
  * Get a CloudFormationStackSet
  * Azure REST API version: 2024-12-01.
  */
-export function getCloudFormationStackSetOutput(args: GetCloudFormationStackSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationStackSetResult> {
+export function getCloudFormationStackSetOutput(args: GetCloudFormationStackSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudFormationStackSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getCloudFormationStackSet", {
         "name": args.name,

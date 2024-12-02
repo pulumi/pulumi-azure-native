@@ -252,7 +252,7 @@ def get_linked_subscription(linked_subscription_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_linked_subscription_output(linked_subscription_name: Optional[pulumi.Input[str]] = None,
                                    resource_group: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedSubscriptionResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedSubscriptionResult]:
     """
     Returns the properties of a Linked Subscription resource.
 
@@ -263,7 +263,7 @@ def get_linked_subscription_output(linked_subscription_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['linkedSubscriptionName'] = linked_subscription_name
     __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack/v20200601preview:getLinkedSubscription', __args__, opts=opts, typ=GetLinkedSubscriptionResult)
     return __ret__.apply(lambda __response__: GetLinkedSubscriptionResult(
         device_connection_status=pulumi.get(__response__, 'device_connection_status'),

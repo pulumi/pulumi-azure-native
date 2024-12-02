@@ -317,7 +317,7 @@ def get_service(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        search_service_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Gets the search service with the given name in the given resource group.
 
@@ -328,7 +328,7 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchServiceName'] = search_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:search/v20220901:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         auth_options=pulumi.get(__response__, 'auth_options'),

@@ -61,7 +61,7 @@ export interface ListActiveSecurityUserRulesResult {
  *
  * Other available API versions: 2021-05-01-preview.
  */
-export function listActiveSecurityUserRulesOutput(args: ListActiveSecurityUserRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityUserRulesResult> {
+export function listActiveSecurityUserRulesOutput(args: ListActiveSecurityUserRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListActiveSecurityUserRulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:listActiveSecurityUserRules", {
         "networkManagerName": args.networkManagerName,

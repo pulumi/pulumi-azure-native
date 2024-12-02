@@ -248,7 +248,7 @@ def get_global_rulestack(global_rulestack_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalRulestackResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalRulestackResult]:
     """
     Get a GlobalRulestackResource
 
@@ -257,7 +257,7 @@ def get_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['globalRulestackName'] = global_rulestack_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20231010preview:getGlobalRulestack', __args__, opts=opts, typ=GetGlobalRulestackResult)
     return __ret__.apply(lambda __response__: GetGlobalRulestackResult(
         associated_subscriptions=pulumi.get(__response__, 'associated_subscriptions'),

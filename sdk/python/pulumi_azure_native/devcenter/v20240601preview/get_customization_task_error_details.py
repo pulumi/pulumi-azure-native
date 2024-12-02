@@ -78,7 +78,7 @@ def get_customization_task_error_details_output(catalog_name: Optional[pulumi.In
                                                 dev_center_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                                 task_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomizationTaskErrorDetailsResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomizationTaskErrorDetailsResult]:
     """
     Gets Customization Task error details
 
@@ -93,7 +93,7 @@ def get_customization_task_error_details_output(catalog_name: Optional[pulumi.In
     __args__['devCenterName'] = dev_center_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['taskName'] = task_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240601preview:getCustomizationTaskErrorDetails', __args__, opts=opts, typ=GetCustomizationTaskErrorDetailsResult)
     return __ret__.apply(lambda __response__: GetCustomizationTaskErrorDetailsResult(
         errors=pulumi.get(__response__, 'errors')))

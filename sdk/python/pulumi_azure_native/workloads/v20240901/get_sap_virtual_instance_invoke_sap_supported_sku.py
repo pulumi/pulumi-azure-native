@@ -91,7 +91,7 @@ def get_sap_virtual_instance_invoke_sap_supported_sku_output(app_location: Optio
                                                              high_availability_type: Optional[pulumi.Input[Optional[Union[str, 'SAPHighAvailabilityType']]]] = None,
                                                              location: Optional[pulumi.Input[str]] = None,
                                                              sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
-                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSapVirtualInstanceInvokeSapSupportedSkuResult]:
+                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapVirtualInstanceInvokeSapSupportedSkuResult]:
     """
     Get a list of SAP supported SKUs for ASCS, Application and Database tier.
 
@@ -112,7 +112,7 @@ def get_sap_virtual_instance_invoke_sap_supported_sku_output(app_location: Optio
     __args__['highAvailabilityType'] = high_availability_type
     __args__['location'] = location
     __args__['sapProduct'] = sap_product
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20240901:getSapVirtualInstanceInvokeSapSupportedSku', __args__, opts=opts, typ=GetSapVirtualInstanceInvokeSapSupportedSkuResult)
     return __ret__.apply(lambda __response__: GetSapVirtualInstanceInvokeSapSupportedSkuResult(
         supported_skus=pulumi.get(__response__, 'supported_skus')))

@@ -67,7 +67,7 @@ export interface GetEcrImageDetailResult {
  * Get a EcrImageDetail
  * Azure REST API version: 2024-12-01.
  */
-export function getEcrImageDetailOutput(args: GetEcrImageDetailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcrImageDetailResult> {
+export function getEcrImageDetailOutput(args: GetEcrImageDetailOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcrImageDetailResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEcrImageDetail", {
         "name": args.name,

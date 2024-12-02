@@ -93,7 +93,7 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthResult {
 /**
  * Gets the connection health of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
  */
-export function getP2sVpnGatewayP2sVpnConnectionHealthOutput(args: GetP2sVpnGatewayP2sVpnConnectionHealthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetP2sVpnGatewayP2sVpnConnectionHealthResult> {
+export function getP2sVpnGatewayP2sVpnConnectionHealthOutput(args: GetP2sVpnGatewayP2sVpnConnectionHealthOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetP2sVpnGatewayP2sVpnConnectionHealthResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getP2sVpnGatewayP2sVpnConnectionHealth", {
         "gatewayName": args.gatewayName,

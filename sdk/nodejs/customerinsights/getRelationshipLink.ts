@@ -104,7 +104,7 @@ export interface GetRelationshipLinkResult {
  *
  * Other available API versions: 2017-01-01.
  */
-export function getRelationshipLinkOutput(args: GetRelationshipLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRelationshipLinkResult> {
+export function getRelationshipLinkOutput(args: GetRelationshipLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRelationshipLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getRelationshipLink", {
         "hubName": args.hubName,

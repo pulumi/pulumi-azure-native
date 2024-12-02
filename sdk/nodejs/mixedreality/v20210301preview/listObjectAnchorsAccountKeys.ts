@@ -42,7 +42,7 @@ export interface ListObjectAnchorsAccountKeysResult {
 /**
  * List Both of the 2 Keys of an object anchors Account
  */
-export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {
+export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mixedreality/v20210301preview:listObjectAnchorsAccountKeys", {
         "accountName": args.accountName,

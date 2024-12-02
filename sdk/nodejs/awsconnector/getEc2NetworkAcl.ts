@@ -67,7 +67,7 @@ export interface GetEc2NetworkAclResult {
  * Get a Ec2NetworkAcl
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2NetworkAclOutput(args: GetEc2NetworkAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2NetworkAclResult> {
+export function getEc2NetworkAclOutput(args: GetEc2NetworkAclOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2NetworkAclResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2NetworkAcl", {
         "name": args.name,

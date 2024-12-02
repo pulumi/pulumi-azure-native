@@ -266,7 +266,7 @@ def get_default_user_rule_output(configuration_name: Optional[pulumi.Input[str]]
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  rule_collection_name: Optional[pulumi.Input[str]] = None,
                                  rule_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultUserRuleResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultUserRuleResult]:
     """
     Gets a user rule.
     Azure REST API version: 2022-04-01-preview.
@@ -284,7 +284,7 @@ def get_default_user_rule_output(configuration_name: Optional[pulumi.Input[str]]
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleCollectionName'] = rule_collection_name
     __args__['ruleName'] = rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDefaultUserRule', __args__, opts=opts, typ=GetDefaultUserRuleResult)
     return __ret__.apply(lambda __response__: GetDefaultUserRuleResult(
         description=pulumi.get(__response__, 'description'),

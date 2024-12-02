@@ -116,7 +116,7 @@ export interface GetDataCollectionRuleResult {
  *
  * Other available API versions: 2023-03-11.
  */
-export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
+export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCollectionRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getDataCollectionRule", {
         "dataCollectionRuleName": args.dataCollectionRuleName,

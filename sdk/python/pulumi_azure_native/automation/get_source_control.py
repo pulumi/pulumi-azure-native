@@ -219,7 +219,7 @@ def get_source_control(automation_account_name: Optional[str] = None,
 def get_source_control_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               source_control_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlResult]:
     """
     Retrieve the source control identified by source control name.
     Azure REST API version: 2022-08-08.
@@ -235,7 +235,7 @@ def get_source_control_output(automation_account_name: Optional[pulumi.Input[str
     __args__['automationAccountName'] = automation_account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sourceControlName'] = source_control_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getSourceControl', __args__, opts=opts, typ=GetSourceControlResult)
     return __ret__.apply(lambda __response__: GetSourceControlResult(
         auto_sync=pulumi.get(__response__, 'auto_sync'),

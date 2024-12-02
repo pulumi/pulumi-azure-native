@@ -62,7 +62,7 @@ export interface GetEnvironmentContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getEnvironmentContainerOutput(args: GetEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentContainerResult> {
+export function getEnvironmentContainerOutput(args: GetEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20220201preview:getEnvironmentContainer", {
         "name": args.name,

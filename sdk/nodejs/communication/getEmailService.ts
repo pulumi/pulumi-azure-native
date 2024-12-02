@@ -75,7 +75,7 @@ export interface GetEmailServiceResult {
  *
  * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
  */
-export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailServiceResult> {
+export function getEmailServiceOutput(args: GetEmailServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:communication:getEmailService", {
         "emailServiceName": args.emailServiceName,

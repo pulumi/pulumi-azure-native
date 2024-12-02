@@ -90,7 +90,7 @@ export interface GetVirtualRouterResult {
 /**
  * Gets the specified Virtual Router.
  */
-export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
+export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualRouterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getVirtualRouter", {
         "expand": args.expand,

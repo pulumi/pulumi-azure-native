@@ -89,7 +89,7 @@ export interface GetLinkerResult {
 /**
  * Returns Linker resource for a given name.
  */
-export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkerResult> {
+export function getLinkerOutput(args: GetLinkerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicelinker/v20240401:getLinker", {
         "linkerName": args.linkerName,

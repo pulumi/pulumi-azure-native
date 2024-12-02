@@ -75,7 +75,7 @@ export interface GetRouteResult {
 /**
  * Gets the specified route from a route table.
  */
-export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
+export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getRoute", {
         "resourceGroupName": args.resourceGroupName,

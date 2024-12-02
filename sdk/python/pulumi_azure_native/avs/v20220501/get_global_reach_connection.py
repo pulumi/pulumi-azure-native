@@ -177,7 +177,7 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
 def get_global_reach_connection_output(global_reach_connection_name: Optional[pulumi.Input[str]] = None,
                                        private_cloud_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalReachConnectionResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalReachConnectionResult]:
     """
     A global reach connection resource
 
@@ -190,7 +190,7 @@ def get_global_reach_connection_output(global_reach_connection_name: Optional[pu
     __args__['globalReachConnectionName'] = global_reach_connection_name
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20220501:getGlobalReachConnection', __args__, opts=opts, typ=GetGlobalReachConnectionResult)
     return __ret__.apply(lambda __response__: GetGlobalReachConnectionResult(
         address_prefix=pulumi.get(__response__, 'address_prefix'),

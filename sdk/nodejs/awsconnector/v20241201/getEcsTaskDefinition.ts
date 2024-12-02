@@ -65,7 +65,7 @@ export interface GetEcsTaskDefinitionResult {
 /**
  * Get a EcsTaskDefinition
  */
-export function getEcsTaskDefinitionOutput(args: GetEcsTaskDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcsTaskDefinitionResult> {
+export function getEcsTaskDefinitionOutput(args: GetEcsTaskDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcsTaskDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEcsTaskDefinition", {
         "name": args.name,

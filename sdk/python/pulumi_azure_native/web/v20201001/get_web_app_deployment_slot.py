@@ -247,7 +247,7 @@ def get_web_app_deployment_slot_output(id: Optional[pulumi.Input[str]] = None,
                                        name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        slot: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDeploymentSlotResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppDeploymentSlotResult]:
     """
     Get a deployment by its ID for an app, or a deployment slot.
 
@@ -262,7 +262,7 @@ def get_web_app_deployment_slot_output(id: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getWebAppDeploymentSlot', __args__, opts=opts, typ=GetWebAppDeploymentSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppDeploymentSlotResult(
         active=pulumi.get(__response__, 'active'),

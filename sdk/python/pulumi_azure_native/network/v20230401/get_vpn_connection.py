@@ -347,7 +347,7 @@ def get_vpn_connection(connection_name: Optional[str] = None,
 def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                               gateway_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnConnectionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
     Retrieves the details of a vpn connection.
 
@@ -360,7 +360,7 @@ def get_vpn_connection_output(connection_name: Optional[pulumi.Input[str]] = Non
     __args__['connectionName'] = connection_name
     __args__['gatewayName'] = gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getVpnConnection', __args__, opts=opts, typ=GetVpnConnectionResult)
     return __ret__.apply(lambda __response__: GetVpnConnectionResult(
         connection_bandwidth=pulumi.get(__response__, 'connection_bandwidth'),

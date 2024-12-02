@@ -82,7 +82,7 @@ export interface GetReplicationResult {
 /**
  * Gets the properties of the specified replication.
  */
-export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationResult> {
+export function getReplicationOutput(args: GetReplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230801preview:getReplication", {
         "registryName": args.registryName,

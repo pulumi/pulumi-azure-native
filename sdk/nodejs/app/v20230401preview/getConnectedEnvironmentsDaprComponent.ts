@@ -90,7 +90,7 @@ export interface GetConnectedEnvironmentsDaprComponentResult {
 /**
  * Dapr Component.
  */
-export function getConnectedEnvironmentsDaprComponentOutput(args: GetConnectedEnvironmentsDaprComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsDaprComponentResult> {
+export function getConnectedEnvironmentsDaprComponentOutput(args: GetConnectedEnvironmentsDaprComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectedEnvironmentsDaprComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20230401preview:getConnectedEnvironmentsDaprComponent", {
         "componentName": args.componentName,

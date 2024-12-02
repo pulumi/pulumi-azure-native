@@ -369,7 +369,7 @@ def get_web_app_site_extension(name: Optional[str] = None,
 def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       site_extension_id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSiteExtensionResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSiteExtensionResult]:
     """
     Description for Get site extension information by its ID for a web site, or a deployment slot.
 
@@ -382,7 +382,7 @@ def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteExtensionId'] = site_extension_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:getWebAppSiteExtension', __args__, opts=opts, typ=GetWebAppSiteExtensionResult)
     return __ret__.apply(lambda __response__: GetWebAppSiteExtensionResult(
         authors=pulumi.get(__response__, 'authors'),

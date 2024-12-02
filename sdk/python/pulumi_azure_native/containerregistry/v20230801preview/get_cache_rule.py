@@ -179,7 +179,7 @@ def get_cache_rule(cache_rule_name: Optional[str] = None,
 def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[str]] = None,
                           registry_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheRuleResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheRuleResult]:
     """
     Gets the properties of the specified cache rule resource.
 
@@ -192,7 +192,7 @@ def get_cache_rule_output(cache_rule_name: Optional[pulumi.Input[str]] = None,
     __args__['cacheRuleName'] = cache_rule_name
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20230801preview:getCacheRule', __args__, opts=opts, typ=GetCacheRuleResult)
     return __ret__.apply(lambda __response__: GetCacheRuleResult(
         creation_date=pulumi.get(__response__, 'creation_date'),

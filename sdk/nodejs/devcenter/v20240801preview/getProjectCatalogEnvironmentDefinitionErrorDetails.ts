@@ -51,7 +51,7 @@ export interface GetProjectCatalogEnvironmentDefinitionErrorDetailsResult {
 /**
  * Gets Environment Definition error details
  */
-export function getProjectCatalogEnvironmentDefinitionErrorDetailsOutput(args: GetProjectCatalogEnvironmentDefinitionErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult> {
+export function getProjectCatalogEnvironmentDefinitionErrorDetailsOutput(args: GetProjectCatalogEnvironmentDefinitionErrorDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240801preview:getProjectCatalogEnvironmentDefinitionErrorDetails", {
         "catalogName": args.catalogName,

@@ -84,7 +84,7 @@ export interface GetClientResult {
 /**
  * Get properties of a client.
  */
-export function getClientOutput(args: GetClientOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientResult> {
+export function getClientOutput(args: GetClientOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClientResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getClient", {
         "clientName": args.clientName,

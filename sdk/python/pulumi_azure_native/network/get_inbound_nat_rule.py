@@ -276,7 +276,7 @@ def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 inbound_nat_rule_name: Optional[pulumi.Input[str]] = None,
                                 load_balancer_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInboundNatRuleResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInboundNatRuleResult]:
     """
     Gets the specified load balancer inbound NAT rule.
     Azure REST API version: 2023-02-01.
@@ -294,7 +294,7 @@ def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     __args__['inboundNatRuleName'] = inbound_nat_rule_name
     __args__['loadBalancerName'] = load_balancer_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getInboundNatRule', __args__, opts=opts, typ=GetInboundNatRuleResult)
     return __ret__.apply(lambda __response__: GetInboundNatRuleResult(
         backend_address_pool=pulumi.get(__response__, 'backend_address_pool'),

@@ -52,7 +52,7 @@ export interface GetOutboundFirewallRuleResult {
 /**
  * Gets an outbound firewall rule.
  */
-export function getOutboundFirewallRuleOutput(args: GetOutboundFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundFirewallRuleResult> {
+export function getOutboundFirewallRuleOutput(args: GetOutboundFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOutboundFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230501preview:getOutboundFirewallRule", {
         "outboundRuleFqdn": args.outboundRuleFqdn,

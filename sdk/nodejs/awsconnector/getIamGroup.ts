@@ -67,7 +67,7 @@ export interface GetIamGroupResult {
  * Get a IamGroup
  * Azure REST API version: 2024-12-01.
  */
-export function getIamGroupOutput(args: GetIamGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamGroupResult> {
+export function getIamGroupOutput(args: GetIamGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamGroup", {
         "name": args.name,

@@ -206,7 +206,7 @@ def get_event_channel(event_channel_name: Optional[str] = None,
 def get_event_channel_output(event_channel_name: Optional[pulumi.Input[str]] = None,
                              partner_namespace_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventChannelResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventChannelResult]:
     """
     Get properties of an event channel.
 
@@ -219,7 +219,7 @@ def get_event_channel_output(event_channel_name: Optional[pulumi.Input[str]] = N
     __args__['eventChannelName'] = event_channel_name
     __args__['partnerNamespaceName'] = partner_namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20211015preview:getEventChannel', __args__, opts=opts, typ=GetEventChannelResult)
     return __ret__.apply(lambda __response__: GetEventChannelResult(
         destination=pulumi.get(__response__, 'destination'),

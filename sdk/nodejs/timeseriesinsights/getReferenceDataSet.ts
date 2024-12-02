@@ -84,7 +84,7 @@ export interface GetReferenceDataSetResult {
  *
  * Other available API versions: 2017-11-15, 2021-06-30-preview.
  */
-export function getReferenceDataSetOutput(args: GetReferenceDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReferenceDataSetResult> {
+export function getReferenceDataSetOutput(args: GetReferenceDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReferenceDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights:getReferenceDataSet", {
         "environmentName": args.environmentName,

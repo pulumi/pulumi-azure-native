@@ -56,7 +56,7 @@ export interface GetConnectionDeploymentResult {
      */
     readonly type: string;
 }
-export function getConnectionDeploymentOutput(args: GetConnectionDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionDeploymentResult> {
+export function getConnectionDeploymentOutput(args: GetConnectionDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401preview:getConnectionDeployment", {
         "connectionName": args.connectionName,

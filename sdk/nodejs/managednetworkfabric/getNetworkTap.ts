@@ -95,7 +95,7 @@ export interface GetNetworkTapResult {
  * Retrieves details of this Network Tap.
  * Azure REST API version: 2023-06-15.
  */
-export function getNetworkTapOutput(args: GetNetworkTapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkTapResult> {
+export function getNetworkTapOutput(args: GetNetworkTapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkTapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkTap", {
         "networkTapName": args.networkTapName,

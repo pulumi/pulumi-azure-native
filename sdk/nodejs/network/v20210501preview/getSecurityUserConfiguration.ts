@@ -86,7 +86,7 @@ export interface GetSecurityUserConfigurationResult {
 /**
  * Retrieves a network manager security user configuration.
  */
-export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityUserConfigurationResult> {
+export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityUserConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20210501preview:getSecurityUserConfiguration", {
         "configurationName": args.configurationName,

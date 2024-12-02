@@ -60,7 +60,7 @@ export interface GetGatewayCertificateAuthorityResult {
 /**
  * Get assigned Gateway Certificate Authority details.
  */
-export function getGatewayCertificateAuthorityOutput(args: GetGatewayCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayCertificateAuthorityResult> {
+export function getGatewayCertificateAuthorityOutput(args: GetGatewayCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayCertificateAuthorityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getGatewayCertificateAuthority", {
         "certificateId": args.certificateId,

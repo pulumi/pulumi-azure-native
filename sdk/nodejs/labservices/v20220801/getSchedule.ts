@@ -82,7 +82,7 @@ export interface GetScheduleResult {
 /**
  * Returns the properties of a lab Schedule.
  */
-export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
+export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices/v20220801:getSchedule", {
         "labName": args.labName,

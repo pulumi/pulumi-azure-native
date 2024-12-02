@@ -60,7 +60,7 @@ export interface GetActionRequestResult {
 /**
  * Get the action request under the specified test base account.
  */
-export function getActionRequestOutput(args: GetActionRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionRequestResult> {
+export function getActionRequestOutput(args: GetActionRequestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActionRequestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getActionRequest", {
         "actionRequestName": args.actionRequestName,

@@ -54,7 +54,7 @@ export interface ListAccessRoleBindingsResult {
 /**
  * List cluster success response
  */
-export function listAccessRoleBindingsOutput(args: ListAccessRoleBindingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessRoleBindingsResult> {
+export function listAccessRoleBindingsOutput(args: ListAccessRoleBindingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessRoleBindingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confluent/v20230822:listAccessRoleBindings", {
         "organizationName": args.organizationName,

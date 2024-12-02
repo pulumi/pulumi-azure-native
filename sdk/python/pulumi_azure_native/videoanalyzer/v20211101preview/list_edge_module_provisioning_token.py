@@ -90,7 +90,7 @@ def list_edge_module_provisioning_token_output(account_name: Optional[pulumi.Inp
                                                edge_module_name: Optional[pulumi.Input[str]] = None,
                                                expiration_date: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEdgeModuleProvisioningTokenResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEdgeModuleProvisioningTokenResult]:
     """
     Creates a new provisioning token. A provisioning token allows for a single instance of Azure Video analyzer IoT edge module to be initialized and authorized to the cloud account. The provisioning token itself is short lived and it is only used for the initial handshake between IoT edge module and the cloud. After the initial handshake, the IoT edge module will agree on a set of authentication keys which will be auto-rotated as long as the module is able to periodically connect to the cloud. A new provisioning token can be generated for the same IoT edge module in case the module state lost or reset.
 
@@ -105,7 +105,7 @@ def list_edge_module_provisioning_token_output(account_name: Optional[pulumi.Inp
     __args__['edgeModuleName'] = edge_module_name
     __args__['expirationDate'] = expiration_date
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer/v20211101preview:listEdgeModuleProvisioningToken', __args__, opts=opts, typ=ListEdgeModuleProvisioningTokenResult)
     return __ret__.apply(lambda __response__: ListEdgeModuleProvisioningTokenResult(
         expiration_date=pulumi.get(__response__, 'expiration_date'),

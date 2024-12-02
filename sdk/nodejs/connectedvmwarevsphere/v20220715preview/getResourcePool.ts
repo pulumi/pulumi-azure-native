@@ -139,7 +139,7 @@ export interface GetResourcePoolResult {
 /**
  * Implements resourcePool GET method.
  */
-export function getResourcePoolOutput(args: GetResourcePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePoolResult> {
+export function getResourcePoolOutput(args: GetResourcePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourcePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20220715preview:getResourcePool", {
         "resourceGroupName": args.resourceGroupName,

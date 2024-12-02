@@ -78,7 +78,7 @@ export interface GetLabelingJobResult {
  *
  * Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
  */
-export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelingJobResult> {
+export function getLabelingJobOutput(args: GetLabelingJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabelingJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getLabelingJob", {
         "id": args.id,

@@ -41,7 +41,7 @@ export interface GetTrafficManagerUserMetricsKeyResult {
 /**
  * Get the subscription-level key used for Real User Metrics collection.
  */
-export function getTrafficManagerUserMetricsKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficManagerUserMetricsKeyResult> {
+export function getTrafficManagerUserMetricsKeyOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficManagerUserMetricsKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20220401preview:getTrafficManagerUserMetricsKey", {
     }, opts);

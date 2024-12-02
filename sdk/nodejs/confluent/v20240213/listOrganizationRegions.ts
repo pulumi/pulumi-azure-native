@@ -46,7 +46,7 @@ export interface ListOrganizationRegionsResult {
 /**
  * Result of POST request to list regions supported by confluent
  */
-export function listOrganizationRegionsOutput(args: ListOrganizationRegionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOrganizationRegionsResult> {
+export function listOrganizationRegionsOutput(args: ListOrganizationRegionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListOrganizationRegionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confluent/v20240213:listOrganizationRegions", {
         "organizationName": args.organizationName,

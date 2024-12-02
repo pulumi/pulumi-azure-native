@@ -78,7 +78,7 @@ def list_global_rulestack_firewalls(global_rulestack_name: Optional[str] = None,
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
 def list_global_rulestack_firewalls_output(global_rulestack_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalRulestackFirewallsResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGlobalRulestackFirewallsResult]:
     """
     List of Firewalls associated with Rulestack
 
@@ -87,7 +87,7 @@ def list_global_rulestack_firewalls_output(global_rulestack_name: Optional[pulum
     """
     __args__ = dict()
     __args__['globalRulestackName'] = global_rulestack_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20230901preview:listGlobalRulestackFirewalls', __args__, opts=opts, typ=ListGlobalRulestackFirewallsResult)
     return __ret__.apply(lambda __response__: ListGlobalRulestackFirewallsResult(
         next_link=pulumi.get(__response__, 'next_link'),

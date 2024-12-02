@@ -87,7 +87,7 @@ def list_remediation_deployments_at_resource(remediation_name: Optional[str] = N
 def list_remediation_deployments_at_resource_output(remediation_name: Optional[pulumi.Input[str]] = None,
                                                     resource_id: Optional[pulumi.Input[str]] = None,
                                                     top: Optional[pulumi.Input[Optional[int]]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListRemediationDeploymentsAtResourceResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRemediationDeploymentsAtResourceResult]:
     """
     Gets all deployments for a remediation at resource scope.
 
@@ -100,7 +100,7 @@ def list_remediation_deployments_at_resource_output(remediation_name: Optional[p
     __args__['remediationName'] = remediation_name
     __args__['resourceId'] = resource_id
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights/v20241001:listRemediationDeploymentsAtResource', __args__, opts=opts, typ=ListRemediationDeploymentsAtResourceResult)
     return __ret__.apply(lambda __response__: ListRemediationDeploymentsAtResourceResult(
         next_link=pulumi.get(__response__, 'next_link'),

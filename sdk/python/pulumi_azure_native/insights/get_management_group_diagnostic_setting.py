@@ -203,7 +203,7 @@ def get_management_group_diagnostic_setting(management_group_id: Optional[str] =
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_management_group_diagnostic_setting_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                                    name: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupDiagnosticSettingResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupDiagnosticSettingResult]:
     """
     Gets the active management group diagnostic settings for the specified resource.
     Azure REST API version: 2021-05-01-preview.
@@ -217,7 +217,7 @@ def get_management_group_diagnostic_setting_output(management_group_id: Optional
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getManagementGroupDiagnosticSetting', __args__, opts=opts, typ=GetManagementGroupDiagnosticSettingResult)
     return __ret__.apply(lambda __response__: GetManagementGroupDiagnosticSettingResult(
         event_hub_authorization_rule_id=pulumi.get(__response__, 'event_hub_authorization_rule_id'),

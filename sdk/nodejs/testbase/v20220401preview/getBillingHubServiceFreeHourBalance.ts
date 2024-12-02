@@ -30,7 +30,7 @@ export interface GetBillingHubServiceFreeHourBalanceResult {
     readonly incrementEntries?: outputs.testbase.v20220401preview.BillingHubFreeHourIncrementEntryResponse[];
     readonly totalRemainingFreeHours?: number;
 }
-export function getBillingHubServiceFreeHourBalanceOutput(args: GetBillingHubServiceFreeHourBalanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingHubServiceFreeHourBalanceResult> {
+export function getBillingHubServiceFreeHourBalanceOutput(args: GetBillingHubServiceFreeHourBalanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingHubServiceFreeHourBalanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20220401preview:getBillingHubServiceFreeHourBalance", {
         "resourceGroupName": args.resourceGroupName,

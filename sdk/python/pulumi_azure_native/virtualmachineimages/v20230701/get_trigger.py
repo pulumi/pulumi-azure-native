@@ -152,7 +152,7 @@ def get_trigger(image_template_name: Optional[str] = None,
 def get_trigger_output(image_template_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        trigger_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTriggerResult]:
     """
     Get the specified trigger for the specified image template resource
 
@@ -165,7 +165,7 @@ def get_trigger_output(image_template_name: Optional[pulumi.Input[str]] = None,
     __args__['imageTemplateName'] = image_template_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['triggerName'] = trigger_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:virtualmachineimages/v20230701:getTrigger', __args__, opts=opts, typ=GetTriggerResult)
     return __ret__.apply(lambda __response__: GetTriggerResult(
         id=pulumi.get(__response__, 'id'),

@@ -78,7 +78,7 @@ export interface GetPrefixListLocalRulestackResult {
 /**
  * Get a PrefixListResource
  */
-export function getPrefixListLocalRulestackOutput(args: GetPrefixListLocalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListLocalRulestackResult> {
+export function getPrefixListLocalRulestackOutput(args: GetPrefixListLocalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrefixListLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:getPrefixListLocalRulestack", {
         "localRulestackName": args.localRulestackName,

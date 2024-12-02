@@ -72,7 +72,7 @@ export interface GetConfigurationProfilesVersionResult {
  * Get information about a configuration profile version
  * Azure REST API version: 2022-05-04.
  */
-export function getConfigurationProfilesVersionOutput(args: GetConfigurationProfilesVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfilesVersionResult> {
+export function getConfigurationProfilesVersionOutput(args: GetConfigurationProfilesVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationProfilesVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automanage:getConfigurationProfilesVersion", {
         "configurationProfileName": args.configurationProfileName,

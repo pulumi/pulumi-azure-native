@@ -79,7 +79,7 @@ export interface GetApplicationResourceResult {
 /**
  * Get a ApplicationResource
  */
-export function getApplicationResourceOutput(args: GetApplicationResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResourceResult> {
+export function getApplicationResourceOutput(args: GetApplicationResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:integrationspaces/v20231114preview:getApplicationResource", {
         "applicationName": args.applicationName,

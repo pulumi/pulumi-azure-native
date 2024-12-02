@@ -77,7 +77,7 @@ export interface GetASCDataConnectorResult {
  * Gets a data connector.
  * Azure REST API version: 2023-02-01.
  */
-export function getASCDataConnectorOutput(args: GetASCDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetASCDataConnectorResult> {
+export function getASCDataConnectorOutput(args: GetASCDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetASCDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getASCDataConnector", {
         "dataConnectorId": args.dataConnectorId,

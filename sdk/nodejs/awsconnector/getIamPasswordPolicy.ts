@@ -67,7 +67,7 @@ export interface GetIamPasswordPolicyResult {
  * Get a IamPasswordPolicy
  * Azure REST API version: 2024-12-01.
  */
-export function getIamPasswordPolicyOutput(args: GetIamPasswordPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamPasswordPolicyResult> {
+export function getIamPasswordPolicyOutput(args: GetIamPasswordPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamPasswordPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamPasswordPolicy", {
         "name": args.name,

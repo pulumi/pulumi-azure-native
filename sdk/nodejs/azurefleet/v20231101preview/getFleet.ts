@@ -101,7 +101,7 @@ export interface GetFleetResult {
 /**
  * Get a Fleet
  */
-export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
+export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurefleet/v20231101preview:getFleet", {
         "fleetName": args.fleetName,

@@ -93,7 +93,7 @@ export interface GetSecretSyncResult {
 /**
  * Gets the properties of a SecretSync instance.
  */
-export function getSecretSyncOutput(args: GetSecretSyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretSyncResult> {
+export function getSecretSyncOutput(args: GetSecretSyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretSyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:secretsynccontroller/v20240821preview:getSecretSync", {
         "resourceGroupName": args.resourceGroupName,

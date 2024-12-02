@@ -99,7 +99,7 @@ export interface GetGroundStationResult {
  *
  * Other available API versions: 2024-03-01.
  */
-export function getGroundStationOutput(args: GetGroundStationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroundStationResult> {
+export function getGroundStationOutput(args: GetGroundStationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroundStationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital:getGroundStation", {
         "groundStationName": args.groundStationName,

@@ -67,7 +67,7 @@ export interface GetKmsKeyResult {
  * Get a KmsKey
  * Azure REST API version: 2024-12-01.
  */
-export function getKmsKeyOutput(args: GetKmsKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKmsKeyResult> {
+export function getKmsKeyOutput(args: GetKmsKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKmsKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getKmsKey", {
         "name": args.name,

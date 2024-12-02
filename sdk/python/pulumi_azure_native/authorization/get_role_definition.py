@@ -214,7 +214,7 @@ def get_role_definition(role_definition_id: Optional[str] = None,
         updated_on=pulumi.get(__ret__, 'updated_on'))
 def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] = None,
                                scope: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleDefinitionResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleDefinitionResult]:
     """
     Get role definition by ID (GUID).
     Azure REST API version: 2022-05-01-preview.
@@ -226,7 +226,7 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['roleDefinitionId'] = role_definition_id
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getRoleDefinition', __args__, opts=opts, typ=GetRoleDefinitionResult)
     return __ret__.apply(lambda __response__: GetRoleDefinitionResult(
         assignable_scopes=pulumi.get(__response__, 'assignable_scopes'),

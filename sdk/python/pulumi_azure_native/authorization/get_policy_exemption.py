@@ -227,7 +227,7 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str]] = None,
                                 scope: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyExemptionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyExemptionResult]:
     """
     This operation retrieves a single policy exemption, given its name and the scope it was created at.
     Azure REST API version: 2022-07-01-preview.
@@ -239,7 +239,7 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['policyExemptionName'] = policy_exemption_name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getPolicyExemption', __args__, opts=opts, typ=GetPolicyExemptionResult)
     return __ret__.apply(lambda __response__: GetPolicyExemptionResult(
         assignment_scope_validation=pulumi.get(__response__, 'assignment_scope_validation'),

@@ -44,7 +44,7 @@ export interface ListWorkflowAccessKeySecretKeysResult {
 /**
  * Lists secret keys.
  */
-export function listWorkflowAccessKeySecretKeysOutput(args: ListWorkflowAccessKeySecretKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkflowAccessKeySecretKeysResult> {
+export function listWorkflowAccessKeySecretKeysOutput(args: ListWorkflowAccessKeySecretKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkflowAccessKeySecretKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20150201preview:listWorkflowAccessKeySecretKeys", {
         "accessKeyName": args.accessKeyName,

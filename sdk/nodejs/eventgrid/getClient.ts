@@ -94,7 +94,7 @@ export interface GetClientResult {
  *
  * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
  */
-export function getClientOutput(args: GetClientOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientResult> {
+export function getClientOutput(args: GetClientOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClientResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid:getClient", {
         "clientName": args.clientName,

@@ -66,7 +66,7 @@ export interface GetGuestDiagnosticsSettingResult {
 /**
  * Gets guest diagnostics settings.
  */
-export function getGuestDiagnosticsSettingOutput(args: GetGuestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestDiagnosticsSettingResult> {
+export function getGuestDiagnosticsSettingOutput(args: GetGuestDiagnosticsSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestDiagnosticsSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20180601preview:getGuestDiagnosticsSetting", {
         "diagnosticSettingsName": args.diagnosticSettingsName,

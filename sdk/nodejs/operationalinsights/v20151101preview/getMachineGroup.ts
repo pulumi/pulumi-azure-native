@@ -89,7 +89,7 @@ export interface GetMachineGroupResult {
 /**
  * Returns the specified machine group as it existed during the specified time interval.
  */
-export function getMachineGroupOutput(args: GetMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineGroupResult> {
+export function getMachineGroupOutput(args: GetMachineGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20151101preview:getMachineGroup", {
         "endTime": args.endTime,

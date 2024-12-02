@@ -132,7 +132,7 @@ export interface GetSAPApplicationServerInstanceResult {
  *
  * Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
  */
-export function getSAPApplicationServerInstanceOutput(args: GetSAPApplicationServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPApplicationServerInstanceResult> {
+export function getSAPApplicationServerInstanceOutput(args: GetSAPApplicationServerInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPApplicationServerInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPApplicationServerInstance", {
         "applicationInstanceName": args.applicationInstanceName,

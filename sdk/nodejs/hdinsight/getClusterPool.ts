@@ -107,7 +107,7 @@ export interface GetClusterPoolResult {
  *
  * Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
  */
-export function getClusterPoolOutput(args: GetClusterPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPoolResult> {
+export function getClusterPoolOutput(args: GetClusterPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hdinsight:getClusterPool", {
         "clusterPoolName": args.clusterPoolName,

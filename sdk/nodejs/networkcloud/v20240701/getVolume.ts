@@ -86,7 +86,7 @@ export interface GetVolumeResult {
 /**
  * Get properties of the provided volume.
  */
-export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
+export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240701:getVolume", {
         "resourceGroupName": args.resourceGroupName,

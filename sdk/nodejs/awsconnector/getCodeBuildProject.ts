@@ -67,7 +67,7 @@ export interface GetCodeBuildProjectResult {
  * Get a CodeBuildProject
  * Azure REST API version: 2024-12-01.
  */
-export function getCodeBuildProjectOutput(args: GetCodeBuildProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeBuildProjectResult> {
+export function getCodeBuildProjectOutput(args: GetCodeBuildProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeBuildProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getCodeBuildProject", {
         "name": args.name,

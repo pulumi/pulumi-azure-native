@@ -51,7 +51,7 @@ export interface ListMonitorLinkedResourcesResult {
  *
  * Other available API versions: 2022-08-01, 2023-01-01.
  */
-export function listMonitorLinkedResourcesOutput(args: ListMonitorLinkedResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorLinkedResourcesResult> {
+export function listMonitorLinkedResourcesOutput(args: ListMonitorLinkedResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMonitorLinkedResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datadog:listMonitorLinkedResources", {
         "monitorName": args.monitorName,

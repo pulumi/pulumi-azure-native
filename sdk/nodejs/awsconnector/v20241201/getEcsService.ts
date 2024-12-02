@@ -65,7 +65,7 @@ export interface GetEcsServiceResult {
 /**
  * Get a EcsService
  */
-export function getEcsServiceOutput(args: GetEcsServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcsServiceResult> {
+export function getEcsServiceOutput(args: GetEcsServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcsServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEcsService", {
         "name": args.name,

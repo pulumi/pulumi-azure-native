@@ -76,7 +76,7 @@ def list_policy_set_definition_version_all(opts: Optional[pulumi.InvokeOptions] 
     return AwaitableListPolicySetDefinitionVersionAllResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_policy_set_definition_version_all_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicySetDefinitionVersionAllResult]:
+def list_policy_set_definition_version_all_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPolicySetDefinitionVersionAllResult]:
     """
     This operation lists all the policy set definition versions for all policy set definitions within a subscription.
     Azure REST API version: 2023-04-01.
@@ -84,7 +84,7 @@ def list_policy_set_definition_version_all_output(opts: Optional[pulumi.InvokeOp
     Other available API versions: 2024-05-01, 2025-01-01.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:listPolicySetDefinitionVersionAll', __args__, opts=opts, typ=ListPolicySetDefinitionVersionAllResult)
     return __ret__.apply(lambda __response__: ListPolicySetDefinitionVersionAllResult(
         next_link=pulumi.get(__response__, 'next_link'),

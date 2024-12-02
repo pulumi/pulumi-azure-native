@@ -126,7 +126,7 @@ def get_managed_environments_storage(environment_name: Optional[str] = None,
 def get_managed_environments_storage_output(environment_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             storage_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentsStorageResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedEnvironmentsStorageResult]:
     """
     Get storage for a managedEnvironment.
 
@@ -139,7 +139,7 @@ def get_managed_environments_storage_output(environment_name: Optional[pulumi.In
     __args__['environmentName'] = environment_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageName'] = storage_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230801preview:getManagedEnvironmentsStorage', __args__, opts=opts, typ=GetManagedEnvironmentsStorageResult)
     return __ret__.apply(lambda __response__: GetManagedEnvironmentsStorageResult(
         id=pulumi.get(__response__, 'id'),

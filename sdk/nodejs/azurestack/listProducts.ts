@@ -52,7 +52,7 @@ export interface ListProductsResult {
  * Returns a list of products.
  * Azure REST API version: 2022-06-01.
  */
-export function listProductsOutput(args: ListProductsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsResult> {
+export function listProductsOutput(args: ListProductsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProductsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestack:listProducts", {
         "productName": args.productName,

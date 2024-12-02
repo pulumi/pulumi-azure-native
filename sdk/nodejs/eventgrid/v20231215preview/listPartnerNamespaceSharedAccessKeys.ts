@@ -42,7 +42,7 @@ export interface ListPartnerNamespaceSharedAccessKeysResult {
 /**
  * List the two keys used to publish to a partner namespace.
  */
-export function listPartnerNamespaceSharedAccessKeysOutput(args: ListPartnerNamespaceSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPartnerNamespaceSharedAccessKeysResult> {
+export function listPartnerNamespaceSharedAccessKeysOutput(args: ListPartnerNamespaceSharedAccessKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPartnerNamespaceSharedAccessKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:listPartnerNamespaceSharedAccessKeys", {
         "partnerNamespaceName": args.partnerNamespaceName,

@@ -78,7 +78,7 @@ export interface GetTokenResult {
 /**
  * Gets the properties of the specified token.
  */
-export function getTokenOutput(args: GetTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTokenResult> {
+export function getTokenOutput(args: GetTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230101preview:getToken", {
         "registryName": args.registryName,

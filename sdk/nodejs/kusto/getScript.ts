@@ -85,7 +85,7 @@ export interface GetScriptResult {
  *
  * Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15, 2024-04-13.
  */
-export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
+export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScriptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto:getScript", {
         "clusterName": args.clusterName,

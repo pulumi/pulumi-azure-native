@@ -80,7 +80,7 @@ export interface GetPrivateEndpointConnectionResult {
  *
  * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
  */
-export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus:getPrivateEndpointConnection", {
         "namespaceName": args.namespaceName,

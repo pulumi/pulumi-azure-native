@@ -78,7 +78,7 @@ export interface GetDscNodeConfigurationResult {
 /**
  * Retrieve the Dsc node configurations by node configuration.
  */
-export function getDscNodeConfigurationOutput(args: GetDscNodeConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscNodeConfigurationResult> {
+export function getDscNodeConfigurationOutput(args: GetDscNodeConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDscNodeConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20231101:getDscNodeConfiguration", {
         "automationAccountName": args.automationAccountName,

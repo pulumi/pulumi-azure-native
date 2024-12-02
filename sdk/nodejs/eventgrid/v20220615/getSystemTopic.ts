@@ -81,7 +81,7 @@ export interface GetSystemTopicResult {
 /**
  * Get properties of a system topic.
  */
-export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSystemTopicResult> {
+export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20220615:getSystemTopic", {
         "resourceGroupName": args.resourceGroupName,

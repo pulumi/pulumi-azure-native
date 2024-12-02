@@ -71,7 +71,7 @@ export interface GetHuntCommentResult {
 /**
  * Gets a hunt comment
  */
-export function getHuntCommentOutput(args: GetHuntCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHuntCommentResult> {
+export function getHuntCommentOutput(args: GetHuntCommentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHuntCommentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230901preview:getHuntComment", {
         "huntCommentId": args.huntCommentId,

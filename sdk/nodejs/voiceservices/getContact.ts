@@ -88,7 +88,7 @@ export interface GetContactResult {
  * Get a Contact
  * Azure REST API version: 2022-12-01-preview.
  */
-export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
+export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:voiceservices:getContact", {
         "communicationsGatewayName": args.communicationsGatewayName,

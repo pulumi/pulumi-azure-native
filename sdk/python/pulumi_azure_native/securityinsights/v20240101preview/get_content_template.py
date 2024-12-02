@@ -480,7 +480,7 @@ def get_content_template(resource_group_name: Optional[str] = None,
 def get_content_template_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                 template_id: Optional[pulumi.Input[str]] = None,
                                 workspace_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContentTemplateResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContentTemplateResult]:
     """
     Gets a template byt its identifier.
     Expandable properties:
@@ -496,7 +496,7 @@ def get_content_template_output(resource_group_name: Optional[pulumi.Input[str]]
     __args__['resourceGroupName'] = resource_group_name
     __args__['templateId'] = template_id
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240101preview:getContentTemplate', __args__, opts=opts, typ=GetContentTemplateResult)
     return __ret__.apply(lambda __response__: GetContentTemplateResult(
         author=pulumi.get(__response__, 'author'),

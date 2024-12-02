@@ -101,7 +101,7 @@ export interface GetKeyResult {
  *
  * Other available API versions: 2023-07-01, 2024-04-01-preview.
  */
-export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyResult> {
+export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:keyvault:getKey", {
         "keyName": args.keyName,

@@ -86,7 +86,7 @@ def get_webhook_callback_config(registry_name: Optional[str] = None,
 def get_webhook_callback_config_output(registry_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        webhook_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookCallbackConfigResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebhookCallbackConfigResult]:
     """
     Gets the configuration of service URI and custom headers for the webhook.
 
@@ -99,7 +99,7 @@ def get_webhook_callback_config_output(registry_name: Optional[pulumi.Input[str]
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['webhookName'] = webhook_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20221201:getWebhookCallbackConfig', __args__, opts=opts, typ=GetWebhookCallbackConfigResult)
     return __ret__.apply(lambda __response__: GetWebhookCallbackConfigResult(
         custom_headers=pulumi.get(__response__, 'custom_headers'),

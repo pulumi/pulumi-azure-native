@@ -67,7 +67,7 @@ export interface GetRedshiftClusterParameterGroupResult {
  * Get a RedshiftClusterParameterGroup
  * Azure REST API version: 2024-12-01.
  */
-export function getRedshiftClusterParameterGroupOutput(args: GetRedshiftClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedshiftClusterParameterGroupResult> {
+export function getRedshiftClusterParameterGroupOutput(args: GetRedshiftClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRedshiftClusterParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getRedshiftClusterParameterGroup", {
         "name": args.name,

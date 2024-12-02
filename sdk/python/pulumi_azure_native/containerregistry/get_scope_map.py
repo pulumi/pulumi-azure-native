@@ -170,7 +170,7 @@ def get_scope_map(registry_name: Optional[str] = None,
 def get_scope_map_output(registry_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          scope_map_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeMapResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeMapResult]:
     """
     Gets the properties of the specified scope map.
     Azure REST API version: 2022-12-01.
@@ -186,7 +186,7 @@ def get_scope_map_output(registry_name: Optional[pulumi.Input[str]] = None,
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['scopeMapName'] = scope_map_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getScopeMap', __args__, opts=opts, typ=GetScopeMapResult)
     return __ret__.apply(lambda __response__: GetScopeMapResult(
         actions=pulumi.get(__response__, 'actions'),

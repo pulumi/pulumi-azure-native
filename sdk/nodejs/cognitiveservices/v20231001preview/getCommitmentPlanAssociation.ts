@@ -70,7 +70,7 @@ export interface GetCommitmentPlanAssociationResult {
 /**
  * Gets the association of the Cognitive Services commitment plan.
  */
-export function getCommitmentPlanAssociationOutput(args: GetCommitmentPlanAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanAssociationResult> {
+export function getCommitmentPlanAssociationOutput(args: GetCommitmentPlanAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommitmentPlanAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20231001preview:getCommitmentPlanAssociation", {
         "commitmentPlanAssociationName": args.commitmentPlanAssociationName,

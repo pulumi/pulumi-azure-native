@@ -192,7 +192,7 @@ def get_customizable_connector_definition(data_connector_definition_name: Option
 def get_customizable_connector_definition_output(data_connector_definition_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  workspace_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomizableConnectorDefinitionResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomizableConnectorDefinitionResult]:
     """
     Gets a data connector definition.
 
@@ -205,7 +205,7 @@ def get_customizable_connector_definition_output(data_connector_definition_name:
     __args__['dataConnectorDefinitionName'] = data_connector_definition_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240401preview:getCustomizableConnectorDefinition', __args__, opts=opts, typ=GetCustomizableConnectorDefinitionResult)
     return __ret__.apply(lambda __response__: GetCustomizableConnectorDefinitionResult(
         connections_config=pulumi.get(__response__, 'connections_config'),

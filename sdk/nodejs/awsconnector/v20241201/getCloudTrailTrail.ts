@@ -65,7 +65,7 @@ export interface GetCloudTrailTrailResult {
 /**
  * Get a CloudTrailTrail
  */
-export function getCloudTrailTrailOutput(args: GetCloudTrailTrailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudTrailTrailResult> {
+export function getCloudTrailTrailOutput(args: GetCloudTrailTrailOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudTrailTrailResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getCloudTrailTrail", {
         "name": args.name,

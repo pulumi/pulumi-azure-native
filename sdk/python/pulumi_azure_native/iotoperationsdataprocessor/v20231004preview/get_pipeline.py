@@ -217,7 +217,7 @@ def get_pipeline(instance_name: Optional[str] = None,
 def get_pipeline_output(instance_name: Optional[pulumi.Input[str]] = None,
                         pipeline_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     Get a Pipeline
 
@@ -230,7 +230,7 @@ def get_pipeline_output(instance_name: Optional[pulumi.Input[str]] = None,
     __args__['instanceName'] = instance_name
     __args__['pipelineName'] = pipeline_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsdataprocessor/v20231004preview:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
     return __ret__.apply(lambda __response__: GetPipelineResult(
         description=pulumi.get(__response__, 'description'),

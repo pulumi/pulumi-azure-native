@@ -80,7 +80,7 @@ export interface GetSchemaRegistryResult {
 /**
  * Gets the details of an EventHub schema group.
  */
-export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
+export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub/v20240101:getSchemaRegistry", {
         "namespaceName": args.namespaceName,

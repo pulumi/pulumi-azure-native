@@ -83,7 +83,7 @@ def list_appliance_cluster_user_credential(resource_group_name: Optional[str] = 
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
 def list_appliance_cluster_user_credential_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   resource_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplianceClusterUserCredentialResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceClusterUserCredentialResult]:
     """
     Returns the cluster user credentials for the dedicated appliance.
 
@@ -94,7 +94,7 @@ def list_appliance_cluster_user_credential_output(resource_group_name: Optional[
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resourceconnector/v20221027:listApplianceClusterUserCredential', __args__, opts=opts, typ=ListApplianceClusterUserCredentialResult)
     return __ret__.apply(lambda __response__: ListApplianceClusterUserCredentialResult(
         hybrid_connection_config=pulumi.get(__response__, 'hybrid_connection_config'),

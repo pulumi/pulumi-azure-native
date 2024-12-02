@@ -46,7 +46,7 @@ export interface ListGlobalRulestackSecurityServicesResult {
 /**
  * List the security services for rulestack
  */
-export function listGlobalRulestackSecurityServicesOutput(args: ListGlobalRulestackSecurityServicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalRulestackSecurityServicesResult> {
+export function listGlobalRulestackSecurityServicesOutput(args: ListGlobalRulestackSecurityServicesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGlobalRulestackSecurityServicesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829:listGlobalRulestackSecurityServices", {
         "globalRulestackName": args.globalRulestackName,

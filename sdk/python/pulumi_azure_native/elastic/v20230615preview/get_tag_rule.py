@@ -126,7 +126,7 @@ def get_tag_rule(monitor_name: Optional[str] = None,
 def get_tag_rule_output(monitor_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         rule_set_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagRuleResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagRuleResult]:
     """
     Capture logs and metrics of Azure resources based on ARM tags.
 
@@ -139,7 +139,7 @@ def get_tag_rule_output(monitor_name: Optional[pulumi.Input[str]] = None,
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleSetName'] = rule_set_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:elastic/v20230615preview:getTagRule', __args__, opts=opts, typ=GetTagRuleResult)
     return __ret__.apply(lambda __response__: GetTagRuleResult(
         id=pulumi.get(__response__, 'id'),

@@ -94,7 +94,7 @@ export interface GetWCFRelayResult {
 /**
  * Returns the description for the specified WCF relay.
  */
-export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWCFRelayResult> {
+export function getWCFRelayOutput(args: GetWCFRelayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWCFRelayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay/v20211101:getWCFRelay", {
         "namespaceName": args.namespaceName,

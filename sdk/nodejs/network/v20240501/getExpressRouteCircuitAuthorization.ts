@@ -71,7 +71,7 @@ export interface GetExpressRouteCircuitAuthorizationResult {
 /**
  * Gets the specified authorization from the specified express route circuit.
  */
-export function getExpressRouteCircuitAuthorizationOutput(args: GetExpressRouteCircuitAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitAuthorizationResult> {
+export function getExpressRouteCircuitAuthorizationOutput(args: GetExpressRouteCircuitAuthorizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExpressRouteCircuitAuthorizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getExpressRouteCircuitAuthorization", {
         "authorizationName": args.authorizationName,

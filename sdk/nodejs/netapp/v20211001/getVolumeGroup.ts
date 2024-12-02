@@ -74,7 +74,7 @@ export interface GetVolumeGroupResult {
 /**
  * Get details of the specified volume group
  */
-export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
+export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:netapp/v20211001:getVolumeGroup", {
         "accountName": args.accountName,

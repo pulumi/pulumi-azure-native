@@ -57,7 +57,7 @@ export interface ListActiveConnectivityConfigurationResult {
  * Lists active connectivity configurations in a network manager.
  * Azure REST API version: 2021-02-01-preview.
  */
-export function listActiveConnectivityConfigurationOutput(args: ListActiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveConnectivityConfigurationResult> {
+export function listActiveConnectivityConfigurationOutput(args: ListActiveConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListActiveConnectivityConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:listActiveConnectivityConfiguration", {
         "networkManagerName": args.networkManagerName,

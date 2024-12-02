@@ -188,7 +188,7 @@ def get_private_link_services_for_m365_security_center(resource_group_name: Opti
         type=pulumi.get(__ret__, 'type'))
 def get_private_link_services_for_m365_security_center_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                               resource_name: Optional[pulumi.Input[str]] = None,
-                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicesForM365SecurityCenterResult]:
+                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicesForM365SecurityCenterResult]:
     """
     Get the metadata of a privateLinkServicesForM365SecurityCenter resource.
     Azure REST API version: 2021-03-08.
@@ -200,7 +200,7 @@ def get_private_link_services_for_m365_security_center_output(resource_group_nam
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityandcompliance:getPrivateLinkServicesForM365SecurityCenter', __args__, opts=opts, typ=GetPrivateLinkServicesForM365SecurityCenterResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkServicesForM365SecurityCenterResult(
         etag=pulumi.get(__response__, 'etag'),

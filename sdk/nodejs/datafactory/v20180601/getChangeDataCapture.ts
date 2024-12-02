@@ -86,7 +86,7 @@ export interface GetChangeDataCaptureResult {
 /**
  * Gets a change data capture.
  */
-export function getChangeDataCaptureOutput(args: GetChangeDataCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChangeDataCaptureResult> {
+export function getChangeDataCaptureOutput(args: GetChangeDataCaptureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChangeDataCaptureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getChangeDataCapture", {
         "changeDataCaptureName": args.changeDataCaptureName,

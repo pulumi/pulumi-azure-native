@@ -51,7 +51,7 @@ export interface ListLabVhdsResult {
  *
  * Other available API versions: 2015-05-21-preview, 2016-05-15.
  */
-export function listLabVhdsOutput(args: ListLabVhdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLabVhdsResult> {
+export function listLabVhdsOutput(args: ListLabVhdsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLabVhdsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab:listLabVhds", {
         "name": args.name,

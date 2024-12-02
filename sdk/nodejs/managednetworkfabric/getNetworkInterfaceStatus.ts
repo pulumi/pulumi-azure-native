@@ -61,7 +61,7 @@ export interface GetNetworkInterfaceStatusResult {
  * Get the running status of the Network Interface.
  * Azure REST API version: 2023-02-01-preview.
  */
-export function getNetworkInterfaceStatusOutput(args: GetNetworkInterfaceStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceStatusResult> {
+export function getNetworkInterfaceStatusOutput(args: GetNetworkInterfaceStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkInterfaceStatus", {
         "networkDeviceName": args.networkDeviceName,

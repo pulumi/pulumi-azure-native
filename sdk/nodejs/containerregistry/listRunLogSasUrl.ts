@@ -53,7 +53,7 @@ export interface ListRunLogSasUrlResult {
  *
  * Other available API versions: 2018-09-01, 2019-04-01.
  */
-export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRunLogSasUrlResult> {
+export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRunLogSasUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry:listRunLogSasUrl", {
         "registryName": args.registryName,

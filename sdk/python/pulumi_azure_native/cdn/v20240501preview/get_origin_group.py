@@ -195,7 +195,7 @@ def get_origin_group_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                             origin_group_name: Optional[pulumi.Input[str]] = None,
                             profile_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginGroupResult]:
     """
     Gets an existing origin group within an endpoint.
 
@@ -210,7 +210,7 @@ def get_origin_group_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     __args__['originGroupName'] = origin_group_name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240501preview:getOriginGroup', __args__, opts=opts, typ=GetOriginGroupResult)
     return __ret__.apply(lambda __response__: GetOriginGroupResult(
         health_probe_settings=pulumi.get(__response__, 'health_probe_settings'),

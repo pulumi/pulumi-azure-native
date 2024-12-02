@@ -69,7 +69,7 @@ export interface GetServerCommunicationLinkResult {
  * Returns a server communication link.
  * Azure REST API version: 2014-04-01.
  */
-export function getServerCommunicationLinkOutput(args: GetServerCommunicationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCommunicationLinkResult> {
+export function getServerCommunicationLinkOutput(args: GetServerCommunicationLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerCommunicationLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql:getServerCommunicationLink", {
         "communicationLinkName": args.communicationLinkName,

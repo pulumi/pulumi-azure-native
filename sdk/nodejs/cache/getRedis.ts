@@ -151,7 +151,7 @@ export interface GetRedisResult {
  *
  * Other available API versions: 2015-08-01, 2017-02-01, 2019-07-01, 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
  */
-export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {
+export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRedisResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache:getRedis", {
         "name": args.name,

@@ -42,7 +42,7 @@ export interface ListMediaServiceEdgePoliciesResult {
  * List all the media edge policies associated with the Media Services account.
  * Azure REST API version: 2023-01-01.
  */
-export function listMediaServiceEdgePoliciesOutput(args: ListMediaServiceEdgePoliciesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMediaServiceEdgePoliciesResult> {
+export function listMediaServiceEdgePoliciesOutput(args: ListMediaServiceEdgePoliciesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMediaServiceEdgePoliciesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:listMediaServiceEdgePolicies", {
         "accountName": args.accountName,

@@ -56,7 +56,7 @@ export interface ListConfigurationsResult {
  *
  * Other available API versions: 2020-12-01-preview.
  */
-export function listConfigurationsOutput(args: ListConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationsResult> {
+export function listConfigurationsOutput(args: ListConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConfigurationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edgeorder:listConfigurations", {
         "configurationFilters": args.configurationFilters,

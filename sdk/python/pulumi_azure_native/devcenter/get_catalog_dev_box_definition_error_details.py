@@ -81,7 +81,7 @@ def get_catalog_dev_box_definition_error_details_output(catalog_name: Optional[p
                                                         dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                                                         dev_center_name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCatalogDevBoxDefinitionErrorDetailsResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogDevBoxDefinitionErrorDetailsResult]:
     """
     Gets Catalog Devbox Definition error details
     Azure REST API version: 2023-08-01-preview.
@@ -99,7 +99,7 @@ def get_catalog_dev_box_definition_error_details_output(catalog_name: Optional[p
     __args__['devBoxDefinitionName'] = dev_box_definition_name
     __args__['devCenterName'] = dev_center_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getCatalogDevBoxDefinitionErrorDetails', __args__, opts=opts, typ=GetCatalogDevBoxDefinitionErrorDetailsResult)
     return __ret__.apply(lambda __response__: GetCatalogDevBoxDefinitionErrorDetailsResult(
         errors=pulumi.get(__response__, 'errors')))

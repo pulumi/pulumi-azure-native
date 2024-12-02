@@ -36,7 +36,7 @@ export interface ListConnectionAllModelsResult {
      */
     readonly value?: outputs.machinelearningservices.v20241001preview.EndpointModelPropertiesResponse[];
 }
-export function listConnectionAllModelsOutput(args: ListConnectionAllModelsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectionAllModelsResult> {
+export function listConnectionAllModelsOutput(args: ListConnectionAllModelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectionAllModelsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001preview:listConnectionAllModels", {
         "resourceGroupName": args.resourceGroupName,

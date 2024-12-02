@@ -283,7 +283,7 @@ def get_assessment_projects_operation(project_name: Optional[str] = None,
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
 def get_assessment_projects_operation_output(project_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentProjectsOperationResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentProjectsOperationResult]:
     """
     Get a AssessmentProject
 
@@ -294,7 +294,7 @@ def get_assessment_projects_operation_output(project_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230909preview:getAssessmentProjectsOperation', __args__, opts=opts, typ=GetAssessmentProjectsOperationResult)
     return __ret__.apply(lambda __response__: GetAssessmentProjectsOperationResult(
         assessment_solution_id=pulumi.get(__response__, 'assessment_solution_id'),

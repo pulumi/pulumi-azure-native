@@ -98,7 +98,7 @@ export interface GetArcSettingResult {
 /**
  * Get ArcSetting resource details of HCI Cluster.
  */
-export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcSettingResult> {
+export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArcSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240215preview:getArcSetting", {
         "arcSettingName": args.arcSettingName,

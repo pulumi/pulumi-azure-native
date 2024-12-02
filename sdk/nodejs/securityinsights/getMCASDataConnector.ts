@@ -77,7 +77,7 @@ export interface GetMCASDataConnectorResult {
  * Gets a data connector.
  * Azure REST API version: 2023-02-01.
  */
-export function getMCASDataConnectorOutput(args: GetMCASDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMCASDataConnectorResult> {
+export function getMCASDataConnectorOutput(args: GetMCASDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMCASDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getMCASDataConnector", {
         "dataConnectorId": args.dataConnectorId,

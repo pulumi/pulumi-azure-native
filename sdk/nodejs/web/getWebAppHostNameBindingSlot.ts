@@ -102,7 +102,7 @@ export interface GetWebAppHostNameBindingSlotResult {
  *
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getWebAppHostNameBindingSlotOutput(args: GetWebAppHostNameBindingSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHostNameBindingSlotResult> {
+export function getWebAppHostNameBindingSlotOutput(args: GetWebAppHostNameBindingSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppHostNameBindingSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getWebAppHostNameBindingSlot", {
         "hostName": args.hostName,

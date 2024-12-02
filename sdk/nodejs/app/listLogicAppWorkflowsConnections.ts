@@ -72,7 +72,7 @@ export interface ListLogicAppWorkflowsConnectionsResult {
  *
  * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
  */
-export function listLogicAppWorkflowsConnectionsOutput(args: ListLogicAppWorkflowsConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLogicAppWorkflowsConnectionsResult> {
+export function listLogicAppWorkflowsConnectionsOutput(args: ListLogicAppWorkflowsConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListLogicAppWorkflowsConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:listLogicAppWorkflowsConnections", {
         "containerAppName": args.containerAppName,

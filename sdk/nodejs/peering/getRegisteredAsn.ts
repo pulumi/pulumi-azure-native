@@ -65,7 +65,7 @@ export interface GetRegisteredAsnResult {
  * Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
  * Azure REST API version: 2022-10-01.
  */
-export function getRegisteredAsnOutput(args: GetRegisteredAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredAsnResult> {
+export function getRegisteredAsnOutput(args: GetRegisteredAsnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegisteredAsnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:peering:getRegisteredAsn", {
         "peeringName": args.peeringName,

@@ -111,7 +111,7 @@ def list_communication_service_keys(communication_service_name: Optional[str] = 
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
 def list_communication_service_keys_output(communication_service_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCommunicationServiceKeysResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListCommunicationServiceKeysResult]:
     """
     Get the access keys of the CommunicationService resource.
     Azure REST API version: 2023-03-31.
@@ -125,7 +125,7 @@ def list_communication_service_keys_output(communication_service_name: Optional[
     __args__ = dict()
     __args__['communicationServiceName'] = communication_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:communication:listCommunicationServiceKeys', __args__, opts=opts, typ=ListCommunicationServiceKeysResult)
     return __ret__.apply(lambda __response__: ListCommunicationServiceKeysResult(
         primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),

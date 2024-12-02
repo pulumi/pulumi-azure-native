@@ -62,7 +62,7 @@ export interface GetVendorSkuPreviewResult {
 /**
  * Gets the preview information of a vendor sku.
  */
-export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {
+export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVendorSkuPreviewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20220101preview:getVendorSkuPreview", {
         "previewSubscription": args.previewSubscription,

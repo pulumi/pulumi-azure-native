@@ -46,7 +46,7 @@ export interface ListConnectedEnvironmentsDaprComponentSecretsResult {
 /**
  * Dapr component Secrets Collection for ListSecrets Action.
  */
-export function listConnectedEnvironmentsDaprComponentSecretsOutput(args: ListConnectedEnvironmentsDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedEnvironmentsDaprComponentSecretsResult> {
+export function listConnectedEnvironmentsDaprComponentSecretsOutput(args: ListConnectedEnvironmentsDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectedEnvironmentsDaprComponentSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240802preview:listConnectedEnvironmentsDaprComponentSecrets", {
         "componentName": args.componentName,

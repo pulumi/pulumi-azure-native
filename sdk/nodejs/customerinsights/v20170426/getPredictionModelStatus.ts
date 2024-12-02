@@ -83,7 +83,7 @@ export interface GetPredictionModelStatusResult {
 /**
  * Gets model status of the prediction.
  */
-export function getPredictionModelStatusOutput(args: GetPredictionModelStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionModelStatusResult> {
+export function getPredictionModelStatusOutput(args: GetPredictionModelStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPredictionModelStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getPredictionModelStatus", {
         "hubName": args.hubName,

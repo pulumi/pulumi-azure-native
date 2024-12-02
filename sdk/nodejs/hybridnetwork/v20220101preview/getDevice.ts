@@ -77,7 +77,7 @@ export interface GetDeviceResult {
 /**
  * Gets information about the specified device.
  */
-export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
+export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20220101preview:getDevice", {
         "deviceName": args.deviceName,

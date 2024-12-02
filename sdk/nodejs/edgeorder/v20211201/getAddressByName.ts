@@ -73,7 +73,7 @@ export interface GetAddressByNameResult {
 /**
  * Gets information about the specified address.
  */
-export function getAddressByNameOutput(args: GetAddressByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddressByNameResult> {
+export function getAddressByNameOutput(args: GetAddressByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAddressByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edgeorder/v20211201:getAddressByName", {
         "addressName": args.addressName,

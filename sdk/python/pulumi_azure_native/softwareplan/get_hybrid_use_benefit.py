@@ -162,7 +162,7 @@ def get_hybrid_use_benefit(plan_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_hybrid_use_benefit_output(plan_id: Optional[pulumi.Input[str]] = None,
                                   scope: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridUseBenefitResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridUseBenefitResult]:
     """
     Gets a given plan ID
     Azure REST API version: 2019-12-01.
@@ -174,7 +174,7 @@ def get_hybrid_use_benefit_output(plan_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['planId'] = plan_id
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:softwareplan:getHybridUseBenefit', __args__, opts=opts, typ=GetHybridUseBenefitResult)
     return __ret__.apply(lambda __response__: GetHybridUseBenefitResult(
         created_date=pulumi.get(__response__, 'created_date'),

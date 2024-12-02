@@ -101,7 +101,7 @@ export interface GetEventSubscriptionResult {
 /**
  * Get properties of an event subscription.
  */
-export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
+export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20220615:getEventSubscription", {
         "eventSubscriptionName": args.eventSubscriptionName,

@@ -106,7 +106,7 @@ export interface GetLoadBalancerBackendAddressPoolResult {
 /**
  * Gets load balancer backend address pool.
  */
-export function getLoadBalancerBackendAddressPoolOutput(args: GetLoadBalancerBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerBackendAddressPoolResult> {
+export function getLoadBalancerBackendAddressPoolOutput(args: GetLoadBalancerBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadBalancerBackendAddressPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getLoadBalancerBackendAddressPool", {
         "backendAddressPoolName": args.backendAddressPoolName,

@@ -122,7 +122,7 @@ export interface GetSapCentralServerInstanceResult {
 /**
  * Gets the SAP Central Services Instance resource.
  */
-export function getSapCentralServerInstanceOutput(args: GetSapCentralServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapCentralServerInstanceResult> {
+export function getSapCentralServerInstanceOutput(args: GetSapCentralServerInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapCentralServerInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20240901:getSapCentralServerInstance", {
         "centralInstanceName": args.centralInstanceName,

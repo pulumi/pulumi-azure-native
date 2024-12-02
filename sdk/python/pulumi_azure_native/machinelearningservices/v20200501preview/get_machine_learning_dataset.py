@@ -165,7 +165,7 @@ def get_machine_learning_dataset(dataset_name: Optional[str] = None,
 def get_machine_learning_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         workspace_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineLearningDatasetResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineLearningDatasetResult]:
     """
     Get a Dataset by name.
 
@@ -178,7 +178,7 @@ def get_machine_learning_dataset_output(dataset_name: Optional[pulumi.Input[str]
     __args__['datasetName'] = dataset_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset', __args__, opts=opts, typ=GetMachineLearningDatasetResult)
     return __ret__.apply(lambda __response__: GetMachineLearningDatasetResult(
         id=pulumi.get(__response__, 'id'),

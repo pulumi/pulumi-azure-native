@@ -136,7 +136,7 @@ def get_tag_inheritance_setting(scope: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_tag_inheritance_setting_output(scope: Optional[pulumi.Input[str]] = None,
                                        type: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagInheritanceSettingResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagInheritanceSettingResult]:
     """
     Get the setting from the given scope by name.
 
@@ -147,7 +147,7 @@ def get_tag_inheritance_setting_output(scope: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['scope'] = scope
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20221005preview:getTagInheritanceSetting', __args__, opts=opts, typ=GetTagInheritanceSettingResult)
     return __ret__.apply(lambda __response__: GetTagInheritanceSettingResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

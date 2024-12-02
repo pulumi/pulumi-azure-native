@@ -87,7 +87,7 @@ export interface GetNGroupResult {
  *
  * Other available API versions: 2024-11-01-preview.
  */
-export function getNGroupOutput(args: GetNGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNGroupResult> {
+export function getNGroupOutput(args: GetNGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerinstance:getNGroup", {
         "ngroupsName": args.ngroupsName,

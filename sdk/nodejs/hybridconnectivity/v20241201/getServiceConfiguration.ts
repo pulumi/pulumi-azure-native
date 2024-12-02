@@ -98,7 +98,7 @@ export interface GetServiceConfigurationResult {
 /**
  * Gets the details about the service to the resource.
  */
-export function getServiceConfigurationOutput(args: GetServiceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceConfigurationResult> {
+export function getServiceConfigurationOutput(args: GetServiceConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity/v20241201:getServiceConfiguration", {
         "endpointName": args.endpointName,

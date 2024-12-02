@@ -83,7 +83,7 @@ export interface GetServerSecurityAlertPolicyResult {
 /**
  * Get a server's security alert policy.
  */
-export function getServerSecurityAlertPolicyOutput(args: GetServerSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerSecurityAlertPolicyResult> {
+export function getServerSecurityAlertPolicyOutput(args: GetServerSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerSecurityAlertPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20170301preview:getServerSecurityAlertPolicy", {
         "resourceGroupName": args.resourceGroupName,

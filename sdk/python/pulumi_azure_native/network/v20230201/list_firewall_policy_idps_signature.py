@@ -105,7 +105,7 @@ def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Op
                                                results_per_page: Optional[pulumi.Input[Optional[int]]] = None,
                                                search: Optional[pulumi.Input[Optional[str]]] = None,
                                                skip: Optional[pulumi.Input[Optional[int]]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFirewallPolicyIdpsSignatureResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFirewallPolicyIdpsSignatureResult]:
     """
     Retrieves the current status of IDPS signatures for the relevant policy
 
@@ -126,7 +126,7 @@ def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Op
     __args__['resultsPerPage'] = results_per_page
     __args__['search'] = search
     __args__['skip'] = skip
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230201:listFirewallPolicyIdpsSignature', __args__, opts=opts, typ=ListFirewallPolicyIdpsSignatureResult)
     return __ret__.apply(lambda __response__: ListFirewallPolicyIdpsSignatureResult(
         matching_records_count=pulumi.get(__response__, 'matching_records_count'),

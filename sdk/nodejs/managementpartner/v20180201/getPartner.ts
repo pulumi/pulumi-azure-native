@@ -73,7 +73,7 @@ export interface GetPartnerResult {
 /**
  * Get the management partner using the partnerId, objectId and tenantId.
  */
-export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerResult> {
+export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managementpartner/v20180201:getPartner", {
         "partnerId": args.partnerId,

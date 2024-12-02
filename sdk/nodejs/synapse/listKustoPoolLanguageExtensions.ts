@@ -48,7 +48,7 @@ export interface ListKustoPoolLanguageExtensionsResult {
  * Returns a list of language extensions that can run within KQL queries.
  * Azure REST API version: 2021-06-01-preview.
  */
-export function listKustoPoolLanguageExtensionsOutput(args: ListKustoPoolLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolLanguageExtensionsResult> {
+export function listKustoPoolLanguageExtensionsOutput(args: ListKustoPoolLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListKustoPoolLanguageExtensionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:listKustoPoolLanguageExtensions", {
         "kustoPoolName": args.kustoPoolName,

@@ -59,7 +59,7 @@ export interface GetDraftPackagePathResult {
 /**
  * Gets draft package path and temp working path with SAS.
  */
-export function getDraftPackagePathOutput(args: GetDraftPackagePathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDraftPackagePathResult> {
+export function getDraftPackagePathOutput(args: GetDraftPackagePathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDraftPackagePathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getDraftPackagePath", {
         "draftPackageName": args.draftPackageName,

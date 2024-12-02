@@ -51,7 +51,7 @@ export interface ListMonitorHostsResult {
  *
  * Other available API versions: 2022-08-01, 2023-01-01.
  */
-export function listMonitorHostsOutput(args: ListMonitorHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorHostsResult> {
+export function listMonitorHostsOutput(args: ListMonitorHostsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMonitorHostsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datadog:listMonitorHosts", {
         "monitorName": args.monitorName,

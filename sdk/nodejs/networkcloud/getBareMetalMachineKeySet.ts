@@ -117,7 +117,7 @@ export interface GetBareMetalMachineKeySetResult {
  *
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
-export function getBareMetalMachineKeySetOutput(args: GetBareMetalMachineKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineKeySetResult> {
+export function getBareMetalMachineKeySetOutput(args: GetBareMetalMachineKeySetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBareMetalMachineKeySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud:getBareMetalMachineKeySet", {
         "bareMetalMachineKeySetName": args.bareMetalMachineKeySetName,

@@ -99,7 +99,7 @@ export interface GetConsoleResult {
 /**
  * Get properties of the provided virtual machine console.
  */
-export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
+export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240601preview:getConsole", {
         "consoleName": args.consoleName,

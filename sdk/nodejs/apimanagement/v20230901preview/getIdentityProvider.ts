@@ -91,7 +91,7 @@ export interface GetIdentityProviderResult {
 /**
  * Gets the configuration details of the identity Provider configured in specified service instance.
  */
-export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
+export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getIdentityProvider", {
         "identityProviderName": args.identityProviderName,

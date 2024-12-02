@@ -114,7 +114,7 @@ def get_linked_workspace(link_name: Optional[str] = None,
 def get_linked_workspace_output(link_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 workspace_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkedWorkspaceResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedWorkspaceResult]:
     """
     Get the detail of a linked workspace.
     Azure REST API version: 2020-05-15-preview.
@@ -128,7 +128,7 @@ def get_linked_workspace_output(link_name: Optional[pulumi.Input[str]] = None,
     __args__['linkName'] = link_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getLinkedWorkspace', __args__, opts=opts, typ=GetLinkedWorkspaceResult)
     return __ret__.apply(lambda __response__: GetLinkedWorkspaceResult(
         id=pulumi.get(__response__, 'id'),

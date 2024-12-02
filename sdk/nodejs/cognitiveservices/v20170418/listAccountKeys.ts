@@ -42,7 +42,7 @@ export interface ListAccountKeysResult {
 /**
  * Lists the account keys for the specified Cognitive Services account.
  */
-export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
+export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20170418:listAccountKeys", {
         "accountName": args.accountName,

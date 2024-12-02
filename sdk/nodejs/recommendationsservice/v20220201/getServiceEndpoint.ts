@@ -70,7 +70,7 @@ export interface GetServiceEndpointResult {
 /**
  * Returns ServiceEndpoint resources for a given name.
  */
-export function getServiceEndpointOutput(args: GetServiceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointResult> {
+export function getServiceEndpointOutput(args: GetServiceEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recommendationsservice/v20220201:getServiceEndpoint", {
         "accountName": args.accountName,

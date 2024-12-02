@@ -66,7 +66,7 @@ def list_private_store_stop_sell_offers_plans_notifications(private_store_id: Op
         stop_sell_notifications=pulumi.get(__ret__, 'stop_sell_notifications'))
 def list_private_store_stop_sell_offers_plans_notifications_output(private_store_id: Optional[pulumi.Input[str]] = None,
                                                                    subscriptions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateStoreStopSellOffersPlansNotificationsResult]:
+                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPrivateStoreStopSellOffersPlansNotificationsResult]:
     """
     List stop sell notifications for both stop sell offers and stop sell plans
 
@@ -76,7 +76,7 @@ def list_private_store_stop_sell_offers_plans_notifications_output(private_store
     __args__ = dict()
     __args__['privateStoreId'] = private_store_id
     __args__['subscriptions'] = subscriptions
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:marketplace/v20211201:listPrivateStoreStopSellOffersPlansNotifications', __args__, opts=opts, typ=ListPrivateStoreStopSellOffersPlansNotificationsResult)
     return __ret__.apply(lambda __response__: ListPrivateStoreStopSellOffersPlansNotificationsResult(
         stop_sell_notifications=pulumi.get(__response__, 'stop_sell_notifications')))

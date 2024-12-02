@@ -65,7 +65,7 @@ export interface GetEc2FlowLogResult {
 /**
  * Get a Ec2FlowLog
  */
-export function getEc2FlowLogOutput(args: GetEc2FlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2FlowLogResult> {
+export function getEc2FlowLogOutput(args: GetEc2FlowLogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2FlowLogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2FlowLog", {
         "name": args.name,

@@ -55,7 +55,7 @@ export interface ListNetworkManagerEffectiveConnectivityConfigurationsResult {
 /**
  * List all effective connectivity configurations applied on a virtual network.
  */
-export function listNetworkManagerEffectiveConnectivityConfigurationsOutput(args: ListNetworkManagerEffectiveConnectivityConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNetworkManagerEffectiveConnectivityConfigurationsResult> {
+export function listNetworkManagerEffectiveConnectivityConfigurationsOutput(args: ListNetworkManagerEffectiveConnectivityConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNetworkManagerEffectiveConnectivityConfigurationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230901:listNetworkManagerEffectiveConnectivityConfigurations", {
         "resourceGroupName": args.resourceGroupName,

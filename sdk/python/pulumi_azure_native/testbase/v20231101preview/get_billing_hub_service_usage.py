@@ -115,7 +115,7 @@ def get_billing_hub_service_usage_output(end_time_stamp: Optional[pulumi.Input[s
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          start_time_stamp: Optional[pulumi.Input[str]] = None,
                                          test_base_account_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingHubServiceUsageResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingHubServiceUsageResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -129,7 +129,7 @@ def get_billing_hub_service_usage_output(end_time_stamp: Optional[pulumi.Input[s
     __args__['resourceGroupName'] = resource_group_name
     __args__['startTimeStamp'] = start_time_stamp
     __args__['testBaseAccountName'] = test_base_account_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase/v20231101preview:getBillingHubServiceUsage', __args__, opts=opts, typ=GetBillingHubServiceUsageResult)
     return __ret__.apply(lambda __response__: GetBillingHubServiceUsageResult(
         next_request=pulumi.get(__response__, 'next_request'),

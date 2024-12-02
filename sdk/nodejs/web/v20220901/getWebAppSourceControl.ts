@@ -81,7 +81,7 @@ export interface GetWebAppSourceControlResult {
 /**
  * Description for Gets the source control configuration of an app.
  */
-export function getWebAppSourceControlOutput(args: GetWebAppSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlResult> {
+export function getWebAppSourceControlOutput(args: GetWebAppSourceControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20220901:getWebAppSourceControl", {
         "name": args.name,

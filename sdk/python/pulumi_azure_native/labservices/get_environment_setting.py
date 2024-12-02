@@ -265,7 +265,7 @@ def get_environment_setting_output(environment_setting_name: Optional[pulumi.Inp
                                    lab_account_name: Optional[pulumi.Input[str]] = None,
                                    lab_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentSettingResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentSettingResult]:
     """
     Get environment setting
     Azure REST API version: 2018-10-15.
@@ -283,7 +283,7 @@ def get_environment_setting_output(environment_setting_name: Optional[pulumi.Inp
     __args__['labAccountName'] = lab_account_name
     __args__['labName'] = lab_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getEnvironmentSetting', __args__, opts=opts, typ=GetEnvironmentSettingResult)
     return __ret__.apply(lambda __response__: GetEnvironmentSettingResult(
         configuration_state=pulumi.get(__response__, 'configuration_state'),

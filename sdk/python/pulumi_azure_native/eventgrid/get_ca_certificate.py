@@ -181,7 +181,7 @@ def get_ca_certificate(ca_certificate_name: Optional[str] = None,
 def get_ca_certificate_output(ca_certificate_name: Optional[pulumi.Input[str]] = None,
                               namespace_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCaCertificateResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCaCertificateResult]:
     """
     Get properties of a CA certificate.
     Azure REST API version: 2023-06-01-preview.
@@ -197,7 +197,7 @@ def get_ca_certificate_output(ca_certificate_name: Optional[pulumi.Input[str]] =
     __args__['caCertificateName'] = ca_certificate_name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:getCaCertificate', __args__, opts=opts, typ=GetCaCertificateResult)
     return __ret__.apply(lambda __response__: GetCaCertificateResult(
         description=pulumi.get(__response__, 'description'),

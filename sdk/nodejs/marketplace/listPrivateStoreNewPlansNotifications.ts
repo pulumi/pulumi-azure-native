@@ -39,7 +39,7 @@ export interface ListPrivateStoreNewPlansNotificationsResult {
  *
  * Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
  */
-export function listPrivateStoreNewPlansNotificationsOutput(args: ListPrivateStoreNewPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreNewPlansNotificationsResult> {
+export function listPrivateStoreNewPlansNotificationsOutput(args: ListPrivateStoreNewPlansNotificationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPrivateStoreNewPlansNotificationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:marketplace:listPrivateStoreNewPlansNotifications", {
         "privateStoreId": args.privateStoreId,

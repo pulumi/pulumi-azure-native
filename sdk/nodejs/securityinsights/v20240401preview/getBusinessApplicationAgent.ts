@@ -69,7 +69,7 @@ export interface GetBusinessApplicationAgentResult {
 /**
  * Gets Business Application Agent.
  */
-export function getBusinessApplicationAgentOutput(args: GetBusinessApplicationAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessApplicationAgentResult> {
+export function getBusinessApplicationAgentOutput(args: GetBusinessApplicationAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessApplicationAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:getBusinessApplicationAgent", {
         "agentResourceName": args.agentResourceName,

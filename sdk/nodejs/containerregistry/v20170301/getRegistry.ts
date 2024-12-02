@@ -81,7 +81,7 @@ export interface GetRegistryResult {
 /**
  * Gets the properties of the specified container registry.
  */
-export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
+export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20170301:getRegistry", {
         "registryName": args.registryName,

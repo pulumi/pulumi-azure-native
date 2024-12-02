@@ -194,7 +194,7 @@ def get_web_pub_sub_replica(replica_name: Optional[str] = None,
 def get_web_pub_sub_replica_output(replica_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    resource_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubReplicaResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebPubSubReplicaResult]:
     """
     Get the replica and its properties.
 
@@ -207,7 +207,7 @@ def get_web_pub_sub_replica_output(replica_name: Optional[pulumi.Input[str]] = N
     __args__['replicaName'] = replica_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:webpubsub/v20240301:getWebPubSubReplica', __args__, opts=opts, typ=GetWebPubSubReplicaResult)
     return __ret__.apply(lambda __response__: GetWebPubSubReplicaResult(
         id=pulumi.get(__response__, 'id'),

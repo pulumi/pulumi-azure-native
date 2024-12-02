@@ -102,7 +102,7 @@ export interface GetSapDatabaseInstanceResult {
 /**
  * Gets the SAP Database Instance resource.
  */
-export function getSapDatabaseInstanceOutput(args: GetSapDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapDatabaseInstanceResult> {
+export function getSapDatabaseInstanceOutput(args: GetSapDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapDatabaseInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20240901:getSapDatabaseInstance", {
         "databaseInstanceName": args.databaseInstanceName,

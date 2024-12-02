@@ -239,7 +239,7 @@ def get_scheduled_action_by_scope(name: Optional[str] = None,
         view_id=pulumi.get(__ret__, 'view_id'))
 def get_scheduled_action_by_scope_output(name: Optional[pulumi.Input[str]] = None,
                                          scope: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionByScopeResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledActionByScopeResult]:
     """
     Get the shared scheduled action from the given scope by name.
 
@@ -250,7 +250,7 @@ def get_scheduled_action_by_scope_output(name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['name'] = name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20230801:getScheduledActionByScope', __args__, opts=opts, typ=GetScheduledActionByScopeResult)
     return __ret__.apply(lambda __response__: GetScheduledActionByScopeResult(
         display_name=pulumi.get(__response__, 'display_name'),

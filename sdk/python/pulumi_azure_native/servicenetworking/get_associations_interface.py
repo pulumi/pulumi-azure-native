@@ -181,7 +181,7 @@ def get_associations_interface(association_name: Optional[str] = None,
 def get_associations_interface_output(association_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       traffic_controller_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssociationsInterfaceResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociationsInterfaceResult]:
     """
     Get a Association
     Azure REST API version: 2023-05-01-preview.
@@ -197,7 +197,7 @@ def get_associations_interface_output(association_name: Optional[pulumi.Input[st
     __args__['associationName'] = association_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['trafficControllerName'] = traffic_controller_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicenetworking:getAssociationsInterface', __args__, opts=opts, typ=GetAssociationsInterfaceResult)
     return __ret__.apply(lambda __response__: GetAssociationsInterfaceResult(
         association_type=pulumi.get(__response__, 'association_type'),

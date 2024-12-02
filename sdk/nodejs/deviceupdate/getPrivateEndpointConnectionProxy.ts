@@ -76,7 +76,7 @@ export interface GetPrivateEndpointConnectionProxyResult {
  * (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.
  * Azure REST API version: 2023-07-01.
  */
-export function getPrivateEndpointConnectionProxyOutput(args: GetPrivateEndpointConnectionProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionProxyResult> {
+export function getPrivateEndpointConnectionProxyOutput(args: GetPrivateEndpointConnectionProxyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionProxyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:deviceupdate:getPrivateEndpointConnectionProxy", {
         "accountName": args.accountName,

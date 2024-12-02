@@ -78,7 +78,7 @@ export interface GetDnsResolverPolicyVirtualNetworkLinkResult {
 /**
  * Gets properties of a DNS resolver policy virtual network link.
  */
-export function getDnsResolverPolicyVirtualNetworkLinkOutput(args: GetDnsResolverPolicyVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDnsResolverPolicyVirtualNetworkLinkResult> {
+export function getDnsResolverPolicyVirtualNetworkLinkOutput(args: GetDnsResolverPolicyVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDnsResolverPolicyVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:getDnsResolverPolicyVirtualNetworkLink", {
         "dnsResolverPolicyName": args.dnsResolverPolicyName,

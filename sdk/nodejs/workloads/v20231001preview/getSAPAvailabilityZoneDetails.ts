@@ -51,7 +51,7 @@ export interface GetSAPAvailabilityZoneDetailsResult {
 /**
  * Get the recommended SAP Availability Zone Pair Details for your region.
  */
-export function getSAPAvailabilityZoneDetailsOutput(args: GetSAPAvailabilityZoneDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPAvailabilityZoneDetailsResult> {
+export function getSAPAvailabilityZoneDetailsOutput(args: GetSAPAvailabilityZoneDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPAvailabilityZoneDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getSAPAvailabilityZoneDetails", {
         "appLocation": args.appLocation,

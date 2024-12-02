@@ -123,7 +123,7 @@ export interface GetBatchAccountResult {
 /**
  * Gets information about the specified Batch account.
  */
-export function getBatchAccountOutput(args: GetBatchAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchAccountResult> {
+export function getBatchAccountOutput(args: GetBatchAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBatchAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:batch/v20240701:getBatchAccount", {
         "accountName": args.accountName,

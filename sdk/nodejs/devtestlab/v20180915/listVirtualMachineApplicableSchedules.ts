@@ -70,7 +70,7 @@ export interface ListVirtualMachineApplicableSchedulesResult {
 /**
  * Lists the applicable start/stop schedules, if any.
  */
-export function listVirtualMachineApplicableSchedulesOutput(args: ListVirtualMachineApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVirtualMachineApplicableSchedulesResult> {
+export function listVirtualMachineApplicableSchedulesOutput(args: ListVirtualMachineApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVirtualMachineApplicableSchedulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:listVirtualMachineApplicableSchedules", {
         "labName": args.labName,

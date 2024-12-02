@@ -203,7 +203,7 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_iot_dps_resource_output(provisioning_service_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotDpsResourceResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotDpsResourceResult]:
     """
     Get the metadata of the provisioning service without SAS keys.
     Azure REST API version: 2022-12-12.
@@ -217,7 +217,7 @@ def get_iot_dps_resource_output(provisioning_service_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['provisioningServiceName'] = provisioning_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devices:getIotDpsResource', __args__, opts=opts, typ=GetIotDpsResourceResult)
     return __ret__.apply(lambda __response__: GetIotDpsResourceResult(
         etag=pulumi.get(__response__, 'etag'),

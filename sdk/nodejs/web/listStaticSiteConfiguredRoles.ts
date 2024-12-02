@@ -60,7 +60,7 @@ export interface ListStaticSiteConfiguredRolesResult {
  *
  * Other available API versions: 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function listStaticSiteConfiguredRolesOutput(args: ListStaticSiteConfiguredRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteConfiguredRolesResult> {
+export function listStaticSiteConfiguredRolesOutput(args: ListStaticSiteConfiguredRolesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStaticSiteConfiguredRolesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:listStaticSiteConfiguredRoles", {
         "name": args.name,

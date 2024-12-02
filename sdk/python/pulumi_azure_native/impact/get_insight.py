@@ -123,7 +123,7 @@ def get_insight(insight_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_insight_output(insight_name: Optional[pulumi.Input[str]] = None,
                        workload_impact_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInsightResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInsightResult]:
     """
     Get Insight resources by workloadImpactName and insightName
     Azure REST API version: 2024-05-01-preview.
@@ -135,7 +135,7 @@ def get_insight_output(insight_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['insightName'] = insight_name
     __args__['workloadImpactName'] = workload_impact_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:impact:getInsight', __args__, opts=opts, typ=GetInsightResult)
     return __ret__.apply(lambda __response__: GetInsightResult(
         id=pulumi.get(__response__, 'id'),

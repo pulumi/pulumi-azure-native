@@ -115,7 +115,7 @@ export interface GetOpenShiftManagedClusterResult {
  *
  * Other available API versions: 2018-09-30-preview.
  */
-export function getOpenShiftManagedClusterOutput(args: GetOpenShiftManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftManagedClusterResult> {
+export function getOpenShiftManagedClusterOutput(args: GetOpenShiftManagedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOpenShiftManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice:getOpenShiftManagedCluster", {
         "resourceGroupName": args.resourceGroupName,

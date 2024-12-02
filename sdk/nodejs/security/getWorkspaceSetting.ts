@@ -51,7 +51,7 @@ export interface GetWorkspaceSettingResult {
  * Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
  * Azure REST API version: 2017-08-01-preview.
  */
-export function getWorkspaceSettingOutput(args: GetWorkspaceSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceSettingResult> {
+export function getWorkspaceSettingOutput(args: GetWorkspaceSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getWorkspaceSetting", {
         "workspaceSettingName": args.workspaceSettingName,

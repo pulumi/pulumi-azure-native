@@ -95,7 +95,7 @@ export interface GetHybridRunbookWorkerResult {
 /**
  * Retrieve a hybrid runbook worker.
  */
-export function getHybridRunbookWorkerOutput(args: GetHybridRunbookWorkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerResult> {
+export function getHybridRunbookWorkerOutput(args: GetHybridRunbookWorkerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridRunbookWorkerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getHybridRunbookWorker", {
         "automationAccountName": args.automationAccountName,

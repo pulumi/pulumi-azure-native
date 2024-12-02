@@ -64,7 +64,7 @@ export interface GetDevOpsPolicyAssignmentResult {
  * DevOps Policy assignment resource.
  * Azure REST API version: 2024-05-15-preview.
  */
-export function getDevOpsPolicyAssignmentOutput(args: GetDevOpsPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevOpsPolicyAssignmentResult> {
+export function getDevOpsPolicyAssignmentOutput(args: GetDevOpsPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevOpsPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getDevOpsPolicyAssignment", {
         "policyAssignmentId": args.policyAssignmentId,

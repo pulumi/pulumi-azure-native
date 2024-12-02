@@ -350,7 +350,7 @@ def get_firewall_policy(expand: Optional[str] = None,
 def get_firewall_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                firewall_policy_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
     Gets the specified Firewall Policy.
     Azure REST API version: 2023-02-01.
@@ -366,7 +366,7 @@ def get_firewall_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     __args__['expand'] = expand
     __args__['firewallPolicyName'] = firewall_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult)
     return __ret__.apply(lambda __response__: GetFirewallPolicyResult(
         base_policy=pulumi.get(__response__, 'base_policy'),

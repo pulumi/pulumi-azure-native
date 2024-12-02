@@ -395,7 +395,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
 def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                virtual_machine_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Implements VirtualMachine GET method.
 
@@ -406,7 +406,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualMachineName'] = virtual_machine_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm/v20220521preview:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineResult(
         availability_sets=pulumi.get(__response__, 'availability_sets'),

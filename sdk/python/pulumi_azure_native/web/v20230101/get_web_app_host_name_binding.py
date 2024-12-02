@@ -229,7 +229,7 @@ def get_web_app_host_name_binding(host_name: Optional[str] = None,
 def get_web_app_host_name_binding_output(host_name: Optional[pulumi.Input[str]] = None,
                                          name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHostNameBindingResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppHostNameBindingResult]:
     """
     Description for Get the named hostname binding for an app (or deployment slot, if specified).
 
@@ -242,7 +242,7 @@ def get_web_app_host_name_binding_output(host_name: Optional[pulumi.Input[str]] 
     __args__['hostName'] = host_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:getWebAppHostNameBinding', __args__, opts=opts, typ=GetWebAppHostNameBindingResult)
     return __ret__.apply(lambda __response__: GetWebAppHostNameBindingResult(
         azure_resource_name=pulumi.get(__response__, 'azure_resource_name'),

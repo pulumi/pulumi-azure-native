@@ -61,7 +61,7 @@ export interface GetScopingConfigurationResult {
 /**
  * Get the AppComplianceAutomation scoping configuration of the specific report.
  */
-export function getScopingConfigurationOutput(args: GetScopingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopingConfigurationResult> {
+export function getScopingConfigurationOutput(args: GetScopingConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScopingConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation/v20240627:getScopingConfiguration", {
         "reportName": args.reportName,

@@ -62,7 +62,7 @@ export interface GetWebAppScmAllowedSlotResult {
  *
  * Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
  */
-export function getWebAppScmAllowedSlotOutput(args: GetWebAppScmAllowedSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppScmAllowedSlotResult> {
+export function getWebAppScmAllowedSlotOutput(args: GetWebAppScmAllowedSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppScmAllowedSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getWebAppScmAllowedSlot", {
         "name": args.name,

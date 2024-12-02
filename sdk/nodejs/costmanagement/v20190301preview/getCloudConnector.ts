@@ -109,7 +109,7 @@ export interface GetCloudConnectorResult {
 /**
  * Get a cloud connector definition
  */
-export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudConnectorResult> {
+export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20190301preview:getCloudConnector", {
         "connectorName": args.connectorName,

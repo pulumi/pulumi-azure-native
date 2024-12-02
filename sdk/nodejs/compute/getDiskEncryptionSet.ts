@@ -99,7 +99,7 @@ export interface GetDiskEncryptionSetResult {
  *
  * Other available API versions: 2020-06-30, 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
  */
-export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {
+export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiskEncryptionSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute:getDiskEncryptionSet", {
         "diskEncryptionSetName": args.diskEncryptionSetName,

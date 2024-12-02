@@ -61,7 +61,7 @@ export interface GetWebServiceResult {
 /**
  * Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
  */
-export function getWebServiceOutput(args: GetWebServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebServiceResult> {
+export function getWebServiceOutput(args: GetWebServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearning/v20160501preview:getWebService", {
         "resourceGroupName": args.resourceGroupName,

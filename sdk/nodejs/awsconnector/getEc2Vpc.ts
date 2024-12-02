@@ -67,7 +67,7 @@ export interface GetEc2VpcResult {
  * Get a Ec2Vpc
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2VpcOutput(args: GetEc2VpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2VpcResult> {
+export function getEc2VpcOutput(args: GetEc2VpcOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2VpcResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Vpc", {
         "name": args.name,

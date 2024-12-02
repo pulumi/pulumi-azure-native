@@ -116,7 +116,7 @@ export interface GetActivityCustomEntityQueryResult {
 /**
  * Gets an entity query.
  */
-export function getActivityCustomEntityQueryOutput(args: GetActivityCustomEntityQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityCustomEntityQueryResult> {
+export function getActivityCustomEntityQueryOutput(args: GetActivityCustomEntityQueryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActivityCustomEntityQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getActivityCustomEntityQuery", {
         "entityQueryId": args.entityQueryId,

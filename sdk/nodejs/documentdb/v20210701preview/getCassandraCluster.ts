@@ -65,7 +65,7 @@ export interface GetCassandraClusterResult {
 /**
  * Get the properties of a managed Cassandra cluster.
  */
-export function getCassandraClusterOutput(args: GetCassandraClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraClusterResult> {
+export function getCassandraClusterOutput(args: GetCassandraClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCassandraClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20210701preview:getCassandraCluster", {
         "clusterName": args.clusterName,

@@ -67,7 +67,7 @@ export interface GetLightsailInstanceResult {
  * Get a LightsailInstance
  * Azure REST API version: 2024-12-01.
  */
-export function getLightsailInstanceOutput(args: GetLightsailInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLightsailInstanceResult> {
+export function getLightsailInstanceOutput(args: GetLightsailInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLightsailInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getLightsailInstance", {
         "name": args.name,

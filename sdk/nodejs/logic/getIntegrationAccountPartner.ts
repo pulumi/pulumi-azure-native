@@ -88,7 +88,7 @@ export interface GetIntegrationAccountPartnerResult {
  *
  * Other available API versions: 2015-08-01-preview.
  */
-export function getIntegrationAccountPartnerOutput(args: GetIntegrationAccountPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountPartnerResult> {
+export function getIntegrationAccountPartnerOutput(args: GetIntegrationAccountPartnerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountPartnerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:getIntegrationAccountPartner", {
         "integrationAccountName": args.integrationAccountName,

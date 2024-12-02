@@ -159,7 +159,7 @@ export interface GetBudgetResult {
  *
  * Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
  */
-export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
+export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBudgetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getBudget", {
         "budgetName": args.budgetName,

@@ -52,7 +52,7 @@ export interface ListSubAccountVMHostsResult {
  * Response of a list VM Host Update Operation.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function listSubAccountVMHostsOutput(args: ListSubAccountVMHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubAccountVMHostsResult> {
+export function listSubAccountVMHostsOutput(args: ListSubAccountVMHostsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSubAccountVMHostsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logz:listSubAccountVMHosts", {
         "monitorName": args.monitorName,

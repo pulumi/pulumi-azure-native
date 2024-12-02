@@ -226,7 +226,7 @@ def get_l2_isolation_domain(l2_isolation_domain_name: Optional[str] = None,
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
 def get_l2_isolation_domain_output(l2_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL2IsolationDomainResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL2IsolationDomainResult]:
     """
     Implements L2 Isolation Domain GET method.
 
@@ -237,7 +237,7 @@ def get_l2_isolation_domain_output(l2_isolation_domain_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['l2IsolationDomainName'] = l2_isolation_domain_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230201preview:getL2IsolationDomain', __args__, opts=opts, typ=GetL2IsolationDomainResult)
     return __ret__.apply(lambda __response__: GetL2IsolationDomainResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),

@@ -193,7 +193,7 @@ def get_workload_network_port_mirroring(port_mirroring_id: Optional[str] = None,
 def get_workload_network_port_mirroring_output(port_mirroring_id: Optional[pulumi.Input[str]] = None,
                                                private_cloud_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadNetworkPortMirroringResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadNetworkPortMirroringResult]:
     """
     NSX Port Mirroring
     Azure REST API version: 2022-05-01.
@@ -209,7 +209,7 @@ def get_workload_network_port_mirroring_output(port_mirroring_id: Optional[pulum
     __args__['portMirroringId'] = port_mirroring_id
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs:getWorkloadNetworkPortMirroring', __args__, opts=opts, typ=GetWorkloadNetworkPortMirroringResult)
     return __ret__.apply(lambda __response__: GetWorkloadNetworkPortMirroringResult(
         destination=pulumi.get(__response__, 'destination'),

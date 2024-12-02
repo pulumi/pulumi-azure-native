@@ -41,7 +41,7 @@ export interface ListEnergyServicePartitionsResult {
 /**
  * Method that gets called when list of partitions is requested.
  */
-export function listEnergyServicePartitionsOutput(args: ListEnergyServicePartitionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEnergyServicePartitionsResult> {
+export function listEnergyServicePartitionsOutput(args: ListEnergyServicePartitionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEnergyServicePartitionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:openenergyplatform/v20220404preview:listEnergyServicePartitions", {
         "resourceGroupName": args.resourceGroupName,

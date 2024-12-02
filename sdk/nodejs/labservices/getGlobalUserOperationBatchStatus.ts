@@ -43,7 +43,7 @@ export interface GetGlobalUserOperationBatchStatusResult {
  * Get batch operation status
  * Azure REST API version: 2018-10-15.
  */
-export function getGlobalUserOperationBatchStatusOutput(args: GetGlobalUserOperationBatchStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationBatchStatusResult> {
+export function getGlobalUserOperationBatchStatusOutput(args: GetGlobalUserOperationBatchStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalUserOperationBatchStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices:getGlobalUserOperationBatchStatus", {
         "urls": args.urls,

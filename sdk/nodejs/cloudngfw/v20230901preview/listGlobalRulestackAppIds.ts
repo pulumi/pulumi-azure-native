@@ -42,7 +42,7 @@ export interface ListGlobalRulestackAppIdsResult {
 /**
  * List of AppIds for GlobalRulestack ApiVersion
  */
-export function listGlobalRulestackAppIdsOutput(args: ListGlobalRulestackAppIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalRulestackAppIdsResult> {
+export function listGlobalRulestackAppIdsOutput(args: ListGlobalRulestackAppIdsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGlobalRulestackAppIdsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901preview:listGlobalRulestackAppIds", {
         "appIdVersion": args.appIdVersion,

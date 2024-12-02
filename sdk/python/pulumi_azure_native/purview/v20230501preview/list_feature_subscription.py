@@ -69,7 +69,7 @@ def list_feature_subscription(features: Optional[Sequence[str]] = None,
         features=pulumi.get(__ret__, 'features'))
 def list_feature_subscription_output(features: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                      locations: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFeatureSubscriptionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFeatureSubscriptionResult]:
     """
     Gets details from a list of feature names.
 
@@ -80,7 +80,7 @@ def list_feature_subscription_output(features: Optional[pulumi.Input[Optional[Se
     __args__ = dict()
     __args__['features'] = features
     __args__['locations'] = locations
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:purview/v20230501preview:listFeatureSubscription', __args__, opts=opts, typ=ListFeatureSubscriptionResult)
     return __ret__.apply(lambda __response__: ListFeatureSubscriptionResult(
         features=pulumi.get(__response__, 'features')))

@@ -92,7 +92,7 @@ export interface GetSavedSearchResult {
  *
  * Other available API versions: 2015-03-20, 2023-09-01.
  */
-export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSavedSearchResult> {
+export function getSavedSearchOutput(args: GetSavedSearchOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSavedSearchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights:getSavedSearch", {
         "resourceGroupName": args.resourceGroupName,

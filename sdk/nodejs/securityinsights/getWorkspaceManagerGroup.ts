@@ -80,7 +80,7 @@ export interface GetWorkspaceManagerGroupResult {
  *
  * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview.
  */
-export function getWorkspaceManagerGroupOutput(args: GetWorkspaceManagerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceManagerGroupResult> {
+export function getWorkspaceManagerGroupOutput(args: GetWorkspaceManagerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceManagerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getWorkspaceManagerGroup", {
         "resourceGroupName": args.resourceGroupName,

@@ -55,7 +55,7 @@ export interface GetEndpointDeploymentResult {
      */
     readonly type: string;
 }
-export function getEndpointDeploymentOutput(args: GetEndpointDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointDeploymentResult> {
+export function getEndpointDeploymentOutput(args: GetEndpointDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240701preview:getEndpointDeployment", {
         "deploymentName": args.deploymentName,

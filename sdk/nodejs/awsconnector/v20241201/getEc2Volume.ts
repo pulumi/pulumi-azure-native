@@ -65,7 +65,7 @@ export interface GetEc2VolumeResult {
 /**
  * Get a Ec2Volume
  */
-export function getEc2VolumeOutput(args: GetEc2VolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2VolumeResult> {
+export function getEc2VolumeOutput(args: GetEc2VolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2VolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2Volume", {
         "name": args.name,

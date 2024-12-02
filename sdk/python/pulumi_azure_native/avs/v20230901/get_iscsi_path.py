@@ -135,7 +135,7 @@ def get_iscsi_path(private_cloud_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_iscsi_path_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIscsiPathResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIscsiPathResult]:
     """
     Get a IscsiPath
 
@@ -146,7 +146,7 @@ def get_iscsi_path_output(private_cloud_name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs/v20230901:getIscsiPath', __args__, opts=opts, typ=GetIscsiPathResult)
     return __ret__.apply(lambda __response__: GetIscsiPathResult(
         id=pulumi.get(__response__, 'id'),

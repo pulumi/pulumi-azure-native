@@ -87,7 +87,7 @@ export interface GetOriginGroupResult {
 /**
  * Gets an existing origin group within an endpoint.
  */
-export function getOriginGroupOutput(args: GetOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginGroupResult> {
+export function getOriginGroupOutput(args: GetOriginGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20230501:getOriginGroup", {
         "endpointName": args.endpointName,

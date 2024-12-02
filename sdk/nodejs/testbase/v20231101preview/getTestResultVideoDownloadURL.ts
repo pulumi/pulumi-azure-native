@@ -52,7 +52,7 @@ export interface GetTestResultVideoDownloadURLResult {
 /**
  * Gets the download URL of the test execution screen recording.
  */
-export function getTestResultVideoDownloadURLOutput(args: GetTestResultVideoDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultVideoDownloadURLResult> {
+export function getTestResultVideoDownloadURLOutput(args: GetTestResultVideoDownloadURLOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestResultVideoDownloadURLResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getTestResultVideoDownloadURL", {
         "packageName": args.packageName,

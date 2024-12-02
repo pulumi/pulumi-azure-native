@@ -50,7 +50,7 @@ export interface ListWorkspaceConnectionSecretsResult {
      */
     readonly type: string;
 }
-export function listWorkspaceConnectionSecretsOutput(args: ListWorkspaceConnectionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceConnectionSecretsResult> {
+export function listWorkspaceConnectionSecretsOutput(args: ListWorkspaceConnectionSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceConnectionSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240401preview:listWorkspaceConnectionSecrets", {
         "connectionName": args.connectionName,

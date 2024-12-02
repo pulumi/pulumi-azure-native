@@ -71,7 +71,7 @@ export interface ListCatalogDeploymentsResult {
  *
  * Other available API versions: 2024-04-01.
  */
-export function listCatalogDeploymentsOutput(args: ListCatalogDeploymentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCatalogDeploymentsResult> {
+export function listCatalogDeploymentsOutput(args: ListCatalogDeploymentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListCatalogDeploymentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere:listCatalogDeployments", {
         "catalogName": args.catalogName,

@@ -148,7 +148,7 @@ def get_s3_control_multi_region_access_point_policy_document(name: Optional[str]
         type=pulumi.get(__ret__, 'type'))
 def get_s3_control_multi_region_access_point_policy_document_output(name: Optional[pulumi.Input[str]] = None,
                                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetS3ControlMultiRegionAccessPointPolicyDocumentResult]:
+                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetS3ControlMultiRegionAccessPointPolicyDocumentResult]:
     """
     Get a S3ControlMultiRegionAccessPointPolicyDocument
 
@@ -159,7 +159,7 @@ def get_s3_control_multi_region_access_point_policy_document_output(name: Option
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector/v20241201:getS3ControlMultiRegionAccessPointPolicyDocument', __args__, opts=opts, typ=GetS3ControlMultiRegionAccessPointPolicyDocumentResult)
     return __ret__.apply(lambda __response__: GetS3ControlMultiRegionAccessPointPolicyDocumentResult(
         id=pulumi.get(__response__, 'id'),

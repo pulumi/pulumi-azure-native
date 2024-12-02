@@ -46,7 +46,7 @@ export interface GetLiveEventStreamEventsResult {
 /**
  * Get stream events telemetry of a live event.
  */
-export function getLiveEventStreamEventsOutput(args: GetLiveEventStreamEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventStreamEventsResult> {
+export function getLiveEventStreamEventsOutput(args: GetLiveEventStreamEventsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveEventStreamEventsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20221101:getLiveEventStreamEvents", {
         "accountName": args.accountName,

@@ -47,7 +47,7 @@ export interface GetWebhookCallbackConfigResult {
 /**
  * Gets the configuration of service URI and custom headers for the webhook.
  */
-export function getWebhookCallbackConfigOutput(args: GetWebhookCallbackConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookCallbackConfigResult> {
+export function getWebhookCallbackConfigOutput(args: GetWebhookCallbackConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebhookCallbackConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20231101preview:getWebhookCallbackConfig", {
         "registryName": args.registryName,

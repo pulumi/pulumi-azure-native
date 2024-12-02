@@ -87,7 +87,7 @@ export interface GetRoleDefinitionResult {
  * Get role definition by ID (GUID).
  * Azure REST API version: 2022-05-01-preview.
  */
-export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
+export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getRoleDefinition", {
         "roleDefinitionId": args.roleDefinitionId,

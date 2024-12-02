@@ -57,7 +57,7 @@ export interface ListWebAppConnectionStringsResult {
 /**
  * Description for Gets the connection strings of an app.
  */
-export function listWebAppConnectionStringsOutput(args: ListWebAppConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppConnectionStringsResult> {
+export function listWebAppConnectionStringsOutput(args: ListWebAppConnectionStringsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppConnectionStringsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20220901:listWebAppConnectionStrings", {
         "name": args.name,

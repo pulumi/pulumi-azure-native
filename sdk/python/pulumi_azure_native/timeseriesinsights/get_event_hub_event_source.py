@@ -271,7 +271,7 @@ def get_event_hub_event_source(environment_name: Optional[str] = None,
 def get_event_hub_event_source_output(environment_name: Optional[pulumi.Input[str]] = None,
                                       event_source_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubEventSourceResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventHubEventSourceResult]:
     """
     Gets the event source with the specified name in the specified environment.
     Azure REST API version: 2020-05-15.
@@ -285,7 +285,7 @@ def get_event_hub_event_source_output(environment_name: Optional[pulumi.Input[st
     __args__['environmentName'] = environment_name
     __args__['eventSourceName'] = event_source_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:timeseriesinsights:getEventHubEventSource', __args__, opts=opts, typ=GetEventHubEventSourceResult)
     return __ret__.apply(lambda __response__: GetEventHubEventSourceResult(
         consumer_group_name=pulumi.get(__response__, 'consumer_group_name'),

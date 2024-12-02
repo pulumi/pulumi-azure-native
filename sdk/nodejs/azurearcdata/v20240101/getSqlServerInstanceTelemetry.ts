@@ -79,7 +79,7 @@ export interface GetSqlServerInstanceTelemetryResult {
 /**
  * Retrieves SQL Server instance telemetry
  */
-export function getSqlServerInstanceTelemetryOutput(args: GetSqlServerInstanceTelemetryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerInstanceTelemetryResult> {
+export function getSqlServerInstanceTelemetryOutput(args: GetSqlServerInstanceTelemetryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerInstanceTelemetryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240101:getSqlServerInstanceTelemetry", {
         "aggregationType": args.aggregationType,

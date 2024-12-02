@@ -90,7 +90,7 @@ export interface GetSqlDBTableDataSetResult {
  * Get a DataSet in a share
  * Azure REST API version: 2021-08-01.
  */
-export function getSqlDBTableDataSetOutput(args: GetSqlDBTableDataSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDBTableDataSetResult> {
+export function getSqlDBTableDataSetOutput(args: GetSqlDBTableDataSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlDBTableDataSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:getSqlDBTableDataSet", {
         "accountName": args.accountName,

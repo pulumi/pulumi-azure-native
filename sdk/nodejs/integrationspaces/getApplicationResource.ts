@@ -81,7 +81,7 @@ export interface GetApplicationResourceResult {
  * Get a ApplicationResource
  * Azure REST API version: 2023-11-14-preview.
  */
-export function getApplicationResourceOutput(args: GetApplicationResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResourceResult> {
+export function getApplicationResourceOutput(args: GetApplicationResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:integrationspaces:getApplicationResource", {
         "applicationName": args.applicationName,

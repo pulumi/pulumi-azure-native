@@ -112,7 +112,7 @@ export interface GetElasticPoolResult {
 /**
  * Gets an elastic pool.
  */
-export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
+export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getElasticPool", {
         "elasticPoolName": args.elasticPoolName,

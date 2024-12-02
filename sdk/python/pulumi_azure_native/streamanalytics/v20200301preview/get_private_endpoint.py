@@ -126,7 +126,7 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
 def get_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                 private_endpoint_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointResult]:
     """
     Gets information about the specified Private Endpoint.
 
@@ -139,7 +139,7 @@ def get_private_endpoint_output(cluster_name: Optional[pulumi.Input[str]] = None
     __args__['clusterName'] = cluster_name
     __args__['privateEndpointName'] = private_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics/v20200301preview:getPrivateEndpoint', __args__, opts=opts, typ=GetPrivateEndpointResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointResult(
         etag=pulumi.get(__response__, 'etag'),

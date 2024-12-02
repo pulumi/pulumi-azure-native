@@ -29,7 +29,7 @@ export interface GetApiManagementServiceDomainOwnershipIdentifierResult {
 /**
  * Get the custom domain ownership identifier for an API Management service.
  */
-export function getApiManagementServiceDomainOwnershipIdentifierOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceDomainOwnershipIdentifierResult> {
+export function getApiManagementServiceDomainOwnershipIdentifierOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiManagementServiceDomainOwnershipIdentifierResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20201201:getApiManagementServiceDomainOwnershipIdentifier", {
     }, opts);

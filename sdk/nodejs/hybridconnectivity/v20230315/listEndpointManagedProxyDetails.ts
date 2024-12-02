@@ -60,7 +60,7 @@ export interface ListEndpointManagedProxyDetailsResult {
 /**
  * Fetches the managed proxy details
  */
-export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
+export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity/v20230315:listEndpointManagedProxyDetails", {
         "endpointName": args.endpointName,

@@ -60,7 +60,7 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerResult {
 /**
  * List effective virtual networks in a network manager.
  */
-export function listEffectiveVirtualNetworkByNetworkManagerOutput(args: ListEffectiveVirtualNetworkByNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkManagerResult> {
+export function listEffectiveVirtualNetworkByNetworkManagerOutput(args: ListEffectiveVirtualNetworkByNetworkManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20220401preview:listEffectiveVirtualNetworkByNetworkManager", {
         "conditionalMembers": args.conditionalMembers,

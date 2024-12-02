@@ -76,7 +76,7 @@ export interface GetMachineLearningDatastoreResult {
  * Get a Datastore by name.
  * Azure REST API version: 2020-05-01-preview.
  */
-export function getMachineLearningDatastoreOutput(args: GetMachineLearningDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatastoreResult> {
+export function getMachineLearningDatastoreOutput(args: GetMachineLearningDatastoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineLearningDatastoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getMachineLearningDatastore", {
         "datastoreName": args.datastoreName,

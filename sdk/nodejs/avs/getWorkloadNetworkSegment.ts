@@ -88,7 +88,7 @@ export interface GetWorkloadNetworkSegmentResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function getWorkloadNetworkSegmentOutput(args: GetWorkloadNetworkSegmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkSegmentResult> {
+export function getWorkloadNetworkSegmentOutput(args: GetWorkloadNetworkSegmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadNetworkSegmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getWorkloadNetworkSegment", {
         "privateCloudName": args.privateCloudName,

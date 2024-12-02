@@ -255,7 +255,7 @@ def get_network_connection(network_connection_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_network_connection_output(network_connection_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkConnectionResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkConnectionResult]:
     """
     Gets a network connection resource
     Azure REST API version: 2023-04-01.
@@ -269,7 +269,7 @@ def get_network_connection_output(network_connection_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['networkConnectionName'] = network_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getNetworkConnection', __args__, opts=opts, typ=GetNetworkConnectionResult)
     return __ret__.apply(lambda __response__: GetNetworkConnectionResult(
         domain_join_type=pulumi.get(__response__, 'domain_join_type'),

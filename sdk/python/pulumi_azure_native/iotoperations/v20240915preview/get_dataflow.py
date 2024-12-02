@@ -143,7 +143,7 @@ def get_dataflow_output(dataflow_name: Optional[pulumi.Input[str]] = None,
                         dataflow_profile_name: Optional[pulumi.Input[str]] = None,
                         instance_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataflowResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataflowResult]:
     """
     Get a DataflowResource
 
@@ -158,7 +158,7 @@ def get_dataflow_output(dataflow_name: Optional[pulumi.Input[str]] = None,
     __args__['dataflowProfileName'] = dataflow_profile_name
     __args__['instanceName'] = instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperations/v20240915preview:getDataflow', __args__, opts=opts, typ=GetDataflowResult)
     return __ret__.apply(lambda __response__: GetDataflowResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

@@ -55,7 +55,7 @@ export interface ListRemediationDeploymentsAtManagementGroupResult {
 /**
  * Gets all deployments for a remediation at management group scope.
  */
-export function listRemediationDeploymentsAtManagementGroupOutput(args: ListRemediationDeploymentsAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRemediationDeploymentsAtManagementGroupResult> {
+export function listRemediationDeploymentsAtManagementGroupOutput(args: ListRemediationDeploymentsAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRemediationDeploymentsAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights/v20211001:listRemediationDeploymentsAtManagementGroup", {
         "managementGroupId": args.managementGroupId,

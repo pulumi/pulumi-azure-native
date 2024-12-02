@@ -102,7 +102,7 @@ export interface GetIscsiTargetResult {
 /**
  * Get an iSCSI Target.
  */
-export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiTargetResult> {
+export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIscsiTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagepool/v20210801:getIscsiTarget", {
         "diskPoolName": args.diskPoolName,

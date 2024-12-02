@@ -304,7 +304,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         vm_size=pulumi.get(__ret__, 'vm_size'))
 def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentPoolResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Gets the specified agent pool in the provisioned cluster
 
@@ -315,7 +315,7 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['agentPoolName'] = agent_pool_name
     __args__['connectedClusterResourceUri'] = connected_cluster_resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20240101:getAgentPool', __args__, opts=opts, typ=GetAgentPoolResult)
     return __ret__.apply(lambda __response__: GetAgentPoolResult(
         count=pulumi.get(__response__, 'count'),

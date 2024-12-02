@@ -69,7 +69,7 @@ def get_registration_activation_key(registration_name: Optional[str] = None,
         activation_key=pulumi.get(__ret__, 'activation_key'))
 def get_registration_activation_key_output(registration_name: Optional[pulumi.Input[str]] = None,
                                            resource_group: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationActivationKeyResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationActivationKeyResult]:
     """
     Returns Azure Stack Activation Key.
 
@@ -80,7 +80,7 @@ def get_registration_activation_key_output(registration_name: Optional[pulumi.In
     __args__ = dict()
     __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack/v20220601:getRegistrationActivationKey', __args__, opts=opts, typ=GetRegistrationActivationKeyResult)
     return __ret__.apply(lambda __response__: GetRegistrationActivationKeyResult(
         activation_key=pulumi.get(__response__, 'activation_key')))

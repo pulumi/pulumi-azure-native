@@ -90,7 +90,7 @@ export interface GetNetworkInterfaceResult {
 /**
  * Get the Network Interface resource details.
  */
-export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceResult> {
+export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getNetworkInterface", {
         "networkDeviceName": args.networkDeviceName,

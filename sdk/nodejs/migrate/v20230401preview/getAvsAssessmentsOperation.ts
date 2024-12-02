@@ -233,7 +233,7 @@ export interface GetAvsAssessmentsOperationResult {
 /**
  * Get a AvsAssessment
  */
-export function getAvsAssessmentsOperationOutput(args: GetAvsAssessmentsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvsAssessmentsOperationResult> {
+export function getAvsAssessmentsOperationOutput(args: GetAvsAssessmentsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAvsAssessmentsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230401preview:getAvsAssessmentsOperation", {
         "assessmentName": args.assessmentName,

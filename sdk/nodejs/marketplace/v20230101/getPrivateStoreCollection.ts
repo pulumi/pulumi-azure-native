@@ -93,7 +93,7 @@ export interface GetPrivateStoreCollectionResult {
 /**
  * Gets private store collection
  */
-export function getPrivateStoreCollectionOutput(args: GetPrivateStoreCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionResult> {
+export function getPrivateStoreCollectionOutput(args: GetPrivateStoreCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateStoreCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:marketplace/v20230101:getPrivateStoreCollection", {
         "collectionId": args.collectionId,

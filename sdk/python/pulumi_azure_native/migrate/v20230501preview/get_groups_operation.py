@@ -230,7 +230,7 @@ def get_groups_operation(group_name: Optional[str] = None,
 def get_groups_operation_output(group_name: Optional[pulumi.Input[str]] = None,
                                 project_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupsOperationResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupsOperationResult]:
     """
     Get a Group
 
@@ -243,7 +243,7 @@ def get_groups_operation_output(group_name: Optional[pulumi.Input[str]] = None,
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate/v20230501preview:getGroupsOperation', __args__, opts=opts, typ=GetGroupsOperationResult)
     return __ret__.apply(lambda __response__: GetGroupsOperationResult(
         are_assessments_running=pulumi.get(__response__, 'are_assessments_running'),

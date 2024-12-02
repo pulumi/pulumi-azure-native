@@ -204,7 +204,7 @@ def get_saved_search(resource_group_name: Optional[str] = None,
 def get_saved_search_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             saved_search_id: Optional[pulumi.Input[str]] = None,
                             workspace_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSavedSearchResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSavedSearchResult]:
     """
     Gets the specified saved search for a given workspace.
 
@@ -217,7 +217,7 @@ def get_saved_search_output(resource_group_name: Optional[pulumi.Input[str]] = N
     __args__['resourceGroupName'] = resource_group_name
     __args__['savedSearchId'] = saved_search_id
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights/v20200801:getSavedSearch', __args__, opts=opts, typ=GetSavedSearchResult)
     return __ret__.apply(lambda __response__: GetSavedSearchResult(
         category=pulumi.get(__response__, 'category'),

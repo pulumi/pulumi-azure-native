@@ -100,7 +100,7 @@ export interface GetKustoPoolDatabasePrincipalAssignmentResult {
 /**
  * Gets a Kusto pool database principalAssignment.
  */
-export function getKustoPoolDatabasePrincipalAssignmentOutput(args: GetKustoPoolDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolDatabasePrincipalAssignmentResult> {
+export function getKustoPoolDatabasePrincipalAssignmentOutput(args: GetKustoPoolDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKustoPoolDatabasePrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getKustoPoolDatabasePrincipalAssignment", {
         "databaseName": args.databaseName,

@@ -196,7 +196,7 @@ def get_subscription_diagnostic_setting(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_subscription_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionDiagnosticSettingResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionDiagnosticSettingResult]:
     """
     Gets the active subscription diagnostic settings for the specified resource.
 
@@ -205,7 +205,7 @@ def get_subscription_diagnostic_setting_output(name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20210501preview:getSubscriptionDiagnosticSetting', __args__, opts=opts, typ=GetSubscriptionDiagnosticSettingResult)
     return __ret__.apply(lambda __response__: GetSubscriptionDiagnosticSettingResult(
         event_hub_authorization_rule_id=pulumi.get(__response__, 'event_hub_authorization_rule_id'),

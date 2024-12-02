@@ -65,7 +65,7 @@ export interface GetRdsExportTaskResult {
 /**
  * Get a RdsExportTask
  */
-export function getRdsExportTaskOutput(args: GetRdsExportTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRdsExportTaskResult> {
+export function getRdsExportTaskOutput(args: GetRdsExportTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRdsExportTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRdsExportTask", {
         "name": args.name,

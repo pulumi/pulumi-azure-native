@@ -76,7 +76,7 @@ export interface GetStaticSiteLinkedBackendForBuildResult {
 /**
  * Static Site Linked Backend ARM resource.
  */
-export function getStaticSiteLinkedBackendForBuildOutput(args: GetStaticSiteLinkedBackendForBuildOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSiteLinkedBackendForBuildResult> {
+export function getStaticSiteLinkedBackendForBuildOutput(args: GetStaticSiteLinkedBackendForBuildOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteLinkedBackendForBuildResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getStaticSiteLinkedBackendForBuild", {
         "environmentName": args.environmentName,

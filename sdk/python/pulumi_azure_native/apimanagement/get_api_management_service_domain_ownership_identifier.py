@@ -62,7 +62,7 @@ def get_api_management_service_domain_ownership_identifier(opts: Optional[pulumi
 
     return AwaitableGetApiManagementServiceDomainOwnershipIdentifierResult(
         domain_ownership_identifier=pulumi.get(__ret__, 'domain_ownership_identifier'))
-def get_api_management_service_domain_ownership_identifier_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceDomainOwnershipIdentifierResult]:
+def get_api_management_service_domain_ownership_identifier_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiManagementServiceDomainOwnershipIdentifierResult]:
     """
     Get the custom domain ownership identifier for an API Management service.
     Azure REST API version: 2022-08-01.
@@ -70,7 +70,7 @@ def get_api_management_service_domain_ownership_identifier_output(opts: Optional
     Other available API versions: 2020-06-01-preview, 2020-12-01, 2021-01-01-preview, 2021-04-01-preview, 2021-08-01, 2021-12-01-preview, 2022-04-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiManagementServiceDomainOwnershipIdentifier', __args__, opts=opts, typ=GetApiManagementServiceDomainOwnershipIdentifierResult)
     return __ret__.apply(lambda __response__: GetApiManagementServiceDomainOwnershipIdentifierResult(
         domain_ownership_identifier=pulumi.get(__response__, 'domain_ownership_identifier')))

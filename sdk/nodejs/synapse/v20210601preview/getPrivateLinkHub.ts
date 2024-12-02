@@ -65,7 +65,7 @@ export interface GetPrivateLinkHubResult {
 /**
  * Gets a privateLinkHub
  */
-export function getPrivateLinkHubOutput(args: GetPrivateLinkHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkHubResult> {
+export function getPrivateLinkHubOutput(args: GetPrivateLinkHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601preview:getPrivateLinkHub", {
         "privateLinkHubName": args.privateLinkHubName,

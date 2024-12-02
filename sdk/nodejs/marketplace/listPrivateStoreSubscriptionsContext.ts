@@ -36,7 +36,7 @@ export interface ListPrivateStoreSubscriptionsContextResult {
  *
  * Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
  */
-export function listPrivateStoreSubscriptionsContextOutput(args: ListPrivateStoreSubscriptionsContextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreSubscriptionsContextResult> {
+export function listPrivateStoreSubscriptionsContextOutput(args: ListPrivateStoreSubscriptionsContextOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPrivateStoreSubscriptionsContextResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:marketplace:listPrivateStoreSubscriptionsContext", {
         "privateStoreId": args.privateStoreId,

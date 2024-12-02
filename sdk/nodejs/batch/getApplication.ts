@@ -73,7 +73,7 @@ export interface GetApplicationResult {
  *
  * Other available API versions: 2017-09-01, 2023-11-01, 2024-02-01, 2024-07-01.
  */
-export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:batch:getApplication", {
         "accountName": args.accountName,

@@ -226,7 +226,7 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
         vm_switch_name=pulumi.get(__ret__, 'vm_switch_name'))
 def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                virtual_network_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
     The virtual network resource definition.
 
@@ -237,7 +237,7 @@ def get_virtual_network_output(resource_group_name: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20221215preview:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkResult(
         dhcp_options=pulumi.get(__response__, 'dhcp_options'),

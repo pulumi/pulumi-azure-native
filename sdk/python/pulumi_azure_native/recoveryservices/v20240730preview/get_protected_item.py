@@ -165,7 +165,7 @@ def get_protected_item_output(container_name: Optional[pulumi.Input[str]] = None
                               protected_item_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               vault_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectedItemResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectedItemResult]:
     """
     Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
     call the GetItemOperationResult API.
@@ -185,7 +185,7 @@ def get_protected_item_output(container_name: Optional[pulumi.Input[str]] = None
     __args__['protectedItemName'] = protected_item_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20240730preview:getProtectedItem', __args__, opts=opts, typ=GetProtectedItemResult)
     return __ret__.apply(lambda __response__: GetProtectedItemResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

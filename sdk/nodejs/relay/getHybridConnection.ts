@@ -88,7 +88,7 @@ export interface GetHybridConnectionResult {
  *
  * Other available API versions: 2024-01-01.
  */
-export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridConnectionResult> {
+export function getHybridConnectionOutput(args: GetHybridConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay:getHybridConnection", {
         "hybridConnectionName": args.hybridConnectionName,

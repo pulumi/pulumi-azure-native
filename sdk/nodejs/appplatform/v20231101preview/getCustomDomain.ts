@@ -67,7 +67,7 @@ export interface GetCustomDomainResult {
 /**
  * Get the custom domain of one lifecycle application.
  */
-export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
+export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:getCustomDomain", {
         "appName": args.appName,

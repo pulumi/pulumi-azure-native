@@ -55,7 +55,7 @@ export interface ListVolumeQuotaReportResult {
 /**
  * Returns report of quotas for the volume
  */
-export function listVolumeQuotaReportOutput(args: ListVolumeQuotaReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeQuotaReportResult> {
+export function listVolumeQuotaReportOutput(args: ListVolumeQuotaReportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVolumeQuotaReportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:netapp/v20240701preview:listVolumeQuotaReport", {
         "accountName": args.accountName,

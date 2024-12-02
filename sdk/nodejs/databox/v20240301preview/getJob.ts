@@ -142,7 +142,7 @@ export interface GetJobResult {
 /**
  * Gets information about the specified job.
  */
-export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
+export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databox/v20240301preview:getJob", {
         "expand": args.expand,

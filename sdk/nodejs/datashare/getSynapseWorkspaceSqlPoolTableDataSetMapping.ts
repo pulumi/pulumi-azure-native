@@ -86,7 +86,7 @@ export interface GetSynapseWorkspaceSqlPoolTableDataSetMappingResult {
  * Get a DataSetMapping in a shareSubscription
  * Azure REST API version: 2021-08-01.
  */
-export function getSynapseWorkspaceSqlPoolTableDataSetMappingOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> {
+export function getSynapseWorkspaceSqlPoolTableDataSetMappingOutput(args: GetSynapseWorkspaceSqlPoolTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSynapseWorkspaceSqlPoolTableDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:getSynapseWorkspaceSqlPoolTableDataSetMapping", {
         "accountName": args.accountName,

@@ -34,7 +34,7 @@ export interface GetOrganizationApiKeyResult {
 /**
  * Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.
  */
-export function getOrganizationApiKeyOutput(args?: GetOrganizationApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationApiKeyResult> {
+export function getOrganizationApiKeyOutput(args?: GetOrganizationApiKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationApiKeyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20240101preview:getOrganizationApiKey", {

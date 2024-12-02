@@ -224,7 +224,7 @@ def get_ciam_tenant(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_ciam_tenant_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            resource_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCIAMTenantResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCIAMTenantResult]:
     """
     Get the Azure AD for customers tenant resource.
     Azure REST API version: 2023-05-17-preview.
@@ -236,7 +236,7 @@ def get_ciam_tenant_output(resource_group_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azureactivedirectory:getCIAMTenant', __args__, opts=opts, typ=GetCIAMTenantResult)
     return __ret__.apply(lambda __response__: GetCIAMTenantResult(
         billing_type=pulumi.get(__response__, 'billing_type'),

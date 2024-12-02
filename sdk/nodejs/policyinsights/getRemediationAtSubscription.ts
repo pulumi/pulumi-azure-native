@@ -106,7 +106,7 @@ export interface GetRemediationAtSubscriptionResult {
  *
  * Other available API versions: 2018-07-01-preview, 2024-10-01.
  */
-export function getRemediationAtSubscriptionOutput(args: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {
+export function getRemediationAtSubscriptionOutput(args: GetRemediationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemediationAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights:getRemediationAtSubscription", {
         "remediationName": args.remediationName,

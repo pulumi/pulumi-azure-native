@@ -74,7 +74,7 @@ export interface GetPrivateEndpointConnectionResult {
 /**
  * Get Private endpoint connection object.
  */
-export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:agfoodplatform/v20230601preview:getPrivateEndpointConnection", {
         "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,

@@ -87,7 +87,7 @@ export interface GetBrokerAuthenticationResult {
 /**
  * Get a BrokerAuthenticationResource
  */
-export function getBrokerAuthenticationOutput(args: GetBrokerAuthenticationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerAuthenticationResult> {
+export function getBrokerAuthenticationOutput(args: GetBrokerAuthenticationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerAuthenticationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq/v20231004preview:getBrokerAuthentication", {
         "authenticationName": args.authenticationName,

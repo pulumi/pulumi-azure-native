@@ -291,7 +291,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         v_center_id=pulumi.get(__ret__, 'v_center_id'))
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Implements cluster GET method.
 
@@ -302,7 +302,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere/v20220715preview:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),

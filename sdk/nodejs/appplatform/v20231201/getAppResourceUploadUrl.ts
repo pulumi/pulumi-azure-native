@@ -47,7 +47,7 @@ export interface GetAppResourceUploadUrlResult {
 /**
  * Get an resource upload URL for an App, which may be artifacts or source archive.
  */
-export function getAppResourceUploadUrlOutput(args: GetAppResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResourceUploadUrlResult> {
+export function getAppResourceUploadUrlOutput(args: GetAppResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppResourceUploadUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231201:getAppResourceUploadUrl", {
         "appName": args.appName,

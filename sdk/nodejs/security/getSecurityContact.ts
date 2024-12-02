@@ -66,7 +66,7 @@ export interface GetSecurityContactResult {
  *
  * Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
  */
-export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityContactResult> {
+export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getSecurityContact", {
         "securityContactName": args.securityContactName,

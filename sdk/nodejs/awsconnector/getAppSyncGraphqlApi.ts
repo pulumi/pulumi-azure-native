@@ -67,7 +67,7 @@ export interface GetAppSyncGraphqlApiResult {
  * Get a AppSyncGraphqlApi
  * Azure REST API version: 2024-12-01.
  */
-export function getAppSyncGraphqlApiOutput(args: GetAppSyncGraphqlApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppSyncGraphqlApiResult> {
+export function getAppSyncGraphqlApiOutput(args: GetAppSyncGraphqlApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppSyncGraphqlApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getAppSyncGraphqlApi", {
         "name": args.name,

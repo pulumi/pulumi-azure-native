@@ -69,7 +69,7 @@ export interface GetServiceResult {
 /**
  * Get service
  */
-export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apicenter/v20230701preview:getService", {
         "resourceGroupName": args.resourceGroupName,

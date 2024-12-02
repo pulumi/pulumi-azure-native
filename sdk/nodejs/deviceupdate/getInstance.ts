@@ -88,7 +88,7 @@ export interface GetInstanceResult {
  * Returns instance details for the given instance and account name.
  * Azure REST API version: 2023-07-01.
  */
-export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:deviceupdate:getInstance", {
         "accountName": args.accountName,

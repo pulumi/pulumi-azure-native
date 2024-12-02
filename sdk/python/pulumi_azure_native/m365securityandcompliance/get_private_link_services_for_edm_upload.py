@@ -188,7 +188,7 @@ def get_private_link_services_for_edm_upload(resource_group_name: Optional[str] 
         type=pulumi.get(__ret__, 'type'))
 def get_private_link_services_for_edm_upload_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     resource_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicesForEDMUploadResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicesForEDMUploadResult]:
     """
     Get the metadata of a privateLinkServicesForEDMUpload resource.
     Azure REST API version: 2021-03-25-preview.
@@ -200,7 +200,7 @@ def get_private_link_services_for_edm_upload_output(resource_group_name: Optiona
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:m365securityandcompliance:getPrivateLinkServicesForEDMUpload', __args__, opts=opts, typ=GetPrivateLinkServicesForEDMUploadResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkServicesForEDMUploadResult(
         etag=pulumi.get(__response__, 'etag'),

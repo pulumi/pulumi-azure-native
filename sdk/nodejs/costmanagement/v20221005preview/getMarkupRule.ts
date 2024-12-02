@@ -78,7 +78,7 @@ export interface GetMarkupRuleResult {
 /**
  * Get a markup rule by its rule name.
  */
-export function getMarkupRuleOutput(args: GetMarkupRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMarkupRuleResult> {
+export function getMarkupRuleOutput(args: GetMarkupRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMarkupRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20221005preview:getMarkupRule", {
         "billingAccountId": args.billingAccountId,

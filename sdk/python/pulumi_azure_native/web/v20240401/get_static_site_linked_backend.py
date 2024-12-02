@@ -164,7 +164,7 @@ def get_static_site_linked_backend(linked_backend_name: Optional[str] = None,
 def get_static_site_linked_backend_output(linked_backend_name: Optional[pulumi.Input[str]] = None,
                                           name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteLinkedBackendResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteLinkedBackendResult]:
     """
     Static Site Linked Backend ARM resource.
 
@@ -177,7 +177,7 @@ def get_static_site_linked_backend_output(linked_backend_name: Optional[pulumi.I
     __args__['linkedBackendName'] = linked_backend_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:getStaticSiteLinkedBackend', __args__, opts=opts, typ=GetStaticSiteLinkedBackendResult)
     return __ret__.apply(lambda __response__: GetStaticSiteLinkedBackendResult(
         backend_resource_id=pulumi.get(__response__, 'backend_resource_id'),

@@ -41,7 +41,7 @@ export interface ListBotSecretsResult {
 /**
  * List all secrets of a HealthBot.
  */
-export function listBotSecretsOutput(args: ListBotSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotSecretsResult> {
+export function listBotSecretsOutput(args: ListBotSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBotSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthbot/v20230501:listBotSecrets", {
         "botName": args.botName,

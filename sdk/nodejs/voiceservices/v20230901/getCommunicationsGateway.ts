@@ -141,7 +141,7 @@ export interface GetCommunicationsGatewayResult {
 /**
  * Get a CommunicationsGateway
  */
-export function getCommunicationsGatewayOutput(args: GetCommunicationsGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationsGatewayResult> {
+export function getCommunicationsGatewayOutput(args: GetCommunicationsGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCommunicationsGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:voiceservices/v20230901:getCommunicationsGateway", {
         "communicationsGatewayName": args.communicationsGatewayName,

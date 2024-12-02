@@ -83,7 +83,7 @@ export interface GetNamespaceNetworkRuleSetResult {
  *
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
-export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
+export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub:getNamespaceNetworkRuleSet", {
         "namespaceName": args.namespaceName,

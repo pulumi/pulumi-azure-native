@@ -126,7 +126,7 @@ def get_management_policy(account_name: Optional[str] = None,
 def get_management_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                  management_policy_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementPolicyResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementPolicyResult]:
     """
     Gets the managementpolicy associated with the specified storage account.
 
@@ -139,7 +139,7 @@ def get_management_policy_output(account_name: Optional[pulumi.Input[str]] = Non
     __args__['accountName'] = account_name
     __args__['managementPolicyName'] = management_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230101:getManagementPolicy', __args__, opts=opts, typ=GetManagementPolicyResult)
     return __ret__.apply(lambda __response__: GetManagementPolicyResult(
         id=pulumi.get(__response__, 'id'),

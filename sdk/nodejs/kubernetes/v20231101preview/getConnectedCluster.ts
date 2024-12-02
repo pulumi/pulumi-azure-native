@@ -145,7 +145,7 @@ export interface GetConnectedClusterResult {
 /**
  * Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
  */
-export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedClusterResult> {
+export function getConnectedClusterOutput(args: GetConnectedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kubernetes/v20231101preview:getConnectedCluster", {
         "clusterName": args.clusterName,

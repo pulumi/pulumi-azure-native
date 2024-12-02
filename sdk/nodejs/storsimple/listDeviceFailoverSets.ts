@@ -48,7 +48,7 @@ export interface ListDeviceFailoverSetsResult {
  * Returns all failover sets for a given device and their eligibility for participating in a failover. A failover set refers to a set of volume containers that need to be failed-over as a single unit to maintain data integrity.
  * Azure REST API version: 2017-06-01.
  */
-export function listDeviceFailoverSetsOutput(args: ListDeviceFailoverSetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeviceFailoverSetsResult> {
+export function listDeviceFailoverSetsOutput(args: ListDeviceFailoverSetsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDeviceFailoverSetsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple:listDeviceFailoverSets", {
         "deviceName": args.deviceName,

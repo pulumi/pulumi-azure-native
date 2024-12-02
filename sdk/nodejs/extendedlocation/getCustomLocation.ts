@@ -99,7 +99,7 @@ export interface GetCustomLocationResult {
  *
  * Other available API versions: 2021-08-31-preview.
  */
-export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLocationResult> {
+export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:extendedlocation:getCustomLocation", {
         "resourceGroupName": args.resourceGroupName,

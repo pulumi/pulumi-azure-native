@@ -187,7 +187,7 @@ def get_analytics_item_output(id: Optional[pulumi.Input[Optional[str]]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               resource_name: Optional[pulumi.Input[str]] = None,
                               scope_path: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalyticsItemResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnalyticsItemResult]:
     """
     Gets a specific Analytics Items defined within an Application Insights component.
     Azure REST API version: 2015-05-01.
@@ -205,7 +205,7 @@ def get_analytics_item_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     __args__['scopePath'] = scope_path
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getAnalyticsItem', __args__, opts=opts, typ=GetAnalyticsItemResult)
     return __ret__.apply(lambda __response__: GetAnalyticsItemResult(
         content=pulumi.get(__response__, 'content'),

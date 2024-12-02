@@ -47,7 +47,7 @@ export interface ListBuildAuthTokenResult {
 /**
  * Gets the token used to connect to the endpoint where source code can be uploaded for a build.
  */
-export function listBuildAuthTokenOutput(args: ListBuildAuthTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildAuthTokenResult> {
+export function listBuildAuthTokenOutput(args: ListBuildAuthTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBuildAuthTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240202preview:listBuildAuthToken", {
         "buildName": args.buildName,

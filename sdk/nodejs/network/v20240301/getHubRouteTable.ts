@@ -78,7 +78,7 @@ export interface GetHubRouteTableResult {
 /**
  * Retrieves the details of a RouteTable.
  */
-export function getHubRouteTableOutput(args: GetHubRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubRouteTableResult> {
+export function getHubRouteTableOutput(args: GetHubRouteTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHubRouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getHubRouteTable", {
         "resourceGroupName": args.resourceGroupName,

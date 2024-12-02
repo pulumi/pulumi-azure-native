@@ -70,7 +70,7 @@ export interface GetLabelByWorkspaceResult {
 /**
  * Returns a label in the given workspace.
  */
-export function getLabelByWorkspaceOutput(args: GetLabelByWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelByWorkspaceResult> {
+export function getLabelByWorkspaceOutput(args: GetLabelByWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabelByWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:easm/v20230401preview:getLabelByWorkspace", {
         "labelName": args.labelName,

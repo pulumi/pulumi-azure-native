@@ -92,7 +92,7 @@ export interface GetNetworkToNetworkInterconnectResult {
  *
  * Other available API versions: 2023-06-15.
  */
-export function getNetworkToNetworkInterconnectOutput(args: GetNetworkToNetworkInterconnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkToNetworkInterconnectResult> {
+export function getNetworkToNetworkInterconnectOutput(args: GetNetworkToNetworkInterconnectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkToNetworkInterconnectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getNetworkToNetworkInterconnect", {
         "networkFabricName": args.networkFabricName,

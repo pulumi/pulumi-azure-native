@@ -117,7 +117,7 @@ export interface GetScalingPlanResult {
 /**
  * Get a scaling plan.
  */
-export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanResult> {
+export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScalingPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20240808preview:getScalingPlan", {
         "resourceGroupName": args.resourceGroupName,

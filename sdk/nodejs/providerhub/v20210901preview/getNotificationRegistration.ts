@@ -54,7 +54,7 @@ export interface GetNotificationRegistrationResult {
 /**
  * Gets the notification registration details.
  */
-export function getNotificationRegistrationOutput(args: GetNotificationRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRegistrationResult> {
+export function getNotificationRegistrationOutput(args: GetNotificationRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:providerhub/v20210901preview:getNotificationRegistration", {
         "notificationRegistrationName": args.notificationRegistrationName,

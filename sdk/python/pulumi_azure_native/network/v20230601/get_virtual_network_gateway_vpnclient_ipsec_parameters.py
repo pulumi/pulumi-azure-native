@@ -160,7 +160,7 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters(resource_group_name: 
         sa_life_time_seconds=pulumi.get(__ret__, 'sa_life_time_seconds'))
 def get_virtual_network_gateway_vpnclient_ipsec_parameters_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                   virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
-                                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnclientIpsecParametersResult]:
+                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnclientIpsecParametersResult]:
     """
     The Get VpnclientIpsecParameters operation retrieves information about the vpnclient ipsec policy for P2S client of virtual network gateway in the specified resource group through Network resource provider.
 
@@ -171,7 +171,7 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters_output(resource_group
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getVirtualNetworkGatewayVpnclientIpsecParameters', __args__, opts=opts, typ=GetVirtualNetworkGatewayVpnclientIpsecParametersResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayVpnclientIpsecParametersResult(
         dh_group=pulumi.get(__response__, 'dh_group'),

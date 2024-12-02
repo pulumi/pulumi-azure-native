@@ -84,7 +84,7 @@ export interface GetStartStopManagedInstanceScheduleResult {
  *
  * Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
-export function getStartStopManagedInstanceScheduleOutput(args: GetStartStopManagedInstanceScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStartStopManagedInstanceScheduleResult> {
+export function getStartStopManagedInstanceScheduleOutput(args: GetStartStopManagedInstanceScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStartStopManagedInstanceScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql:getStartStopManagedInstanceSchedule", {
         "managedInstanceName": args.managedInstanceName,

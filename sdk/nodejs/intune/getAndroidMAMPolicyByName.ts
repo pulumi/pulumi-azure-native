@@ -85,7 +85,7 @@ export interface GetAndroidMAMPolicyByNameResult {
  *
  * Other available API versions: 2015-01-14-privatepreview.
  */
-export function getAndroidMAMPolicyByNameOutput(args: GetAndroidMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAndroidMAMPolicyByNameResult> {
+export function getAndroidMAMPolicyByNameOutput(args: GetAndroidMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAndroidMAMPolicyByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:intune:getAndroidMAMPolicyByName", {
         "hostName": args.hostName,

@@ -73,7 +73,7 @@ export interface GetWebAppPublicCertificateResult {
  *
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getWebAppPublicCertificateOutput(args: GetWebAppPublicCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateResult> {
+export function getWebAppPublicCertificateOutput(args: GetWebAppPublicCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppPublicCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getWebAppPublicCertificate", {
         "name": args.name,

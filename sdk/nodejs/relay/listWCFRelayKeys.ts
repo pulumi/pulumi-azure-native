@@ -70,7 +70,7 @@ export interface ListWCFRelayKeysResult {
  *
  * Other available API versions: 2024-01-01.
  */
-export function listWCFRelayKeysOutput(args: ListWCFRelayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWCFRelayKeysResult> {
+export function listWCFRelayKeysOutput(args: ListWCFRelayKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWCFRelayKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay:listWCFRelayKeys", {
         "authorizationRuleName": args.authorizationRuleName,

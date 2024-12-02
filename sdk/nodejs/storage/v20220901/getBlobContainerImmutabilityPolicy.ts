@@ -76,7 +76,7 @@ export interface GetBlobContainerImmutabilityPolicyResult {
 /**
  * Gets the existing immutability policy along with the corresponding ETag in response headers and body.
  */
-export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
+export function getBlobContainerImmutabilityPolicyOutput(args: GetBlobContainerImmutabilityPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobContainerImmutabilityPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20220901:getBlobContainerImmutabilityPolicy", {
         "accountName": args.accountName,

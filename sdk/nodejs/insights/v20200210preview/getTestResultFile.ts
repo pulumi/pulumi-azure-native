@@ -67,7 +67,7 @@ export interface GetTestResultFileResult {
 /**
  * Returns a file test result for the matching test
  */
-export function getTestResultFileOutput(args: GetTestResultFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultFileResult> {
+export function getTestResultFileOutput(args: GetTestResultFileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestResultFileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20200210preview:getTestResultFile", {
         "continuationToken": args.continuationToken,

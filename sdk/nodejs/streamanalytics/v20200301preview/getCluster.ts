@@ -69,7 +69,7 @@ export interface GetClusterResult {
 /**
  * Gets information about the specified cluster.
  */
-export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:streamanalytics/v20200301preview:getCluster", {
         "clusterName": args.clusterName,

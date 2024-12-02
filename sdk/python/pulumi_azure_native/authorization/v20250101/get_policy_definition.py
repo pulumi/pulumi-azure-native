@@ -222,7 +222,7 @@ def get_policy_definition(policy_definition_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'),
         versions=pulumi.get(__ret__, 'versions'))
 def get_policy_definition_output(policy_definition_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyDefinitionResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDefinitionResult]:
     """
     This operation retrieves the policy definition in the given subscription with the given name.
 
@@ -231,7 +231,7 @@ def get_policy_definition_output(policy_definition_name: Optional[pulumi.Input[s
     """
     __args__ = dict()
     __args__['policyDefinitionName'] = policy_definition_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20250101:getPolicyDefinition', __args__, opts=opts, typ=GetPolicyDefinitionResult)
     return __ret__.apply(lambda __response__: GetPolicyDefinitionResult(
         description=pulumi.get(__response__, 'description'),

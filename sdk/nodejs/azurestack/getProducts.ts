@@ -56,7 +56,7 @@ export interface GetProductsResult {
  *
  * Other available API versions: 2020-06-01-preview.
  */
-export function getProductsOutput(args: GetProductsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductsResult> {
+export function getProductsOutput(args: GetProductsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProductsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestack:getProducts", {
         "productName": args.productName,

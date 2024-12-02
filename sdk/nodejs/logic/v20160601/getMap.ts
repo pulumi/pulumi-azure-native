@@ -94,7 +94,7 @@ export interface GetMapResult {
 /**
  * Gets an integration account map.
  */
-export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMapResult> {
+export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20160601:getMap", {
         "integrationAccountName": args.integrationAccountName,

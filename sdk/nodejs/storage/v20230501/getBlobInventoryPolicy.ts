@@ -66,7 +66,7 @@ export interface GetBlobInventoryPolicyResult {
 /**
  * Gets the blob inventory policy associated with the specified storage account.
  */
-export function getBlobInventoryPolicyOutput(args: GetBlobInventoryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobInventoryPolicyResult> {
+export function getBlobInventoryPolicyOutput(args: GetBlobInventoryPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobInventoryPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230501:getBlobInventoryPolicy", {
         "accountName": args.accountName,

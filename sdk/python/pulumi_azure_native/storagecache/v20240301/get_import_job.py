@@ -321,7 +321,7 @@ def get_import_job(aml_filesystem_name: Optional[str] = None,
 def get_import_job_output(aml_filesystem_name: Optional[pulumi.Input[str]] = None,
                           import_job_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImportJobResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImportJobResult]:
     """
     Returns an import job.
 
@@ -334,7 +334,7 @@ def get_import_job_output(aml_filesystem_name: Optional[pulumi.Input[str]] = Non
     __args__['amlFilesystemName'] = aml_filesystem_name
     __args__['importJobName'] = import_job_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagecache/v20240301:getImportJob', __args__, opts=opts, typ=GetImportJobResult)
     return __ret__.apply(lambda __response__: GetImportJobResult(
         blobs_imported_per_second=pulumi.get(__response__, 'blobs_imported_per_second'),

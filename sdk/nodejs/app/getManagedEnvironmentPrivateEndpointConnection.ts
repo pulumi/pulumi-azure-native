@@ -80,7 +80,7 @@ export interface GetManagedEnvironmentPrivateEndpointConnectionResult {
  *
  * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
  */
-export function getManagedEnvironmentPrivateEndpointConnectionOutput(args: GetManagedEnvironmentPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentPrivateEndpointConnectionResult> {
+export function getManagedEnvironmentPrivateEndpointConnectionOutput(args: GetManagedEnvironmentPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedEnvironmentPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:getManagedEnvironmentPrivateEndpointConnection", {
         "environmentName": args.environmentName,

@@ -67,7 +67,7 @@ export interface GetGatewayRouteConfigResult {
 /**
  * Get the Spring Cloud Gateway route configs.
  */
-export function getGatewayRouteConfigOutput(args: GetGatewayRouteConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteConfigResult> {
+export function getGatewayRouteConfigOutput(args: GetGatewayRouteConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayRouteConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230901preview:getGatewayRouteConfig", {
         "gatewayName": args.gatewayName,

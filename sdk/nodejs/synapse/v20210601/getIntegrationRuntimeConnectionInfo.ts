@@ -63,7 +63,7 @@ export interface GetIntegrationRuntimeConnectionInfoResult {
 /**
  * Get connection info for an integration runtime
  */
-export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
+export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse/v20210601:getIntegrationRuntimeConnectionInfo", {
         "integrationRuntimeName": args.integrationRuntimeName,

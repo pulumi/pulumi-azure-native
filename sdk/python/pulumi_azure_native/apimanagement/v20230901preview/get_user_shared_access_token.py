@@ -82,7 +82,7 @@ def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[str]] = No
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         service_name: Optional[pulumi.Input[str]] = None,
                                         user_id: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSharedAccessTokenResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSharedAccessTokenResult]:
     """
     Gets the Shared Access Authorization Token for the User.
 
@@ -99,7 +99,7 @@ def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[str]] = No
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['userId'] = user_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getUserSharedAccessToken', __args__, opts=opts, typ=GetUserSharedAccessTokenResult)
     return __ret__.apply(lambda __response__: GetUserSharedAccessTokenResult(
         value=pulumi.get(__response__, 'value')))

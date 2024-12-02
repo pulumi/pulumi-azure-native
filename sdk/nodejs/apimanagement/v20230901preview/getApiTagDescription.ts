@@ -76,7 +76,7 @@ export interface GetApiTagDescriptionResult {
 /**
  * Get Tag description in scope of API
  */
-export function getApiTagDescriptionOutput(args: GetApiTagDescriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiTagDescriptionResult> {
+export function getApiTagDescriptionOutput(args: GetApiTagDescriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiTagDescriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getApiTagDescription", {
         "apiId": args.apiId,

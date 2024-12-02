@@ -64,7 +64,7 @@ export interface GetPeerAsnResult {
 /**
  * Gets the peer ASN with the specified name under the given subscription.
  */
-export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeerAsnResult> {
+export function getPeerAsnOutput(args: GetPeerAsnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPeerAsnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:peering/v20210101:getPeerAsn", {
         "peerAsnName": args.peerAsnName,

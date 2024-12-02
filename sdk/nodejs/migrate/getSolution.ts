@@ -64,7 +64,7 @@ export interface GetSolutionResult {
  * Solution REST Resource.
  * Azure REST API version: 2018-09-01-preview.
  */
-export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
+export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getSolution", {
         "migrateProjectName": args.migrateProjectName,

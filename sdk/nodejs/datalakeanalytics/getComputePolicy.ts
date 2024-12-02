@@ -69,7 +69,7 @@ export interface GetComputePolicyResult {
  * Gets the specified Data Lake Analytics compute policy.
  * Azure REST API version: 2019-11-01-preview.
  */
-export function getComputePolicyOutput(args: GetComputePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputePolicyResult> {
+export function getComputePolicyOutput(args: GetComputePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComputePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datalakeanalytics:getComputePolicy", {
         "accountName": args.accountName,

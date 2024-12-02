@@ -65,7 +65,7 @@ export interface GetEc2VpcPeeringConnectionResult {
 /**
  * Get a Ec2VPCPeeringConnection
  */
-export function getEc2VpcPeeringConnectionOutput(args: GetEc2VpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2VpcPeeringConnectionResult> {
+export function getEc2VpcPeeringConnectionOutput(args: GetEc2VpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2VpcPeeringConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2VpcPeeringConnection", {
         "name": args.name,

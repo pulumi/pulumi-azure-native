@@ -287,7 +287,7 @@ def get_gallery_image_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              gallery_image_name: Optional[pulumi.Input[str]] = None,
                              lab_account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryImageResult]:
     """
     Get gallery image
     Azure REST API version: 2018-10-15.
@@ -303,7 +303,7 @@ def get_gallery_image_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     __args__['galleryImageName'] = gallery_image_name
     __args__['labAccountName'] = lab_account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getGalleryImage', __args__, opts=opts, typ=GetGalleryImageResult)
     return __ret__.apply(lambda __response__: GetGalleryImageResult(
         author=pulumi.get(__response__, 'author'),

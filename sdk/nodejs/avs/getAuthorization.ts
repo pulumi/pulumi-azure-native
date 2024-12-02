@@ -73,7 +73,7 @@ export interface GetAuthorizationResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationResult> {
+export function getAuthorizationOutput(args: GetAuthorizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getAuthorization", {
         "authorizationName": args.authorizationName,

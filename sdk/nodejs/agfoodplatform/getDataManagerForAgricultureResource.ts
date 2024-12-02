@@ -87,7 +87,7 @@ export interface GetDataManagerForAgricultureResourceResult {
  * Get DataManagerForAgriculture resource.
  * Azure REST API version: 2023-06-01-preview.
  */
-export function getDataManagerForAgricultureResourceOutput(args: GetDataManagerForAgricultureResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataManagerForAgricultureResourceResult> {
+export function getDataManagerForAgricultureResourceOutput(args: GetDataManagerForAgricultureResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataManagerForAgricultureResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:agfoodplatform:getDataManagerForAgricultureResource", {
         "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,

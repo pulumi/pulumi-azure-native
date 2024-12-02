@@ -83,7 +83,7 @@ export interface GetMultipleActivationKeyResult {
 /**
  * Get a MAK key.
  */
-export function getMultipleActivationKeyOutput(args: GetMultipleActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultipleActivationKeyResult> {
+export function getMultipleActivationKeyOutput(args: GetMultipleActivationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMultipleActivationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:windowsesu/v20190916preview:getMultipleActivationKey", {
         "multipleActivationKeyName": args.multipleActivationKeyName,

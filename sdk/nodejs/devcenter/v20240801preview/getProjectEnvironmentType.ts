@@ -98,7 +98,7 @@ export interface GetProjectEnvironmentTypeResult {
 /**
  * Gets a project environment type.
  */
-export function getProjectEnvironmentTypeOutput(args: GetProjectEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectEnvironmentTypeResult> {
+export function getProjectEnvironmentTypeOutput(args: GetProjectEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectEnvironmentTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240801preview:getProjectEnvironmentType", {
         "environmentTypeName": args.environmentTypeName,

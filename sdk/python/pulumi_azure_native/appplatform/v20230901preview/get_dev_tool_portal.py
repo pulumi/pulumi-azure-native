@@ -126,7 +126,7 @@ def get_dev_tool_portal(dev_tool_portal_name: Optional[str] = None,
 def get_dev_tool_portal_output(dev_tool_portal_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                service_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevToolPortalResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevToolPortalResult]:
     """
     Get the Application Live  and its properties.
 
@@ -139,7 +139,7 @@ def get_dev_tool_portal_output(dev_tool_portal_name: Optional[pulumi.Input[str]]
     __args__['devToolPortalName'] = dev_tool_portal_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20230901preview:getDevToolPortal', __args__, opts=opts, typ=GetDevToolPortalResult)
     return __ret__.apply(lambda __response__: GetDevToolPortalResult(
         id=pulumi.get(__response__, 'id'),

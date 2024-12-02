@@ -51,7 +51,7 @@ export interface GetEnvironmentDefinitionErrorDetailsResult {
 /**
  * Gets Environment Definition error details
  */
-export function getEnvironmentDefinitionErrorDetailsOutput(args: GetEnvironmentDefinitionErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentDefinitionErrorDetailsResult> {
+export function getEnvironmentDefinitionErrorDetailsOutput(args: GetEnvironmentDefinitionErrorDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentDefinitionErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240201:getEnvironmentDefinitionErrorDetails", {
         "catalogName": args.catalogName,

@@ -54,7 +54,7 @@ export interface ListVendorSkusCredentialResult {
 /**
  * Generate credentials for publishing SKU images.
  */
-export function listVendorSkusCredentialOutput(args: ListVendorSkusCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVendorSkusCredentialResult> {
+export function listVendorSkusCredentialOutput(args: ListVendorSkusCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVendorSkusCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20220101preview:listVendorSkusCredential", {
         "skuName": args.skuName,

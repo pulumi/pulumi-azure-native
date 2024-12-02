@@ -121,7 +121,7 @@ export interface GetPacketCoreControlPlaneResult {
 /**
  * Gets information about the specified packet core control plane.
  */
-export function getPacketCoreControlPlaneOutput(args: GetPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreControlPlaneResult> {
+export function getPacketCoreControlPlaneOutput(args: GetPacketCoreControlPlaneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPacketCoreControlPlaneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20230601:getPacketCoreControlPlane", {
         "packetCoreControlPlaneName": args.packetCoreControlPlaneName,

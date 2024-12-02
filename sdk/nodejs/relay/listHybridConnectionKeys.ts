@@ -70,7 +70,7 @@ export interface ListHybridConnectionKeysResult {
  *
  * Other available API versions: 2024-01-01.
  */
-export function listHybridConnectionKeysOutput(args: ListHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHybridConnectionKeysResult> {
+export function listHybridConnectionKeysOutput(args: ListHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListHybridConnectionKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:relay:listHybridConnectionKeys", {
         "authorizationRuleName": args.authorizationRuleName,

@@ -53,7 +53,7 @@ export interface GetDefenderForStorageResult {
 /**
  * Gets the Defender for Storage settings for the specified storage account.
  */
-export function getDefenderForStorageOutput(args: GetDefenderForStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefenderForStorageResult> {
+export function getDefenderForStorageOutput(args: GetDefenderForStorageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefenderForStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20221201preview:getDefenderForStorage", {
         "resourceId": args.resourceId,

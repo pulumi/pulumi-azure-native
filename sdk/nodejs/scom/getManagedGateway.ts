@@ -64,7 +64,7 @@ export interface GetManagedGatewayResult {
  * Retrieve the details of the gateway resource.
  * Azure REST API version: 2023-07-07-preview.
  */
-export function getManagedGatewayOutput(args: GetManagedGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedGatewayResult> {
+export function getManagedGatewayOutput(args: GetManagedGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scom:getManagedGateway", {
         "instanceName": args.instanceName,

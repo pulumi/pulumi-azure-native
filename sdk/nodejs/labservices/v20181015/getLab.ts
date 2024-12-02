@@ -111,7 +111,7 @@ export interface GetLabResult {
 /**
  * Get lab
  */
-export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
+export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices/v20181015:getLab", {
         "expand": args.expand,

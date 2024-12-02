@@ -76,7 +76,7 @@ export interface GetManagedInstanceLongTermRetentionPolicyResult {
 /**
  * Gets a managed database's long term retention policy.
  */
-export function getManagedInstanceLongTermRetentionPolicyOutput(args: GetManagedInstanceLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceLongTermRetentionPolicyResult> {
+export function getManagedInstanceLongTermRetentionPolicyOutput(args: GetManagedInstanceLongTermRetentionPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedInstanceLongTermRetentionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getManagedInstanceLongTermRetentionPolicy", {
         "databaseName": args.databaseName,

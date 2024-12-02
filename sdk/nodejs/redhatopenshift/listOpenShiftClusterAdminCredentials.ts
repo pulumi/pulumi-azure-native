@@ -44,7 +44,7 @@ export interface ListOpenShiftClusterAdminCredentialsResult {
  *
  * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
  */
-export function listOpenShiftClusterAdminCredentialsOutput(args: ListOpenShiftClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenShiftClusterAdminCredentialsResult> {
+export function listOpenShiftClusterAdminCredentialsOutput(args: ListOpenShiftClusterAdminCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListOpenShiftClusterAdminCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:redhatopenshift:listOpenShiftClusterAdminCredentials", {
         "resourceGroupName": args.resourceGroupName,

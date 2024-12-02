@@ -75,7 +75,7 @@ export interface GetASCDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getASCDataConnectorOutput(args: GetASCDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetASCDataConnectorResult> {
+export function getASCDataConnectorOutput(args: GetASCDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetASCDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230901preview:getASCDataConnector", {
         "dataConnectorId": args.dataConnectorId,

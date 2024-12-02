@@ -70,7 +70,7 @@ export interface GetCurationProfileResult {
 /**
  * Gets a specific curation profile.
  */
-export function getCurationProfileOutput(args: GetCurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCurationProfileResult> {
+export function getCurationProfileOutput(args: GetCurationProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCurationProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240801preview:getCurationProfile", {
         "curationProfileName": args.curationProfileName,

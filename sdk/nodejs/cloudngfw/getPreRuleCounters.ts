@@ -85,7 +85,7 @@ export interface GetPreRuleCountersResult {
  *
  * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
  */
-export function getPreRuleCountersOutput(args: GetPreRuleCountersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPreRuleCountersResult> {
+export function getPreRuleCountersOutput(args: GetPreRuleCountersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPreRuleCountersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw:getPreRuleCounters", {
         "firewallName": args.firewallName,

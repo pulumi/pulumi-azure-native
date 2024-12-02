@@ -77,7 +77,7 @@ export interface GetEvidenceResult {
 /**
  * Get the evidence metadata
  */
-export function getEvidenceOutput(args: GetEvidenceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEvidenceResult> {
+export function getEvidenceOutput(args: GetEvidenceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEvidenceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation/v20240627:getEvidence", {
         "evidenceName": args.evidenceName,

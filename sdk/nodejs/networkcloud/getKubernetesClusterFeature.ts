@@ -97,7 +97,7 @@ export interface GetKubernetesClusterFeatureResult {
  *
  * Other available API versions: 2024-07-01.
  */
-export function getKubernetesClusterFeatureOutput(args: GetKubernetesClusterFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubernetesClusterFeatureResult> {
+export function getKubernetesClusterFeatureOutput(args: GetKubernetesClusterFeatureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesClusterFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud:getKubernetesClusterFeature", {
         "featureName": args.featureName,

@@ -77,7 +77,7 @@ export interface GetVariableResult {
  *
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
-export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
+export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getVariable", {
         "automationAccountName": args.automationAccountName,

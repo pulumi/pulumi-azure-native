@@ -100,7 +100,7 @@ def list_share_subscription_synchronizations_output(account_name: Optional[pulum
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     share_subscription_name: Optional[pulumi.Input[str]] = None,
                                                     skip_token: Optional[pulumi.Input[Optional[str]]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSubscriptionSynchronizationsResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListShareSubscriptionSynchronizationsResult]:
     """
     List synchronizations of a share subscription
     Azure REST API version: 2021-08-01.
@@ -120,7 +120,7 @@ def list_share_subscription_synchronizations_output(account_name: Optional[pulum
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareSubscriptionName'] = share_subscription_name
     __args__['skipToken'] = skip_token
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:listShareSubscriptionSynchronizations', __args__, opts=opts, typ=ListShareSubscriptionSynchronizationsResult)
     return __ret__.apply(lambda __response__: ListShareSubscriptionSynchronizationsResult(
         next_link=pulumi.get(__response__, 'next_link'),

@@ -116,7 +116,7 @@ def get_workspace_tag_output(resource_group_name: Optional[pulumi.Input[str]] = 
                              service_name: Optional[pulumi.Input[str]] = None,
                              tag_id: Optional[pulumi.Input[str]] = None,
                              workspace_id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceTagResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceTagResult]:
     """
     Gets the details of the tag specified by its identifier.
 
@@ -131,7 +131,7 @@ def get_workspace_tag_output(resource_group_name: Optional[pulumi.Input[str]] = 
     __args__['serviceName'] = service_name
     __args__['tagId'] = tag_id
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230901preview:getWorkspaceTag', __args__, opts=opts, typ=GetWorkspaceTagResult)
     return __ret__.apply(lambda __response__: GetWorkspaceTagResult(
         display_name=pulumi.get(__response__, 'display_name'),

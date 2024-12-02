@@ -72,7 +72,7 @@ export interface GetLabelByWorkspaceResult {
  * Returns a label in the given workspace.
  * Azure REST API version: 2023-04-01-preview.
  */
-export function getLabelByWorkspaceOutput(args: GetLabelByWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelByWorkspaceResult> {
+export function getLabelByWorkspaceOutput(args: GetLabelByWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabelByWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:easm:getLabelByWorkspace", {
         "labelName": args.labelName,

@@ -56,7 +56,7 @@ export interface GetDeploymentAtSubscriptionScopeResult {
 /**
  * Gets a deployment.
  */
-export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {
+export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources/v20230701:getDeploymentAtSubscriptionScope", {
         "deploymentName": args.deploymentName,

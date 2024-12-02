@@ -188,7 +188,7 @@ def get_machine_group_output(end_time: Optional[pulumi.Input[Optional[str]]] = N
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              start_time: Optional[pulumi.Input[Optional[str]]] = None,
                              workspace_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineGroupResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineGroupResult]:
     """
     Returns the specified machine group as it existed during the specified time interval.
     Azure REST API version: 2015-11-01-preview.
@@ -206,7 +206,7 @@ def get_machine_group_output(end_time: Optional[pulumi.Input[Optional[str]]] = N
     __args__['resourceGroupName'] = resource_group_name
     __args__['startTime'] = start_time
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getMachineGroup', __args__, opts=opts, typ=GetMachineGroupResult)
     return __ret__.apply(lambda __response__: GetMachineGroupResult(
         count=pulumi.get(__response__, 'count'),

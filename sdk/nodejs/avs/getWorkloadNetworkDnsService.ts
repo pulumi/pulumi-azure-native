@@ -89,7 +89,7 @@ export interface GetWorkloadNetworkDnsServiceResult {
  *
  * Other available API versions: 2023-03-01, 2023-09-01.
  */
-export function getWorkloadNetworkDnsServiceOutput(args: GetWorkloadNetworkDnsServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDnsServiceResult> {
+export function getWorkloadNetworkDnsServiceOutput(args: GetWorkloadNetworkDnsServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadNetworkDnsServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getWorkloadNetworkDnsService", {
         "dnsServiceId": args.dnsServiceId,

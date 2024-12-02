@@ -460,7 +460,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
         unique_id=pulumi.get(__ret__, 'unique_id'))
 def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         snapshot_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Gets information about a snapshot.
 
@@ -471,7 +471,7 @@ def get_snapshot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['snapshotName'] = snapshot_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20220702:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
     return __ret__.apply(lambda __response__: GetSnapshotResult(
         completion_percent=pulumi.get(__response__, 'completion_percent'),

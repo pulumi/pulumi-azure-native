@@ -80,7 +80,7 @@ def list_workspace_collection_access_keys(resource_group_name: Optional[str] = N
         key2=pulumi.get(__ret__, 'key2'))
 def list_workspace_collection_access_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  workspace_collection_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceCollectionAccessKeysResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceCollectionAccessKeysResult]:
     """
     Retrieves the primary and secondary access keys for the specified Power BI Workspace Collection.
     Azure REST API version: 2016-01-29.
@@ -92,7 +92,7 @@ def list_workspace_collection_access_keys_output(resource_group_name: Optional[p
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceCollectionName'] = workspace_collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:powerbi:listWorkspaceCollectionAccessKeys', __args__, opts=opts, typ=ListWorkspaceCollectionAccessKeysResult)
     return __ret__.apply(lambda __response__: ListWorkspaceCollectionAccessKeysResult(
         key1=pulumi.get(__response__, 'key1'),

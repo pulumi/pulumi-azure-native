@@ -68,7 +68,7 @@ export interface GetPrivateEndpointConnectionResult {
  *
  * Other available API versions: 2024-09-20.
  */
-export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthdataaiservices:getPrivateEndpointConnection", {
         "deidServiceName": args.deidServiceName,

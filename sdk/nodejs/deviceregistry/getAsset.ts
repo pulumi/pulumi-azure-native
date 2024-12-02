@@ -163,7 +163,7 @@ export interface GetAssetResult {
  *
  * Other available API versions: 2024-09-01-preview, 2024-11-01.
  */
-export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
+export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:deviceregistry:getAsset", {
         "assetName": args.assetName,

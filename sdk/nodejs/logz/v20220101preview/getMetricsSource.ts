@@ -56,7 +56,7 @@ export interface GetMetricsSourceResult {
      */
     readonly type: string;
 }
-export function getMetricsSourceOutput(args: GetMetricsSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsSourceResult> {
+export function getMetricsSourceOutput(args: GetMetricsSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMetricsSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logz/v20220101preview:getMetricsSource", {
         "metricsSourceName": args.metricsSourceName,

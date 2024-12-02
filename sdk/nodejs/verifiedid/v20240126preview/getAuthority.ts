@@ -65,7 +65,7 @@ export interface GetAuthorityResult {
 /**
  * Get a Authority
  */
-export function getAuthorityOutput(args: GetAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorityResult> {
+export function getAuthorityOutput(args: GetAuthorityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:verifiedid/v20240126preview:getAuthority", {
         "authorityName": args.authorityName,

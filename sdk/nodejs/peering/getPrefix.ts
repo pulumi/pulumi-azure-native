@@ -89,7 +89,7 @@ export interface GetPrefixResult {
  * Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
  * Azure REST API version: 2022-10-01.
  */
-export function getPrefixOutput(args: GetPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixResult> {
+export function getPrefixOutput(args: GetPrefixOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrefixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:peering:getPrefix", {
         "expand": args.expand,

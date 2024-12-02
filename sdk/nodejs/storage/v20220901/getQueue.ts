@@ -56,7 +56,7 @@ export interface GetQueueResult {
 /**
  * Gets the queue with the specified queue name, under the specified account if it exists.
  */
-export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
+export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20220901:getQueue", {
         "accountName": args.accountName,

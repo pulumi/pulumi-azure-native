@@ -87,7 +87,7 @@ export interface GetGatewayResult {
  *
  * Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview.
  */
-export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcompute:getGateway", {
         "gatewayName": args.gatewayName,

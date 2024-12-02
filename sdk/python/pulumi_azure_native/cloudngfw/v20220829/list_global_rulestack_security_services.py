@@ -88,7 +88,7 @@ def list_global_rulestack_security_services_output(global_rulestack_name: Option
                                                    skip: Optional[pulumi.Input[Optional[str]]] = None,
                                                    top: Optional[pulumi.Input[Optional[int]]] = None,
                                                    type: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalRulestackSecurityServicesResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGlobalRulestackSecurityServicesResult]:
     """
     List the security services for rulestack
 
@@ -100,7 +100,7 @@ def list_global_rulestack_security_services_output(global_rulestack_name: Option
     __args__['skip'] = skip
     __args__['top'] = top
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20220829:listGlobalRulestackSecurityServices', __args__, opts=opts, typ=ListGlobalRulestackSecurityServicesResult)
     return __ret__.apply(lambda __response__: ListGlobalRulestackSecurityServicesResult(
         next_link=pulumi.get(__response__, 'next_link'),

@@ -117,7 +117,7 @@ export interface GetServiceResult {
 /**
  * Gets the search service with the given name in the given resource group.
  */
-export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:search/v20220901:getService", {
         "resourceGroupName": args.resourceGroupName,

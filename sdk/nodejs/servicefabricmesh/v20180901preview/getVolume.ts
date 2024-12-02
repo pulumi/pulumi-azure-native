@@ -81,7 +81,7 @@ export interface GetVolumeResult {
 /**
  * Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
  */
-export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
+export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabricmesh/v20180901preview:getVolume", {
         "resourceGroupName": args.resourceGroupName,

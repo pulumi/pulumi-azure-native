@@ -152,7 +152,7 @@ def get_certificate(certificate_name: Optional[str] = None,
 def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                            environment_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
 
@@ -165,7 +165,7 @@ def get_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
     __args__['certificateName'] = certificate_name
     __args__['environmentName'] = environment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230801preview:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
         id=pulumi.get(__response__, 'id'),

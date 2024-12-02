@@ -38,7 +38,7 @@ export interface ListGlobalUserLabsResult {
  * List labs for the user.
  * Azure REST API version: 2018-10-15.
  */
-export function listGlobalUserLabsOutput(args: ListGlobalUserLabsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalUserLabsResult> {
+export function listGlobalUserLabsOutput(args: ListGlobalUserLabsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGlobalUserLabsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices:listGlobalUserLabs", {
         "userName": args.userName,

@@ -87,7 +87,7 @@ def list_static_site_users(authprovider: Optional[str] = None,
 def list_static_site_users_output(authprovider: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteUsersResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStaticSiteUsersResult]:
     """
     Description for Gets the list of users of a static site.
 
@@ -100,7 +100,7 @@ def list_static_site_users_output(authprovider: Optional[pulumi.Input[str]] = No
     __args__['authprovider'] = authprovider
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:listStaticSiteUsers', __args__, opts=opts, typ=ListStaticSiteUsersResult)
     return __ret__.apply(lambda __response__: ListStaticSiteUsersResult(
         next_link=pulumi.get(__response__, 'next_link'),

@@ -50,7 +50,7 @@ export interface ListDatabaseAccountKeysResult {
 /**
  * Lists the access keys for the specified Azure Cosmos DB database account.
  */
-export function listDatabaseAccountKeysOutput(args: ListDatabaseAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseAccountKeysResult> {
+export function listDatabaseAccountKeysOutput(args: ListDatabaseAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDatabaseAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240515preview:listDatabaseAccountKeys", {
         "accountName": args.accountName,

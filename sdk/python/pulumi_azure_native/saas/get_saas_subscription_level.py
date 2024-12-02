@@ -123,7 +123,7 @@ def get_saas_subscription_level(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_saas_subscription_level_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        resource_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSaasSubscriptionLevelResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSaasSubscriptionLevelResult]:
     """
     Gets information about the specified Subscription Level SaaS.
     Azure REST API version: 2018-03-01-beta.
@@ -135,7 +135,7 @@ def get_saas_subscription_level_output(resource_group_name: Optional[pulumi.Inpu
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:saas:getSaasSubscriptionLevel', __args__, opts=opts, typ=GetSaasSubscriptionLevelResult)
     return __ret__.apply(lambda __response__: GetSaasSubscriptionLevelResult(
         id=pulumi.get(__response__, 'id'),

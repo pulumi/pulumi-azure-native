@@ -164,7 +164,7 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
 def get_server_azure_ad_administrator_output(administrator_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              server_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerAzureADAdministratorResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerAzureADAdministratorResult]:
     """
     Gets a Azure Active Directory administrator.
 
@@ -177,7 +177,7 @@ def get_server_azure_ad_administrator_output(administrator_name: Optional[pulumi
     __args__['administratorName'] = administrator_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20240501preview:getServerAzureADAdministrator', __args__, opts=opts, typ=GetServerAzureADAdministratorResult)
     return __ret__.apply(lambda __response__: GetServerAzureADAdministratorResult(
         administrator_type=pulumi.get(__response__, 'administrator_type'),

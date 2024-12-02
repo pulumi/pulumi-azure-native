@@ -88,7 +88,7 @@ export interface GetManagedNetworkGroupResult {
  * The Get ManagedNetworkGroups operation gets a Managed Network Group specified by the resource group, Managed Network name, and group name
  * Azure REST API version: 2019-06-01-preview.
  */
-export function getManagedNetworkGroupOutput(args: GetManagedNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedNetworkGroupResult> {
+export function getManagedNetworkGroupOutput(args: GetManagedNetworkGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedNetworkGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetwork:getManagedNetworkGroup", {
         "managedNetworkGroupName": args.managedNetworkGroupName,

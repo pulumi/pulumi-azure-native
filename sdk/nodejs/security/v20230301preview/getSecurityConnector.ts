@@ -89,7 +89,7 @@ export interface GetSecurityConnectorResult {
 /**
  * Retrieves details of a specific security connector
  */
-export function getSecurityConnectorOutput(args: GetSecurityConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorResult> {
+export function getSecurityConnectorOutput(args: GetSecurityConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20230301preview:getSecurityConnector", {
         "resourceGroupName": args.resourceGroupName,

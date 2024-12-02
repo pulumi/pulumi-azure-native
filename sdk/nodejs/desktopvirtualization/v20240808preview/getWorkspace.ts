@@ -113,7 +113,7 @@ export interface GetWorkspaceResult {
 /**
  * Get a workspace.
  */
-export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization/v20240808preview:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,

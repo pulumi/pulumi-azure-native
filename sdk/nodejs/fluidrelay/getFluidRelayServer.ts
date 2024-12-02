@@ -91,7 +91,7 @@ export interface GetFluidRelayServerResult {
  *
  * Other available API versions: 2021-06-15-preview.
  */
-export function getFluidRelayServerOutput(args: GetFluidRelayServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluidRelayServerResult> {
+export function getFluidRelayServerOutput(args: GetFluidRelayServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFluidRelayServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:fluidrelay:getFluidRelayServer", {
         "fluidRelayServerName": args.fluidRelayServerName,

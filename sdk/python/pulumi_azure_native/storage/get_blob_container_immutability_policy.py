@@ -171,7 +171,7 @@ def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.
                                                   container_name: Optional[pulumi.Input[str]] = None,
                                                   immutability_policy_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobContainerImmutabilityPolicyResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobContainerImmutabilityPolicyResult]:
     """
     Gets the existing immutability policy along with the corresponding ETag in response headers and body.
     Azure REST API version: 2022-09-01.
@@ -189,7 +189,7 @@ def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.
     __args__['containerName'] = container_name
     __args__['immutabilityPolicyName'] = immutability_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getBlobContainerImmutabilityPolicy', __args__, opts=opts, typ=GetBlobContainerImmutabilityPolicyResult)
     return __ret__.apply(lambda __response__: GetBlobContainerImmutabilityPolicyResult(
         allow_protected_append_writes=pulumi.get(__response__, 'allow_protected_append_writes'),

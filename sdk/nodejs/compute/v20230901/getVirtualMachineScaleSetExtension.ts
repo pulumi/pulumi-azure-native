@@ -103,7 +103,7 @@ export interface GetVirtualMachineScaleSetExtensionResult {
 /**
  * The operation to get the extension.
  */
-export function getVirtualMachineScaleSetExtensionOutput(args: GetVirtualMachineScaleSetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetExtensionResult> {
+export function getVirtualMachineScaleSetExtensionOutput(args: GetVirtualMachineScaleSetExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineScaleSetExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20230901:getVirtualMachineScaleSetExtension", {
         "expand": args.expand,

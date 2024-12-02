@@ -118,7 +118,7 @@ export interface GetElasticPoolResult {
  *
  * Other available API versions: 2014-04-01, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
-export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticPoolResult> {
+export function getElasticPoolOutput(args: GetElasticPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql:getElasticPool", {
         "elasticPoolName": args.elasticPoolName,

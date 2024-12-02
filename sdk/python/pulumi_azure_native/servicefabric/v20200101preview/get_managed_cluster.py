@@ -356,7 +356,7 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterResult]:
     """
     Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
 
@@ -367,7 +367,7 @@ def get_managed_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20200101preview:getManagedCluster', __args__, opts=opts, typ=GetManagedClusterResult)
     return __ret__.apply(lambda __response__: GetManagedClusterResult(
         addon_features=pulumi.get(__response__, 'addon_features'),

@@ -265,7 +265,7 @@ def get_storage_class(resource_uri: Optional[str] = None,
         volume_binding_mode=pulumi.get(__ret__, 'volume_binding_mode'))
 def get_storage_class_output(resource_uri: Optional[pulumi.Input[str]] = None,
                              storage_class_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageClassResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageClassResult]:
     """
     Get a StorageClassResource
 
@@ -276,7 +276,7 @@ def get_storage_class_output(resource_uri: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
     __args__['storageClassName'] = storage_class_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesruntime/v20240301:getStorageClass', __args__, opts=opts, typ=GetStorageClassResult)
     return __ret__.apply(lambda __response__: GetStorageClassResult(
         access_modes=pulumi.get(__response__, 'access_modes'),

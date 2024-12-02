@@ -74,7 +74,7 @@ export interface GetWebPubSubCustomCertificateResult {
 /**
  * Get a custom certificate.
  */
-export function getWebPubSubCustomCertificateOutput(args: GetWebPubSubCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubCustomCertificateResult> {
+export function getWebPubSubCustomCertificateOutput(args: GetWebPubSubCustomCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebPubSubCustomCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20230201:getWebPubSubCustomCertificate", {
         "certificateName": args.certificateName,

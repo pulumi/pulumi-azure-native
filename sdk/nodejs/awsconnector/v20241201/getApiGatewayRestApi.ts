@@ -65,7 +65,7 @@ export interface GetApiGatewayRestApiResult {
 /**
  * Get a ApiGatewayRestApi
  */
-export function getApiGatewayRestApiOutput(args: GetApiGatewayRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiGatewayRestApiResult> {
+export function getApiGatewayRestApiOutput(args: GetApiGatewayRestApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiGatewayRestApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getApiGatewayRestApi", {
         "name": args.name,

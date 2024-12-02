@@ -65,7 +65,7 @@ export interface GetEcrRepositoryResult {
 /**
  * Get a EcrRepository
  */
-export function getEcrRepositoryOutput(args: GetEcrRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcrRepositoryResult> {
+export function getEcrRepositoryOutput(args: GetEcrRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcrRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEcrRepository", {
         "name": args.name,

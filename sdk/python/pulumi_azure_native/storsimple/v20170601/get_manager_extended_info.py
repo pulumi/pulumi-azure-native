@@ -199,7 +199,7 @@ def get_manager_extended_info(manager_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_manager_extended_info_output(manager_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerExtendedInfoResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagerExtendedInfoResult]:
     """
     Returns the extended information of the specified manager name.
 
@@ -210,7 +210,7 @@ def get_manager_extended_info_output(manager_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple/v20170601:getManagerExtendedInfo', __args__, opts=opts, typ=GetManagerExtendedInfoResult)
     return __ret__.apply(lambda __response__: GetManagerExtendedInfoResult(
         algorithm=pulumi.get(__response__, 'algorithm'),

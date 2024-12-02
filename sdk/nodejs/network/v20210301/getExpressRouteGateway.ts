@@ -77,7 +77,7 @@ export interface GetExpressRouteGatewayResult {
 /**
  * Fetches the details of a ExpressRoute gateway in a resource group.
  */
-export function getExpressRouteGatewayOutput(args: GetExpressRouteGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteGatewayResult> {
+export function getExpressRouteGatewayOutput(args: GetExpressRouteGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExpressRouteGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20210301:getExpressRouteGateway", {
         "expressRouteGatewayName": args.expressRouteGatewayName,

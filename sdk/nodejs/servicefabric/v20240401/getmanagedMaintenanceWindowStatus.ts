@@ -62,7 +62,7 @@ export interface GetmanagedMaintenanceWindowStatusResult {
 /**
  * Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
  */
-export function getmanagedMaintenanceWindowStatusOutput(args: GetmanagedMaintenanceWindowStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetmanagedMaintenanceWindowStatusResult> {
+export function getmanagedMaintenanceWindowStatusOutput(args: GetmanagedMaintenanceWindowStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetmanagedMaintenanceWindowStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20240401:getmanagedMaintenanceWindowStatus", {
         "clusterName": args.clusterName,

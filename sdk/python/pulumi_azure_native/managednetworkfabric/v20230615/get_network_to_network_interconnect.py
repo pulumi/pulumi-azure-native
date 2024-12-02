@@ -282,7 +282,7 @@ def get_network_to_network_interconnect(network_fabric_name: Optional[str] = Non
 def get_network_to_network_interconnect_output(network_fabric_name: Optional[pulumi.Input[str]] = None,
                                                network_to_network_interconnect_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkToNetworkInterconnectResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkToNetworkInterconnectResult]:
     """
     Implements NetworkToNetworkInterconnects GET method.
 
@@ -295,7 +295,7 @@ def get_network_to_network_interconnect_output(network_fabric_name: Optional[pul
     __args__['networkFabricName'] = network_fabric_name
     __args__['networkToNetworkInterconnectName'] = network_to_network_interconnect_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getNetworkToNetworkInterconnect', __args__, opts=opts, typ=GetNetworkToNetworkInterconnectResult)
     return __ret__.apply(lambda __response__: GetNetworkToNetworkInterconnectResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),

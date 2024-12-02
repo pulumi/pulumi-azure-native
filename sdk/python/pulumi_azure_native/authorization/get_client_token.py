@@ -65,7 +65,7 @@ def get_client_token(endpoint: Optional[str] = None,
     return AwaitableGetClientTokenResult(
         token=pulumi.get(__ret__, 'token'))
 def get_client_token_output(endpoint: Optional[pulumi.Input[Optional[str]]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientTokenResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClientTokenResult]:
     """
     Use this function to get an Azure authentication token for the current login context.
 
@@ -74,7 +74,7 @@ def get_client_token_output(endpoint: Optional[pulumi.Input[Optional[str]]] = No
     """
     __args__ = dict()
     __args__['endpoint'] = endpoint
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getClientToken', __args__, opts=opts, typ=GetClientTokenResult)
     return __ret__.apply(lambda __response__: GetClientTokenResult(
         token=pulumi.get(__response__, 'token')))

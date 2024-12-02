@@ -137,7 +137,7 @@ export interface GetDomainServiceResult {
 /**
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
  */
-export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainServiceResult> {
+export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:aad/v20221201:getDomainService", {
         "domainServiceName": args.domainServiceName,

@@ -181,7 +181,7 @@ def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Inpu
                                        sql_pool_name: Optional[pulumi.Input[str]] = None,
                                        workload_group_name: Optional[pulumi.Input[str]] = None,
                                        workspace_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolWorkloadGroupResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolWorkloadGroupResult]:
     """
     Get a Sql pool's workload group.
 
@@ -196,7 +196,7 @@ def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Inpu
     __args__['sqlPoolName'] = sql_pool_name
     __args__['workloadGroupName'] = workload_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601:getSqlPoolWorkloadGroup', __args__, opts=opts, typ=GetSqlPoolWorkloadGroupResult)
     return __ret__.apply(lambda __response__: GetSqlPoolWorkloadGroupResult(
         id=pulumi.get(__response__, 'id'),

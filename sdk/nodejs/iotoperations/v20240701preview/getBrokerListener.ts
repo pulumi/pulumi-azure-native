@@ -71,7 +71,7 @@ export interface GetBrokerListenerResult {
 /**
  * Get a BrokerListenerResource
  */
-export function getBrokerListenerOutput(args: GetBrokerListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerListenerResult> {
+export function getBrokerListenerOutput(args: GetBrokerListenerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerListenerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperations/v20240701preview:getBrokerListener", {
         "brokerName": args.brokerName,

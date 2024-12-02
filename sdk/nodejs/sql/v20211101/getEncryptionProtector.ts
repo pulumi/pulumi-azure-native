@@ -83,7 +83,7 @@ export interface GetEncryptionProtectorResult {
 /**
  * Gets a server encryption protector.
  */
-export function getEncryptionProtectorOutput(args: GetEncryptionProtectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionProtectorResult> {
+export function getEncryptionProtectorOutput(args: GetEncryptionProtectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptionProtectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getEncryptionProtector", {
         "encryptionProtectorName": args.encryptionProtectorName,

@@ -91,7 +91,7 @@ def get_sap_supported_sku_output(app_location: Optional[pulumi.Input[str]] = Non
                                  high_availability_type: Optional[pulumi.Input[Optional[Union[str, 'SAPHighAvailabilityType']]]] = None,
                                  location: Optional[pulumi.Input[str]] = None,
                                  sap_product: Optional[pulumi.Input[Union[str, 'SAPProductType']]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPSupportedSkuResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPSupportedSkuResult]:
     """
     Get a list of SAP supported SKUs for ASCS, Application and Database tier.
 
@@ -112,7 +112,7 @@ def get_sap_supported_sku_output(app_location: Optional[pulumi.Input[str]] = Non
     __args__['highAvailabilityType'] = high_availability_type
     __args__['location'] = location
     __args__['sapProduct'] = sap_product
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20231001preview:getSAPSupportedSku', __args__, opts=opts, typ=GetSAPSupportedSkuResult)
     return __ret__.apply(lambda __response__: GetSAPSupportedSkuResult(
         supported_skus=pulumi.get(__response__, 'supported_skus')))

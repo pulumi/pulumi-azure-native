@@ -64,7 +64,7 @@ export interface GetHttpRouteConfigResult {
  * Advanced Ingress routing for path/header based routing for a Container App Environment
  * Azure REST API version: 2024-10-02-preview.
  */
-export function getHttpRouteConfigOutput(args: GetHttpRouteConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHttpRouteConfigResult> {
+export function getHttpRouteConfigOutput(args: GetHttpRouteConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHttpRouteConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:getHttpRouteConfig", {
         "environmentName": args.environmentName,

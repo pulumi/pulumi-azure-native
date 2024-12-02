@@ -69,7 +69,7 @@ export interface GetAccessConnectorResult {
 /**
  * Gets an Azure Databricks Access Connector.
  */
-export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {
+export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databricks/v20240901preview:getAccessConnector", {
         "connectorName": args.connectorName,

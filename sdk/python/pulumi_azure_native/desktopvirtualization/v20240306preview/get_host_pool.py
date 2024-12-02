@@ -581,7 +581,7 @@ def get_host_pool(host_pool_name: Optional[str] = None,
         vm_template=pulumi.get(__ret__, 'vm_template'))
 def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostPoolResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostPoolResult]:
     """
     Get a host pool.
 
@@ -592,7 +592,7 @@ def get_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['hostPoolName'] = host_pool_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20240306preview:getHostPool', __args__, opts=opts, typ=GetHostPoolResult)
     return __ret__.apply(lambda __response__: GetHostPoolResult(
         agent_update=pulumi.get(__response__, 'agent_update'),

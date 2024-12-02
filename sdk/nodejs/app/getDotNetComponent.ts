@@ -80,7 +80,7 @@ export interface GetDotNetComponentResult {
  *
  * Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
  */
-export function getDotNetComponentOutput(args: GetDotNetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDotNetComponentResult> {
+export function getDotNetComponentOutput(args: GetDotNetComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDotNetComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:getDotNetComponent", {
         "environmentName": args.environmentName,

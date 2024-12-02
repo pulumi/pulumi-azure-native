@@ -322,7 +322,7 @@ def get_anomaly_security_ml_analytics_settings(resource_group_name: Optional[str
 def get_anomaly_security_ml_analytics_settings_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                       settings_resource_name: Optional[pulumi.Input[str]] = None,
                                                       workspace_name: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalySecurityMLAnalyticsSettingsResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnomalySecurityMLAnalyticsSettingsResult]:
     """
     Gets the Security ML Analytics Settings.
 
@@ -335,7 +335,7 @@ def get_anomaly_security_ml_analytics_settings_output(resource_group_name: Optio
     __args__['resourceGroupName'] = resource_group_name
     __args__['settingsResourceName'] = settings_resource_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20231101:getAnomalySecurityMLAnalyticsSettings', __args__, opts=opts, typ=GetAnomalySecurityMLAnalyticsSettingsResult)
     return __ret__.apply(lambda __response__: GetAnomalySecurityMLAnalyticsSettingsResult(
         anomaly_settings_version=pulumi.get(__response__, 'anomaly_settings_version'),

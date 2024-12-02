@@ -84,7 +84,7 @@ export interface GetSnapshotResult {
 /**
  * Get details of the specified snapshot
  */
-export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
+export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:netapp/v20240301preview:getSnapshot", {
         "accountName": args.accountName,

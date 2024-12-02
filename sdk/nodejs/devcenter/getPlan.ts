@@ -75,7 +75,7 @@ export interface GetPlanResult {
  *
  * Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
-export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
+export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter:getPlan", {
         "planName": args.planName,

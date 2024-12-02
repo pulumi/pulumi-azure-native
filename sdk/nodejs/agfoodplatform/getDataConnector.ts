@@ -68,7 +68,7 @@ export interface GetDataConnectorResult {
  * Get specific Data Connector resource by DataConnectorName.
  * Azure REST API version: 2023-06-01-preview.
  */
-export function getDataConnectorOutput(args: GetDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataConnectorResult> {
+export function getDataConnectorOutput(args: GetDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:agfoodplatform:getDataConnector", {
         "dataConnectorName": args.dataConnectorName,

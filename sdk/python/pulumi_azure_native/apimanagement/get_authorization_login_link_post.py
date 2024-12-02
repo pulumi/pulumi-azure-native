@@ -84,7 +84,7 @@ def get_authorization_login_link_post_output(authorization_id: Optional[pulumi.I
                                              post_login_redirect_url: Optional[pulumi.Input[Optional[str]]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              service_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationLoginLinkPostResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationLoginLinkPostResult]:
     """
     Gets authorization login links.
     Azure REST API version: 2022-08-01.
@@ -104,7 +104,7 @@ def get_authorization_login_link_post_output(authorization_id: Optional[pulumi.I
     __args__['postLoginRedirectUrl'] = post_login_redirect_url
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getAuthorizationLoginLinkPost', __args__, opts=opts, typ=GetAuthorizationLoginLinkPostResult)
     return __ret__.apply(lambda __response__: GetAuthorizationLoginLinkPostResult(
         login_link=pulumi.get(__response__, 'login_link')))

@@ -80,7 +80,7 @@ export interface GetAwsCloudTrailDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getAwsCloudTrailDataConnectorOutput(args: GetAwsCloudTrailDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsCloudTrailDataConnectorResult> {
+export function getAwsCloudTrailDataConnectorOutput(args: GetAwsCloudTrailDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAwsCloudTrailDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20210301preview:getAwsCloudTrailDataConnector", {
         "dataConnectorId": args.dataConnectorId,

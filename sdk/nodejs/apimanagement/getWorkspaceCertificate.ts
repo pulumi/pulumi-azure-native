@@ -81,7 +81,7 @@ export interface GetWorkspaceCertificateResult {
  *
  * Other available API versions: 2024-05-01, 2024-06-01-preview.
  */
-export function getWorkspaceCertificateOutput(args: GetWorkspaceCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceCertificateResult> {
+export function getWorkspaceCertificateOutput(args: GetWorkspaceCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceCertificate", {
         "certificateId": args.certificateId,

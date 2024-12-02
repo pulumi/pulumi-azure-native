@@ -75,7 +75,7 @@ export interface GetDynamics365DataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getDynamics365DataConnectorOutput(args: GetDynamics365DataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDynamics365DataConnectorResult> {
+export function getDynamics365DataConnectorOutput(args: GetDynamics365DataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDynamics365DataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240401preview:getDynamics365DataConnector", {
         "dataConnectorId": args.dataConnectorId,

@@ -78,7 +78,7 @@ export interface GetInstanceFailoverGroupResult {
 /**
  * Gets a failover group.
  */
-export function getInstanceFailoverGroupOutput(args: GetInstanceFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceFailoverGroupResult> {
+export function getInstanceFailoverGroupOutput(args: GetInstanceFailoverGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceFailoverGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getInstanceFailoverGroup", {
         "failoverGroupName": args.failoverGroupName,

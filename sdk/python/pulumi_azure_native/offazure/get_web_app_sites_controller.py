@@ -170,7 +170,7 @@ def get_web_app_sites_controller(resource_group_name: Optional[str] = None,
 def get_web_app_sites_controller_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                         site_name: Optional[pulumi.Input[str]] = None,
                                         web_app_site_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSitesControllerResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSitesControllerResult]:
     """
     Method to get a site.
     Azure REST API version: 2023-06-06.
@@ -186,7 +186,7 @@ def get_web_app_sites_controller_output(resource_group_name: Optional[pulumi.Inp
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
     __args__['webAppSiteName'] = web_app_site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getWebAppSitesController', __args__, opts=opts, typ=GetWebAppSitesControllerResult)
     return __ret__.apply(lambda __response__: GetWebAppSitesControllerResult(
         discovery_scenario=pulumi.get(__response__, 'discovery_scenario'),

@@ -65,7 +65,7 @@ export interface GetSnsSubscriptionResult {
 /**
  * Get a SnsSubscription
  */
-export function getSnsSubscriptionOutput(args: GetSnsSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnsSubscriptionResult> {
+export function getSnsSubscriptionOutput(args: GetSnsSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnsSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSnsSubscription", {
         "name": args.name,

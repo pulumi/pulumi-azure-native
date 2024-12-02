@@ -162,7 +162,7 @@ def get_report_by_department(department_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_report_by_department_output(department_id: Optional[pulumi.Input[str]] = None,
                                     report_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportByDepartmentResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportByDepartmentResult]:
     """
     Gets the report for a department by report name.
     Azure REST API version: 2018-08-01-preview.
@@ -174,7 +174,7 @@ def get_report_by_department_output(department_id: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['departmentId'] = department_id
     __args__['reportName'] = report_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getReportByDepartment', __args__, opts=opts, typ=GetReportByDepartmentResult)
     return __ret__.apply(lambda __response__: GetReportByDepartmentResult(
         definition=pulumi.get(__response__, 'definition'),

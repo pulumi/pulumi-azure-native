@@ -67,7 +67,7 @@ export interface GetSolutionResult {
  * Retrieves the user solution.
  * Azure REST API version: 2015-11-01-preview.
  */
-export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
+export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationsmanagement:getSolution", {
         "resourceGroupName": args.resourceGroupName,

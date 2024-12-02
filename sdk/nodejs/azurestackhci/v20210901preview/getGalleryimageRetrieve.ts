@@ -105,7 +105,7 @@ export interface GetGalleryimageRetrieveResult {
 /**
  * Gets galleryimages by resource name
  */
-export function getGalleryimageRetrieveOutput(args: GetGalleryimageRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryimageRetrieveResult> {
+export function getGalleryimageRetrieveOutput(args: GetGalleryimageRetrieveOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryimageRetrieveResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20210901preview:getGalleryimageRetrieve", {
         "galleryimagesName": args.galleryimagesName,

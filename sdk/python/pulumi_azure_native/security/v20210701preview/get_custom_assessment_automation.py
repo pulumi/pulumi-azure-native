@@ -200,7 +200,7 @@ def get_custom_assessment_automation(custom_assessment_automation_name: Optional
         type=pulumi.get(__ret__, 'type'))
 def get_custom_assessment_automation_output(custom_assessment_automation_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomAssessmentAutomationResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomAssessmentAutomationResult]:
     """
     Gets a single custom assessment automation by name for the provided subscription and resource group.
 
@@ -211,7 +211,7 @@ def get_custom_assessment_automation_output(custom_assessment_automation_name: O
     __args__ = dict()
     __args__['customAssessmentAutomationName'] = custom_assessment_automation_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20210701preview:getCustomAssessmentAutomation', __args__, opts=opts, typ=GetCustomAssessmentAutomationResult)
     return __ret__.apply(lambda __response__: GetCustomAssessmentAutomationResult(
         assessment_key=pulumi.get(__response__, 'assessment_key'),

@@ -85,7 +85,7 @@ export interface ListTaskRunDetailsResult {
  * Gets the detailed information for a given task run that includes all secrets.
  * Azure REST API version: 2019-06-01-preview.
  */
-export function listTaskRunDetailsOutput(args: ListTaskRunDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTaskRunDetailsResult> {
+export function listTaskRunDetailsOutput(args: ListTaskRunDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListTaskRunDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry:listTaskRunDetails", {
         "registryName": args.registryName,

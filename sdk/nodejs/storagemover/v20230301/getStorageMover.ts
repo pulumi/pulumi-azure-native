@@ -69,7 +69,7 @@ export interface GetStorageMoverResult {
 /**
  * Gets a Storage Mover resource.
  */
-export function getStorageMoverOutput(args: GetStorageMoverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageMoverResult> {
+export function getStorageMoverOutput(args: GetStorageMoverOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageMoverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagemover/v20230301:getStorageMover", {
         "resourceGroupName": args.resourceGroupName,

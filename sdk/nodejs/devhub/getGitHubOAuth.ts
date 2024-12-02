@@ -48,7 +48,7 @@ export interface GetGitHubOAuthResult {
  *
  * Other available API versions: 2022-04-01-preview, 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
  */
-export function getGitHubOAuthOutput(args: GetGitHubOAuthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitHubOAuthResult> {
+export function getGitHubOAuthOutput(args: GetGitHubOAuthOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGitHubOAuthResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devhub:getGitHubOAuth", {
         "location": args.location,

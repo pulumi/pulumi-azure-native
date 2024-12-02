@@ -105,7 +105,7 @@ export interface GetServerInstanceResult {
  * Gets the Server Instance resource.
  * Azure REST API version: 2023-10-01-preview.
  */
-export function getServerInstanceOutput(args: GetServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerInstanceResult> {
+export function getServerInstanceOutput(args: GetServerInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getServerInstance", {
         "resourceGroupName": args.resourceGroupName,

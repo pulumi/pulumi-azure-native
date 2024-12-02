@@ -119,7 +119,7 @@ def get_notification_registration(notification_registration_name: Optional[str] 
         type=pulumi.get(__ret__, 'type'))
 def get_notification_registration_output(notification_registration_name: Optional[pulumi.Input[str]] = None,
                                          provider_namespace: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationRegistrationResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationRegistrationResult]:
     """
     Gets the notification registration details.
 
@@ -130,7 +130,7 @@ def get_notification_registration_output(notification_registration_name: Optiona
     __args__ = dict()
     __args__['notificationRegistrationName'] = notification_registration_name
     __args__['providerNamespace'] = provider_namespace
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:providerhub/v20210901preview:getNotificationRegistration', __args__, opts=opts, typ=GetNotificationRegistrationResult)
     return __ret__.apply(lambda __response__: GetNotificationRegistrationResult(
         id=pulumi.get(__response__, 'id'),

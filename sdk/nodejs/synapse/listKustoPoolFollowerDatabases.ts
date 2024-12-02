@@ -48,7 +48,7 @@ export interface ListKustoPoolFollowerDatabasesResult {
  * Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.
  * Azure REST API version: 2021-06-01-preview.
  */
-export function listKustoPoolFollowerDatabasesOutput(args: ListKustoPoolFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListKustoPoolFollowerDatabasesResult> {
+export function listKustoPoolFollowerDatabasesOutput(args: ListKustoPoolFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListKustoPoolFollowerDatabasesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:listKustoPoolFollowerDatabases", {
         "kustoPoolName": args.kustoPoolName,

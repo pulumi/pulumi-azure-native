@@ -83,7 +83,7 @@ export interface GetAFDOriginGroupResult {
 /**
  * Gets an existing origin group within a profile.
  */
-export function getAFDOriginGroupOutput(args: GetAFDOriginGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginGroupResult> {
+export function getAFDOriginGroupOutput(args: GetAFDOriginGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAFDOriginGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20230701preview:getAFDOriginGroup", {
         "originGroupName": args.originGroupName,

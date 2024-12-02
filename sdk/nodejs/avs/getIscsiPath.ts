@@ -63,7 +63,7 @@ export interface GetIscsiPathResult {
  * Get a IscsiPath
  * Azure REST API version: 2023-09-01.
  */
-export function getIscsiPathOutput(args: GetIscsiPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIscsiPathResult> {
+export function getIscsiPathOutput(args: GetIscsiPathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIscsiPathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getIscsiPath", {
         "privateCloudName": args.privateCloudName,

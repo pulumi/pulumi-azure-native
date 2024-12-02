@@ -71,7 +71,7 @@ def list_bit_locker_key(job_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_bit_locker_key_output(job_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBitLockerKeyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBitLockerKeyResult]:
     """
     Returns the BitLocker Keys for all drives in the specified job.
     Azure REST API version: 2021-01-01.
@@ -83,7 +83,7 @@ def list_bit_locker_key_output(job_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['jobName'] = job_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:importexport:listBitLockerKey', __args__, opts=opts, typ=ListBitLockerKeyResult)
     return __ret__.apply(lambda __response__: ListBitLockerKeyResult(
         value=pulumi.get(__response__, 'value')))

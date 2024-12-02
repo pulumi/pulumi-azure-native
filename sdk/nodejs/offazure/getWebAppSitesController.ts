@@ -82,7 +82,7 @@ export interface GetWebAppSitesControllerResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getWebAppSitesControllerOutput(args: GetWebAppSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSitesControllerResult> {
+export function getWebAppSitesControllerOutput(args: GetWebAppSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure:getWebAppSitesController", {
         "resourceGroupName": args.resourceGroupName,

@@ -52,7 +52,7 @@ export interface ListWebAppFunctionSecretsSlotResult {
 /**
  * Description for Get function secrets for a function in a web site, or a deployment slot.
  */
-export function listWebAppFunctionSecretsSlotOutput(args: ListWebAppFunctionSecretsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionSecretsSlotResult> {
+export function listWebAppFunctionSecretsSlotOutput(args: ListWebAppFunctionSecretsSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppFunctionSecretsSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20220901:listWebAppFunctionSecretsSlot", {
         "functionName": args.functionName,

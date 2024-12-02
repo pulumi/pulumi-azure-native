@@ -338,7 +338,7 @@ def get_profile_output(hub_name: Optional[pulumi.Input[str]] = None,
                        locale_code: Optional[pulumi.Input[Optional[str]]] = None,
                        profile_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResult]:
     """
     Gets information about the specified profile.
 
@@ -353,7 +353,7 @@ def get_profile_output(hub_name: Optional[pulumi.Input[str]] = None,
     __args__['localeCode'] = locale_code
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights/v20170426:getProfile', __args__, opts=opts, typ=GetProfileResult)
     return __ret__.apply(lambda __response__: GetProfileResult(
         api_entity_set_name=pulumi.get(__response__, 'api_entity_set_name'),

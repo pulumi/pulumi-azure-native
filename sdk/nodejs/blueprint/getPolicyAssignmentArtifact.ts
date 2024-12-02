@@ -85,7 +85,7 @@ export interface GetPolicyAssignmentArtifactResult {
  * Get a blueprint artifact.
  * Azure REST API version: 2018-11-01-preview.
  */
-export function getPolicyAssignmentArtifactOutput(args: GetPolicyAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentArtifactResult> {
+export function getPolicyAssignmentArtifactOutput(args: GetPolicyAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyAssignmentArtifactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:blueprint:getPolicyAssignmentArtifact", {
         "artifactName": args.artifactName,

@@ -205,7 +205,7 @@ def get_rule_output(profile_name: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     rule_name: Optional[pulumi.Input[str]] = None,
                     rule_set_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
     Gets an existing delivery rule within a rule set.
 
@@ -220,7 +220,7 @@ def get_rule_output(profile_name: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name
     __args__['ruleSetName'] = rule_set_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240601preview:getRule', __args__, opts=opts, typ=GetRuleResult)
     return __ret__.apply(lambda __response__: GetRuleResult(
         actions=pulumi.get(__response__, 'actions'),

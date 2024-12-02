@@ -82,7 +82,7 @@ export interface GetInventoryItemResult {
 /**
  * Shows an inventory item.
  */
-export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInventoryItemResult> {
+export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInventoryItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm/v20220521preview:getInventoryItem", {
         "inventoryItemName": args.inventoryItemName,

@@ -81,7 +81,7 @@ export interface GetGatewayResult {
 /**
  * Retrieves information about the view of a gateway.
  */
-export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcompute/v20240520preview:getGateway", {
         "gatewayName": args.gatewayName,

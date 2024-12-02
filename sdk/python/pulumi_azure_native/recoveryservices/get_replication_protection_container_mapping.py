@@ -137,7 +137,7 @@ def get_replication_protection_container_mapping_output(fabric_name: Optional[pu
                                                         protection_container_name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         resource_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationProtectionContainerMappingResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationProtectionContainerMappingResult]:
     """
     Gets the details of a protection container mapping.
     Azure REST API version: 2023-04-01.
@@ -157,7 +157,7 @@ def get_replication_protection_container_mapping_output(fabric_name: Optional[pu
     __args__['protectionContainerName'] = protection_container_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices:getReplicationProtectionContainerMapping', __args__, opts=opts, typ=GetReplicationProtectionContainerMappingResult)
     return __ret__.apply(lambda __response__: GetReplicationProtectionContainerMappingResult(
         id=pulumi.get(__response__, 'id'),

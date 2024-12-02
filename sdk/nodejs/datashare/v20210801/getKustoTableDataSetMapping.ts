@@ -88,7 +88,7 @@ export interface GetKustoTableDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
-export function getKustoTableDataSetMappingOutput(args: GetKustoTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoTableDataSetMappingResult> {
+export function getKustoTableDataSetMappingOutput(args: GetKustoTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKustoTableDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getKustoTableDataSetMapping", {
         "accountName": args.accountName,

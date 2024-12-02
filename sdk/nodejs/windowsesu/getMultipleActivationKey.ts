@@ -85,7 +85,7 @@ export interface GetMultipleActivationKeyResult {
  * Get a MAK key.
  * Azure REST API version: 2019-09-16-preview.
  */
-export function getMultipleActivationKeyOutput(args: GetMultipleActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultipleActivationKeyResult> {
+export function getMultipleActivationKeyOutput(args: GetMultipleActivationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMultipleActivationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:windowsesu:getMultipleActivationKey", {
         "multipleActivationKeyName": args.multipleActivationKeyName,

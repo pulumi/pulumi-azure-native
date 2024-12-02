@@ -145,7 +145,7 @@ export interface GetDeviceResult {
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
  */
-export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
+export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20210201:getDevice", {
         "deviceName": args.deviceName,

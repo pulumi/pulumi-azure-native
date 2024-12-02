@@ -58,7 +58,7 @@ export interface GetJobCollectionResult {
 /**
  * Gets a job collection.
  */
-export function getJobCollectionOutput(args: GetJobCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobCollectionResult> {
+export function getJobCollectionOutput(args: GetJobCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scheduler/v20160301:getJobCollection", {
         "jobCollectionName": args.jobCollectionName,

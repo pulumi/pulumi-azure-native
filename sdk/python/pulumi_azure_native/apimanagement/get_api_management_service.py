@@ -580,7 +580,7 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_api_management_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       service_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiManagementServiceResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiManagementServiceResult]:
     """
     Gets an API Management service resource description.
     Azure REST API version: 2022-08-01.
@@ -594,7 +594,7 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiManagementService', __args__, opts=opts, typ=GetApiManagementServiceResult)
     return __ret__.apply(lambda __response__: GetApiManagementServiceResult(
         additional_locations=pulumi.get(__response__, 'additional_locations'),

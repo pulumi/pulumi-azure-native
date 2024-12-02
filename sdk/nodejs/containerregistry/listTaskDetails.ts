@@ -125,7 +125,7 @@ export interface ListTaskDetailsResult {
  *
  * Other available API versions: 2018-09-01, 2019-04-01.
  */
-export function listTaskDetailsOutput(args: ListTaskDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTaskDetailsResult> {
+export function listTaskDetailsOutput(args: ListTaskDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListTaskDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry:listTaskDetails", {
         "registryName": args.registryName,

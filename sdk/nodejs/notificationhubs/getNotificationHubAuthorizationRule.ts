@@ -81,7 +81,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
  *
  * Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
  */
-export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
+export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs:getNotificationHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

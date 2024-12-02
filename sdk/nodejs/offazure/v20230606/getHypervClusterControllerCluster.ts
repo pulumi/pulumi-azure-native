@@ -94,7 +94,7 @@ export interface GetHypervClusterControllerClusterResult {
 /**
  * Method to get a Hyper-V cluster.
  */
-export function getHypervClusterControllerClusterOutput(args: GetHypervClusterControllerClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervClusterControllerClusterResult> {
+export function getHypervClusterControllerClusterOutput(args: GetHypervClusterControllerClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHypervClusterControllerClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getHypervClusterControllerCluster", {
         "clusterName": args.clusterName,

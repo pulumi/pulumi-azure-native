@@ -103,7 +103,7 @@ export interface GetIoTHubEventSourceResult {
 /**
  * Gets the event source with the specified name in the specified environment.
  */
-export function getIoTHubEventSourceOutput(args: GetIoTHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIoTHubEventSourceResult> {
+export function getIoTHubEventSourceOutput(args: GetIoTHubEventSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoTHubEventSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights/v20210630preview:getIoTHubEventSource", {
         "environmentName": args.environmentName,

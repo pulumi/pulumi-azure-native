@@ -74,7 +74,7 @@ export interface GetFrontendsInterfaceResult {
 /**
  * Get a Frontend
  */
-export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontendsInterfaceResult> {
+export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontendsInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicenetworking/v20240501preview:getFrontendsInterface", {
         "frontendName": args.frontendName,

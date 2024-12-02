@@ -96,7 +96,7 @@ export interface GetBlobContainerDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
-export function getBlobContainerDataSetMappingOutput(args: GetBlobContainerDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobContainerDataSetMappingResult> {
+export function getBlobContainerDataSetMappingOutput(args: GetBlobContainerDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobContainerDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:getBlobContainerDataSetMapping", {
         "accountName": args.accountName,

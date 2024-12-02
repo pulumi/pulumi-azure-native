@@ -130,7 +130,7 @@ export interface GetInternalNetworkResult {
 /**
  * Gets a InternalNetworks.
  */
-export function getInternalNetworkOutput(args: GetInternalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternalNetworkResult> {
+export function getInternalNetworkOutput(args: GetInternalNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInternalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getInternalNetwork", {
         "internalNetworkName": args.internalNetworkName,

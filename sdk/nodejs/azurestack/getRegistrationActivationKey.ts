@@ -44,7 +44,7 @@ export interface GetRegistrationActivationKeyResult {
  *
  * Other available API versions: 2020-06-01-preview.
  */
-export function getRegistrationActivationKeyOutput(args: GetRegistrationActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationActivationKeyResult> {
+export function getRegistrationActivationKeyOutput(args: GetRegistrationActivationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationActivationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestack:getRegistrationActivationKey", {
         "registrationName": args.registrationName,

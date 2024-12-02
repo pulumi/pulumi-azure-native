@@ -34,7 +34,7 @@ export interface GetServerlessEndpointStatusResult {
      */
     readonly metrics: {[key: string]: string};
 }
-export function getServerlessEndpointStatusOutput(args: GetServerlessEndpointStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessEndpointStatusResult> {
+export function getServerlessEndpointStatusOutput(args: GetServerlessEndpointStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessEndpointStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:getServerlessEndpointStatus", {
         "name": args.name,

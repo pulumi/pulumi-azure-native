@@ -113,7 +113,7 @@ export interface GetVirtualMachineImageTemplateResult {
 /**
  * Get information about a virtual machine image template
  */
-export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
+export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:virtualmachineimages/v20220701:getVirtualMachineImageTemplate", {
         "imageTemplateName": args.imageTemplateName,

@@ -84,7 +84,7 @@ export interface GetDeploymentResult {
 /**
  * Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
  */
-export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
+export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20220901preview:getDeployment", {
         "catalogName": args.catalogName,

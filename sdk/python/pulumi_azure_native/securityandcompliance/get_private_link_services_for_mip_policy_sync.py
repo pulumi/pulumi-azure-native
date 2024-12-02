@@ -188,7 +188,7 @@ def get_private_link_services_for_mip_policy_sync(resource_group_name: Optional[
         type=pulumi.get(__ret__, 'type'))
 def get_private_link_services_for_mip_policy_sync_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                          resource_name: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicesForMIPPolicySyncResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicesForMIPPolicySyncResult]:
     """
     Get the metadata of a privateLinkServicesForMIPPolicySync resource.
     Azure REST API version: 2021-03-08.
@@ -200,7 +200,7 @@ def get_private_link_services_for_mip_policy_sync_output(resource_group_name: Op
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityandcompliance:getPrivateLinkServicesForMIPPolicySync', __args__, opts=opts, typ=GetPrivateLinkServicesForMIPPolicySyncResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkServicesForMIPPolicySyncResult(
         etag=pulumi.get(__response__, 'etag'),

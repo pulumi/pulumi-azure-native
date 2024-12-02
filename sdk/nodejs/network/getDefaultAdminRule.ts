@@ -127,7 +127,7 @@ export interface GetDefaultAdminRuleResult {
  * Gets a network manager security configuration admin rule.
  * Azure REST API version: 2023-02-01.
  */
-export function getDefaultAdminRuleOutput(args: GetDefaultAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultAdminRuleResult> {
+export function getDefaultAdminRuleOutput(args: GetDefaultAdminRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDefaultAdminRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getDefaultAdminRule", {
         "configurationName": args.configurationName,

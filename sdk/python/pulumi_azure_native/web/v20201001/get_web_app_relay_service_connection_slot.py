@@ -200,7 +200,7 @@ def get_web_app_relay_service_connection_slot_output(entity_name: Optional[pulum
                                                      name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      slot: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppRelayServiceConnectionSlotResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppRelayServiceConnectionSlotResult]:
     """
     Gets a hybrid connection configuration by its name.
 
@@ -215,7 +215,7 @@ def get_web_app_relay_service_connection_slot_output(entity_name: Optional[pulum
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20201001:getWebAppRelayServiceConnectionSlot', __args__, opts=opts, typ=GetWebAppRelayServiceConnectionSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppRelayServiceConnectionSlotResult(
         biztalk_uri=pulumi.get(__response__, 'biztalk_uri'),

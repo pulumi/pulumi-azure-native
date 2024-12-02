@@ -91,7 +91,7 @@ def list_local_rulestack_app_ids_output(app_id_version: Optional[pulumi.Input[Op
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         skip: Optional[pulumi.Input[Optional[str]]] = None,
                                         top: Optional[pulumi.Input[Optional[int]]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLocalRulestackAppIdsResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLocalRulestackAppIdsResult]:
     """
     List of AppIds for LocalRulestack ApiVersion
 
@@ -106,7 +106,7 @@ def list_local_rulestack_app_ids_output(app_id_version: Optional[pulumi.Input[Op
     __args__['resourceGroupName'] = resource_group_name
     __args__['skip'] = skip
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw/v20240119preview:listLocalRulestackAppIds', __args__, opts=opts, typ=ListLocalRulestackAppIdsResult)
     return __ret__.apply(lambda __response__: ListLocalRulestackAppIdsResult(
         next_link=pulumi.get(__response__, 'next_link'),

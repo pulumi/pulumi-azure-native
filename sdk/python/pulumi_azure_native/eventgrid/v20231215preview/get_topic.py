@@ -342,7 +342,7 @@ def get_topic(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      topic_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Get properties of a topic.
 
@@ -353,7 +353,7 @@ def get_topic_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20231215preview:getTopic', __args__, opts=opts, typ=GetTopicResult)
     return __ret__.apply(lambda __response__: GetTopicResult(
         data_residency_boundary=pulumi.get(__response__, 'data_residency_boundary'),

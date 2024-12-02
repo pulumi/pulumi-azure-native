@@ -59,7 +59,7 @@ export interface GetNetworkInterfaceStatusResult {
 /**
  * Get the running status of the Network Interface.
  */
-export function getNetworkInterfaceStatusOutput(args: GetNetworkInterfaceStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceStatusResult> {
+export function getNetworkInterfaceStatusOutput(args: GetNetworkInterfaceStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getNetworkInterfaceStatus", {
         "networkDeviceName": args.networkDeviceName,

@@ -67,7 +67,7 @@ export interface GetBindingResult {
 /**
  * Get a Binding and its properties.
  */
-export function getBindingOutput(args: GetBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBindingResult> {
+export function getBindingOutput(args: GetBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20240101preview:getBinding", {
         "appName": args.appName,

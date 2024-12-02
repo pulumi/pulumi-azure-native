@@ -74,7 +74,7 @@ def list_streaming_locator_content_keys(account_name: Optional[str] = None,
 def list_streaming_locator_content_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                                streaming_locator_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStreamingLocatorContentKeysResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStreamingLocatorContentKeysResult]:
     """
     List Content Keys used by this Streaming Locator
 
@@ -87,7 +87,7 @@ def list_streaming_locator_content_keys_output(account_name: Optional[pulumi.Inp
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['streamingLocatorName'] = streaming_locator_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media/v20230101:listStreamingLocatorContentKeys', __args__, opts=opts, typ=ListStreamingLocatorContentKeysResult)
     return __ret__.apply(lambda __response__: ListStreamingLocatorContentKeysResult(
         content_keys=pulumi.get(__response__, 'content_keys')))

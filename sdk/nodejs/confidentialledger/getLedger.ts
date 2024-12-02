@@ -71,7 +71,7 @@ export interface GetLedgerResult {
  *
  * Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview.
  */
-export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
+export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLedgerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confidentialledger:getLedger", {
         "ledgerName": args.ledgerName,

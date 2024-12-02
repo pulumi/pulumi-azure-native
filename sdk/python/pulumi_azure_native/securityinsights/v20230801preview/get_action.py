@@ -156,7 +156,7 @@ def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       rule_id: Optional[pulumi.Input[str]] = None,
                       workspace_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionResult]:
     """
     Gets the action of alert rule.
 
@@ -171,7 +171,7 @@ def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleId'] = rule_id
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20230801preview:getAction', __args__, opts=opts, typ=GetActionResult)
     return __ret__.apply(lambda __response__: GetActionResult(
         etag=pulumi.get(__response__, 'etag'),

@@ -51,7 +51,7 @@ export interface GetSqlMigrationServiceResult {
 /**
  * Retrieve the Database Migration Service
  */
-export function getSqlMigrationServiceOutput(args: GetSqlMigrationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlMigrationServiceResult> {
+export function getSqlMigrationServiceOutput(args: GetSqlMigrationServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlMigrationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration/v20220330preview:getSqlMigrationService", {
         "resourceGroupName": args.resourceGroupName,

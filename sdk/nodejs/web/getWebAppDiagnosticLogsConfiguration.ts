@@ -75,7 +75,7 @@ export interface GetWebAppDiagnosticLogsConfigurationResult {
  *
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getWebAppDiagnosticLogsConfigurationOutput(args: GetWebAppDiagnosticLogsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationResult> {
+export function getWebAppDiagnosticLogsConfigurationOutput(args: GetWebAppDiagnosticLogsConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getWebAppDiagnosticLogsConfiguration", {
         "name": args.name,

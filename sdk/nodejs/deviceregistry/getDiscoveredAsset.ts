@@ -135,7 +135,7 @@ export interface GetDiscoveredAssetResult {
  * Get a DiscoveredAsset
  * Azure REST API version: 2024-09-01-preview.
  */
-export function getDiscoveredAssetOutput(args: GetDiscoveredAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiscoveredAssetResult> {
+export function getDiscoveredAssetOutput(args: GetDiscoveredAssetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiscoveredAssetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:deviceregistry:getDiscoveredAsset", {
         "discoveredAssetName": args.discoveredAssetName,

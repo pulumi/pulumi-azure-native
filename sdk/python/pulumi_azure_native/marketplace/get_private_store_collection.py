@@ -240,7 +240,7 @@ def get_private_store_collection(collection_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str]] = None,
                                         private_store_id: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreCollectionResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateStoreCollectionResult]:
     """
     Gets private store collection
     Azure REST API version: 2023-01-01.
@@ -252,7 +252,7 @@ def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['collectionId'] = collection_id
     __args__['privateStoreId'] = private_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:marketplace:getPrivateStoreCollection', __args__, opts=opts, typ=GetPrivateStoreCollectionResult)
     return __ret__.apply(lambda __response__: GetPrivateStoreCollectionResult(
         all_subscriptions=pulumi.get(__response__, 'all_subscriptions'),

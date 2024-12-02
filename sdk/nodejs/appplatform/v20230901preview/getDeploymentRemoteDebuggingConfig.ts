@@ -52,7 +52,7 @@ export interface GetDeploymentRemoteDebuggingConfigResult {
 /**
  * Get remote debugging config.
  */
-export function getDeploymentRemoteDebuggingConfigOutput(args: GetDeploymentRemoteDebuggingConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentRemoteDebuggingConfigResult> {
+export function getDeploymentRemoteDebuggingConfigOutput(args: GetDeploymentRemoteDebuggingConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentRemoteDebuggingConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230901preview:getDeploymentRemoteDebuggingConfig", {
         "appName": args.appName,

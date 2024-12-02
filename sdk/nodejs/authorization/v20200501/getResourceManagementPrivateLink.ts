@@ -51,7 +51,7 @@ export interface GetResourceManagementPrivateLinkResult {
 /**
  * Get a resource management private link(resource-level).
  */
-export function getResourceManagementPrivateLinkOutput(args: GetResourceManagementPrivateLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceManagementPrivateLinkResult> {
+export function getResourceManagementPrivateLinkOutput(args: GetResourceManagementPrivateLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceManagementPrivateLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20200501:getResourceManagementPrivateLink", {
         "resourceGroupName": args.resourceGroupName,

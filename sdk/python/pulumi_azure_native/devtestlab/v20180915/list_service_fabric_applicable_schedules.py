@@ -156,7 +156,7 @@ def list_service_fabric_applicable_schedules_output(lab_name: Optional[pulumi.In
                                                     name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     user_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServiceFabricApplicableSchedulesResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServiceFabricApplicableSchedulesResult]:
     """
     Lists the applicable start/stop schedules, if any.
 
@@ -171,7 +171,7 @@ def list_service_fabric_applicable_schedules_output(lab_name: Optional[pulumi.In
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules', __args__, opts=opts, typ=ListServiceFabricApplicableSchedulesResult)
     return __ret__.apply(lambda __response__: ListServiceFabricApplicableSchedulesResult(
         id=pulumi.get(__response__, 'id'),

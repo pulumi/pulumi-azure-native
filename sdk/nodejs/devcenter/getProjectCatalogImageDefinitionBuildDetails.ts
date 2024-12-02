@@ -98,7 +98,7 @@ export interface GetProjectCatalogImageDefinitionBuildDetailsResult {
  *
  * Other available API versions: 2024-08-01-preview, 2024-10-01-preview.
  */
-export function getProjectCatalogImageDefinitionBuildDetailsOutput(args: GetProjectCatalogImageDefinitionBuildDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectCatalogImageDefinitionBuildDetailsResult> {
+export function getProjectCatalogImageDefinitionBuildDetailsOutput(args: GetProjectCatalogImageDefinitionBuildDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectCatalogImageDefinitionBuildDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter:getProjectCatalogImageDefinitionBuildDetails", {
         "buildName": args.buildName,

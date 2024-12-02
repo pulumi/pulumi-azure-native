@@ -67,7 +67,7 @@ export interface GetS3AccessPointResult {
  * Get a S3AccessPoint
  * Azure REST API version: 2024-12-01.
  */
-export function getS3AccessPointOutput(args: GetS3AccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3AccessPointResult> {
+export function getS3AccessPointOutput(args: GetS3AccessPointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetS3AccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getS3AccessPoint", {
         "name": args.name,

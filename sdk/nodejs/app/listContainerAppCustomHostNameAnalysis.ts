@@ -96,7 +96,7 @@ export interface ListContainerAppCustomHostNameAnalysisResult {
  *
  * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
  */
-export function listContainerAppCustomHostNameAnalysisOutput(args: ListContainerAppCustomHostNameAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppCustomHostNameAnalysisResult> {
+export function listContainerAppCustomHostNameAnalysisOutput(args: ListContainerAppCustomHostNameAnalysisOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListContainerAppCustomHostNameAnalysisResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:listContainerAppCustomHostNameAnalysis", {
         "containerAppName": args.containerAppName,

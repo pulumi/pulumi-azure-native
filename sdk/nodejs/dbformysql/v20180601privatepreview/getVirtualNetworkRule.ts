@@ -63,7 +63,7 @@ export interface GetVirtualNetworkRuleResult {
 /**
  * Gets a virtual network rule.
  */
-export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
+export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbformysql/v20180601privatepreview:getVirtualNetworkRule", {
         "resourceGroupName": args.resourceGroupName,

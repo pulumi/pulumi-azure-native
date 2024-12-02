@@ -90,7 +90,7 @@ export interface GetPacketCaptureResult {
 /**
  * Gets a packet capture session by name.
  */
-export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
+export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPacketCaptureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230201:getPacketCapture", {
         "networkWatcherName": args.networkWatcherName,

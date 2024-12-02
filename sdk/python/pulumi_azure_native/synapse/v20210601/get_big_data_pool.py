@@ -373,7 +373,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
 def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              workspace_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBigDataPoolResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBigDataPoolResult]:
     """
     Get a Big Data pool.
 
@@ -386,7 +386,7 @@ def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = N
     __args__['bigDataPoolName'] = big_data_pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601:getBigDataPool', __args__, opts=opts, typ=GetBigDataPoolResult)
     return __ret__.apply(lambda __response__: GetBigDataPoolResult(
         auto_pause=pulumi.get(__response__, 'auto_pause'),

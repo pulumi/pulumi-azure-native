@@ -217,7 +217,7 @@ def get_sap_instance(resource_group_name: Optional[str] = None,
 def get_sap_instance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             sap_discovery_site_name: Optional[pulumi.Input[str]] = None,
                             sap_instance_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSapInstanceResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapInstanceResult]:
     """
     Gets the SAP Instance resource.
 
@@ -230,7 +230,7 @@ def get_sap_instance_output(resource_group_name: Optional[pulumi.Input[str]] = N
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapDiscoverySiteName'] = sap_discovery_site_name
     __args__['sapInstanceName'] = sap_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20231001preview:getSapInstance', __args__, opts=opts, typ=GetSapInstanceResult)
     return __ret__.apply(lambda __response__: GetSapInstanceResult(
         application=pulumi.get(__response__, 'application'),

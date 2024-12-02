@@ -80,7 +80,7 @@ export interface GetPermissionBindingResult {
 /**
  * Get properties of a permission binding.
  */
-export function getPermissionBindingOutput(args: GetPermissionBindingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionBindingResult> {
+export function getPermissionBindingOutput(args: GetPermissionBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20230601preview:getPermissionBinding", {
         "namespaceName": args.namespaceName,

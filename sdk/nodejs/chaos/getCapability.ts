@@ -83,7 +83,7 @@ export interface GetCapabilityResult {
  *
  * Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview.
  */
-export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapabilityResult> {
+export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapabilityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:chaos:getCapability", {
         "capabilityName": args.capabilityName,

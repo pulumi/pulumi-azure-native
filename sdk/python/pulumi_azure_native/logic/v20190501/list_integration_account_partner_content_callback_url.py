@@ -148,7 +148,7 @@ def list_integration_account_partner_content_callback_url_output(integration_acc
                                                                  not_after: Optional[pulumi.Input[Optional[str]]] = None,
                                                                  partner_name: Optional[pulumi.Input[str]] = None,
                                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIntegrationAccountPartnerContentCallbackUrlResult]:
+                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountPartnerContentCallbackUrlResult]:
     """
     Get the content callback url.
 
@@ -165,7 +165,7 @@ def list_integration_account_partner_content_callback_url_output(integration_acc
     __args__['notAfter'] = not_after
     __args__['partnerName'] = partner_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20190501:listIntegrationAccountPartnerContentCallbackUrl', __args__, opts=opts, typ=ListIntegrationAccountPartnerContentCallbackUrlResult)
     return __ret__.apply(lambda __response__: ListIntegrationAccountPartnerContentCallbackUrlResult(
         base_path=pulumi.get(__response__, 'base_path'),

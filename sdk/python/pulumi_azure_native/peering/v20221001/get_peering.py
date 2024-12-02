@@ -200,7 +200,7 @@ def get_peering(peering_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPeeringResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeeringResult]:
     """
     Gets an existing peering with the specified name under the given subscription and resource group.
 
@@ -211,7 +211,7 @@ def get_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:peering/v20221001:getPeering', __args__, opts=opts, typ=GetPeeringResult)
     return __ret__.apply(lambda __response__: GetPeeringResult(
         direct=pulumi.get(__response__, 'direct'),

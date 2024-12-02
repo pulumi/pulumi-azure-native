@@ -60,7 +60,7 @@ export interface GetTagOperationLinkResult {
 /**
  * Gets the operation link for the tag.
  */
-export function getTagOperationLinkOutput(args: GetTagOperationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagOperationLinkResult> {
+export function getTagOperationLinkOutput(args: GetTagOperationLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagOperationLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getTagOperationLink", {
         "operationLinkId": args.operationLinkId,

@@ -45,7 +45,7 @@ export interface GetBillingInfoResult {
 /**
  * Marketplace Subscription and Organization details to which resource gets billed into.
  */
-export function getBillingInfoOutput(args: GetBillingInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingInfoResult> {
+export function getBillingInfoOutput(args: GetBillingInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20240101preview:getBillingInfo", {
         "monitorName": args.monitorName,

@@ -61,7 +61,7 @@ export interface GetFirewallRuleResult {
  * Gets the specified Data Lake Analytics firewall rule.
  * Azure REST API version: 2019-11-01-preview.
  */
-export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
+export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datalakeanalytics:getFirewallRule", {
         "accountName": args.accountName,

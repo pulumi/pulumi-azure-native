@@ -253,7 +253,7 @@ export interface GetManagedClusterResult {
 /**
  * Managed cluster.
  */
-export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
+export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20230702preview:getManagedCluster", {
         "resourceGroupName": args.resourceGroupName,

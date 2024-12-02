@@ -65,7 +65,7 @@ export interface GetFirewallLogProfileResult {
 /**
  * Log Profile for Firewall
  */
-export function getFirewallLogProfileOutput(args: GetFirewallLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallLogProfileResult> {
+export function getFirewallLogProfileOutput(args: GetFirewallLogProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallLogProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240119preview:getFirewallLogProfile", {
         "firewallName": args.firewallName,

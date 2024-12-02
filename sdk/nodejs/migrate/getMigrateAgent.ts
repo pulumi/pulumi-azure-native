@@ -70,7 +70,7 @@ export interface GetMigrateAgentResult {
  * Gets the details of the modernizeProject agent.
  * Azure REST API version: 2022-05-01-preview.
  */
-export function getMigrateAgentOutput(args: GetMigrateAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateAgentResult> {
+export function getMigrateAgentOutput(args: GetMigrateAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrateAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getMigrateAgent", {
         "agentName": args.agentName,

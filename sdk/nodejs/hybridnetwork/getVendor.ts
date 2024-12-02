@@ -58,7 +58,7 @@ export interface GetVendorResult {
  * Gets information about the specified vendor.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorResult> {
+export function getVendorOutput(args: GetVendorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVendorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getVendor", {
         "vendorName": args.vendorName,

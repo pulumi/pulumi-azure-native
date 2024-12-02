@@ -69,7 +69,7 @@ export interface GetManagedHsmResult {
 /**
  * Gets the specified managed HSM Pool.
  */
-export function getManagedHsmOutput(args: GetManagedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedHsmResult> {
+export function getManagedHsmOutput(args: GetManagedHsmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedHsmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:keyvault/v20230201:getManagedHsm", {
         "name": args.name,

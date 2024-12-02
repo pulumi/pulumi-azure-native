@@ -81,7 +81,7 @@ export interface GetLocalNetworkGatewayResult {
 /**
  * Gets the specified local network gateway in a resource group.
  */
-export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
+export function getLocalNetworkGatewayOutput(args: GetLocalNetworkGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalNetworkGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20190801:getLocalNetworkGateway", {
         "localNetworkGatewayName": args.localNetworkGatewayName,

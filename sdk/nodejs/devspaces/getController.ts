@@ -80,7 +80,7 @@ export interface GetControllerResult {
  * Gets the properties for an Azure Dev Spaces Controller.
  * Azure REST API version: 2019-04-01.
  */
-export function getControllerOutput(args: GetControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerResult> {
+export function getControllerOutput(args: GetControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devspaces:getController", {
         "name": args.name,

@@ -66,7 +66,7 @@ def get_provider_action_overview_status(type: Optional[str] = None,
     return AwaitableGetProviderActionOverviewStatusResult(
         status_list=pulumi.get(__ret__, 'status_list'))
 def get_provider_action_overview_status_output(type: Optional[pulumi.Input[Optional[str]]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderActionOverviewStatusResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderActionOverviewStatusResult]:
     """
     Get the resource overview status.
 
@@ -75,7 +75,7 @@ def get_provider_action_overview_status_output(type: Optional[pulumi.Input[Optio
     """
     __args__ = dict()
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation/v20240627:getProviderActionOverviewStatus', __args__, opts=opts, typ=GetProviderActionOverviewStatusResult)
     return __ret__.apply(lambda __response__: GetProviderActionOverviewStatusResult(
         status_list=pulumi.get(__response__, 'status_list')))

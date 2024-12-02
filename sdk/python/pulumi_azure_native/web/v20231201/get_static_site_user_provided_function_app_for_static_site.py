@@ -151,7 +151,7 @@ def get_static_site_user_provided_function_app_for_static_site(function_app_name
 def get_static_site_user_provided_function_app_for_static_site_output(function_app_name: Optional[pulumi.Input[str]] = None,
                                                                       name: Optional[pulumi.Input[str]] = None,
                                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteResult]:
+                                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteResult]:
     """
     Description for Gets the details of the user provided function app registered with a static site
 
@@ -164,7 +164,7 @@ def get_static_site_user_provided_function_app_for_static_site_output(function_a
     __args__['functionAppName'] = function_app_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:getStaticSiteUserProvidedFunctionAppForStaticSite', __args__, opts=opts, typ=GetStaticSiteUserProvidedFunctionAppForStaticSiteResult)
     return __ret__.apply(lambda __response__: GetStaticSiteUserProvidedFunctionAppForStaticSiteResult(
         created_on=pulumi.get(__response__, 'created_on'),

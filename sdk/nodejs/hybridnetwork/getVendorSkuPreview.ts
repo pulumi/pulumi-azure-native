@@ -64,7 +64,7 @@ export interface GetVendorSkuPreviewResult {
  * Gets the preview information of a vendor sku.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkuPreviewResult> {
+export function getVendorSkuPreviewOutput(args: GetVendorSkuPreviewOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVendorSkuPreviewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getVendorSkuPreview", {
         "previewSubscription": args.previewSubscription,

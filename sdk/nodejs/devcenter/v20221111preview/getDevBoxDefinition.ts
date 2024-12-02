@@ -98,7 +98,7 @@ export interface GetDevBoxDefinitionResult {
 /**
  * Gets a Dev Box definition
  */
-export function getDevBoxDefinitionOutput(args: GetDevBoxDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevBoxDefinitionResult> {
+export function getDevBoxDefinitionOutput(args: GetDevBoxDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevBoxDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20221111preview:getDevBoxDefinition", {
         "devBoxDefinitionName": args.devBoxDefinitionName,

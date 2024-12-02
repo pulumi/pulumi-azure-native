@@ -110,7 +110,7 @@ export interface GetAssessmentProjectsOperationResult {
 /**
  * Get a AssessmentProject
  */
-export function getAssessmentProjectsOperationOutput(args: GetAssessmentProjectsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentProjectsOperationResult> {
+export function getAssessmentProjectsOperationOutput(args: GetAssessmentProjectsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentProjectsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230401preview:getAssessmentProjectsOperation", {
         "projectName": args.projectName,

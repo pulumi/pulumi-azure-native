@@ -66,7 +66,7 @@ export interface GetNamespaceAuthorizationRuleResult {
 /**
  * Gets an AuthorizationRule for a Namespace by rule name.
  */
-export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
+export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub/v20230101preview:getNamespaceAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

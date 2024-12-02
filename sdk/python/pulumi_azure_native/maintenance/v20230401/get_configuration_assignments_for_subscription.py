@@ -157,7 +157,7 @@ def get_configuration_assignments_for_subscription(configuration_assignment_name
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_configuration_assignments_for_subscription_output(configuration_assignment_name: Optional[pulumi.Input[str]] = None,
-                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAssignmentsForSubscriptionResult]:
+                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentsForSubscriptionResult]:
     """
     Get configuration assignment for resource..
 
@@ -166,7 +166,7 @@ def get_configuration_assignments_for_subscription_output(configuration_assignme
     """
     __args__ = dict()
     __args__['configurationAssignmentName'] = configuration_assignment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance/v20230401:getConfigurationAssignmentsForSubscription', __args__, opts=opts, typ=GetConfigurationAssignmentsForSubscriptionResult)
     return __ret__.apply(lambda __response__: GetConfigurationAssignmentsForSubscriptionResult(
         filter=pulumi.get(__response__, 'filter'),

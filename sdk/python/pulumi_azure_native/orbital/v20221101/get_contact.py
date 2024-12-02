@@ -321,7 +321,7 @@ def get_contact(contact_name: Optional[str] = None,
 def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        spacecraft_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactResult]:
     """
     Gets the specified contact in a specified resource group.
 
@@ -334,7 +334,7 @@ def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
     __args__['contactName'] = contact_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['spacecraftName'] = spacecraft_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital/v20221101:getContact', __args__, opts=opts, typ=GetContactResult)
     return __ret__.apply(lambda __response__: GetContactResult(
         antenna_configuration=pulumi.get(__response__, 'antenna_configuration'),

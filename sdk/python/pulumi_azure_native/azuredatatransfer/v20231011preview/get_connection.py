@@ -148,7 +148,7 @@ def get_connection(connection_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Gets connection resource.
 
@@ -159,7 +159,7 @@ def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuredatatransfer/v20231011preview:getConnection', __args__, opts=opts, typ=GetConnectionResult)
     return __ret__.apply(lambda __response__: GetConnectionResult(
         id=pulumi.get(__response__, 'id'),

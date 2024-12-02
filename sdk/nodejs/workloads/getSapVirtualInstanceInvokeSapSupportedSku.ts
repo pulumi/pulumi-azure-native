@@ -68,7 +68,7 @@ export interface GetSapVirtualInstanceInvokeSapSupportedSkuResult {
  * Get a list of SAP supported SKUs for ASCS, Application and Database tier.
  * Azure REST API version: 2024-09-01.
  */
-export function getSapVirtualInstanceInvokeSapSupportedSkuOutput(args: GetSapVirtualInstanceInvokeSapSupportedSkuOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeSapSupportedSkuResult> {
+export function getSapVirtualInstanceInvokeSapSupportedSkuOutput(args: GetSapVirtualInstanceInvokeSapSupportedSkuOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapVirtualInstanceInvokeSapSupportedSkuResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getSapVirtualInstanceInvokeSapSupportedSku", {
         "appLocation": args.appLocation,

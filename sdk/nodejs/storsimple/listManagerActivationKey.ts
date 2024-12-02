@@ -40,7 +40,7 @@ export interface ListManagerActivationKeyResult {
  * Returns the activation key of the manager.
  * Azure REST API version: 2017-06-01.
  */
-export function listManagerActivationKeyOutput(args: ListManagerActivationKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerActivationKeyResult> {
+export function listManagerActivationKeyOutput(args: ListManagerActivationKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListManagerActivationKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple:listManagerActivationKey", {
         "managerName": args.managerName,

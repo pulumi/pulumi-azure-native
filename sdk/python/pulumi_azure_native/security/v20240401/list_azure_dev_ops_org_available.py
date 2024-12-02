@@ -83,7 +83,7 @@ def list_azure_dev_ops_org_available(resource_group_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_azure_dev_ops_org_available_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             security_connector_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAzureDevOpsOrgAvailableResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAzureDevOpsOrgAvailableResult]:
     """
     List of RP resources which supports pagination.
 
@@ -94,7 +94,7 @@ def list_azure_dev_ops_org_available_output(resource_group_name: Optional[pulumi
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityConnectorName'] = security_connector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20240401:listAzureDevOpsOrgAvailable', __args__, opts=opts, typ=ListAzureDevOpsOrgAvailableResult)
     return __ret__.apply(lambda __response__: ListAzureDevOpsOrgAvailableResult(
         next_link=pulumi.get(__response__, 'next_link'),

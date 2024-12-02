@@ -96,7 +96,7 @@ export interface GetSmartDetectorAlertRuleResult {
  * Get a specific Smart Detector alert rule.
  * Azure REST API version: 2021-04-01.
  */
-export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
+export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:alertsmanagement:getSmartDetectorAlertRule", {
         "alertRuleName": args.alertRuleName,

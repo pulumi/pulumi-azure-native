@@ -100,7 +100,7 @@ export interface GetADLSGen2StorageAccountDataSetMappingResult {
 /**
  * Get a DataSetMapping in a shareSubscription
  */
-export function getADLSGen2StorageAccountDataSetMappingOutput(args: GetADLSGen2StorageAccountDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2StorageAccountDataSetMappingResult> {
+export function getADLSGen2StorageAccountDataSetMappingOutput(args: GetADLSGen2StorageAccountDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetADLSGen2StorageAccountDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping", {
         "accountName": args.accountName,

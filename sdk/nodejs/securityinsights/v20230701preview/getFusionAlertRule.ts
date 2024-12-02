@@ -107,7 +107,7 @@ export interface GetFusionAlertRuleResult {
 /**
  * Gets the alert rule.
  */
-export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFusionAlertRuleResult> {
+export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFusionAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230701preview:getFusionAlertRule", {
         "resourceGroupName": args.resourceGroupName,

@@ -52,7 +52,7 @@ export interface GetSubscriptionFeatureRegistrationResult {
  * Returns a feature registration
  * Azure REST API version: 2021-07-01.
  */
-export function getSubscriptionFeatureRegistrationOutput(args: GetSubscriptionFeatureRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFeatureRegistrationResult> {
+export function getSubscriptionFeatureRegistrationOutput(args: GetSubscriptionFeatureRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionFeatureRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:features:getSubscriptionFeatureRegistration", {
         "featureName": args.featureName,

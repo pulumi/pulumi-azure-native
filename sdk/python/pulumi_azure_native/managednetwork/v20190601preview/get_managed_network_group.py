@@ -204,7 +204,7 @@ def get_managed_network_group(managed_network_group_name: Optional[str] = None,
 def get_managed_network_group_output(managed_network_group_name: Optional[pulumi.Input[str]] = None,
                                      managed_network_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedNetworkGroupResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedNetworkGroupResult]:
     """
     The Get ManagedNetworkGroups operation gets a Managed Network Group specified by the resource group, Managed Network name, and group name
 
@@ -217,7 +217,7 @@ def get_managed_network_group_output(managed_network_group_name: Optional[pulumi
     __args__['managedNetworkGroupName'] = managed_network_group_name
     __args__['managedNetworkName'] = managed_network_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetwork/v20190601preview:getManagedNetworkGroup', __args__, opts=opts, typ=GetManagedNetworkGroupResult)
     return __ret__.apply(lambda __response__: GetManagedNetworkGroupResult(
         etag=pulumi.get(__response__, 'etag'),

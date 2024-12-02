@@ -76,7 +76,7 @@ export interface ListIntegrationAccountSchemaContentCallbackUrlResult {
 /**
  * Get the content callback url.
  */
-export function listIntegrationAccountSchemaContentCallbackUrlOutput(args: ListIntegrationAccountSchemaContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationAccountSchemaContentCallbackUrlResult> {
+export function listIntegrationAccountSchemaContentCallbackUrlOutput(args: ListIntegrationAccountSchemaContentCallbackUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIntegrationAccountSchemaContentCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic/v20190501:listIntegrationAccountSchemaContentCallbackUrl", {
         "integrationAccountName": args.integrationAccountName,

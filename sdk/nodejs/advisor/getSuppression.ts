@@ -76,7 +76,7 @@ export interface GetSuppressionResult {
  *
  * Other available API versions: 2016-07-12-preview.
  */
-export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuppressionResult> {
+export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSuppressionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:advisor:getSuppression", {
         "name": args.name,

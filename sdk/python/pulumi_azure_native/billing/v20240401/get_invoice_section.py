@@ -139,7 +139,7 @@ def get_invoice_section(billing_account_name: Optional[str] = None,
 def get_invoice_section_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                billing_profile_name: Optional[pulumi.Input[str]] = None,
                                invoice_section_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInvoiceSectionResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvoiceSectionResult]:
     """
     Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
 
@@ -152,7 +152,7 @@ def get_invoice_section_output(billing_account_name: Optional[pulumi.Input[str]]
     __args__['billingAccountName'] = billing_account_name
     __args__['billingProfileName'] = billing_profile_name
     __args__['invoiceSectionName'] = invoice_section_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:billing/v20240401:getInvoiceSection', __args__, opts=opts, typ=GetInvoiceSectionResult)
     return __ret__.apply(lambda __response__: GetInvoiceSectionResult(
         id=pulumi.get(__response__, 'id'),

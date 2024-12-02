@@ -65,7 +65,7 @@ export interface GetGuardDutyDetectorResult {
 /**
  * Get a GuardDutyDetector
  */
-export function getGuardDutyDetectorOutput(args: GetGuardDutyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuardDutyDetectorResult> {
+export function getGuardDutyDetectorOutput(args: GetGuardDutyDetectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuardDutyDetectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getGuardDutyDetector", {
         "name": args.name,

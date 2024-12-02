@@ -62,7 +62,7 @@ export interface GetFabricResult {
 /**
  * Gets the details of the fabric.
  */
-export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFabricResult> {
+export function getFabricOutput(args: GetFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datareplication/v20210216preview:getFabric", {
         "fabricName": args.fabricName,

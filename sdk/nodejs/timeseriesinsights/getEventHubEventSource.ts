@@ -109,7 +109,7 @@ export interface GetEventHubEventSourceResult {
  * Gets the event source with the specified name in the specified environment.
  * Azure REST API version: 2020-05-15.
  */
-export function getEventHubEventSourceOutput(args: GetEventHubEventSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubEventSourceResult> {
+export function getEventHubEventSourceOutput(args: GetEventHubEventSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventHubEventSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:timeseriesinsights:getEventHubEventSource", {
         "environmentName": args.environmentName,

@@ -66,7 +66,7 @@ export interface GetMetadataSchemaResult {
 /**
  * Returns details of the metadata schema.
  */
-export function getMetadataSchemaOutput(args: GetMetadataSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataSchemaResult> {
+export function getMetadataSchemaOutput(args: GetMetadataSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMetadataSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apicenter/v20240315preview:getMetadataSchema", {
         "metadataSchemaName": args.metadataSchemaName,

@@ -76,7 +76,7 @@ export interface GetAzureLargeStorageInstanceResult {
  * Gets an Azure Large Storage instance for the specified subscription, resource
  * group, and instance name.
  */
-export function getAzureLargeStorageInstanceOutput(args: GetAzureLargeStorageInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureLargeStorageInstanceResult> {
+export function getAzureLargeStorageInstanceOutput(args: GetAzureLargeStorageInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureLargeStorageInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurelargeinstance/v20240801preview:getAzureLargeStorageInstance", {
         "azureLargeStorageInstanceName": args.azureLargeStorageInstanceName,

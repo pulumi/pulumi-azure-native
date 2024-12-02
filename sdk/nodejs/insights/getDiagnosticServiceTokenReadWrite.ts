@@ -35,7 +35,7 @@ export interface GetDiagnosticServiceTokenReadWriteResult {
  * Gets an read-write access token for application insights diagnostic service data.
  * Azure REST API version: 2021-03-03-preview.
  */
-export function getDiagnosticServiceTokenReadWriteOutput(args: GetDiagnosticServiceTokenReadWriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticServiceTokenReadWriteResult> {
+export function getDiagnosticServiceTokenReadWriteOutput(args: GetDiagnosticServiceTokenReadWriteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticServiceTokenReadWriteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getDiagnosticServiceTokenReadWrite", {
         "resourceUri": args.resourceUri,

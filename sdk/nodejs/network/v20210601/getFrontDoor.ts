@@ -113,7 +113,7 @@ export interface GetFrontDoorResult {
 /**
  * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
  */
-export function getFrontDoorOutput(args: GetFrontDoorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontDoorResult> {
+export function getFrontDoorOutput(args: GetFrontDoorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontDoorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20210601:getFrontDoor", {
         "frontDoorName": args.frontDoorName,

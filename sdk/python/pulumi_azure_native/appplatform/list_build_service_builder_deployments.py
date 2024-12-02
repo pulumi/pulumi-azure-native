@@ -80,7 +80,7 @@ def list_build_service_builder_deployments_output(build_service_name: Optional[p
                                                   builder_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   service_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBuildServiceBuilderDeploymentsResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBuildServiceBuilderDeploymentsResult]:
     """
     List deployments that are using the builder.
     Azure REST API version: 2023-05-01-preview.
@@ -98,7 +98,7 @@ def list_build_service_builder_deployments_output(build_service_name: Optional[p
     __args__['builderName'] = builder_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform:listBuildServiceBuilderDeployments', __args__, opts=opts, typ=ListBuildServiceBuilderDeploymentsResult)
     return __ret__.apply(lambda __response__: ListBuildServiceBuilderDeploymentsResult(
         deployments=pulumi.get(__response__, 'deployments')))

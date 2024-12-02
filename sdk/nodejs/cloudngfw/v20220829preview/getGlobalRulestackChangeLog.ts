@@ -41,7 +41,7 @@ export interface GetGlobalRulestackChangeLogResult {
 /**
  * Get changelog
  */
-export function getGlobalRulestackChangeLogOutput(args: GetGlobalRulestackChangeLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalRulestackChangeLogResult> {
+export function getGlobalRulestackChangeLogOutput(args: GetGlobalRulestackChangeLogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalRulestackChangeLogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20220829preview:getGlobalRulestackChangeLog", {
         "globalRulestackName": args.globalRulestackName,

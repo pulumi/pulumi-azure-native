@@ -130,7 +130,7 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHierarchySettingResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHierarchySettingResult]:
     """
     Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
 
@@ -139,7 +139,7 @@ def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['groupId'] = group_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:management/v20230401:getHierarchySetting', __args__, opts=opts, typ=GetHierarchySettingResult)
     return __ret__.apply(lambda __response__: GetHierarchySettingResult(
         default_management_group=pulumi.get(__response__, 'default_management_group'),

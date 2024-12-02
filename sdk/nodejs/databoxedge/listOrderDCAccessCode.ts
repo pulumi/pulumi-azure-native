@@ -44,7 +44,7 @@ export interface ListOrderDCAccessCodeResult {
  *
  * Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
-export function listOrderDCAccessCodeOutput(args: ListOrderDCAccessCodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOrderDCAccessCodeResult> {
+export function listOrderDCAccessCodeOutput(args: ListOrderDCAccessCodeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListOrderDCAccessCodeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge:listOrderDCAccessCode", {
         "deviceName": args.deviceName,

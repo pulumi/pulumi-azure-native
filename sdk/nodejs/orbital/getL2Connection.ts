@@ -83,7 +83,7 @@ export interface GetL2ConnectionResult {
  *
  * Other available API versions: 2024-03-01.
  */
-export function getL2ConnectionOutput(args: GetL2ConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2ConnectionResult> {
+export function getL2ConnectionOutput(args: GetL2ConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL2ConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital:getL2Connection", {
         "l2ConnectionName": args.l2ConnectionName,

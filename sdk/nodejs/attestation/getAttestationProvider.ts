@@ -91,7 +91,7 @@ export interface GetAttestationProviderResult {
  *
  * Other available API versions: 2021-06-01-preview.
  */
-export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationProviderResult> {
+export function getAttestationProviderOutput(args: GetAttestationProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttestationProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:attestation:getAttestationProvider", {
         "providerName": args.providerName,

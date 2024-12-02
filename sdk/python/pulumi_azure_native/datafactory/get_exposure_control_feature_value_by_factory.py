@@ -91,7 +91,7 @@ def get_exposure_control_feature_value_by_factory_output(factory_name: Optional[
                                                          feature_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                          feature_type: Optional[pulumi.Input[Optional[str]]] = None,
                                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExposureControlFeatureValueByFactoryResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExposureControlFeatureValueByFactoryResult]:
     """
     Get exposure control feature for specific factory.
     Azure REST API version: 2018-06-01.
@@ -107,7 +107,7 @@ def get_exposure_control_feature_value_by_factory_output(factory_name: Optional[
     __args__['featureName'] = feature_name
     __args__['featureType'] = feature_type
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getExposureControlFeatureValueByFactory', __args__, opts=opts, typ=GetExposureControlFeatureValueByFactoryResult)
     return __ret__.apply(lambda __response__: GetExposureControlFeatureValueByFactoryResult(
         feature_name=pulumi.get(__response__, 'feature_name'),

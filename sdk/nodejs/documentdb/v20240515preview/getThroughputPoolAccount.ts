@@ -74,7 +74,7 @@ export interface GetThroughputPoolAccountResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
  */
-export function getThroughputPoolAccountOutput(args: GetThroughputPoolAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThroughputPoolAccountResult> {
+export function getThroughputPoolAccountOutput(args: GetThroughputPoolAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThroughputPoolAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240515preview:getThroughputPoolAccount", {
         "resourceGroupName": args.resourceGroupName,

@@ -74,7 +74,7 @@ export interface GetSignalRCustomCertificateResult {
 /**
  * Get a custom certificate.
  */
-export function getSignalRCustomCertificateOutput(args: GetSignalRCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRCustomCertificateResult> {
+export function getSignalRCustomCertificateOutput(args: GetSignalRCustomCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSignalRCustomCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:signalrservice/v20240301:getSignalRCustomCertificate", {
         "certificateName": args.certificateName,

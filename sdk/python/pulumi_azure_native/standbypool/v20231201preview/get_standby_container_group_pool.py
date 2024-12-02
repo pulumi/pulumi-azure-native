@@ -174,7 +174,7 @@ def get_standby_container_group_pool(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_standby_container_group_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             standby_container_group_pool_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandbyContainerGroupPoolResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandbyContainerGroupPoolResult]:
     """
     Get a StandbyContainerGroupPoolResource
 
@@ -185,7 +185,7 @@ def get_standby_container_group_pool_output(resource_group_name: Optional[pulumi
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['standbyContainerGroupPoolName'] = standby_container_group_pool_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:standbypool/v20231201preview:getStandbyContainerGroupPool', __args__, opts=opts, typ=GetStandbyContainerGroupPoolResult)
     return __ret__.apply(lambda __response__: GetStandbyContainerGroupPoolResult(
         container_group_properties=pulumi.get(__response__, 'container_group_properties'),

@@ -264,7 +264,7 @@ def get_watchlist_item_output(operational_insights_resource_provider: Optional[p
                               watchlist_alias: Optional[pulumi.Input[str]] = None,
                               watchlist_item_id: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWatchlistItemResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWatchlistItemResult]:
     """
     Get a watchlist item.
 
@@ -281,7 +281,7 @@ def get_watchlist_item_output(operational_insights_resource_provider: Optional[p
     __args__['watchlistAlias'] = watchlist_alias
     __args__['watchlistItemId'] = watchlist_item_id
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210401:getWatchlistItem', __args__, opts=opts, typ=GetWatchlistItemResult)
     return __ret__.apply(lambda __response__: GetWatchlistItemResult(
         created=pulumi.get(__response__, 'created'),

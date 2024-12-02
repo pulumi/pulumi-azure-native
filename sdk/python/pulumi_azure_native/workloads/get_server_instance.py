@@ -248,7 +248,7 @@ def get_server_instance_output(resource_group_name: Optional[pulumi.Input[str]] 
                                sap_discovery_site_name: Optional[pulumi.Input[str]] = None,
                                sap_instance_name: Optional[pulumi.Input[str]] = None,
                                server_instance_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerInstanceResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerInstanceResult]:
     """
     Gets the Server Instance resource.
     Azure REST API version: 2023-10-01-preview.
@@ -264,7 +264,7 @@ def get_server_instance_output(resource_group_name: Optional[pulumi.Input[str]] 
     __args__['sapDiscoverySiteName'] = sap_discovery_site_name
     __args__['sapInstanceName'] = sap_instance_name
     __args__['serverInstanceName'] = server_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getServerInstance', __args__, opts=opts, typ=GetServerInstanceResult)
     return __ret__.apply(lambda __response__: GetServerInstanceResult(
         configuration_data=pulumi.get(__response__, 'configuration_data'),

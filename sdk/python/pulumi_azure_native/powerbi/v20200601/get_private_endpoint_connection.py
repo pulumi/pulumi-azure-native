@@ -149,7 +149,7 @@ def get_private_endpoint_connection(azure_resource_name: Optional[str] = None,
 def get_private_endpoint_connection_output(azure_resource_name: Optional[pulumi.Input[str]] = None,
                                            private_endpoint_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get a specific private endpoint connection for Power BI by private endpoint name.
 
@@ -162,7 +162,7 @@ def get_private_endpoint_connection_output(azure_resource_name: Optional[pulumi.
     __args__['azureResourceName'] = azure_resource_name
     __args__['privateEndpointName'] = private_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:powerbi/v20200601:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionResult(
         id=pulumi.get(__response__, 'id'),

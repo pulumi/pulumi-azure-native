@@ -235,7 +235,7 @@ def get_read_only_following_database_output(database_name: Optional[pulumi.Input
                                             kusto_pool_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             workspace_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadOnlyFollowingDatabaseResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReadOnlyFollowingDatabaseResult]:
     """
     Returns a database.
 
@@ -250,7 +250,7 @@ def get_read_only_following_database_output(database_name: Optional[pulumi.Input
     __args__['kustoPoolName'] = kusto_pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:synapse/v20210601preview:getReadOnlyFollowingDatabase', __args__, opts=opts, typ=GetReadOnlyFollowingDatabaseResult)
     return __ret__.apply(lambda __response__: GetReadOnlyFollowingDatabaseResult(
         attached_database_configuration_name=pulumi.get(__response__, 'attached_database_configuration_name'),

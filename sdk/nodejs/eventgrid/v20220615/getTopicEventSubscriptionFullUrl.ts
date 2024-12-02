@@ -43,7 +43,7 @@ export interface GetTopicEventSubscriptionFullUrlResult {
 /**
  * Get the full endpoint URL for an event subscription for topic.
  */
-export function getTopicEventSubscriptionFullUrlOutput(args: GetTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicEventSubscriptionFullUrlResult> {
+export function getTopicEventSubscriptionFullUrlOutput(args: GetTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20220615:getTopicEventSubscriptionFullUrl", {
         "eventSubscriptionName": args.eventSubscriptionName,

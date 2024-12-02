@@ -59,7 +59,7 @@ export interface GetEnergyServiceResult {
 /**
  * Returns oep resource for a given name.
  */
-export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnergyServiceResult> {
+export function getEnergyServiceOutput(args: GetEnergyServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnergyServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:openenergyplatform/v20220404preview:getEnergyService", {
         "resourceGroupName": args.resourceGroupName,

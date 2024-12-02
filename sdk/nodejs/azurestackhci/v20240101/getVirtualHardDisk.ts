@@ -96,7 +96,7 @@ export interface GetVirtualHardDiskResult {
 /**
  * Gets a virtual hard disk
  */
-export function getVirtualHardDiskOutput(args: GetVirtualHardDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHardDiskResult> {
+export function getVirtualHardDiskOutput(args: GetVirtualHardDiskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHardDiskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240101:getVirtualHardDisk", {
         "resourceGroupName": args.resourceGroupName,

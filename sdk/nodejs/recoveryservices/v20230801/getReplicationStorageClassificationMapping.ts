@@ -72,7 +72,7 @@ export interface GetReplicationStorageClassificationMappingResult {
 /**
  * Gets the details of the specified storage classification mapping.
  */
-export function getReplicationStorageClassificationMappingOutput(args: GetReplicationStorageClassificationMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationStorageClassificationMappingResult> {
+export function getReplicationStorageClassificationMappingOutput(args: GetReplicationStorageClassificationMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationStorageClassificationMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230801:getReplicationStorageClassificationMapping", {
         "fabricName": args.fabricName,

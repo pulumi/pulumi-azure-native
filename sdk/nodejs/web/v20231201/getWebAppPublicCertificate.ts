@@ -67,7 +67,7 @@ export interface GetWebAppPublicCertificateResult {
 /**
  * Description for Get the named public certificate for an app (or deployment slot, if specified).
  */
-export function getWebAppPublicCertificateOutput(args: GetWebAppPublicCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPublicCertificateResult> {
+export function getWebAppPublicCertificateOutput(args: GetWebAppPublicCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppPublicCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getWebAppPublicCertificate", {
         "name": args.name,

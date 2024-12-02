@@ -70,7 +70,7 @@ export interface GetSqlPoolTransparentDataEncryptionResult {
  *
  * Other available API versions: 2021-06-01-preview.
  */
-export function getSqlPoolTransparentDataEncryptionOutput(args: GetSqlPoolTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolTransparentDataEncryptionResult> {
+export function getSqlPoolTransparentDataEncryptionOutput(args: GetSqlPoolTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlPoolTransparentDataEncryptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getSqlPoolTransparentDataEncryption", {
         "resourceGroupName": args.resourceGroupName,

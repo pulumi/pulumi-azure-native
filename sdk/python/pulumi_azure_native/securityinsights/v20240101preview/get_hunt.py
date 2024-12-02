@@ -230,7 +230,7 @@ def get_hunt(hunt_id: Optional[str] = None,
 def get_hunt_output(hunt_id: Optional[pulumi.Input[str]] = None,
                     resource_group_name: Optional[pulumi.Input[str]] = None,
                     workspace_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHuntResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHuntResult]:
     """
     Gets a hunt, without relations and comments.
 
@@ -243,7 +243,7 @@ def get_hunt_output(hunt_id: Optional[pulumi.Input[str]] = None,
     __args__['huntId'] = hunt_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240101preview:getHunt', __args__, opts=opts, typ=GetHuntResult)
     return __ret__.apply(lambda __response__: GetHuntResult(
         attack_tactics=pulumi.get(__response__, 'attack_tactics'),

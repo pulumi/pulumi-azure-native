@@ -153,7 +153,7 @@ def get_anomalies(resource_group_name: Optional[str] = None,
 def get_anomalies_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          settings_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomaliesResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnomaliesResult]:
     """
     Gets a setting.
 
@@ -166,7 +166,7 @@ def get_anomalies_output(resource_group_name: Optional[pulumi.Input[str]] = None
     __args__['resourceGroupName'] = resource_group_name
     __args__['settingsName'] = settings_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20231201preview:getAnomalies', __args__, opts=opts, typ=GetAnomaliesResult)
     return __ret__.apply(lambda __response__: GetAnomaliesResult(
         etag=pulumi.get(__response__, 'etag'),

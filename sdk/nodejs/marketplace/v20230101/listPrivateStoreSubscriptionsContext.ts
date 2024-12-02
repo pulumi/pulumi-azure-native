@@ -30,7 +30,7 @@ export interface ListPrivateStoreSubscriptionsContextResult {
 /**
  * List all the subscriptions in the private store context
  */
-export function listPrivateStoreSubscriptionsContextOutput(args: ListPrivateStoreSubscriptionsContextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreSubscriptionsContextResult> {
+export function listPrivateStoreSubscriptionsContextOutput(args: ListPrivateStoreSubscriptionsContextOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPrivateStoreSubscriptionsContextResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:marketplace/v20230101:listPrivateStoreSubscriptionsContext", {
         "privateStoreId": args.privateStoreId,

@@ -52,7 +52,7 @@ export interface GetOnlineDeploymentLogsResult {
      */
     readonly content?: string;
 }
-export function getOnlineDeploymentLogsOutput(args: GetOnlineDeploymentLogsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineDeploymentLogsResult> {
+export function getOnlineDeploymentLogsOutput(args: GetOnlineDeploymentLogsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOnlineDeploymentLogsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230401preview:getOnlineDeploymentLogs", {
         "containerType": args.containerType,

@@ -78,7 +78,7 @@ export interface GetEncryptionScopeResult {
 /**
  * Returns the properties for the specified encryption scope.
  */
-export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
+export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230101:getEncryptionScope", {
         "accountName": args.accountName,

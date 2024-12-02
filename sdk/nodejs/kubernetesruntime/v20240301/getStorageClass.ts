@@ -101,7 +101,7 @@ export interface GetStorageClassResult {
 /**
  * Get a StorageClassResource
  */
-export function getStorageClassOutput(args: GetStorageClassOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageClassResult> {
+export function getStorageClassOutput(args: GetStorageClassOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageClassResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kubernetesruntime/v20240301:getStorageClass", {
         "resourceUri": args.resourceUri,

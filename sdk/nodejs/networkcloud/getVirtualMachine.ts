@@ -164,7 +164,7 @@ export interface GetVirtualMachineResult {
  *
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
-export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
+export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud:getVirtualMachine", {
         "resourceGroupName": args.resourceGroupName,

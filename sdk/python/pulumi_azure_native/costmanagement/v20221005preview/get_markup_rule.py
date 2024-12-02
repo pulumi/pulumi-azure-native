@@ -178,7 +178,7 @@ def get_markup_rule(billing_account_id: Optional[str] = None,
 def get_markup_rule_output(billing_account_id: Optional[pulumi.Input[str]] = None,
                            billing_profile_id: Optional[pulumi.Input[str]] = None,
                            name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMarkupRuleResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMarkupRuleResult]:
     """
     Get a markup rule by its rule name.
 
@@ -191,7 +191,7 @@ def get_markup_rule_output(billing_account_id: Optional[pulumi.Input[str]] = Non
     __args__['billingAccountId'] = billing_account_id
     __args__['billingProfileId'] = billing_profile_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20221005preview:getMarkupRule', __args__, opts=opts, typ=GetMarkupRuleResult)
     return __ret__.apply(lambda __response__: GetMarkupRuleResult(
         customer_details=pulumi.get(__response__, 'customer_details'),

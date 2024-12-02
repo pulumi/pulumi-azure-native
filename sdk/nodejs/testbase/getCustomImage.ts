@@ -112,7 +112,7 @@ export interface GetCustomImageResult {
  * Gets a test base custom image.
  * Azure REST API version: 2023-11-01-preview.
  */
-export function getCustomImageOutput(args: GetCustomImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomImageResult> {
+export function getCustomImageOutput(args: GetCustomImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase:getCustomImage", {
         "customImageName": args.customImageName,

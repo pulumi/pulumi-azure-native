@@ -70,7 +70,7 @@ export interface GetApplicationResult {
 /**
  * Gets properties of the specified application.
  */
-export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hdinsight/v20230415preview:getApplication", {
         "applicationName": args.applicationName,

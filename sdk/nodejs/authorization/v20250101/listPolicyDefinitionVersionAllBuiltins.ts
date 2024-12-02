@@ -36,7 +36,7 @@ export interface ListPolicyDefinitionVersionAllBuiltinsResult {
 /**
  * This operation lists all the built-in policy definition versions for all built-in policy definitions.
  */
-export function listPolicyDefinitionVersionAllBuiltinsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicyDefinitionVersionAllBuiltinsResult> {
+export function listPolicyDefinitionVersionAllBuiltinsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPolicyDefinitionVersionAllBuiltinsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20250101:listPolicyDefinitionVersionAllBuiltins", {
     }, opts);

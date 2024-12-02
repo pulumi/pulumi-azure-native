@@ -62,7 +62,7 @@ export interface GetFailoverGroupResult {
 /**
  * Retrieves a failover group resource
  */
-export function getFailoverGroupOutput(args: GetFailoverGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFailoverGroupResult> {
+export function getFailoverGroupOutput(args: GetFailoverGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFailoverGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20230115preview:getFailoverGroup", {
         "failoverGroupName": args.failoverGroupName,

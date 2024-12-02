@@ -74,7 +74,7 @@ export interface GetHybridIdentityMetadatumResult {
 /**
  * Implements HybridIdentityMetadata GET method.
  */
-export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
+export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20230301preview:getHybridIdentityMetadatum", {
         "metadataName": args.metadataName,

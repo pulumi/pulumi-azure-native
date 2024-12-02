@@ -52,7 +52,7 @@ export interface GetVariableResult {
 /**
  * This operation retrieves a single variable, given its name and the subscription it was created at.
  */
-export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
+export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20220801preview:getVariable", {
         "variableName": args.variableName,

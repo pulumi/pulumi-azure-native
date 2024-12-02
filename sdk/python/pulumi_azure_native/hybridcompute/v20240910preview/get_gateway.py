@@ -200,7 +200,7 @@ def get_gateway(gateway_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Retrieves information about the view of a gateway.
 
@@ -211,7 +211,7 @@ def get_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['gatewayName'] = gateway_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcompute/v20240910preview:getGateway', __args__, opts=opts, typ=GetGatewayResult)
     return __ret__.apply(lambda __response__: GetGatewayResult(
         allowed_features=pulumi.get(__response__, 'allowed_features'),

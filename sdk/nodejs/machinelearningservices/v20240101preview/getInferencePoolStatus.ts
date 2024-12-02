@@ -46,7 +46,7 @@ export interface GetInferencePoolStatusResult {
      */
     readonly reservedCapacity?: number;
 }
-export function getInferencePoolStatusOutput(args: GetInferencePoolStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferencePoolStatusResult> {
+export function getInferencePoolStatusOutput(args: GetInferencePoolStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferencePoolStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:getInferencePoolStatus", {
         "inferencePoolName": args.inferencePoolName,

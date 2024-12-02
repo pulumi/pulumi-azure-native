@@ -119,7 +119,7 @@ export interface GetJobDefinitionResult {
 /**
  * Gets a Job Definition resource.
  */
-export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
+export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagemover/v20230301:getJobDefinition", {
         "jobDefinitionName": args.jobDefinitionName,

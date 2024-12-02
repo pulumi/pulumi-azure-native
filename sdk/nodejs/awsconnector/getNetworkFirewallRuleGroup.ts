@@ -67,7 +67,7 @@ export interface GetNetworkFirewallRuleGroupResult {
  * Get a NetworkFirewallRuleGroup
  * Azure REST API version: 2024-12-01.
  */
-export function getNetworkFirewallRuleGroupOutput(args: GetNetworkFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFirewallRuleGroupResult> {
+export function getNetworkFirewallRuleGroupOutput(args: GetNetworkFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFirewallRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getNetworkFirewallRuleGroup", {
         "name": args.name,

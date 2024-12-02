@@ -109,7 +109,7 @@ export interface GetNetworkFunctionResult {
 /**
  * Gets information about the specified network function resource.
  */
-export function getNetworkFunctionOutput(args: GetNetworkFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionResult> {
+export function getNetworkFunctionOutput(args: GetNetworkFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20220101preview:getNetworkFunction", {
         "networkFunctionName": args.networkFunctionName,

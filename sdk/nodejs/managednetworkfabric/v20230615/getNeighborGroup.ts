@@ -81,7 +81,7 @@ export interface GetNeighborGroupResult {
 /**
  * Gets the Neighbor Group.
  */
-export function getNeighborGroupOutput(args: GetNeighborGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNeighborGroupResult> {
+export function getNeighborGroupOutput(args: GetNeighborGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNeighborGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230615:getNeighborGroup", {
         "neighborGroupName": args.neighborGroupName,

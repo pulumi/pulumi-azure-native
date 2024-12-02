@@ -188,7 +188,7 @@ def get_workbook_template(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_workbook_template_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  resource_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookTemplateResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkbookTemplateResult]:
     """
     Get a single workbook template by its resourceName.
     Azure REST API version: 2020-11-20.
@@ -200,7 +200,7 @@ def get_workbook_template_output(resource_group_name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getWorkbookTemplate', __args__, opts=opts, typ=GetWorkbookTemplateResult)
     return __ret__.apply(lambda __response__: GetWorkbookTemplateResult(
         author=pulumi.get(__response__, 'author'),

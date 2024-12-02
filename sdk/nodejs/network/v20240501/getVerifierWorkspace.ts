@@ -70,7 +70,7 @@ export interface GetVerifierWorkspaceResult {
 /**
  * Instance of Verifier Workspace.
  */
-export function getVerifierWorkspaceOutput(args: GetVerifierWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVerifierWorkspaceResult> {
+export function getVerifierWorkspaceOutput(args: GetVerifierWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVerifierWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240501:getVerifierWorkspace", {
         "networkManagerName": args.networkManagerName,

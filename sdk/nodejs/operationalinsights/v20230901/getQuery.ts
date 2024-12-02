@@ -94,7 +94,7 @@ export interface GetQueryResult {
 /**
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
  */
-export function getQueryOutput(args: GetQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryResult> {
+export function getQueryOutput(args: GetQueryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20230901:getQuery", {
         "id": args.id,

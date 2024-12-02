@@ -47,7 +47,7 @@ export interface ListAutomationAccountDeletedRunbooksResult {
  * Retrieve the deleted runbooks for an automation account.
  * Azure REST API version: 2023-05-15-preview.
  */
-export function listAutomationAccountDeletedRunbooksOutput(args: ListAutomationAccountDeletedRunbooksOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAutomationAccountDeletedRunbooksResult> {
+export function listAutomationAccountDeletedRunbooksOutput(args: ListAutomationAccountDeletedRunbooksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAutomationAccountDeletedRunbooksResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:listAutomationAccountDeletedRunbooks", {
         "automationAccountName": args.automationAccountName,

@@ -57,7 +57,7 @@ export interface GetConfigServerResult {
 /**
  * Get the config server and its properties.
  */
-export function getConfigServerOutput(args: GetConfigServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigServerResult> {
+export function getConfigServerOutput(args: GetConfigServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20230901preview:getConfigServer", {
         "resourceGroupName": args.resourceGroupName,

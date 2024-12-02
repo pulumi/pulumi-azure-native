@@ -89,7 +89,7 @@ export interface GetRedisEnterpriseResult {
 /**
  * Gets information about a RedisEnterprise cluster
  */
-export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisEnterpriseResult> {
+export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRedisEnterpriseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache/v20201001preview:getRedisEnterprise", {
         "clusterName": args.clusterName,

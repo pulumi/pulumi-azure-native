@@ -89,7 +89,7 @@ export interface GetConnectedEnvironmentResult {
 /**
  * Get the properties of an connectedEnvironment.
  */
-export function getConnectedEnvironmentOutput(args: GetConnectedEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentResult> {
+export function getConnectedEnvironmentOutput(args: GetConnectedEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectedEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20241002preview:getConnectedEnvironment", {
         "connectedEnvironmentName": args.connectedEnvironmentName,

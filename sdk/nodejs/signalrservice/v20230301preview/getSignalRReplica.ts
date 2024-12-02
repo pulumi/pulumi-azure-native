@@ -74,7 +74,7 @@ export interface GetSignalRReplicaResult {
 /**
  * Get the replica and its properties.
  */
-export function getSignalRReplicaOutput(args: GetSignalRReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRReplicaResult> {
+export function getSignalRReplicaOutput(args: GetSignalRReplicaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSignalRReplicaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:signalrservice/v20230301preview:getSignalRReplica", {
         "replicaName": args.replicaName,

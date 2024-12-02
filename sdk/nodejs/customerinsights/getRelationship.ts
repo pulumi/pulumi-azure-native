@@ -104,7 +104,7 @@ export interface GetRelationshipResult {
  * Gets information about the specified relationship.
  * Azure REST API version: 2017-04-26.
  */
-export function getRelationshipOutput(args: GetRelationshipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRelationshipResult> {
+export function getRelationshipOutput(args: GetRelationshipOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRelationshipResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getRelationship", {
         "hubName": args.hubName,

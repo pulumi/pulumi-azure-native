@@ -63,7 +63,7 @@ export interface GetJobTargetGroupResult {
 /**
  * Gets a target group.
  */
-export function getJobTargetGroupOutput(args: GetJobTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobTargetGroupResult> {
+export function getJobTargetGroupOutput(args: GetJobTargetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobTargetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20221101preview:getJobTargetGroup", {
         "jobAgentName": args.jobAgentName,

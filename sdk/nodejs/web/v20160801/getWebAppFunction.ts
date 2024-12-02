@@ -91,7 +91,7 @@ export interface GetWebAppFunctionResult {
 /**
  * Get function information by its ID for web site, or a deployment slot.
  */
-export function getWebAppFunctionOutput(args: GetWebAppFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFunctionResult> {
+export function getWebAppFunctionOutput(args: GetWebAppFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20160801:getWebAppFunction", {
         "functionName": args.functionName,

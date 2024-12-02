@@ -85,7 +85,7 @@ export interface GetLogicalNetworkResult {
 /**
  * The logical network resource definition.
  */
-export function getLogicalNetworkOutput(args: GetLogicalNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogicalNetworkResult> {
+export function getLogicalNetworkOutput(args: GetLogicalNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogicalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240101:getLogicalNetwork", {
         "logicalNetworkName": args.logicalNetworkName,

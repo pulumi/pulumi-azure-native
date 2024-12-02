@@ -122,7 +122,7 @@ def get_dev_ops_configuration(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_dev_ops_configuration_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      security_connector_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevOpsConfigurationResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevOpsConfigurationResult]:
     """
     DevOps Configuration resource.
 
@@ -133,7 +133,7 @@ def get_dev_ops_configuration_output(resource_group_name: Optional[pulumi.Input[
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['securityConnectorName'] = security_connector_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20230901preview:getDevOpsConfiguration', __args__, opts=opts, typ=GetDevOpsConfigurationResult)
     return __ret__.apply(lambda __response__: GetDevOpsConfigurationResult(
         id=pulumi.get(__response__, 'id'),

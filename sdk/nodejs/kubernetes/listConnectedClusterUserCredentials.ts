@@ -61,7 +61,7 @@ export interface ListConnectedClusterUserCredentialsResult {
  *
  * Other available API versions: 2020-01-01-preview.
  */
-export function listConnectedClusterUserCredentialsOutput(args: ListConnectedClusterUserCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConnectedClusterUserCredentialsResult> {
+export function listConnectedClusterUserCredentialsOutput(args: ListConnectedClusterUserCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConnectedClusterUserCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kubernetes:listConnectedClusterUserCredentials", {
         "authenticationMethod": args.authenticationMethod,

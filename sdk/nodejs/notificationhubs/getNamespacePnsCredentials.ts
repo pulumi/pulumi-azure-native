@@ -74,7 +74,7 @@ export interface GetNamespacePnsCredentialsResult {
  *
  * Other available API versions: 2023-09-01, 2023-10-01-preview.
  */
-export function getNamespacePnsCredentialsOutput(args: GetNamespacePnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespacePnsCredentialsResult> {
+export function getNamespacePnsCredentialsOutput(args: GetNamespacePnsCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespacePnsCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs:getNamespacePnsCredentials", {
         "namespaceName": args.namespaceName,

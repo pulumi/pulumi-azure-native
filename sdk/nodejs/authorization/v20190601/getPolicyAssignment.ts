@@ -93,7 +93,7 @@ export interface GetPolicyAssignmentResult {
 /**
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
  */
-export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
+export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20190601:getPolicyAssignment", {
         "policyAssignmentName": args.policyAssignmentName,

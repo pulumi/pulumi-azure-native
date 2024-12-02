@@ -87,7 +87,7 @@ def list_source_control_repositories(operational_insights_resource_provider: Opt
 def list_source_control_repositories_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             workspace_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
     """
     Gets a list of repositories metadata.
 
@@ -100,7 +100,7 @@ def list_source_control_repositories_output(operational_insights_resource_provid
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20210301preview:listSourceControlRepositories', __args__, opts=opts, typ=ListSourceControlRepositoriesResult)
     return __ret__.apply(lambda __response__: ListSourceControlRepositoriesResult(
         next_link=pulumi.get(__response__, 'next_link'),

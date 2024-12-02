@@ -111,7 +111,7 @@ export interface GetMetricAlertResult {
  * Retrieve an alert rule definition.
  * Azure REST API version: 2018-03-01.
  */
-export function getMetricAlertOutput(args: GetMetricAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricAlertResult> {
+export function getMetricAlertOutput(args: GetMetricAlertOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMetricAlertResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getMetricAlert", {
         "resourceGroupName": args.resourceGroupName,

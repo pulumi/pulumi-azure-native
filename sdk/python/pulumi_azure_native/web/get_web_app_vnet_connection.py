@@ -208,7 +208,7 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
 def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        vnet_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppVnetConnectionResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppVnetConnectionResult]:
     """
     Description for Gets a virtual network the app (or deployment slot) is connected to by name.
     Azure REST API version: 2022-09-01.
@@ -224,7 +224,7 @@ def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vnetName'] = vnet_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppVnetConnection', __args__, opts=opts, typ=GetWebAppVnetConnectionResult)
     return __ret__.apply(lambda __response__: GetWebAppVnetConnectionResult(
         cert_blob=pulumi.get(__response__, 'cert_blob'),

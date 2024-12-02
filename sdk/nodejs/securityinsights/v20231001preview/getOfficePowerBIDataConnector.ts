@@ -75,7 +75,7 @@ export interface GetOfficePowerBIDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getOfficePowerBIDataConnectorOutput(args: GetOfficePowerBIDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficePowerBIDataConnectorResult> {
+export function getOfficePowerBIDataConnectorOutput(args: GetOfficePowerBIDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOfficePowerBIDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231001preview:getOfficePowerBIDataConnector", {
         "dataConnectorId": args.dataConnectorId,

@@ -65,7 +65,7 @@ export interface GetKmsKeyResult {
 /**
  * Get a KmsKey
  */
-export function getKmsKeyOutput(args: GetKmsKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKmsKeyResult> {
+export function getKmsKeyOutput(args: GetKmsKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKmsKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getKmsKey", {
         "name": args.name,

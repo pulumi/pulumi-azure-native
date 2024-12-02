@@ -161,7 +161,7 @@ def get_integration_service_environment(integration_service_environment_name: Op
         type=pulumi.get(__ret__, 'type'))
 def get_integration_service_environment_output(integration_service_environment_name: Optional[pulumi.Input[str]] = None,
                                                resource_group: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentResult]:
     """
     Gets an integration service environment.
 
@@ -172,7 +172,7 @@ def get_integration_service_environment_output(integration_service_environment_n
     __args__ = dict()
     __args__['integrationServiceEnvironmentName'] = integration_service_environment_name
     __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20190501:getIntegrationServiceEnvironment', __args__, opts=opts, typ=GetIntegrationServiceEnvironmentResult)
     return __ret__.apply(lambda __response__: GetIntegrationServiceEnvironmentResult(
         id=pulumi.get(__response__, 'id'),

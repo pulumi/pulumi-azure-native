@@ -45,7 +45,7 @@ export interface ListControllerConnectionDetailsResult {
  * Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
  * Azure REST API version: 2019-04-01.
  */
-export function listControllerConnectionDetailsOutput(args: ListControllerConnectionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListControllerConnectionDetailsResult> {
+export function listControllerConnectionDetailsOutput(args: ListControllerConnectionDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListControllerConnectionDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devspaces:listControllerConnectionDetails", {
         "name": args.name,

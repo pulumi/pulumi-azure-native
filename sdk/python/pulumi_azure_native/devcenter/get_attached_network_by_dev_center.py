@@ -181,7 +181,7 @@ def get_attached_network_by_dev_center(attached_network_connection_name: Optiona
 def get_attached_network_by_dev_center_output(attached_network_connection_name: Optional[pulumi.Input[str]] = None,
                                               dev_center_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedNetworkByDevCenterResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachedNetworkByDevCenterResult]:
     """
     Gets an attached NetworkConnection.
     Azure REST API version: 2023-04-01.
@@ -197,7 +197,7 @@ def get_attached_network_by_dev_center_output(attached_network_connection_name: 
     __args__['attachedNetworkConnectionName'] = attached_network_connection_name
     __args__['devCenterName'] = dev_center_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getAttachedNetworkByDevCenter', __args__, opts=opts, typ=GetAttachedNetworkByDevCenterResult)
     return __ret__.apply(lambda __response__: GetAttachedNetworkByDevCenterResult(
         domain_join_type=pulumi.get(__response__, 'domain_join_type'),

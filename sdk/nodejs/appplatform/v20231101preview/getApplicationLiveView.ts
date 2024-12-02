@@ -62,7 +62,7 @@ export interface GetApplicationLiveViewResult {
 /**
  * Get the Application Live  and its properties.
  */
-export function getApplicationLiveViewOutput(args: GetApplicationLiveViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationLiveViewResult> {
+export function getApplicationLiveViewOutput(args: GetApplicationLiveViewOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationLiveViewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:getApplicationLiveView", {
         "applicationLiveViewName": args.applicationLiveViewName,

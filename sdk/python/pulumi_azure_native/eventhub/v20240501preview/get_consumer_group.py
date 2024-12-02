@@ -169,7 +169,7 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
                               event_hub_name: Optional[pulumi.Input[str]] = None,
                               namespace_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsumerGroupResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsumerGroupResult]:
     """
     Gets a description for the specified consumer group.
 
@@ -184,7 +184,7 @@ def get_consumer_group_output(consumer_group_name: Optional[pulumi.Input[str]] =
     __args__['eventHubName'] = event_hub_name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub/v20240501preview:getConsumerGroup', __args__, opts=opts, typ=GetConsumerGroupResult)
     return __ret__.apply(lambda __response__: GetConsumerGroupResult(
         created_at=pulumi.get(__response__, 'created_at'),

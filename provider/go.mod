@@ -28,10 +28,10 @@ require (
 	github.com/manicminer/hamilton v0.57.1
 	github.com/manicminer/hamilton-autorest v0.3.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/pulumi-java/pkg v0.17.0
-	github.com/pulumi/pulumi-yaml v1.11.2
-	github.com/pulumi/pulumi/pkg/v3 v3.140.0
-	github.com/pulumi/pulumi/sdk/v3 v3.140.0
+	github.com/pulumi/pulumi-java/pkg v0.18.0
+	github.com/pulumi/pulumi-yaml v1.12.0
+	github.com/pulumi/pulumi/pkg/v3 v3.142.0
+	github.com/pulumi/pulumi/sdk/v3 v3.142.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/stretchr/testify v1.9.0

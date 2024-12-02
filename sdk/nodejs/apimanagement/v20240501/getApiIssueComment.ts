@@ -73,7 +73,7 @@ export interface GetApiIssueCommentResult {
 /**
  * Gets the details of the issue Comment for an API specified by its identifier.
  */
-export function getApiIssueCommentOutput(args: GetApiIssueCommentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueCommentResult> {
+export function getApiIssueCommentOutput(args: GetApiIssueCommentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiIssueCommentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getApiIssueComment", {
         "apiId": args.apiId,

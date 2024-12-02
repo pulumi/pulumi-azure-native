@@ -80,7 +80,7 @@ export interface GetNetworkManagerRoutingConfigurationResult {
  *
  * Other available API versions: 2024-05-01.
  */
-export function getNetworkManagerRoutingConfigurationOutput(args: GetNetworkManagerRoutingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerRoutingConfigurationResult> {
+export function getNetworkManagerRoutingConfigurationOutput(args: GetNetworkManagerRoutingConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkManagerRoutingConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getNetworkManagerRoutingConfiguration", {
         "configurationName": args.configurationName,

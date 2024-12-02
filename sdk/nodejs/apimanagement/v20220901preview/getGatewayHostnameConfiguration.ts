@@ -80,7 +80,7 @@ export interface GetGatewayHostnameConfigurationResult {
 /**
  * Get details of a hostname configuration
  */
-export function getGatewayHostnameConfigurationOutput(args: GetGatewayHostnameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostnameConfigurationResult> {
+export function getGatewayHostnameConfigurationOutput(args: GetGatewayHostnameConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayHostnameConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220901preview:getGatewayHostnameConfiguration", {
         "gatewayId": args.gatewayId,

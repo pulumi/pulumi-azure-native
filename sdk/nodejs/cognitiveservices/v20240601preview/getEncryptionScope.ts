@@ -70,7 +70,7 @@ export interface GetEncryptionScopeResult {
 /**
  * Gets the specified EncryptionScope associated with the Cognitive Services account.
  */
-export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {
+export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20240601preview:getEncryptionScope", {
         "accountName": args.accountName,

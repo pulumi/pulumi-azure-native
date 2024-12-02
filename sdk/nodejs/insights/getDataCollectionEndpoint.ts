@@ -119,7 +119,7 @@ export interface GetDataCollectionEndpointResult {
  *
  * Other available API versions: 2023-03-11.
  */
-export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionEndpointResult> {
+export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCollectionEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getDataCollectionEndpoint", {
         "dataCollectionEndpointName": args.dataCollectionEndpointName,

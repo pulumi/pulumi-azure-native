@@ -100,7 +100,7 @@ export interface GetIntegrationAccountMapResult {
  *
  * Other available API versions: 2015-08-01-preview.
  */
-export function getIntegrationAccountMapOutput(args: GetIntegrationAccountMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountMapResult> {
+export function getIntegrationAccountMapOutput(args: GetIntegrationAccountMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:getIntegrationAccountMap", {
         "integrationAccountName": args.integrationAccountName,

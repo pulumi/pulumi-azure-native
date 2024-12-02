@@ -242,7 +242,7 @@ def get_nsp_link(link_name: Optional[str] = None,
 def get_nsp_link_output(link_name: Optional[pulumi.Input[str]] = None,
                         network_security_perimeter_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspLinkResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNspLinkResult]:
     """
     Gets the specified NSP link resource.
 
@@ -255,7 +255,7 @@ def get_nsp_link_output(link_name: Optional[pulumi.Input[str]] = None,
     __args__['linkName'] = link_name
     __args__['networkSecurityPerimeterName'] = network_security_perimeter_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230801preview:getNspLink', __args__, opts=opts, typ=GetNspLinkResult)
     return __ret__.apply(lambda __response__: GetNspLinkResult(
         auto_approved_remote_perimeter_resource_id=pulumi.get(__response__, 'auto_approved_remote_perimeter_resource_id'),

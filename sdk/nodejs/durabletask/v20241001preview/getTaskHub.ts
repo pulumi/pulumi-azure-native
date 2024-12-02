@@ -62,7 +62,7 @@ export interface GetTaskHubResult {
 /**
  * Get a Task Hub
  */
-export function getTaskHubOutput(args: GetTaskHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskHubResult> {
+export function getTaskHubOutput(args: GetTaskHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTaskHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:durabletask/v20241001preview:getTaskHub", {
         "resourceGroupName": args.resourceGroupName,

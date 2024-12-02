@@ -40,7 +40,7 @@ export interface GetGlobalUserOperationStatusResult {
  * Gets the status of long running operation
  * Azure REST API version: 2018-10-15.
  */
-export function getGlobalUserOperationStatusOutput(args: GetGlobalUserOperationStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationStatusResult> {
+export function getGlobalUserOperationStatusOutput(args: GetGlobalUserOperationStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalUserOperationStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices:getGlobalUserOperationStatus", {
         "operationUrl": args.operationUrl,

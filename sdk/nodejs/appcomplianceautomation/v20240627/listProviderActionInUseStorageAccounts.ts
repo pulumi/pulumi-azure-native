@@ -37,7 +37,7 @@ export interface ListProviderActionInUseStorageAccountsResult {
 /**
  * List the storage accounts which are in use by related reports
  */
-export function listProviderActionInUseStorageAccountsOutput(args?: ListProviderActionInUseStorageAccountsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProviderActionInUseStorageAccountsResult> {
+export function listProviderActionInUseStorageAccountsOutput(args?: ListProviderActionInUseStorageAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProviderActionInUseStorageAccountsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation/v20240627:listProviderActionInUseStorageAccounts", {

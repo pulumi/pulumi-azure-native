@@ -99,7 +99,7 @@ export interface GetPartnerTopicResult {
 /**
  * Get properties of a partner topic.
  */
-export function getPartnerTopicOutput(args: GetPartnerTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicResult> {
+export function getPartnerTopicOutput(args: GetPartnerTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getPartnerTopic", {
         "partnerTopicName": args.partnerTopicName,

@@ -65,7 +65,7 @@ export interface GetEmployeeResult {
 /**
  * Get a Employee
  */
-export function getEmployeeOutput(args: GetEmployeeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmployeeResult> {
+export function getEmployeeOutput(args: GetEmployeeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmployeeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:contoso/v20211001preview:getEmployee", {
         "employeeName": args.employeeName,

@@ -91,7 +91,7 @@ export interface GetAutomationRuleResult {
 /**
  * Gets the automation rule.
  */
-export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutomationRuleResult> {
+export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutomationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getAutomationRule", {
         "automationRuleId": args.automationRuleId,

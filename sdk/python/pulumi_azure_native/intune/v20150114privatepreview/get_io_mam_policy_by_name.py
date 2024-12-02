@@ -325,7 +325,7 @@ def get_io_mam_policy_by_name(host_name: Optional[str] = None,
 def get_io_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = None,
                                      policy_name: Optional[pulumi.Input[str]] = None,
                                      select: Optional[pulumi.Input[Optional[str]]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIoMAMPolicyByNameResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIoMAMPolicyByNameResult]:
     """
     Returns Intune iOS policies.
 
@@ -338,7 +338,7 @@ def get_io_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]] = No
     __args__['hostName'] = host_name
     __args__['policyName'] = policy_name
     __args__['select'] = select
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:intune/v20150114privatepreview:getIoMAMPolicyByName', __args__, opts=opts, typ=GetIoMAMPolicyByNameResult)
     return __ret__.apply(lambda __response__: GetIoMAMPolicyByNameResult(
         access_recheck_offline_timeout=pulumi.get(__response__, 'access_recheck_offline_timeout'),

@@ -53,7 +53,7 @@ export interface GetHierarchySettingResult {
 /**
  * Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
  */
-export function getHierarchySettingOutput(args: GetHierarchySettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHierarchySettingResult> {
+export function getHierarchySettingOutput(args: GetHierarchySettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHierarchySettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:management/v20230401:getHierarchySetting", {
         "groupId": args.groupId,

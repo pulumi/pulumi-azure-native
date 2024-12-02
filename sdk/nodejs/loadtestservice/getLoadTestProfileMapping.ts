@@ -67,7 +67,7 @@ export interface GetLoadTestProfileMappingResult {
  * Get a LoadTestProfileMappingResource
  * Azure REST API version: 2023-12-01-preview.
  */
-export function getLoadTestProfileMappingOutput(args: GetLoadTestProfileMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestProfileMappingResult> {
+export function getLoadTestProfileMappingOutput(args: GetLoadTestProfileMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadTestProfileMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:loadtestservice:getLoadTestProfileMapping", {
         "loadTestProfileMappingName": args.loadTestProfileMappingName,

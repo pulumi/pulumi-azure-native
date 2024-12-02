@@ -102,7 +102,7 @@ export interface GetPrivateStoreCollectionOfferResult {
 /**
  * Gets information about a specific offer.
  */
-export function getPrivateStoreCollectionOfferOutput(args: GetPrivateStoreCollectionOfferOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateStoreCollectionOfferResult> {
+export function getPrivateStoreCollectionOfferOutput(args: GetPrivateStoreCollectionOfferOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateStoreCollectionOfferResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:marketplace/v20230101:getPrivateStoreCollectionOffer", {
         "collectionId": args.collectionId,

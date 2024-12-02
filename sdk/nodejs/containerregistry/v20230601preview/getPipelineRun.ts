@@ -74,7 +74,7 @@ export interface GetPipelineRunResult {
 /**
  * Gets the detailed information for a given pipeline run.
  */
-export function getPipelineRunOutput(args: GetPipelineRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineRunResult> {
+export function getPipelineRunOutput(args: GetPipelineRunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineRunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230601preview:getPipelineRun", {
         "pipelineRunName": args.pipelineRunName,

@@ -60,7 +60,7 @@ export interface GetResourceGroupResult {
 /**
  * Gets a resource group.
  */
-export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
+export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources/v20240301:getResourceGroup", {
         "resourceGroupName": args.resourceGroupName,

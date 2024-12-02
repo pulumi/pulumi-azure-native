@@ -106,7 +106,7 @@ export interface GetPowerShell72ModuleResult {
 /**
  * Retrieve the module identified by module name.
  */
-export function getPowerShell72ModuleOutput(args: GetPowerShell72ModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPowerShell72ModuleResult> {
+export function getPowerShell72ModuleOutput(args: GetPowerShell72ModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPowerShell72ModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20231101:getPowerShell72Module", {
         "automationAccountName": args.automationAccountName,

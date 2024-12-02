@@ -90,7 +90,7 @@ export interface GetPipelineResult {
 /**
  * Get a Pipeline
  */
-export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
+export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsdataprocessor/v20231004preview:getPipeline", {
         "instanceName": args.instanceName,

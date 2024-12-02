@@ -96,7 +96,7 @@ export interface GetPipelineResult {
  * Gets a pipeline.
  * Azure REST API version: 2018-06-01.
  */
-export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
+export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getPipeline", {
         "factoryName": args.factoryName,

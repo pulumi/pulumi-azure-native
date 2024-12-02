@@ -98,7 +98,7 @@ export interface GetFlowLogResult {
 /**
  * Gets a flow log resource by name.
  */
-export function getFlowLogOutput(args: GetFlowLogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowLogResult> {
+export function getFlowLogOutput(args: GetFlowLogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowLogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getFlowLog", {
         "flowLogName": args.flowLogName,

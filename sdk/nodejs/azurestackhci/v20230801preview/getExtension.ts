@@ -107,7 +107,7 @@ export interface GetExtensionResult {
 /**
  * Get particular Arc Extension of HCI Cluster.
  */
-export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
+export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20230801preview:getExtension", {
         "arcSettingName": args.arcSettingName,

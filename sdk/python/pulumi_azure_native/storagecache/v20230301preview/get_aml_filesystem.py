@@ -317,7 +317,7 @@ def get_aml_filesystem(aml_filesystem_name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_aml_filesystem_output(aml_filesystem_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmlFilesystemResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmlFilesystemResult]:
     """
     Returns an AML file system.
 
@@ -328,7 +328,7 @@ def get_aml_filesystem_output(aml_filesystem_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['amlFilesystemName'] = aml_filesystem_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagecache/v20230301preview:getAmlFilesystem', __args__, opts=opts, typ=GetAmlFilesystemResult)
     return __ret__.apply(lambda __response__: GetAmlFilesystemResult(
         encryption_settings=pulumi.get(__response__, 'encryption_settings'),

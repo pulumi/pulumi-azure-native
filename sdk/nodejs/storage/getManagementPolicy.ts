@@ -68,7 +68,7 @@ export interface GetManagementPolicyResult {
  *
  * Other available API versions: 2018-03-01-preview, 2023-01-01, 2023-04-01, 2023-05-01.
  */
-export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementPolicyResult> {
+export function getManagementPolicyOutput(args: GetManagementPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage:getManagementPolicy", {
         "accountName": args.accountName,

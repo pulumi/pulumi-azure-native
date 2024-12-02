@@ -116,7 +116,7 @@ export interface GetAssessmentProjectsOperationResult {
  *
  * Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
  */
-export function getAssessmentProjectsOperationOutput(args: GetAssessmentProjectsOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentProjectsOperationResult> {
+export function getAssessmentProjectsOperationOutput(args: GetAssessmentProjectsOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentProjectsOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getAssessmentProjectsOperation", {
         "projectName": args.projectName,

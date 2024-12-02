@@ -67,7 +67,7 @@ export interface ListNamespaceKeysResult {
 /**
  * Gets the primary and secondary connection strings for the Namespace.
  */
-export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListNamespaceKeysResult> {
+export function listNamespaceKeysOutput(args: ListNamespaceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListNamespaceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub/v20221001preview:listNamespaceKeys", {
         "authorizationRuleName": args.authorizationRuleName,

@@ -130,7 +130,7 @@ export interface GetLicenseProfileResult {
 /**
  * Retrieves information about the view of a license profile.
  */
-export function getLicenseProfileOutput(args: GetLicenseProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseProfileResult> {
+export function getLicenseProfileOutput(args: GetLicenseProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLicenseProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcompute/v20240710:getLicenseProfile", {
         "licenseProfileName": args.licenseProfileName,

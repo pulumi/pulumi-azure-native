@@ -68,7 +68,7 @@ export interface GetWorkloadDeploymentResult {
 /**
  * Gets the details of the workload deployment.
  */
-export function getWorkloadDeploymentOutput(args: GetWorkloadDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadDeploymentResult> {
+export function getWorkloadDeploymentOutput(args: GetWorkloadDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20220501preview:getWorkloadDeployment", {
         "modernizeProjectName": args.modernizeProjectName,

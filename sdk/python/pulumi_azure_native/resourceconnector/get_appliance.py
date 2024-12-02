@@ -229,7 +229,7 @@ def get_appliance(resource_group_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          resource_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplianceResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplianceResult]:
     """
     Gets the details of an Appliance with a specified resource group and name.
     Azure REST API version: 2022-10-27.
@@ -243,7 +243,7 @@ def get_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resourceconnector:getAppliance', __args__, opts=opts, typ=GetApplianceResult)
     return __ret__.apply(lambda __response__: GetApplianceResult(
         distro=pulumi.get(__response__, 'distro'),

@@ -77,7 +77,7 @@ export interface GetOfficeDataConnectorResult {
  * Gets a data connector.
  * Azure REST API version: 2023-02-01.
  */
-export function getOfficeDataConnectorOutput(args: GetOfficeDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeDataConnectorResult> {
+export function getOfficeDataConnectorOutput(args: GetOfficeDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOfficeDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getOfficeDataConnector", {
         "dataConnectorId": args.dataConnectorId,

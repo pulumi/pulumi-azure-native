@@ -110,7 +110,7 @@ export interface GetPython2PackageResult {
 /**
  * Retrieve the python 2 package identified by package name.
  */
-export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython2PackageResult> {
+export function getPython2PackageOutput(args: GetPython2PackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPython2PackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20220808:getPython2Package", {
         "automationAccountName": args.automationAccountName,

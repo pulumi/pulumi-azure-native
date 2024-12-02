@@ -72,7 +72,7 @@ export interface GetAccountFilterResult {
  * Get the details of an Account Filter in the Media Services account.
  * Azure REST API version: 2023-01-01.
  */
-export function getAccountFilterOutput(args: GetAccountFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountFilterResult> {
+export function getAccountFilterOutput(args: GetAccountFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getAccountFilter", {
         "accountName": args.accountName,

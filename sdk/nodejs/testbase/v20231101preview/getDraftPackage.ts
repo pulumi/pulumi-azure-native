@@ -166,7 +166,7 @@ export interface GetDraftPackageResult {
 /**
  * Gets a Test Base Draft Package.
  */
-export function getDraftPackageOutput(args: GetDraftPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDraftPackageResult> {
+export function getDraftPackageOutput(args: GetDraftPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDraftPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase/v20231101preview:getDraftPackage", {
         "draftPackageName": args.draftPackageName,

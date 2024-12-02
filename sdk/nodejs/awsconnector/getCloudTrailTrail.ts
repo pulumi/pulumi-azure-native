@@ -67,7 +67,7 @@ export interface GetCloudTrailTrailResult {
  * Get a CloudTrailTrail
  * Azure REST API version: 2024-12-01.
  */
-export function getCloudTrailTrailOutput(args: GetCloudTrailTrailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudTrailTrailResult> {
+export function getCloudTrailTrailOutput(args: GetCloudTrailTrailOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudTrailTrailResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getCloudTrailTrail", {
         "name": args.name,

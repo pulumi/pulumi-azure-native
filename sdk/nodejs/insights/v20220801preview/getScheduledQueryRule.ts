@@ -153,7 +153,7 @@ export interface GetScheduledQueryRuleResult {
 /**
  * Retrieve an scheduled query rule definition.
  */
-export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledQueryRuleResult> {
+export function getScheduledQueryRuleOutput(args: GetScheduledQueryRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledQueryRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20220801preview:getScheduledQueryRule", {
         "resourceGroupName": args.resourceGroupName,

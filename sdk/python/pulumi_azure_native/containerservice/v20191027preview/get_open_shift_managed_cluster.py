@@ -291,7 +291,7 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_open_shift_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                           resource_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenShiftManagedClusterResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenShiftManagedClusterResult]:
     """
     Gets the details of the managed OpenShift cluster with a specified resource group and name.
 
@@ -302,7 +302,7 @@ def get_open_shift_managed_cluster_output(resource_group_name: Optional[pulumi.I
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20191027preview:getOpenShiftManagedCluster', __args__, opts=opts, typ=GetOpenShiftManagedClusterResult)
     return __ret__.apply(lambda __response__: GetOpenShiftManagedClusterResult(
         agent_pool_profiles=pulumi.get(__response__, 'agent_pool_profiles'),

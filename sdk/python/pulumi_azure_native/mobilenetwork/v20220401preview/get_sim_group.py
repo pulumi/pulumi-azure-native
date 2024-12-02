@@ -265,7 +265,7 @@ def get_sim_group(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_sim_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          sim_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimGroupResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSimGroupResult]:
     """
     Gets information about the specified SIM group.
 
@@ -276,7 +276,7 @@ def get_sim_group_output(resource_group_name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['simGroupName'] = sim_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork/v20220401preview:getSimGroup', __args__, opts=opts, typ=GetSimGroupResult)
     return __ret__.apply(lambda __response__: GetSimGroupResult(
         created_at=pulumi.get(__response__, 'created_at'),

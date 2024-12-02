@@ -71,7 +71,7 @@ export interface GetRouteFilterRuleResult {
 /**
  * Gets the specified rule from a route filter.
  */
-export function getRouteFilterRuleOutput(args: GetRouteFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterRuleResult> {
+export function getRouteFilterRuleOutput(args: GetRouteFilterRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteFilterRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getRouteFilterRule", {
         "resourceGroupName": args.resourceGroupName,

@@ -47,7 +47,7 @@ export interface ListDatabaseKeysResult {
 /**
  * Retrieves the access keys for the RedisEnterprise database.
  */
-export function listDatabaseKeysOutput(args: ListDatabaseKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseKeysResult> {
+export function listDatabaseKeysOutput(args: ListDatabaseKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDatabaseKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache/v20231001preview:listDatabaseKeys", {
         "clusterName": args.clusterName,

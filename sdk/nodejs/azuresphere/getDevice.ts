@@ -102,7 +102,7 @@ export interface GetDeviceResult {
  *
  * Other available API versions: 2024-04-01.
  */
-export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
+export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere:getDevice", {
         "catalogName": args.catalogName,

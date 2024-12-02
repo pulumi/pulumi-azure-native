@@ -61,7 +61,7 @@ export interface GetDeploymentAtManagementGroupScopeResult {
 /**
  * Gets a deployment.
  */
-export function getDeploymentAtManagementGroupScopeOutput(args: GetDeploymentAtManagementGroupScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtManagementGroupScopeResult> {
+export function getDeploymentAtManagementGroupScopeOutput(args: GetDeploymentAtManagementGroupScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentAtManagementGroupScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources/v20240701:getDeploymentAtManagementGroupScope", {
         "deploymentName": args.deploymentName,

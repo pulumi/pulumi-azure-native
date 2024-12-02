@@ -71,7 +71,7 @@ export interface GetDaprComponentResiliencyPolicyResult {
 /**
  * Dapr Component Resiliency Policy.
  */
-export function getDaprComponentResiliencyPolicyOutput(args: GetDaprComponentResiliencyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprComponentResiliencyPolicyResult> {
+export function getDaprComponentResiliencyPolicyOutput(args: GetDaprComponentResiliencyPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDaprComponentResiliencyPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240202preview:getDaprComponentResiliencyPolicy", {
         "componentName": args.componentName,

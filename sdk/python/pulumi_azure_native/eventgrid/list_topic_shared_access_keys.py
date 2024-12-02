@@ -85,7 +85,7 @@ def list_topic_shared_access_keys(resource_group_name: Optional[str] = None,
         key2=pulumi.get(__ret__, 'key2'))
 def list_topic_shared_access_keys_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                          topic_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTopicSharedAccessKeysResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListTopicSharedAccessKeysResult]:
     """
     List the two keys used to publish to a topic.
     Azure REST API version: 2022-06-15.
@@ -99,7 +99,7 @@ def list_topic_shared_access_keys_output(resource_group_name: Optional[pulumi.In
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid:listTopicSharedAccessKeys', __args__, opts=opts, typ=ListTopicSharedAccessKeysResult)
     return __ret__.apply(lambda __response__: ListTopicSharedAccessKeysResult(
         key1=pulumi.get(__response__, 'key1'),

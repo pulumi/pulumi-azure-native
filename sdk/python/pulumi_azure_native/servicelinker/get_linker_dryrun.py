@@ -164,7 +164,7 @@ def get_linker_dryrun(dryrun_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_linker_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
                              resource_uri: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkerDryrunResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkerDryrunResult]:
     """
     get a dryrun job
     Azure REST API version: 2022-11-01-preview.
@@ -178,7 +178,7 @@ def get_linker_dryrun_output(dryrun_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['dryrunName'] = dryrun_name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicelinker:getLinkerDryrun', __args__, opts=opts, typ=GetLinkerDryrunResult)
     return __ret__.apply(lambda __response__: GetLinkerDryrunResult(
         id=pulumi.get(__response__, 'id'),

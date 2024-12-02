@@ -65,7 +65,7 @@ export interface GetCloudFormationStackResult {
 /**
  * Get a CloudFormationStack
  */
-export function getCloudFormationStackOutput(args: GetCloudFormationStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudFormationStackResult> {
+export function getCloudFormationStackOutput(args: GetCloudFormationStackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudFormationStackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getCloudFormationStack", {
         "name": args.name,

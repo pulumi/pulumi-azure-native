@@ -257,7 +257,7 @@ export interface GetWebAppResult {
 /**
  * Description for Gets the details of a web, mobile, or API app.
  */
-export function getWebAppOutput(args: GetWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppResult> {
+export function getWebAppOutput(args: GetWebAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20220901:getWebApp", {
         "name": args.name,

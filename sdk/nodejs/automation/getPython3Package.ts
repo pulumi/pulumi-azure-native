@@ -116,7 +116,7 @@ export interface GetPython3PackageResult {
  *
  * Other available API versions: 2023-05-15-preview, 2023-11-01.
  */
-export function getPython3PackageOutput(args: GetPython3PackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPython3PackageResult> {
+export function getPython3PackageOutput(args: GetPython3PackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPython3PackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getPython3Package", {
         "automationAccountName": args.automationAccountName,

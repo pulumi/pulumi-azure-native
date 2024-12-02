@@ -54,7 +54,7 @@ export interface ListStaticSiteSecretsResult {
 /**
  * Description for Lists the secrets for an existing static site.
  */
-export function listStaticSiteSecretsOutput(args: ListStaticSiteSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListStaticSiteSecretsResult> {
+export function listStaticSiteSecretsOutput(args: ListStaticSiteSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListStaticSiteSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20220901:listStaticSiteSecrets", {
         "name": args.name,

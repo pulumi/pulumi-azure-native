@@ -126,7 +126,7 @@ def list_web_app_azure_storage_accounts_slot(name: Optional[str] = None,
 def list_web_app_azure_storage_accounts_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     slot: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppAzureStorageAccountsSlotResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppAzureStorageAccountsSlotResult]:
     """
     Description for Gets the Azure storage account configurations of an app.
 
@@ -139,7 +139,7 @@ def list_web_app_azure_storage_accounts_slot_output(name: Optional[pulumi.Input[
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:listWebAppAzureStorageAccountsSlot', __args__, opts=opts, typ=ListWebAppAzureStorageAccountsSlotResult)
     return __ret__.apply(lambda __response__: ListWebAppAzureStorageAccountsSlotResult(
         id=pulumi.get(__response__, 'id'),

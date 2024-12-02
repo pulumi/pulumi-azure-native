@@ -98,7 +98,7 @@ export interface GetSqlDWTableDataSetMappingResult {
  * Get a DataSetMapping in a shareSubscription
  * Azure REST API version: 2021-08-01.
  */
-export function getSqlDWTableDataSetMappingOutput(args: GetSqlDWTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDWTableDataSetMappingResult> {
+export function getSqlDWTableDataSetMappingOutput(args: GetSqlDWTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlDWTableDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:getSqlDWTableDataSetMapping", {
         "accountName": args.accountName,

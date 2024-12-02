@@ -83,7 +83,7 @@ export interface GetWorkspaceLoggerResult {
  *
  * Other available API versions: 2024-05-01, 2024-06-01-preview.
  */
-export function getWorkspaceLoggerOutput(args: GetWorkspaceLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceLoggerResult> {
+export function getWorkspaceLoggerOutput(args: GetWorkspaceLoggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceLoggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceLogger", {
         "loggerId": args.loggerId,

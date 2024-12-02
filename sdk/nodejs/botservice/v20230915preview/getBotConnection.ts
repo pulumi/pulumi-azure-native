@@ -82,7 +82,7 @@ export interface GetBotConnectionResult {
 /**
  * Get a Connection Setting registration for a Bot Service
  */
-export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotConnectionResult> {
+export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice/v20230915preview:getBotConnection", {
         "connectionName": args.connectionName,

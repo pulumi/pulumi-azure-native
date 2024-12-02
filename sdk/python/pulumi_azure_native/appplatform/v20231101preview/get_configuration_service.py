@@ -126,7 +126,7 @@ def get_configuration_service(configuration_service_name: Optional[str] = None,
 def get_configuration_service_output(configuration_service_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      service_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationServiceResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationServiceResult]:
     """
     Get the Application Configuration Service and its properties.
 
@@ -139,7 +139,7 @@ def get_configuration_service_output(configuration_service_name: Optional[pulumi
     __args__['configurationServiceName'] = configuration_service_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20231101preview:getConfigurationService', __args__, opts=opts, typ=GetConfigurationServiceResult)
     return __ret__.apply(lambda __response__: GetConfigurationServiceResult(
         id=pulumi.get(__response__, 'id'),

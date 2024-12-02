@@ -160,7 +160,7 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 filter: Optional[pulumi.Input[Optional[str]]] = None,
                                 group_id: Optional[pulumi.Input[str]] = None,
                                 recurse: Optional[pulumi.Input[Optional[bool]]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementGroupResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupResult]:
     """
     Get the details of the management group.
 
@@ -179,7 +179,7 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     __args__['filter'] = filter
     __args__['groupId'] = group_id
     __args__['recurse'] = recurse
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:management:getManagementGroup', __args__, opts=opts, typ=GetManagementGroupResult)
     return __ret__.apply(lambda __response__: GetManagementGroupResult(
         children=pulumi.get(__response__, 'children'),

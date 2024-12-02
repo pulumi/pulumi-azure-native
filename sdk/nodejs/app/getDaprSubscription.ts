@@ -92,7 +92,7 @@ export interface GetDaprSubscriptionResult {
  *
  * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
  */
-export function getDaprSubscriptionOutput(args: GetDaprSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaprSubscriptionResult> {
+export function getDaprSubscriptionOutput(args: GetDaprSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDaprSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:getDaprSubscription", {
         "environmentName": args.environmentName,

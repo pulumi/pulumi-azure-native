@@ -41,7 +41,7 @@ export interface ListBitLockerKeyResult {
 /**
  * Returns the BitLocker Keys for all drives in the specified job.
  */
-export function listBitLockerKeyOutput(args: ListBitLockerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBitLockerKeyResult> {
+export function listBitLockerKeyOutput(args: ListBitLockerKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBitLockerKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:importexport/v20210101:listBitLockerKey", {
         "jobName": args.jobName,

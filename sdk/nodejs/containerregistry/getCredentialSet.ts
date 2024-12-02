@@ -85,7 +85,7 @@ export interface GetCredentialSetResult {
  *
  * Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
  */
-export function getCredentialSetOutput(args: GetCredentialSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialSetResult> {
+export function getCredentialSetOutput(args: GetCredentialSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCredentialSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry:getCredentialSet", {
         "credentialSetName": args.credentialSetName,

@@ -102,7 +102,7 @@ export interface GetADLSGen2FolderDataSetMappingResult {
  * Get a DataSetMapping in a shareSubscription
  * Azure REST API version: 2021-08-01.
  */
-export function getADLSGen2FolderDataSetMappingOutput(args: GetADLSGen2FolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetADLSGen2FolderDataSetMappingResult> {
+export function getADLSGen2FolderDataSetMappingOutput(args: GetADLSGen2FolderDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetADLSGen2FolderDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:getADLSGen2FolderDataSetMapping", {
         "accountName": args.accountName,

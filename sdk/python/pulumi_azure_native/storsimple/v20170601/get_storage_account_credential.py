@@ -165,7 +165,7 @@ def get_storage_account_credential(manager_name: Optional[str] = None,
 def get_storage_account_credential_output(manager_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           storage_account_credential_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageAccountCredentialResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageAccountCredentialResult]:
     """
     Gets the properties of the specified storage account credential name.
 
@@ -178,7 +178,7 @@ def get_storage_account_credential_output(manager_name: Optional[pulumi.Input[st
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageAccountCredentialName'] = storage_account_credential_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple/v20170601:getStorageAccountCredential', __args__, opts=opts, typ=GetStorageAccountCredentialResult)
     return __ret__.apply(lambda __response__: GetStorageAccountCredentialResult(
         access_key=pulumi.get(__response__, 'access_key'),

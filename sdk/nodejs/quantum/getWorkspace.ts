@@ -91,7 +91,7 @@ export interface GetWorkspaceResult {
  *
  * Other available API versions: 2023-11-13-preview.
  */
-export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:quantum:getWorkspace", {
         "resourceGroupName": args.resourceGroupName,

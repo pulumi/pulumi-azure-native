@@ -67,7 +67,7 @@ export interface GetKmsAliasResult {
  * Get a KmsAlias
  * Azure REST API version: 2024-12-01.
  */
-export function getKmsAliasOutput(args: GetKmsAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKmsAliasResult> {
+export function getKmsAliasOutput(args: GetKmsAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKmsAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getKmsAlias", {
         "name": args.name,

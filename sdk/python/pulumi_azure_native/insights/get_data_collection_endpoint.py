@@ -307,7 +307,7 @@ def get_data_collection_endpoint(data_collection_endpoint_name: Optional[str] = 
         type=pulumi.get(__ret__, 'type'))
 def get_data_collection_endpoint_output(data_collection_endpoint_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCollectionEndpointResult]:
     """
     Definition of ARM tracked top level resource.
     Azure REST API version: 2022-06-01.
@@ -321,7 +321,7 @@ def get_data_collection_endpoint_output(data_collection_endpoint_name: Optional[
     __args__ = dict()
     __args__['dataCollectionEndpointName'] = data_collection_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getDataCollectionEndpoint', __args__, opts=opts, typ=GetDataCollectionEndpointResult)
     return __ret__.apply(lambda __response__: GetDataCollectionEndpointResult(
         configuration_access=pulumi.get(__response__, 'configuration_access'),

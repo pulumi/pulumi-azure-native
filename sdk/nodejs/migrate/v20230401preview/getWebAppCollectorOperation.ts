@@ -78,7 +78,7 @@ export interface GetWebAppCollectorOperationResult {
 /**
  * Get a WebAppCollector
  */
-export function getWebAppCollectorOperationOutput(args: GetWebAppCollectorOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppCollectorOperationResult> {
+export function getWebAppCollectorOperationOutput(args: GetWebAppCollectorOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppCollectorOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230401preview:getWebAppCollectorOperation", {
         "collectorName": args.collectorName,

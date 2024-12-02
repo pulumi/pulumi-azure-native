@@ -136,7 +136,7 @@ export interface GetContainerGroupResult {
 /**
  * Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
  */
-export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupResult> {
+export function getContainerGroupOutput(args: GetContainerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerinstance/v20240901preview:getContainerGroup", {
         "containerGroupName": args.containerGroupName,

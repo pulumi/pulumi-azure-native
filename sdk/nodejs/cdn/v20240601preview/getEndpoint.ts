@@ -146,7 +146,7 @@ export interface GetEndpointResult {
 /**
  * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
  */
-export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
+export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20240601preview:getEndpoint", {
         "endpointName": args.endpointName,

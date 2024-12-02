@@ -61,7 +61,7 @@ export interface ListVolumeQuotaReportResult {
  *
  * Other available API versions: 2024-05-01-preview, 2024-07-01-preview.
  */
-export function listVolumeQuotaReportOutput(args: ListVolumeQuotaReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeQuotaReportResult> {
+export function listVolumeQuotaReportOutput(args: ListVolumeQuotaReportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVolumeQuotaReportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:netapp:listVolumeQuotaReport", {
         "accountName": args.accountName,

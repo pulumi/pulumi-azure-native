@@ -63,7 +63,7 @@ export interface GetGroupQuotaResult {
  *
  * Other available API versions: 2024-10-15-preview.
  */
-export function getGroupQuotaOutput(args: GetGroupQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupQuotaResult> {
+export function getGroupQuotaOutput(args: GetGroupQuotaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupQuotaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:quota:getGroupQuota", {
         "groupQuotaName": args.groupQuotaName,

@@ -152,7 +152,7 @@ def get_rai_policy(account_name: Optional[str] = None,
 def get_rai_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                           rai_policy_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRaiPolicyResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRaiPolicyResult]:
     """
     Gets the specified Content Filters associated with the Azure OpenAI account.
 
@@ -165,7 +165,7 @@ def get_rai_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['raiPolicyName'] = rai_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cognitiveservices/v20240601preview:getRaiPolicy', __args__, opts=opts, typ=GetRaiPolicyResult)
     return __ret__.apply(lambda __response__: GetRaiPolicyResult(
         etag=pulumi.get(__response__, 'etag'),

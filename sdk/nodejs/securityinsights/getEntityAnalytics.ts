@@ -73,7 +73,7 @@ export interface GetEntityAnalyticsResult {
  * Gets a setting.
  * Azure REST API version: 2023-06-01-preview.
  */
-export function getEntityAnalyticsOutput(args: GetEntityAnalyticsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityAnalyticsResult> {
+export function getEntityAnalyticsOutput(args: GetEntityAnalyticsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntityAnalyticsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getEntityAnalytics", {
         "resourceGroupName": args.resourceGroupName,

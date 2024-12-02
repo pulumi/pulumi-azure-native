@@ -83,7 +83,7 @@ def list_query_key_by_search_service(resource_group_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_query_key_by_search_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             search_service_name: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListQueryKeyBySearchServiceResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListQueryKeyBySearchServiceResult]:
     """
     Returns the list of query API keys for the given Azure Cognitive Search service.
 
@@ -94,7 +94,7 @@ def list_query_key_by_search_service_output(resource_group_name: Optional[pulumi
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchServiceName'] = search_service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:search/v20210401preview:listQueryKeyBySearchService', __args__, opts=opts, typ=ListQueryKeyBySearchServiceResult)
     return __ret__.apply(lambda __response__: ListQueryKeyBySearchServiceResult(
         next_link=pulumi.get(__response__, 'next_link'),

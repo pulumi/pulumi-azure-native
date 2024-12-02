@@ -116,7 +116,7 @@ def get_tag_by_api_output(api_id: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           service_name: Optional[pulumi.Input[str]] = None,
                           tag_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagByApiResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagByApiResult]:
     """
     Get tag associated with the API.
 
@@ -131,7 +131,7 @@ def get_tag_by_api_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['tagId'] = tag_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:getTagByApi', __args__, opts=opts, typ=GetTagByApiResult)
     return __ret__.apply(lambda __response__: GetTagByApiResult(
         display_name=pulumi.get(__response__, 'display_name'),

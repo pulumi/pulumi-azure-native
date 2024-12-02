@@ -116,7 +116,7 @@ def get_tag_api_link_output(api_link_id: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             service_name: Optional[pulumi.Input[str]] = None,
                             tag_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagApiLinkResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagApiLinkResult]:
     """
     Gets the API link for the tag.
 
@@ -131,7 +131,7 @@ def get_tag_api_link_output(api_link_id: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['tagId'] = tag_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230301preview:getTagApiLink', __args__, opts=opts, typ=GetTagApiLinkResult)
     return __ret__.apply(lambda __response__: GetTagApiLinkResult(
         api_id=pulumi.get(__response__, 'api_id'),

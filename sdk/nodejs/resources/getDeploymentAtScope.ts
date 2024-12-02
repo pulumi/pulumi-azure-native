@@ -67,7 +67,7 @@ export interface GetDeploymentAtScopeResult {
  *
  * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
-export function getDeploymentAtScopeOutput(args: GetDeploymentAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtScopeResult> {
+export function getDeploymentAtScopeOutput(args: GetDeploymentAtScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentAtScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getDeploymentAtScope", {
         "deploymentName": args.deploymentName,

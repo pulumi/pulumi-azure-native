@@ -42,7 +42,7 @@ export interface GetGitHubOAuthResult {
 /**
  * URL used to authorize the Developer Hub GitHub App
  */
-export function getGitHubOAuthOutput(args: GetGitHubOAuthOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitHubOAuthResult> {
+export function getGitHubOAuthOutput(args: GetGitHubOAuthOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGitHubOAuthResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devhub/v20220401preview:getGitHubOAuth", {
         "location": args.location,

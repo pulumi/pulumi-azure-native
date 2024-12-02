@@ -380,7 +380,7 @@ def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] 
                                server_endpoint_name: Optional[pulumi.Input[str]] = None,
                                storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                                sync_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerEndpointResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerEndpointResult]:
     """
     Get a ServerEndpoint.
     Azure REST API version: 2022-06-01.
@@ -398,7 +398,7 @@ def get_server_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] 
     __args__['serverEndpointName'] = server_endpoint_name
     __args__['storageSyncServiceName'] = storage_sync_service_name
     __args__['syncGroupName'] = sync_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync:getServerEndpoint', __args__, opts=opts, typ=GetServerEndpointResult)
     return __ret__.apply(lambda __response__: GetServerEndpointResult(
         cloud_tiering=pulumi.get(__response__, 'cloud_tiering'),

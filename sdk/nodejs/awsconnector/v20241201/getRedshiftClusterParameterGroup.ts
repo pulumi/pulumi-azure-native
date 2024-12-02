@@ -65,7 +65,7 @@ export interface GetRedshiftClusterParameterGroupResult {
 /**
  * Get a RedshiftClusterParameterGroup
  */
-export function getRedshiftClusterParameterGroupOutput(args: GetRedshiftClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedshiftClusterParameterGroupResult> {
+export function getRedshiftClusterParameterGroupOutput(args: GetRedshiftClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRedshiftClusterParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getRedshiftClusterParameterGroup", {
         "name": args.name,

@@ -360,7 +360,7 @@ def get_product(product_name: Optional[str] = None,
 def get_product_output(product_name: Optional[pulumi.Input[str]] = None,
                        registration_name: Optional[pulumi.Input[str]] = None,
                        resource_group: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Returns the specified product.
 
@@ -373,7 +373,7 @@ def get_product_output(product_name: Optional[pulumi.Input[str]] = None,
     __args__['productName'] = product_name
     __args__['registrationName'] = registration_name
     __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestack/v20200601preview:getProduct', __args__, opts=opts, typ=GetProductResult)
     return __ret__.apply(lambda __response__: GetProductResult(
         billing_part_number=pulumi.get(__response__, 'billing_part_number'),

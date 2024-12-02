@@ -80,7 +80,7 @@ export interface GetControllerDetailsResult {
  *
  * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
  */
-export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControllerDetailsResult> {
+export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetControllerDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:delegatednetwork:getControllerDetails", {
         "resourceGroupName": args.resourceGroupName,

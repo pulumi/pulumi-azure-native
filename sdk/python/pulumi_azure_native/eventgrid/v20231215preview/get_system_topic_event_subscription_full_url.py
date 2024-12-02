@@ -73,7 +73,7 @@ def get_system_topic_event_subscription_full_url(event_subscription_name: Option
 def get_system_topic_event_subscription_full_url_output(event_subscription_name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         system_topic_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionFullUrlResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for an event subscription of a system topic.
 
@@ -86,7 +86,7 @@ def get_system_topic_event_subscription_full_url_output(event_subscription_name:
     __args__['eventSubscriptionName'] = event_subscription_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['systemTopicName'] = system_topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20231215preview:getSystemTopicEventSubscriptionFullUrl', __args__, opts=opts, typ=GetSystemTopicEventSubscriptionFullUrlResult)
     return __ret__.apply(lambda __response__: GetSystemTopicEventSubscriptionFullUrlResult(
         endpoint_url=pulumi.get(__response__, 'endpoint_url')))

@@ -142,7 +142,7 @@ def get_solution(data_manager_for_agriculture_resource_name: Optional[str] = Non
 def get_solution_output(data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         solution_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Get installed Solution details by Solution id.
     Azure REST API version: 2023-06-01-preview.
@@ -158,7 +158,7 @@ def get_solution_output(data_manager_for_agriculture_resource_name: Optional[pul
     __args__['dataManagerForAgricultureResourceName'] = data_manager_for_agriculture_resource_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['solutionId'] = solution_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:agfoodplatform:getSolution', __args__, opts=opts, typ=GetSolutionResult)
     return __ret__.apply(lambda __response__: GetSolutionResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

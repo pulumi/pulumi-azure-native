@@ -60,7 +60,7 @@ export interface ListAccessUsersResult {
  *
  * Other available API versions: 2024-02-13.
  */
-export function listAccessUsersOutput(args: ListAccessUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessUsersResult> {
+export function listAccessUsersOutput(args: ListAccessUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confluent:listAccessUsers", {
         "organizationName": args.organizationName,

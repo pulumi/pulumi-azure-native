@@ -59,7 +59,7 @@ export interface GetDocumentationResult {
 /**
  * Gets the details of the Documentation specified by its identifier.
  */
-export function getDocumentationOutput(args: GetDocumentationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationResult> {
+export function getDocumentationOutput(args: GetDocumentationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDocumentationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220901preview:getDocumentation", {
         "documentationId": args.documentationId,

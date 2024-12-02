@@ -75,7 +75,7 @@ export interface GetOfficeATPDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getOfficeATPDataConnectorOutput(args: GetOfficeATPDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOfficeATPDataConnectorResult> {
+export function getOfficeATPDataConnectorOutput(args: GetOfficeATPDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOfficeATPDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20230601preview:getOfficeATPDataConnector", {
         "dataConnectorId": args.dataConnectorId,

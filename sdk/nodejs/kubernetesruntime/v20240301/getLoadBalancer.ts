@@ -73,7 +73,7 @@ export interface GetLoadBalancerResult {
 /**
  * Get a LoadBalancer
  */
-export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
+export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadBalancerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kubernetesruntime/v20240301:getLoadBalancer", {
         "loadBalancerName": args.loadBalancerName,

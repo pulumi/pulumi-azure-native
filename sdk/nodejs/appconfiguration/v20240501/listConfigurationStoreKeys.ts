@@ -50,7 +50,7 @@ export interface ListConfigurationStoreKeysResult {
 /**
  * Lists the access key for the specified configuration store.
  */
-export function listConfigurationStoreKeysOutput(args: ListConfigurationStoreKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListConfigurationStoreKeysResult> {
+export function listConfigurationStoreKeysOutput(args: ListConfigurationStoreKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConfigurationStoreKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appconfiguration/v20240501:listConfigurationStoreKeys", {
         "configStoreName": args.configStoreName,

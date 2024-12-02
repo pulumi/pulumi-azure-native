@@ -169,7 +169,7 @@ def get_cloud_edge_management_role(device_name: Optional[str] = None,
 def get_cloud_edge_management_role_output(device_name: Optional[pulumi.Input[str]] = None,
                                           name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudEdgeManagementRoleResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudEdgeManagementRoleResult]:
     """
     Gets a specific role by name.
     Azure REST API version: 2022-03-01.
@@ -183,7 +183,7 @@ def get_cloud_edge_management_role_output(device_name: Optional[pulumi.Input[str
     __args__['deviceName'] = device_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getCloudEdgeManagementRole', __args__, opts=opts, typ=GetCloudEdgeManagementRoleResult)
     return __ret__.apply(lambda __response__: GetCloudEdgeManagementRoleResult(
         edge_profile=pulumi.get(__response__, 'edge_profile'),

@@ -217,7 +217,7 @@ def get_cluster(cluster_name: Optional[str] = None,
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        cluster_pool_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Gets a HDInsight cluster.
 
@@ -230,7 +230,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__['clusterName'] = cluster_name
     __args__['clusterPoolName'] = cluster_pool_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hdinsight/v20240501preview:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
         cluster_profile=pulumi.get(__response__, 'cluster_profile'),

@@ -94,7 +94,7 @@ export interface GetPacketCaptureResult {
 /**
  * Gets information about the specified packet capture session.
  */
-export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCaptureResult> {
+export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPacketCaptureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:mobilenetwork/v20240201:getPacketCapture", {
         "packetCaptureName": args.packetCaptureName,

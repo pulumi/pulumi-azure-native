@@ -165,7 +165,7 @@ def get_connection_type(automation_account_name: Optional[str] = None,
 def get_connection_type_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                                connection_type_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionTypeResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionTypeResult]:
     """
     Retrieve the connection type identified by connection type name.
 
@@ -178,7 +178,7 @@ def get_connection_type_output(automation_account_name: Optional[pulumi.Input[st
     __args__['automationAccountName'] = automation_account_name
     __args__['connectionTypeName'] = connection_type_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation/v20220808:getConnectionType', __args__, opts=opts, typ=GetConnectionTypeResult)
     return __ret__.apply(lambda __response__: GetConnectionTypeResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

@@ -81,7 +81,7 @@ def list_volume_replications_output(account_name: Optional[pulumi.Input[str]] = 
                                     pool_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     volume_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVolumeReplicationsResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVolumeReplicationsResult]:
     """
     List all replications for a specified volume
     Azure REST API version: 2022-11-01.
@@ -99,7 +99,7 @@ def list_volume_replications_output(account_name: Optional[pulumi.Input[str]] = 
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['volumeName'] = volume_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:netapp:listVolumeReplications', __args__, opts=opts, typ=ListVolumeReplicationsResult)
     return __ret__.apply(lambda __response__: ListVolumeReplicationsResult(
         value=pulumi.get(__response__, 'value')))

@@ -108,7 +108,7 @@ export interface GetSqlPoolResult {
  *
  * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */
-export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolResult> {
+export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getSqlPool", {
         "resourceGroupName": args.resourceGroupName,

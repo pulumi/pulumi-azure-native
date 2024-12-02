@@ -108,7 +108,7 @@ export interface GetL2NetworkResult {
  *
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
-export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2NetworkResult> {
+export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL2NetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud:getL2Network", {
         "l2NetworkName": args.l2NetworkName,

@@ -126,7 +126,7 @@ def get_service_registry(resource_group_name: Optional[str] = None,
 def get_service_registry_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                 service_name: Optional[pulumi.Input[str]] = None,
                                 service_registry_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceRegistryResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceRegistryResult]:
     """
     Get the Service Registry and its properties.
 
@@ -139,7 +139,7 @@ def get_service_registry_output(resource_group_name: Optional[pulumi.Input[str]]
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['serviceRegistryName'] = service_registry_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform/v20231201:getServiceRegistry', __args__, opts=opts, typ=GetServiceRegistryResult)
     return __ret__.apply(lambda __response__: GetServiceRegistryResult(
         id=pulumi.get(__response__, 'id'),

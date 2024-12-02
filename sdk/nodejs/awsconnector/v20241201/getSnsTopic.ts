@@ -65,7 +65,7 @@ export interface GetSnsTopicResult {
 /**
  * Get a SnsTopic
  */
-export function getSnsTopicOutput(args: GetSnsTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnsTopicResult> {
+export function getSnsTopicOutput(args: GetSnsTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnsTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getSnsTopic", {
         "name": args.name,

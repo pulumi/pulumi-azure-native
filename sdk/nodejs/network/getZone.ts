@@ -95,7 +95,7 @@ export interface GetZoneResult {
  *
  * Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
  */
-export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
+export function getZoneOutput(args: GetZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetZoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getZone", {
         "resourceGroupName": args.resourceGroupName,

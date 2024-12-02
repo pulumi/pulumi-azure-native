@@ -304,7 +304,7 @@ def get_database_blob_auditing_policy_output(blob_auditing_policy_name: Optional
                                              database_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              server_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseBlobAuditingPolicyResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseBlobAuditingPolicyResult]:
     """
     Gets a database's blob auditing policy.
 
@@ -319,7 +319,7 @@ def get_database_blob_auditing_policy_output(blob_auditing_policy_name: Optional
     __args__['databaseName'] = database_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getDatabaseBlobAuditingPolicy', __args__, opts=opts, typ=GetDatabaseBlobAuditingPolicyResult)
     return __ret__.apply(lambda __response__: GetDatabaseBlobAuditingPolicyResult(
         audit_actions_and_groups=pulumi.get(__response__, 'audit_actions_and_groups'),

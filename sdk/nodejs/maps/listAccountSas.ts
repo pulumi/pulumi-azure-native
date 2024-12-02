@@ -85,7 +85,7 @@ export interface ListAccountSasResult {
  *
  * Other available API versions: 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
  */
-export function listAccountSasOutput(args: ListAccountSasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountSasResult> {
+export function listAccountSasOutput(args: ListAccountSasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccountSasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:maps:listAccountSas", {
         "accountName": args.accountName,

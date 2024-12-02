@@ -101,7 +101,7 @@ export interface GetLabPlanResult {
 /**
  * Retrieves the properties of a Lab Plan.
  */
-export function getLabPlanOutput(args: GetLabPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabPlanResult> {
+export function getLabPlanOutput(args: GetLabPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices/v20230607:getLabPlan", {
         "labPlanName": args.labPlanName,

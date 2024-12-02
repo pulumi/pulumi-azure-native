@@ -139,7 +139,7 @@ def get_billing_role_assignment_by_department(billing_account_name: Optional[str
 def get_billing_role_assignment_by_department_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                                      billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
                                                      department_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingRoleAssignmentByDepartmentResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingRoleAssignmentByDepartmentResult]:
     """
     Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
 
@@ -152,7 +152,7 @@ def get_billing_role_assignment_by_department_output(billing_account_name: Optio
     __args__['billingAccountName'] = billing_account_name
     __args__['billingRoleAssignmentName'] = billing_role_assignment_name
     __args__['departmentName'] = department_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:billing/v20240401:getBillingRoleAssignmentByDepartment', __args__, opts=opts, typ=GetBillingRoleAssignmentByDepartmentResult)
     return __ret__.apply(lambda __response__: GetBillingRoleAssignmentByDepartmentResult(
         id=pulumi.get(__response__, 'id'),

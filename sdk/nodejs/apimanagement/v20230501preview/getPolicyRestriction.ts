@@ -59,7 +59,7 @@ export interface GetPolicyRestrictionResult {
 /**
  * Get the policy restriction of the Api Management service.
  */
-export function getPolicyRestrictionOutput(args: GetPolicyRestrictionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyRestrictionResult> {
+export function getPolicyRestrictionOutput(args: GetPolicyRestrictionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyRestrictionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getPolicyRestriction", {
         "policyRestrictionId": args.policyRestrictionId,

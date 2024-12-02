@@ -180,7 +180,7 @@ export interface GetSignalRResult {
 /**
  * Get the resource and its properties.
  */
-export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRResult> {
+export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSignalRResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:signalrservice/v20240801preview:getSignalR", {
         "resourceGroupName": args.resourceGroupName,

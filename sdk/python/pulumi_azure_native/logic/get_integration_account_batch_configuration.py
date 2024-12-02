@@ -140,7 +140,7 @@ def get_integration_account_batch_configuration(batch_configuration_name: Option
 def get_integration_account_batch_configuration_output(batch_configuration_name: Optional[pulumi.Input[str]] = None,
                                                        integration_account_name: Optional[pulumi.Input[str]] = None,
                                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountBatchConfigurationResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountBatchConfigurationResult]:
     """
     Get a batch configuration for an integration account.
     Azure REST API version: 2019-05-01.
@@ -154,7 +154,7 @@ def get_integration_account_batch_configuration_output(batch_configuration_name:
     __args__['batchConfigurationName'] = batch_configuration_name
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic:getIntegrationAccountBatchConfiguration', __args__, opts=opts, typ=GetIntegrationAccountBatchConfigurationResult)
     return __ret__.apply(lambda __response__: GetIntegrationAccountBatchConfigurationResult(
         id=pulumi.get(__response__, 'id'),

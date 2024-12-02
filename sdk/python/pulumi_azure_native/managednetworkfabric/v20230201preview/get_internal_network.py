@@ -308,7 +308,7 @@ def get_internal_network(internal_network_name: Optional[str] = None,
 def get_internal_network_output(internal_network_name: Optional[pulumi.Input[str]] = None,
                                 l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternalNetworkResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternalNetworkResult]:
     """
     Gets a InternalNetworks.
 
@@ -321,7 +321,7 @@ def get_internal_network_output(internal_network_name: Optional[pulumi.Input[str
     __args__['internalNetworkName'] = internal_network_name
     __args__['l3IsolationDomainName'] = l3_isolation_domain_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230201preview:getInternalNetwork', __args__, opts=opts, typ=GetInternalNetworkResult)
     return __ret__.apply(lambda __response__: GetInternalNetworkResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),

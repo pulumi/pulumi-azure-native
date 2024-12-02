@@ -106,7 +106,7 @@ export interface GetTrunkedNetworkResult {
 /**
  * Get properties of the provided trunked network.
  */
-export function getTrunkedNetworkOutput(args: GetTrunkedNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrunkedNetworkResult> {
+export function getTrunkedNetworkOutput(args: GetTrunkedNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrunkedNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240601preview:getTrunkedNetwork", {
         "resourceGroupName": args.resourceGroupName,

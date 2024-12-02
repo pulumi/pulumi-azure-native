@@ -57,7 +57,7 @@ export interface ListQnAMakerEndpointKeyResult {
  *
  * Other available API versions: 2022-06-15-preview, 2023-09-15-preview.
  */
-export function listQnAMakerEndpointKeyOutput(args?: ListQnAMakerEndpointKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQnAMakerEndpointKeyResult> {
+export function listQnAMakerEndpointKeyOutput(args?: ListQnAMakerEndpointKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListQnAMakerEndpointKeyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice:listQnAMakerEndpointKey", {

@@ -87,7 +87,7 @@ export interface GetAccountResult {
  *
  * Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azureplaywrightservice:getAccount", {
         "name": args.name,

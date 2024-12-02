@@ -43,7 +43,7 @@ export interface ListRunLogSasUrlResult {
 /**
  * Gets a link to download the run logs.
  */
-export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRunLogSasUrlResult> {
+export function listRunLogSasUrlOutput(args: ListRunLogSasUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRunLogSasUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20190401:listRunLogSasUrl", {
         "registryName": args.registryName,

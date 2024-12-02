@@ -125,7 +125,7 @@ def list_static_site_build_app_settings(environment_name: Optional[str] = None,
 def list_static_site_build_app_settings_output(environment_name: Optional[pulumi.Input[str]] = None,
                                                name: Optional[pulumi.Input[str]] = None,
                                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteBuildAppSettingsResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStaticSiteBuildAppSettingsResult]:
     """
     Description for Gets the application settings of a static site build.
 
@@ -138,7 +138,7 @@ def list_static_site_build_app_settings_output(environment_name: Optional[pulumi
     __args__['environmentName'] = environment_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20230101:listStaticSiteBuildAppSettings', __args__, opts=opts, typ=ListStaticSiteBuildAppSettingsResult)
     return __ret__.apply(lambda __response__: ListStaticSiteBuildAppSettingsResult(
         id=pulumi.get(__response__, 'id'),

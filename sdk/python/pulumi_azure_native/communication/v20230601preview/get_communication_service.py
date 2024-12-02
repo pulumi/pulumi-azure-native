@@ -239,7 +239,7 @@ def get_communication_service(communication_service_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_communication_service_output(communication_service_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommunicationServiceResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommunicationServiceResult]:
     """
     Get the CommunicationService and its properties.
 
@@ -250,7 +250,7 @@ def get_communication_service_output(communication_service_name: Optional[pulumi
     __args__ = dict()
     __args__['communicationServiceName'] = communication_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:communication/v20230601preview:getCommunicationService', __args__, opts=opts, typ=GetCommunicationServiceResult)
     return __ret__.apply(lambda __response__: GetCommunicationServiceResult(
         data_location=pulumi.get(__response__, 'data_location'),

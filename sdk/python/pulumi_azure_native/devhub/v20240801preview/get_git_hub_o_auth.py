@@ -82,7 +82,7 @@ def get_git_hub_o_auth(location: Optional[str] = None,
         token=pulumi.get(__ret__, 'token'))
 def get_git_hub_o_auth_output(location: Optional[pulumi.Input[str]] = None,
                               redirect_url: Optional[pulumi.Input[Optional[str]]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGitHubOAuthResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGitHubOAuthResult]:
     """
     URL used to authorize the Developer Hub GitHub App
 
@@ -93,7 +93,7 @@ def get_git_hub_o_auth_output(location: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['location'] = location
     __args__['redirectUrl'] = redirect_url
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devhub/v20240801preview:getGitHubOAuth', __args__, opts=opts, typ=GetGitHubOAuthResult)
     return __ret__.apply(lambda __response__: GetGitHubOAuthResult(
         auth_url=pulumi.get(__response__, 'auth_url'),

@@ -125,7 +125,7 @@ export interface GetManagedClusterResult {
 /**
  * Gets the details of the managed cluster with a specified resource group and name.
  */
-export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
+export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerservice/v20190601:getManagedCluster", {
         "resourceGroupName": args.resourceGroupName,

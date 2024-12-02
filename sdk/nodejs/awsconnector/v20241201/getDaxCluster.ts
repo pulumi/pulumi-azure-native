@@ -65,7 +65,7 @@ export interface GetDaxClusterResult {
 /**
  * Get a DaxCluster
  */
-export function getDaxClusterOutput(args: GetDaxClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDaxClusterResult> {
+export function getDaxClusterOutput(args: GetDaxClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDaxClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getDaxCluster", {
         "name": args.name,

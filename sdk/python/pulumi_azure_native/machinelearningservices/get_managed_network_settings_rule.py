@@ -129,7 +129,7 @@ def get_managed_network_settings_rule(resource_group_name: Optional[str] = None,
 def get_managed_network_settings_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                              rule_name: Optional[pulumi.Input[str]] = None,
                                              workspace_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedNetworkSettingsRuleResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedNetworkSettingsRuleResult]:
     """
     Gets an outbound rule from the managed network of a machine learning workspace.
     Azure REST API version: 2023-04-01-preview.
@@ -145,7 +145,7 @@ def get_managed_network_settings_rule_output(resource_group_name: Optional[pulum
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getManagedNetworkSettingsRule', __args__, opts=opts, typ=GetManagedNetworkSettingsRuleResult)
     return __ret__.apply(lambda __response__: GetManagedNetworkSettingsRuleResult(
         id=pulumi.get(__response__, 'id'),

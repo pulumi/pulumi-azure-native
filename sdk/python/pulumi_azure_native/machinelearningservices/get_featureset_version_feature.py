@@ -121,7 +121,7 @@ def get_featureset_version_feature_output(feature_name: Optional[pulumi.Input[Op
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           version: Optional[pulumi.Input[str]] = None,
                                           workspace_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFeaturesetVersionFeatureResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeaturesetVersionFeatureResult]:
     """
     Dto object representing feature
     Azure REST API version: 2023-02-01-preview.
@@ -139,7 +139,7 @@ def get_featureset_version_feature_output(feature_name: Optional[pulumi.Input[Op
     __args__['resourceGroupName'] = resource_group_name
     __args__['version'] = version
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getFeaturesetVersionFeature', __args__, opts=opts, typ=GetFeaturesetVersionFeatureResult)
     return __ret__.apply(lambda __response__: GetFeaturesetVersionFeatureResult(
         data_type=pulumi.get(__response__, 'data_type'),

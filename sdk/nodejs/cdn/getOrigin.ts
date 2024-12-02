@@ -125,7 +125,7 @@ export interface GetOriginResult {
  *
  * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
  */
-export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginResult> {
+export function getOriginOutput(args: GetOriginOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn:getOrigin", {
         "endpointName": args.endpointName,

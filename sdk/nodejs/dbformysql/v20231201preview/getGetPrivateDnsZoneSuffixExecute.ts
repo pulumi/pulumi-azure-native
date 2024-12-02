@@ -29,7 +29,7 @@ export interface GetGetPrivateDnsZoneSuffixExecuteResult {
 /**
  * Get private DNS zone suffix in the cloud.
  */
-export function getGetPrivateDnsZoneSuffixExecuteOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetGetPrivateDnsZoneSuffixExecuteResult> {
+export function getGetPrivateDnsZoneSuffixExecuteOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGetPrivateDnsZoneSuffixExecuteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbformysql/v20231201preview:getGetPrivateDnsZoneSuffixExecute", {
     }, opts);

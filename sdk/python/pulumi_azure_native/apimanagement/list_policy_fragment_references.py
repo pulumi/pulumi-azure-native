@@ -111,7 +111,7 @@ def list_policy_fragment_references_output(id: Optional[pulumi.Input[str]] = Non
                                            service_name: Optional[pulumi.Input[str]] = None,
                                            skip: Optional[pulumi.Input[Optional[int]]] = None,
                                            top: Optional[pulumi.Input[Optional[int]]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPolicyFragmentReferencesResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPolicyFragmentReferencesResult]:
     """
     Lists policy resources that reference the policy fragment.
     Azure REST API version: 2022-08-01.
@@ -131,7 +131,7 @@ def list_policy_fragment_references_output(id: Optional[pulumi.Input[str]] = Non
     __args__['serviceName'] = service_name
     __args__['skip'] = skip
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:listPolicyFragmentReferences', __args__, opts=opts, typ=ListPolicyFragmentReferencesResult)
     return __ret__.apply(lambda __response__: ListPolicyFragmentReferencesResult(
         count=pulumi.get(__response__, 'count'),

@@ -69,7 +69,7 @@ export interface GetReportByDepartmentResult {
 /**
  * Gets the report for a department by report name.
  */
-export function getReportByDepartmentOutput(args: GetReportByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByDepartmentResult> {
+export function getReportByDepartmentOutput(args: GetReportByDepartmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportByDepartmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20180801preview:getReportByDepartment", {
         "departmentId": args.departmentId,

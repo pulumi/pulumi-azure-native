@@ -301,7 +301,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
 def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             server_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticPoolResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticPoolResult]:
     """
     Gets an elastic pool.
 
@@ -314,7 +314,7 @@ def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[str]] = Non
     __args__['elasticPoolName'] = elastic_pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230201preview:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult)
     return __ret__.apply(lambda __response__: GetElasticPoolResult(
         availability_zone=pulumi.get(__response__, 'availability_zone'),

@@ -51,7 +51,7 @@ export interface GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult {
 /**
  * Get the recommended SAP Availability Zone Pair Details for your region.
  */
-export function getSapVirtualInstanceInvokeAvailabilityZoneDetailsOutput(args: GetSapVirtualInstanceInvokeAvailabilityZoneDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult> {
+export function getSapVirtualInstanceInvokeAvailabilityZoneDetailsOutput(args: GetSapVirtualInstanceInvokeAvailabilityZoneDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapVirtualInstanceInvokeAvailabilityZoneDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeAvailabilityZoneDetails", {
         "appLocation": args.appLocation,

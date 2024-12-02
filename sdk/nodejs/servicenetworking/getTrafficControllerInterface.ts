@@ -83,7 +83,7 @@ export interface GetTrafficControllerInterfaceResult {
  *
  * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview.
  */
-export function getTrafficControllerInterfaceOutput(args: GetTrafficControllerInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficControllerInterfaceResult> {
+export function getTrafficControllerInterfaceOutput(args: GetTrafficControllerInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficControllerInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicenetworking:getTrafficControllerInterface", {
         "resourceGroupName": args.resourceGroupName,

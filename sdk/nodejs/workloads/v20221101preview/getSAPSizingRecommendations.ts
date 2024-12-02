@@ -81,7 +81,7 @@ export interface GetSAPSizingRecommendationsResult {
 /**
  * Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
  */
-export function getSAPSizingRecommendationsOutput(args: GetSAPSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPSizingRecommendationsResult> {
+export function getSAPSizingRecommendationsOutput(args: GetSAPSizingRecommendationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPSizingRecommendationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20221101preview:getSAPSizingRecommendations", {
         "appLocation": args.appLocation,

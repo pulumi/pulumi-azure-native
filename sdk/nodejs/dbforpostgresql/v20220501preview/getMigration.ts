@@ -117,7 +117,7 @@ export interface GetMigrationResult {
 /**
  * Gets details of a migration.
  */
-export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationResult> {
+export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20220501preview:getMigration", {
         "migrationName": args.migrationName,

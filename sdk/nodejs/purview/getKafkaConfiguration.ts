@@ -89,7 +89,7 @@ export interface GetKafkaConfigurationResult {
  *
  * Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
  */
-export function getKafkaConfigurationOutput(args: GetKafkaConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaConfigurationResult> {
+export function getKafkaConfigurationOutput(args: GetKafkaConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKafkaConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:purview:getKafkaConfiguration", {
         "accountName": args.accountName,

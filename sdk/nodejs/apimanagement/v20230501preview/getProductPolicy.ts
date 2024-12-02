@@ -69,7 +69,7 @@ export interface GetProductPolicyResult {
 /**
  * Get the policy configuration at the Product level.
  */
-export function getProductPolicyOutput(args: GetProductPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductPolicyResult> {
+export function getProductPolicyOutput(args: GetProductPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProductPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:getProductPolicy", {
         "format": args.format,

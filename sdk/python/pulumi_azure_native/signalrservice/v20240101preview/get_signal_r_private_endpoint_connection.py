@@ -165,7 +165,7 @@ def get_signal_r_private_endpoint_connection(private_endpoint_connection_name: O
 def get_signal_r_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                                     resource_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRPrivateEndpointConnectionResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalRPrivateEndpointConnectionResult]:
     """
     Get the specified private endpoint connection
 
@@ -178,7 +178,7 @@ def get_signal_r_private_endpoint_connection_output(private_endpoint_connection_
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:signalrservice/v20240101preview:getSignalRPrivateEndpointConnection', __args__, opts=opts, typ=GetSignalRPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetSignalRPrivateEndpointConnectionResult(
         group_ids=pulumi.get(__response__, 'group_ids'),

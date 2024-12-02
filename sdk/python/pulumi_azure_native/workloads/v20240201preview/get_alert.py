@@ -204,7 +204,7 @@ def get_alert(alert_name: Optional[str] = None,
 def get_alert_output(alert_name: Optional[pulumi.Input[str]] = None,
                      monitor_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertResult]:
     """
     Gets properties of an alert for the specified subscription, resource group, SAP monitor name, and resource name.
 
@@ -217,7 +217,7 @@ def get_alert_output(alert_name: Optional[pulumi.Input[str]] = None,
     __args__['alertName'] = alert_name
     __args__['monitorName'] = monitor_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20240201preview:getAlert', __args__, opts=opts, typ=GetAlertResult)
     return __ret__.apply(lambda __response__: GetAlertResult(
         alert_rule_properties=pulumi.get(__response__, 'alert_rule_properties'),

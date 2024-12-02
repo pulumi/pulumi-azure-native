@@ -71,7 +71,7 @@ export interface GetHybridUseBenefitResult {
  * Gets a given plan ID
  * Azure REST API version: 2019-12-01.
  */
-export function getHybridUseBenefitOutput(args: GetHybridUseBenefitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridUseBenefitResult> {
+export function getHybridUseBenefitOutput(args: GetHybridUseBenefitOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridUseBenefitResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:softwareplan:getHybridUseBenefit", {
         "planId": args.planId,

@@ -71,7 +71,7 @@ export interface GetDashboardResult {
  *
  * Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
  */
-export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
+export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDashboardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portal:getDashboard", {
         "dashboardName": args.dashboardName,

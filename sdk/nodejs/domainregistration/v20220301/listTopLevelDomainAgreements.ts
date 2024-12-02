@@ -50,7 +50,7 @@ export interface ListTopLevelDomainAgreementsResult {
 /**
  * Description for Gets all legal agreements that user needs to accept before purchasing a domain.
  */
-export function listTopLevelDomainAgreementsOutput(args: ListTopLevelDomainAgreementsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopLevelDomainAgreementsResult> {
+export function listTopLevelDomainAgreementsOutput(args: ListTopLevelDomainAgreementsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListTopLevelDomainAgreementsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:domainregistration/v20220301:listTopLevelDomainAgreements", {
         "forTransfer": args.forTransfer,

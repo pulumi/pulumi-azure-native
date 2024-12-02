@@ -109,7 +109,7 @@ export interface GetManagedDatabaseSensitivityLabelResult {
 /**
  * Gets the sensitivity label of a given column
  */
-export function getManagedDatabaseSensitivityLabelOutput(args: GetManagedDatabaseSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedDatabaseSensitivityLabelResult> {
+export function getManagedDatabaseSensitivityLabelOutput(args: GetManagedDatabaseSensitivityLabelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedDatabaseSensitivityLabelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230201preview:getManagedDatabaseSensitivityLabel", {
         "columnName": args.columnName,

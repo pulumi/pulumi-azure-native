@@ -70,7 +70,7 @@ export interface GetHcxEnterpriseSiteResult {
 /**
  * Get a HcxEnterpriseSite
  */
-export function getHcxEnterpriseSiteOutput(args: GetHcxEnterpriseSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHcxEnterpriseSiteResult> {
+export function getHcxEnterpriseSiteOutput(args: GetHcxEnterpriseSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHcxEnterpriseSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getHcxEnterpriseSite", {
         "hcxEnterpriseSiteName": args.hcxEnterpriseSiteName,

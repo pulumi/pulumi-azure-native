@@ -80,7 +80,7 @@ export interface GetWebPubSubReplicaResult {
  *
  * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
-export function getWebPubSubReplicaOutput(args: GetWebPubSubReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubReplicaResult> {
+export function getWebPubSubReplicaOutput(args: GetWebPubSubReplicaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebPubSubReplicaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:webpubsub:getWebPubSubReplica", {
         "replicaName": args.replicaName,

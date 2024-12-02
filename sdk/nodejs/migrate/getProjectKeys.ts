@@ -44,7 +44,7 @@ export interface GetProjectKeysResult {
  * Gets the Log Analytics Workspace ID and Primary Key for the specified project.
  * Azure REST API version: 2018-02-02.
  */
-export function getProjectKeysOutput(args: GetProjectKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectKeysResult> {
+export function getProjectKeysOutput(args: GetProjectKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getProjectKeys", {
         "projectName": args.projectName,

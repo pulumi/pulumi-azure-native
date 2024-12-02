@@ -77,7 +77,7 @@ export interface GetProtectionIntentResult {
  * Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
  */
-export function getProtectionIntentOutput(args: GetProtectionIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionIntentResult> {
+export function getProtectionIntentOutput(args: GetProtectionIntentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectionIntentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230801:getProtectionIntent", {
         "fabricName": args.fabricName,

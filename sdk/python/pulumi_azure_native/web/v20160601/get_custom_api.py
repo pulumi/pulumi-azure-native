@@ -152,7 +152,7 @@ def get_custom_api(api_name: Optional[str] = None,
 def get_custom_api_output(api_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomApiResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomApiResult]:
     """
     Gets a custom API by name for a specific subscription and resource group
 
@@ -165,7 +165,7 @@ def get_custom_api_output(api_name: Optional[pulumi.Input[str]] = None,
     __args__['apiName'] = api_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20160601:getCustomApi', __args__, opts=opts, typ=GetCustomApiResult)
     return __ret__.apply(lambda __response__: GetCustomApiResult(
         etag=pulumi.get(__response__, 'etag'),

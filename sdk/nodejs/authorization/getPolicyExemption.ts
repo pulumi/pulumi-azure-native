@@ -91,7 +91,7 @@ export interface GetPolicyExemptionResult {
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
  * Azure REST API version: 2022-07-01-preview.
  */
-export function getPolicyExemptionOutput(args: GetPolicyExemptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyExemptionResult> {
+export function getPolicyExemptionOutput(args: GetPolicyExemptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyExemptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicyExemption", {
         "policyExemptionName": args.policyExemptionName,

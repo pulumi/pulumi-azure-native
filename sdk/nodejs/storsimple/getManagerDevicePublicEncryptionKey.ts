@@ -45,7 +45,7 @@ export interface GetManagerDevicePublicEncryptionKeyResult {
  * Returns the public encryption key of the device.
  * Azure REST API version: 2017-06-01.
  */
-export function getManagerDevicePublicEncryptionKeyOutput(args: GetManagerDevicePublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerDevicePublicEncryptionKeyResult> {
+export function getManagerDevicePublicEncryptionKeyOutput(args: GetManagerDevicePublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagerDevicePublicEncryptionKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storsimple:getManagerDevicePublicEncryptionKey", {
         "deviceName": args.deviceName,

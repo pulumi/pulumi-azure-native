@@ -72,7 +72,7 @@ export interface GetReplicationMigrationItemResult {
 /**
  * Migration item.
  */
-export function getReplicationMigrationItemOutput(args: GetReplicationMigrationItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationMigrationItemResult> {
+export function getReplicationMigrationItemOutput(args: GetReplicationMigrationItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationMigrationItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20230601:getReplicationMigrationItem", {
         "fabricName": args.fabricName,

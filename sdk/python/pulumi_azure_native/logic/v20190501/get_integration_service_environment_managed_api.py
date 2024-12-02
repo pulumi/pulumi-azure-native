@@ -295,7 +295,7 @@ def get_integration_service_environment_managed_api(api_name: Optional[str] = No
 def get_integration_service_environment_managed_api_output(api_name: Optional[pulumi.Input[str]] = None,
                                                            integration_service_environment_name: Optional[pulumi.Input[str]] = None,
                                                            resource_group: Optional[pulumi.Input[str]] = None,
-                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentManagedApiResult]:
+                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentManagedApiResult]:
     """
     Gets the integration service environment managed Api.
 
@@ -308,7 +308,7 @@ def get_integration_service_environment_managed_api_output(api_name: Optional[pu
     __args__['apiName'] = api_name
     __args__['integrationServiceEnvironmentName'] = integration_service_environment_name
     __args__['resourceGroup'] = resource_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20190501:getIntegrationServiceEnvironmentManagedApi', __args__, opts=opts, typ=GetIntegrationServiceEnvironmentManagedApiResult)
     return __ret__.apply(lambda __response__: GetIntegrationServiceEnvironmentManagedApiResult(
         api_definition_url=pulumi.get(__response__, 'api_definition_url'),

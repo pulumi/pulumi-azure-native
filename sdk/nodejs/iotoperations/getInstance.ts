@@ -75,7 +75,7 @@ export interface GetInstanceResult {
  *
  * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
  */
-export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperations:getInstance", {
         "instanceName": args.instanceName,

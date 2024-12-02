@@ -203,7 +203,7 @@ def get_prediction_model_status(hub_name: Optional[str] = None,
 def get_prediction_model_status_output(hub_name: Optional[pulumi.Input[str]] = None,
                                        prediction_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPredictionModelStatusResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPredictionModelStatusResult]:
     """
     Gets model status of the prediction.
 
@@ -216,7 +216,7 @@ def get_prediction_model_status_output(hub_name: Optional[pulumi.Input[str]] = N
     __args__['hubName'] = hub_name
     __args__['predictionName'] = prediction_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights/v20170426:getPredictionModelStatus', __args__, opts=opts, typ=GetPredictionModelStatusResult)
     return __ret__.apply(lambda __response__: GetPredictionModelStatusResult(
         message=pulumi.get(__response__, 'message'),

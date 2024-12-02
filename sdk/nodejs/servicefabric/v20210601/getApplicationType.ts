@@ -74,7 +74,7 @@ export interface GetApplicationTypeResult {
 /**
  * Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric cluster resource.
  */
-export function getApplicationTypeOutput(args: GetApplicationTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationTypeResult> {
+export function getApplicationTypeOutput(args: GetApplicationTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicefabric/v20210601:getApplicationType", {
         "applicationTypeName": args.applicationTypeName,

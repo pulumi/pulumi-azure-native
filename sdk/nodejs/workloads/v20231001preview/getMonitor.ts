@@ -105,7 +105,7 @@ export interface GetMonitorResult {
 /**
  * Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
  */
-export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
+export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getMonitor", {
         "monitorName": args.monitorName,

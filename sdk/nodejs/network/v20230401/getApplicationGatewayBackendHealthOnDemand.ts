@@ -90,7 +90,7 @@ export interface GetApplicationGatewayBackendHealthOnDemandResult {
 /**
  * Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
  */
-export function getApplicationGatewayBackendHealthOnDemandOutput(args: GetApplicationGatewayBackendHealthOnDemandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayBackendHealthOnDemandResult> {
+export function getApplicationGatewayBackendHealthOnDemandOutput(args: GetApplicationGatewayBackendHealthOnDemandOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationGatewayBackendHealthOnDemandResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230401:getApplicationGatewayBackendHealthOnDemand", {
         "applicationGatewayName": args.applicationGatewayName,

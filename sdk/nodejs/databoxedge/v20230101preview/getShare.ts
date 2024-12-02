@@ -98,7 +98,7 @@ export interface GetShareResult {
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
  */
-export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {
+export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230101preview:getShare", {
         "deviceName": args.deviceName,

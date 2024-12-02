@@ -74,7 +74,7 @@ export interface GetDataStoreResult {
 /**
  * This method gets the data store/repository by name.
  */
-export function getDataStoreOutput(args: GetDataStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataStoreResult> {
+export function getDataStoreOutput(args: GetDataStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybriddata/v20190601:getDataStore", {
         "dataManagerName": args.dataManagerName,

@@ -136,7 +136,7 @@ def get_api_policy_output(api_id: Optional[pulumi.Input[str]] = None,
                           policy_id: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           service_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiPolicyResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiPolicyResult]:
     """
     Get the policy configuration at the API level.
     Azure REST API version: 2022-08-01.
@@ -156,7 +156,7 @@ def get_api_policy_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__['policyId'] = policy_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiPolicy', __args__, opts=opts, typ=GetApiPolicyResult)
     return __ret__.apply(lambda __response__: GetApiPolicyResult(
         format=pulumi.get(__response__, 'format'),

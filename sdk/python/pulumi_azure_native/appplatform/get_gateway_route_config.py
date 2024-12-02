@@ -133,7 +133,7 @@ def get_gateway_route_config_output(gateway_name: Optional[pulumi.Input[str]] = 
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     route_config_name: Optional[pulumi.Input[str]] = None,
                                     service_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayRouteConfigResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayRouteConfigResult]:
     """
     Get the Spring Cloud Gateway route configs.
     Azure REST API version: 2023-05-01-preview.
@@ -151,7 +151,7 @@ def get_gateway_route_config_output(gateway_name: Optional[pulumi.Input[str]] = 
     __args__['resourceGroupName'] = resource_group_name
     __args__['routeConfigName'] = route_config_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appplatform:getGatewayRouteConfig', __args__, opts=opts, typ=GetGatewayRouteConfigResult)
     return __ret__.apply(lambda __response__: GetGatewayRouteConfigResult(
         id=pulumi.get(__response__, 'id'),

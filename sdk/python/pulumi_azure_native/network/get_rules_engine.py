@@ -127,7 +127,7 @@ def get_rules_engine(front_door_name: Optional[str] = None,
 def get_rules_engine_output(front_door_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             rules_engine_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRulesEngineResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulesEngineResult]:
     """
     Gets a Rules Engine Configuration with the specified name within the specified Front Door.
     Azure REST API version: 2021-06-01.
@@ -141,7 +141,7 @@ def get_rules_engine_output(front_door_name: Optional[pulumi.Input[str]] = None,
     __args__['frontDoorName'] = front_door_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['rulesEngineName'] = rules_engine_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getRulesEngine', __args__, opts=opts, typ=GetRulesEngineResult)
     return __ret__.apply(lambda __response__: GetRulesEngineResult(
         id=pulumi.get(__response__, 'id'),

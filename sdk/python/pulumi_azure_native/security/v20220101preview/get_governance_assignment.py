@@ -178,7 +178,7 @@ def get_governance_assignment(assessment_name: Optional[str] = None,
 def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[str]] = None,
                                      assignment_key: Optional[pulumi.Input[str]] = None,
                                      scope: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGovernanceAssignmentResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGovernanceAssignmentResult]:
     """
     Get a specific governanceAssignment for the requested scope by AssignmentKey
 
@@ -191,7 +191,7 @@ def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[str]
     __args__['assessmentName'] = assessment_name
     __args__['assignmentKey'] = assignment_key
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security/v20220101preview:getGovernanceAssignment', __args__, opts=opts, typ=GetGovernanceAssignmentResult)
     return __ret__.apply(lambda __response__: GetGovernanceAssignmentResult(
         additional_data=pulumi.get(__response__, 'additional_data'),

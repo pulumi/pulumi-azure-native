@@ -125,7 +125,7 @@ def get_notebook_workspace(account_name: Optional[str] = None,
 def get_notebook_workspace_output(account_name: Optional[pulumi.Input[str]] = None,
                                   notebook_workspace_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotebookWorkspaceResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotebookWorkspaceResult]:
     """
     Gets the notebook workspace for a Cosmos DB account.
 
@@ -138,7 +138,7 @@ def get_notebook_workspace_output(account_name: Optional[pulumi.Input[str]] = No
     __args__['accountName'] = account_name
     __args__['notebookWorkspaceName'] = notebook_workspace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20241115:getNotebookWorkspace', __args__, opts=opts, typ=GetNotebookWorkspaceResult)
     return __ret__.apply(lambda __response__: GetNotebookWorkspaceResult(
         id=pulumi.get(__response__, 'id'),

@@ -83,7 +83,7 @@ export interface GetKafkaConfigurationResult {
 /**
  * Gets the kafka configuration for the account
  */
-export function getKafkaConfigurationOutput(args: GetKafkaConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaConfigurationResult> {
+export function getKafkaConfigurationOutput(args: GetKafkaConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKafkaConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:purview/v20230501preview:getKafkaConfiguration", {
         "accountName": args.accountName,

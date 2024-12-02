@@ -102,7 +102,7 @@ export interface GetVcenterControllerResult {
 /**
  * Get a Vcenter
  */
-export function getVcenterControllerOutput(args: GetVcenterControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVcenterControllerResult> {
+export function getVcenterControllerOutput(args: GetVcenterControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVcenterControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getVcenterController", {
         "resourceGroupName": args.resourceGroupName,

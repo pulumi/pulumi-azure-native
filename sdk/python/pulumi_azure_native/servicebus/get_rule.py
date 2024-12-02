@@ -189,7 +189,7 @@ def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
                     rule_name: Optional[pulumi.Input[str]] = None,
                     subscription_name: Optional[pulumi.Input[str]] = None,
                     topic_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
     Retrieves the description for the specified rule.
     Azure REST API version: 2022-01-01-preview.
@@ -209,7 +209,7 @@ def get_rule_output(namespace_name: Optional[pulumi.Input[str]] = None,
     __args__['ruleName'] = rule_name
     __args__['subscriptionName'] = subscription_name
     __args__['topicName'] = topic_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicebus:getRule', __args__, opts=opts, typ=GetRuleResult)
     return __ret__.apply(lambda __response__: GetRuleResult(
         action=pulumi.get(__response__, 'action'),

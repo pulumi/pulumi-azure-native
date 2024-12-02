@@ -148,7 +148,7 @@ def get_route53_domains_domain_summary(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_route53_domains_domain_summary_output(name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoute53DomainsDomainSummaryResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoute53DomainsDomainSummaryResult]:
     """
     Get a Route53DomainsDomainSummary
 
@@ -159,7 +159,7 @@ def get_route53_domains_domain_summary_output(name: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:awsconnector/v20241201:getRoute53DomainsDomainSummary', __args__, opts=opts, typ=GetRoute53DomainsDomainSummaryResult)
     return __ret__.apply(lambda __response__: GetRoute53DomainsDomainSummaryResult(
         id=pulumi.get(__response__, 'id'),

@@ -70,7 +70,7 @@ export interface GetNetworkServiceDesignGroupResult {
 /**
  * Gets information about the specified networkServiceDesign group.
  */
-export function getNetworkServiceDesignGroupOutput(args: GetNetworkServiceDesignGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkServiceDesignGroupResult> {
+export function getNetworkServiceDesignGroupOutput(args: GetNetworkServiceDesignGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkServiceDesignGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20230901:getNetworkServiceDesignGroup", {
         "networkServiceDesignGroupName": args.networkServiceDesignGroupName,

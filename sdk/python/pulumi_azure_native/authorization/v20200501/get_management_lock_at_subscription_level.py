@@ -144,7 +144,7 @@ def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_management_lock_at_subscription_level_output(lock_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockAtSubscriptionLevelResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementLockAtSubscriptionLevelResult]:
     """
     Gets a management lock at the subscription level.
 
@@ -153,7 +153,7 @@ def get_management_lock_at_subscription_level_output(lock_name: Optional[pulumi.
     """
     __args__ = dict()
     __args__['lockName'] = lock_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20200501:getManagementLockAtSubscriptionLevel', __args__, opts=opts, typ=GetManagementLockAtSubscriptionLevelResult)
     return __ret__.apply(lambda __response__: GetManagementLockAtSubscriptionLevelResult(
         id=pulumi.get(__response__, 'id'),

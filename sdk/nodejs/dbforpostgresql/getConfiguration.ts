@@ -108,7 +108,7 @@ export interface GetConfigurationResult {
  *
  * Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
  */
-export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {
+export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql:getConfiguration", {
         "configurationName": args.configurationName,

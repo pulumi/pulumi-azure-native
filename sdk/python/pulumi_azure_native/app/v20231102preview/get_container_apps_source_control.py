@@ -167,7 +167,7 @@ def get_container_apps_source_control(container_app_name: Optional[str] = None,
 def get_container_apps_source_control_output(container_app_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              source_control_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppsSourceControlResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerAppsSourceControlResult]:
     """
     Container App SourceControl.
 
@@ -180,7 +180,7 @@ def get_container_apps_source_control_output(container_app_name: Optional[pulumi
     __args__['containerAppName'] = container_app_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sourceControlName'] = source_control_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20231102preview:getContainerAppsSourceControl', __args__, opts=opts, typ=GetContainerAppsSourceControlResult)
     return __ret__.apply(lambda __response__: GetContainerAppsSourceControlResult(
         branch=pulumi.get(__response__, 'branch'),

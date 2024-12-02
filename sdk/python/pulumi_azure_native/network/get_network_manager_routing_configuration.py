@@ -168,7 +168,7 @@ def get_network_manager_routing_configuration(configuration_name: Optional[str] 
 def get_network_manager_routing_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
                                                      network_manager_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerRoutingConfigurationResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkManagerRoutingConfigurationResult]:
     """
     Retrieves a network manager routing configuration.
     Azure REST API version: 2024-03-01.
@@ -184,7 +184,7 @@ def get_network_manager_routing_configuration_output(configuration_name: Optiona
     __args__['configurationName'] = configuration_name
     __args__['networkManagerName'] = network_manager_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkManagerRoutingConfiguration', __args__, opts=opts, typ=GetNetworkManagerRoutingConfigurationResult)
     return __ret__.apply(lambda __response__: GetNetworkManagerRoutingConfigurationResult(
         description=pulumi.get(__response__, 'description'),

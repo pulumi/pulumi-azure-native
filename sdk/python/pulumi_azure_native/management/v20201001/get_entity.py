@@ -126,7 +126,7 @@ def get_entity_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
                       skiptoken: Optional[pulumi.Input[Optional[str]]] = None,
                       top: Optional[pulumi.Input[Optional[int]]] = None,
                       view: Optional[pulumi.Input[Optional[str]]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityResult]:
     """
     List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
 
@@ -155,7 +155,7 @@ def get_entity_output(filter: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['skiptoken'] = skiptoken
     __args__['top'] = top
     __args__['view'] = view
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:management/v20201001:getEntity', __args__, opts=opts, typ=GetEntityResult)
     return __ret__.apply(lambda __response__: GetEntityResult(
         count=pulumi.get(__response__, 'count'),

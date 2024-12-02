@@ -71,7 +71,7 @@ export interface GetSqlDiscoverySiteDataSourceControllerResult {
 /**
  * Get a SqlDiscoverySiteDataSource
  */
-export function getSqlDiscoverySiteDataSourceControllerOutput(args: GetSqlDiscoverySiteDataSourceControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlDiscoverySiteDataSourceControllerResult> {
+export function getSqlDiscoverySiteDataSourceControllerOutput(args: GetSqlDiscoverySiteDataSourceControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlDiscoverySiteDataSourceControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20231001preview:getSqlDiscoverySiteDataSourceController", {
         "discoverySiteDataSourceName": args.discoverySiteDataSourceName,

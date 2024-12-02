@@ -47,7 +47,7 @@ export interface GetTrafficManagerUserMetricsKeyResult {
  *
  * Other available API versions: 2017-09-01-preview, 2022-04-01-preview.
  */
-export function getTrafficManagerUserMetricsKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficManagerUserMetricsKeyResult> {
+export function getTrafficManagerUserMetricsKeyOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficManagerUserMetricsKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getTrafficManagerUserMetricsKey", {
     }, opts);

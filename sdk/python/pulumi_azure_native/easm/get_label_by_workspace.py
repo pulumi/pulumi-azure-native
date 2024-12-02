@@ -153,7 +153,7 @@ def get_label_by_workspace(label_name: Optional[str] = None,
 def get_label_by_workspace_output(label_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   workspace_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabelByWorkspaceResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabelByWorkspaceResult]:
     """
     Returns a label in the given workspace.
     Azure REST API version: 2023-04-01-preview.
@@ -167,7 +167,7 @@ def get_label_by_workspace_output(label_name: Optional[pulumi.Input[str]] = None
     __args__['labelName'] = label_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:easm:getLabelByWorkspace', __args__, opts=opts, typ=GetLabelByWorkspaceResult)
     return __ret__.apply(lambda __response__: GetLabelByWorkspaceResult(
         color=pulumi.get(__response__, 'color'),

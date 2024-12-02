@@ -127,7 +127,7 @@ def get_web_app_ftp_allowed_slot(name: Optional[str] = None,
 def get_web_app_ftp_allowed_slot_output(name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         slot: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppFtpAllowedSlotResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppFtpAllowedSlotResult]:
     """
     Description for Returns whether FTP is allowed on the site or not.
     Azure REST API version: 2023-12-01.
@@ -142,7 +142,7 @@ def get_web_app_ftp_allowed_slot_output(name: Optional[pulumi.Input[str]] = None
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppFtpAllowedSlot', __args__, opts=opts, typ=GetWebAppFtpAllowedSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppFtpAllowedSlotResult(
         allow=pulumi.get(__response__, 'allow'),

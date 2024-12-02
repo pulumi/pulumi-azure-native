@@ -102,7 +102,7 @@ export interface GetClusterManagerResult {
 /**
  * Get the properties of the provided cluster manager.
  */
-export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterManagerResult> {
+export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240701:getClusterManager", {
         "clusterManagerName": args.clusterManagerName,

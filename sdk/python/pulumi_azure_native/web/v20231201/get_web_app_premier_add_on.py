@@ -203,7 +203,7 @@ def get_web_app_premier_add_on(name: Optional[str] = None,
 def get_web_app_premier_add_on_output(name: Optional[pulumi.Input[str]] = None,
                                       premier_add_on_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPremierAddOnResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppPremierAddOnResult]:
     """
     Description for Gets a named add-on of an app.
 
@@ -216,7 +216,7 @@ def get_web_app_premier_add_on_output(name: Optional[pulumi.Input[str]] = None,
     __args__['name'] = name
     __args__['premierAddOnName'] = premier_add_on_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20231201:getWebAppPremierAddOn', __args__, opts=opts, typ=GetWebAppPremierAddOnResult)
     return __ret__.apply(lambda __response__: GetWebAppPremierAddOnResult(
         id=pulumi.get(__response__, 'id'),

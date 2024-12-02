@@ -252,7 +252,7 @@ def get_l3_isolation_domain(l3_isolation_domain_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_l3_isolation_domain_output(l3_isolation_domain_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL3IsolationDomainResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL3IsolationDomainResult]:
     """
     Retrieves details of this L3 Isolation Domain.
 
@@ -263,7 +263,7 @@ def get_l3_isolation_domain_output(l3_isolation_domain_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['l3IsolationDomainName'] = l3_isolation_domain_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric/v20230615:getL3IsolationDomain', __args__, opts=opts, typ=GetL3IsolationDomainResult)
     return __ret__.apply(lambda __response__: GetL3IsolationDomainResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),

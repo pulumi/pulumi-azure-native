@@ -214,7 +214,7 @@ def get_cloud_connection(cloud_connection_name: Optional[str] = None,
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
 def get_cloud_connection_output(cloud_connection_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudConnectionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudConnectionResult]:
     """
     Gets the specified cloud connection in a specified resource group.
     Azure REST API version: 2023-01-01-preview.
@@ -226,7 +226,7 @@ def get_cloud_connection_output(cloud_connection_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['cloudConnectionName'] = cloud_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcloud:getCloudConnection', __args__, opts=opts, typ=GetCloudConnectionResult)
     return __ret__.apply(lambda __response__: GetCloudConnectionResult(
         cloud_connector=pulumi.get(__response__, 'cloud_connector'),

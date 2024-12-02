@@ -67,7 +67,7 @@ export interface GetEnterpriseMccCustomerResult {
  * Gets the enterprise mcc customer resource information using this get call
  * Azure REST API version: 2023-05-01-preview.
  */
-export function getEnterpriseMccCustomerOutput(args: GetEnterpriseMccCustomerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseMccCustomerResult> {
+export function getEnterpriseMccCustomerOutput(args: GetEnterpriseMccCustomerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterpriseMccCustomerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedcache:getEnterpriseMccCustomer", {
         "customerResourceName": args.customerResourceName,

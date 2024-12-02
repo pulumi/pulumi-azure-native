@@ -103,7 +103,7 @@ export interface GetAttestationAtResourceResult {
  *
  * Other available API versions: 2024-10-01.
  */
-export function getAttestationAtResourceOutput(args: GetAttestationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttestationAtResourceResult> {
+export function getAttestationAtResourceOutput(args: GetAttestationAtResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttestationAtResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights:getAttestationAtResource", {
         "attestationName": args.attestationName,

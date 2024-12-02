@@ -65,7 +65,7 @@ export interface GetNetworkFirewallRuleGroupResult {
 /**
  * Get a NetworkFirewallRuleGroup
  */
-export function getNetworkFirewallRuleGroupOutput(args: GetNetworkFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFirewallRuleGroupResult> {
+export function getNetworkFirewallRuleGroupOutput(args: GetNetworkFirewallRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFirewallRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getNetworkFirewallRuleGroup", {
         "name": args.name,

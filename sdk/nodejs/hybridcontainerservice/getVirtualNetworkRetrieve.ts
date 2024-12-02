@@ -68,7 +68,7 @@ export interface GetVirtualNetworkRetrieveResult {
  * Gets the Hybrid AKS virtual network
  * Azure REST API version: 2022-09-01-preview.
  */
-export function getVirtualNetworkRetrieveOutput(args: GetVirtualNetworkRetrieveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRetrieveResult> {
+export function getVirtualNetworkRetrieveOutput(args: GetVirtualNetworkRetrieveOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkRetrieveResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice:getVirtualNetworkRetrieve", {
         "resourceGroupName": args.resourceGroupName,

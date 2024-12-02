@@ -79,7 +79,7 @@ export interface GetPostRuleCountersResult {
 /**
  * Get counters
  */
-export function getPostRuleCountersOutput(args: GetPostRuleCountersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPostRuleCountersResult> {
+export function getPostRuleCountersOutput(args: GetPostRuleCountersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPostRuleCountersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20231010preview:getPostRuleCounters", {
         "firewallName": args.firewallName,

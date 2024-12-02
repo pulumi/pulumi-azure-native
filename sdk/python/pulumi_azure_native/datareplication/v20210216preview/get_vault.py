@@ -145,7 +145,7 @@ def get_vault(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      vault_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVaultResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVaultResult]:
     """
     Gets the details of the vault.
 
@@ -156,7 +156,7 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datareplication/v20210216preview:getVault', __args__, opts=opts, typ=GetVaultResult)
     return __ret__.apply(lambda __response__: GetVaultResult(
         id=pulumi.get(__response__, 'id'),

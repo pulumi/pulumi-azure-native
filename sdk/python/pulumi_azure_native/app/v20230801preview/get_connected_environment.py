@@ -226,7 +226,7 @@ def get_connected_environment(connected_environment_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_connected_environment_output(connected_environment_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedEnvironmentResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedEnvironmentResult]:
     """
     Get the properties of an connectedEnvironment.
 
@@ -237,7 +237,7 @@ def get_connected_environment_output(connected_environment_name: Optional[pulumi
     __args__ = dict()
     __args__['connectedEnvironmentName'] = connected_environment_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230801preview:getConnectedEnvironment', __args__, opts=opts, typ=GetConnectedEnvironmentResult)
     return __ret__.apply(lambda __response__: GetConnectedEnvironmentResult(
         custom_domain_configuration=pulumi.get(__response__, 'custom_domain_configuration'),

@@ -83,7 +83,7 @@ export interface GetActivityLogAlertResult {
  *
  * Other available API versions: 2017-04-01, 2023-01-01-preview.
  */
-export function getActivityLogAlertOutput(args: GetActivityLogAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityLogAlertResult> {
+export function getActivityLogAlertOutput(args: GetActivityLogAlertOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActivityLogAlertResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getActivityLogAlert", {
         "activityLogAlertName": args.activityLogAlertName,

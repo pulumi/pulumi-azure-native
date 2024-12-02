@@ -246,7 +246,7 @@ def get_relationship_link(hub_name: Optional[str] = None,
 def get_relationship_link_output(hub_name: Optional[pulumi.Input[str]] = None,
                                  relationship_link_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRelationshipLinkResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRelationshipLinkResult]:
     """
     Gets information about the specified relationship Link.
     Azure REST API version: 2017-04-26.
@@ -262,7 +262,7 @@ def get_relationship_link_output(hub_name: Optional[pulumi.Input[str]] = None,
     __args__['hubName'] = hub_name
     __args__['relationshipLinkName'] = relationship_link_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getRelationshipLink', __args__, opts=opts, typ=GetRelationshipLinkResult)
     return __ret__.apply(lambda __response__: GetRelationshipLinkResult(
         description=pulumi.get(__response__, 'description'),

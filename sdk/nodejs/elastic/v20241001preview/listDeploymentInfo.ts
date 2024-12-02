@@ -65,7 +65,7 @@ export interface ListDeploymentInfoResult {
 /**
  * The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
  */
-export function listDeploymentInfoOutput(args: ListDeploymentInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeploymentInfoResult> {
+export function listDeploymentInfoOutput(args: ListDeploymentInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDeploymentInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20241001preview:listDeploymentInfo", {
         "monitorName": args.monitorName,

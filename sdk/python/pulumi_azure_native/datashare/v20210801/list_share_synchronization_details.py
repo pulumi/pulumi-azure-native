@@ -135,7 +135,7 @@ def list_share_synchronization_details_output(account_name: Optional[pulumi.Inpu
                                               start_time: Optional[pulumi.Input[Optional[str]]] = None,
                                               status: Optional[pulumi.Input[Optional[str]]] = None,
                                               synchronization_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListShareSynchronizationDetailsResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListShareSynchronizationDetailsResult]:
     """
     List synchronization details
 
@@ -172,7 +172,7 @@ def list_share_synchronization_details_output(account_name: Optional[pulumi.Inpu
     __args__['startTime'] = start_time
     __args__['status'] = status
     __args__['synchronizationId'] = synchronization_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20210801:listShareSynchronizationDetails', __args__, opts=opts, typ=ListShareSynchronizationDetailsResult)
     return __ret__.apply(lambda __response__: ListShareSynchronizationDetailsResult(
         next_link=pulumi.get(__response__, 'next_link'),

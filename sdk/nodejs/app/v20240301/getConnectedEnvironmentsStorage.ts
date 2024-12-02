@@ -62,7 +62,7 @@ export interface GetConnectedEnvironmentsStorageResult {
 /**
  * Get storage for a connectedEnvironment.
  */
-export function getConnectedEnvironmentsStorageOutput(args: GetConnectedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedEnvironmentsStorageResult> {
+export function getConnectedEnvironmentsStorageOutput(args: GetConnectedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectedEnvironmentsStorageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240301:getConnectedEnvironmentsStorage", {
         "connectedEnvironmentName": args.connectedEnvironmentName,

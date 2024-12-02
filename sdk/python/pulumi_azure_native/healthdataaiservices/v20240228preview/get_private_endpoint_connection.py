@@ -126,7 +126,7 @@ def get_private_endpoint_connection(deid_service_name: Optional[str] = None,
 def get_private_endpoint_connection_output(deid_service_name: Optional[pulumi.Input[str]] = None,
                                            private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get a specific private connection
 
@@ -139,7 +139,7 @@ def get_private_endpoint_connection_output(deid_service_name: Optional[pulumi.In
     __args__['deidServiceName'] = deid_service_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthdataaiservices/v20240228preview:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionResult(
         id=pulumi.get(__response__, 'id'),

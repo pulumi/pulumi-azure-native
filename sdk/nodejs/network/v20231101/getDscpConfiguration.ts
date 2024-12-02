@@ -105,7 +105,7 @@ export interface GetDscpConfigurationResult {
 /**
  * Gets a DSCP Configuration.
  */
-export function getDscpConfigurationOutput(args: GetDscpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDscpConfigurationResult> {
+export function getDscpConfigurationOutput(args: GetDscpConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDscpConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getDscpConfiguration", {
         "dscpConfigurationName": args.dscpConfigurationName,

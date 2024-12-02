@@ -70,7 +70,7 @@ export interface GetWorkloadDeploymentResult {
  * Gets the details of the workload deployment.
  * Azure REST API version: 2022-05-01-preview.
  */
-export function getWorkloadDeploymentOutput(args: GetWorkloadDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadDeploymentResult> {
+export function getWorkloadDeploymentOutput(args: GetWorkloadDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getWorkloadDeployment", {
         "modernizeProjectName": args.modernizeProjectName,

@@ -71,7 +71,7 @@ def get_lab_account_regional_availability(lab_account_name: Optional[str] = None
         regional_availability=pulumi.get(__ret__, 'regional_availability'))
 def get_lab_account_regional_availability_output(lab_account_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabAccountRegionalAvailabilityResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabAccountRegionalAvailabilityResult]:
     """
     Get regional availability information for each size category configured under a lab account
     Azure REST API version: 2018-10-15.
@@ -83,7 +83,7 @@ def get_lab_account_regional_availability_output(lab_account_name: Optional[pulu
     __args__ = dict()
     __args__['labAccountName'] = lab_account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getLabAccountRegionalAvailability', __args__, opts=opts, typ=GetLabAccountRegionalAvailabilityResult)
     return __ret__.apply(lambda __response__: GetLabAccountRegionalAvailabilityResult(
         regional_availability=pulumi.get(__response__, 'regional_availability')))

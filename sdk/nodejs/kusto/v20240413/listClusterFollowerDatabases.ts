@@ -41,7 +41,7 @@ export interface ListClusterFollowerDatabasesResult {
 /**
  * Returns a list of databases that are owned by this cluster and were followed by another cluster.
  */
-export function listClusterFollowerDatabasesOutput(args: ListClusterFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterFollowerDatabasesResult> {
+export function listClusterFollowerDatabasesOutput(args: ListClusterFollowerDatabasesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListClusterFollowerDatabasesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto/v20240413:listClusterFollowerDatabases", {
         "clusterName": args.clusterName,

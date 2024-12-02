@@ -165,7 +165,7 @@ def get_management_lock_at_resource_level_output(lock_name: Optional[pulumi.Inpu
                                                  resource_name: Optional[pulumi.Input[str]] = None,
                                                  resource_provider_namespace: Optional[pulumi.Input[str]] = None,
                                                  resource_type: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementLockAtResourceLevelResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementLockAtResourceLevelResult]:
     """
     Get the management lock of a resource or any level below resource.
     Azure REST API version: 2020-05-01.
@@ -185,7 +185,7 @@ def get_management_lock_at_resource_level_output(lock_name: Optional[pulumi.Inpu
     __args__['resourceName'] = resource_name
     __args__['resourceProviderNamespace'] = resource_provider_namespace
     __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getManagementLockAtResourceLevel', __args__, opts=opts, typ=GetManagementLockAtResourceLevelResult)
     return __ret__.apply(lambda __response__: GetManagementLockAtResourceLevelResult(
         id=pulumi.get(__response__, 'id'),

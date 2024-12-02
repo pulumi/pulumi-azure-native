@@ -92,7 +92,7 @@ export interface GetHypervHostControllerResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getHypervHostControllerOutput(args: GetHypervHostControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervHostControllerResult> {
+export function getHypervHostControllerOutput(args: GetHypervHostControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHypervHostControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure:getHypervHostController", {
         "hostName": args.hostName,

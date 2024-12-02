@@ -74,7 +74,7 @@ export interface GetManagementAssociationResult {
  * Retrieves the user ManagementAssociation.
  * Azure REST API version: 2015-11-01-preview.
  */
-export function getManagementAssociationOutput(args: GetManagementAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementAssociationResult> {
+export function getManagementAssociationOutput(args: GetManagementAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationsmanagement:getManagementAssociation", {
         "managementAssociationName": args.managementAssociationName,

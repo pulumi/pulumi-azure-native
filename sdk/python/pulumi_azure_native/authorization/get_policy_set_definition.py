@@ -199,7 +199,7 @@ def get_policy_set_definition(policy_set_definition_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_policy_set_definition_output(policy_set_definition_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionResult]:
     """
     This operation retrieves the policy set definition in the given subscription with the given name.
     Azure REST API version: 2021-06-01.
@@ -211,7 +211,7 @@ def get_policy_set_definition_output(policy_set_definition_name: Optional[pulumi
     """
     __args__ = dict()
     __args__['policySetDefinitionName'] = policy_set_definition_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getPolicySetDefinition', __args__, opts=opts, typ=GetPolicySetDefinitionResult)
     return __ret__.apply(lambda __response__: GetPolicySetDefinitionResult(
         description=pulumi.get(__response__, 'description'),

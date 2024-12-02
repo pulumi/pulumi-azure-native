@@ -106,7 +106,7 @@ export interface GetBlobDataSetMappingResult {
  * Get a DataSetMapping in a shareSubscription
  * Azure REST API version: 2021-08-01.
  */
-export function getBlobDataSetMappingOutput(args: GetBlobDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlobDataSetMappingResult> {
+export function getBlobDataSetMappingOutput(args: GetBlobDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:getBlobDataSetMapping", {
         "accountName": args.accountName,

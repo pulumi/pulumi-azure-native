@@ -64,7 +64,7 @@ export interface GetReportResult {
 /**
  * Gets the report for a subscription by report name.
  */
-export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportResult> {
+export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20180801preview:getReport", {
         "reportName": args.reportName,

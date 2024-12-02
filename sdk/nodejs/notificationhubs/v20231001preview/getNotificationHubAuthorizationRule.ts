@@ -109,7 +109,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
 /**
  * Response for POST requests that return single SharedAccessAuthorizationRule.
  */
-export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
+export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:notificationhubs/v20231001preview:getNotificationHubAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

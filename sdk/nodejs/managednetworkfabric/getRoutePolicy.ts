@@ -79,7 +79,7 @@ export interface GetRoutePolicyResult {
  *
  * Other available API versions: 2023-06-15.
  */
-export function getRoutePolicyOutput(args: GetRoutePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutePolicyResult> {
+export function getRoutePolicyOutput(args: GetRoutePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoutePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getRoutePolicy", {
         "resourceGroupName": args.resourceGroupName,

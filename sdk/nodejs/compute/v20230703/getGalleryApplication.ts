@@ -90,7 +90,7 @@ export interface GetGalleryApplicationResult {
 /**
  * Retrieves information about a gallery Application Definition.
  */
-export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryApplicationResult> {
+export function getGalleryApplicationOutput(args: GetGalleryApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20230703:getGalleryApplication", {
         "galleryApplicationName": args.galleryApplicationName,

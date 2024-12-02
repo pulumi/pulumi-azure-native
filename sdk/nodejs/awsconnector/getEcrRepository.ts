@@ -67,7 +67,7 @@ export interface GetEcrRepositoryResult {
  * Get a EcrRepository
  * Azure REST API version: 2024-12-01.
  */
-export function getEcrRepositoryOutput(args: GetEcrRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEcrRepositoryResult> {
+export function getEcrRepositoryOutput(args: GetEcrRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEcrRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEcrRepository", {
         "name": args.name,

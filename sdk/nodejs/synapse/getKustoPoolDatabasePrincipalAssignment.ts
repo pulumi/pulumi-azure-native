@@ -102,7 +102,7 @@ export interface GetKustoPoolDatabasePrincipalAssignmentResult {
  * Gets a Kusto pool database principalAssignment.
  * Azure REST API version: 2021-06-01-preview.
  */
-export function getKustoPoolDatabasePrincipalAssignmentOutput(args: GetKustoPoolDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolDatabasePrincipalAssignmentResult> {
+export function getKustoPoolDatabasePrincipalAssignmentOutput(args: GetKustoPoolDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKustoPoolDatabasePrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getKustoPoolDatabasePrincipalAssignment", {
         "databaseName": args.databaseName,

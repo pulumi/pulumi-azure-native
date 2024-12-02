@@ -126,7 +126,7 @@ def get_active_directory_connector(active_directory_connector_name: Optional[str
 def get_active_directory_connector_output(active_directory_connector_name: Optional[pulumi.Input[str]] = None,
                                           data_controller_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActiveDirectoryConnectorResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActiveDirectoryConnectorResult]:
     """
     Retrieves an Active Directory connector resource
 
@@ -139,7 +139,7 @@ def get_active_directory_connector_output(active_directory_connector_name: Optio
     __args__['activeDirectoryConnectorName'] = active_directory_connector_name
     __args__['dataControllerName'] = data_controller_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata/v20240101:getActiveDirectoryConnector', __args__, opts=opts, typ=GetActiveDirectoryConnectorResult)
     return __ret__.apply(lambda __response__: GetActiveDirectoryConnectorResult(
         id=pulumi.get(__response__, 'id'),

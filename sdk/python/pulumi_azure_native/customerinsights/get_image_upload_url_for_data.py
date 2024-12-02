@@ -108,7 +108,7 @@ def get_image_upload_url_for_data_output(entity_type: Optional[pulumi.Input[Opti
                                          hub_name: Optional[pulumi.Input[str]] = None,
                                          relative_path: Optional[pulumi.Input[Optional[str]]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageUploadUrlForDataResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageUploadUrlForDataResult]:
     """
     Gets data image upload URL.
     Azure REST API version: 2017-04-26.
@@ -126,7 +126,7 @@ def get_image_upload_url_for_data_output(entity_type: Optional[pulumi.Input[Opti
     __args__['hubName'] = hub_name
     __args__['relativePath'] = relative_path
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getImageUploadUrlForData', __args__, opts=opts, typ=GetImageUploadUrlForDataResult)
     return __ret__.apply(lambda __response__: GetImageUploadUrlForDataResult(
         content_url=pulumi.get(__response__, 'content_url'),

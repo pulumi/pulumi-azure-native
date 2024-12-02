@@ -80,7 +80,7 @@ export interface GetProviderInstanceResult {
  *
  * Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
  */
-export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProviderInstanceResult> {
+export function getProviderInstanceOutput(args: GetProviderInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProviderInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads:getProviderInstance", {
         "monitorName": args.monitorName,

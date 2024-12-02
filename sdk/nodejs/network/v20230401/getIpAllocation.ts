@@ -94,7 +94,7 @@ export interface GetIpAllocationResult {
 /**
  * Gets the specified IpAllocation by resource group.
  */
-export function getIpAllocationOutput(args: GetIpAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAllocationResult> {
+export function getIpAllocationOutput(args: GetIpAllocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpAllocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230401:getIpAllocation", {
         "expand": args.expand,

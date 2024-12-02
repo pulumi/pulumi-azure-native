@@ -87,7 +87,7 @@ export interface GetEndpointResult {
  *
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */
-export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
+export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity:getEndpoint", {
         "endpointName": args.endpointName,

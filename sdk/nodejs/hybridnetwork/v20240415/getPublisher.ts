@@ -69,7 +69,7 @@ export interface GetPublisherResult {
 /**
  * Gets information about the specified publisher.
  */
-export function getPublisherOutput(args: GetPublisherOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublisherResult> {
+export function getPublisherOutput(args: GetPublisherOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublisherResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20240415:getPublisher", {
         "publisherName": args.publisherName,

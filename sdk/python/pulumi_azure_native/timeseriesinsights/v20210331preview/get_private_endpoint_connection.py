@@ -152,7 +152,7 @@ def get_private_endpoint_connection(environment_name: Optional[str] = None,
 def get_private_endpoint_connection_output(environment_name: Optional[pulumi.Input[str]] = None,
                                            private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the details of the private endpoint connection of the environment in the given resource group.
 
@@ -165,7 +165,7 @@ def get_private_endpoint_connection_output(environment_name: Optional[pulumi.Inp
     __args__['environmentName'] = environment_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:timeseriesinsights/v20210331preview:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionResult(
         group_ids=pulumi.get(__response__, 'group_ids'),

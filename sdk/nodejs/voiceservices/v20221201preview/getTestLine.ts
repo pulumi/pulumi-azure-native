@@ -78,7 +78,7 @@ export interface GetTestLineResult {
 /**
  * Get a TestLine
  */
-export function getTestLineOutput(args: GetTestLineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestLineResult> {
+export function getTestLineOutput(args: GetTestLineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestLineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:voiceservices/v20221201preview:getTestLine", {
         "communicationsGatewayName": args.communicationsGatewayName,

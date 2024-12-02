@@ -239,7 +239,7 @@ def get_jit_request(jit_request_name: Optional[str] = None,
         updated_by=pulumi.get(__ret__, 'updated_by'))
 def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJitRequestResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJitRequestResult]:
     """
     Gets the JIT request.
 
@@ -250,7 +250,7 @@ def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['jitRequestName'] = jit_request_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:solutions/v20231201preview:getJitRequest', __args__, opts=opts, typ=GetJitRequestResult)
     return __ret__.apply(lambda __response__: GetJitRequestResult(
         application_resource_id=pulumi.get(__response__, 'application_resource_id'),

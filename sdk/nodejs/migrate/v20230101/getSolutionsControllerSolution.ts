@@ -62,7 +62,7 @@ export interface GetSolutionsControllerSolutionResult {
 /**
  * Solution REST Resource.
  */
-export function getSolutionsControllerSolutionOutput(args: GetSolutionsControllerSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionsControllerSolutionResult> {
+export function getSolutionsControllerSolutionOutput(args: GetSolutionsControllerSolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionsControllerSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20230101:getSolutionsControllerSolution", {
         "migrateProjectName": args.migrateProjectName,

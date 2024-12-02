@@ -77,7 +77,7 @@ export interface GetQueueAuthorizationRuleResult {
  *
  * Other available API versions: 2014-09-01, 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
  */
-export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
+export function getQueueAuthorizationRuleOutput(args: GetQueueAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus:getQueueAuthorizationRule", {
         "authorizationRuleName": args.authorizationRuleName,

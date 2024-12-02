@@ -64,7 +64,7 @@ export interface GetPartnerConfigurationResult {
 /**
  * Get properties of a partner configuration.
  */
-export function getPartnerConfigurationOutput(args: GetPartnerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerConfigurationResult> {
+export function getPartnerConfigurationOutput(args: GetPartnerConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20231215preview:getPartnerConfiguration", {
         "resourceGroupName": args.resourceGroupName,

@@ -65,7 +65,7 @@ export interface GetEnterpriseKnowledgeGraphResult {
 /**
  * Returns a EnterpriseKnowledgeGraph service specified by the parameters.
  */
-export function getEnterpriseKnowledgeGraphOutput(args: GetEnterpriseKnowledgeGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseKnowledgeGraphResult> {
+export function getEnterpriseKnowledgeGraphOutput(args: GetEnterpriseKnowledgeGraphOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnterpriseKnowledgeGraphResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph", {
         "resourceGroupName": args.resourceGroupName,

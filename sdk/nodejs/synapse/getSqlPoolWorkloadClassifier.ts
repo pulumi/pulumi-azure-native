@@ -91,7 +91,7 @@ export interface GetSqlPoolWorkloadClassifierResult {
  *
  * Other available API versions: 2021-06-01-preview.
  */
-export function getSqlPoolWorkloadClassifierOutput(args: GetSqlPoolWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolWorkloadClassifierResult> {
+export function getSqlPoolWorkloadClassifierOutput(args: GetSqlPoolWorkloadClassifierOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlPoolWorkloadClassifierResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getSqlPoolWorkloadClassifier", {
         "resourceGroupName": args.resourceGroupName,

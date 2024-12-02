@@ -356,7 +356,7 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_express_route_circuit_output(circuit_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCircuitResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteCircuitResult]:
     """
     Gets information about the specified express route circuit.
 
@@ -367,7 +367,7 @@ def get_express_route_circuit_output(circuit_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['circuitName'] = circuit_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:getExpressRouteCircuit', __args__, opts=opts, typ=GetExpressRouteCircuitResult)
     return __ret__.apply(lambda __response__: GetExpressRouteCircuitResult(
         allow_classic_operations=pulumi.get(__response__, 'allow_classic_operations'),

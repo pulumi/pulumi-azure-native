@@ -180,7 +180,7 @@ def get_configuration(configuration_name: Optional[str] = None,
 def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              server_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Gets information about a configuration of server.
     Azure REST API version: 2018-06-01.
@@ -196,7 +196,7 @@ def get_configuration_output(configuration_name: Optional[pulumi.Input[str]] = N
     __args__['configurationName'] = configuration_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbformariadb:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
     return __ret__.apply(lambda __response__: GetConfigurationResult(
         allowed_values=pulumi.get(__response__, 'allowed_values'),

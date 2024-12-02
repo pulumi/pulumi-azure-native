@@ -92,7 +92,7 @@ export interface GetPipelineResult {
  * Get a Pipeline
  * Azure REST API version: 2023-10-04-preview.
  */
-export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
+export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsdataprocessor:getPipeline", {
         "instanceName": args.instanceName,

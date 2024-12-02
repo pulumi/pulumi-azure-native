@@ -77,7 +77,7 @@ export interface ListEndpointCredentialsResult {
  *
  * Other available API versions: 2022-05-01-preview, 2024-12-01.
  */
-export function listEndpointCredentialsOutput(args: ListEndpointCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointCredentialsResult> {
+export function listEndpointCredentialsOutput(args: ListEndpointCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity:listEndpointCredentials", {
         "endpointName": args.endpointName,

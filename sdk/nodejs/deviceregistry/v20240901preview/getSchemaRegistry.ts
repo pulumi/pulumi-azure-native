@@ -89,7 +89,7 @@ export interface GetSchemaRegistryResult {
 /**
  * Get a SchemaRegistry
  */
-export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaRegistryResult> {
+export function getSchemaRegistryOutput(args: GetSchemaRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:deviceregistry/v20240901preview:getSchemaRegistry", {
         "resourceGroupName": args.resourceGroupName,

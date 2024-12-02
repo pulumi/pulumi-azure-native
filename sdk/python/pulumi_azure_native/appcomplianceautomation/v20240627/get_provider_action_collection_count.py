@@ -65,7 +65,7 @@ def get_provider_action_collection_count(type: Optional[str] = None,
     return AwaitableGetProviderActionCollectionCountResult(
         count=pulumi.get(__ret__, 'count'))
 def get_provider_action_collection_count_output(type: Optional[pulumi.Input[Optional[str]]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderActionCollectionCountResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderActionCollectionCountResult]:
     """
     Get the count of reports.
 
@@ -74,7 +74,7 @@ def get_provider_action_collection_count_output(type: Optional[pulumi.Input[Opti
     """
     __args__ = dict()
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation/v20240627:getProviderActionCollectionCount', __args__, opts=opts, typ=GetProviderActionCollectionCountResult)
     return __ret__.apply(lambda __response__: GetProviderActionCollectionCountResult(
         count=pulumi.get(__response__, 'count')))

@@ -70,7 +70,7 @@ export interface GetExtensionResult {
 /**
  * Gets the details of an extension associated with a Visual Studio Team Services account resource.
  */
-export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
+export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:visualstudio/v20171101preview:getExtension", {
         "accountResourceName": args.accountResourceName,

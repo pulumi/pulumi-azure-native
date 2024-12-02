@@ -74,7 +74,7 @@ export interface GetApplicationGroupResult {
 /**
  * Gets an ApplicationGroup for a Namespace.
  */
-export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
+export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub/v20221001preview:getApplicationGroup", {
         "applicationGroupName": args.applicationGroupName,

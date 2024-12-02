@@ -65,7 +65,7 @@ export interface ListFeaturesetVersionFeaturesResult {
 /**
  * A paginated list of Feature entities.
  */
-export function listFeaturesetVersionFeaturesOutput(args: ListFeaturesetVersionFeaturesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeaturesetVersionFeaturesResult> {
+export function listFeaturesetVersionFeaturesOutput(args: ListFeaturesetVersionFeaturesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFeaturesetVersionFeaturesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230201preview:listFeaturesetVersionFeatures", {
         "name": args.name,

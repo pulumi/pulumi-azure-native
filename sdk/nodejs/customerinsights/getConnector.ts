@@ -97,7 +97,7 @@ export interface GetConnectorResult {
  * Gets a connector in the hub.
  * Azure REST API version: 2017-04-26.
  */
-export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
+export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights:getConnector", {
         "connectorName": args.connectorName,

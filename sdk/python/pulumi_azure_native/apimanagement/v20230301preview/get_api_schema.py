@@ -155,7 +155,7 @@ def get_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           schema_id: Optional[pulumi.Input[str]] = None,
                           service_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiSchemaResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiSchemaResult]:
     """
     Get the schema configuration at the API level.
 
@@ -170,7 +170,7 @@ def get_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['schemaId'] = schema_id
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230301preview:getApiSchema', __args__, opts=opts, typ=GetApiSchemaResult)
     return __ret__.apply(lambda __response__: GetApiSchemaResult(
         components=pulumi.get(__response__, 'components'),

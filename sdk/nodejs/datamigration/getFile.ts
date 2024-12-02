@@ -77,7 +77,7 @@ export interface GetFileResult {
  *
  * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
  */
-export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
+export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration:getFile", {
         "fileName": args.fileName,

@@ -83,7 +83,7 @@ export interface GetAKSServiceResult {
 /**
  * Get a Service by name.
  */
-export function getAKSServiceOutput(args: GetAKSServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAKSServiceResult> {
+export function getAKSServiceOutput(args: GetAKSServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAKSServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20210401:getAKSService", {
         "expand": args.expand,

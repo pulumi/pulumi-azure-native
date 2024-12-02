@@ -75,7 +75,7 @@ export interface GetSqlServerRegistrationResult {
  * Gets a SQL Server registration.
  * Azure REST API version: 2019-07-24-preview.
  */
-export function getSqlServerRegistrationOutput(args: GetSqlServerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerRegistrationResult> {
+export function getSqlServerRegistrationOutput(args: GetSqlServerRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredata:getSqlServerRegistration", {
         "resourceGroupName": args.resourceGroupName,

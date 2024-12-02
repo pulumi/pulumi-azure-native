@@ -147,7 +147,7 @@ export interface GetAppServiceCertificateOrderResult {
  *
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getAppServiceCertificateOrderOutput(args: GetAppServiceCertificateOrderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceCertificateOrderResult> {
+export function getAppServiceCertificateOrderOutput(args: GetAppServiceCertificateOrderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppServiceCertificateOrderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:certificateregistration:getAppServiceCertificateOrder", {
         "certificateOrderName": args.certificateOrderName,

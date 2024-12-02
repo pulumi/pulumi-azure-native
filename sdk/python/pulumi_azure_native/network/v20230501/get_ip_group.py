@@ -191,7 +191,7 @@ def get_ip_group(expand: Optional[str] = None,
 def get_ip_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                         ip_groups_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpGroupResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpGroupResult]:
     """
     Gets the specified ipGroups.
 
@@ -204,7 +204,7 @@ def get_ip_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     __args__['expand'] = expand
     __args__['ipGroupsName'] = ip_groups_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:getIpGroup', __args__, opts=opts, typ=GetIpGroupResult)
     return __ret__.apply(lambda __response__: GetIpGroupResult(
         etag=pulumi.get(__response__, 'etag'),

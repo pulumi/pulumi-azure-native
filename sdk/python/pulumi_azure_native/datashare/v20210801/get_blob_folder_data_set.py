@@ -209,7 +209,7 @@ def get_blob_folder_data_set_output(account_name: Optional[pulumi.Input[str]] = 
                                     data_set_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     share_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobFolderDataSetResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobFolderDataSetResult]:
     """
     Get a DataSet in a share
 
@@ -224,7 +224,7 @@ def get_blob_folder_data_set_output(account_name: Optional[pulumi.Input[str]] = 
     __args__['dataSetName'] = data_set_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare/v20210801:getBlobFolderDataSet', __args__, opts=opts, typ=GetBlobFolderDataSetResult)
     return __ret__.apply(lambda __response__: GetBlobFolderDataSetResult(
         container_name=pulumi.get(__response__, 'container_name'),

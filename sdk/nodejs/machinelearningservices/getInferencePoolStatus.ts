@@ -56,7 +56,7 @@ export interface GetInferencePoolStatusResult {
  *
  * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
  */
-export function getInferencePoolStatusOutput(args: GetInferencePoolStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferencePoolStatusResult> {
+export function getInferencePoolStatusOutput(args: GetInferencePoolStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferencePoolStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getInferencePoolStatus", {
         "inferencePoolName": args.inferencePoolName,

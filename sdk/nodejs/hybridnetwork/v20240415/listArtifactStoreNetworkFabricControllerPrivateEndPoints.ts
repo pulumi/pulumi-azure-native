@@ -50,7 +50,7 @@ export interface ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult 
 /**
  * List network fabric controllers to artifact stores
  */
-export function listArtifactStoreNetworkFabricControllerPrivateEndPointsOutput(args: ListArtifactStoreNetworkFabricControllerPrivateEndPointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> {
+export function listArtifactStoreNetworkFabricControllerPrivateEndPointsOutput(args: ListArtifactStoreNetworkFabricControllerPrivateEndPointsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork/v20240415:listArtifactStoreNetworkFabricControllerPrivateEndPoints", {
         "artifactStoreName": args.artifactStoreName,

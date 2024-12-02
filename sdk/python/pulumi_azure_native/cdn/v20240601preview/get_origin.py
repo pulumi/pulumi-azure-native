@@ -299,7 +299,7 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                       origin_name: Optional[pulumi.Input[str]] = None,
                       profile_name: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginResult]:
     """
     Gets an existing origin within an endpoint.
 
@@ -314,7 +314,7 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     __args__['originName'] = origin_name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240601preview:getOrigin', __args__, opts=opts, typ=GetOriginResult)
     return __ret__.apply(lambda __response__: GetOriginResult(
         enabled=pulumi.get(__response__, 'enabled'),

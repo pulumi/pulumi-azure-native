@@ -90,7 +90,7 @@ export interface GetAnalyticsConnectorResult {
 /**
  * Gets the properties of the specified Analytics Connector.
  */
-export function getAnalyticsConnectorOutput(args: GetAnalyticsConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyticsConnectorResult> {
+export function getAnalyticsConnectorOutput(args: GetAnalyticsConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnalyticsConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthcareapis/v20221001preview:getAnalyticsConnector", {
         "analyticsConnectorName": args.analyticsConnectorName,

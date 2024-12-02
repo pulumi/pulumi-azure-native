@@ -143,7 +143,7 @@ def list_whois_by_domain_output(domain: Optional[pulumi.Input[Optional[str]]] = 
                                 enrichment_type: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 workspace_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWhoisByDomainResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWhoisByDomainResult]:
     """
     Get whois information for a single domain name
 
@@ -158,7 +158,7 @@ def list_whois_by_domain_output(domain: Optional[pulumi.Input[Optional[str]]] = 
     __args__['enrichmentType'] = enrichment_type
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20240101preview:listWhoisByDomain', __args__, opts=opts, typ=ListWhoisByDomainResult)
     return __ret__.apply(lambda __response__: ListWhoisByDomainResult(
         created=pulumi.get(__response__, 'created'),

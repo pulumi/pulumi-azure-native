@@ -71,7 +71,7 @@ export interface GetConfigurationGroupValueResult {
  *
  * Other available API versions: 2024-04-15.
  */
-export function getConfigurationGroupValueOutput(args: GetConfigurationGroupValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationGroupValueResult> {
+export function getConfigurationGroupValueOutput(args: GetConfigurationGroupValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationGroupValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getConfigurationGroupValue", {
         "configurationGroupValueName": args.configurationGroupValueName,

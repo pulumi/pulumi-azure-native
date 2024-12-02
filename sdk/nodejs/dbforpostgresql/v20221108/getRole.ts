@@ -62,7 +62,7 @@ export interface GetRoleResult {
 /**
  * Gets information about a cluster role.
  */
-export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleResult> {
+export function getRoleOutput(args: GetRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20221108:getRole", {
         "clusterName": args.clusterName,

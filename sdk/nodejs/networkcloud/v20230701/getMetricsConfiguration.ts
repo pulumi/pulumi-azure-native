@@ -91,7 +91,7 @@ export interface GetMetricsConfigurationResult {
 /**
  * Get metrics configuration of the provided cluster.
  */
-export function getMetricsConfigurationOutput(args: GetMetricsConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsConfigurationResult> {
+export function getMetricsConfigurationOutput(args: GetMetricsConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMetricsConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20230701:getMetricsConfiguration", {
         "clusterName": args.clusterName,

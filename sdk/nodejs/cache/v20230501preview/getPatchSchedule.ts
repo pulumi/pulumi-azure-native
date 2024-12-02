@@ -62,7 +62,7 @@ export interface GetPatchScheduleResult {
 /**
  * Gets the patching schedule of a redis cache.
  */
-export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchScheduleResult> {
+export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPatchScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cache/v20230501preview:getPatchSchedule", {
         "default": args.default,

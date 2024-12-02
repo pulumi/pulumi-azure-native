@@ -75,7 +75,7 @@ export interface GetPlacementPolicyResult {
 /**
  * Get a PlacementPolicy
  */
-export function getPlacementPolicyOutput(args: GetPlacementPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementPolicyResult> {
+export function getPlacementPolicyOutput(args: GetPlacementPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlacementPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getPlacementPolicy", {
         "clusterName": args.clusterName,

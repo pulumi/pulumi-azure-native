@@ -65,7 +65,7 @@ export interface GetEfsFileSystemResult {
 /**
  * Get a EfsFileSystem
  */
-export function getEfsFileSystemOutput(args: GetEfsFileSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEfsFileSystemResult> {
+export function getEfsFileSystemOutput(args: GetEfsFileSystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEfsFileSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEfsFileSystem", {
         "name": args.name,

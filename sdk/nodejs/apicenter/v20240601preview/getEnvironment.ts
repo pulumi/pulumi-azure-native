@@ -87,7 +87,7 @@ export interface GetEnvironmentResult {
 /**
  * Returns details of the environment.
  */
-export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
+export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apicenter/v20240601preview:getEnvironment", {
         "environmentName": args.environmentName,

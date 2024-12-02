@@ -51,7 +51,7 @@ export interface GetSubscriptionTarDirectoryResult {
  * The operation to view Initiator Subscription Changed Request
  * Azure REST API version: 2024-08-01-preview.
  */
-export function getSubscriptionTarDirectoryOutput(args?: GetSubscriptionTarDirectoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionTarDirectoryResult> {
+export function getSubscriptionTarDirectoryOutput(args?: GetSubscriptionTarDirectoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionTarDirectoryResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:subscription:getSubscriptionTarDirectory", {

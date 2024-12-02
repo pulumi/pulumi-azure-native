@@ -123,7 +123,7 @@ def get_machine_pool(child_resource_name: Optional[str] = None,
 def get_machine_pool_output(child_resource_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             resource_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachinePoolResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachinePoolResult]:
     """
     The operation returns properties of a MachinePool.
 
@@ -136,7 +136,7 @@ def get_machine_pool_output(child_resource_name: Optional[pulumi.Input[str]] = N
     __args__['childResourceName'] = child_resource_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:redhatopenshift/v20231122:getMachinePool', __args__, opts=opts, typ=GetMachinePoolResult)
     return __ret__.apply(lambda __response__: GetMachinePoolResult(
         id=pulumi.get(__response__, 'id'),

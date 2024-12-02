@@ -305,7 +305,7 @@ def get_scope_access_review_history_definition_by_id(history_definition_id: Opti
         user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
 def get_scope_access_review_history_definition_by_id_output(history_definition_id: Optional[pulumi.Input[str]] = None,
                                                             scope: Optional[pulumi.Input[str]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeAccessReviewHistoryDefinitionByIdResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeAccessReviewHistoryDefinitionByIdResult]:
     """
     Get access review history definition by definition Id
     Azure REST API version: 2021-12-01-preview.
@@ -317,7 +317,7 @@ def get_scope_access_review_history_definition_by_id_output(history_definition_i
     __args__ = dict()
     __args__['historyDefinitionId'] = history_definition_id
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getScopeAccessReviewHistoryDefinitionById', __args__, opts=opts, typ=GetScopeAccessReviewHistoryDefinitionByIdResult)
     return __ret__.apply(lambda __response__: GetScopeAccessReviewHistoryDefinitionByIdResult(
         created_date_time=pulumi.get(__response__, 'created_date_time'),

@@ -82,7 +82,7 @@ def list_account_keys(account_name: Optional[str] = None,
         key2=pulumi.get(__ret__, 'key2'))
 def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
     Lists the account keys for the specified Cognitive Services account.
 
@@ -93,7 +93,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cognitiveservices/v20240601preview:listAccountKeys', __args__, opts=opts, typ=ListAccountKeysResult)
     return __ret__.apply(lambda __response__: ListAccountKeysResult(
         key1=pulumi.get(__response__, 'key1'),

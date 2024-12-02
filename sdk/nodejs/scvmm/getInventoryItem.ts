@@ -88,7 +88,7 @@ export interface GetInventoryItemResult {
  *
  * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
  */
-export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInventoryItemResult> {
+export function getInventoryItemOutput(args: GetInventoryItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInventoryItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm:getInventoryItem", {
         "inventoryItemName": args.inventoryItemName,

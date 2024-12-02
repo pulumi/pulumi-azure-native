@@ -451,7 +451,7 @@ def get_scaling_plan_personal_schedule(resource_group_name: Optional[str] = None
 def get_scaling_plan_personal_schedule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                               scaling_plan_name: Optional[pulumi.Input[str]] = None,
                                               scaling_plan_schedule_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalingPlanPersonalScheduleResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalingPlanPersonalScheduleResult]:
     """
     Get a ScalingPlanPersonalSchedule.
 
@@ -464,7 +464,7 @@ def get_scaling_plan_personal_schedule_output(resource_group_name: Optional[pulu
     __args__['resourceGroupName'] = resource_group_name
     __args__['scalingPlanName'] = scaling_plan_name
     __args__['scalingPlanScheduleName'] = scaling_plan_schedule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20240403:getScalingPlanPersonalSchedule', __args__, opts=opts, typ=GetScalingPlanPersonalScheduleResult)
     return __ret__.apply(lambda __response__: GetScalingPlanPersonalScheduleResult(
         days_of_week=pulumi.get(__response__, 'days_of_week'),

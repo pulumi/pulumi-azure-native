@@ -100,7 +100,7 @@ export interface GetPartnerNamespaceResult {
 /**
  * Get properties of a partner namespace.
  */
-export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerNamespaceResult> {
+export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventgrid/v20240601preview:getPartnerNamespace", {
         "partnerNamespaceName": args.partnerNamespaceName,

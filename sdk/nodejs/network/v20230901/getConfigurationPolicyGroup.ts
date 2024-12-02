@@ -78,7 +78,7 @@ export interface GetConfigurationPolicyGroupResult {
 /**
  * Retrieves the details of a ConfigurationPolicyGroup.
  */
-export function getConfigurationPolicyGroupOutput(args: GetConfigurationPolicyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationPolicyGroupResult> {
+export function getConfigurationPolicyGroupOutput(args: GetConfigurationPolicyGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationPolicyGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230901:getConfigurationPolicyGroup", {
         "configurationPolicyGroupName": args.configurationPolicyGroupName,

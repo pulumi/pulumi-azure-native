@@ -57,7 +57,7 @@ export interface GetCatalogDevBoxDefinitionErrorDetailsResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getCatalogDevBoxDefinitionErrorDetailsOutput(args: GetCatalogDevBoxDefinitionErrorDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogDevBoxDefinitionErrorDetailsResult> {
+export function getCatalogDevBoxDefinitionErrorDetailsOutput(args: GetCatalogDevBoxDefinitionErrorDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCatalogDevBoxDefinitionErrorDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter:getCatalogDevBoxDefinitionErrorDetails", {
         "catalogName": args.catalogName,

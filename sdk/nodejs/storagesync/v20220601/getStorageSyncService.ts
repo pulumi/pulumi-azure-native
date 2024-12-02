@@ -89,7 +89,7 @@ export interface GetStorageSyncServiceResult {
 /**
  * Get a given StorageSyncService.
  */
-export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSyncServiceResult> {
+export function getStorageSyncServiceOutput(args: GetStorageSyncServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageSyncServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagesync/v20220601:getStorageSyncService", {
         "resourceGroupName": args.resourceGroupName,

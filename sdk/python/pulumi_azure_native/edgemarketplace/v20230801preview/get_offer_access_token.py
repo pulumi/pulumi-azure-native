@@ -99,7 +99,7 @@ def get_offer_access_token(offer_id: Optional[str] = None,
 def get_offer_access_token_output(offer_id: Optional[pulumi.Input[str]] = None,
                                   request_id: Optional[pulumi.Input[str]] = None,
                                   resource_uri: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOfferAccessTokenResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOfferAccessTokenResult]:
     """
     get access token.
 
@@ -112,7 +112,7 @@ def get_offer_access_token_output(offer_id: Optional[pulumi.Input[str]] = None,
     __args__['offerId'] = offer_id
     __args__['requestId'] = request_id
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:edgemarketplace/v20230801preview:getOfferAccessToken', __args__, opts=opts, typ=GetOfferAccessTokenResult)
     return __ret__.apply(lambda __response__: GetOfferAccessTokenResult(
         access_token=pulumi.get(__response__, 'access_token'),

@@ -81,7 +81,7 @@ export interface GetManagementGroupDiagnosticSettingResult {
 /**
  * Gets the active management group diagnostic settings for the specified resource.
  */
-export function getManagementGroupDiagnosticSettingOutput(args: GetManagementGroupDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupDiagnosticSettingResult> {
+export function getManagementGroupDiagnosticSettingOutput(args: GetManagementGroupDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementGroupDiagnosticSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20210501preview:getManagementGroupDiagnosticSetting", {
         "managementGroupId": args.managementGroupId,

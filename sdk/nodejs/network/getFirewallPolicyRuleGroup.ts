@@ -72,7 +72,7 @@ export interface GetFirewallPolicyRuleGroupResult {
  * Gets the specified FirewallPolicyRuleGroup.
  * Azure REST API version: 2020-04-01.
  */
-export function getFirewallPolicyRuleGroupOutput(args: GetFirewallPolicyRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallPolicyRuleGroupResult> {
+export function getFirewallPolicyRuleGroupOutput(args: GetFirewallPolicyRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallPolicyRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getFirewallPolicyRuleGroup", {
         "firewallPolicyName": args.firewallPolicyName,

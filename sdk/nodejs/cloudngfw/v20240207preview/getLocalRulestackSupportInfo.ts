@@ -87,7 +87,7 @@ export interface GetLocalRulestackSupportInfoResult {
 /**
  * support info for rulestack.
  */
-export function getLocalRulestackSupportInfoOutput(args: GetLocalRulestackSupportInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalRulestackSupportInfoResult> {
+export function getLocalRulestackSupportInfoOutput(args: GetLocalRulestackSupportInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRulestackSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:getLocalRulestackSupportInfo", {
         "email": args.email,

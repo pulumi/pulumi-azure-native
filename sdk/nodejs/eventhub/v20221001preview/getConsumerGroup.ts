@@ -79,7 +79,7 @@ export interface GetConsumerGroupResult {
 /**
  * Gets a description for the specified consumer group.
  */
-export function getConsumerGroupOutput(args: GetConsumerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsumerGroupResult> {
+export function getConsumerGroupOutput(args: GetConsumerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsumerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub/v20221001preview:getConsumerGroup", {
         "consumerGroupName": args.consumerGroupName,

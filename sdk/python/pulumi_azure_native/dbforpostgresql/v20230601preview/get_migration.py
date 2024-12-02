@@ -429,7 +429,7 @@ def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
                          target_db_server_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationResult]:
     """
     Gets details of a migration.
 
@@ -444,7 +444,7 @@ def get_migration_output(migration_name: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['subscriptionId'] = subscription_id
     __args__['targetDbServerName'] = target_db_server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20230601preview:getMigration', __args__, opts=opts, typ=GetMigrationResult)
     return __ret__.apply(lambda __response__: GetMigrationResult(
         cancel=pulumi.get(__response__, 'cancel'),

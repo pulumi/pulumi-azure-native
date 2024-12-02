@@ -99,7 +99,7 @@ export interface GetJitRequestResult {
  *
  * Other available API versions: 2023-12-01-preview.
  */
-export function getJitRequestOutput(args: GetJitRequestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJitRequestResult> {
+export function getJitRequestOutput(args: GetJitRequestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJitRequestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:solutions:getJitRequest", {
         "jitRequestName": args.jitRequestName,

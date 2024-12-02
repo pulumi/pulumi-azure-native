@@ -120,7 +120,7 @@ export interface GetScriptExecutionResult {
 /**
  * Get a ScriptExecution
  */
-export function getScriptExecutionOutput(args: GetScriptExecutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptExecutionResult> {
+export function getScriptExecutionOutput(args: GetScriptExecutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScriptExecutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20230901:getScriptExecution", {
         "privateCloudName": args.privateCloudName,

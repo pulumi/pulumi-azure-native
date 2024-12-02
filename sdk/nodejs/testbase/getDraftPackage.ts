@@ -168,7 +168,7 @@ export interface GetDraftPackageResult {
  * Gets a Test Base Draft Package.
  * Azure REST API version: 2023-11-01-preview.
  */
-export function getDraftPackageOutput(args: GetDraftPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDraftPackageResult> {
+export function getDraftPackageOutput(args: GetDraftPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDraftPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase:getDraftPackage", {
         "draftPackageName": args.draftPackageName,

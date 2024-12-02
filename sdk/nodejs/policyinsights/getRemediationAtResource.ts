@@ -111,7 +111,7 @@ export interface GetRemediationAtResourceResult {
  *
  * Other available API versions: 2018-07-01-preview, 2024-10-01.
  */
-export function getRemediationAtResourceOutput(args: GetRemediationAtResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRemediationAtResourceResult> {
+export function getRemediationAtResourceOutput(args: GetRemediationAtResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemediationAtResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights:getRemediationAtResource", {
         "remediationName": args.remediationName,

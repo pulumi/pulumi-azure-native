@@ -88,7 +88,7 @@ export interface GetStorageAccountResult {
  *
  * Other available API versions: 2020-05-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
  */
-export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
+export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge:getStorageAccount", {
         "deviceName": args.deviceName,

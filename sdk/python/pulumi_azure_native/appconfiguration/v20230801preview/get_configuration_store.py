@@ -291,7 +291,7 @@ def get_configuration_store(config_store_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationStoreResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationStoreResult]:
     """
     Gets the properties of the specified configuration store.
 
@@ -302,7 +302,7 @@ def get_configuration_store_output(config_store_name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['configStoreName'] = config_store_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appconfiguration/v20230801preview:getConfigurationStore', __args__, opts=opts, typ=GetConfigurationStoreResult)
     return __ret__.apply(lambda __response__: GetConfigurationStoreResult(
         creation_date=pulumi.get(__response__, 'creation_date'),

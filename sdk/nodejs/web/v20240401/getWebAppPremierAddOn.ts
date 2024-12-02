@@ -83,7 +83,7 @@ export interface GetWebAppPremierAddOnResult {
 /**
  * Description for Gets a named add-on of an app.
  */
-export function getWebAppPremierAddOnOutput(args: GetWebAppPremierAddOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPremierAddOnResult> {
+export function getWebAppPremierAddOnOutput(args: GetWebAppPremierAddOnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppPremierAddOnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20240401:getWebAppPremierAddOn", {
         "name": args.name,

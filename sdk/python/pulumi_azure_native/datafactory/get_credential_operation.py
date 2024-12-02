@@ -127,7 +127,7 @@ def get_credential_operation(credential_name: Optional[str] = None,
 def get_credential_operation_output(credential_name: Optional[pulumi.Input[str]] = None,
                                     factory_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCredentialOperationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCredentialOperationResult]:
     """
     Gets a credential.
     Azure REST API version: 2018-06-01.
@@ -141,7 +141,7 @@ def get_credential_operation_output(credential_name: Optional[pulumi.Input[str]]
     __args__['credentialName'] = credential_name
     __args__['factoryName'] = factory_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getCredentialOperation', __args__, opts=opts, typ=GetCredentialOperationResult)
     return __ret__.apply(lambda __response__: GetCredentialOperationResult(
         etag=pulumi.get(__response__, 'etag'),

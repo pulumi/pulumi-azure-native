@@ -76,7 +76,7 @@ export interface GetWebAppPrivateEndpointConnectionSlotResult {
 /**
  * Description for Gets a private endpoint connection
  */
-export function getWebAppPrivateEndpointConnectionSlotOutput(args: GetWebAppPrivateEndpointConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPrivateEndpointConnectionSlotResult> {
+export function getWebAppPrivateEndpointConnectionSlotOutput(args: GetWebAppPrivateEndpointConnectionSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppPrivateEndpointConnectionSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20231201:getWebAppPrivateEndpointConnectionSlot", {
         "name": args.name,

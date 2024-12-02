@@ -77,7 +77,7 @@ export interface GetImportSitesControllerResult {
 /**
  * Get a ImportSite
  */
-export function getImportSitesControllerOutput(args: GetImportSitesControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportSitesControllerResult> {
+export function getImportSitesControllerOutput(args: GetImportSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImportSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:offazure/v20230606:getImportSitesController", {
         "resourceGroupName": args.resourceGroupName,

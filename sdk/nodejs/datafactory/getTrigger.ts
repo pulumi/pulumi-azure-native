@@ -64,7 +64,7 @@ export interface GetTriggerResult {
  * Gets a trigger.
  * Azure REST API version: 2018-06-01.
  */
-export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
+export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getTrigger", {
         "factoryName": args.factoryName,

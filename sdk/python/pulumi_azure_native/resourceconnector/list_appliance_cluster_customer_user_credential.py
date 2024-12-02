@@ -84,7 +84,7 @@ def list_appliance_cluster_customer_user_credential(resource_group_name: Optiona
         ssh_keys=pulumi.get(__ret__, 'ssh_keys'))
 def list_appliance_cluster_customer_user_credential_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                            resource_name: Optional[pulumi.Input[str]] = None,
-                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplianceClusterCustomerUserCredentialResult]:
+                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceClusterCustomerUserCredentialResult]:
     """
     Returns the cluster customer user credentials for the dedicated appliance.
     Azure REST API version: 2022-04-15-preview.
@@ -96,7 +96,7 @@ def list_appliance_cluster_customer_user_credential_output(resource_group_name: 
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resourceconnector:listApplianceClusterCustomerUserCredential', __args__, opts=opts, typ=ListApplianceClusterCustomerUserCredentialResult)
     return __ret__.apply(lambda __response__: ListApplianceClusterCustomerUserCredentialResult(
         kubeconfigs=pulumi.get(__response__, 'kubeconfigs'),

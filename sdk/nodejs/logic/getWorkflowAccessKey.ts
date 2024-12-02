@@ -58,7 +58,7 @@ export interface GetWorkflowAccessKeyResult {
  * Gets a workflow access key.
  * Azure REST API version: 2015-02-01-preview.
  */
-export function getWorkflowAccessKeyOutput(args: GetWorkflowAccessKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowAccessKeyResult> {
+export function getWorkflowAccessKeyOutput(args: GetWorkflowAccessKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkflowAccessKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:getWorkflowAccessKey", {
         "accessKeyName": args.accessKeyName,

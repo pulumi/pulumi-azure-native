@@ -57,7 +57,7 @@ export interface GetInsightResult {
 /**
  * Get Insight resources by workloadImpactName and insightName
  */
-export function getInsightOutput(args: GetInsightOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightResult> {
+export function getInsightOutput(args: GetInsightOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInsightResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:impact/v20240501preview:getInsight", {
         "insightName": args.insightName,

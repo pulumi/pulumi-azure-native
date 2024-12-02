@@ -41,7 +41,7 @@ export interface ListPrivateStoreStopSellOffersPlansNotificationsResult {
  *
  * Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
  */
-export function listPrivateStoreStopSellOffersPlansNotificationsOutput(args: ListPrivateStoreStopSellOffersPlansNotificationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPrivateStoreStopSellOffersPlansNotificationsResult> {
+export function listPrivateStoreStopSellOffersPlansNotificationsOutput(args: ListPrivateStoreStopSellOffersPlansNotificationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPrivateStoreStopSellOffersPlansNotificationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:marketplace:listPrivateStoreStopSellOffersPlansNotifications", {
         "privateStoreId": args.privateStoreId,

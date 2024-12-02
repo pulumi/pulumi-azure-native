@@ -229,7 +229,7 @@ def get_service(group_name: Optional[str] = None,
         virtual_subnet_id=pulumi.get(__ret__, 'virtual_subnet_id'))
 def get_service_output(group_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
     Azure REST API version: 2021-06-30.
@@ -243,7 +243,7 @@ def get_service_output(group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         etag=pulumi.get(__response__, 'etag'),

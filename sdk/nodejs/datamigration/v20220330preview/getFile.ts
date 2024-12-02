@@ -71,7 +71,7 @@ export interface GetFileResult {
 /**
  * The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
  */
-export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileResult> {
+export function getFileOutput(args: GetFileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datamigration/v20220330preview:getFile", {
         "fileName": args.fileName,

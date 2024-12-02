@@ -73,7 +73,7 @@ def list_application_allowed_upgrade_plans(application_name: Optional[str] = Non
         value=pulumi.get(__ret__, 'value'))
 def list_application_allowed_upgrade_plans_output(application_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplicationAllowedUpgradePlansResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplicationAllowedUpgradePlansResult]:
     """
     List allowed upgrade plans for application.
     Azure REST API version: 2021-07-01.
@@ -87,7 +87,7 @@ def list_application_allowed_upgrade_plans_output(application_name: Optional[pul
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:solutions:listApplicationAllowedUpgradePlans', __args__, opts=opts, typ=ListApplicationAllowedUpgradePlansResult)
     return __ret__.apply(lambda __response__: ListApplicationAllowedUpgradePlansResult(
         value=pulumi.get(__response__, 'value')))

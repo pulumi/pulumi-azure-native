@@ -76,7 +76,7 @@ export interface GetArchiveVersionResult {
 /**
  * Gets the properties of the archive version.
  */
-export function getArchiveVersionOutput(args: GetArchiveVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArchiveVersionResult> {
+export function getArchiveVersionOutput(args: GetArchiveVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArchiveVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20231101preview:getArchiveVersion", {
         "archiveName": args.archiveName,

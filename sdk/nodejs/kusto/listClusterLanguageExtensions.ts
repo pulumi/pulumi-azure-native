@@ -47,7 +47,7 @@ export interface ListClusterLanguageExtensionsResult {
  *
  * Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
  */
-export function listClusterLanguageExtensionsOutput(args: ListClusterLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListClusterLanguageExtensionsResult> {
+export function listClusterLanguageExtensionsOutput(args: ListClusterLanguageExtensionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListClusterLanguageExtensionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto:listClusterLanguageExtensions", {
         "clusterName": args.clusterName,

@@ -97,7 +97,7 @@ export interface GetVpnGatewayResult {
 /**
  * Retrieves the details of a virtual wan vpn gateway.
  */
-export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
+export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20231101:getVpnGateway", {
         "gatewayName": args.gatewayName,

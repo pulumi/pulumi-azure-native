@@ -70,7 +70,7 @@ export interface ListWebAppPublishingCredentialsResult {
 /**
  * Gets the Git/FTP publishing credentials of an app.
  */
-export function listWebAppPublishingCredentialsOutput(args: ListWebAppPublishingCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppPublishingCredentialsResult> {
+export function listWebAppPublishingCredentialsOutput(args: ListWebAppPublishingCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppPublishingCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20181101:listWebAppPublishingCredentials", {
         "name": args.name,

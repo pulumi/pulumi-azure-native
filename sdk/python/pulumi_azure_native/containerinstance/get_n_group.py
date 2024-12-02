@@ -203,7 +203,7 @@ def get_n_group(ngroups_name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_n_group_output(ngroups_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNGroupResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNGroupResult]:
     """
     Get the properties of the specified n group.
     Azure REST API version: 2024-09-01-preview.
@@ -217,7 +217,7 @@ def get_n_group_output(ngroups_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['ngroupsName'] = ngroups_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerinstance:getNGroup', __args__, opts=opts, typ=GetNGroupResult)
     return __ret__.apply(lambda __response__: GetNGroupResult(
         container_group_profiles=pulumi.get(__response__, 'container_group_profiles'),

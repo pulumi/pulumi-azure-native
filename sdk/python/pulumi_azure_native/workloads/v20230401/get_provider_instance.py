@@ -165,7 +165,7 @@ def get_provider_instance(monitor_name: Optional[str] = None,
 def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = None,
                                  provider_instance_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderInstanceResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderInstanceResult]:
     """
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
 
@@ -178,7 +178,7 @@ def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = Non
     __args__['monitorName'] = monitor_name
     __args__['providerInstanceName'] = provider_instance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20230401:getProviderInstance', __args__, opts=opts, typ=GetProviderInstanceResult)
     return __ret__.apply(lambda __response__: GetProviderInstanceResult(
         errors=pulumi.get(__response__, 'errors'),

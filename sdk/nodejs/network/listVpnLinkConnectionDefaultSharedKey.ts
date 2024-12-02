@@ -69,7 +69,7 @@ export interface ListVpnLinkConnectionDefaultSharedKeyResult {
  *
  * Other available API versions: 2024-05-01.
  */
-export function listVpnLinkConnectionDefaultSharedKeyOutput(args: ListVpnLinkConnectionDefaultSharedKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVpnLinkConnectionDefaultSharedKeyResult> {
+export function listVpnLinkConnectionDefaultSharedKeyOutput(args: ListVpnLinkConnectionDefaultSharedKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVpnLinkConnectionDefaultSharedKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:listVpnLinkConnectionDefaultSharedKey", {
         "connectionName": args.connectionName,

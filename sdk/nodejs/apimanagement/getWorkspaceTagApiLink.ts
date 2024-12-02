@@ -71,7 +71,7 @@ export interface GetWorkspaceTagApiLinkResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getWorkspaceTagApiLinkOutput(args: GetWorkspaceTagApiLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceTagApiLinkResult> {
+export function getWorkspaceTagApiLinkOutput(args: GetWorkspaceTagApiLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceTagApiLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceTagApiLink", {
         "apiLinkId": args.apiLinkId,

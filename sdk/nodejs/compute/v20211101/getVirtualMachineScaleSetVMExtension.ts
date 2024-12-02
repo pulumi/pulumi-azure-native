@@ -108,7 +108,7 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
 /**
  * The operation to get the VMSS VM extension.
  */
-export function getVirtualMachineScaleSetVMExtensionOutput(args: GetVirtualMachineScaleSetVMExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMExtensionResult> {
+export function getVirtualMachineScaleSetVMExtensionOutput(args: GetVirtualMachineScaleSetVMExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineScaleSetVMExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:compute/v20211101:getVirtualMachineScaleSetVMExtension", {
         "expand": args.expand,

@@ -110,7 +110,7 @@ export interface GetWorkspaceApiDiagnosticResult {
  *
  * Other available API versions: 2024-05-01, 2024-06-01-preview.
  */
-export function getWorkspaceApiDiagnosticOutput(args: GetWorkspaceApiDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceApiDiagnosticResult> {
+export function getWorkspaceApiDiagnosticOutput(args: GetWorkspaceApiDiagnosticOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceApiDiagnosticResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceApiDiagnostic", {
         "apiId": args.apiId,

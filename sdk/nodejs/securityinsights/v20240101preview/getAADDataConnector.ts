@@ -75,7 +75,7 @@ export interface GetAADDataConnectorResult {
 /**
  * Gets a data connector.
  */
-export function getAADDataConnectorOutput(args: GetAADDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAADDataConnectorResult> {
+export function getAADDataConnectorOutput(args: GetAADDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAADDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20240101preview:getAADDataConnector", {
         "dataConnectorId": args.dataConnectorId,

@@ -58,7 +58,7 @@ export interface GetLogicAppResult {
 /**
  * A logic app extension resource
  */
-export function getLogicAppOutput(args: GetLogicAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogicAppResult> {
+export function getLogicAppOutput(args: GetLogicAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogicAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240202preview:getLogicApp", {
         "containerAppName": args.containerAppName,

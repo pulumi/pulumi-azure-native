@@ -64,7 +64,7 @@ export interface GetEdgeModuleResult {
  * Retrieves an existing edge module resource with the given name.
  * Azure REST API version: 2021-11-01-preview.
  */
-export function getEdgeModuleOutput(args: GetEdgeModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeModuleResult> {
+export function getEdgeModuleOutput(args: GetEdgeModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEdgeModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:videoanalyzer:getEdgeModule", {
         "accountName": args.accountName,

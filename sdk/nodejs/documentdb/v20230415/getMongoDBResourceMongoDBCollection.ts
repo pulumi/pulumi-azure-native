@@ -69,7 +69,7 @@ export interface GetMongoDBResourceMongoDBCollectionResult {
 /**
  * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
  */
-export function getMongoDBResourceMongoDBCollectionOutput(args: GetMongoDBResourceMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoDBCollectionResult> {
+export function getMongoDBResourceMongoDBCollectionOutput(args: GetMongoDBResourceMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMongoDBResourceMongoDBCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20230415:getMongoDBResourceMongoDBCollection", {
         "accountName": args.accountName,

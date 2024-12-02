@@ -78,7 +78,7 @@ export interface ListDisasterRecoveryConfigKeysResult {
  *
  * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
  */
-export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {
+export function listDisasterRecoveryConfigKeysOutput(args: ListDisasterRecoveryConfigKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDisasterRecoveryConfigKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus:listDisasterRecoveryConfigKeys", {
         "alias": args.alias,

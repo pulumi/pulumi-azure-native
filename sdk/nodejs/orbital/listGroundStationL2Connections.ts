@@ -51,7 +51,7 @@ export interface ListGroundStationL2ConnectionsResult {
  *
  * Other available API versions: 2024-03-01.
  */
-export function listGroundStationL2ConnectionsOutput(args: ListGroundStationL2ConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGroundStationL2ConnectionsResult> {
+export function listGroundStationL2ConnectionsOutput(args: ListGroundStationL2ConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGroundStationL2ConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:orbital:listGroundStationL2Connections", {
         "groundStationName": args.groundStationName,

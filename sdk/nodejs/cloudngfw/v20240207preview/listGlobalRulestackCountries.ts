@@ -44,7 +44,7 @@ export interface ListGlobalRulestackCountriesResult {
 /**
  * List of countries for Rulestack
  */
-export function listGlobalRulestackCountriesOutput(args: ListGlobalRulestackCountriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGlobalRulestackCountriesResult> {
+export function listGlobalRulestackCountriesOutput(args: ListGlobalRulestackCountriesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGlobalRulestackCountriesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20240207preview:listGlobalRulestackCountries", {
         "globalRulestackName": args.globalRulestackName,

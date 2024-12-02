@@ -65,7 +65,7 @@ export interface GetLogsLogStreamResult {
 /**
  * Get a LogsLogStream
  */
-export function getLogsLogStreamOutput(args: GetLogsLogStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogsLogStreamResult> {
+export function getLogsLogStreamOutput(args: GetLogsLogStreamOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogsLogStreamResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getLogsLogStream", {
         "name": args.name,

@@ -65,7 +65,7 @@ export interface GetSapLandscapeMonitorResult {
 /**
  * Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
  */
-export function getSapLandscapeMonitorOutput(args: GetSapLandscapeMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSapLandscapeMonitorResult> {
+export function getSapLandscapeMonitorOutput(args: GetSapLandscapeMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapLandscapeMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:workloads/v20231001preview:getSapLandscapeMonitor", {
         "monitorName": args.monitorName,

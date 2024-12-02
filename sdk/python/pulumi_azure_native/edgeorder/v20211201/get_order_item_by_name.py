@@ -191,7 +191,7 @@ def get_order_item_by_name(expand: Optional[str] = None,
 def get_order_item_by_name_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                   order_item_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderItemByNameResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderItemByNameResult]:
     """
     Gets an order item.
 
@@ -204,7 +204,7 @@ def get_order_item_by_name_output(expand: Optional[pulumi.Input[Optional[str]]] 
     __args__['expand'] = expand
     __args__['orderItemName'] = order_item_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:edgeorder/v20211201:getOrderItemByName', __args__, opts=opts, typ=GetOrderItemByNameResult)
     return __ret__.apply(lambda __response__: GetOrderItemByNameResult(
         address_details=pulumi.get(__response__, 'address_details'),

@@ -69,7 +69,7 @@ export interface GetDataControllerResult {
 /**
  * Retrieves a dataController resource
  */
-export function getDataControllerOutput(args: GetDataControllerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataControllerResult> {
+export function getDataControllerOutput(args: GetDataControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240101:getDataController", {
         "dataControllerName": args.dataControllerName,

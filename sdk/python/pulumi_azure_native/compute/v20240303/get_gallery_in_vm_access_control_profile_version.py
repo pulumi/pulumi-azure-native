@@ -234,7 +234,7 @@ def get_gallery_in_vm_access_control_profile_version_output(gallery_name: Option
                                                             in_vm_access_control_profile_name: Optional[pulumi.Input[str]] = None,
                                                             in_vm_access_control_profile_version_name: Optional[pulumi.Input[str]] = None,
                                                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryInVMAccessControlProfileVersionResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryInVMAccessControlProfileVersionResult]:
     """
     Retrieves information about a gallery inVMAccessControlProfile version.
 
@@ -249,7 +249,7 @@ def get_gallery_in_vm_access_control_profile_version_output(gallery_name: Option
     __args__['inVMAccessControlProfileName'] = in_vm_access_control_profile_name
     __args__['inVMAccessControlProfileVersionName'] = in_vm_access_control_profile_version_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240303:getGalleryInVMAccessControlProfileVersion', __args__, opts=opts, typ=GetGalleryInVMAccessControlProfileVersionResult)
     return __ret__.apply(lambda __response__: GetGalleryInVMAccessControlProfileVersionResult(
         default_access=pulumi.get(__response__, 'default_access'),

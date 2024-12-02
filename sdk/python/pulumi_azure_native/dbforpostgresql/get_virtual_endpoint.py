@@ -155,7 +155,7 @@ def get_virtual_endpoint(resource_group_name: Optional[str] = None,
 def get_virtual_endpoint_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                 server_name: Optional[pulumi.Input[str]] = None,
                                 virtual_endpoint_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualEndpointResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualEndpointResult]:
     """
     Gets information about a virtual endpoint.
     Azure REST API version: 2023-06-01-preview.
@@ -171,7 +171,7 @@ def get_virtual_endpoint_output(resource_group_name: Optional[pulumi.Input[str]]
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
     __args__['virtualEndpointName'] = virtual_endpoint_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql:getVirtualEndpoint', __args__, opts=opts, typ=GetVirtualEndpointResult)
     return __ret__.apply(lambda __response__: GetVirtualEndpointResult(
         endpoint_type=pulumi.get(__response__, 'endpoint_type'),

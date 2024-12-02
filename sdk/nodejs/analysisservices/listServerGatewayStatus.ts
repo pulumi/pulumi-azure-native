@@ -44,7 +44,7 @@ export interface ListServerGatewayStatusResult {
  *
  * Other available API versions: 2017-08-01-beta.
  */
-export function listServerGatewayStatusOutput(args: ListServerGatewayStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerGatewayStatusResult> {
+export function listServerGatewayStatusOutput(args: ListServerGatewayStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListServerGatewayStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:analysisservices:listServerGatewayStatus", {
         "resourceGroupName": args.resourceGroupName,

@@ -167,7 +167,7 @@ def get_api_definition_output(api_name: Optional[pulumi.Input[str]] = None,
                               service_name: Optional[pulumi.Input[str]] = None,
                               version_name: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiDefinitionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiDefinitionResult]:
     """
     Returns details of the API definition.
     Azure REST API version: 2024-03-01.
@@ -189,7 +189,7 @@ def get_api_definition_output(api_name: Optional[pulumi.Input[str]] = None,
     __args__['serviceName'] = service_name
     __args__['versionName'] = version_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apicenter:getApiDefinition', __args__, opts=opts, typ=GetApiDefinitionResult)
     return __ret__.apply(lambda __response__: GetApiDefinitionResult(
         description=pulumi.get(__response__, 'description'),

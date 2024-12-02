@@ -68,7 +68,7 @@ export interface GetCapacityReservationGroupResult {
      */
     readonly type: string;
 }
-export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationGroupResult> {
+export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityReservationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20240101preview:getCapacityReservationGroup", {
         "groupId": args.groupId,

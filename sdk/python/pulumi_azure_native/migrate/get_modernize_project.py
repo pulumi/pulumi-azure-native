@@ -160,7 +160,7 @@ def get_modernize_project(modernize_project_name: Optional[str] = None,
 def get_modernize_project_output(modernize_project_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModernizeProjectResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModernizeProjectResult]:
     """
     Gets the details of the modernize project.
     Azure REST API version: 2022-05-01-preview.
@@ -174,7 +174,7 @@ def get_modernize_project_output(modernize_project_name: Optional[pulumi.Input[s
     __args__['modernizeProjectName'] = modernize_project_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getModernizeProject', __args__, opts=opts, typ=GetModernizeProjectResult)
     return __ret__.apply(lambda __response__: GetModernizeProjectResult(
         id=pulumi.get(__response__, 'id'),

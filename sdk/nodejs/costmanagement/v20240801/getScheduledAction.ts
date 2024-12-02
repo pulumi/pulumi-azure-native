@@ -88,7 +88,7 @@ export interface GetScheduledActionResult {
 /**
  * Get the private scheduled action by name.
  */
-export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
+export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20240801:getScheduledAction", {
         "name": args.name,

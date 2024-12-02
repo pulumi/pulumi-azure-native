@@ -70,7 +70,7 @@ export interface ListShareSubscriptionSynchronizationDetailsResult {
 /**
  * List synchronization details
  */
-export function listShareSubscriptionSynchronizationDetailsOutput(args: ListShareSubscriptionSynchronizationDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSynchronizationDetailsResult> {
+export function listShareSubscriptionSynchronizationDetailsOutput(args: ListShareSubscriptionSynchronizationDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListShareSubscriptionSynchronizationDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare/v20210801:listShareSubscriptionSynchronizationDetails", {
         "accountName": args.accountName,

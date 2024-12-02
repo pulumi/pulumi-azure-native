@@ -150,7 +150,7 @@ export interface GetFluxConfigurationResult {
  *
  * Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
  */
-export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFluxConfigurationResult> {
+export function getFluxConfigurationOutput(args: GetFluxConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFluxConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kubernetesconfiguration:getFluxConfiguration", {
         "clusterName": args.clusterName,

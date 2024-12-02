@@ -51,7 +51,7 @@ export interface ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdR
  *
  * Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview, 2024-02-01.
  */
-export function listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> {
+export function listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId", {
         "eventTrackingId": args.eventTrackingId,

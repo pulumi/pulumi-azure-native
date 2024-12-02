@@ -94,7 +94,7 @@ export interface GetSourceControlResult {
 /**
  * Retrieve the source control identified by source control name.
  */
-export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
+export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20230515preview:getSourceControl", {
         "automationAccountName": args.automationAccountName,

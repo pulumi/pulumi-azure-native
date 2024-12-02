@@ -109,7 +109,7 @@ export interface GetVCenterResult {
 /**
  * Implements vCenter GET method.
  */
-export function getVCenterOutput(args: GetVCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVCenterResult> {
+export function getVCenterOutput(args: GetVCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:connectedvmwarevsphere/v20220715preview:getVCenter", {
         "resourceGroupName": args.resourceGroupName,

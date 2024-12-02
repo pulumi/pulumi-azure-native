@@ -62,7 +62,7 @@ export interface GetTimeSeriesDatabaseConnectionResult {
 /**
  * Get the description of an existing time series database connection.
  */
-export function getTimeSeriesDatabaseConnectionOutput(args: GetTimeSeriesDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTimeSeriesDatabaseConnectionResult> {
+export function getTimeSeriesDatabaseConnectionOutput(args: GetTimeSeriesDatabaseConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTimeSeriesDatabaseConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:digitaltwins/v20230131:getTimeSeriesDatabaseConnection", {
         "resourceGroupName": args.resourceGroupName,

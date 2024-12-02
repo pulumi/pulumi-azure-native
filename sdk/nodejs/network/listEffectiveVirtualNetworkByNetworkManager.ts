@@ -66,7 +66,7 @@ export interface ListEffectiveVirtualNetworkByNetworkManagerResult {
  *
  * Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
  */
-export function listEffectiveVirtualNetworkByNetworkManagerOutput(args: ListEffectiveVirtualNetworkByNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkManagerResult> {
+export function listEffectiveVirtualNetworkByNetworkManagerOutput(args: ListEffectiveVirtualNetworkByNetworkManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:listEffectiveVirtualNetworkByNetworkManager", {
         "conditionalMembers": args.conditionalMembers,

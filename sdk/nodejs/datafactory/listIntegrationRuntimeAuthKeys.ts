@@ -49,7 +49,7 @@ export interface ListIntegrationRuntimeAuthKeysResult {
  * Retrieves the authentication keys for an integration runtime.
  * Azure REST API version: 2018-06-01.
  */
-export function listIntegrationRuntimeAuthKeysOutput(args: ListIntegrationRuntimeAuthKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationRuntimeAuthKeysResult> {
+export function listIntegrationRuntimeAuthKeysOutput(args: ListIntegrationRuntimeAuthKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListIntegrationRuntimeAuthKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:listIntegrationRuntimeAuthKeys", {
         "factoryName": args.factoryName,

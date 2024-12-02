@@ -78,7 +78,7 @@ export interface GetMediaGraphResult {
 /**
  * Get the details of a Media Graph in the Media Services account.
  */
-export function getMediaGraphOutput(args: GetMediaGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaGraphResult> {
+export function getMediaGraphOutput(args: GetMediaGraphOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMediaGraphResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media/v20200201preview:getMediaGraph", {
         "accountName": args.accountName,

@@ -128,7 +128,7 @@ def get_i_pv6_firewall_rule(firewall_rule_name: Optional[str] = None,
 def get_i_pv6_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    server_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIPv6FirewallRuleResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIPv6FirewallRuleResult]:
     """
     Gets an IPv6 firewall rule.
     Azure REST API version: 2021-11-01.
@@ -144,7 +144,7 @@ def get_i_pv6_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str
     __args__['firewallRuleName'] = firewall_rule_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getIPv6FirewallRule', __args__, opts=opts, typ=GetIPv6FirewallRuleResult)
     return __ret__.apply(lambda __response__: GetIPv6FirewallRuleResult(
         end_i_pv6_address=pulumi.get(__response__, 'end_i_pv6_address'),

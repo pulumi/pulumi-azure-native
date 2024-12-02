@@ -52,7 +52,7 @@ export interface GetTenantConfigurationResult {
 /**
  * Gets the tenant configuration.
  */
-export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantConfigurationResult> {
+export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTenantConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portal/v20200901preview:getTenantConfiguration", {
         "configurationName": args.configurationName,

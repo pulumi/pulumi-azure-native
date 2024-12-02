@@ -88,7 +88,7 @@ export interface GetInboundEndpointResult {
  *
  * Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
  */
-export function getInboundEndpointOutput(args: GetInboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInboundEndpointResult> {
+export function getInboundEndpointOutput(args: GetInboundEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInboundEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getInboundEndpoint", {
         "dnsResolverName": args.dnsResolverName,

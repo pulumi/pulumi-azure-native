@@ -71,7 +71,7 @@ export interface GetPrivateAccessResult {
  *
  * Other available API versions: 2024-03-22-preview.
  */
-export function getPrivateAccessOutput(args: GetPrivateAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateAccessResult> {
+export function getPrivateAccessOutput(args: GetPrivateAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:chaos:getPrivateAccess", {
         "privateAccessName": args.privateAccessName,

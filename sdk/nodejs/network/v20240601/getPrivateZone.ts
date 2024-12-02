@@ -90,7 +90,7 @@ export interface GetPrivateZoneResult {
 /**
  * Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
  */
-export function getPrivateZoneOutput(args: GetPrivateZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateZoneResult> {
+export function getPrivateZoneOutput(args: GetPrivateZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateZoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240601:getPrivateZone", {
         "privateZoneName": args.privateZoneName,

@@ -155,7 +155,7 @@ def get_private_endpoint_connection_by_host_pool(host_pool_name: Optional[str] =
 def get_private_endpoint_connection_by_host_pool_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                                                         private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionByHostPoolResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionByHostPoolResult]:
     """
     Get a private endpoint connection.
     Azure REST API version: 2022-10-14-preview.
@@ -171,7 +171,7 @@ def get_private_endpoint_connection_by_host_pool_output(host_pool_name: Optional
     __args__['hostPoolName'] = host_pool_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization:getPrivateEndpointConnectionByHostPool', __args__, opts=opts, typ=GetPrivateEndpointConnectionByHostPoolResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionByHostPoolResult(
         id=pulumi.get(__response__, 'id'),

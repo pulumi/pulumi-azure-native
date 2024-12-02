@@ -103,7 +103,7 @@ export interface GetAgentResult {
 /**
  * Gets an Agent resource.
  */
-export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentResult> {
+export function getAgentOutput(args: GetAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagemover/v20230301:getAgent", {
         "agentName": args.agentName,

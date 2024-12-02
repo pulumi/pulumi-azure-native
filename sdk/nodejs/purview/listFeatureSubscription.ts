@@ -44,7 +44,7 @@ export interface ListFeatureSubscriptionResult {
  *
  * Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
  */
-export function listFeatureSubscriptionOutput(args: ListFeatureSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeatureSubscriptionResult> {
+export function listFeatureSubscriptionOutput(args: ListFeatureSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFeatureSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:purview:listFeatureSubscription", {
         "features": args.features,

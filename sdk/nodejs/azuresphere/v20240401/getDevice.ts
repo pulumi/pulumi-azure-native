@@ -96,7 +96,7 @@ export interface GetDeviceResult {
 /**
  * Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product.
  */
-export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceResult> {
+export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuresphere/v20240401:getDevice", {
         "catalogName": args.catalogName,

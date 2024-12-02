@@ -60,7 +60,7 @@ export interface GetWorkspaceTagResult {
 /**
  * Gets the details of the tag specified by its identifier.
  */
-export function getWorkspaceTagOutput(args: GetWorkspaceTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceTagResult> {
+export function getWorkspaceTagOutput(args: GetWorkspaceTagOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceTagResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getWorkspaceTag", {
         "resourceGroupName": args.resourceGroupName,

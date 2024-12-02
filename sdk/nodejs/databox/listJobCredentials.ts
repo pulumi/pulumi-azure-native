@@ -51,7 +51,7 @@ export interface ListJobCredentialsResult {
  *
  * Other available API versions: 2019-09-01, 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
  */
-export function listJobCredentialsOutput(args: ListJobCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListJobCredentialsResult> {
+export function listJobCredentialsOutput(args: ListJobCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListJobCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databox:listJobCredentials", {
         "jobName": args.jobName,

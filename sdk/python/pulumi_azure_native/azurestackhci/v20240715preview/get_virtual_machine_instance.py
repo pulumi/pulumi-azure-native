@@ -300,7 +300,7 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         vm_id=pulumi.get(__ret__, 'vm_id'))
 def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineInstanceResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineInstanceResult]:
     """
     Gets a virtual machine instance
 
@@ -309,7 +309,7 @@ def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240715preview:getVirtualMachineInstance', __args__, opts=opts, typ=GetVirtualMachineInstanceResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineInstanceResult(
         create_from_local=pulumi.get(__response__, 'create_from_local'),

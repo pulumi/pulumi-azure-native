@@ -47,7 +47,7 @@ export interface ListSubscriptionSecretsResult {
 /**
  * Gets the specified Subscription keys.
  */
-export function listSubscriptionSecretsOutput(args: ListSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSubscriptionSecretsResult> {
+export function listSubscriptionSecretsOutput(args: ListSubscriptionSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSubscriptionSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:listSubscriptionSecrets", {
         "resourceGroupName": args.resourceGroupName,

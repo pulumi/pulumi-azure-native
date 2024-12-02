@@ -93,7 +93,7 @@ export interface GetCustomLocationResult {
 /**
  * Gets the details of the customLocation with a specified resource group and name.
  */
-export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLocationResult> {
+export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomLocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:extendedlocation/v20210815:getCustomLocation", {
         "resourceGroupName": args.resourceGroupName,

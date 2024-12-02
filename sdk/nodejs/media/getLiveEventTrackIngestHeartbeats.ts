@@ -48,7 +48,7 @@ export interface GetLiveEventTrackIngestHeartbeatsResult {
  * Get track ingest heartbeat events telemetry of a live event.
  * Azure REST API version: 2022-11-01.
  */
-export function getLiveEventTrackIngestHeartbeatsOutput(args: GetLiveEventTrackIngestHeartbeatsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveEventTrackIngestHeartbeatsResult> {
+export function getLiveEventTrackIngestHeartbeatsOutput(args: GetLiveEventTrackIngestHeartbeatsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveEventTrackIngestHeartbeatsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getLiveEventTrackIngestHeartbeats", {
         "accountName": args.accountName,

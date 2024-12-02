@@ -148,7 +148,7 @@ def get_media_service(media_service_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_media_service_output(media_service_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMediaServiceResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMediaServiceResult]:
     """
     Gets a Media Service.
 
@@ -159,7 +159,7 @@ def get_media_service_output(media_service_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['mediaServiceName'] = media_service_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media/v20151001:getMediaService', __args__, opts=opts, typ=GetMediaServiceResult)
     return __ret__.apply(lambda __response__: GetMediaServiceResult(
         api_endpoints=pulumi.get(__response__, 'api_endpoints'),

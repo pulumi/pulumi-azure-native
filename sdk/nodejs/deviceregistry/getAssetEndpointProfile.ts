@@ -95,7 +95,7 @@ export interface GetAssetEndpointProfileResult {
  *
  * Other available API versions: 2024-09-01-preview, 2024-11-01.
  */
-export function getAssetEndpointProfileOutput(args: GetAssetEndpointProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetEndpointProfileResult> {
+export function getAssetEndpointProfileOutput(args: GetAssetEndpointProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetEndpointProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:deviceregistry:getAssetEndpointProfile", {
         "assetEndpointProfileName": args.assetEndpointProfileName,

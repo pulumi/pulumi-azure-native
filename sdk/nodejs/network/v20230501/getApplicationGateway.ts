@@ -213,7 +213,7 @@ export interface GetApplicationGatewayResult {
 /**
  * Gets the specified application gateway.
  */
-export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
+export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getApplicationGateway", {
         "applicationGatewayName": args.applicationGatewayName,

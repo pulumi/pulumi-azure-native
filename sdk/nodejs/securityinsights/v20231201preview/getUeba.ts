@@ -71,7 +71,7 @@ export interface GetUebaResult {
 /**
  * Gets a setting.
  */
-export function getUebaOutput(args: GetUebaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUebaResult> {
+export function getUebaOutput(args: GetUebaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUebaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231201preview:getUeba", {
         "resourceGroupName": args.resourceGroupName,

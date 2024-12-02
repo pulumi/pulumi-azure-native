@@ -92,7 +92,7 @@ export interface GetGlobalRulestackResult {
 /**
  * Get a GlobalRulestackResource
  */
-export function getGlobalRulestackOutput(args: GetGlobalRulestackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalRulestackResult> {
+export function getGlobalRulestackOutput(args: GetGlobalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901preview:getGlobalRulestack", {
         "globalRulestackName": args.globalRulestackName,

@@ -72,7 +72,7 @@ export interface GetDpsCertificateResult {
  *
  * Other available API versions: 2021-10-15, 2023-03-01-preview, 2025-02-01-preview.
  */
-export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDpsCertificateResult> {
+export function getDpsCertificateOutput(args: GetDpsCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDpsCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devices:getDpsCertificate", {
         "certificateName": args.certificateName,

@@ -213,7 +213,7 @@ def get_data_manager_for_agriculture_resource(data_manager_for_agriculture_resou
         type=pulumi.get(__ret__, 'type'))
 def get_data_manager_for_agriculture_resource_output(data_manager_for_agriculture_resource_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataManagerForAgricultureResourceResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataManagerForAgricultureResourceResult]:
     """
     Get DataManagerForAgriculture resource.
 
@@ -224,7 +224,7 @@ def get_data_manager_for_agriculture_resource_output(data_manager_for_agricultur
     __args__ = dict()
     __args__['dataManagerForAgricultureResourceName'] = data_manager_for_agriculture_resource_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:agfoodplatform/v20230601preview:getDataManagerForAgricultureResource', __args__, opts=opts, typ=GetDataManagerForAgricultureResourceResult)
     return __ret__.apply(lambda __response__: GetDataManagerForAgricultureResourceResult(
         id=pulumi.get(__response__, 'id'),

@@ -78,7 +78,7 @@ export interface GetVirtualHubIpConfigurationResult {
 /**
  * Retrieves the details of a Virtual Hub Ip configuration.
  */
-export function getVirtualHubIpConfigurationOutput(args: GetVirtualHubIpConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubIpConfigurationResult> {
+export function getVirtualHubIpConfigurationOutput(args: GetVirtualHubIpConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHubIpConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240301:getVirtualHubIpConfiguration", {
         "ipConfigName": args.ipConfigName,

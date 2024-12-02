@@ -256,7 +256,7 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
 def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              workspace_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDicomServiceResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDicomServiceResult]:
     """
     Gets the properties of the specified DICOM Service.
 
@@ -269,7 +269,7 @@ def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = N
     __args__['dicomServiceName'] = dicom_service_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis/v20230228:getDicomService', __args__, opts=opts, typ=GetDicomServiceResult)
     return __ret__.apply(lambda __response__: GetDicomServiceResult(
         authentication_configuration=pulumi.get(__response__, 'authentication_configuration'),

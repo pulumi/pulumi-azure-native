@@ -67,7 +67,7 @@ export interface GetS3ControlMultiRegionAccessPointPolicyDocumentResult {
  * Get a S3ControlMultiRegionAccessPointPolicyDocument
  * Azure REST API version: 2024-12-01.
  */
-export function getS3ControlMultiRegionAccessPointPolicyDocumentOutput(args: GetS3ControlMultiRegionAccessPointPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetS3ControlMultiRegionAccessPointPolicyDocumentResult> {
+export function getS3ControlMultiRegionAccessPointPolicyDocumentOutput(args: GetS3ControlMultiRegionAccessPointPolicyDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetS3ControlMultiRegionAccessPointPolicyDocumentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getS3ControlMultiRegionAccessPointPolicyDocument", {
         "name": args.name,

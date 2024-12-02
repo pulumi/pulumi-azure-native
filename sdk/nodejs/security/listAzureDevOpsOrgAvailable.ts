@@ -51,7 +51,7 @@ export interface ListAzureDevOpsOrgAvailableResult {
  *
  * Other available API versions: 2024-04-01, 2024-05-15-preview.
  */
-export function listAzureDevOpsOrgAvailableOutput(args: ListAzureDevOpsOrgAvailableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAzureDevOpsOrgAvailableResult> {
+export function listAzureDevOpsOrgAvailableOutput(args: ListAzureDevOpsOrgAvailableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAzureDevOpsOrgAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:listAzureDevOpsOrgAvailable", {
         "resourceGroupName": args.resourceGroupName,

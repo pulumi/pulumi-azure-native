@@ -73,7 +73,7 @@ export interface GetInferencePoolResult {
      */
     readonly type: string;
 }
-export function getInferencePoolOutput(args: GetInferencePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferencePoolResult> {
+export function getInferencePoolOutput(args: GetInferencePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferencePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001preview:getInferencePool", {
         "inferencePoolName": args.inferencePoolName,

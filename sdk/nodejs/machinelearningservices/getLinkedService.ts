@@ -68,7 +68,7 @@ export interface GetLinkedServiceResult {
  * Get the detail of a linked service.
  * Azure REST API version: 2020-09-01-preview.
  */
-export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
+export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getLinkedService", {
         "linkName": args.linkName,

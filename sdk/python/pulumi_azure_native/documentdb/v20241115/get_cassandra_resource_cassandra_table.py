@@ -150,7 +150,7 @@ def get_cassandra_resource_cassandra_table_output(account_name: Optional[pulumi.
                                                   keyspace_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                                   table_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraResourceCassandraTableResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCassandraResourceCassandraTableResult]:
     """
     Gets the Cassandra table under an existing Azure Cosmos DB database account.
 
@@ -165,7 +165,7 @@ def get_cassandra_resource_cassandra_table_output(account_name: Optional[pulumi.
     __args__['keyspaceName'] = keyspace_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['tableName'] = table_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20241115:getCassandraResourceCassandraTable', __args__, opts=opts, typ=GetCassandraResourceCassandraTableResult)
     return __ret__.apply(lambda __response__: GetCassandraResourceCassandraTableResult(
         id=pulumi.get(__response__, 'id'),

@@ -77,7 +77,7 @@ export interface GetStaticSitePrivateEndpointConnectionResult {
  *
  * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getStaticSitePrivateEndpointConnectionOutput(args: GetStaticSitePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticSitePrivateEndpointConnectionResult> {
+export function getStaticSitePrivateEndpointConnectionOutput(args: GetStaticSitePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSitePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getStaticSitePrivateEndpointConnection", {
         "name": args.name,

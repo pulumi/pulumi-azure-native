@@ -64,7 +64,7 @@ export interface GetSecurityContactResult {
 /**
  * Get Default Security contact configurations for the subscription
  */
-export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityContactResult> {
+export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20231201preview:getSecurityContact", {
         "securityContactName": args.securityContactName,

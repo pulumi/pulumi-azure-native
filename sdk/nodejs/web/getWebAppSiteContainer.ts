@@ -112,7 +112,7 @@ export interface GetWebAppSiteContainerResult {
  *
  * Other available API versions: 2024-04-01.
  */
-export function getWebAppSiteContainerOutput(args: GetWebAppSiteContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteContainerResult> {
+export function getWebAppSiteContainerOutput(args: GetWebAppSiteContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSiteContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getWebAppSiteContainer", {
         "containerName": args.containerName,

@@ -105,7 +105,7 @@ export interface GetLabResult {
 /**
  * Returns the properties of a lab resource.
  */
-export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
+export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:labservices/v20220801:getLab", {
         "labName": args.labName,

@@ -97,7 +97,7 @@ export interface GetBusinessProcessResult {
  * Get a BusinessProcess
  * Azure REST API version: 2023-11-14-preview.
  */
-export function getBusinessProcessOutput(args: GetBusinessProcessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBusinessProcessResult> {
+export function getBusinessProcessOutput(args: GetBusinessProcessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBusinessProcessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:integrationspaces:getBusinessProcess", {
         "applicationName": args.applicationName,

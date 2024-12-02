@@ -127,7 +127,7 @@ def get_global_parameter(factory_name: Optional[str] = None,
 def get_global_parameter_output(factory_name: Optional[pulumi.Input[str]] = None,
                                 global_parameter_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalParameterResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalParameterResult]:
     """
     Gets a Global parameter
     Azure REST API version: 2018-06-01.
@@ -141,7 +141,7 @@ def get_global_parameter_output(factory_name: Optional[pulumi.Input[str]] = None
     __args__['factoryName'] = factory_name
     __args__['globalParameterName'] = global_parameter_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datafactory:getGlobalParameter', __args__, opts=opts, typ=GetGlobalParameterResult)
     return __ret__.apply(lambda __response__: GetGlobalParameterResult(
         etag=pulumi.get(__response__, 'etag'),

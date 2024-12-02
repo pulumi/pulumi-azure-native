@@ -63,7 +63,7 @@ export interface GetConnectionRaiBlocklistItemResult {
      */
     readonly type: string;
 }
-export function getConnectionRaiBlocklistItemOutput(args: GetConnectionRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionRaiBlocklistItemResult> {
+export function getConnectionRaiBlocklistItemOutput(args: GetConnectionRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionRaiBlocklistItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20241001preview:getConnectionRaiBlocklistItem", {
         "connectionName": args.connectionName,

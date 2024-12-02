@@ -66,7 +66,7 @@ export interface GetManagedInstancePrivateEndpointConnectionResult {
 /**
  * Gets a private endpoint connection.
  */
-export function getManagedInstancePrivateEndpointConnectionOutput(args: GetManagedInstancePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstancePrivateEndpointConnectionResult> {
+export function getManagedInstancePrivateEndpointConnectionOutput(args: GetManagedInstancePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedInstancePrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230201preview:getManagedInstancePrivateEndpointConnection", {
         "managedInstanceName": args.managedInstanceName,

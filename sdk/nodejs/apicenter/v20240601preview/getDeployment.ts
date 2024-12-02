@@ -96,7 +96,7 @@ export interface GetDeploymentResult {
 /**
  * Returns details of the API deployment.
  */
-export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
+export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apicenter/v20240601preview:getDeployment", {
         "apiName": args.apiName,

@@ -152,7 +152,7 @@ def get_managed_certificate(environment_name: Optional[str] = None,
 def get_managed_certificate_output(environment_name: Optional[pulumi.Input[str]] = None,
                                    managed_certificate_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedCertificateResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedCertificateResult]:
     """
     Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
 
@@ -165,7 +165,7 @@ def get_managed_certificate_output(environment_name: Optional[pulumi.Input[str]]
     __args__['environmentName'] = environment_name
     __args__['managedCertificateName'] = managed_certificate_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app/v20230401preview:getManagedCertificate', __args__, opts=opts, typ=GetManagedCertificateResult)
     return __ret__.apply(lambda __response__: GetManagedCertificateResult(
         id=pulumi.get(__response__, 'id'),

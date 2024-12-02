@@ -165,7 +165,7 @@ def get_private_endpoint_connection_controller(pe_connection_name: Optional[str]
 def get_private_endpoint_connection_controller_output(pe_connection_name: Optional[pulumi.Input[str]] = None,
                                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                                       site_name: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionControllerResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionControllerResult]:
     """
     Gets the private link resource.
 
@@ -178,7 +178,7 @@ def get_private_endpoint_connection_controller_output(pe_connection_name: Option
     __args__['peConnectionName'] = pe_connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteName'] = site_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure/v20230606:getPrivateEndpointConnectionController', __args__, opts=opts, typ=GetPrivateEndpointConnectionControllerResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionControllerResult(
         group_ids=pulumi.get(__response__, 'group_ids'),

@@ -126,7 +126,7 @@ def get_server_trust_group(location_name: Optional[str] = None,
 def get_server_trust_group_output(location_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   server_trust_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerTrustGroupResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerTrustGroupResult]:
     """
     Gets a server trust group.
 
@@ -139,7 +139,7 @@ def get_server_trust_group_output(location_name: Optional[pulumi.Input[str]] = N
     __args__['locationName'] = location_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverTrustGroupName'] = server_trust_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20230801preview:getServerTrustGroup', __args__, opts=opts, typ=GetServerTrustGroupResult)
     return __ret__.apply(lambda __response__: GetServerTrustGroupResult(
         group_members=pulumi.get(__response__, 'group_members'),

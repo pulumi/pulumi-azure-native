@@ -150,7 +150,7 @@ def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = N
                       parent_resource_type: Optional[pulumi.Input[str]] = None,
                       resource_group_name: Optional[pulumi.Input[str]] = None,
                       target_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetResult]:
     """
     Get a Target resource that extends a tracked regional resource.
     Azure REST API version: 2023-04-15-preview.
@@ -170,7 +170,7 @@ def get_target_output(parent_provider_namespace: Optional[pulumi.Input[str]] = N
     __args__['parentResourceType'] = parent_resource_type
     __args__['resourceGroupName'] = resource_group_name
     __args__['targetName'] = target_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:chaos:getTarget', __args__, opts=opts, typ=GetTargetResult)
     return __ret__.apply(lambda __response__: GetTargetResult(
         id=pulumi.get(__response__, 'id'),

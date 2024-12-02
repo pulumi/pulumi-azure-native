@@ -101,7 +101,7 @@ export interface GetAzureBareMetalInstanceResult {
 /**
  * Gets an Azure Bare Metal Instance for the specified subscription, resource group, and instance name.
  */
-export function getAzureBareMetalInstanceOutput(args: GetAzureBareMetalInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureBareMetalInstanceResult> {
+export function getAzureBareMetalInstanceOutput(args: GetAzureBareMetalInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureBareMetalInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:baremetalinfrastructure/v20240801preview:getAzureBareMetalInstance", {
         "azureBareMetalInstanceName": args.azureBareMetalInstanceName,

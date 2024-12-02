@@ -221,7 +221,7 @@ def get_web_app_hybrid_connection_output(name: Optional[pulumi.Input[str]] = Non
                                          namespace_name: Optional[pulumi.Input[str]] = None,
                                          relay_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHybridConnectionResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppHybridConnectionResult]:
     """
     Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
 
@@ -236,7 +236,7 @@ def get_web_app_hybrid_connection_output(name: Optional[pulumi.Input[str]] = Non
     __args__['namespaceName'] = namespace_name
     __args__['relayName'] = relay_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20220901:getWebAppHybridConnection', __args__, opts=opts, typ=GetWebAppHybridConnectionResult)
     return __ret__.apply(lambda __response__: GetWebAppHybridConnectionResult(
         hostname=pulumi.get(__response__, 'hostname'),

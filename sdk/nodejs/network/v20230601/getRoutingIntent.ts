@@ -66,7 +66,7 @@ export interface GetRoutingIntentResult {
 /**
  * Retrieves the details of a RoutingIntent.
  */
-export function getRoutingIntentOutput(args: GetRoutingIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingIntentResult> {
+export function getRoutingIntentOutput(args: GetRoutingIntentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoutingIntentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230601:getRoutingIntent", {
         "resourceGroupName": args.resourceGroupName,

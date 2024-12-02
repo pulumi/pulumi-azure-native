@@ -65,7 +65,7 @@ export interface GetEc2SubnetResult {
 /**
  * Get a Ec2Subnet
  */
-export function getEc2SubnetOutput(args: GetEc2SubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2SubnetResult> {
+export function getEc2SubnetOutput(args: GetEc2SubnetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2SubnetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2Subnet", {
         "name": args.name,

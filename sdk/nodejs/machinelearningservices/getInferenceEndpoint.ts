@@ -88,7 +88,7 @@ export interface GetInferenceEndpointResult {
  *
  * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
  */
-export function getInferenceEndpointOutput(args: GetInferenceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceEndpointResult> {
+export function getInferenceEndpointOutput(args: GetInferenceEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getInferenceEndpoint", {
         "endpointName": args.endpointName,

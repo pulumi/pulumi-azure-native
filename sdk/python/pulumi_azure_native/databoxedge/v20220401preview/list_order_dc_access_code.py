@@ -69,7 +69,7 @@ def list_order_dc_access_code(device_name: Optional[str] = None,
         auth_code=pulumi.get(__ret__, 'auth_code'))
 def list_order_dc_access_code_output(device_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOrderDCAccessCodeResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOrderDCAccessCodeResult]:
     """
     DC Access code in the case of Self Managed Shipping.
 
@@ -80,7 +80,7 @@ def list_order_dc_access_code_output(device_name: Optional[pulumi.Input[str]] = 
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20220401preview:listOrderDCAccessCode', __args__, opts=opts, typ=ListOrderDCAccessCodeResult)
     return __ret__.apply(lambda __response__: ListOrderDCAccessCodeResult(
         auth_code=pulumi.get(__response__, 'auth_code')))

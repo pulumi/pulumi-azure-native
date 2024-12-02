@@ -65,7 +65,7 @@ export interface GetEc2RouteTableResult {
 /**
  * Get a Ec2RouteTable
  */
-export function getEc2RouteTableOutput(args: GetEc2RouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2RouteTableResult> {
+export function getEc2RouteTableOutput(args: GetEc2RouteTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2RouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2RouteTable", {
         "name": args.name,

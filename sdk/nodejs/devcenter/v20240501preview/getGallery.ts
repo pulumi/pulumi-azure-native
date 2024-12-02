@@ -66,7 +66,7 @@ export interface GetGalleryResult {
 /**
  * Gets a gallery
  */
-export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {
+export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240501preview:getGallery", {
         "devCenterName": args.devCenterName,

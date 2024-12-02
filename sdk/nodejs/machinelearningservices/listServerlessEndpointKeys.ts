@@ -53,7 +53,7 @@ export interface ListServerlessEndpointKeysResult {
  *
  * Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
  */
-export function listServerlessEndpointKeysOutput(args: ListServerlessEndpointKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListServerlessEndpointKeysResult> {
+export function listServerlessEndpointKeysOutput(args: ListServerlessEndpointKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListServerlessEndpointKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listServerlessEndpointKeys", {
         "name": args.name,

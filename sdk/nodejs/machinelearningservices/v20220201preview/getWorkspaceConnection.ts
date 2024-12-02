@@ -78,7 +78,7 @@ export interface GetWorkspaceConnectionResult {
 /**
  * Get the detail of a workspace connection.
  */
-export function getWorkspaceConnectionOutput(args: GetWorkspaceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceConnectionResult> {
+export function getWorkspaceConnectionOutput(args: GetWorkspaceConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20220201preview:getWorkspaceConnection", {
         "connectionName": args.connectionName,

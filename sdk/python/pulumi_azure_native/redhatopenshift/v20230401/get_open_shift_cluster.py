@@ -252,7 +252,7 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
         worker_profiles=pulumi.get(__ret__, 'worker_profiles'))
 def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                   resource_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenShiftClusterResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenShiftClusterResult]:
     """
     The operation returns properties of a OpenShift cluster.
 
@@ -263,7 +263,7 @@ def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:redhatopenshift/v20230401:getOpenShiftCluster', __args__, opts=opts, typ=GetOpenShiftClusterResult)
     return __ret__.apply(lambda __response__: GetOpenShiftClusterResult(
         apiserver_profile=pulumi.get(__response__, 'apiserver_profile'),

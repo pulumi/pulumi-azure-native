@@ -121,7 +121,7 @@ def get_alias(alias_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
     Get Alias Subscription.
     Azure REST API version: 2021-10-01.
@@ -133,7 +133,7 @@ def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['aliasName'] = alias_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:subscription:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
         id=pulumi.get(__response__, 'id'),

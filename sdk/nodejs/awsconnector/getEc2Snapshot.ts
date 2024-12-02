@@ -67,7 +67,7 @@ export interface GetEc2SnapshotResult {
  * Get a Ec2Snapshot
  * Azure REST API version: 2024-12-01.
  */
-export function getEc2SnapshotOutput(args: GetEc2SnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2SnapshotResult> {
+export function getEc2SnapshotOutput(args: GetEc2SnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2SnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getEc2Snapshot", {
         "name": args.name,

@@ -66,7 +66,7 @@ export interface GetProductGroupLinkResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getProductGroupLinkOutput(args: GetProductGroupLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductGroupLinkResult> {
+export function getProductGroupLinkOutput(args: GetProductGroupLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProductGroupLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getProductGroupLink", {
         "groupLinkId": args.groupLinkId,

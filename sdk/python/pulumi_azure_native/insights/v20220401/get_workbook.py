@@ -308,7 +308,7 @@ def get_workbook(can_fetch_content: Optional[bool] = None,
 def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[bool]]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkbookResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkbookResult]:
     """
     Get a single workbook by its resourceName.
 
@@ -321,7 +321,7 @@ def get_workbook_output(can_fetch_content: Optional[pulumi.Input[Optional[bool]]
     __args__['canFetchContent'] = can_fetch_content
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights/v20220401:getWorkbook', __args__, opts=opts, typ=GetWorkbookResult)
     return __ret__.apply(lambda __response__: GetWorkbookResult(
         category=pulumi.get(__response__, 'category'),

@@ -199,7 +199,7 @@ def get_suppression_list_address_output(address_id: Optional[pulumi.Input[str]] 
                                         email_service_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         suppression_list_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSuppressionListAddressResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuppressionListAddressResult]:
     """
     Get a SuppressionListAddress.
 
@@ -216,7 +216,7 @@ def get_suppression_list_address_output(address_id: Optional[pulumi.Input[str]] 
     __args__['emailServiceName'] = email_service_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['suppressionListName'] = suppression_list_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:communication/v20230601preview:getSuppressionListAddress', __args__, opts=opts, typ=GetSuppressionListAddressResult)
     return __ret__.apply(lambda __response__: GetSuppressionListAddressResult(
         data_location=pulumi.get(__response__, 'data_location'),

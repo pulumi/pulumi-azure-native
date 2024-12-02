@@ -71,7 +71,7 @@ export interface GetWorkspaceProductApiLinkResult {
  *
  * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
-export function getWorkspaceProductApiLinkOutput(args: GetWorkspaceProductApiLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceProductApiLinkResult> {
+export function getWorkspaceProductApiLinkOutput(args: GetWorkspaceProductApiLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceProductApiLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement:getWorkspaceProductApiLink", {
         "apiLinkId": args.apiLinkId,

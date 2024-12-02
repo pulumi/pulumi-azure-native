@@ -229,7 +229,7 @@ def get_cloud_hsm_cluster(cloud_hsm_cluster_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_cloud_hsm_cluster_output(cloud_hsm_cluster_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudHsmClusterResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudHsmClusterResult]:
     """
     Gets the specified Cloud HSM Cluster
     Azure REST API version: 2022-08-31-preview.
@@ -243,7 +243,7 @@ def get_cloud_hsm_cluster_output(cloud_hsm_cluster_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['cloudHsmClusterName'] = cloud_hsm_cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hardwaresecuritymodules:getCloudHsmCluster', __args__, opts=opts, typ=GetCloudHsmClusterResult)
     return __ret__.apply(lambda __response__: GetCloudHsmClusterResult(
         auto_generated_domain_name_label_scope=pulumi.get(__response__, 'auto_generated_domain_name_label_scope'),

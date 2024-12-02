@@ -82,7 +82,7 @@ export interface GetInboundEndpointResult {
 /**
  * Gets properties of an inbound endpoint for a DNS resolver.
  */
-export function getInboundEndpointOutput(args: GetInboundEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInboundEndpointResult> {
+export function getInboundEndpointOutput(args: GetInboundEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInboundEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20200401preview:getInboundEndpoint", {
         "dnsResolverName": args.dnsResolverName,

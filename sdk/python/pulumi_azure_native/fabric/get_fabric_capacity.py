@@ -188,7 +188,7 @@ def get_fabric_capacity(capacity_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_fabric_capacity_output(capacity_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFabricCapacityResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFabricCapacityResult]:
     """
     Get a FabricCapacity
     Azure REST API version: 2023-11-01.
@@ -200,7 +200,7 @@ def get_fabric_capacity_output(capacity_name: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['capacityName'] = capacity_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:fabric:getFabricCapacity', __args__, opts=opts, typ=GetFabricCapacityResult)
     return __ret__.apply(lambda __response__: GetFabricCapacityResult(
         administration=pulumi.get(__response__, 'administration'),

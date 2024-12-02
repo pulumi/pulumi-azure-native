@@ -84,7 +84,7 @@ def list_mobile_network_sim_groups(mobile_network_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_mobile_network_sim_groups_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMobileNetworkSimGroupsResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMobileNetworkSimGroupsResult]:
     """
     Gets all the SIM groups assigned to a mobile network.
     Azure REST API version: 2024-04-01.
@@ -96,7 +96,7 @@ def list_mobile_network_sim_groups_output(mobile_network_name: Optional[pulumi.I
     __args__ = dict()
     __args__['mobileNetworkName'] = mobile_network_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork:listMobileNetworkSimGroups', __args__, opts=opts, typ=ListMobileNetworkSimGroupsResult)
     return __ret__.apply(lambda __response__: ListMobileNetworkSimGroupsResult(
         next_link=pulumi.get(__response__, 'next_link'),

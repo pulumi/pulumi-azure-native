@@ -34,7 +34,7 @@ export interface GetClientTokenResult {
 /**
  * Use this function to get an Azure authentication token for the current login context.
  */
-export function getClientTokenOutput(args?: GetClientTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClientTokenResult> {
+export function getClientTokenOutput(args?: GetClientTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClientTokenResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getClientToken", {

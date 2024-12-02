@@ -163,7 +163,7 @@ def get_cassandra_resource_cassandra_view_output(account_name: Optional[pulumi.I
                                                  keyspace_name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                  view_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCassandraResourceCassandraViewResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCassandraResourceCassandraViewResult]:
     """
     Gets the Cassandra view under an existing Azure Cosmos DB database account.
 
@@ -178,7 +178,7 @@ def get_cassandra_resource_cassandra_view_output(account_name: Optional[pulumi.I
     __args__['keyspaceName'] = keyspace_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['viewName'] = view_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb/v20240215preview:getCassandraResourceCassandraView', __args__, opts=opts, typ=GetCassandraResourceCassandraViewResult)
     return __ret__.apply(lambda __response__: GetCassandraResourceCassandraViewResult(
         id=pulumi.get(__response__, 'id'),

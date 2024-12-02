@@ -76,7 +76,7 @@ export interface GetApiSchemaResult {
 /**
  * Get the schema configuration at the API level.
  */
-export function getApiSchemaOutput(args: GetApiSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiSchemaResult> {
+export function getApiSchemaOutput(args: GetApiSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230901preview:getApiSchema", {
         "apiId": args.apiId,

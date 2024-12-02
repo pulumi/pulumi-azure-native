@@ -65,7 +65,7 @@ export interface GetMigrateProjectResult {
 /**
  * Migrate Project REST Resource.
  */
-export function getMigrateProjectOutput(args: GetMigrateProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrateProjectResult> {
+export function getMigrateProjectOutput(args: GetMigrateProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrateProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate/v20180901preview:getMigrateProject", {
         "migrateProjectName": args.migrateProjectName,

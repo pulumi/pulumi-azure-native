@@ -126,7 +126,7 @@ def get_web_pub_sub_hub(hub_name: Optional[str] = None,
 def get_web_pub_sub_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                resource_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubHubResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebPubSubHubResult]:
     """
     Get a hub setting.
 
@@ -139,7 +139,7 @@ def get_web_pub_sub_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
     __args__['hubName'] = hub_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:webpubsub/v20230801preview:getWebPubSubHub', __args__, opts=opts, typ=GetWebPubSubHubResult)
     return __ret__.apply(lambda __response__: GetWebPubSubHubResult(
         id=pulumi.get(__response__, 'id'),

@@ -83,7 +83,7 @@ def get_marketplace_image_sas_token_sas_token_output(device_name: Optional[pulum
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                                      sku_name: Optional[pulumi.Input[str]] = None,
                                                      version_name: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMarketplaceImageSasTokenSASTokenResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMarketplaceImageSasTokenSASTokenResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -96,7 +96,7 @@ def get_marketplace_image_sas_token_sas_token_output(device_name: Optional[pulum
     __args__['resourceGroupName'] = resource_group_name
     __args__['skuName'] = sku_name
     __args__['versionName'] = version_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20230101preview:getMarketplaceImageSasTokenSASToken', __args__, opts=opts, typ=GetMarketplaceImageSasTokenSASTokenResult)
     return __ret__.apply(lambda __response__: GetMarketplaceImageSasTokenSASTokenResult(
         sas_uri=pulumi.get(__response__, 'sas_uri'),

@@ -51,7 +51,7 @@ export interface ListQnAMakerEndpointKeyResult {
 /**
  * Lists the QnA Maker endpoint keys
  */
-export function listQnAMakerEndpointKeyOutput(args?: ListQnAMakerEndpointKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListQnAMakerEndpointKeyResult> {
+export function listQnAMakerEndpointKeyOutput(args?: ListQnAMakerEndpointKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListQnAMakerEndpointKeyResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice/v20230915preview:listQnAMakerEndpointKey", {

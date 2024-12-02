@@ -247,7 +247,7 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                               sync_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudEndpointResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudEndpointResult]:
     """
     Get a given CloudEndpoint.
 
@@ -262,7 +262,7 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageSyncServiceName'] = storage_sync_service_name
     __args__['syncGroupName'] = sync_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync/v20220901:getCloudEndpoint', __args__, opts=opts, typ=GetCloudEndpointResult)
     return __ret__.apply(lambda __response__: GetCloudEndpointResult(
         azure_file_share_name=pulumi.get(__response__, 'azure_file_share_name'),

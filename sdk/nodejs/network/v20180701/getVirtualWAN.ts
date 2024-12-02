@@ -74,7 +74,7 @@ export interface GetVirtualWANResult {
 /**
  * Retrieves the details of a VirtualWAN.
  */
-export function getVirtualWANOutput(args: GetVirtualWANOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualWANResult> {
+export function getVirtualWANOutput(args: GetVirtualWANOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualWANResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20180701:getVirtualWAN", {
         "resourceGroupName": args.resourceGroupName,

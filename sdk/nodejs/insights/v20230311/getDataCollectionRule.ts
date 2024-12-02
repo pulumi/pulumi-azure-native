@@ -122,7 +122,7 @@ export interface GetDataCollectionRuleResult {
 /**
  * Definition of ARM tracked top level resource.
  */
-export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
+export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCollectionRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20230311:getDataCollectionRule", {
         "dataCollectionRuleName": args.dataCollectionRuleName,

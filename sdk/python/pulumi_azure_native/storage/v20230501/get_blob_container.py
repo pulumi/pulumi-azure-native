@@ -360,7 +360,7 @@ def get_blob_container(account_name: Optional[str] = None,
 def get_blob_container_output(account_name: Optional[pulumi.Input[str]] = None,
                               container_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBlobContainerResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobContainerResult]:
     """
     Gets properties of a specified container.
 
@@ -373,7 +373,7 @@ def get_blob_container_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage/v20230501:getBlobContainer', __args__, opts=opts, typ=GetBlobContainerResult)
     return __ret__.apply(lambda __response__: GetBlobContainerResult(
         default_encryption_scope=pulumi.get(__response__, 'default_encryption_scope'),

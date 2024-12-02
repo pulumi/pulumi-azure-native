@@ -80,7 +80,7 @@ export interface GetSecurityPoliciesInterfaceResult {
  * Get a SecurityPolicy
  * Azure REST API version: 2024-05-01-preview.
  */
-export function getSecurityPoliciesInterfaceOutput(args: GetSecurityPoliciesInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityPoliciesInterfaceResult> {
+export function getSecurityPoliciesInterfaceOutput(args: GetSecurityPoliciesInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityPoliciesInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicenetworking:getSecurityPoliciesInterface", {
         "resourceGroupName": args.resourceGroupName,

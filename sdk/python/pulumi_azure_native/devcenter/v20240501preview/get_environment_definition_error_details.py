@@ -78,7 +78,7 @@ def get_environment_definition_error_details_output(catalog_name: Optional[pulum
                                                     dev_center_name: Optional[pulumi.Input[str]] = None,
                                                     environment_definition_name: Optional[pulumi.Input[str]] = None,
                                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentDefinitionErrorDetailsResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentDefinitionErrorDetailsResult]:
     """
     Gets Environment Definition error details
 
@@ -93,7 +93,7 @@ def get_environment_definition_error_details_output(catalog_name: Optional[pulum
     __args__['devCenterName'] = dev_center_name
     __args__['environmentDefinitionName'] = environment_definition_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240501preview:getEnvironmentDefinitionErrorDetails', __args__, opts=opts, typ=GetEnvironmentDefinitionErrorDetailsResult)
     return __ret__.apply(lambda __response__: GetEnvironmentDefinitionErrorDetailsResult(
         errors=pulumi.get(__response__, 'errors')))

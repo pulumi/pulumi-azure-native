@@ -73,7 +73,7 @@ export interface GetReachabilityAnalysisIntentResult {
  *
  * Other available API versions: 2024-05-01.
  */
-export function getReachabilityAnalysisIntentOutput(args: GetReachabilityAnalysisIntentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReachabilityAnalysisIntentResult> {
+export function getReachabilityAnalysisIntentOutput(args: GetReachabilityAnalysisIntentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReachabilityAnalysisIntentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getReachabilityAnalysisIntent", {
         "networkManagerName": args.networkManagerName,

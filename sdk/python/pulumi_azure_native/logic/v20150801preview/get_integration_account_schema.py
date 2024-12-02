@@ -227,7 +227,7 @@ def get_integration_account_schema(integration_account_name: Optional[str] = Non
 def get_integration_account_schema_output(integration_account_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           schema_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountSchemaResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountSchemaResult]:
     """
     Gets an integration account schema.
 
@@ -240,7 +240,7 @@ def get_integration_account_schema_output(integration_account_name: Optional[pul
     __args__['integrationAccountName'] = integration_account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['schemaName'] = schema_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logic/v20150801preview:getIntegrationAccountSchema', __args__, opts=opts, typ=GetIntegrationAccountSchemaResult)
     return __ret__.apply(lambda __response__: GetIntegrationAccountSchemaResult(
         changed_time=pulumi.get(__response__, 'changed_time'),

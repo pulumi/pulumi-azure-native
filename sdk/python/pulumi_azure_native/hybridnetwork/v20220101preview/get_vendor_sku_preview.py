@@ -126,7 +126,7 @@ def get_vendor_sku_preview(preview_subscription: Optional[str] = None,
 def get_vendor_sku_preview_output(preview_subscription: Optional[pulumi.Input[str]] = None,
                                   sku_name: Optional[pulumi.Input[str]] = None,
                                   vendor_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVendorSkuPreviewResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVendorSkuPreviewResult]:
     """
     Gets the preview information of a vendor sku.
 
@@ -139,7 +139,7 @@ def get_vendor_sku_preview_output(preview_subscription: Optional[pulumi.Input[st
     __args__['previewSubscription'] = preview_subscription
     __args__['skuName'] = sku_name
     __args__['vendorName'] = vendor_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridnetwork/v20220101preview:getVendorSkuPreview', __args__, opts=opts, typ=GetVendorSkuPreviewResult)
     return __ret__.apply(lambda __response__: GetVendorSkuPreviewResult(
         id=pulumi.get(__response__, 'id'),

@@ -191,7 +191,7 @@ def get_batch_deployment_output(deployment_name: Optional[pulumi.Input[str]] = N
                                 endpoint_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 workspace_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBatchDeploymentResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBatchDeploymentResult]:
     """
     Use this data source to access information about an existing resource.
 
@@ -205,7 +205,7 @@ def get_batch_deployment_output(deployment_name: Optional[pulumi.Input[str]] = N
     __args__['endpointName'] = endpoint_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices/v20230601preview:getBatchDeployment', __args__, opts=opts, typ=GetBatchDeploymentResult)
     return __ret__.apply(lambda __response__: GetBatchDeploymentResult(
         batch_deployment_properties=pulumi.get(__response__, 'batch_deployment_properties'),

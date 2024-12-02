@@ -62,7 +62,7 @@ export interface GetHciEdgeDeviceResult {
 /**
  * Get a EdgeDevice
  */
-export function getHciEdgeDeviceOutput(args: GetHciEdgeDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHciEdgeDeviceResult> {
+export function getHciEdgeDeviceOutput(args: GetHciEdgeDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHciEdgeDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci/v20240401:getHciEdgeDevice", {
         "edgeDeviceName": args.edgeDeviceName,

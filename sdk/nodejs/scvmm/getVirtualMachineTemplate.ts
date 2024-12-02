@@ -143,7 +143,7 @@ export interface GetVirtualMachineTemplateResult {
  *
  * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
  */
-export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
+export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm:getVirtualMachineTemplate", {
         "resourceGroupName": args.resourceGroupName,

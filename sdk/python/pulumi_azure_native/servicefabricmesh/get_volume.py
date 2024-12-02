@@ -203,7 +203,7 @@ def get_volume(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       volume_resource_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
     Azure REST API version: 2018-09-01-preview.
@@ -217,7 +217,7 @@ def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['volumeResourceName'] = volume_resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
         azure_file_parameters=pulumi.get(__response__, 'azure_file_parameters'),

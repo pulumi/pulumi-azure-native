@@ -117,7 +117,7 @@ def get_resource_type_registration(provider_namespace: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_resource_type_registration_output(provider_namespace: Optional[pulumi.Input[str]] = None,
                                           resource_type: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceTypeRegistrationResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceTypeRegistrationResult]:
     """
     Gets a resource type details in the given subscription and provider.
     Azure REST API version: 2021-09-01-preview.
@@ -129,7 +129,7 @@ def get_resource_type_registration_output(provider_namespace: Optional[pulumi.In
     __args__ = dict()
     __args__['providerNamespace'] = provider_namespace
     __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:providerhub:getResourceTypeRegistration', __args__, opts=opts, typ=GetResourceTypeRegistrationResult)
     return __ret__.apply(lambda __response__: GetResourceTypeRegistrationResult(
         id=pulumi.get(__response__, 'id'),

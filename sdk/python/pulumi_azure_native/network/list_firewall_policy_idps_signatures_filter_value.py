@@ -76,7 +76,7 @@ def list_firewall_policy_idps_signatures_filter_value(filter_name: Optional[str]
 def list_firewall_policy_idps_signatures_filter_value_output(filter_name: Optional[pulumi.Input[Optional[str]]] = None,
                                                              firewall_policy_name: Optional[pulumi.Input[str]] = None,
                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFirewallPolicyIdpsSignaturesFilterValueResult]:
+                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFirewallPolicyIdpsSignaturesFilterValueResult]:
     """
     Retrieves the current filter values for the signatures overrides
     Azure REST API version: 2023-02-01.
@@ -92,7 +92,7 @@ def list_firewall_policy_idps_signatures_filter_value_output(filter_name: Option
     __args__['filterName'] = filter_name
     __args__['firewallPolicyName'] = firewall_policy_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue', __args__, opts=opts, typ=ListFirewallPolicyIdpsSignaturesFilterValueResult)
     return __ret__.apply(lambda __response__: ListFirewallPolicyIdpsSignaturesFilterValueResult(
         filter_values=pulumi.get(__response__, 'filter_values')))

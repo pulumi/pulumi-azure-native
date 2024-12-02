@@ -85,7 +85,7 @@ export interface GetFarmBeatsModelResult {
 /**
  * Get FarmBeats resource.
  */
-export function getFarmBeatsModelOutput(args: GetFarmBeatsModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFarmBeatsModelResult> {
+export function getFarmBeatsModelOutput(args: GetFarmBeatsModelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFarmBeatsModelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:agfoodplatform/v20210901preview:getFarmBeatsModel", {
         "farmBeatsResourceName": args.farmBeatsResourceName,

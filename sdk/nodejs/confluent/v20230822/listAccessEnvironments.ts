@@ -54,7 +54,7 @@ export interface ListAccessEnvironmentsResult {
 /**
  * List environments success response
  */
-export function listAccessEnvironmentsOutput(args: ListAccessEnvironmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccessEnvironmentsResult> {
+export function listAccessEnvironmentsOutput(args: ListAccessEnvironmentsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessEnvironmentsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:confluent/v20230822:listAccessEnvironments", {
         "organizationName": args.organizationName,

@@ -67,7 +67,7 @@ export interface GetCodeBuildSourceCredentialsInfoResult {
  * Get a CodeBuildSourceCredentialsInfo
  * Azure REST API version: 2024-12-01.
  */
-export function getCodeBuildSourceCredentialsInfoOutput(args: GetCodeBuildSourceCredentialsInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeBuildSourceCredentialsInfoResult> {
+export function getCodeBuildSourceCredentialsInfoOutput(args: GetCodeBuildSourceCredentialsInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeBuildSourceCredentialsInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getCodeBuildSourceCredentialsInfo", {
         "name": args.name,

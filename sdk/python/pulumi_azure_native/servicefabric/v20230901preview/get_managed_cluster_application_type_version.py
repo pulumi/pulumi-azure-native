@@ -169,7 +169,7 @@ def get_managed_cluster_application_type_version_output(application_type_name: O
                                                         cluster_name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         version: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterApplicationTypeVersionResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterApplicationTypeVersionResult]:
     """
     Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.
 
@@ -184,7 +184,7 @@ def get_managed_cluster_application_type_version_output(application_type_name: O
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20230901preview:getManagedClusterApplicationTypeVersion', __args__, opts=opts, typ=GetManagedClusterApplicationTypeVersionResult)
     return __ret__.apply(lambda __response__: GetManagedClusterApplicationTypeVersionResult(
         app_package_url=pulumi.get(__response__, 'app_package_url'),

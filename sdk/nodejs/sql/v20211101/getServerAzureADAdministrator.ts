@@ -71,7 +71,7 @@ export interface GetServerAzureADAdministratorResult {
 /**
  * Gets a Azure Active Directory administrator.
  */
-export function getServerAzureADAdministratorOutput(args: GetServerAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAzureADAdministratorResult> {
+export function getServerAzureADAdministratorOutput(args: GetServerAzureADAdministratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerAzureADAdministratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20211101:getServerAzureADAdministrator", {
         "administratorName": args.administratorName,

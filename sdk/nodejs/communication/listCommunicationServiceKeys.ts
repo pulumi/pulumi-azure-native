@@ -56,7 +56,7 @@ export interface ListCommunicationServiceKeysResult {
  *
  * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
  */
-export function listCommunicationServiceKeysOutput(args: ListCommunicationServiceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListCommunicationServiceKeysResult> {
+export function listCommunicationServiceKeysOutput(args: ListCommunicationServiceKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListCommunicationServiceKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:communication:listCommunicationServiceKeys", {
         "communicationServiceName": args.communicationServiceName,

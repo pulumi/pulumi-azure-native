@@ -116,7 +116,7 @@ def get_transparent_data_encryption_output(database_name: Optional[pulumi.Input[
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            server_name: Optional[pulumi.Input[str]] = None,
                                            tde_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransparentDataEncryptionResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransparentDataEncryptionResult]:
     """
     Gets a logical database's transparent data encryption.
 
@@ -131,7 +131,7 @@ def get_transparent_data_encryption_output(database_name: Optional[pulumi.Input[
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
     __args__['tdeName'] = tde_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql/v20240501preview:getTransparentDataEncryption', __args__, opts=opts, typ=GetTransparentDataEncryptionResult)
     return __ret__.apply(lambda __response__: GetTransparentDataEncryptionResult(
         id=pulumi.get(__response__, 'id'),

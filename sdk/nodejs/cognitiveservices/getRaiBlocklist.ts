@@ -76,7 +76,7 @@ export interface GetRaiBlocklistResult {
  *
  * Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
  */
-export function getRaiBlocklistOutput(args: GetRaiBlocklistOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiBlocklistResult> {
+export function getRaiBlocklistOutput(args: GetRaiBlocklistOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRaiBlocklistResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices:getRaiBlocklist", {
         "accountName": args.accountName,

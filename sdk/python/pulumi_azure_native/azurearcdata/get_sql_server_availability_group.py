@@ -155,7 +155,7 @@ def get_sql_server_availability_group(availability_group_name: Optional[str] = N
 def get_sql_server_availability_group_output(availability_group_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              sql_server_instance_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerAvailabilityGroupResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerAvailabilityGroupResult]:
     """
     Retrieves an Arc Sql Server availability group.
     Azure REST API version: 2024-01-01.
@@ -171,7 +171,7 @@ def get_sql_server_availability_group_output(availability_group_name: Optional[p
     __args__['availabilityGroupName'] = availability_group_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlServerInstanceName'] = sql_server_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata:getSqlServerAvailabilityGroup', __args__, opts=opts, typ=GetSqlServerAvailabilityGroupResult)
     return __ret__.apply(lambda __response__: GetSqlServerAvailabilityGroupResult(
         id=pulumi.get(__response__, 'id'),

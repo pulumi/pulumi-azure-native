@@ -374,7 +374,7 @@ def get_nrt_alert_rule(resource_group_name: Optional[str] = None,
 def get_nrt_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               rule_id: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNrtAlertRuleResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNrtAlertRuleResult]:
     """
     Gets the alert rule.
 
@@ -387,7 +387,7 @@ def get_nrt_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] =
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleId'] = rule_id
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights/v20231001preview:getNrtAlertRule', __args__, opts=opts, typ=GetNrtAlertRuleResult)
     return __ret__.apply(lambda __response__: GetNrtAlertRuleResult(
         alert_details_override=pulumi.get(__response__, 'alert_details_override'),

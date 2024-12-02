@@ -67,7 +67,7 @@ export interface GetIamVirtualMfaDeviceResult {
  * Get a IamVirtualMFADevice
  * Azure REST API version: 2024-12-01.
  */
-export function getIamVirtualMfaDeviceOutput(args: GetIamVirtualMfaDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamVirtualMfaDeviceResult> {
+export function getIamVirtualMfaDeviceOutput(args: GetIamVirtualMfaDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamVirtualMfaDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getIamVirtualMfaDevice", {
         "name": args.name,

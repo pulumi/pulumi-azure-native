@@ -75,7 +75,7 @@ def get_global_user_environment(environment_id: Optional[str] = None,
 def get_global_user_environment_output(environment_id: Optional[pulumi.Input[str]] = None,
                                        expand: Optional[pulumi.Input[Optional[str]]] = None,
                                        user_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserEnvironmentResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalUserEnvironmentResult]:
     """
     Gets the virtual machine details
     Azure REST API version: 2018-10-15.
@@ -89,7 +89,7 @@ def get_global_user_environment_output(environment_id: Optional[pulumi.Input[str
     __args__['environmentId'] = environment_id
     __args__['expand'] = expand
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getGlobalUserEnvironment', __args__, opts=opts, typ=GetGlobalUserEnvironmentResult)
     return __ret__.apply(lambda __response__: GetGlobalUserEnvironmentResult(
         environment=pulumi.get(__response__, 'environment')))

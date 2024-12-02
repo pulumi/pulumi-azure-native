@@ -118,7 +118,7 @@ export interface GetWorkbookResult {
 /**
  * Get a single workbook by its resourceName.
  */
-export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
+export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20210801:getWorkbook", {
         "canFetchContent": args.canFetchContent,

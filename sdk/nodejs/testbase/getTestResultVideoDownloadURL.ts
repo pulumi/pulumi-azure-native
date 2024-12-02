@@ -58,7 +58,7 @@ export interface GetTestResultVideoDownloadURLResult {
  *
  * Other available API versions: 2023-11-01-preview.
  */
-export function getTestResultVideoDownloadURLOutput(args: GetTestResultVideoDownloadURLOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestResultVideoDownloadURLResult> {
+export function getTestResultVideoDownloadURLOutput(args: GetTestResultVideoDownloadURLOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestResultVideoDownloadURLResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:testbase:getTestResultVideoDownloadURL", {
         "packageName": args.packageName,

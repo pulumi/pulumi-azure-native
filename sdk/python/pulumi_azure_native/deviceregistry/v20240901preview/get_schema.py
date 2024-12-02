@@ -204,7 +204,7 @@ def get_schema(resource_group_name: Optional[str] = None,
 def get_schema_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       schema_name: Optional[pulumi.Input[str]] = None,
                       schema_registry_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
     Get a Schema
 
@@ -217,7 +217,7 @@ def get_schema_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['schemaName'] = schema_name
     __args__['schemaRegistryName'] = schema_registry_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry/v20240901preview:getSchema', __args__, opts=opts, typ=GetSchemaResult)
     return __ret__.apply(lambda __response__: GetSchemaResult(
         description=pulumi.get(__response__, 'description'),

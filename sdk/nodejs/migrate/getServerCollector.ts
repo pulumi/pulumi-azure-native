@@ -46,7 +46,7 @@ export interface GetServerCollectorResult {
  * Get a Server collector.
  * Azure REST API version: 2019-10-01.
  */
-export function getServerCollectorOutput(args: GetServerCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCollectorResult> {
+export function getServerCollectorOutput(args: GetServerCollectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerCollectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:migrate:getServerCollector", {
         "projectName": args.projectName,

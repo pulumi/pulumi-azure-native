@@ -148,7 +148,7 @@ export interface GetAppServiceEnvironmentResult {
  *
  * Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
+export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web:getAppServiceEnvironment", {
         "name": args.name,

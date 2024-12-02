@@ -277,7 +277,7 @@ def get_remediation_at_subscription(remediation_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_remediation_at_subscription_output(remediation_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtSubscriptionResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemediationAtSubscriptionResult]:
     """
     Gets an existing remediation at subscription scope.
     Azure REST API version: 2021-10-01.
@@ -289,7 +289,7 @@ def get_remediation_at_subscription_output(remediation_name: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['remediationName'] = remediation_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights:getRemediationAtSubscription', __args__, opts=opts, typ=GetRemediationAtSubscriptionResult)
     return __ret__.apply(lambda __response__: GetRemediationAtSubscriptionResult(
         correlation_id=pulumi.get(__response__, 'correlation_id'),

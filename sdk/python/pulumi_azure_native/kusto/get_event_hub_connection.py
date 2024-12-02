@@ -182,7 +182,7 @@ def get_event_hub_connection_output(cluster_name: Optional[pulumi.Input[str]] = 
                                     database_name: Optional[pulumi.Input[str]] = None,
                                     event_hub_connection_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubConnectionResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventHubConnectionResult]:
     """
     Returns an Event Hub connection.
     Azure REST API version: 2018-09-07-preview.
@@ -198,7 +198,7 @@ def get_event_hub_connection_output(cluster_name: Optional[pulumi.Input[str]] = 
     __args__['databaseName'] = database_name
     __args__['eventHubConnectionName'] = event_hub_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getEventHubConnection', __args__, opts=opts, typ=GetEventHubConnectionResult)
     return __ret__.apply(lambda __response__: GetEventHubConnectionResult(
         consumer_group=pulumi.get(__response__, 'consumer_group'),

@@ -105,7 +105,7 @@ export interface GetL3IsolationDomainResult {
 /**
  * Retrieves details of this L3 Isolation Domain.
  */
-export function getL3IsolationDomainOutput(args: GetL3IsolationDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL3IsolationDomainResult> {
+export function getL3IsolationDomainOutput(args: GetL3IsolationDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL3IsolationDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric/v20230201preview:getL3IsolationDomain", {
         "l3IsolationDomainName": args.l3IsolationDomainName,

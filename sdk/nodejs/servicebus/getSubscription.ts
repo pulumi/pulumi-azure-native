@@ -149,7 +149,7 @@ export interface GetSubscriptionResult {
  *
  * Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
  */
-export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
+export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus:getSubscription", {
         "namespaceName": args.namespaceName,

@@ -68,7 +68,7 @@ export interface GetTableResourceTableResult {
 /**
  * Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
  */
-export function getTableResourceTableOutput(args: GetTableResourceTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResourceTableResult> {
+export function getTableResourceTableOutput(args: GetTableResourceTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResourceTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20230915preview:getTableResourceTable", {
         "accountName": args.accountName,

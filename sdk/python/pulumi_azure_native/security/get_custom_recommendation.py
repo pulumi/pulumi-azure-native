@@ -214,7 +214,7 @@ def get_custom_recommendation(custom_recommendation_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_custom_recommendation_output(custom_recommendation_name: Optional[pulumi.Input[str]] = None,
                                      scope: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomRecommendationResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomRecommendationResult]:
     """
     Get a specific custom recommendation for the requested scope by customRecommendationName
     Azure REST API version: 2024-08-01.
@@ -226,7 +226,7 @@ def get_custom_recommendation_output(custom_recommendation_name: Optional[pulumi
     __args__ = dict()
     __args__['customRecommendationName'] = custom_recommendation_name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getCustomRecommendation', __args__, opts=opts, typ=GetCustomRecommendationResult)
     return __ret__.apply(lambda __response__: GetCustomRecommendationResult(
         assessment_key=pulumi.get(__response__, 'assessment_key'),

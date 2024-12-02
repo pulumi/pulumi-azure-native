@@ -51,7 +51,7 @@ export interface ListHostPoolRegistrationTokensResult {
  *
  * Other available API versions: 2024-04-03, 2024-08-08-preview.
  */
-export function listHostPoolRegistrationTokensOutput(args: ListHostPoolRegistrationTokensOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListHostPoolRegistrationTokensResult> {
+export function listHostPoolRegistrationTokensOutput(args: ListHostPoolRegistrationTokensOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListHostPoolRegistrationTokensResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:desktopvirtualization:listHostPoolRegistrationTokens", {
         "hostPoolName": args.hostPoolName,

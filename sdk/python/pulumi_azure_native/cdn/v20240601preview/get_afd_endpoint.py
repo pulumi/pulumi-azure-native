@@ -214,7 +214,7 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
 def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                             profile_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDEndpointResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAFDEndpointResult]:
     """
     Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
 
@@ -227,7 +227,7 @@ def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     __args__['endpointName'] = endpoint_name
     __args__['profileName'] = profile_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn/v20240601preview:getAFDEndpoint', __args__, opts=opts, typ=GetAFDEndpointResult)
     return __ret__.apply(lambda __response__: GetAFDEndpointResult(
         auto_generated_domain_name_label_scope=pulumi.get(__response__, 'auto_generated_domain_name_label_scope'),

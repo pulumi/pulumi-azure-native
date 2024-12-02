@@ -58,7 +58,7 @@ export interface GetCassandraDataCenterResult {
 /**
  * Get the properties of a managed Cassandra data center.
  */
-export function getCassandraDataCenterOutput(args: GetCassandraDataCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCassandraDataCenterResult> {
+export function getCassandraDataCenterOutput(args: GetCassandraDataCenterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCassandraDataCenterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240515preview:getCassandraDataCenter", {
         "clusterName": args.clusterName,

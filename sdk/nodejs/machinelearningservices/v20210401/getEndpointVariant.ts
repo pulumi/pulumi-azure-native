@@ -83,7 +83,7 @@ export interface GetEndpointVariantResult {
 /**
  * Get a Service by name.
  */
-export function getEndpointVariantOutput(args: GetEndpointVariantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointVariantResult> {
+export function getEndpointVariantOutput(args: GetEndpointVariantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointVariantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20210401:getEndpointVariant", {
         "expand": args.expand,

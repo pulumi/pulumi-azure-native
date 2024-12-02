@@ -80,7 +80,7 @@ export interface GetMediaGraphResult {
  * Get the details of a Media Graph in the Media Services account.
  * Azure REST API version: 2020-02-01-preview.
  */
-export function getMediaGraphOutput(args: GetMediaGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaGraphResult> {
+export function getMediaGraphOutput(args: GetMediaGraphOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMediaGraphResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:media:getMediaGraph", {
         "accountName": args.accountName,

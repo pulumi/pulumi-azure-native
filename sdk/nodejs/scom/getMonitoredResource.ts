@@ -64,7 +64,7 @@ export interface GetMonitoredResourceResult {
  * Retrieve the details of the monitored resource.
  * Azure REST API version: 2023-07-07-preview.
  */
-export function getMonitoredResourceOutput(args: GetMonitoredResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoredResourceResult> {
+export function getMonitoredResourceOutput(args: GetMonitoredResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoredResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scom:getMonitoredResource", {
         "instanceName": args.instanceName,

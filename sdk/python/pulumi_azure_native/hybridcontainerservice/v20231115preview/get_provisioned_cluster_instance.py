@@ -131,7 +131,7 @@ def get_provisioned_cluster_instance(connected_cluster_resource_uri: Optional[st
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_provisioned_cluster_instance_output(connected_cluster_resource_uri: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProvisionedClusterInstanceResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProvisionedClusterInstanceResult]:
     """
     Gets the Hybrid AKS provisioned cluster instance
 
@@ -140,7 +140,7 @@ def get_provisioned_cluster_instance_output(connected_cluster_resource_uri: Opti
     """
     __args__ = dict()
     __args__['connectedClusterResourceUri'] = connected_cluster_resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice/v20231115preview:getProvisionedClusterInstance', __args__, opts=opts, typ=GetProvisionedClusterInstanceResult)
     return __ret__.apply(lambda __response__: GetProvisionedClusterInstanceResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

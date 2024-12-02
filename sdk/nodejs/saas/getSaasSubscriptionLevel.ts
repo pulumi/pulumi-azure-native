@@ -59,7 +59,7 @@ export interface GetSaasSubscriptionLevelResult {
  * Gets information about the specified Subscription Level SaaS.
  * Azure REST API version: 2018-03-01-beta.
  */
-export function getSaasSubscriptionLevelOutput(args: GetSaasSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSaasSubscriptionLevelResult> {
+export function getSaasSubscriptionLevelOutput(args: GetSaasSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSaasSubscriptionLevelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:saas:getSaasSubscriptionLevel", {
         "resourceGroupName": args.resourceGroupName,

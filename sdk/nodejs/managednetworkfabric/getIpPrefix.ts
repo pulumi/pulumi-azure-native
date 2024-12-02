@@ -79,7 +79,7 @@ export interface GetIpPrefixResult {
  *
  * Other available API versions: 2023-06-15.
  */
-export function getIpPrefixOutput(args: GetIpPrefixOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpPrefixResult> {
+export function getIpPrefixOutput(args: GetIpPrefixOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpPrefixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getIpPrefix", {
         "ipPrefixName": args.ipPrefixName,

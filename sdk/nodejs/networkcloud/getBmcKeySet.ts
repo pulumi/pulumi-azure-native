@@ -109,7 +109,7 @@ export interface GetBmcKeySetResult {
  *
  * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
  */
-export function getBmcKeySetOutput(args: GetBmcKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBmcKeySetResult> {
+export function getBmcKeySetOutput(args: GetBmcKeySetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBmcKeySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud:getBmcKeySet", {
         "bmcKeySetName": args.bmcKeySetName,

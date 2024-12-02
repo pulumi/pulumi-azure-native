@@ -86,7 +86,7 @@ export interface GetVirtualNetworkLinkResult {
 /**
  * Gets a virtual network link to the specified Private DNS zone.
  */
-export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkLinkResult> {
+export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240601:getVirtualNetworkLink", {
         "privateZoneName": args.privateZoneName,

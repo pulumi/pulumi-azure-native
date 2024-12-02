@@ -282,7 +282,7 @@ def get_remediation_at_management_group(management_group_id: Optional[str] = Non
 def get_remediation_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
                                                management_groups_namespace: Optional[pulumi.Input[str]] = None,
                                                remediation_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtManagementGroupResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemediationAtManagementGroupResult]:
     """
     Gets an existing remediation at management group scope.
 
@@ -295,7 +295,7 @@ def get_remediation_at_management_group_output(management_group_id: Optional[pul
     __args__['managementGroupId'] = management_group_id
     __args__['managementGroupsNamespace'] = management_groups_namespace
     __args__['remediationName'] = remediation_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights/v20211001:getRemediationAtManagementGroup', __args__, opts=opts, typ=GetRemediationAtManagementGroupResult)
     return __ret__.apply(lambda __response__: GetRemediationAtManagementGroupResult(
         correlation_id=pulumi.get(__response__, 'correlation_id'),

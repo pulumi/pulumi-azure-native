@@ -189,7 +189,7 @@ def get_gallery_application_version_output(expand: Optional[pulumi.Input[Optiona
                                            gallery_application_version_name: Optional[pulumi.Input[str]] = None,
                                            gallery_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryApplicationVersionResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryApplicationVersionResult]:
     """
     Retrieves information about a gallery Application Version.
     Azure REST API version: 2022-03-03.
@@ -209,7 +209,7 @@ def get_gallery_application_version_output(expand: Optional[pulumi.Input[Optiona
     __args__['galleryApplicationVersionName'] = gallery_application_version_name
     __args__['galleryName'] = gallery_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getGalleryApplicationVersion', __args__, opts=opts, typ=GetGalleryApplicationVersionResult)
     return __ret__.apply(lambda __response__: GetGalleryApplicationVersionResult(
         id=pulumi.get(__response__, 'id'),

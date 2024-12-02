@@ -308,7 +308,7 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
 def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input[str]] = None,
                                   network_watcher_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionMonitorResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionMonitorResult]:
     """
     Gets a connection monitor by name.
 
@@ -321,7 +321,7 @@ def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input
     __args__['connectionMonitorName'] = connection_monitor_name
     __args__['networkWatcherName'] = network_watcher_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230501:getConnectionMonitor', __args__, opts=opts, typ=GetConnectionMonitorResult)
     return __ret__.apply(lambda __response__: GetConnectionMonitorResult(
         auto_start=pulumi.get(__response__, 'auto_start'),

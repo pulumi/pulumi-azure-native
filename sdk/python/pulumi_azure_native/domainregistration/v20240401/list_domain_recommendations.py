@@ -83,7 +83,7 @@ def list_domain_recommendations(keywords: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[str]]] = None,
                                        max_domain_recommendations: Optional[pulumi.Input[Optional[int]]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDomainRecommendationsResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDomainRecommendationsResult]:
     """
     Description for Get domain name recommendations based on keywords.
 
@@ -94,7 +94,7 @@ def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[
     __args__ = dict()
     __args__['keywords'] = keywords
     __args__['maxDomainRecommendations'] = max_domain_recommendations
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:domainregistration/v20240401:listDomainRecommendations', __args__, opts=opts, typ=ListDomainRecommendationsResult)
     return __ret__.apply(lambda __response__: ListDomainRecommendationsResult(
         next_link=pulumi.get(__response__, 'next_link'),

@@ -64,7 +64,7 @@ export interface GetGlobalParameterResult {
  * Gets a Global parameter
  * Azure REST API version: 2018-06-01.
  */
-export function getGlobalParameterOutput(args: GetGlobalParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalParameterResult> {
+export function getGlobalParameterOutput(args: GetGlobalParameterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalParameterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory:getGlobalParameter", {
         "factoryName": args.factoryName,

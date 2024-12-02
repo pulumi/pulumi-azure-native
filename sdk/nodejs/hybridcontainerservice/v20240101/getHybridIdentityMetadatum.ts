@@ -60,7 +60,7 @@ export interface GetHybridIdentityMetadatumResult {
 /**
  * Get the hybrid identity metadata proxy resource.
  */
-export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
+export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridcontainerservice/v20240101:getHybridIdentityMetadatum", {
         "connectedClusterResourceUri": args.connectedClusterResourceUri,

@@ -199,7 +199,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         resource_uri: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets the endpoint to the resource.
 
@@ -210,7 +210,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity/v20220501preview:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
     return __ret__.apply(lambda __response__: GetEndpointResult(
         created_at=pulumi.get(__response__, 'created_at'),

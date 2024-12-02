@@ -65,7 +65,7 @@ export interface GetPublicCloudConnectorResult {
 /**
  * Get a PublicCloudConnector
  */
-export function getPublicCloudConnectorOutput(args: GetPublicCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicCloudConnectorResult> {
+export function getPublicCloudConnectorOutput(args: GetPublicCloudConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicCloudConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridconnectivity/v20241201:getPublicCloudConnector", {
         "publicCloudConnector": args.publicCloudConnector,

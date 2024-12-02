@@ -83,7 +83,7 @@ export interface GetAccessControlListResult {
  *
  * Other available API versions: 2023-06-15.
  */
-export function getAccessControlListOutput(args: GetAccessControlListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlListResult> {
+export function getAccessControlListOutput(args: GetAccessControlListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessControlListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:managednetworkfabric:getAccessControlList", {
         "accessControlListName": args.accessControlListName,

@@ -60,7 +60,7 @@ export interface GetTagApiLinkResult {
 /**
  * Gets the API link for the tag.
  */
-export function getTagApiLinkOutput(args: GetTagApiLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagApiLinkResult> {
+export function getTagApiLinkOutput(args: GetTagApiLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagApiLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240601preview:getTagApiLink", {
         "apiLinkId": args.apiLinkId,

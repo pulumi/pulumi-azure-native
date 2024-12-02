@@ -70,7 +70,7 @@ def list_cluster_follower_databases(cluster_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_cluster_follower_databases_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterFollowerDatabasesResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterFollowerDatabasesResult]:
     """
     Returns a list of databases that are owned by this cluster and were followed by another cluster.
 
@@ -81,7 +81,7 @@ def list_cluster_follower_databases_output(cluster_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto/v20230502:listClusterFollowerDatabases', __args__, opts=opts, typ=ListClusterFollowerDatabasesResult)
     return __ret__.apply(lambda __response__: ListClusterFollowerDatabasesResult(
         value=pulumi.get(__response__, 'value')))

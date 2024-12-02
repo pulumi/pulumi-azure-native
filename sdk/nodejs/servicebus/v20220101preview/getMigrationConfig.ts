@@ -82,7 +82,7 @@ export interface GetMigrationConfigResult {
 /**
  * Retrieves Migration Config
  */
-export function getMigrationConfigOutput(args: GetMigrationConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationConfigResult> {
+export function getMigrationConfigOutput(args: GetMigrationConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrationConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:servicebus/v20220101preview:getMigrationConfig", {
         "configName": args.configName,

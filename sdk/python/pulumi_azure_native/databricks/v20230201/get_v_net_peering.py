@@ -230,7 +230,7 @@ def get_v_net_peering(peering_name: Optional[str] = None,
 def get_v_net_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              workspace_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVNetPeeringResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVNetPeeringResult]:
     """
     Gets the workspace vNet Peering.
 
@@ -243,7 +243,7 @@ def get_v_net_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
     __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databricks/v20230201:getVNetPeering', __args__, opts=opts, typ=GetVNetPeeringResult)
     return __ret__.apply(lambda __response__: GetVNetPeeringResult(
         allow_forwarded_traffic=pulumi.get(__response__, 'allow_forwarded_traffic'),

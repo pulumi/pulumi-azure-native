@@ -62,7 +62,7 @@ export interface GetConfigurationServiceResult {
 /**
  * Get the Application Configuration Service and its properties.
  */
-export function getConfigurationServiceOutput(args: GetConfigurationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationServiceResult> {
+export function getConfigurationServiceOutput(args: GetConfigurationServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appplatform/v20231101preview:getConfigurationService", {
         "configurationServiceName": args.configurationServiceName,

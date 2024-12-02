@@ -141,7 +141,7 @@ def get_migrate_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
                              modernize_project_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              subscription_id: Optional[pulumi.Input[Optional[str]]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrateAgentResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrateAgentResult]:
     """
     Gets the details of the modernizeProject agent.
     Azure REST API version: 2022-05-01-preview.
@@ -157,7 +157,7 @@ def get_migrate_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
     __args__['modernizeProjectName'] = modernize_project_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['subscriptionId'] = subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:migrate:getMigrateAgent', __args__, opts=opts, typ=GetMigrateAgentResult)
     return __ret__.apply(lambda __response__: GetMigrateAgentResult(
         id=pulumi.get(__response__, 'id'),

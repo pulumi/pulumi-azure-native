@@ -125,7 +125,7 @@ export interface GetCacheResult {
 /**
  * Returns a cache.
  */
-export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCacheResult> {
+export function getCacheOutput(args: GetCacheOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCacheResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagecache/v20231101preview:getCache", {
         "cacheName": args.cacheName,

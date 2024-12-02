@@ -90,7 +90,7 @@ export interface ListContainerAppCustomHostNameAnalysisResult {
 /**
  * Custom domain analysis.
  */
-export function listContainerAppCustomHostNameAnalysisOutput(args: ListContainerAppCustomHostNameAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppCustomHostNameAnalysisResult> {
+export function listContainerAppCustomHostNameAnalysisOutput(args: ListContainerAppCustomHostNameAnalysisOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListContainerAppCustomHostNameAnalysisResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240301:listContainerAppCustomHostNameAnalysis", {
         "containerAppName": args.containerAppName,

@@ -123,7 +123,7 @@ def get_management_configuration(management_configuration_name: Optional[str] = 
         type=pulumi.get(__ret__, 'type'))
 def get_management_configuration_output(management_configuration_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementConfigurationResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementConfigurationResult]:
     """
     Retrieves the user ManagementConfiguration.
     Azure REST API version: 2015-11-01-preview.
@@ -135,7 +135,7 @@ def get_management_configuration_output(management_configuration_name: Optional[
     __args__ = dict()
     __args__['managementConfigurationName'] = management_configuration_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationsmanagement:getManagementConfiguration', __args__, opts=opts, typ=GetManagementConfigurationResult)
     return __ret__.apply(lambda __response__: GetManagementConfigurationResult(
         id=pulumi.get(__response__, 'id'),

@@ -26,7 +26,7 @@ export interface GetCustomDomainVerificationIdResult {
 /**
  * Get the verification id of a subscription used for verifying custom domains
  */
-export function getCustomDomainVerificationIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainVerificationIdResult> {
+export function getCustomDomainVerificationIdOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomDomainVerificationIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20230502preview:getCustomDomainVerificationId", {
     }, opts);

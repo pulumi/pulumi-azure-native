@@ -45,7 +45,7 @@ export interface ListSkusByProjectResult {
 /**
  * Lists SKUs available to the project
  */
-export function listSkusByProjectOutput(args: ListSkusByProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSkusByProjectResult> {
+export function listSkusByProjectOutput(args: ListSkusByProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSkusByProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devcenter/v20240701preview:listSkusByProject", {
         "projectName": args.projectName,

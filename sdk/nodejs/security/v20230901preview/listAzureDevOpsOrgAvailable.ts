@@ -45,7 +45,7 @@ export interface ListAzureDevOpsOrgAvailableResult {
 /**
  * List of RP resources which supports pagination.
  */
-export function listAzureDevOpsOrgAvailableOutput(args: ListAzureDevOpsOrgAvailableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAzureDevOpsOrgAvailableResult> {
+export function listAzureDevOpsOrgAvailableOutput(args: ListAzureDevOpsOrgAvailableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAzureDevOpsOrgAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security/v20230901preview:listAzureDevOpsOrgAvailable", {
         "resourceGroupName": args.resourceGroupName,

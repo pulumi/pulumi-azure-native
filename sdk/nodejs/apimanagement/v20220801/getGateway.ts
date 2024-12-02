@@ -62,7 +62,7 @@ export interface GetGatewayResult {
 /**
  * Gets the details of the Gateway specified by its identifier.
  */
-export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20220801:getGateway", {
         "gatewayId": args.gatewayId,

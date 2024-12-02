@@ -77,7 +77,7 @@ export interface GetPrivateLinkServicesForSCCPowershellResult {
 /**
  * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  */
-export function getPrivateLinkServicesForSCCPowershellOutput(args: GetPrivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForSCCPowershellResult> {
+export function getPrivateLinkServicesForSCCPowershellOutput(args: GetPrivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkServicesForSCCPowershellResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:m365securityandcompliance/v20210325preview:getPrivateLinkServicesForSCCPowershell", {
         "resourceGroupName": args.resourceGroupName,

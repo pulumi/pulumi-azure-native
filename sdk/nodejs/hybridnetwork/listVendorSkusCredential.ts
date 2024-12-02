@@ -56,7 +56,7 @@ export interface ListVendorSkusCredentialResult {
  * Generate credentials for publishing SKU images.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function listVendorSkusCredentialOutput(args: ListVendorSkusCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVendorSkusCredentialResult> {
+export function listVendorSkusCredentialOutput(args: ListVendorSkusCredentialOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVendorSkusCredentialResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:listVendorSkusCredential", {
         "skuName": args.skuName,

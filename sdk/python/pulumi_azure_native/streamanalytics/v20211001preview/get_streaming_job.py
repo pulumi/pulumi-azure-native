@@ -451,7 +451,7 @@ def get_streaming_job(expand: Optional[str] = None,
 def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                              job_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingJobResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamingJobResult]:
     """
     Gets details about the specified streaming job.
 
@@ -464,7 +464,7 @@ def get_streaming_job_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
     __args__['expand'] = expand
     __args__['jobName'] = job_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics/v20211001preview:getStreamingJob', __args__, opts=opts, typ=GetStreamingJobResult)
     return __ret__.apply(lambda __response__: GetStreamingJobResult(
         cluster=pulumi.get(__response__, 'cluster'),

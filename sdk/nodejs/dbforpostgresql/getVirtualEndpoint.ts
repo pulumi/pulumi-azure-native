@@ -76,7 +76,7 @@ export interface GetVirtualEndpointResult {
  *
  * Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
  */
-export function getVirtualEndpointOutput(args: GetVirtualEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualEndpointResult> {
+export function getVirtualEndpointOutput(args: GetVirtualEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql:getVirtualEndpoint", {
         "resourceGroupName": args.resourceGroupName,

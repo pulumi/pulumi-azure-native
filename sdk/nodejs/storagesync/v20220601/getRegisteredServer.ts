@@ -150,7 +150,7 @@ export interface GetRegisteredServerResult {
 /**
  * Get a given registered server.
  */
-export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {
+export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegisteredServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagesync/v20220601:getRegisteredServer", {
         "resourceGroupName": args.resourceGroupName,

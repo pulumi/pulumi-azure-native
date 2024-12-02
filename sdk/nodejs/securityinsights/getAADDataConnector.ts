@@ -77,7 +77,7 @@ export interface GetAADDataConnectorResult {
  * Gets a data connector.
  * Azure REST API version: 2023-02-01.
  */
-export function getAADDataConnectorOutput(args: GetAADDataConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAADDataConnectorResult> {
+export function getAADDataConnectorOutput(args: GetAADDataConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAADDataConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getAADDataConnector", {
         "dataConnectorId": args.dataConnectorId,

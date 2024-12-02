@@ -82,7 +82,7 @@ export interface GetNspAssociationResult {
 /**
  * Gets the specified NSP association by name.
  */
-export function getNspAssociationOutput(args: GetNspAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNspAssociationResult> {
+export function getNspAssociationOutput(args: GetNspAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNspAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230801preview:getNspAssociation", {
         "associationName": args.associationName,

@@ -56,7 +56,7 @@ export interface GetWorkspaceCollectionResult {
 /**
  * Retrieves an existing Power BI Workspace Collection.
  */
-export function getWorkspaceCollectionOutput(args: GetWorkspaceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceCollectionResult> {
+export function getWorkspaceCollectionOutput(args: GetWorkspaceCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:powerbi/v20160129:getWorkspaceCollection", {
         "resourceGroupName": args.resourceGroupName,

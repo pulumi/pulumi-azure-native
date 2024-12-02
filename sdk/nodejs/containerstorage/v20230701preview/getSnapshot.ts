@@ -70,7 +70,7 @@ export interface GetSnapshotResult {
 /**
  * Get a Snapshot
  */
-export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
+export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerstorage/v20230701preview:getSnapshot", {
         "poolName": args.poolName,

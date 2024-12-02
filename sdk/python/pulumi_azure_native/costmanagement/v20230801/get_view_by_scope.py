@@ -304,7 +304,7 @@ def get_view_by_scope(scope: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_view_by_scope_output(scope: Optional[pulumi.Input[str]] = None,
                              view_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewByScopeResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewByScopeResult]:
     """
     Gets the view for the defined scope by view name.
 
@@ -315,7 +315,7 @@ def get_view_by_scope_output(scope: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['scope'] = scope
     __args__['viewName'] = view_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement/v20230801:getViewByScope', __args__, opts=opts, typ=GetViewByScopeResult)
     return __ret__.apply(lambda __response__: GetViewByScopeResult(
         accumulated=pulumi.get(__response__, 'accumulated'),

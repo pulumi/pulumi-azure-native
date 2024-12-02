@@ -74,7 +74,7 @@ def list_device_failover_sets(device_name: Optional[str] = None,
 def list_device_failover_sets_output(device_name: Optional[pulumi.Input[str]] = None,
                                      manager_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceFailoverSetsResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDeviceFailoverSetsResult]:
     """
     Returns all failover sets for a given device and their eligibility for participating in a failover. A failover set refers to a set of volume containers that need to be failed-over as a single unit to maintain data integrity.
 
@@ -87,7 +87,7 @@ def list_device_failover_sets_output(device_name: Optional[pulumi.Input[str]] = 
     __args__['deviceName'] = device_name
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storsimple/v20170601:listDeviceFailoverSets', __args__, opts=opts, typ=ListDeviceFailoverSetsResult)
     return __ret__.apply(lambda __response__: ListDeviceFailoverSetsResult(
         value=pulumi.get(__response__, 'value')))

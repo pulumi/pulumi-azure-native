@@ -153,7 +153,7 @@ def get_protection_policy(policy_name: Optional[str] = None,
 def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  vault_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionPolicyResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectionPolicyResult]:
     """
     Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
     operation. Status of the operation can be fetched using GetPolicyOperationResult API.
@@ -167,7 +167,7 @@ def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20240430preview:getProtectionPolicy', __args__, opts=opts, typ=GetProtectionPolicyResult)
     return __ret__.apply(lambda __response__: GetProtectionPolicyResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

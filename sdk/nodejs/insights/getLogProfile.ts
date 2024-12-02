@@ -74,7 +74,7 @@ export interface GetLogProfileResult {
  * Gets the log profile.
  * Azure REST API version: 2016-03-01.
  */
-export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogProfileResult> {
+export function getLogProfileOutput(args: GetLogProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights:getLogProfile", {
         "logProfileName": args.logProfileName,

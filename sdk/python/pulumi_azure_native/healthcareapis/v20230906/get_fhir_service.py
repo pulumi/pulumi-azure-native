@@ -321,7 +321,7 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
 def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             workspace_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirServiceResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFhirServiceResult]:
     """
     Gets the properties of the specified FHIR Service.
 
@@ -334,7 +334,7 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
     __args__['fhirServiceName'] = fhir_service_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis/v20230906:getFhirService', __args__, opts=opts, typ=GetFhirServiceResult)
     return __ret__.apply(lambda __response__: GetFhirServiceResult(
         acr_configuration=pulumi.get(__response__, 'acr_configuration'),

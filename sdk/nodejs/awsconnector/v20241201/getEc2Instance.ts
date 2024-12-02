@@ -52,7 +52,7 @@ export interface GetEc2InstanceResult {
 /**
  * Get a Ec2Instance
  */
-export function getEc2InstanceOutput(args: GetEc2InstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEc2InstanceResult> {
+export function getEc2InstanceOutput(args: GetEc2InstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEc2InstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEc2Instance", {
         "resourceUri": args.resourceUri,

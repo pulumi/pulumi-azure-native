@@ -67,7 +67,7 @@ export interface ListFeaturesetVersionFeaturesResult {
  * A paginated list of Feature entities.
  * Azure REST API version: 2023-02-01-preview.
  */
-export function listFeaturesetVersionFeaturesOutput(args: ListFeaturesetVersionFeaturesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListFeaturesetVersionFeaturesResult> {
+export function listFeaturesetVersionFeaturesOutput(args: ListFeaturesetVersionFeaturesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListFeaturesetVersionFeaturesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:listFeaturesetVersionFeatures", {
         "name": args.name,

@@ -152,7 +152,7 @@ def get_modeling(account_name: Optional[str] = None,
 def get_modeling_output(account_name: Optional[pulumi.Input[str]] = None,
                         modeling_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelingResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelingResult]:
     """
     Returns Modeling resources for a given name.
 
@@ -165,7 +165,7 @@ def get_modeling_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['modelingName'] = modeling_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recommendationsservice/v20220201:getModeling', __args__, opts=opts, typ=GetModelingResult)
     return __ret__.apply(lambda __response__: GetModelingResult(
         id=pulumi.get(__response__, 'id'),

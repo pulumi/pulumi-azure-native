@@ -72,7 +72,7 @@ def list_server_gateway_status(resource_group_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'))
 def list_server_gateway_status_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       server_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListServerGatewayStatusResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServerGatewayStatusResult]:
     """
     Return the gateway status of the specified Analysis Services server instance.
     Azure REST API version: 2017-08-01.
@@ -86,7 +86,7 @@ def list_server_gateway_status_output(resource_group_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:analysisservices:listServerGatewayStatus', __args__, opts=opts, typ=ListServerGatewayStatusResult)
     return __ret__.apply(lambda __response__: ListServerGatewayStatusResult(
         status=pulumi.get(__response__, 'status')))

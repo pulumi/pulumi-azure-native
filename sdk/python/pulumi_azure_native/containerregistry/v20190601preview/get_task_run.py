@@ -192,7 +192,7 @@ def get_task_run(registry_name: Optional[str] = None,
 def get_task_run_output(registry_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         task_run_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskRunResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskRunResult]:
     """
     Gets the detailed information for a given task run.
 
@@ -205,7 +205,7 @@ def get_task_run_output(registry_name: Optional[pulumi.Input[str]] = None,
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['taskRunName'] = task_run_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20190601preview:getTaskRun', __args__, opts=opts, typ=GetTaskRunResult)
     return __ret__.apply(lambda __response__: GetTaskRunResult(
         force_update_tag=pulumi.get(__response__, 'force_update_tag'),

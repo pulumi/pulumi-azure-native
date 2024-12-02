@@ -47,7 +47,7 @@ export interface ListDnsResolverPolicyByVirtualNetworkResult {
  * Lists DNS resolver policy resource IDs linked to a virtual network.
  * Azure REST API version: 2023-07-01-preview.
  */
-export function listDnsResolverPolicyByVirtualNetworkOutput(args: ListDnsResolverPolicyByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverPolicyByVirtualNetworkResult> {
+export function listDnsResolverPolicyByVirtualNetworkOutput(args: ListDnsResolverPolicyByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDnsResolverPolicyByVirtualNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:listDnsResolverPolicyByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,

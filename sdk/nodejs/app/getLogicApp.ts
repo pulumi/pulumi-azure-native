@@ -64,7 +64,7 @@ export interface GetLogicAppResult {
  *
  * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
  */
-export function getLogicAppOutput(args: GetLogicAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogicAppResult> {
+export function getLogicAppOutput(args: GetLogicAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogicAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app:getLogicApp", {
         "containerAppName": args.containerAppName,

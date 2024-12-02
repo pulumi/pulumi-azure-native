@@ -67,7 +67,7 @@ export interface GetElasticBeanstalkApplicationResult {
  * Get a ElasticBeanstalkApplication
  * Azure REST API version: 2024-12-01.
  */
-export function getElasticBeanstalkApplicationOutput(args: GetElasticBeanstalkApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticBeanstalkApplicationResult> {
+export function getElasticBeanstalkApplicationOutput(args: GetElasticBeanstalkApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElasticBeanstalkApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector:getElasticBeanstalkApplication", {
         "name": args.name,

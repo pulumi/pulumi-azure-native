@@ -181,7 +181,7 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
 def get_hub_virtual_network_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                               virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHubVirtualNetworkConnectionResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHubVirtualNetworkConnectionResult]:
     """
     Retrieves the details of a HubVirtualNetworkConnection.
     Azure REST API version: 2023-02-01.
@@ -197,7 +197,7 @@ def get_hub_virtual_network_connection_output(connection_name: Optional[pulumi.I
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualHubName'] = virtual_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getHubVirtualNetworkConnection', __args__, opts=opts, typ=GetHubVirtualNetworkConnectionResult)
     return __ret__.apply(lambda __response__: GetHubVirtualNetworkConnectionResult(
         allow_hub_to_remote_vnet_transit=pulumi.get(__response__, 'allow_hub_to_remote_vnet_transit'),

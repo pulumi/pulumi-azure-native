@@ -45,7 +45,7 @@ export interface ListDnsResolverPolicyByVirtualNetworkResult {
 /**
  * Lists DNS resolver policy resource IDs linked to a virtual network.
  */
-export function listDnsResolverPolicyByVirtualNetworkOutput(args: ListDnsResolverPolicyByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDnsResolverPolicyByVirtualNetworkResult> {
+export function listDnsResolverPolicyByVirtualNetworkOutput(args: ListDnsResolverPolicyByVirtualNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDnsResolverPolicyByVirtualNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230701preview:listDnsResolverPolicyByVirtualNetwork", {
         "resourceGroupName": args.resourceGroupName,

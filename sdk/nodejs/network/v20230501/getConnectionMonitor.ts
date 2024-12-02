@@ -118,7 +118,7 @@ export interface GetConnectionMonitorResult {
 /**
  * Gets a connection monitor by name.
  */
-export function getConnectionMonitorOutput(args: GetConnectionMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionMonitorResult> {
+export function getConnectionMonitorOutput(args: GetConnectionMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20230501:getConnectionMonitor", {
         "connectionMonitorName": args.connectionMonitorName,

@@ -169,7 +169,7 @@ def get_web_app_private_endpoint_connection_slot_output(name: Optional[pulumi.In
                                                         private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                                         slot: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppPrivateEndpointConnectionSlotResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppPrivateEndpointConnectionSlotResult]:
     """
     Description for Gets a private endpoint connection
     Azure REST API version: 2022-09-01.
@@ -187,7 +187,7 @@ def get_web_app_private_endpoint_connection_slot_output(name: Optional[pulumi.In
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppPrivateEndpointConnectionSlot', __args__, opts=opts, typ=GetWebAppPrivateEndpointConnectionSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppPrivateEndpointConnectionSlotResult(
         id=pulumi.get(__response__, 'id'),

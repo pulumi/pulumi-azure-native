@@ -71,7 +71,7 @@ export interface GetInstanceResult {
  * Get SCOM managed instance details
  * Azure REST API version: 2023-07-07-preview.
  */
-export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scom:getInstance", {
         "instanceName": args.instanceName,

@@ -108,7 +108,7 @@ export interface GetDicomServiceResult {
  *
  * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
  */
-export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDicomServiceResult> {
+export function getDicomServiceOutput(args: GetDicomServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDicomServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:healthcareapis:getDicomService", {
         "dicomServiceName": args.dicomServiceName,

@@ -209,7 +209,7 @@ def get_io_t_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                           device_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           role_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIoTAddonResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIoTAddonResult]:
     """
     Gets a specific addon by name.
 
@@ -224,7 +224,7 @@ def get_io_t_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['roleName'] = role_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge/v20220301:getIoTAddon', __args__, opts=opts, typ=GetIoTAddonResult)
     return __ret__.apply(lambda __response__: GetIoTAddonResult(
         host_platform=pulumi.get(__response__, 'host_platform'),

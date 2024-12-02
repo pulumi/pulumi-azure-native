@@ -265,7 +265,7 @@ def get_fleet(fleet_name: Optional[str] = None,
         zones=pulumi.get(__ret__, 'zones'))
 def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     Get a Fleet
 
@@ -276,7 +276,7 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['fleetName'] = fleet_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurefleet/v20240501preview:getFleet', __args__, opts=opts, typ=GetFleetResult)
     return __ret__.apply(lambda __response__: GetFleetResult(
         compute_profile=pulumi.get(__response__, 'compute_profile'),

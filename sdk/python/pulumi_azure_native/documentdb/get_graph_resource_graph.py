@@ -162,7 +162,7 @@ def get_graph_resource_graph(account_name: Optional[str] = None,
 def get_graph_resource_graph_output(account_name: Optional[pulumi.Input[str]] = None,
                                     graph_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphResourceGraphResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphResourceGraphResult]:
     """
     Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
     Azure REST API version: 2023-03-15-preview.
@@ -178,7 +178,7 @@ def get_graph_resource_graph_output(account_name: Optional[pulumi.Input[str]] = 
     __args__['accountName'] = account_name
     __args__['graphName'] = graph_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:documentdb:getGraphResourceGraph', __args__, opts=opts, typ=GetGraphResourceGraphResult)
     return __ret__.apply(lambda __response__: GetGraphResourceGraphResult(
         id=pulumi.get(__response__, 'id'),

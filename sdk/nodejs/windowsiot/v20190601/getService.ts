@@ -78,7 +78,7 @@ export interface GetServiceResult {
 /**
  * Get the non-security related metadata of a Windows IoT Device Service.
  */
-export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:windowsiot/v20190601:getService", {
         "deviceName": args.deviceName,

@@ -45,7 +45,7 @@ export interface ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult 
 /**
  * Lists impacted resources in the tenant by an event (Security Advisory).
  */
-export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
+export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resourcehealth/v20240201:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId", {
         "eventTrackingId": args.eventTrackingId,

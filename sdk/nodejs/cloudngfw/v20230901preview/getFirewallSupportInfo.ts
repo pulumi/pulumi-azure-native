@@ -87,7 +87,7 @@ export interface GetFirewallSupportInfoResult {
 /**
  * support info for firewall.
  */
-export function getFirewallSupportInfoOutput(args: GetFirewallSupportInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallSupportInfoResult> {
+export function getFirewallSupportInfoOutput(args: GetFirewallSupportInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cloudngfw/v20230901preview:getFirewallSupportInfo", {
         "email": args.email,

@@ -63,7 +63,7 @@ def get_virtual_network_gateway_vpn_profile_package_url(resource_group_name: Opt
         value=pulumi.get(__ret__, 'value'))
 def get_virtual_network_gateway_vpn_profile_package_url_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
-                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnProfilePackageUrlResult]:
+                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnProfilePackageUrlResult]:
     """
     Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.
 
@@ -74,7 +74,7 @@ def get_virtual_network_gateway_vpn_profile_package_url_output(resource_group_na
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240501:getVirtualNetworkGatewayVpnProfilePackageUrl', __args__, opts=opts, typ=GetVirtualNetworkGatewayVpnProfilePackageUrlResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayVpnProfilePackageUrlResult(
         value=pulumi.get(__response__, 'value')))

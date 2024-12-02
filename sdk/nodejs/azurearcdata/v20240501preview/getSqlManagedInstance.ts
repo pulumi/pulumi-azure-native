@@ -73,7 +73,7 @@ export interface GetSqlManagedInstanceResult {
 /**
  * Retrieves a SQL Managed Instance resource
  */
-export function getSqlManagedInstanceOutput(args: GetSqlManagedInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlManagedInstanceResult> {
+export function getSqlManagedInstanceOutput(args: GetSqlManagedInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlManagedInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurearcdata/v20240501preview:getSqlManagedInstance", {
         "resourceGroupName": args.resourceGroupName,

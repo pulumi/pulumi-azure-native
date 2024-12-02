@@ -81,7 +81,7 @@ export interface GetArtifactManifestResult {
  *
  * Other available API versions: 2024-04-15.
  */
-export function getArtifactManifestOutput(args: GetArtifactManifestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArtifactManifestResult> {
+export function getArtifactManifestOutput(args: GetArtifactManifestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArtifactManifestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getArtifactManifest", {
         "artifactManifestName": args.artifactManifestName,

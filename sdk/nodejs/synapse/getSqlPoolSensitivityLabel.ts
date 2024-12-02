@@ -114,7 +114,7 @@ export interface GetSqlPoolSensitivityLabelResult {
  *
  * Other available API versions: 2021-06-01-preview.
  */
-export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {
+export function getSqlPoolSensitivityLabelOutput(args: GetSqlPoolSensitivityLabelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlPoolSensitivityLabelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse:getSqlPoolSensitivityLabel", {
         "columnName": args.columnName,

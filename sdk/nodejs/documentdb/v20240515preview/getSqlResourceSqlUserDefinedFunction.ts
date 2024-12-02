@@ -77,7 +77,7 @@ export interface GetSqlResourceSqlUserDefinedFunctionResult {
 /**
  * Gets the SQL userDefinedFunction under an existing Azure Cosmos DB database account.
  */
-export function getSqlResourceSqlUserDefinedFunctionOutput(args: GetSqlResourceSqlUserDefinedFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlUserDefinedFunctionResult> {
+export function getSqlResourceSqlUserDefinedFunctionOutput(args: GetSqlResourceSqlUserDefinedFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlResourceSqlUserDefinedFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20240515preview:getSqlResourceSqlUserDefinedFunction", {
         "accountName": args.accountName,

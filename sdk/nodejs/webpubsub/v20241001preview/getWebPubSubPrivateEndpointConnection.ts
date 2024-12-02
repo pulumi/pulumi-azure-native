@@ -74,7 +74,7 @@ export interface GetWebPubSubPrivateEndpointConnectionResult {
 /**
  * Get the specified private endpoint connection
  */
-export function getWebPubSubPrivateEndpointConnectionOutput(args: GetWebPubSubPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubPrivateEndpointConnectionResult> {
+export function getWebPubSubPrivateEndpointConnectionOutput(args: GetWebPubSubPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebPubSubPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:webpubsub/v20241001preview:getWebPubSubPrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

@@ -148,7 +148,7 @@ def get_scope_assignment(scope: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_scope_assignment_output(scope: Optional[pulumi.Input[str]] = None,
                                 scope_assignment_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeAssignmentResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeAssignmentResult]:
     """
     Get the specified scope assignment.
     Azure REST API version: 2019-06-01-preview.
@@ -160,7 +160,7 @@ def get_scope_assignment_output(scope: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['scope'] = scope
     __args__['scopeAssignmentName'] = scope_assignment_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetwork:getScopeAssignment', __args__, opts=opts, typ=GetScopeAssignmentResult)
     return __ret__.apply(lambda __response__: GetScopeAssignmentResult(
         assigned_managed_network=pulumi.get(__response__, 'assigned_managed_network'),

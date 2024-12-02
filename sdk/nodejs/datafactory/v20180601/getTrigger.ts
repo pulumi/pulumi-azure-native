@@ -62,7 +62,7 @@ export interface GetTriggerResult {
 /**
  * Gets a trigger.
  */
-export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
+export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datafactory/v20180601:getTrigger", {
         "factoryName": args.factoryName,

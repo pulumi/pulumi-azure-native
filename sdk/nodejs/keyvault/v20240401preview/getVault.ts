@@ -65,7 +65,7 @@ export interface GetVaultResult {
 /**
  * Gets the specified Azure key vault.
  */
-export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
+export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:keyvault/v20240401preview:getVault", {
         "resourceGroupName": args.resourceGroupName,

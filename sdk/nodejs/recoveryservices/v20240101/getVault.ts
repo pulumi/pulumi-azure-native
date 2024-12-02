@@ -77,7 +77,7 @@ export interface GetVaultResult {
 /**
  * Get the Vault details.
  */
-export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
+export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:recoveryservices/v20240101:getVault", {
         "resourceGroupName": args.resourceGroupName,

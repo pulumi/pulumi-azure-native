@@ -79,7 +79,7 @@ export interface GetPrivateLinkServicesForSCCPowershellResult {
  * Get the metadata of a privateLinkServicesForSCCPowershell resource.
  * Azure REST API version: 2021-03-08.
  */
-export function getPrivateLinkServicesForSCCPowershellOutput(args: GetPrivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicesForSCCPowershellResult> {
+export function getPrivateLinkServicesForSCCPowershellOutput(args: GetPrivateLinkServicesForSCCPowershellOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkServicesForSCCPowershellResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityandcompliance:getPrivateLinkServicesForSCCPowershell", {
         "resourceGroupName": args.resourceGroupName,

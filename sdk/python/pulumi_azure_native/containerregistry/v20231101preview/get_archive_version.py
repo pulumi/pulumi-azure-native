@@ -147,7 +147,7 @@ def get_archive_version_output(archive_name: Optional[pulumi.Input[str]] = None,
                                package_type: Optional[pulumi.Input[str]] = None,
                                registry_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArchiveVersionResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArchiveVersionResult]:
     """
     Gets the properties of the archive version.
 
@@ -164,7 +164,7 @@ def get_archive_version_output(archive_name: Optional[pulumi.Input[str]] = None,
     __args__['packageType'] = package_type
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry/v20231101preview:getArchiveVersion', __args__, opts=opts, typ=GetArchiveVersionResult)
     return __ret__.apply(lambda __response__: GetArchiveVersionResult(
         archive_version_error_message=pulumi.get(__response__, 'archive_version_error_message'),

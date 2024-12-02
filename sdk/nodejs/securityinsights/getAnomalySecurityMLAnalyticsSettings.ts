@@ -125,7 +125,7 @@ export interface GetAnomalySecurityMLAnalyticsSettingsResult {
  * Gets the Security ML Analytics Settings.
  * Azure REST API version: 2023-02-01.
  */
-export function getAnomalySecurityMLAnalyticsSettingsOutput(args: GetAnomalySecurityMLAnalyticsSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalySecurityMLAnalyticsSettingsResult> {
+export function getAnomalySecurityMLAnalyticsSettingsOutput(args: GetAnomalySecurityMLAnalyticsSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnomalySecurityMLAnalyticsSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getAnomalySecurityMLAnalyticsSettings", {
         "resourceGroupName": args.resourceGroupName,

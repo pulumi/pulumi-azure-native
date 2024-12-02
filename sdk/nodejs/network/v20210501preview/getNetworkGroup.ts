@@ -78,7 +78,7 @@ export interface GetNetworkGroupResult {
 /**
  * Gets the specified network group.
  */
-export function getNetworkGroupOutput(args: GetNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkGroupResult> {
+export function getNetworkGroupOutput(args: GetNetworkGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20210501preview:getNetworkGroup", {
         "networkGroupName": args.networkGroupName,

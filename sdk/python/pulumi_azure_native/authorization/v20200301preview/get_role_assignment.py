@@ -251,7 +251,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
         updated_on=pulumi.get(__ret__, 'updated_on'))
 def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]] = None,
                                scope: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
     Get a role assignment by scope and name.
 
@@ -262,7 +262,7 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['roleAssignmentName'] = role_assignment_name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization/v20200301preview:getRoleAssignment', __args__, opts=opts, typ=GetRoleAssignmentResult)
     return __ret__.apply(lambda __response__: GetRoleAssignmentResult(
         can_delegate=pulumi.get(__response__, 'can_delegate'),

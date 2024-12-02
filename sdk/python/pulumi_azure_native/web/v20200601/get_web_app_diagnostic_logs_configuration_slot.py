@@ -165,7 +165,7 @@ def get_web_app_diagnostic_logs_configuration_slot(name: Optional[str] = None,
 def get_web_app_diagnostic_logs_configuration_slot_output(name: Optional[pulumi.Input[str]] = None,
                                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                                           slot: Optional[pulumi.Input[str]] = None,
-                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppDiagnosticLogsConfigurationSlotResult]:
+                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppDiagnosticLogsConfigurationSlotResult]:
     """
     Gets the logging configuration of an app.
 
@@ -178,7 +178,7 @@ def get_web_app_diagnostic_logs_configuration_slot_output(name: Optional[pulumi.
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20200601:getWebAppDiagnosticLogsConfigurationSlot', __args__, opts=opts, typ=GetWebAppDiagnosticLogsConfigurationSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppDiagnosticLogsConfigurationSlotResult(
         application_logs=pulumi.get(__response__, 'application_logs'),

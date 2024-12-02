@@ -109,7 +109,7 @@ export interface GetKafkaConnectorTopicMapResult {
  * Get a KafkaTopicMapResource
  * Azure REST API version: 2023-10-04-preview.
  */
-export function getKafkaConnectorTopicMapOutput(args: GetKafkaConnectorTopicMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaConnectorTopicMapResult> {
+export function getKafkaConnectorTopicMapOutput(args: GetKafkaConnectorTopicMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKafkaConnectorTopicMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq:getKafkaConnectorTopicMap", {
         "kafkaConnectorName": args.kafkaConnectorName,

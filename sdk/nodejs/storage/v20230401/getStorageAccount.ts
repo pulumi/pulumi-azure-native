@@ -238,7 +238,7 @@ export interface GetStorageAccountResult {
 /**
  * Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.
  */
-export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageAccountResult> {
+export function getStorageAccountOutput(args: GetStorageAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storage/v20230401:getStorageAccount", {
         "accountName": args.accountName,

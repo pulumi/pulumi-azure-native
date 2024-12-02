@@ -71,7 +71,7 @@ export interface GetPipelineResult {
  *
  * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
  */
-export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
+export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azuredatatransfer:getPipeline", {
         "pipelineName": args.pipelineName,

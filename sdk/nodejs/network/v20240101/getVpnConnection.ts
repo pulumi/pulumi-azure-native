@@ -130,7 +130,7 @@ export interface GetVpnConnectionResult {
 /**
  * Retrieves the details of a vpn connection.
  */
-export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnConnectionResult> {
+export function getVpnConnectionOutput(args: GetVpnConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20240101:getVpnConnection", {
         "connectionName": args.connectionName,

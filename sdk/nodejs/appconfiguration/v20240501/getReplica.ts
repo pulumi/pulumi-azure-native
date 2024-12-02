@@ -70,7 +70,7 @@ export interface GetReplicaResult {
 /**
  * Gets the properties of the specified replica.
  */
-export function getReplicaOutput(args: GetReplicaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicaResult> {
+export function getReplicaOutput(args: GetReplicaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appconfiguration/v20240501:getReplica", {
         "configStoreName": args.configStoreName,

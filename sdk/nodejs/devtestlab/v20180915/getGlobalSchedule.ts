@@ -106,7 +106,7 @@ export interface GetGlobalScheduleResult {
 /**
  * Get schedule.
  */
-export function getGlobalScheduleOutput(args: GetGlobalScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalScheduleResult> {
+export function getGlobalScheduleOutput(args: GetGlobalScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:devtestlab/v20180915:getGlobalSchedule", {
         "expand": args.expand,

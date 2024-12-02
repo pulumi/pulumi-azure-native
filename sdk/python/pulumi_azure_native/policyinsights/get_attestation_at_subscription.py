@@ -251,7 +251,7 @@ def get_attestation_at_subscription(attestation_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_attestation_at_subscription_output(attestation_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationAtSubscriptionResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttestationAtSubscriptionResult]:
     """
     Gets an existing attestation at subscription scope.
     Azure REST API version: 2022-09-01.
@@ -263,7 +263,7 @@ def get_attestation_at_subscription_output(attestation_name: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['attestationName'] = attestation_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights:getAttestationAtSubscription', __args__, opts=opts, typ=GetAttestationAtSubscriptionResult)
     return __ret__.apply(lambda __response__: GetAttestationAtSubscriptionResult(
         assessment_date=pulumi.get(__response__, 'assessment_date'),

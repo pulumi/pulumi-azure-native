@@ -47,7 +47,7 @@ export interface ListGatewayKeysResult {
 /**
  * Retrieves gateway keys.
  */
-export function listGatewayKeysOutput(args: ListGatewayKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListGatewayKeysResult> {
+export function listGatewayKeysOutput(args: ListGatewayKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGatewayKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230501preview:listGatewayKeys", {
         "gatewayId": args.gatewayId,

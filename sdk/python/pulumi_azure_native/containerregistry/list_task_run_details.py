@@ -193,7 +193,7 @@ def list_task_run_details(registry_name: Optional[str] = None,
 def list_task_run_details_output(registry_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  task_run_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTaskRunDetailsResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListTaskRunDetailsResult]:
     """
     Gets the detailed information for a given task run that includes all secrets.
     Azure REST API version: 2019-06-01-preview.
@@ -207,7 +207,7 @@ def list_task_run_details_output(registry_name: Optional[pulumi.Input[str]] = No
     __args__['registryName'] = registry_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['taskRunName'] = task_run_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:listTaskRunDetails', __args__, opts=opts, typ=ListTaskRunDetailsResult)
     return __ret__.apply(lambda __response__: ListTaskRunDetailsResult(
         force_update_tag=pulumi.get(__response__, 'force_update_tag'),

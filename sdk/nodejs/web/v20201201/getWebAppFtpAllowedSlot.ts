@@ -56,7 +56,7 @@ export interface GetWebAppFtpAllowedSlotResult {
 /**
  * Returns whether FTP is allowed on the site or not.
  */
-export function getWebAppFtpAllowedSlotOutput(args: GetWebAppFtpAllowedSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppFtpAllowedSlotResult> {
+export function getWebAppFtpAllowedSlotOutput(args: GetWebAppFtpAllowedSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppFtpAllowedSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20201201:getWebAppFtpAllowedSlot", {
         "name": args.name,

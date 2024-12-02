@@ -81,7 +81,7 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
 /**
  * This operation retrieves the policy set definition in the given management group with the given name.
  */
-export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
+export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization/v20210601:getPolicySetDefinitionAtManagementGroup", {
         "managementGroupId": args.managementGroupId,

@@ -73,7 +73,7 @@ def get_virtual_machine_rdp_file_contents(lab_name: Optional[str] = None,
 def get_virtual_machine_rdp_file_contents_output(lab_name: Optional[pulumi.Input[str]] = None,
                                                  name: Optional[pulumi.Input[str]] = None,
                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineRdpFileContentsResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineRdpFileContentsResult]:
     """
     Gets a string that represents the contents of the RDP file for the virtual machine
 
@@ -86,7 +86,7 @@ def get_virtual_machine_rdp_file_contents_output(lab_name: Optional[pulumi.Input
     __args__['labName'] = lab_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab/v20180915:getVirtualMachineRdpFileContents', __args__, opts=opts, typ=GetVirtualMachineRdpFileContentsResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineRdpFileContentsResult(
         contents=pulumi.get(__response__, 'contents')))

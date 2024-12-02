@@ -114,7 +114,7 @@ export interface GetScriptExecutionLogsResult {
 /**
  * Return the logs for a script execution resource
  */
-export function getScriptExecutionLogsOutput(args: GetScriptExecutionLogsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptExecutionLogsResult> {
+export function getScriptExecutionLogsOutput(args: GetScriptExecutionLogsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScriptExecutionLogsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs/v20220501:getScriptExecutionLogs", {
         "privateCloudName": args.privateCloudName,

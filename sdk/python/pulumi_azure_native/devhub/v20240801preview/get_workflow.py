@@ -148,7 +148,7 @@ def get_workflow(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         workflow_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkflowResult]:
     """
     Resource representation of a workflow
 
@@ -159,7 +159,7 @@ def get_workflow_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workflowName'] = workflow_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devhub/v20240801preview:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult)
     return __ret__.apply(lambda __response__: GetWorkflowResult(
         id=pulumi.get(__response__, 'id'),

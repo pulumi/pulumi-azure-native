@@ -114,7 +114,7 @@ export interface GetSqlPoolResult {
 /**
  * Get SQL pool properties
  */
-export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolResult> {
+export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:synapse/v20210501:getSqlPool", {
         "resourceGroupName": args.resourceGroupName,

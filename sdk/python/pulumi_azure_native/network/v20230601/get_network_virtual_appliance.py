@@ -386,7 +386,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
 def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                          network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkVirtualApplianceResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkVirtualApplianceResult]:
     """
     Gets the specified Network Virtual Appliance.
 
@@ -399,7 +399,7 @@ def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[
     __args__['expand'] = expand
     __args__['networkVirtualApplianceName'] = network_virtual_appliance_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230601:getNetworkVirtualAppliance', __args__, opts=opts, typ=GetNetworkVirtualApplianceResult)
     return __ret__.apply(lambda __response__: GetNetworkVirtualApplianceResult(
         additional_nics=pulumi.get(__response__, 'additional_nics'),

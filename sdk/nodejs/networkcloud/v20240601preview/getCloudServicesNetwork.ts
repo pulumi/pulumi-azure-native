@@ -112,7 +112,7 @@ export interface GetCloudServicesNetworkResult {
 /**
  * Get properties of the provided cloud services network.
  */
-export function getCloudServicesNetworkOutput(args: GetCloudServicesNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudServicesNetworkResult> {
+export function getCloudServicesNetworkOutput(args: GetCloudServicesNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudServicesNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240601preview:getCloudServicesNetwork", {
         "cloudServicesNetworkName": args.cloudServicesNetworkName,

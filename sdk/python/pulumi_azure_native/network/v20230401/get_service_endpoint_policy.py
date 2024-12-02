@@ -230,7 +230,7 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
 def get_service_endpoint_policy_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        service_endpoint_policy_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointPolicyResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceEndpointPolicyResult]:
     """
     Gets the specified service Endpoint Policies in a specified resource group.
 
@@ -243,7 +243,7 @@ def get_service_endpoint_policy_output(expand: Optional[pulumi.Input[Optional[st
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceEndpointPolicyName'] = service_endpoint_policy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230401:getServiceEndpointPolicy', __args__, opts=opts, typ=GetServiceEndpointPolicyResult)
     return __ret__.apply(lambda __response__: GetServiceEndpointPolicyResult(
         contextual_service_endpoint_policies=pulumi.get(__response__, 'contextual_service_endpoint_policies'),

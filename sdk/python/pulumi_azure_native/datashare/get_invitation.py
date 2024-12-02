@@ -250,7 +250,7 @@ def get_invitation_output(account_name: Optional[pulumi.Input[str]] = None,
                           invitation_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           share_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInvitationResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvitationResult]:
     """
     Get an invitation in a share
     Azure REST API version: 2021-08-01.
@@ -266,7 +266,7 @@ def get_invitation_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['invitationName'] = invitation_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getInvitation', __args__, opts=opts, typ=GetInvitationResult)
     return __ret__.apply(lambda __response__: GetInvitationResult(
         expiration_date=pulumi.get(__response__, 'expiration_date'),

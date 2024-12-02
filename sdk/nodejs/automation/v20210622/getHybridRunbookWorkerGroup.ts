@@ -70,7 +70,7 @@ export interface GetHybridRunbookWorkerGroupResult {
 /**
  * Retrieve a hybrid runbook worker group.
  */
-export function getHybridRunbookWorkerGroupOutput(args: GetHybridRunbookWorkerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerGroupResult> {
+export function getHybridRunbookWorkerGroupOutput(args: GetHybridRunbookWorkerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridRunbookWorkerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20210622:getHybridRunbookWorkerGroup", {
         "automationAccountName": args.automationAccountName,

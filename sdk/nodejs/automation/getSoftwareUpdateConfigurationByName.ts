@@ -96,7 +96,7 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
  *
  * Other available API versions: 2017-05-15-preview, 2023-05-15-preview.
  */
-export function getSoftwareUpdateConfigurationByNameOutput(args: GetSoftwareUpdateConfigurationByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoftwareUpdateConfigurationByNameResult> {
+export function getSoftwareUpdateConfigurationByNameOutput(args: GetSoftwareUpdateConfigurationByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSoftwareUpdateConfigurationByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation:getSoftwareUpdateConfigurationByName", {
         "automationAccountName": args.automationAccountName,

@@ -131,7 +131,7 @@ export interface GetDeploymentStackAtResourceGroupResult {
  *
  * Other available API versions: 2024-03-01.
  */
-export function getDeploymentStackAtResourceGroupOutput(args: GetDeploymentStackAtResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentStackAtResourceGroupResult> {
+export function getDeploymentStackAtResourceGroupOutput(args: GetDeploymentStackAtResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentStackAtResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getDeploymentStackAtResourceGroup", {
         "deploymentStackName": args.deploymentStackName,

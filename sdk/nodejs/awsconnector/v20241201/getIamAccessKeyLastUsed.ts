@@ -65,7 +65,7 @@ export interface GetIamAccessKeyLastUsedResult {
 /**
  * Get a IamAccessKeyLastUsed
  */
-export function getIamAccessKeyLastUsedOutput(args: GetIamAccessKeyLastUsedOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIamAccessKeyLastUsedResult> {
+export function getIamAccessKeyLastUsedOutput(args: GetIamAccessKeyLastUsedOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIamAccessKeyLastUsedResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getIamAccessKeyLastUsed", {
         "name": args.name,

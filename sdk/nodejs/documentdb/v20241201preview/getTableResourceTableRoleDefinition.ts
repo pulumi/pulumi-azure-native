@@ -70,7 +70,7 @@ export interface GetTableResourceTableRoleDefinitionResult {
 /**
  * Retrieves the properties of an existing Azure Cosmos DB Table Role Definition with the given Id.
  */
-export function getTableResourceTableRoleDefinitionOutput(args: GetTableResourceTableRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResourceTableRoleDefinitionResult> {
+export function getTableResourceTableRoleDefinitionOutput(args: GetTableResourceTableRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResourceTableRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:documentdb/v20241201preview:getTableResourceTableRoleDefinition", {
         "accountName": args.accountName,

@@ -148,7 +148,7 @@ def get_sql_server_instance(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_sql_server_instance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                    sql_server_instance_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerInstanceResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerInstanceResult]:
     """
     Retrieves a SQL Server Instance resource
 
@@ -159,7 +159,7 @@ def get_sql_server_instance_output(resource_group_name: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlServerInstanceName'] = sql_server_instance_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurearcdata/v20230115preview:getSqlServerInstance', __args__, opts=opts, typ=GetSqlServerInstanceResult)
     return __ret__.apply(lambda __response__: GetSqlServerInstanceResult(
         id=pulumi.get(__response__, 'id'),

@@ -138,7 +138,7 @@ export interface GetMetadataResult {
 /**
  * Get a Metadata.
  */
-export function getMetadataOutput(args: GetMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataResult> {
+export function getMetadataOutput(args: GetMetadataOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMetadataResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231101:getMetadata", {
         "metadataName": args.metadataName,

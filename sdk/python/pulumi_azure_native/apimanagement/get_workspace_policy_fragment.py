@@ -149,7 +149,7 @@ def get_workspace_policy_fragment_output(format: Optional[pulumi.Input[Optional[
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
                                          service_name: Optional[pulumi.Input[str]] = None,
                                          workspace_id: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspacePolicyFragmentResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspacePolicyFragmentResult]:
     """
     Gets a policy fragment.
     Azure REST API version: 2022-09-01-preview.
@@ -169,7 +169,7 @@ def get_workspace_policy_fragment_output(format: Optional[pulumi.Input[Optional[
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspacePolicyFragment', __args__, opts=opts, typ=GetWorkspacePolicyFragmentResult)
     return __ret__.apply(lambda __response__: GetWorkspacePolicyFragmentResult(
         description=pulumi.get(__response__, 'description'),

@@ -178,7 +178,7 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
 def get_virtual_hub_bgp_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           virtual_hub_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubBgpConnectionResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubBgpConnectionResult]:
     """
     Retrieves the details of a Virtual Hub Bgp Connection.
 
@@ -191,7 +191,7 @@ def get_virtual_hub_bgp_connection_output(connection_name: Optional[pulumi.Input
     __args__['connectionName'] = connection_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualHubName'] = virtual_hub_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20230901:getVirtualHubBgpConnection', __args__, opts=opts, typ=GetVirtualHubBgpConnectionResult)
     return __ret__.apply(lambda __response__: GetVirtualHubBgpConnectionResult(
         connection_state=pulumi.get(__response__, 'connection_state'),

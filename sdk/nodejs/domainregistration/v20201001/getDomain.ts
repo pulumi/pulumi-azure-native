@@ -123,7 +123,7 @@ export interface GetDomainResult {
 /**
  * Get a domain.
  */
-export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:domainregistration/v20201001:getDomain", {
         "domainName": args.domainName,

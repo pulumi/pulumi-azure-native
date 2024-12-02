@@ -275,7 +275,7 @@ def get_workspace_subscription_output(resource_group_name: Optional[pulumi.Input
                                       service_name: Optional[pulumi.Input[str]] = None,
                                       sid: Optional[pulumi.Input[str]] = None,
                                       workspace_id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceSubscriptionResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceSubscriptionResult]:
     """
     Gets the specified Subscription entity.
     Azure REST API version: 2022-09-01-preview.
@@ -293,7 +293,7 @@ def get_workspace_subscription_output(resource_group_name: Optional[pulumi.Input
     __args__['serviceName'] = service_name
     __args__['sid'] = sid
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceSubscription', __args__, opts=opts, typ=GetWorkspaceSubscriptionResult)
     return __ret__.apply(lambda __response__: GetWorkspaceSubscriptionResult(
         allow_tracing=pulumi.get(__response__, 'allow_tracing'),

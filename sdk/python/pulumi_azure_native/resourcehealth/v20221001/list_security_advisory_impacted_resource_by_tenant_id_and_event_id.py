@@ -83,7 +83,7 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id(event_tra
         value=pulumi.get(__ret__, 'value'))
 def list_security_advisory_impacted_resource_by_tenant_id_and_event_id_output(event_tracking_id: Optional[pulumi.Input[str]] = None,
                                                                               filter: Optional[pulumi.Input[Optional[str]]] = None,
-                                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult]:
+                                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult]:
     """
     Lists impacted resources in the tenant by an event (Security Advisory).
 
@@ -94,7 +94,7 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id_output(ev
     __args__ = dict()
     __args__['eventTrackingId'] = event_tracking_id
     __args__['filter'] = filter
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resourcehealth/v20221001:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId', __args__, opts=opts, typ=ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult)
     return __ret__.apply(lambda __response__: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult(
         next_link=pulumi.get(__response__, 'next_link'),

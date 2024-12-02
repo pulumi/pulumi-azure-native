@@ -82,7 +82,7 @@ export interface GetImportPipelineResult {
 /**
  * Gets the properties of the import pipeline.
  */
-export function getImportPipelineOutput(args: GetImportPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportPipelineResult> {
+export function getImportPipelineOutput(args: GetImportPipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImportPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:containerregistry/v20230101preview:getImportPipeline", {
         "importPipelineName": args.importPipelineName,

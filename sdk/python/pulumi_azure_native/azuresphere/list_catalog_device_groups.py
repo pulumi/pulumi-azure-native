@@ -106,7 +106,7 @@ def list_catalog_device_groups_output(catalog_name: Optional[pulumi.Input[str]] 
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       skip: Optional[pulumi.Input[Optional[int]]] = None,
                                       top: Optional[pulumi.Input[Optional[int]]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCatalogDeviceGroupsResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListCatalogDeviceGroupsResult]:
     """
     List the device groups for the catalog.
     Azure REST API version: 2022-09-01-preview.
@@ -130,7 +130,7 @@ def list_catalog_device_groups_output(catalog_name: Optional[pulumi.Input[str]] 
     __args__['resourceGroupName'] = resource_group_name
     __args__['skip'] = skip
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azuresphere:listCatalogDeviceGroups', __args__, opts=opts, typ=ListCatalogDeviceGroupsResult)
     return __ret__.apply(lambda __response__: ListCatalogDeviceGroupsResult(
         next_link=pulumi.get(__response__, 'next_link'),

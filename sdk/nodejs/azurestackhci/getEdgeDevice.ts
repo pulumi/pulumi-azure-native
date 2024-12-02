@@ -67,7 +67,7 @@ export interface GetEdgeDeviceResult {
  *
  * Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
  */
-export function getEdgeDeviceOutput(args: GetEdgeDeviceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeDeviceResult> {
+export function getEdgeDeviceOutput(args: GetEdgeDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEdgeDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurestackhci:getEdgeDevice", {
         "edgeDeviceName": args.edgeDeviceName,

@@ -94,7 +94,7 @@ export interface GetDatabasePrincipalAssignmentResult {
  *
  * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
  */
-export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
+export function getDatabasePrincipalAssignmentOutput(args: GetDatabasePrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabasePrincipalAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto:getDatabasePrincipalAssignment", {
         "clusterName": args.clusterName,

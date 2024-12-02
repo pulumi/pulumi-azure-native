@@ -140,7 +140,7 @@ def get_hci_edge_device_job(edge_device_name: Optional[str] = None,
 def get_hci_edge_device_job_output(edge_device_name: Optional[pulumi.Input[str]] = None,
                                    jobs_name: Optional[pulumi.Input[str]] = None,
                                    resource_uri: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHciEdgeDeviceJobResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHciEdgeDeviceJobResult]:
     """
     Get a EdgeDeviceJob
 
@@ -153,7 +153,7 @@ def get_hci_edge_device_job_output(edge_device_name: Optional[pulumi.Input[str]]
     __args__['edgeDeviceName'] = edge_device_name
     __args__['jobsName'] = jobs_name
     __args__['resourceUri'] = resource_uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci/v20240901preview:getHciEdgeDeviceJob', __args__, opts=opts, typ=GetHciEdgeDeviceJobResult)
     return __ret__.apply(lambda __response__: GetHciEdgeDeviceJobResult(
         id=pulumi.get(__response__, 'id'),

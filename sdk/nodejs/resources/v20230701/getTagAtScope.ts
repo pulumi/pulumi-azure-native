@@ -48,7 +48,7 @@ export interface GetTagAtScopeResult {
 /**
  * Wrapper resource for tags API requests and responses.
  */
-export function getTagAtScopeOutput(args: GetTagAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagAtScopeResult> {
+export function getTagAtScopeOutput(args: GetTagAtScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagAtScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources/v20230701:getTagAtScope", {
         "scope": args.scope,

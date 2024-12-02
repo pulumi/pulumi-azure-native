@@ -369,7 +369,7 @@ def get_server_group(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_server_group_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                             server_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerGroupResult]:
     """
     Gets information about a server group.
 
@@ -380,7 +380,7 @@ def get_server_group_output(resource_group_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverGroupName'] = server_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql/v20201005privatepreview:getServerGroup', __args__, opts=opts, typ=GetServerGroupResult)
     return __ret__.apply(lambda __response__: GetServerGroupResult(
         administrator_login=pulumi.get(__response__, 'administrator_login'),

@@ -152,7 +152,7 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
 def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
                             iscsi_target_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIscsiTargetResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIscsiTargetResult]:
     """
     Get an iSCSI target.
 
@@ -165,7 +165,7 @@ def get_iscsi_target_output(disk_pool_name: Optional[pulumi.Input[str]] = None,
     __args__['diskPoolName'] = disk_pool_name
     __args__['iscsiTargetName'] = iscsi_target_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagepool/v20200315preview:getIscsiTarget', __args__, opts=opts, typ=GetIscsiTargetResult)
     return __ret__.apply(lambda __response__: GetIscsiTargetResult(
         id=pulumi.get(__response__, 'id'),

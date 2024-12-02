@@ -95,7 +95,7 @@ export interface GetAzureMonitorWorkspaceResult {
  *
  * Other available API versions: 2023-10-01-preview.
  */
-export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
+export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:monitor:getAzureMonitorWorkspace", {
         "azureMonitorWorkspaceName": args.azureMonitorWorkspaceName,

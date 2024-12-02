@@ -32,7 +32,7 @@ export interface GetOrganizationElasticToAzureSubscriptionMappingResult {
 /**
  * Get Elastic Organization To Azure Subscription Mapping details for the logged-in user.
  */
-export function getOrganizationElasticToAzureSubscriptionMappingOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationElasticToAzureSubscriptionMappingResult> {
+export function getOrganizationElasticToAzureSubscriptionMappingOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationElasticToAzureSubscriptionMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:elastic/v20230701preview:getOrganizationElasticToAzureSubscriptionMapping", {
     }, opts);

@@ -256,7 +256,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
 def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                             msix_package_full_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMSIXPackageResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMSIXPackageResult]:
     """
     Get a msixpackage.
 
@@ -269,7 +269,7 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
     __args__['hostPoolName'] = host_pool_name
     __args__['msixPackageFullName'] = msix_package_full_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization/v20231004preview:getMSIXPackage', __args__, opts=opts, typ=GetMSIXPackageResult)
     return __ret__.apply(lambda __response__: GetMSIXPackageResult(
         display_name=pulumi.get(__response__, 'display_name'),

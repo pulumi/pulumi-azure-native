@@ -291,7 +291,7 @@ def get_cache(cache_name: Optional[str] = None,
         upgrade_status=pulumi.get(__ret__, 'upgrade_status'))
 def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCacheResult]:
     """
     Returns a Cache.
 
@@ -302,7 +302,7 @@ def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagecache/v20210301:getCache', __args__, opts=opts, typ=GetCacheResult)
     return __ret__.apply(lambda __response__: GetCacheResult(
         cache_size_gb=pulumi.get(__response__, 'cache_size_gb'),

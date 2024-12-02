@@ -191,7 +191,7 @@ def get_commitment_plan(account_name: Optional[str] = None,
 def get_commitment_plan_output(account_name: Optional[pulumi.Input[str]] = None,
                                commitment_plan_name: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommitmentPlanResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommitmentPlanResult]:
     """
     Gets the specified commitmentPlans associated with the Cognitive Services account.
 
@@ -204,7 +204,7 @@ def get_commitment_plan_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['commitmentPlanName'] = commitment_plan_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cognitiveservices/v20241001:getCommitmentPlan', __args__, opts=opts, typ=GetCommitmentPlanResult)
     return __ret__.apply(lambda __response__: GetCommitmentPlanResult(
         etag=pulumi.get(__response__, 'etag'),

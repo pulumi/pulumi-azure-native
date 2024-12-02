@@ -124,7 +124,7 @@ export interface GetImportJobResult {
  * Returns an import job.
  * Azure REST API version: 2024-03-01.
  */
-export function getImportJobOutput(args: GetImportJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImportJobResult> {
+export function getImportJobOutput(args: GetImportJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImportJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:storagecache:getImportJob", {
         "amlFilesystemName": args.amlFilesystemName,

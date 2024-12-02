@@ -62,7 +62,7 @@ export interface GetManagedGatewayResult {
 /**
  * Retrieve the details of the gateway resource.
  */
-export function getManagedGatewayOutput(args: GetManagedGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedGatewayResult> {
+export function getManagedGatewayOutput(args: GetManagedGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scom/v20230707preview:getManagedGateway", {
         "instanceName": args.instanceName,

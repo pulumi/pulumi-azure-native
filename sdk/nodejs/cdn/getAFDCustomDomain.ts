@@ -101,7 +101,7 @@ export interface GetAFDCustomDomainResult {
  *
  * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
  */
-export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDCustomDomainResult> {
+export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAFDCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn:getAFDCustomDomain", {
         "customDomainName": args.customDomainName,

@@ -65,7 +65,7 @@ export interface GetEksNodegroupResult {
 /**
  * Get a EksNodegroup
  */
-export function getEksNodegroupOutput(args: GetEksNodegroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEksNodegroupResult> {
+export function getEksNodegroupOutput(args: GetEksNodegroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEksNodegroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:awsconnector/v20241201:getEksNodegroup", {
         "name": args.name,

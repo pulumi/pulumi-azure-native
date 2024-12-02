@@ -63,7 +63,7 @@ export interface GetGlobalSchemaResult {
 /**
  * Gets the details of the Schema specified by its identifier.
  */
-export function getGlobalSchemaOutput(args: GetGlobalSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalSchemaResult> {
+export function getGlobalSchemaOutput(args: GetGlobalSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20230301preview:getGlobalSchema", {
         "resourceGroupName": args.resourceGroupName,

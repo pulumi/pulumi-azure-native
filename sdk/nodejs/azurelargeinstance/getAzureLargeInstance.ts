@@ -102,7 +102,7 @@ export interface GetAzureLargeInstanceResult {
  * and instance name.
  * Azure REST API version: 2024-08-01-preview.
  */
-export function getAzureLargeInstanceOutput(args: GetAzureLargeInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureLargeInstanceResult> {
+export function getAzureLargeInstanceOutput(args: GetAzureLargeInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureLargeInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:azurelargeinstance:getAzureLargeInstance", {
         "azureLargeInstanceName": args.azureLargeInstanceName,

@@ -64,7 +64,7 @@ export interface GetAddonResult {
  *
  * Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
  */
-export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
+export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:avs:getAddon", {
         "addonName": args.addonName,

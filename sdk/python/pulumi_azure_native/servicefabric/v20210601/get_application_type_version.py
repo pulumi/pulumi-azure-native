@@ -195,7 +195,7 @@ def get_application_type_version_output(application_type_name: Optional[pulumi.I
                                         cluster_name: Optional[pulumi.Input[str]] = None,
                                         resource_group_name: Optional[pulumi.Input[str]] = None,
                                         version: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationTypeVersionResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationTypeVersionResult]:
     """
     Get a Service Fabric application type version resource created or in the process of being created in the Service Fabric application type name resource.
 
@@ -210,7 +210,7 @@ def get_application_type_version_output(application_type_name: Optional[pulumi.I
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric/v20210601:getApplicationTypeVersion', __args__, opts=opts, typ=GetApplicationTypeVersionResult)
     return __ret__.apply(lambda __response__: GetApplicationTypeVersionResult(
         app_package_url=pulumi.get(__response__, 'app_package_url'),

@@ -74,7 +74,7 @@ export interface GetSignalRPrivateEndpointConnectionResult {
 /**
  * Get the specified private endpoint connection
  */
-export function getSignalRPrivateEndpointConnectionOutput(args: GetSignalRPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRPrivateEndpointConnectionResult> {
+export function getSignalRPrivateEndpointConnectionOutput(args: GetSignalRPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSignalRPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:signalrservice/v20230201:getSignalRPrivateEndpointConnection", {
         "privateEndpointConnectionName": args.privateEndpointConnectionName,

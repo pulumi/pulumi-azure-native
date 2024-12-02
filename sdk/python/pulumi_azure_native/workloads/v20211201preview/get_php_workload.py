@@ -356,7 +356,7 @@ def get_php_workload(php_workload_name: Optional[str] = None,
         web_nodes_profile=pulumi.get(__ret__, 'web_nodes_profile'))
 def get_php_workload_output(php_workload_name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPhpWorkloadResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPhpWorkloadResult]:
     """
     Gets the PHP workload resource.
 
@@ -367,7 +367,7 @@ def get_php_workload_output(php_workload_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['phpWorkloadName'] = php_workload_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads/v20211201preview:getPhpWorkload', __args__, opts=opts, typ=GetPhpWorkloadResult)
     return __ret__.apply(lambda __response__: GetPhpWorkloadResult(
         admin_user_profile=pulumi.get(__response__, 'admin_user_profile'),

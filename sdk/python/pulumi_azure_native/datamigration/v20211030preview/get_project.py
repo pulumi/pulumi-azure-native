@@ -238,7 +238,7 @@ def get_project(group_name: Optional[str] = None,
 def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
                        project_name: Optional[pulumi.Input[str]] = None,
                        service_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
 
@@ -251,7 +251,7 @@ def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration/v20211030preview:getProject', __args__, opts=opts, typ=GetProjectResult)
     return __ret__.apply(lambda __response__: GetProjectResult(
         azure_authentication_info=pulumi.get(__response__, 'azure_authentication_info'),

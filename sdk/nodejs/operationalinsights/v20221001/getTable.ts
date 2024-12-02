@@ -106,7 +106,7 @@ export interface GetTableResult {
 /**
  * Gets a Log Analytics workspace table.
  */
-export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
+export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:operationalinsights/v20221001:getTable", {
         "resourceGroupName": args.resourceGroupName,

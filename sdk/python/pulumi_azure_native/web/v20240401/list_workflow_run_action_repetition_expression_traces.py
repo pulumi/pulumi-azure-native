@@ -106,7 +106,7 @@ def list_workflow_run_action_repetition_expression_traces_output(action_name: Op
                                                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                                                  run_name: Optional[pulumi.Input[str]] = None,
                                                                  workflow_name: Optional[pulumi.Input[str]] = None,
-                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowRunActionRepetitionExpressionTracesResult]:
+                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkflowRunActionRepetitionExpressionTracesResult]:
     """
     Lists a workflow run expression trace.
 
@@ -125,7 +125,7 @@ def list_workflow_run_action_repetition_expression_traces_output(action_name: Op
     __args__['resourceGroupName'] = resource_group_name
     __args__['runName'] = run_name
     __args__['workflowName'] = workflow_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web/v20240401:listWorkflowRunActionRepetitionExpressionTraces', __args__, opts=opts, typ=ListWorkflowRunActionRepetitionExpressionTracesResult)
     return __ret__.apply(lambda __response__: ListWorkflowRunActionRepetitionExpressionTracesResult(
         inputs=pulumi.get(__response__, 'inputs'),

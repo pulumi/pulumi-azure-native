@@ -83,7 +83,7 @@ export interface GetACIServiceResult {
 /**
  * Get a Service by name.
  */
-export function getACIServiceOutput(args: GetACIServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetACIServiceResult> {
+export function getACIServiceOutput(args: GetACIServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetACIServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20210401:getACIService", {
         "expand": args.expand,

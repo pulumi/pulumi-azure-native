@@ -46,7 +46,7 @@ export interface ListPolicyDefinitionVersionAllAtManagementGroupResult {
  *
  * Other available API versions: 2024-05-01, 2025-01-01.
  */
-export function listPolicyDefinitionVersionAllAtManagementGroupOutput(args: ListPolicyDefinitionVersionAllAtManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListPolicyDefinitionVersionAllAtManagementGroupResult> {
+export function listPolicyDefinitionVersionAllAtManagementGroupOutput(args: ListPolicyDefinitionVersionAllAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPolicyDefinitionVersionAllAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:listPolicyDefinitionVersionAllAtManagementGroup", {
         "managementGroupName": args.managementGroupName,

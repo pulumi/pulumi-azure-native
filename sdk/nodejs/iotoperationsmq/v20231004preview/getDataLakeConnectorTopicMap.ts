@@ -87,7 +87,7 @@ export interface GetDataLakeConnectorTopicMapResult {
 /**
  * Get a DataLakeTopicMapResource
  */
-export function getDataLakeConnectorTopicMapOutput(args: GetDataLakeConnectorTopicMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeConnectorTopicMapResult> {
+export function getDataLakeConnectorTopicMapOutput(args: GetDataLakeConnectorTopicMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataLakeConnectorTopicMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsmq/v20231004preview:getDataLakeConnectorTopicMap", {
         "dataLakeConnectorName": args.dataLakeConnectorName,

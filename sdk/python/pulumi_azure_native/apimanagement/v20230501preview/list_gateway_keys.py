@@ -86,7 +86,7 @@ def list_gateway_keys(gateway_id: Optional[str] = None,
 def list_gateway_keys_output(gateway_id: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              service_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGatewayKeysResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGatewayKeysResult]:
     """
     Retrieves gateway keys.
 
@@ -99,7 +99,7 @@ def list_gateway_keys_output(gateway_id: Optional[pulumi.Input[str]] = None,
     __args__['gatewayId'] = gateway_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement/v20230501preview:listGatewayKeys', __args__, opts=opts, typ=ListGatewayKeysResult)
     return __ret__.apply(lambda __response__: ListGatewayKeysResult(
         primary=pulumi.get(__response__, 'primary'),

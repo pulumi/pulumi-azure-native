@@ -90,7 +90,7 @@ export interface GetKustoTableDataSetMappingResult {
  * Get a DataSetMapping in a shareSubscription
  * Azure REST API version: 2021-08-01.
  */
-export function getKustoTableDataSetMappingOutput(args: GetKustoTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoTableDataSetMappingResult> {
+export function getKustoTableDataSetMappingOutput(args: GetKustoTableDataSetMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKustoTableDataSetMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:datashare:getKustoTableDataSetMapping", {
         "accountName": args.accountName,

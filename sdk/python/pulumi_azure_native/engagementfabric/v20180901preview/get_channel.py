@@ -138,7 +138,7 @@ def get_channel(account_name: Optional[str] = None,
 def get_channel_output(account_name: Optional[pulumi.Input[str]] = None,
                        channel_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     The EngagementFabric channel
 
@@ -151,7 +151,7 @@ def get_channel_output(account_name: Optional[pulumi.Input[str]] = None,
     __args__['accountName'] = account_name
     __args__['channelName'] = channel_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:engagementfabric/v20180901preview:getChannel', __args__, opts=opts, typ=GetChannelResult)
     return __ret__.apply(lambda __response__: GetChannelResult(
         channel_functions=pulumi.get(__response__, 'channel_functions'),

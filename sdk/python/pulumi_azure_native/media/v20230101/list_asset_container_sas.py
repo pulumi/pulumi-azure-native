@@ -82,7 +82,7 @@ def list_asset_container_sas_output(account_name: Optional[pulumi.Input[str]] = 
                                     expiry_time: Optional[pulumi.Input[Optional[str]]] = None,
                                     permissions: Optional[pulumi.Input[Optional[Union[str, 'AssetContainerPermission']]]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAssetContainerSasResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAssetContainerSasResult]:
     """
     Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
 
@@ -99,7 +99,7 @@ def list_asset_container_sas_output(account_name: Optional[pulumi.Input[str]] = 
     __args__['expiryTime'] = expiry_time
     __args__['permissions'] = permissions
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media/v20230101:listAssetContainerSas', __args__, opts=opts, typ=ListAssetContainerSasResult)
     return __ret__.apply(lambda __response__: ListAssetContainerSasResult(
         asset_container_sas_urls=pulumi.get(__response__, 'asset_container_sas_urls')))

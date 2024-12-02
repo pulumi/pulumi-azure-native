@@ -312,7 +312,7 @@ def get_virtual_machine_run_command_by_virtual_machine_output(expand: Optional[p
                                                               resource_group_name: Optional[pulumi.Input[str]] = None,
                                                               run_command_name: Optional[pulumi.Input[str]] = None,
                                                               vm_name: Optional[pulumi.Input[str]] = None,
-                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineRunCommandByVirtualMachineResult]:
+                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineRunCommandByVirtualMachineResult]:
     """
     The operation to get the run command.
 
@@ -327,7 +327,7 @@ def get_virtual_machine_run_command_by_virtual_machine_output(expand: Optional[p
     __args__['resourceGroupName'] = resource_group_name
     __args__['runCommandName'] = run_command_name
     __args__['vmName'] = vm_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20230301:getVirtualMachineRunCommandByVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineRunCommandByVirtualMachineResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineRunCommandByVirtualMachineResult(
         async_execution=pulumi.get(__response__, 'async_execution'),

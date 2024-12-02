@@ -62,7 +62,7 @@ export interface ListWebAppAzureStorageAccountsSlotResult {
 /**
  * Description for Gets the Azure storage account configurations of an app.
  */
-export function listWebAppAzureStorageAccountsSlotOutput(args: ListWebAppAzureStorageAccountsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAzureStorageAccountsSlotResult> {
+export function listWebAppAzureStorageAccountsSlotOutput(args: ListWebAppAzureStorageAccountsSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppAzureStorageAccountsSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20230101:listWebAppAzureStorageAccountsSlot", {
         "name": args.name,

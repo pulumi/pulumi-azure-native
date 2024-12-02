@@ -213,7 +213,7 @@ def get_availability_set(availability_set_name: Optional[str] = None,
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
 def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilitySetResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilitySetResult]:
     """
     Retrieves information about an availability set.
 
@@ -224,7 +224,7 @@ def get_availability_set_output(availability_set_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['availabilitySetName'] = availability_set_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20240701:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult)
     return __ret__.apply(lambda __response__: GetAvailabilitySetResult(
         id=pulumi.get(__response__, 'id'),

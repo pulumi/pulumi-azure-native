@@ -100,7 +100,7 @@ export interface GetArcAddonResult {
 /**
  * Gets a specific addon by name.
  */
-export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcAddonResult> {
+export function getArcAddonOutput(args: GetArcAddonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArcAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:databoxedge/v20230701:getArcAddon", {
         "addonName": args.addonName,

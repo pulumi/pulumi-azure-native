@@ -101,7 +101,7 @@ export interface GetCosmosDbDataConnectionResult {
 /**
  * Returns a data connection.
  */
-export function getCosmosDbDataConnectionOutput(args: GetCosmosDbDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCosmosDbDataConnectionResult> {
+export function getCosmosDbDataConnectionOutput(args: GetCosmosDbDataConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCosmosDbDataConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:kusto/v20240413:getCosmosDbDataConnection", {
         "clusterName": args.clusterName,

@@ -80,7 +80,7 @@ export interface GetPrivateEndpointConnectionResult {
  *
  * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
  */
-export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
+export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:eventhub:getPrivateEndpointConnection", {
         "namespaceName": args.namespaceName,

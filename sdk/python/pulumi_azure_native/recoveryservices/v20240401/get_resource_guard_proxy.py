@@ -148,7 +148,7 @@ def get_resource_guard_proxy(resource_group_name: Optional[str] = None,
 def get_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     resource_guard_proxy_name: Optional[pulumi.Input[str]] = None,
                                     vault_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGuardProxyResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceGuardProxyResult]:
     """
     Returns ResourceGuardProxy under vault and with the name referenced in request
 
@@ -160,7 +160,7 @@ def get_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Input[s
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceGuardProxyName'] = resource_guard_proxy_name
     __args__['vaultName'] = vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices/v20240401:getResourceGuardProxy', __args__, opts=opts, typ=GetResourceGuardProxyResult)
     return __ret__.apply(lambda __response__: GetResourceGuardProxyResult(
         e_tag=pulumi.get(__response__, 'e_tag'),

@@ -91,7 +91,7 @@ export interface GetCustomDomainResult {
 /**
  * Gets an existing custom domain within an endpoint.
  */
-export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDomainResult> {
+export function getCustomDomainOutput(args: GetCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cdn/v20240201:getCustomDomain", {
         "customDomainName": args.customDomainName,

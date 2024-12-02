@@ -123,7 +123,7 @@ def get_variable_value(variable_name: Optional[str] = None,
         values=pulumi.get(__ret__, 'values'))
 def get_variable_value_output(variable_name: Optional[pulumi.Input[str]] = None,
                               variable_value_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableValueResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableValueResult]:
     """
     This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
     Azure REST API version: 2022-08-01-preview.
@@ -135,7 +135,7 @@ def get_variable_value_output(variable_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['variableName'] = variable_name
     __args__['variableValueName'] = variable_value_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getVariableValue', __args__, opts=opts, typ=GetVariableValueResult)
     return __ret__.apply(lambda __response__: GetVariableValueResult(
         id=pulumi.get(__response__, 'id'),

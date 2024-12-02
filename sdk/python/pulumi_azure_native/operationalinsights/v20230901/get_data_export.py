@@ -190,7 +190,7 @@ def get_data_export(data_export_name: Optional[str] = None,
 def get_data_export_output(data_export_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
                            workspace_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataExportResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataExportResult]:
     """
     Gets a data export instance.
 
@@ -203,7 +203,7 @@ def get_data_export_output(data_export_name: Optional[pulumi.Input[str]] = None,
     __args__['dataExportName'] = data_export_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights/v20230901:getDataExport', __args__, opts=opts, typ=GetDataExportResult)
     return __ret__.apply(lambda __response__: GetDataExportResult(
         created_date=pulumi.get(__response__, 'created_date'),

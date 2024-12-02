@@ -83,7 +83,7 @@ export interface GetBookmarkRelationResult {
 /**
  * Gets a bookmark relation.
  */
-export function getBookmarkRelationOutput(args: GetBookmarkRelationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkRelationResult> {
+export function getBookmarkRelationOutput(args: GetBookmarkRelationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBookmarkRelationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights/v20231201preview:getBookmarkRelation", {
         "bookmarkId": args.bookmarkId,

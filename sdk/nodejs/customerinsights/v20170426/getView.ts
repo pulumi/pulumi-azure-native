@@ -84,7 +84,7 @@ export interface GetViewResult {
 /**
  * Gets a view in the hub.
  */
-export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
+export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetViewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:customerinsights/v20170426:getView", {
         "hubName": args.hubName,

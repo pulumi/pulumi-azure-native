@@ -298,7 +298,7 @@ def get_script_execution(private_cloud_name: Optional[str] = None,
 def get_script_execution_output(private_cloud_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 script_execution_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScriptExecutionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptExecutionResult]:
     """
     An instance of a script executed by a user - custom or AVS
     Azure REST API version: 2022-05-01.
@@ -314,7 +314,7 @@ def get_script_execution_output(private_cloud_name: Optional[pulumi.Input[str]] 
     __args__['privateCloudName'] = private_cloud_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['scriptExecutionName'] = script_execution_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs:getScriptExecution', __args__, opts=opts, typ=GetScriptExecutionResult)
     return __ret__.apply(lambda __response__: GetScriptExecutionResult(
         errors=pulumi.get(__response__, 'errors'),

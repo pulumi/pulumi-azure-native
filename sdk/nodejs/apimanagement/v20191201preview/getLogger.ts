@@ -72,7 +72,7 @@ export interface GetLoggerResult {
 /**
  * Gets the details of the logger specified by its identifier.
  */
-export function getLoggerOutput(args: GetLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerResult> {
+export function getLoggerOutput(args: GetLoggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20191201preview:getLogger", {
         "loggerId": args.loggerId,

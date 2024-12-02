@@ -71,7 +71,7 @@ export interface GetJobResult {
  * Gets information about an existing job.
  * Azure REST API version: 2021-01-01.
  */
-export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
+export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:importexport:getJob", {
         "jobName": args.jobName,

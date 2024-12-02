@@ -69,7 +69,7 @@ export interface GetReportByResourceGroupNameResult {
 /**
  * Gets the report for a resource group under a subscription by report name.
  */
-export function getReportByResourceGroupNameOutput(args: GetReportByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByResourceGroupNameResult> {
+export function getReportByResourceGroupNameOutput(args: GetReportByResourceGroupNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportByResourceGroupNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20180801preview:getReportByResourceGroupName", {
         "reportName": args.reportName,

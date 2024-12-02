@@ -191,7 +191,7 @@ def get_virtual_network_link(private_zone_name: Optional[str] = None,
 def get_virtual_network_link_output(private_zone_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     virtual_network_link_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkLinkResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkLinkResult]:
     """
     Gets a virtual network link to the specified Private DNS zone.
 
@@ -204,7 +204,7 @@ def get_virtual_network_link_output(private_zone_name: Optional[pulumi.Input[str
     __args__['privateZoneName'] = private_zone_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkLinkName'] = virtual_network_link_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20200601:getVirtualNetworkLink', __args__, opts=opts, typ=GetVirtualNetworkLinkResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkLinkResult(
         etag=pulumi.get(__response__, 'etag'),

@@ -279,7 +279,7 @@ def get_my_workbook(resource_group_name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_my_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                            resource_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMyWorkbookResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMyWorkbookResult]:
     """
     Get a single private workbook by its resourceName.
     Azure REST API version: 2021-03-08.
@@ -291,7 +291,7 @@ def get_my_workbook_output(resource_group_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:insights:getMyWorkbook', __args__, opts=opts, typ=GetMyWorkbookResult)
     return __ret__.apply(lambda __response__: GetMyWorkbookResult(
         category=pulumi.get(__response__, 'category'),

@@ -115,7 +115,7 @@ export interface GetExportConfigurationResult {
 /**
  * Get the Continuous Export configuration for this export id.
  */
-export function getExportConfigurationOutput(args: GetExportConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportConfigurationResult> {
+export function getExportConfigurationOutput(args: GetExportConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExportConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:insights/v20150501:getExportConfiguration", {
         "exportId": args.exportId,

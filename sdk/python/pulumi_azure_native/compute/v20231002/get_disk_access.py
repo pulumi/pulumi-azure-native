@@ -174,7 +174,7 @@ def get_disk_access(disk_access_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_disk_access_output(disk_access_name: Optional[pulumi.Input[str]] = None,
                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskAccessResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskAccessResult]:
     """
     Gets information about a disk access resource.
 
@@ -185,7 +185,7 @@ def get_disk_access_output(disk_access_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['diskAccessName'] = disk_access_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute/v20231002:getDiskAccess', __args__, opts=opts, typ=GetDiskAccessResult)
     return __ret__.apply(lambda __response__: GetDiskAccessResult(
         extended_location=pulumi.get(__response__, 'extended_location'),

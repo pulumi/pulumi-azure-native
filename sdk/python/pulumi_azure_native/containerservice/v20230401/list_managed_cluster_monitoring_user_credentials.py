@@ -74,7 +74,7 @@ def list_managed_cluster_monitoring_user_credentials(resource_group_name: Option
 def list_managed_cluster_monitoring_user_credentials_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                                             resource_name: Optional[pulumi.Input[str]] = None,
                                                             server_fqdn: Optional[pulumi.Input[Optional[str]]] = None,
-                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagedClusterMonitoringUserCredentialsResult]:
+                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManagedClusterMonitoringUserCredentialsResult]:
     """
     The list credential result response.
 
@@ -87,7 +87,7 @@ def list_managed_cluster_monitoring_user_credentials_output(resource_group_name:
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     __args__['serverFqdn'] = server_fqdn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice/v20230401:listManagedClusterMonitoringUserCredentials', __args__, opts=opts, typ=ListManagedClusterMonitoringUserCredentialsResult)
     return __ret__.apply(lambda __response__: ListManagedClusterMonitoringUserCredentialsResult(
         kubeconfigs=pulumi.get(__response__, 'kubeconfigs')))

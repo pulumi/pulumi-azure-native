@@ -75,7 +75,7 @@ export interface GetRaiBlocklistItemResult {
 /**
  * Gets the specified custom blocklist Item associated with the custom blocklist.
  */
-export function getRaiBlocklistItemOutput(args: GetRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRaiBlocklistItemResult> {
+export function getRaiBlocklistItemOutput(args: GetRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRaiBlocklistItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices/v20231001preview:getRaiBlocklistItem", {
         "accountName": args.accountName,

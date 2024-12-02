@@ -122,7 +122,7 @@ export interface GetRunbookResult {
 /**
  * Retrieve the runbook identified by runbook name.
  */
-export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunbookResult> {
+export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRunbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:automation/v20231101:getRunbook", {
         "automationAccountName": args.automationAccountName,

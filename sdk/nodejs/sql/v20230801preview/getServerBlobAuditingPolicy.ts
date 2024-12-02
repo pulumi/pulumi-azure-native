@@ -171,7 +171,7 @@ export interface GetServerBlobAuditingPolicyResult {
 /**
  * Gets a server's blob auditing policy.
  */
-export function getServerBlobAuditingPolicyOutput(args: GetServerBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerBlobAuditingPolicyResult> {
+export function getServerBlobAuditingPolicyOutput(args: GetServerBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerBlobAuditingPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getServerBlobAuditingPolicy", {
         "blobAuditingPolicyName": args.blobAuditingPolicyName,

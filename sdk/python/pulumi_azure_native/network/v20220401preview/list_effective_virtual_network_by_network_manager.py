@@ -95,7 +95,7 @@ def list_effective_virtual_network_by_network_manager_output(conditional_members
                                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                                              skip_token: Optional[pulumi.Input[Optional[str]]] = None,
                                                              top: Optional[pulumi.Input[Optional[int]]] = None,
-                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEffectiveVirtualNetworkByNetworkManagerResult]:
+                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEffectiveVirtualNetworkByNetworkManagerResult]:
     """
     List effective virtual networks in a network manager.
 
@@ -112,7 +112,7 @@ def list_effective_virtual_network_by_network_manager_output(conditional_members
     __args__['resourceGroupName'] = resource_group_name
     __args__['skipToken'] = skip_token
     __args__['top'] = top
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20220401preview:listEffectiveVirtualNetworkByNetworkManager', __args__, opts=opts, typ=ListEffectiveVirtualNetworkByNetworkManagerResult)
     return __ret__.apply(lambda __response__: ListEffectiveVirtualNetworkByNetworkManagerResult(
         skip_token=pulumi.get(__response__, 'skip_token'),

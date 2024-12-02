@@ -153,7 +153,7 @@ export interface GetBudgetResult {
 /**
  * Gets the budget for the scope by budget name.
  */
-export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetResult> {
+export function getBudgetOutput(args: GetBudgetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBudgetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement/v20230801:getBudget", {
         "budgetName": args.budgetName,

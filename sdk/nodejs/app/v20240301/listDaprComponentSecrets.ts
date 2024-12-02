@@ -46,7 +46,7 @@ export interface ListDaprComponentSecretsResult {
 /**
  * Dapr component Secrets Collection for ListSecrets Action.
  */
-export function listDaprComponentSecretsOutput(args: ListDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDaprComponentSecretsResult> {
+export function listDaprComponentSecretsOutput(args: ListDaprComponentSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDaprComponentSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:app/v20240301:listDaprComponentSecrets", {
         "componentName": args.componentName,

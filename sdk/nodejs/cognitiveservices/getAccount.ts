@@ -87,7 +87,7 @@ export interface GetAccountResult {
  *
  * Other available API versions: 2017-04-18, 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:cognitiveservices:getAccount", {
         "accountName": args.accountName,

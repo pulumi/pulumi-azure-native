@@ -192,7 +192,7 @@ def get_streaming_policy(account_name: Optional[str] = None,
 def get_streaming_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 streaming_policy_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingPolicyResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamingPolicyResult]:
     """
     Get the details of a Streaming Policy in the Media Services account
     Azure REST API version: 2023-01-01.
@@ -206,7 +206,7 @@ def get_streaming_policy_output(account_name: Optional[pulumi.Input[str]] = None
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['streamingPolicyName'] = streaming_policy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:media:getStreamingPolicy', __args__, opts=opts, typ=GetStreamingPolicyResult)
     return __ret__.apply(lambda __response__: GetStreamingPolicyResult(
         common_encryption_cbcs=pulumi.get(__response__, 'common_encryption_cbcs'),

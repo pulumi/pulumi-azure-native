@@ -269,7 +269,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
 def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Optional[pulumi.Input[str]] = None,
                                                   load_balancer_name: Optional[pulumi.Input[str]] = None,
                                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerBackendAddressPoolResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerBackendAddressPoolResult]:
     """
     Gets load balancer backend address pool.
 
@@ -282,7 +282,7 @@ def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Opt
     __args__['backendAddressPoolName'] = backend_address_pool_name
     __args__['loadBalancerName'] = load_balancer_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240301:getLoadBalancerBackendAddressPool', __args__, opts=opts, typ=GetLoadBalancerBackendAddressPoolResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerBackendAddressPoolResult(
         backend_ip_configurations=pulumi.get(__response__, 'backend_ip_configurations'),

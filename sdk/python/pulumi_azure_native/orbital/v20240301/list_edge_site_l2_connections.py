@@ -83,7 +83,7 @@ def list_edge_site_l2_connections(edge_site_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_edge_site_l2_connections_output(edge_site_name: Optional[pulumi.Input[str]] = None,
                                          resource_group_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEdgeSiteL2ConnectionsResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEdgeSiteL2ConnectionsResult]:
     """
     Returns a list of L2 Connections attached to an edge site.
 
@@ -94,7 +94,7 @@ def list_edge_site_l2_connections_output(edge_site_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['edgeSiteName'] = edge_site_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:orbital/v20240301:listEdgeSiteL2Connections', __args__, opts=opts, typ=ListEdgeSiteL2ConnectionsResult)
     return __ret__.apply(lambda __response__: ListEdgeSiteL2ConnectionsResult(
         next_link=pulumi.get(__response__, 'next_link'),

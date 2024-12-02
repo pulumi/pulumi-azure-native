@@ -299,7 +299,7 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
                               project_name: Optional[pulumi.Input[str]] = None,
                               resource_group_name: Optional[pulumi.Input[str]] = None,
                               storage_mover_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobDefinitionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     Gets a Job Definition resource.
 
@@ -314,7 +314,7 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] =
     __args__['projectName'] = project_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageMoverName'] = storage_mover_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagemover/v20230301:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
     return __ret__.apply(lambda __response__: GetJobDefinitionResult(
         agent_name=pulumi.get(__response__, 'agent_name'),

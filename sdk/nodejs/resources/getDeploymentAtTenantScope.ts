@@ -62,7 +62,7 @@ export interface GetDeploymentAtTenantScopeResult {
  *
  * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
  */
-export function getDeploymentAtTenantScopeOutput(args: GetDeploymentAtTenantScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentAtTenantScopeResult> {
+export function getDeploymentAtTenantScopeOutput(args: GetDeploymentAtTenantScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentAtTenantScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getDeploymentAtTenantScope", {
         "deploymentName": args.deploymentName,

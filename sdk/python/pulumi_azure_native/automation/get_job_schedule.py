@@ -168,7 +168,7 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
 def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]] = None,
                             job_schedule_id: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobScheduleResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobScheduleResult]:
     """
     Retrieve the job schedule identified by job schedule name.
     Azure REST API version: 2022-08-08.
@@ -184,7 +184,7 @@ def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[str]]
     __args__['automationAccountName'] = automation_account_name
     __args__['jobScheduleId'] = job_schedule_id
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getJobSchedule', __args__, opts=opts, typ=GetJobScheduleResult)
     return __ret__.apply(lambda __response__: GetJobScheduleResult(
         id=pulumi.get(__response__, 'id'),

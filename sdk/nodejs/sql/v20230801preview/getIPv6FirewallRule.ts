@@ -59,7 +59,7 @@ export interface GetIPv6FirewallRuleResult {
 /**
  * Gets an IPv6 firewall rule.
  */
-export function getIPv6FirewallRuleOutput(args: GetIPv6FirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPv6FirewallRuleResult> {
+export function getIPv6FirewallRuleOutput(args: GetIPv6FirewallRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIPv6FirewallRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql/v20230801preview:getIPv6FirewallRule", {
         "firewallRuleName": args.firewallRuleName,

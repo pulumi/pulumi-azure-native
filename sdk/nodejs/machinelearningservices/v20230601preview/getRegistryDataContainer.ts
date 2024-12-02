@@ -62,7 +62,7 @@ export interface GetRegistryDataContainerResult {
 /**
  * Azure Resource Manager resource envelope.
  */
-export function getRegistryDataContainerOutput(args: GetRegistryDataContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryDataContainerResult> {
+export function getRegistryDataContainerOutput(args: GetRegistryDataContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryDataContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices/v20230601preview:getRegistryDataContainer", {
         "name": args.name,

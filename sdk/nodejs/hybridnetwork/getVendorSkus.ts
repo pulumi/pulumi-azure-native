@@ -87,7 +87,7 @@ export interface GetVendorSkusResult {
  * Gets information about the specified sku.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkusResult> {
+export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVendorSkusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:hybridnetwork:getVendorSkus", {
         "skuName": args.skuName,

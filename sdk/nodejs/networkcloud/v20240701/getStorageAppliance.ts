@@ -134,7 +134,7 @@ export interface GetStorageApplianceResult {
 /**
  * Get properties of the provided storage appliance.
  */
-export function getStorageApplianceOutput(args: GetStorageApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageApplianceResult> {
+export function getStorageApplianceOutput(args: GetStorageApplianceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:networkcloud/v20240701:getStorageAppliance", {
         "resourceGroupName": args.resourceGroupName,

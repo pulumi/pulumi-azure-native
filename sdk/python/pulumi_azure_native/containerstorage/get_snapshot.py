@@ -153,7 +153,7 @@ def get_snapshot(pool_name: Optional[str] = None,
 def get_snapshot_output(pool_name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         snapshot_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Get a Snapshot
     Azure REST API version: 2023-07-01-preview.
@@ -167,7 +167,7 @@ def get_snapshot_output(pool_name: Optional[pulumi.Input[str]] = None,
     __args__['poolName'] = pool_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['snapshotName'] = snapshot_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerstorage:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
     return __ret__.apply(lambda __response__: GetSnapshotResult(
         id=pulumi.get(__response__, 'id'),

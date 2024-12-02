@@ -204,7 +204,7 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
 def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                      template_spec_name: Optional[pulumi.Input[str]] = None,
                                      template_spec_version: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateSpecVersionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateSpecVersionResult]:
     """
     Gets a Template Spec version from a specific Template Spec.
 
@@ -217,7 +217,7 @@ def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[
     __args__['resourceGroupName'] = resource_group_name
     __args__['templateSpecName'] = template_spec_name
     __args__['templateSpecVersion'] = template_spec_version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources/v20220201:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult)
     return __ret__.apply(lambda __response__: GetTemplateSpecVersionResult(
         description=pulumi.get(__response__, 'description'),

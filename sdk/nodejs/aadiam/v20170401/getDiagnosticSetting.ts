@@ -68,7 +68,7 @@ export interface GetDiagnosticSettingResult {
 /**
  * Gets the active diagnostic setting for AadIam.
  */
-export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
+export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiagnosticSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:aadiam/v20170401:getDiagnosticSetting", {
         "name": args.name,

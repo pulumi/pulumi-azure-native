@@ -80,7 +80,7 @@ def list_connection_all_models(resource_group_name: Optional[str] = None,
         value=pulumi.get(__ret__, 'value'))
 def list_connection_all_models_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                       workspace_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConnectionAllModelsResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectionAllModelsResult]:
     """
     Azure REST API version: 2024-10-01-preview.
 
@@ -91,7 +91,7 @@ def list_connection_all_models_output(resource_group_name: Optional[pulumi.Input
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:listConnectionAllModels', __args__, opts=opts, typ=ListConnectionAllModelsResult)
     return __ret__.apply(lambda __response__: ListConnectionAllModelsResult(
         next_link=pulumi.get(__response__, 'next_link'),

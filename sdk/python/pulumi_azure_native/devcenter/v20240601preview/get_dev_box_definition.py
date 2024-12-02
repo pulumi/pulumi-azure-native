@@ -256,7 +256,7 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
 def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                                   dev_center_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevBoxDefinitionResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevBoxDefinitionResult]:
     """
     Gets a Dev Box definition
 
@@ -269,7 +269,7 @@ def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input
     __args__['devBoxDefinitionName'] = dev_box_definition_name
     __args__['devCenterName'] = dev_center_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter/v20240601preview:getDevBoxDefinition', __args__, opts=opts, typ=GetDevBoxDefinitionResult)
     return __ret__.apply(lambda __response__: GetDevBoxDefinitionResult(
         active_image_reference=pulumi.get(__response__, 'active_image_reference'),

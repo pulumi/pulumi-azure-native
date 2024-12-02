@@ -82,7 +82,7 @@ def list_namespace_shared_access_keys(namespace_name: Optional[str] = None,
         key2=pulumi.get(__ret__, 'key2'))
 def list_namespace_shared_access_keys_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNamespaceSharedAccessKeysResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNamespaceSharedAccessKeysResult]:
     """
     List the two keys used to publish to a namespace.
 
@@ -93,7 +93,7 @@ def list_namespace_shared_access_keys_output(namespace_name: Optional[pulumi.Inp
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventgrid/v20231215preview:listNamespaceSharedAccessKeys', __args__, opts=opts, typ=ListNamespaceSharedAccessKeysResult)
     return __ret__.apply(lambda __response__: ListNamespaceSharedAccessKeysResult(
         key1=pulumi.get(__response__, 'key1'),

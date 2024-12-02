@@ -73,7 +73,7 @@ export interface GetEyesOnResult {
  * Gets a setting.
  * Azure REST API version: 2023-06-01-preview.
  */
-export function getEyesOnOutput(args: GetEyesOnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEyesOnResult> {
+export function getEyesOnOutput(args: GetEyesOnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEyesOnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:securityinsights:getEyesOn", {
         "resourceGroupName": args.resourceGroupName,

@@ -103,7 +103,7 @@ export interface GetWebAppHostNameBindingSlotResult {
 /**
  * Get the named hostname binding for an app (or deployment slot, if specified).
  */
-export function getWebAppHostNameBindingSlotOutput(args: GetWebAppHostNameBindingSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHostNameBindingSlotResult> {
+export function getWebAppHostNameBindingSlotOutput(args: GetWebAppHostNameBindingSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppHostNameBindingSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:web/v20201001:getWebAppHostNameBindingSlot", {
         "hostName": args.hostName,

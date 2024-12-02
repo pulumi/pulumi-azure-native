@@ -77,7 +77,7 @@ export interface GetAvailabilitySetResult {
 /**
  * Implements AvailabilitySet GET method.
  */
-export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilitySetResult> {
+export function getAvailabilitySetOutput(args: GetAvailabilitySetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAvailabilitySetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm/v20220521preview:getAvailabilitySet", {
         "availabilitySetName": args.availabilitySetName,

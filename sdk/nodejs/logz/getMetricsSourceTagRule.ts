@@ -66,7 +66,7 @@ export interface GetMetricsSourceTagRuleResult {
  * Capture metrics of Azure resources based on ARM tags.
  * Azure REST API version: 2022-01-01-preview.
  */
-export function getMetricsSourceTagRuleOutput(args: GetMetricsSourceTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsSourceTagRuleResult> {
+export function getMetricsSourceTagRuleOutput(args: GetMetricsSourceTagRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMetricsSourceTagRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logz:getMetricsSourceTagRule", {
         "metricsSourceName": args.metricsSourceName,

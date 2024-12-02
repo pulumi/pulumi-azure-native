@@ -213,7 +213,7 @@ def get_attestation_provider(provider_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_attestation_provider_output(provider_name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationProviderResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttestationProviderResult]:
     """
     Get the status of Attestation Provider.
 
@@ -224,7 +224,7 @@ def get_attestation_provider_output(provider_name: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['providerName'] = provider_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:attestation/v20210601:getAttestationProvider', __args__, opts=opts, typ=GetAttestationProviderResult)
     return __ret__.apply(lambda __response__: GetAttestationProviderResult(
         attest_uri=pulumi.get(__response__, 'attest_uri'),

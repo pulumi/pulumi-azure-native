@@ -83,7 +83,7 @@ export interface GetSchemaVersionResult {
 /**
  * Get a SchemaVersion
  */
-export function getSchemaVersionOutput(args: GetSchemaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaVersionResult> {
+export function getSchemaVersionOutput(args: GetSchemaVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:deviceregistry/v20240901preview:getSchemaVersion", {
         "resourceGroupName": args.resourceGroupName,

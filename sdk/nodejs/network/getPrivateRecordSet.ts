@@ -117,7 +117,7 @@ export interface GetPrivateRecordSetResult {
  *
  * Other available API versions: 2024-06-01.
  */
-export function getPrivateRecordSetOutput(args: GetPrivateRecordSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateRecordSetResult> {
+export function getPrivateRecordSetOutput(args: GetPrivateRecordSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateRecordSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network:getPrivateRecordSet", {
         "privateZoneName": args.privateZoneName,

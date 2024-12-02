@@ -93,7 +93,7 @@ export interface GetCloudResult {
 /**
  * Implements Cloud GET method.
  */
-export function getCloudOutput(args: GetCloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudResult> {
+export function getCloudOutput(args: GetCloudOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:scvmm/v20230401preview:getCloud", {
         "cloudName": args.cloudName,

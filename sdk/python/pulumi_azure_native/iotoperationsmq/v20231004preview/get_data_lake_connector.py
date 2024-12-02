@@ -269,7 +269,7 @@ def get_data_lake_connector(data_lake_connector_name: Optional[str] = None,
 def get_data_lake_connector_output(data_lake_connector_name: Optional[pulumi.Input[str]] = None,
                                    mq_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataLakeConnectorResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataLakeConnectorResult]:
     """
     Get a DataLakeConnectorResource
 
@@ -282,7 +282,7 @@ def get_data_lake_connector_output(data_lake_connector_name: Optional[pulumi.Inp
     __args__['dataLakeConnectorName'] = data_lake_connector_name
     __args__['mqName'] = mq_name
     __args__['resourceGroupName'] = resource_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq/v20231004preview:getDataLakeConnector', __args__, opts=opts, typ=GetDataLakeConnectorResult)
     return __ret__.apply(lambda __response__: GetDataLakeConnectorResult(
         database_format=pulumi.get(__response__, 'database_format'),

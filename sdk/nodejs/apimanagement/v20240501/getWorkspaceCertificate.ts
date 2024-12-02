@@ -75,7 +75,7 @@ export interface GetWorkspaceCertificateResult {
 /**
  * Gets the details of the certificate specified by its identifier.
  */
-export function getWorkspaceCertificateOutput(args: GetWorkspaceCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceCertificateResult> {
+export function getWorkspaceCertificateOutput(args: GetWorkspaceCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:apimanagement/v20240501:getWorkspaceCertificate", {
         "certificateId": args.certificateId,

@@ -70,7 +70,7 @@ export interface GetVirtualEndpointResult {
 /**
  * Gets information about a virtual endpoint.
  */
-export function getVirtualEndpointOutput(args: GetVirtualEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualEndpointResult> {
+export function getVirtualEndpointOutput(args: GetVirtualEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql/v20241101preview:getVirtualEndpoint", {
         "resourceGroupName": args.resourceGroupName,

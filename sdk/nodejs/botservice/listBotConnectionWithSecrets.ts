@@ -88,7 +88,7 @@ export interface ListBotConnectionWithSecretsResult {
  *
  * Other available API versions: 2023-09-15-preview.
  */
-export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {
+export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:botservice:listBotConnectionWithSecrets", {
         "connectionName": args.connectionName,

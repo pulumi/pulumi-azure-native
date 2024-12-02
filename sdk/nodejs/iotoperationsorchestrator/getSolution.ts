@@ -79,7 +79,7 @@ export interface GetSolutionResult {
  * Get a Solution
  * Azure REST API version: 2023-10-04-preview.
  */
-export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
+export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:iotoperationsorchestrator:getSolution", {
         "name": args.name,

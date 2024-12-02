@@ -119,7 +119,7 @@ def get_workload_impact(workload_impact_name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_workload_impact_output(workload_impact_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkloadImpactResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadImpactResult]:
     """
     Get a WorkloadImpact
     Azure REST API version: 2024-05-01-preview.
@@ -129,7 +129,7 @@ def get_workload_impact_output(workload_impact_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['workloadImpactName'] = workload_impact_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:impact:getWorkloadImpact', __args__, opts=opts, typ=GetWorkloadImpactResult)
     return __ret__.apply(lambda __response__: GetWorkloadImpactResult(
         id=pulumi.get(__response__, 'id'),

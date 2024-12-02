@@ -71,7 +71,7 @@ def list_global_user_environments(lab_id: Optional[str] = None,
         environments=pulumi.get(__ret__, 'environments'))
 def list_global_user_environments_output(lab_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          user_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListGlobalUserEnvironmentsResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGlobalUserEnvironmentsResult]:
     """
     List Environments for the user
     Azure REST API version: 2018-10-15.
@@ -83,7 +83,7 @@ def list_global_user_environments_output(lab_id: Optional[pulumi.Input[Optional[
     __args__ = dict()
     __args__['labId'] = lab_id
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:listGlobalUserEnvironments', __args__, opts=opts, typ=ListGlobalUserEnvironmentsResult)
     return __ret__.apply(lambda __response__: ListGlobalUserEnvironmentsResult(
         environments=pulumi.get(__response__, 'environments')))

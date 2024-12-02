@@ -65,7 +65,7 @@ export interface GetDomainOwnershipIdentifierResult {
  *
  * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
  */
-export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
+export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:domainregistration:getDomainOwnershipIdentifier", {
         "domainName": args.domainName,

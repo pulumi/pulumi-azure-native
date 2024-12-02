@@ -499,7 +499,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
         vpn_type=pulumi.get(__ret__, 'vpn_type'))
 def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                        virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkGatewayResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayResult]:
     """
     Gets the specified virtual network gateway by resource group.
 
@@ -510,7 +510,7 @@ def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Inpu
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayName'] = virtual_network_gateway_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network/v20240501:getVirtualNetworkGateway', __args__, opts=opts, typ=GetVirtualNetworkGatewayResult)
     return __ret__.apply(lambda __response__: GetVirtualNetworkGatewayResult(
         active_active=pulumi.get(__response__, 'active_active'),

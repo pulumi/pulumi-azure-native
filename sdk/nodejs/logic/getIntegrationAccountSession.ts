@@ -73,7 +73,7 @@ export interface GetIntegrationAccountSessionResult {
  * Gets an integration account session.
  * Azure REST API version: 2019-05-01.
  */
-export function getIntegrationAccountSessionOutput(args: GetIntegrationAccountSessionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountSessionResult> {
+export function getIntegrationAccountSessionOutput(args: GetIntegrationAccountSessionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountSessionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:logic:getIntegrationAccountSession", {
         "integrationAccountName": args.integrationAccountName,

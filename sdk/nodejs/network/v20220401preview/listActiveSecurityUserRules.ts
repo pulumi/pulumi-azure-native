@@ -55,7 +55,7 @@ export interface ListActiveSecurityUserRulesResult {
 /**
  * Lists Active Security User Rules in a network manager.
  */
-export function listActiveSecurityUserRulesOutput(args: ListActiveSecurityUserRulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListActiveSecurityUserRulesResult> {
+export function listActiveSecurityUserRulesOutput(args: ListActiveSecurityUserRulesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListActiveSecurityUserRulesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:network/v20220401preview:listActiveSecurityUserRules", {
         "networkManagerName": args.networkManagerName,

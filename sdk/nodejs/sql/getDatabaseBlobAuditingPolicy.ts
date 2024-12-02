@@ -173,7 +173,7 @@ export interface GetDatabaseBlobAuditingPolicyResult {
  *
  * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
-export function getDatabaseBlobAuditingPolicyOutput(args: GetDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseBlobAuditingPolicyResult> {
+export function getDatabaseBlobAuditingPolicyOutput(args: GetDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseBlobAuditingPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:sql:getDatabaseBlobAuditingPolicy", {
         "blobAuditingPolicyName": args.blobAuditingPolicyName,

@@ -57,7 +57,7 @@ export interface ListProductsAndConfigurationsResult {
  *
  * Other available API versions: 2024-02-01.
  */
-export function listProductsAndConfigurationsOutput(args?: ListProductsAndConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListProductsAndConfigurationsResult> {
+export function listProductsAndConfigurationsOutput(args?: ListProductsAndConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListProductsAndConfigurationsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:edgeorder:listProductsAndConfigurations", {
