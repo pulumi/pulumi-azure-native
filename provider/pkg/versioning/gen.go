@@ -21,13 +21,12 @@ type VersionMetadata struct {
 	VersionSources
 	// provider->resource->[]version
 	AllResourceVersionsByResource ProviderResourceVersions
-	// map[LoweredProviderName]map[ResourcePath]ApiVersions
-	Active providerlist.ProviderPathVersionsJson
 	// map[ProviderName][]ApiVersion
-	Pending            openapi.ProviderVersionList
-	Spec               Spec
-	Lock               openapi.DefaultVersionLock
-	CurationViolations []CurationViolation
+	Pending                 openapi.ProviderVersionList
+	Spec                    Spec
+	Lock                    openapi.DefaultVersionLock
+	CurationViolations      []CurationViolation
+	InactiveDefaultVersions map[openapi.ProviderName][]openapi.ApiVersion
 }
 
 // Ensure our VersionMetadata type implements the gen.Versioning interface
@@ -84,12 +83,13 @@ func LoadVersionMetadata(rootDir string, providers openapi.AzureProviders, major
 }
 
 func calculateVersionMetadata(versionSources VersionSources) (VersionMetadata, error) {
+	indexedProviderList := versionSources.ProviderList.Index()
 	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(versionSources.AllResourcesByVersion, versionSources.RemovedVersions)
 
 	spec := versionSources.Spec
 
 	config := versionSources.Config
-	spec = BuildSpec(allResourcesByVersionWithoutDeprecations, config, spec)
+	spec = BuildSpec(allResourcesByVersionWithoutDeprecations, config, spec, indexedProviderList)
 
 	violations := ValidateDefaultConfig(spec, config)
 
@@ -103,15 +103,16 @@ func calculateVersionMetadata(versionSources VersionSources) (VersionMetadata, e
 		wrapped := fmt.Errorf("generating default version lock from spec\n%s\n%w", string(specYaml), err)
 		return VersionMetadata{}, wrapped
 	}
+	inactiveVersions := FindInactiveDefaultVersions(v2Lock, indexedProviderList)
 
 	return VersionMetadata{
 		VersionSources:                versionSources,
 		AllResourceVersionsByResource: FormatResourceVersions(versionSources.AllResourcesByVersion),
-		Active:                        providerlist.FormatProviderPathVersionsJson(versionSources.activePathVersions),
 		Pending:                       FindNewerVersions(versionSources.AllResourcesByVersion, v2Lock),
 		Spec:                          spec,
 		Lock:                          v2Lock,
 		CurationViolations:            violations,
+		InactiveDefaultVersions:       inactiveVersions,
 	}, nil
 }
 
@@ -127,7 +128,7 @@ func (v VersionMetadata) WriteTo(outputDir string) ([]string, error) {
 
 type VersionSources struct {
 	MajorVersion              int
-	activePathVersions        providerlist.ProviderPathVersions
+	ProviderList              providerlist.ProviderList
 	requiredExplicitResources []string
 	PreviousLock              openapi.DefaultVersionLock
 	RemovedVersions           openapi.ProviderVersionList
@@ -143,7 +144,7 @@ type VersionSources struct {
 }
 
 func ReadVersionSources(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionSources, error) {
-	activePathVersions, err := providerlist.ReadProviderList(filepath.Join(rootDir, "azure-provider-versions", "provider_list.json"))
+	providerList, err := providerlist.ReadProviderList(filepath.Join(rootDir, "versions", "az-provider-list.json"))
 	if err != nil {
 		return VersionSources{}, err
 	}
@@ -199,7 +200,7 @@ func ReadVersionSources(rootDir string, providers openapi.AzureProviders, majorV
 
 	return VersionSources{
 		MajorVersion:              majorVersion,
-		activePathVersions:        activePathVersions,
+		ProviderList:              *providerList,
 		requiredExplicitResources: knownExplicitResources,
 		PreviousLock:              previousLock,
 		RemovedVersions:           removed,

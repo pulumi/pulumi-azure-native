@@ -24,8 +24,28 @@ type ApiVersion = string
 // ProviderPathVersions is a map of lowered provider names to Api Versions e.g. `analysisservices -> "locations/checknameavailability" -> [2019-03-01-preview, 2018-05-05]`
 type ProviderPathVersions = map[LoweredProviderName]map[ResourcePath]ApiVersions
 
+// ResourceType represents a single resource type within a provider namespace of the `az provider list` output.
+// This is used to indicate which versions of the API are available for a given resource type.
+type ResourceType struct {
+	ResourceType      string       `json:"resourceType"`
+	DefaultApiVersion *string      `json:"defaultApiVersion"`
+	ApiVersions       []ApiVersion `json:"apiVersions"`
+	Locations         []string     `json:"locations"`
+}
+
+// Provider represents an Azure provider namespace of the `az provider list` output
+type Provider struct {
+	Namespace     string         `json:"namespace"`
+	ResourceTypes []ResourceType `json:"resourceTypes"`
+}
+
+// ProviderList represents the top level element of the `az provider list` output
+type ProviderList struct {
+	Providers []Provider `json:"providers"`
+}
+
 // ReadProviderList reads provider_list.json, normalises casing and indexes for fast lookup
-func ReadProviderList(providerListPath string) (ProviderPathVersions, error) {
+func ReadProviderList(providerListPath string) (*ProviderList, error) {
 	jsonFile, err := os.Open(providerListPath)
 	if err != nil {
 		return nil, err
@@ -37,48 +57,41 @@ func ReadProviderList(providerListPath string) (ProviderPathVersions, error) {
 		return nil, err
 	}
 
-	var providers []provider
+	var providers []Provider
 	err = json.Unmarshal(byteValue, &providers)
 	if err != nil {
 		return nil, err
 	}
 
-	return toProviderPathVersions(providers), nil
+	return &ProviderList{Providers: providers}, nil
 }
 
-type ProviderPathVersionsJson = map[LoweredProviderName]map[ResourcePath][]ApiVersion
+type ProviderListActiveVersionChecker interface {
+	HasProviderVersion(providerName, version string) bool
+}
 
-// FormatProviderPathVersionsJson prepares the active path versions for writing to JSON – replacing the string set with a string array
-func FormatProviderPathVersionsJson(activePathVersions ProviderPathVersions) ProviderPathVersionsJson {
-	formatted := ProviderPathVersionsJson{}
-	for providerName, paths := range activePathVersions {
-		formattedProvider := map[string][]string{}
-		for resourcePath, versions := range paths {
-			sortedVersions := versions.SortedValues()
-			if sortedVersions == nil {
-				sortedVersions = []string{}
-			}
-			formattedProvider[resourcePath] = sortedVersions
-		}
-		formatted[providerName] = formattedProvider
+type providerListIndex struct {
+	providerResourceVersionLookup ProviderPathVersions
+	providerVersions              map[LoweredProviderName]ApiVersions
+}
+
+func (index *providerListIndex) HasProviderVersion(providerName, version string) bool {
+	providerName = strings.ToLower(providerName)
+	versions, ok := index.providerVersions[providerName]
+	if !ok {
+		return false
 	}
-	return formatted
+	return versions.Has(version)
 }
 
-type provider struct {
-	Namespace     string    `json:"namespace"`
-	ResourceTypes []provRes `json:"resourceTypes"`
-}
+// Ensure providerListIndex implements ProviderListActiveVersionChecker
+var _ ProviderListActiveVersionChecker = &providerListIndex{}
 
-type provRes struct {
-	ResourceType string   `json:"resourceType"`
-	ApiVersions  []string `json:"apiVersions"`
-}
-
-func toProviderPathVersions(providers []provider) ProviderPathVersions {
+func (providers ProviderList) Index() *providerListIndex {
 	providerLiveVersions := make(ProviderPathVersions)
+	providerVersions := make(map[LoweredProviderName]ApiVersions)
 
-	for _, provider := range providers {
+	for _, provider := range providers.Providers {
 		namespace := strings.ToLower(provider.Namespace)
 		if !strings.HasPrefix(namespace, "microsoft.") {
 			continue
@@ -98,8 +111,12 @@ func toProviderPathVersions(providers []provider) ProviderPathVersions {
 		}
 
 		pathVersions[""] = allVersions
+		providerVersions[providerName] = allVersions
 		providerLiveVersions[providerName] = pathVersions
 	}
 
-	return providerLiveVersions
+	return &providerListIndex{
+		providerResourceVersionLookup: providerLiveVersions,
+		providerVersions:              providerVersions,
+	}
 }

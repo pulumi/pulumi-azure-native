@@ -78,7 +78,7 @@ func main() {
 		buildSchemaResult, buildSchemaErr := versioning.BuildSchema(buildSchemaArgs)
 
 		// Attempt to write out the version metadata before failing as this might help us diagnose the issue.
-		if namespaces == "*" && apiVersions == "" {
+		if namespaces == "*" && apiVersions == "" && buildSchemaResult != nil {
 			written, err := buildSchemaResult.Version.WriteTo("versions")
 			if err != nil {
 				panic(err)

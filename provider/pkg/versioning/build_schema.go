@@ -9,7 +9,6 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
@@ -36,7 +35,6 @@ type BuildSchemaReports struct {
 	PathChangesResult
 	AllResourcesByVersion         ProvidersVersionResources
 	AllResourceVersionsByResource ProviderResourceVersions
-	Active                        providerlist.ProviderPathVersionsJson
 	Pending                       openapi.ProviderVersionList
 	CurationViolations            []CurationViolation
 	NamingDisambiguations         []resources.NameDisambiguation
@@ -45,6 +43,7 @@ type BuildSchemaReports struct {
 	TypeCaseConflicts             gen.CaseConflicts
 	FlattenedPropertyConflicts    map[openapi.ProviderName]map[string]struct{}
 	AllEndpoints                  map[openapi.ProviderName]map[openapi.ResourceName]map[string]*openapi.Endpoint
+	InactiveDefaultVersions       map[openapi.ProviderName][]openapi.ApiVersion
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
@@ -52,7 +51,6 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 		"pathChanges.json":                   r.PathChangesResult,
 		"allResourcesByVersion.json":         r.AllResourcesByVersion,
 		"allResourceVersionsByResource.json": r.AllResourceVersionsByResource,
-		"active.json":                        r.Active,
 		"pending.json":                       r.Pending,
 		"curationViolations.json":            r.CurationViolations,
 		"namingDisambiguations.json":         r.NamingDisambiguations,
@@ -61,6 +59,7 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 		"typeCaseConflicts.json":             r.TypeCaseConflicts,
 		"flattenedPropertyConflicts.json":    r.FlattenedPropertyConflicts,
 		"allEndpoints.json":                  r.AllEndpoints,
+		"inactiveDefaultVersions.json":       r.InactiveDefaultVersions,
 	})
 }
 
@@ -113,10 +112,10 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		PathChangesResult:             pathChanges,
 		AllResourcesByVersion:         versionMetadata.AllResourcesByVersion,
 		AllResourceVersionsByResource: versionMetadata.AllResourceVersionsByResource,
-		Active:                        versionMetadata.Active,
 		Pending:                       versionMetadata.Pending,
 		CurationViolations:            versionMetadata.CurationViolations,
 		AllEndpoints:                  diagnostics.Endpoints,
+		InactiveDefaultVersions:       versionMetadata.InactiveDefaultVersions,
 	}
 
 	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata)
