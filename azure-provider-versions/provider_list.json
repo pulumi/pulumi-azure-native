@@ -5171,8 +5171,6 @@
       {
         "resourceType": "connections",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5183,8 +5181,6 @@
       {
         "resourceType": "connections/flows",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5195,8 +5191,6 @@
       {
         "resourceType": "listApprovedSchemas",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview"
@@ -5205,8 +5199,6 @@
       {
         "resourceType": "locations",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5217,8 +5209,6 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5229,8 +5219,6 @@
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5241,8 +5229,6 @@
       {
         "resourceType": "pipelines",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
@@ -5253,8 +5239,6 @@
       {
         "resourceType": "validateSchema",
         "apiVersions": [
-          "2024-09-27",
-          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview"
@@ -21984,6 +21968,17 @@
           "2017-04-26-preview",
           "2016-05-15",
           "2015-05-21-preview"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "Microsoft.DevelopmentWindows365",
+    "resourceTypes": [
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2023-11-01-preview"
         ]
       }
     ]
