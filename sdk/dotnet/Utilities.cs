@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative
         static Utilities()
         {
             var assembly = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(Utilities)).Assembly;
-            using var stream = assembly.GetManifestResourceStream("Pulumi.AzureNative.version.txt");
+            using var stream = assembly.GetManifestResourceStream("Pulumi.AzureNative.Common.version.txt");
             using var reader = new global::System.IO.StreamReader(stream ?? throw new global::System.NotSupportedException("Missing embedded version.txt file"));
             version = reader.ReadToEnd().Trim();
             var parts = version.Split("\n");

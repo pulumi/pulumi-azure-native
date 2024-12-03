@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Authors>Pulumi</Authors>
+    <Company>Pulumi</Company>
+    <Description>A native Pulumi package for creating and managing Azure resources.</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://pulumi.com</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/pulumi/pulumi-azure-native</RepositoryUrl>
+    <PackageIcon>logo.png</PackageIcon>
+    <Version>2.0.0-alpha.0+dev</Version>
+
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseSharedCompilation>false</UseSharedCompilation>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pulumi" Version="3.*" />
+    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pulumi.AzureNative.Common.csproj" />
+  </ItemGroup>
+
+</Project>

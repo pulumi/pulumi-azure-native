@@ -377,7 +377,7 @@ export FAKE_MODULE
 .make/build_dotnet: bin/pulumictl .make/generate_dotnet
 	cd sdk/dotnet && \
 		echo "azure-native\n$(VERSION_DOTNET)" >version.txt && \
-		dotnet build /p:Version=$(VERSION_DOTNET)
+		dotnet pack /p:Version=$(VERSION_DOTNET) Pulumi.AzureNative.csproj
 	@touch $@
 
 .make/build_java: bin/pulumictl .make/generate_java
@@ -404,5 +404,5 @@ export FAKE_MODULE
 	@touch $@
 
 .make/install_provider: bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
-	cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
+	cd provider && go install $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(PROVIDER)
 	@touch $@

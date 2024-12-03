@@ -1,56 +1,82 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.Build.NoTargets/3.7.0">
 
+  <!-- https://learn.microsoft.com/en-us/nuget/reference/msbuild-targets#pack-target -->
   <PropertyGroup>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <PackageId>Pulumi.AzureNative</PackageId>
+    <IsPackable>true</IsPackable>
+    <Version>2.0.0-alpha.0+dev</Version>
     <Authors>Pulumi</Authors>
     <Company>Pulumi</Company>
-    <Description>A native Pulumi package for creating and managing Azure resources.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://pulumi.com</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/pulumi/pulumi-azure-native</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
-    <Version>2.0.0-alpha.0+dev</Version>
-
     <TargetFramework>net6.0</TargetFramework>
+    <!-- <PackageOutputPath>dist</PackageOutputPath> -->
+
+    <!-- We need ProjectReferences to provide output since we're bundling the output -->
+    <NoTargetsDoNotReferenceOutputAssemblies>false</NoTargetsDoNotReferenceOutputAssemblies>
+
+    <!-- Only include directly referenced projects -->
+    <_FindDependencies>false</_FindDependencies>
+
+    <!-- Framework references are required for APICompat -->
+    <DisableImplicitFrameworkReferences>false</DisableImplicitFrameworkReferences>
+    <!-- This must be set to include any PDBs -->
+    <IncludeBuildOutput>true</IncludeBuildOutput>
+    <PackageDescription>Pulumi!</PackageDescription>
+    <!-- <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
+    <Description>A native Pulumi package for creating and managing Azure resources.</Description>
+
+    <RepositoryUrl>https://github.com/pulumi/pulumi-azure-native</RepositoryUrl>
+
     <Nullable>enable</Nullable>
-    <UseSharedCompilation>false</UseSharedCompilation>
+    <UseSharedCompilation>false</UseSharedCompilation> -->
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>1701;1702;1591</NoWarn>
+
+  <PropertyGroup>    
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);IncludeAdditionalFilesInPackage;</TargetsForTfmSpecificContentInPackage>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-  </PropertyGroup>
+  <Target Name="_IncludeProjectReferencesWithPackAttributeInPackage"
+          Condition="'@(ProjectReference)' != '' and @(ProjectReference->AnyHaveMetadataValue('Pack', 'true'))"
+          DependsOnTargets="BuildOnlySettings;ResolveReferences">
+    <ItemGroup>
+      <!-- Implements workaround for https://github.com/NuGet/Home/issues/3891 -->
+      <!-- Add ReferenceCopyLocalPaths for ProjectReferences which are flagged as Pack="true" into the package. -->
+      <_projectReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('Pack', 'true'))" />
+      <TfmSpecificPackageFile Include="@(_projectReferenceCopyLocalPaths)"
+                              PackagePath="$([MSBuild]::ValueOrDefault('%(ReferenceCopyLocalPaths.PackagePath)', '$(BuildOutputTargetFolder)\$(TargetFramework)\'))" />
+    </ItemGroup>
+  </Target>
 
-  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
-    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-  </PropertyGroup>
+  <Target Name="_IncludeRuntimeSpecificAssetsInPackage">
+    <ItemGroup>    
+      <!-- Add runtime specific assets to the package. -->
+      <_runtimeFiles Include="$(PackageAssetsPath)$(PackageId)\runtimes\**\*%(NativeAssemblyReference.Identity)*" />
+      <TfmSpecificPackageFile Include="%(_runtimeFiles.Identity)" PackagePath="runtimes/%(_runtimeFiles.RecursiveDir)" TargetFramework="" />
+    </ItemGroup>    
+  </Target>
+
+  <Target Name="IncludeAdditionalFilesInPackage" DependsOnTargets="_IncludeProjectReferencesWithPackAttributeInPackage;_IncludeRuntimeSpecificAssetsInPackage">
+    <ItemGroup>
+      <!-- PDBs must be specified as TfmSpecificDebugSymbolsFile with a *rooted* TargetPath instead of PackagePath. -->
+      <TfmSpecificDebugSymbolsFile Include="@(TfmSpecificPackageFile->WithMetadataValue('Extension', '.pdb'))"
+                                   TargetPath="/%(TfmSpecificPackageFile.PackagePath)%(Filename)%(Extension)"
+                                   TargetFramework="$(TargetFramework)" />
+      <!-- Remove symbols from the file list. -->
+      <TfmSpecificPackageFile Remove="@(TfmSpecificPackageFile->WithMetadataValue('Extension', '.pdb'))" />
+    </ItemGroup>    
+  </Target>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="version.txt" />
     <None Include="version.txt" Pack="True" PackagePath="content" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="pulumi-plugin.json" />
     <None Include="pulumi-plugin.json" Pack="True" PackagePath="content" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Pulumi" Version="3.*" />
-    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
   </ItemGroup>
 
   <ItemGroup>
@@ -58,6 +84,11 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="Pulumi.AzureNative.Common.csproj" Pack="true" PrivateAssets="all" />
+    <ProjectReference Include="**/Pulumi.AzureNative.*.csproj" Pack="true" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>
