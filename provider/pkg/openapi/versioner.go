@@ -87,7 +87,7 @@ func SdkToApiVersion(v SdkVersion) (ApiVersion, error) {
 	res := v[1:5] + "-" + v[5:7] + "-" + v[7:9]
 	suffix := v[9:]
 	switch suffix {
-	case "preview", "privatepreview":
+	case "preview", "privatepreview", "beta":
 		res += "-" + suffix
 	case "":
 	default:

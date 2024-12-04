@@ -165,7 +165,9 @@ func TestSdkToApiVersion(t *testing.T) {
 	t.Run("privatepreview", func(t *testing.T) {
 		testConvert(t, "v20200101privatepreview", "2020-01-01-privatepreview")
 	})
-
+	t.Run("beta", func(t *testing.T) {
+		testConvert(t, "v20200101beta", "2020-01-01-beta")
+	})
 	t.Run("missing leading v", func(t *testing.T) {
 		_, err := SdkToApiVersion("20200101privatepreview")
 		assert.Error(t, err)
