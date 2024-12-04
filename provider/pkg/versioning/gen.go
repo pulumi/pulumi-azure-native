@@ -48,6 +48,16 @@ func (v VersionMetadata) ShouldInclude(provider string, version *openapi.ApiVers
 			}
 		}
 	}
+	// Keep any resources in the previous version lock for easier migration
+	if v.MajorVersion >= 3 {
+		if resources, ok := v.PreviousLock[provider]; ok {
+			if previousDefaultResourceVersion, ok := resources[typeName]; ok {
+				if previousDefaultResourceVersion == *version {
+					return true
+				}
+			}
+		}
+	}
 	// Exclude versions from removed versions
 	if versions, ok := v.RemovedVersions[provider]; ok {
 		for _, removedVersion := range versions {
@@ -136,11 +146,12 @@ type VersionSources struct {
 	MajorVersion              int
 	ProviderList              providerlist.ProviderList
 	requiredExplicitResources []string
-	PreviousLock              openapi.DefaultVersionLock
-	RemovedVersions           openapi.ProviderVersionList
-	Spec                      Spec
-	Config                    Curations
-	ConfigPath                string
+	// map[ProviderName]map[DefinitionName]ApiVersion
+	PreviousLock    openapi.DefaultVersionLock
+	RemovedVersions openapi.ProviderVersionList
+	Spec            Spec
+	Config          Curations
+	ConfigPath      string
 	// provider->version->[]resource
 	AllResourcesByVersion ProvidersVersionResources
 	// map[TokenToRemove]TokenReplacedWith
