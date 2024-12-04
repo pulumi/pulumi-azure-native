@@ -65,7 +65,7 @@ type GenerationResult struct {
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning Versioning) (*GenerationResult, error) {
+func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning Versioning, majorVersion int) (*GenerationResult, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -304,6 +304,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				rootDir:                    rootDir,
 				flattenedPropertyConflicts: flattenedPropertyConflicts,
 				allEndpoints:               endpoints,
+				majorVersion:               majorVersion,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -635,16 +636,20 @@ type packageGenerator struct {
 	forceNewTypes              []ForceNewType
 	flattenedPropertyConflicts map[string]map[string]struct{}
 	allEndpoints               openapi.Endpoints
+	majorVersion               int
 }
 
 func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
 	// Resource names should consistently start with upper case.
-	// We need to alias the previous, lowercase name so users can upgrade to v2 without replacement.
-	// These aliases will not be required anymore with v3; their removal is tracked by #2411.
 	typeNameAliases := []string{}
 	titleCasedTypeName := strings.Title(typeName)
-	if titleCasedTypeName != typeName {
-		typeNameAliases = append(typeNameAliases, typeName)
+
+	if g.majorVersion < 3 {
+		// We need to alias the previous, lowercase name so users can upgrade to v2 without replacement.
+		// These aliases aren't required anymore with v3.
+		if titleCasedTypeName != typeName {
+			typeNameAliases = append(typeNameAliases, typeName)
+		}
 	}
 
 	// A single API path can be modelled as several resources if it accepts a polymorphic payload:

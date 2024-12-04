@@ -25,7 +25,7 @@ func TestVnetGen(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{})
+	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, 2)
 	if err != nil {
 		t.Fatal(err)
 	}

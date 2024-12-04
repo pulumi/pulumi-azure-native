@@ -118,7 +118,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		InactiveDefaultVersions:       versionMetadata.InactiveDefaultVersions,
 	}
 
-	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata)
+	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata, int(majorVersion))
 
 	if err != nil {
 		return &BuildSchemaResult{
