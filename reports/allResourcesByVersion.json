@@ -10787,6 +10787,12 @@
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
     ],
+    "2024-10-01-preview": [
+      "FirewallRule",
+      "MongoCluster",
+      "PrivateEndpointConnection",
+      "listMongoClusterConnectionStrings"
+    ],
     "2024-11-15": [
       "CassandraCluster",
       "CassandraDataCenter",
@@ -11661,6 +11667,53 @@
       "listNamespaceTopicSharedAccessKeys",
       "listPartnerNamespaceSharedAccessKeys",
       "listTopicSharedAccessKeys"
+    ],
+    "2024-12-15-preview": [
+      "CaCertificate",
+      "Channel",
+      "Client",
+      "ClientGroup",
+      "Domain",
+      "DomainEventSubscription",
+      "DomainTopic",
+      "DomainTopicEventSubscription",
+      "EventSubscription",
+      "Namespace",
+      "NamespaceTopic",
+      "NamespaceTopicEventSubscription",
+      "PartnerConfiguration",
+      "PartnerDestination",
+      "PartnerNamespace",
+      "PartnerRegistration",
+      "PartnerTopic",
+      "PartnerTopicEventSubscription",
+      "PermissionBinding",
+      "PrivateEndpointConnection",
+      "SystemTopic",
+      "SystemTopicEventSubscription",
+      "Topic",
+      "TopicEventSubscription",
+      "TopicSpace",
+      "getChannelFullUrl",
+      "getDomainEventSubscriptionDeliveryAttributes",
+      "getDomainEventSubscriptionFullUrl",
+      "getDomainTopicEventSubscriptionDeliveryAttributes",
+      "getDomainTopicEventSubscriptionFullUrl",
+      "getEventSubscriptionDeliveryAttributes",
+      "getEventSubscriptionFullUrl",
+      "getNamespaceTopicEventSubscriptionDeliveryAttributes",
+      "getNamespaceTopicEventSubscriptionFullUrl",
+      "getPartnerTopicEventSubscriptionDeliveryAttributes",
+      "getPartnerTopicEventSubscriptionFullUrl",
+      "getSystemTopicEventSubscriptionDeliveryAttributes",
+      "getSystemTopicEventSubscriptionFullUrl",
+      "getTopicEventSubscriptionDeliveryAttributes",
+      "getTopicEventSubscriptionFullUrl",
+      "listDomainSharedAccessKeys",
+      "listNamespaceSharedAccessKeys",
+      "listNamespaceTopicSharedAccessKeys",
+      "listPartnerNamespaceSharedAccessKeys",
+      "listTopicSharedAccessKeys"
     ]
   },
   "EventHub": {
@@ -12406,6 +12459,16 @@
       "MachineRunCommand",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
+    ],
+    "2024-11-10-preview": [
+      "Gateway",
+      "License",
+      "LicenseProfile",
+      "Machine",
+      "MachineExtension",
+      "MachineRunCommand",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
     ]
   },
   "HybridConnectivity": {
@@ -12566,7 +12629,6 @@
   "Insights": {
     "": [],
     "2014-04-01": [
-      "AlertRule",
       "AutoscaleSetting"
     ],
     "2015-04-01": [
@@ -12584,7 +12646,6 @@
       "Workbook"
     ],
     "2016-03-01": [
-      "AlertRule",
       "LogProfile"
     ],
     "2017-04-01": [

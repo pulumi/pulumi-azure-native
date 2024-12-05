@@ -5215,6 +5215,27 @@
     "Property": "restoreParameters"
   },
   {
+    "Module": "documentdb/v20241001preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "CreateMode",
+    "Property": "createMode"
+  },
+  {
+    "Module": "documentdb/v20241001preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterReplicaParameters",
+    "Property": "replicaParameters"
+  },
+  {
+    "Module": "documentdb/v20241001preview",
+    "Provider": "DocumentDB",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
     "Module": "documentdb/v20241115",
     "Provider": "DocumentDB",
     "ResourceName": "CassandraCluster",
@@ -5811,6 +5832,13 @@
   },
   {
     "Module": "hybridcompute/v20240910preview",
+    "Provider": "HybridCompute",
+    "ResourceName": "Machine",
+    "ReferenceName": "TrackedResource",
+    "Property": "location"
+  },
+  {
+    "Module": "hybridcompute/v20241110preview",
     "Provider": "HybridCompute",
     "ResourceName": "Machine",
     "ReferenceName": "TrackedResource",
