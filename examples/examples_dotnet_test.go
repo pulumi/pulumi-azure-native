@@ -60,6 +60,25 @@ func TestGetCustomDomainVerificationId(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestDeletePostgresConfiguration(t *testing.T) {
+	test := getCsharpBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "cs-postgres-configuration"),
+			Config: map[string]string{
+				// Postgres was region-restricted at the time of writing.
+				"azure-native:location": "North Europe",
+			},
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      filepath.Join("cs-postgres-configuration", "step2"),
+					Additive: true,
+				},
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestPulumiExamples(t *testing.T) {
 	for _, example := range pexamples.GetTestsByTags(pexamples.AzureNativeProvider, pexamples.CS) {
 		t.Run(example.Dir, func(t *testing.T) {
