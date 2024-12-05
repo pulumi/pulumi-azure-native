@@ -176,6 +176,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 		return nil, err
 	}
 
+	postgresConf, err := postgresFlexibleServerConfiguration(crudClientFactory, lookupResource)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		keyVaultAccessPolicy(armKVClient),
 
@@ -184,6 +189,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		portalDashboard(),
 		customWebApp,
 		customWebAppSlot,
+		postgresConf,
 	}
 
 	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
@@ -300,12 +306,12 @@ func MetaTypeOverrides() map[string]AzureAPIType {
 func createCrudClient(
 	crudClientFactory crud.ResourceCrudClientFactory, lookupResource ResourceLookupFunc, resourceToken string,
 ) (crud.ResourceCrudClient, error) {
-	res, ok, err := lookupResource(webAppResourceType)
+	res, ok, err := lookupResource(resourceToken)
 	if err != nil {
 		return nil, err
 	}
 	if !ok {
-		return nil, fmt.Errorf("resource %s not found", webAppResourceType)
+		return nil, fmt.Errorf("resource %s not found", resourceToken)
 	}
 
 	return crudClientFactory(&res), nil
