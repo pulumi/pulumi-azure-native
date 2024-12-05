@@ -33,7 +33,7 @@ func TestPortalDashboardGen(t *testing.T) {
 			"Dashboard": "2020-09-01-preview",
 		},
 	}, map[string]map[string]string{}, map[string][]string{}, map[string][]string{})
-	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{})
+	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, 2)
 	if err != nil {
 		t.Fatal(err)
 	}

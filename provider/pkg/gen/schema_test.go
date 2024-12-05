@@ -62,10 +62,11 @@ func (v versioningStub) GetAllVersions(provider, resource string) []string {
 
 func TestAliases(t *testing.T) {
 	generator := packageGenerator{
-		pkg:        &pschema.PackageSpec{Name: "azure-native"},
-		apiVersion: "v20220222",
-		versioning: versioningStub{},
-		provider:   "Insights",
+		pkg:          &pschema.PackageSpec{Name: "azure-native"},
+		apiVersion:   "v20220222",
+		versioning:   versioningStub{},
+		provider:     "Insights",
+		majorVersion: 2,
 	}
 
 	resource := &resourceVariant{
