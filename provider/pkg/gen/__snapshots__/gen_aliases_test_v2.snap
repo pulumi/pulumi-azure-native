@@ -1,0 +1,1615 @@
+
+[TestAliasesGen/v2 - 1]
+{
+ "config": {
+  "variables": {
+   "auxiliaryTenantIds": {
+    "description": "Any additional Tenant IDs which should be used for authentication.",
+    "items": {
+     "type": "string"
+    },
+    "type": "array"
+   },
+   "clientCertificatePassword": {
+    "description": "The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate",
+    "secret": true,
+    "type": "string"
+   },
+   "clientCertificatePath": {
+    "description": "The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.",
+    "type": "string"
+   },
+   "clientId": {
+    "description": "The Client ID which should be used.",
+    "secret": true,
+    "type": "string"
+   },
+   "clientSecret": {
+    "description": "The Client Secret which should be used. For use when authenticating as a Service Principal using a Client Secret.",
+    "secret": true,
+    "type": "string"
+   },
+   "disablePulumiPartnerId": {
+    "description": "This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.",
+    "type": "boolean"
+   },
+   "environment": {
+    "description": "The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.",
+    "type": "string"
+   },
+   "location": {
+    "description": "The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.",
+    "type": "string"
+   },
+   "metadataHost": {
+    "description": "The Hostname of the Azure Metadata Service.",
+    "type": "string"
+   },
+   "msiEndpoint": {
+    "description": "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.",
+    "type": "string"
+   },
+   "oidcRequestToken": {
+    "description": "Your cloud service or provider's bearer token to exchange for an OIDC ID token.",
+    "type": "string"
+   },
+   "oidcRequestUrl": {
+    "description": "The URL to initiate the OIDC token exchange. ",
+    "type": "string"
+   },
+   "oidcToken": {
+    "description": "The OIDC token to exchange for an Azure token.",
+    "type": "string"
+   },
+   "oidcTokenFilePath": {
+    "description": "The path to a file containing an OIDC token to exchange for an Azure token.",
+    "type": "string"
+   },
+   "partnerId": {
+    "description": "A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.",
+    "type": "string"
+   },
+   "subscriptionId": {
+    "description": "The Subscription ID which should be used.",
+    "type": "string"
+   },
+   "tenantId": {
+    "description": "The Tenant ID which should be used.",
+    "type": "string"
+   },
+   "useMsi": {
+    "description": "Allow Managed Service Identity be used for Authentication.",
+    "type": "boolean"
+   },
+   "useOidc": {
+    "description": "Allow OpenID Connect (OIDC) to be used for Authentication.",
+    "type": "boolean"
+   }
+  }
+ },
+ "description": "A native Pulumi package for creating and managing Azure resources.",
+ "displayName": "Azure Native",
+ "functions": {
+  "azure-native:aadiam/v20200301:getPrivateEndpointConnection": {
+   "description": "Gets the specified private endpoint connection associated with the given policy.",
+   "inputs": {
+    "properties": {
+     "policyName": {
+      "description": "The name of the private link policy in Azure AD.",
+      "type": "string",
+      "willReplaceOnChanges": true
+     },
+     "privateEndpointConnectionName": {
+      "description": "The PrivateEndpointConnection name.",
+      "type": "string",
+      "willReplaceOnChanges": true
+     },
+     "resourceGroupName": {
+      "description": "Name of an Azure resource group.",
+      "type": "string",
+      "willReplaceOnChanges": true
+     }
+    },
+    "required": [
+     "policyName",
+     "privateEndpointConnectionName",
+     "resourceGroupName"
+    ],
+    "type": "object"
+   },
+   "outputs": {
+    "description": "Private endpoint connection resource.",
+    "properties": {
+     "id": {
+      "description": "Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}",
+      "type": "string"
+     },
+     "name": {
+      "description": "The name of the resource",
+      "type": "string"
+     },
+     "privateEndpoint": {
+      "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpointResponse",
+      "description": "Properties of the private endpoint object.",
+      "type": "object"
+     },
+     "privateLinkServiceConnectionState": {
+      "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse",
+      "description": "Approval state of the private link connection.",
+      "type": "object"
+     },
+     "provisioningState": {
+      "description": "Provisioning state of the private endpoint connection.",
+      "type": "string"
+     },
+     "type": {
+      "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "name",
+     "provisioningState",
+     "type"
+    ],
+    "type": "object"
+   }
+  },
+  "azure-native:aadiam/v20200301:getPrivateLinkForAzureAd": {
+   "description": "Gets a private link policy with a given name.",
+   "inputs": {
+    "properties": {
+     "policyName": {
+      "description": "The name of the private link policy in Azure AD.",
+      "type": "string",
+      "willReplaceOnChanges": true
+     },
+     "resourceGroupName": {
+      "description": "Name of an Azure resource group.",
+      "type": "string",
+      "willReplaceOnChanges": true
+     }
+    },
+    "required": [
+     "policyName",
+     "resourceGroupName"
+    ],
+    "type": "object"
+   },
+   "outputs": {
+    "description": "PrivateLink Policy configuration object.",
+    "properties": {
+     "allTenants": {
+      "description": "Flag indicating whether all tenants are allowed",
+      "type": "boolean"
+     },
+     "id": {
+      "description": "String Id used to locate any resource on Azure.",
+      "type": "string"
+     },
+     "name": {
+      "description": "Name of this resource.",
+      "type": "string"
+     },
+     "ownerTenantId": {
+      "description": "Guid of the owner tenant",
+      "type": "string"
+     },
+     "resourceGroup": {
+      "description": "Name of the resource group",
+      "type": "string"
+     },
+     "resourceName": {
+      "description": "Name of the private link policy resource",
+      "type": "string"
+     },
+     "subscriptionId": {
+      "description": "Subscription Identifier",
+      "type": "string"
+     },
+     "tags": {
+      "additionalProperties": {
+       "type": "string"
+      },
+      "description": "Resource tags.",
+      "type": "object"
+     },
+     "tenants": {
+      "description": "The list of tenantIds.",
+      "items": {
+       "type": "string"
+      },
+      "type": "array"
+     },
+     "type": {
+      "description": "Type of this resource.",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "type"
+    ],
+    "type": "object"
+   }
+  },
+  "azure-native:authorization:getClientConfig": {
+   "description": "Use this function to access the current configuration of the native Azure provider.",
+   "outputs": {
+    "description": "Configuration values returned by getClientConfig.",
+    "properties": {
+     "clientId": {
+      "description": "Azure Client ID (Application Object ID).",
+      "type": "string"
+     },
+     "objectId": {
+      "description": "Azure Object ID of the current user or service principal.",
+      "type": "string"
+     },
+     "subscriptionId": {
+      "description": "Azure Subscription ID",
+      "type": "string"
+     },
+     "tenantId": {
+      "description": "Azure Tenant ID",
+      "type": "string"
+     }
+    },
+    "required": [
+     "clientId",
+     "objectId",
+     "subscriptionId",
+     "tenantId"
+    ],
+    "type": "object"
+   }
+  },
+  "azure-native:authorization:getClientToken": {
+   "description": "Use this function to get an Azure authentication token for the current login context.",
+   "inputs": {
+    "properties": {
+     "endpoint": {
+      "description": "Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.",
+      "type": "string"
+     }
+    },
+    "type": "object"
+   },
+   "outputs": {
+    "description": "Configuration values returned by getClientToken.",
+    "properties": {
+     "token": {
+      "description": "OAuth token for Azure Management API and SDK authentication.",
+      "type": "string"
+     }
+    },
+    "required": [
+     "token"
+    ],
+    "type": "object"
+   }
+  }
+ },
+ "homepage": "https://pulumi.com",
+ "keywords": [
+  "pulumi",
+  "azure",
+  "azure-native",
+  "category/cloud",
+  "kind/native"
+ ],
+ "language": {
+  "csharp": {
+   "namespaces": {
+    "aadiam": "AadIam",
+    "aadiam/v20200301": "AadIam.V20200301",
+    "azure-native": "AzureNative"
+   },
+   "packageReferences": {
+    "Pulumi": "3.*",
+    "System.Collections.Immutable": "5.0.0"
+   },
+   "respectSchemaVersion": true
+  },
+  "go": {
+   "disableInputTypeRegistrations": true,
+   "generateResourceContainerTypes": false,
+   "importBasePath": "github.com/pulumi/pulumi-azure-native-sdk/v2",
+   "importPathPattern": "github.com/pulumi/pulumi-azure-native-sdk/{module}/v2",
+   "internalModuleName": "utilities",
+   "packageImportAliases": {
+    "github.com/pulumi/pulumi-azure-native-sdk/aadiam/v2/v20200301": "aadiam"
+   },
+   "respectSchemaVersion": true,
+   "rootPackageName": "pulumiazurenativesdk"
+  },
+  "java": {
+   "packages": {
+    "aadiam/v20200301": "aadiam.v20200301",
+    "azure-native": "azurenative"
+   }
+  },
+  "nodejs": {
+   "readme": "The native Azure provider package offers support for all Azure Resource Manager (ARM)\nresources and their properties. Resources are exposed as types from modules based on Azure Resource\nProviders such as 'compute', 'network', 'storage', and 'web', among many others. Using this package\nallows you to programmatically declare instances of any Azure resource and any supported resource\nversion using infrastructure as code, which Pulumi then uses to drive the ARM API.",
+   "respectSchemaVersion": true
+  },
+  "python": {
+   "inputTypes": "classes-and-dicts",
+   "moduleNameOverrides": {
+    "aadiam/v20200301": "aadiam/v20200301"
+   },
+   "pyproject": {
+    "enabled": true
+   },
+   "readme": "The native Azure provider package offers support for all Azure Resource Manager (ARM)\nresources and their properties. Resources are exposed as types from modules based on Azure Resource\nProviders such as 'compute', 'network', 'storage', and 'web', among many others. Using this package\nallows you to programmatically declare instances of any Azure resource and any supported resource\nversion using infrastructure as code, which Pulumi then uses to drive the ARM API.",
+   "respectSchemaVersion": true,
+   "usesIOClasses": true
+  }
+ },
+ "license": "Apache-2.0",
+ "name": "azure-native",
+ "provider": {
+  "description": "The provider type for the native Azure package.",
+  "inputProperties": {
+   "auxiliaryTenantIds": {
+    "description": "Any additional Tenant IDs which should be used for authentication.",
+    "items": {
+     "type": "string"
+    },
+    "type": "array"
+   },
+   "clientCertificatePassword": {
+    "description": "The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate",
+    "secret": true,
+    "type": "string"
+   },
+   "clientCertificatePath": {
+    "description": "The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.",
+    "type": "string"
+   },
+   "clientId": {
+    "description": "The Client ID which should be used.",
+    "secret": true,
+    "type": "string"
+   },
+   "clientSecret": {
+    "description": "The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.",
+    "secret": true,
+    "type": "string"
+   },
+   "disablePulumiPartnerId": {
+    "description": "This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.",
+    "type": "boolean"
+   },
+   "environment": {
+    "default": "public",
+    "description": "The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.",
+    "type": "string"
+   },
+   "location": {
+    "description": "The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.",
+    "type": "string"
+   },
+   "metadataHost": {
+    "description": "The Hostname of the Azure Metadata Service.",
+    "type": "string"
+   },
+   "msiEndpoint": {
+    "description": "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.",
+    "type": "string"
+   },
+   "oidcRequestToken": {
+    "description": "Your cloud service or provider’s bearer token to exchange for an OIDC ID token.",
+    "type": "string"
+   },
+   "oidcRequestUrl": {
+    "description": "The URL to initiate the `oidcRequestToken` OIDC token exchange.",
+    "type": "string"
+   },
+   "oidcToken": {
+    "description": "The OIDC token to exchange for an Azure token.",
+    "type": "string"
+   },
+   "partnerId": {
+    "description": "A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.",
+    "type": "string"
+   },
+   "subscriptionId": {
+    "description": "The Subscription ID which should be used.",
+    "type": "string"
+   },
+   "tenantId": {
+    "description": "The Tenant ID which should be used.",
+    "type": "string"
+   },
+   "useMsi": {
+    "description": "Allow Managed Service Identity to be used for Authentication.",
+    "type": "boolean"
+   },
+   "useOidc": {
+    "description": "Allow OpenID Connect (OIDC) to be used for Authentication.",
+    "type": "boolean"
+   }
+  },
+  "type": "object"
+ },
+ "publisher": "Pulumi",
+ "repository": "https://github.com/pulumi/pulumi-azure-native",
+ "resources": {
+  "azure-native:aadiam/v20200301:PrivateEndpointConnection": {
+   "description": "Private endpoint connection resource.",
+   "inputProperties": {
+    "policyName": {
+     "description": "The name of the private link policy in Azure AD.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "privateEndpoint": {
+     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpoint",
+     "description": "Properties of the private endpoint object.",
+     "type": "object"
+    },
+    "privateEndpointConnectionName": {
+     "description": "The PrivateEndpointConnection name.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "privateLinkConnectionTags": {
+     "$ref": "#/types/azure-native:aadiam/v20200301:TagsResource",
+     "description": "Updated tag information to set into the PrivateLinkConnection instance.",
+     "type": "object"
+    },
+    "privateLinkServiceConnectionState": {
+     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionState",
+     "description": "Approval state of the private link connection.",
+     "type": "object"
+    },
+    "resourceGroupName": {
+     "description": "Name of an Azure resource group.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    }
+   },
+   "properties": {
+    "name": {
+     "description": "The name of the resource",
+     "type": "string"
+    },
+    "privateEndpoint": {
+     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpointResponse",
+     "description": "Properties of the private endpoint object.",
+     "type": "object"
+    },
+    "privateLinkServiceConnectionState": {
+     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse",
+     "description": "Approval state of the private link connection.",
+     "type": "object"
+    },
+    "provisioningState": {
+     "description": "Provisioning state of the private endpoint connection.",
+     "type": "string"
+    },
+    "type": {
+     "description": "The type of the resource. E.g. \"Microsoft.Compute/virtualMachines\" or \"Microsoft.Storage/storageAccounts\"",
+     "type": "string"
+    }
+   },
+   "required": [
+    "name",
+    "provisioningState",
+    "type"
+   ],
+   "requiredInputs": [
+    "policyName",
+    "resourceGroupName"
+   ],
+   "type": "object"
+  },
+  "azure-native:aadiam/v20200301:PrivateLinkForAzureAd": {
+   "aliases": [
+    {
+     "type": "azure-native:aadiam/v20200301:privateLinkForAzureAd"
+    }
+   ],
+   "description": "PrivateLink Policy configuration object.",
+   "inputProperties": {
+    "allTenants": {
+     "description": "Flag indicating whether all tenants are allowed",
+     "type": "boolean"
+    },
+    "name": {
+     "description": "Name of this resource.",
+     "type": "string"
+    },
+    "ownerTenantId": {
+     "description": "Guid of the owner tenant",
+     "type": "string"
+    },
+    "policyName": {
+     "description": "The name of the private link policy in Azure AD.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "resourceGroup": {
+     "description": "Name of the resource group",
+     "type": "string"
+    },
+    "resourceGroupName": {
+     "description": "Name of an Azure resource group.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "resourceName": {
+     "description": "Name of the private link policy resource",
+     "type": "string"
+    },
+    "subscriptionId": {
+     "description": "Subscription Identifier",
+     "type": "string"
+    },
+    "tags": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "Resource tags.",
+     "type": "object"
+    },
+    "tenants": {
+     "description": "The list of tenantIds.",
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    }
+   },
+   "properties": {
+    "allTenants": {
+     "description": "Flag indicating whether all tenants are allowed",
+     "type": "boolean"
+    },
+    "name": {
+     "description": "Name of this resource.",
+     "type": "string"
+    },
+    "ownerTenantId": {
+     "description": "Guid of the owner tenant",
+     "type": "string"
+    },
+    "resourceGroup": {
+     "description": "Name of the resource group",
+     "type": "string"
+    },
+    "resourceName": {
+     "description": "Name of the private link policy resource",
+     "type": "string"
+    },
+    "subscriptionId": {
+     "description": "Subscription Identifier",
+     "type": "string"
+    },
+    "tags": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "Resource tags.",
+     "type": "object"
+    },
+    "tenants": {
+     "description": "The list of tenantIds.",
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "type": {
+     "description": "Type of this resource.",
+     "type": "string"
+    }
+   },
+   "required": [
+    "type"
+   ],
+   "requiredInputs": [
+    "resourceGroupName"
+   ],
+   "type": "object"
+  },
+  "azure-native:keyvault:AccessPolicy": {
+   "description": "Key Vault Access Policy for managing policies on existing vaults.",
+   "inputProperties": {
+    "policy": {
+     "$ref": "#/types/azure-native:keyvault:AccessPolicyEntry",
+     "description": "The definition of the access policy."
+    },
+    "resourceGroupName": {
+     "description": "Name of the resource group that contains the vault.",
+     "type": "string"
+    },
+    "vaultName": {
+     "description": "Name of the Key Vault.",
+     "type": "string"
+    }
+   },
+   "properties": {
+    "policy": {
+     "$ref": "#/types/azure-native:keyvault:AccessPolicyEntry",
+     "description": "The definition of the access policy."
+    },
+    "resourceGroupName": {
+     "description": "Name of the resource group that contains the vault.",
+     "type": "string"
+    },
+    "vaultName": {
+     "description": "Name of the Key Vault.",
+     "type": "string"
+    }
+   },
+   "requiredInputs": [
+    "resourceGroupName",
+    "vaultName",
+    "policy"
+   ],
+   "type": "object"
+  },
+  "azure-native:storage:Blob": {
+   "description": "Manages a Blob within a Storage Container. For the supported combinations of properties and features please see [here](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts).",
+   "inputProperties": {
+    "accessTier": {
+     "$ref": "#/types/azure-native:storage:BlobAccessTier",
+     "description": "The access tier of the storage blob. Only supported for standard storage accounts, not premium."
+    },
+    "accountName": {
+     "description": "Specifies the storage account in which to create the storage container.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "blobName": {
+     "description": "The name of the storage blob. Must be unique within the storage container the blob is located. If this property is not specified it will be set to the name of the resource.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "containerName": {
+     "description": "The name of the storage container in which this blob should be created.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "contentMd5": {
+     "description": "The MD5 sum of the blob contents, base64-encoded. Cannot be defined if blob type is Append.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "contentType": {
+     "description": "The content type of the storage blob. Defaults to `application/octet-stream`.",
+     "type": "string"
+    },
+    "metadata": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "A map of custom blob metadata.",
+     "type": "object"
+    },
+    "resourceGroupName": {
+     "description": "The name of the resource group within the user's subscription.",
+     "type": "string",
+     "willReplaceOnChanges": true
+    },
+    "source": {
+     "$ref": "pulumi.json#/Asset",
+     "description": "An asset to copy to the blob contents. This field cannot be specified for Append blobs.",
+     "willReplaceOnChanges": true
+    },
+    "type": {
+     "$ref": "#/types/azure-native:storage:BlobType",
+     "default": "Block",
+     "description": "The type of the storage blob to be created. Defaults to 'Block'.",
+     "willReplaceOnChanges": true
+    }
+   },
+   "properties": {
+    "accessTier": {
+     "$ref": "#/types/azure-native:storage:BlobAccessTier",
+     "description": "The access tier of the storage blob. Only supported for standard storage accounts, not premium."
+    },
+    "contentMd5": {
+     "description": "The MD5 sum of the blob contents.",
+     "type": "string"
+    },
+    "contentType": {
+     "description": "The content type of the storage blob.",
+     "type": "string"
+    },
+    "metadata": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "A map of custom blob metadata.",
+     "type": "object"
+    },
+    "name": {
+     "description": "The name of the storage blob.",
+     "type": "string"
+    },
+    "type": {
+     "$ref": "#/types/azure-native:storage:BlobType",
+     "description": "The type of the storage blob to be created."
+    },
+    "url": {
+     "description": "The URL of the blob.",
+     "type": "string"
+    }
+   },
+   "required": [
+    "metadata",
+    "name",
+    "type",
+    "url"
+   ],
+   "requiredInputs": [
+    "resourceGroupName",
+    "accountName",
+    "containerName"
+   ],
+   "type": "object"
+  },
+  "azure-native:storage:BlobContainerLegalHold": {
+   "description": ".",
+   "inputProperties": {
+    "accountName": {
+     "description": "Name of the Storage Account.",
+     "type": "string"
+    },
+    "allowProtectedAppendWritesAll": {
+     "description": "When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.",
+     "type": "boolean"
+    },
+    "containerName": {
+     "description": "Name of the Blob Container.",
+     "type": "string"
+    },
+    "resourceGroupName": {
+     "description": "Name of the resource group that contains the storage account.",
+     "type": "string"
+    },
+    "tags": {
+     "description": "List of legal hold tags. Each tag should be 3 to 23 alphanumeric characters and is normalized to lower case at SRP.",
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    }
+   },
+   "properties": {
+    "accountName": {
+     "description": "Name of the Storage Account.",
+     "type": "string"
+    },
+    "allowProtectedAppendWritesAll": {
+     "description": "When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.",
+     "type": "boolean"
+    },
+    "containerName": {
+     "description": "Name of the Blob Container.",
+     "type": "string"
+    },
+    "resourceGroupName": {
+     "description": "Name of the resource group that contains the storage account.",
+     "type": "string"
+    },
+    "tags": {
+     "description": "List of legal hold tags. Each tag should be 3 to 23 alphanumeric characters and is normalized to lower case at SRP.",
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    }
+   },
+   "requiredInputs": [
+    "resourceGroupName",
+    "accountName",
+    "containerName",
+    "tags"
+   ],
+   "type": "object"
+  },
+  "azure-native:storage:StorageAccountStaticWebsite": {
+   "description": "Enables the static website feature of a storage account.",
+   "inputProperties": {
+    "accountName": {
+     "description": "The name of the storage account within the specified resource group.",
+     "type": "string"
+    },
+    "error404Document": {
+     "description": "The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.",
+     "type": "string"
+    },
+    "indexDocument": {
+     "description": "The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.",
+     "type": "string"
+    },
+    "resourceGroupName": {
+     "description": "The name of the resource group within the user's subscription. The name is case insensitive.",
+     "type": "string"
+    }
+   },
+   "properties": {
+    "containerName": {
+     "description": "The name of the container to upload blobs to.",
+     "type": "string"
+    },
+    "error404Document": {
+     "description": "The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.",
+     "type": "string"
+    },
+    "indexDocument": {
+     "description": "The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.",
+     "type": "string"
+    }
+   },
+   "required": [
+    "containerName"
+   ],
+   "requiredInputs": [
+    "resourceGroupName",
+    "accountName"
+   ],
+   "type": "object"
+  },
+  "azure-native:synapse:WorkspaceSqlAadAdmin": {
+   "description": "\n\nNote: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin."
+  }
+ },
+ "types": {
+  "azure-native:aadiam/v20200301:PrivateEndpoint": {
+   "description": "Private endpoint object properties.",
+   "properties": {
+    "id": {
+     "description": "Full identifier of the private endpoint resource.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "azure-native:aadiam/v20200301:PrivateEndpointResponse": {
+   "description": "Private endpoint object properties.",
+   "properties": {
+    "id": {
+     "description": "Full identifier of the private endpoint resource.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "azure-native:aadiam/v20200301:PrivateEndpointServiceConnectionStatus": {
+   "description": "Indicates whether the connection has been approved, rejected or removed by the given policy owner.",
+   "enum": [
+    {
+     "value": "Approved"
+    },
+    {
+     "value": "Pending"
+    },
+    {
+     "value": "Rejected"
+    },
+    {
+     "value": "Disconnected"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native:aadiam/v20200301:PrivateLinkServiceConnectionState": {
+   "description": "An object that represents the approval state of the private link connection.",
+   "properties": {
+    "actionsRequired": {
+     "description": "A message indicating if changes on the service provider require any updates on the consumer.",
+     "type": "string"
+    },
+    "description": {
+     "description": "The reason for approval or rejection.",
+     "type": "string"
+    },
+    "status": {
+     "description": "Indicates whether the connection has been approved, rejected or removed by the given policy owner.",
+     "oneOf": [
+      {
+       "type": "string"
+      },
+      {
+       "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpointServiceConnectionStatus"
+      }
+     ]
+    }
+   },
+   "type": "object"
+  },
+  "azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse": {
+   "description": "An object that represents the approval state of the private link connection.",
+   "properties": {
+    "actionsRequired": {
+     "description": "A message indicating if changes on the service provider require any updates on the consumer.",
+     "type": "string"
+    },
+    "description": {
+     "description": "The reason for approval or rejection.",
+     "type": "string"
+    },
+    "status": {
+     "description": "Indicates whether the connection has been approved, rejected or removed by the given policy owner.",
+     "type": "string"
+    }
+   },
+   "type": "object"
+  },
+  "azure-native:aadiam/v20200301:TagsResource": {
+   "description": "A container holding only the Tags for a resource, allowing the user to update the tags on a PrivateLinkConnection instance.",
+   "properties": {
+    "tags": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "Resource tags",
+     "type": "object"
+    }
+   },
+   "type": "object"
+  },
+  "azure-native:storage:BlobAccessTier": {
+   "description": "The access tier of a storage blob.",
+   "enum": [
+    {
+     "description": "Optimized for storing data that is accessed frequently.",
+     "value": "Hot"
+    },
+    {
+     "description": "Optimized for storing data that is infrequently accessed and stored for at least 30 days.",
+     "value": "Cool"
+    },
+    {
+     "description": "Optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements, on the order of hours.",
+     "value": "Archive"
+    }
+   ],
+   "type": "string"
+  },
+  "azure-native:storage:BlobType": {
+   "description": "The type of a storage blob to be created.",
+   "enum": [
+    {
+     "description": "Block blobs store text and binary data. Block blobs are made up of blocks of data that can be managed individually.",
+     "value": "Block"
+    },
+    {
+     "description": "Append blobs are made up of blocks like block blobs, but are optimized for append operations.",
+     "value": "Append"
+    }
+   ],
+   "type": "string"
+  }
+ }
+}
+---
+
+[TestAliasesGen/v2 - 2]
+{
+ "invokes": {
+  "azure-native:aadiam/v20200301:getPrivateEndpointConnection": {
+   "GET": [
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "maxLength": 90,
+      "minLength": 1,
+      "pattern": "^[-\\w\\._\\(\\)]+$",
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "policyName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "privateEndpointConnectionName",
+     "required": true,
+     "value": {
+      "minLength": 1,
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    }
+   ],
+   "POST": null,
+   "apiVersion": "2020-03-01",
+   "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}/privateEndpointConnections/{privateEndpointConnectionName}",
+   "response": {
+    "id": {},
+    "name": {},
+    "privateEndpoint": {
+     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpointResponse",
+     "containers": [
+      "properties"
+     ]
+    },
+    "privateLinkServiceConnectionState": {
+     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse",
+     "containers": [
+      "properties"
+     ]
+    },
+    "provisioningState": {
+     "containers": [
+      "properties"
+     ]
+    },
+    "type": {}
+   }
+  },
+  "azure-native:aadiam/v20200301:getPrivateLinkForAzureAd": {
+   "GET": [
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "maxLength": 90,
+      "minLength": 1,
+      "pattern": "^[-\\w\\._\\(\\)]+$",
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "policyName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    }
+   ],
+   "POST": null,
+   "apiVersion": "2020-03-01",
+   "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}",
+   "response": {
+    "allTenants": {},
+    "id": {},
+    "name": {},
+    "ownerTenantId": {},
+    "resourceGroup": {},
+    "resourceName": {},
+    "subscriptionId": {},
+    "tags": {
+     "additionalProperties": {
+      "type": "string"
+     }
+    },
+    "tenants": {
+     "items": {
+      "type": "string"
+     }
+    },
+    "type": {}
+   }
+  }
+ },
+ "resources": {
+  "azure-native:aadiam/v20200301:PrivateEndpointConnection": {
+   "PUT": [
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "maxLength": 90,
+      "minLength": 1,
+      "pattern": "^[-\\w\\._\\(\\)]+$",
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "policyName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "privateEndpointConnectionName",
+     "required": true,
+     "value": {
+      "autoname": "copy",
+      "minLength": 1,
+      "type": "string"
+     }
+    },
+    {
+     "body": {
+      "properties": {
+       "privateEndpoint": {
+        "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpoint",
+        "containers": [
+         "properties"
+        ],
+        "type": "object"
+       },
+       "privateLinkConnectionTags": {
+        "$ref": "#/types/azure-native:aadiam/v20200301:TagsResource",
+        "containers": [
+         "properties"
+        ],
+        "type": "object"
+       },
+       "privateLinkServiceConnectionState": {
+        "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionState",
+        "containers": [
+         "properties"
+        ],
+        "type": "object"
+       }
+      }
+     },
+     "location": "body",
+     "name": "parameters",
+     "required": true,
+     "value": {}
+    }
+   ],
+   "apiVersion": "2020-03-01",
+   "defaultBody": null,
+   "deleteAsyncStyle": "azure-async-operation",
+   "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}/privateEndpointConnections/{privateEndpointConnectionName}",
+   "putAsyncStyle": "azure-async-operation",
+   "response": {
+    "id": {},
+    "name": {},
+    "privateEndpoint": {
+     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateEndpointResponse",
+     "containers": [
+      "properties"
+     ]
+    },
+    "privateLinkServiceConnectionState": {
+     "$ref": "#/types/azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse",
+     "containers": [
+      "properties"
+     ]
+    },
+    "provisioningState": {
+     "containers": [
+      "properties"
+     ]
+    },
+    "type": {}
+   }
+  },
+  "azure-native:aadiam/v20200301:PrivateLinkForAzureAd": {
+   "PUT": [
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "maxLength": 90,
+      "minLength": 1,
+      "pattern": "^[-\\w\\._\\(\\)]+$",
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "policyName",
+     "required": true,
+     "value": {
+      "autoname": "random",
+      "type": "string"
+     }
+    },
+    {
+     "body": {
+      "properties": {
+       "allTenants": {
+        "type": "boolean"
+       },
+       "name": {
+        "type": "string"
+       },
+       "ownerTenantId": {
+        "type": "string"
+       },
+       "resourceGroup": {
+        "type": "string"
+       },
+       "resourceName": {
+        "type": "string"
+       },
+       "subscriptionId": {
+        "type": "string"
+       },
+       "tags": {
+        "additionalProperties": {
+         "type": "string"
+        },
+        "type": "object"
+       },
+       "tenants": {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      }
+     },
+     "location": "body",
+     "name": "privateLinkPolicy",
+     "required": true,
+     "value": {}
+    }
+   ],
+   "apiVersion": "2020-03-01",
+   "defaultBody": null,
+   "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}",
+   "putAsyncStyle": "azure-async-operation",
+   "response": {
+    "allTenants": {},
+    "id": {},
+    "name": {},
+    "ownerTenantId": {},
+    "resourceGroup": {},
+    "resourceName": {},
+    "subscriptionId": {},
+    "tags": {
+     "additionalProperties": {
+      "type": "string"
+     }
+    },
+    "tenants": {
+     "items": {
+      "type": "string"
+     }
+    },
+    "type": {}
+   }
+  },
+  "azure-native:keyvault:AccessPolicy": {
+   "PUT": [
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "vaultName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "policy.objectId",
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "body": {
+      "properties": {
+       "policy": {
+        "type": "#/types/azure-native:keyvault:AccessPolicyEntry"
+       }
+      },
+      "required": [
+       "resourceGroupName",
+       "vaultName",
+       "policy"
+      ]
+     },
+     "location": "body",
+     "name": "properties",
+     "value": null
+    }
+   ],
+   "apiVersion": "",
+   "defaultBody": null,
+   "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/accessPolicy/{policy.objectId}",
+   "response": null
+  },
+  "azure-native:storage:Blob": {
+   "PUT": [
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "accountName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "containerName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "blobName",
+     "required": true,
+     "value": {
+      "autoname": "copy",
+      "type": "string"
+     }
+    },
+    {
+     "body": {
+      "properties": {
+       "accessTier": {
+        "type": "string"
+       },
+       "contentMd5": {
+        "forceNew": true,
+        "type": "string"
+       },
+       "contentType": {
+        "type": "string"
+       },
+       "metadata": {
+        "additionalProperties": {
+         "type": "string"
+        },
+        "type": "object"
+       },
+       "source": {
+        "$ref": "pulumi.json#/Asset",
+        "forceNew": true
+       },
+       "type": {
+        "forceNew": true,
+        "type": "string"
+       }
+      },
+      "required": [
+       "resourceGroupName",
+       "accountName",
+       "containerName",
+       "blobName",
+       "type"
+      ]
+     },
+     "location": "body",
+     "name": "properties",
+     "value": null
+    }
+   ],
+   "apiVersion": "",
+   "defaultBody": null,
+   "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/blobs/{blobName}",
+   "response": null
+  },
+  "azure-native:storage:BlobContainerLegalHold": {
+   "PUT": [
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "accountName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "containerName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "body": {
+      "properties": {
+       "allowProtectedAppendWritesAll": {
+        "type": "boolean"
+       },
+       "tags": {
+        "items": {
+         "type": "string"
+        },
+        "type": "array"
+       }
+      },
+      "required": [
+       "resourceGroupName",
+       "accountName",
+       "containerName",
+       "tags"
+      ]
+     },
+     "location": "body",
+     "name": "properties",
+     "value": null
+    }
+   ],
+   "apiVersion": "",
+   "defaultBody": null,
+   "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/legalHold",
+   "response": null
+  },
+  "azure-native:storage:StorageAccountStaticWebsite": {
+   "PUT": [
+    {
+     "location": "path",
+     "name": "subscriptionId",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "resourceGroupName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "location": "path",
+     "name": "accountName",
+     "required": true,
+     "value": {
+      "type": "string"
+     }
+    },
+    {
+     "body": {
+      "properties": {
+       "error404Document": {
+        "type": "string"
+       },
+       "indexDocument": {
+        "type": "string"
+       }
+      }
+     },
+     "location": "body",
+     "name": "properties",
+     "value": null
+    }
+   ],
+   "apiVersion": "",
+   "defaultBody": null,
+   "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/staticWebsite",
+   "response": null
+  }
+ },
+ "types": {
+  "azure-native:aadiam/v20200301:PrivateEndpoint": {
+   "properties": {
+    "id": {
+     "type": "string"
+    }
+   }
+  },
+  "azure-native:aadiam/v20200301:PrivateEndpointResponse": {
+   "properties": {
+    "id": {}
+   }
+  },
+  "azure-native:aadiam/v20200301:PrivateLinkServiceConnectionState": {
+   "properties": {
+    "actionsRequired": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    }
+   }
+  },
+  "azure-native:aadiam/v20200301:PrivateLinkServiceConnectionStateResponse": {
+   "properties": {
+    "actionsRequired": {},
+    "description": {},
+    "status": {}
+   }
+  },
+  "azure-native:aadiam/v20200301:TagsResource": {
+   "properties": {
+    "tags": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "type": "object"
+    }
+   }
+  }
+ }
+}
+---
