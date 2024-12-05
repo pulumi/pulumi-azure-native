@@ -12,6 +12,7 @@ import (
 
 	"github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -68,7 +69,7 @@ func ValidateDefaultConfig(config Spec, curations Curations) []CurationViolation
 			expectedTracking = "stable"
 		}
 		var actualTracking string
-		if providerSpec.Tracking != nil && openapi.IsPreview(*providerSpec.Tracking) {
+		if providerSpec.Tracking != nil && openapi.IsPreview(string(*providerSpec.Tracking)) {
 			actualTracking = "preview"
 		} else {
 			actualTracking = "stable"
@@ -117,13 +118,13 @@ func ReadSpec(path string) (Spec, error) {
 func FindInactiveDefaultVersions(defaultVersionLock openapi.DefaultVersionLock, activeVersions providerlist.ProviderListActiveVersionChecker) map[openapi.ProviderName][]openapi.ApiVersion {
 	result := map[openapi.ProviderName][]openapi.ApiVersion{}
 	for providerName, versions := range defaultVersionLock {
-		inactiveVersions := codegen.NewStringSet()
+		inactiveVersions := collections.NewOrderableSet[openapi.ApiVersion]()
 		for _, version := range versions {
 			if !activeVersions.HasProviderVersion(providerName, version) {
 				inactiveVersions.Add(version)
 			}
 		}
-		if len(inactiveVersions) > 0 {
+		if inactiveVersions.Count() > 0 {
 			result[providerName] = inactiveVersions.SortedValues()
 		}
 	}
@@ -141,7 +142,7 @@ func DefaultConfigToDefaultVersionLock(spec ProvidersVersionResources, defaultCo
 				var versions []string
 				for version := range versionResources {
 					if version != "" {
-						versions = append(versions, version)
+						versions = append(versions, string(version))
 					}
 				}
 				if len(versions) > 0 {
@@ -176,8 +177,8 @@ type providerSpecBuilder struct {
 }
 
 func (b providerSpecBuilder) buildSpec(versions VersionResources, curations Curations, existing ProviderSpec) ProviderSpec {
-	var additionsPtr *map[string]string
-	var trackingPtr *string
+	var additionsPtr *map[string]openapi.ApiVersion
+	var trackingPtr *openapi.ApiVersion
 	var exclusionErrors []ExclusionError
 
 	providerCuration := curations[b.providerName]
@@ -226,7 +227,7 @@ func (b providerSpecBuilder) buildSpec(versions VersionResources, curations Cura
 					Detail:       exclusionErr.Error(),
 				})
 			}
-			if isExcluded || openapi.IsPrivate(apiVersion) {
+			if isExcluded || openapi.IsPrivate(string(apiVersion)) {
 				continue
 			}
 			if existingVersion, ok := existingAdditions[resourceName]; ok {
@@ -297,9 +298,10 @@ func (b providerSpecBuilder) findLatestResourceVersions(versions VersionResource
 
 func filterVersionResources(versions VersionResources, filter []openapi.ApiVersion) VersionResources {
 	filtered := VersionResources{}
-	filterSet := codegen.NewStringSet(filter...)
+	filterMap := collections.NewOrderableSet(filter...)
+
 	for apiVersion, resourceNames := range versions {
-		if filterSet.Has(apiVersion) {
+		if filterMap.Has(apiVersion) {
 			filtered[apiVersion] = resourceNames
 		}
 	}
@@ -327,18 +329,18 @@ func (b providerSpecBuilder) filterCandidateVersions(versions VersionResources, 
 		orderedVersions = liveOrderedVersions
 	}
 
-	candidateVersions := codegen.NewStringSet()
+	candidateVersions := collections.NewOrderableSet[openapi.ApiVersion]()
 	hasFutureStableVersion := false
 	// Start with newest and work backwards
 	for i := len(orderedVersions) - 1; i >= 0; i-- {
 		version := orderedVersions[i]
-		if openapi.IsPrivate(version) {
+		if openapi.IsPrivate(string(version)) {
 			continue
 		}
-		if previewPolicy == PreviewExclude && openapi.IsPreview(version) {
+		if previewPolicy == PreviewExclude && openapi.IsPreview(string(version)) {
 			continue
 		}
-		if !openapi.IsPreview(version) || previewPolicy == PreviewPrefer {
+		if !openapi.IsPreview(string(version)) || previewPolicy == PreviewPrefer {
 			candidateVersions.Add(version)
 			hasFutureStableVersion = true
 			continue
@@ -362,11 +364,7 @@ func (b providerSpecBuilder) filterCandidateVersions(versions VersionResources, 
 		}
 	}
 
-	result := candidateVersions.SortedValues()
-	if result == nil {
-		result = []openapi.ApiVersion{}
-	}
-	return result
+	return candidateVersions.SortedValues()
 }
 
 func isMoreThanOneYearOld(version openapi.ApiVersion) (bool, error) {
@@ -383,7 +381,7 @@ func (b providerSpecBuilder) containsRecentStable(orderedVersions []openapi.ApiV
 	for i := len(orderedVersions) - 1; i >= 0; i-- {
 		previousVersion := orderedVersions[i]
 		// Only looking for recent stable versions
-		if openapi.IsPreview(previousVersion) {
+		if openapi.IsPreview(string(previousVersion)) {
 			continue
 		}
 		// Check if stable version is also recent
@@ -404,7 +402,7 @@ func findMinimalVersionSet(versions VersionResources) []openapi.ApiVersion {
 	for version := range versions {
 		orderedVersions = append(orderedVersions, version)
 	}
-	sort.Strings(orderedVersions)
+	slices.Sort(orderedVersions)
 
 	latestResourceVersions := map[openapi.ResourceName]openapi.ApiVersion{}
 	for _, version := range orderedVersions {
@@ -417,15 +415,12 @@ func findMinimalVersionSet(versions VersionResources) []openapi.ApiVersion {
 		}
 	}
 
-	minimalVersions := codegen.NewStringSet()
+	minimalVersions := collections.NewOrderableSet[openapi.ApiVersion]()
 	for _, apiVersion := range latestResourceVersions {
 		minimalVersions.Add(apiVersion)
 	}
 
 	result := minimalVersions.SortedValues()
-	if result == nil {
-		result = []openapi.ApiVersion{}
-	}
 	return result
 }
 
@@ -433,11 +428,11 @@ func timeBetweenVersions(from, to openapi.ApiVersion) (diff time.Duration, err e
 	if len(from) < 10 || len(to) < 10 {
 		return diff, fmt.Errorf("invalid version string")
 	}
-	fromTime, err := time.Parse("2006-01-02", from[:10])
+	fromTime, err := time.Parse("2006-01-02", string(from)[:10])
 	if err != nil {
 		return diff, err
 	}
-	toTime, err := time.Parse("2006-01-02", to[:10])
+	toTime, err := time.Parse("2006-01-02", string(to)[:10])
 	if err != nil {
 		return diff, err
 	}

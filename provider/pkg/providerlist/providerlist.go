@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
@@ -67,7 +68,7 @@ func ReadProviderList(providerListPath string) (*ProviderList, error) {
 }
 
 type ProviderListActiveVersionChecker interface {
-	HasProviderVersion(providerName, version string) bool
+	HasProviderVersion(providerName string, version openapi.ApiVersion) bool
 }
 
 type providerListIndex struct {
@@ -75,13 +76,13 @@ type providerListIndex struct {
 	providerVersions              map[LoweredProviderName]ApiVersions
 }
 
-func (index *providerListIndex) HasProviderVersion(providerName, version string) bool {
+func (index *providerListIndex) HasProviderVersion(providerName string, version openapi.ApiVersion) bool {
 	providerName = strings.ToLower(providerName)
 	versions, ok := index.providerVersions[providerName]
 	if !ok {
 		return false
 	}
-	return versions.Has(version)
+	return versions.Has(string(version))
 }
 
 // Ensure providerListIndex implements ProviderListActiveVersionChecker

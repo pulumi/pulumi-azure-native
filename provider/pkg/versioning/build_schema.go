@@ -166,7 +166,7 @@ type PathChange struct {
 type MissingExpectedResourceVersion struct {
 	ProviderName string
 	ResourceName string
-	Version      string
+	Version      openapi.SdkVersion
 	IsPrevious   bool
 }
 
@@ -246,7 +246,7 @@ func findPathChanges(providers openapi.AzureProviders,
 			prevPath := paths.NormalizePath(prevSpec.Path)
 
 			if path != prevPath {
-				excluded, err := curations.IsExcluded(providerName, resourceName, prevVersion)
+				excluded, err := curations.IsExcluded(providerName, resourceName, previousVersion)
 				if !excluded && err == nil {
 					result = append(result, PathChange{
 						CurrentPath:  path,

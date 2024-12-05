@@ -3,6 +3,7 @@ package versioning
 import (
 	"testing"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -27,7 +28,7 @@ func TestIsExcluded_NoProviderExclusions(t *testing.T) {
 
 func TestIsExcluded_OtherExclusion(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{Exclusions: map[string]string{"anotherResource": "*"}}
+	curations["Compute"] = providerCuration{Exclusions: map[string]openapi.ApiVersion{"anotherResource": "*"}}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 
@@ -37,7 +38,7 @@ func TestIsExcluded_OtherExclusion(t *testing.T) {
 
 func TestIsExcluded_WildcardExclusion(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{Exclusions: map[string]string{"someResource": "*"}}
+	curations["Compute"] = providerCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "*"}}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 
@@ -47,7 +48,7 @@ func TestIsExcluded_WildcardExclusion(t *testing.T) {
 
 func TestIsExcluded_ExactExclusion(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{Exclusions: map[string]string{"someResource": "2020-01-01"}}
+	curations["Compute"] = providerCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "2020-01-01"}}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 
@@ -57,7 +58,7 @@ func TestIsExcluded_ExactExclusion(t *testing.T) {
 
 func TestIsExcluded_OverExclusion(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{Exclusions: map[string]string{"someResource": "2022-12-12"}}
+	curations["Compute"] = providerCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "2022-12-12"}}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 
@@ -67,7 +68,7 @@ func TestIsExcluded_OverExclusion(t *testing.T) {
 
 func TestIsExcluded_UnderExclusion(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{Exclusions: map[string]string{"someResource": "2000-01-01"}}
+	curations["Compute"] = providerCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "2000-01-01"}}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 

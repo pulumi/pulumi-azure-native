@@ -28,11 +28,11 @@ func TestPortalDashboardGen(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	providers = openapi.ApplyProvidersTransformations(providers, map[string]map[string]string{
+	providers = openapi.ApplyProvidersTransformations(providers, openapi.DefaultVersionLock{
 		"Portal": {
 			"Dashboard": "2020-09-01-preview",
 		},
-	}, map[string]map[string]string{}, map[string][]string{}, map[string][]string{})
+	}, openapi.DefaultVersionLock{}, nil, nil)
 	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, 2)
 	if err != nil {
 		t.Fatal(err)

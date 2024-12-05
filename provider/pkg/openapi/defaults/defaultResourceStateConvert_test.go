@@ -41,13 +41,13 @@ func TestAllDefaultStatesConvertable(t *testing.T) {
 			resourceTokens, found := resourcesByNormalisedPath[pathWithoutVersion]
 			require.Truef(t, found, "Resource not found in test data: %s", pathWithoutVersion)
 			for _, resourceToken := range resourceTokens {
-				var apiVersion string
+				var apiVersion openapi.ApiVersion
 				sdkVersionMatch := resourceTokenVersionMatcher.FindStringSubmatch(resourceToken)
 				if len(sdkVersionMatch) > 1 {
-					apiVersion, err = openapi.SdkToApiVersion(sdkVersionMatch[1])
+					apiVersion, err = openapi.SdkToApiVersion(openapi.SdkVersion(sdkVersionMatch[1]))
 					require.Nil(t, err, "Failed to convert SDK version to API version: %s", sdkVersionMatch[1])
 				}
-				defaultState := defaults.GetDefaultResourceState(path, apiVersion)
+				defaultState := defaults.GetDefaultResourceState(path, string(apiVersion))
 				if defaultState == nil || defaultState.SkipDelete {
 					return
 				}
