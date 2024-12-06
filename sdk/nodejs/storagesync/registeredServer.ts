@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Registered Server resource.
  * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
  *
- * Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2022-09-01.
+ * Other available API versions: 2022-09-01.
  */
 export class RegisteredServer extends pulumi.CustomResource {
     /**

@@ -8,20 +8,17 @@ import (
 
 func TestApiVersionToDate(t *testing.T) {
 	t.Run("simple", func(t *testing.T) {
-		apiVersion := "2020-01-01"
-		date, err := ApiVersionToDate(apiVersion)
+		date, err := ApiVersionToDate("2020-01-01")
 		assert.NoError(t, err)
 		actual := date.Format("2006-01-02")
-		assert.Equal(t, apiVersion, actual)
+		assert.Equal(t, "2020-01-01", actual)
 	})
 
 	t.Run("preview", func(t *testing.T) {
-		apiVersion := "2020-01-01-preview"
-		date, err := ApiVersionToDate(apiVersion)
+		date, err := ApiVersionToDate("2020-01-01-preview")
 		assert.NoError(t, err)
-		expected := "2020-01-01"
 		actual := date.Format("2006-01-02")
-		assert.Equal(t, expected, actual)
+		assert.Equal(t, "2020-01-01", actual)
 	})
 }
 

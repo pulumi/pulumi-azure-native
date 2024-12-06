@@ -71,7 +71,7 @@ def list_remediation_deployments_at_management_group(management_group_id: Option
     Gets all deployments for a remediation at management group scope.
     Azure REST API version: 2021-10-01.
 
-    Other available API versions: 2018-07-01-preview, 2024-10-01.
+    Other available API versions: 2024-10-01.
 
 
     :param str management_group_id: Management group ID.
@@ -99,7 +99,7 @@ def list_remediation_deployments_at_management_group_output(management_group_id:
     Gets all deployments for a remediation at management group scope.
     Azure REST API version: 2021-10-01.
 
-    Other available API versions: 2018-07-01-preview, 2024-10-01.
+    Other available API versions: 2024-10-01.
 
 
     :param str management_group_id: Management group ID.

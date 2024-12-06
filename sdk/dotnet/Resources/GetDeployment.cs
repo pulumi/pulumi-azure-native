@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Resources
         /// Gets a deployment.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2016-07-01, 2023-07-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:resources:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Resources
         /// Gets a deployment.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2016-07-01, 2023-07-01, 2024-03-01, 2024-07-01.
+        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:resources:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());

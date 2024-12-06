@@ -33,11 +33,17 @@ type VersionMetadata struct {
 // The compiler will raise an error here if the interface isn't implemented
 var _ gen.Versioning = (*VersionMetadata)(nil)
 
-func (v VersionMetadata) ShouldInclude(provider string, version string, typeName, token string) bool {
+// Determine if an explicit resource version is being included in the SDK.
+// Version being nil indicates the default version of the resource which should always be included.
+func (v VersionMetadata) ShouldInclude(provider string, version *openapi.ApiVersion, typeName, token string) bool {
+	// Nil version indicates this is in the default version.
+	if version == nil {
+		return true
+	}
 	// Keep any resources in the default version lock
 	if resources, ok := v.Lock[provider]; ok {
 		if defaultResourceVersion, ok := resources[typeName]; ok {
-			if openapi.ApiToSdkVersion(defaultResourceVersion) == version {
+			if defaultResourceVersion == *version {
 				return true
 			}
 		}
@@ -45,7 +51,7 @@ func (v VersionMetadata) ShouldInclude(provider string, version string, typeName
 	// Exclude versions from removed versions
 	if versions, ok := v.RemovedVersions[provider]; ok {
 		for _, removedVersion := range versions {
-			if openapi.ApiToSdkVersion(removedVersion) == version {
+			if removedVersion == *version {
 				return false
 			}
 		}
@@ -274,15 +280,15 @@ func FindRemovedInvokesFromResources(providers openapi.AzureProviders, removedRe
 		for version, resources := range versions {
 			removedResourcePaths := []string{}
 			for resourceName, resource := range resources.Resources {
-				if removedResources.CanBeRemoved(provider, resourceName, version) {
+				if removedResources.CanBeRemoved(provider, resourceName, string(version)) {
 					removedResourcePaths = append(removedResourcePaths, paths.NormalizePath(resource.Path))
 					continue
 				}
 			}
 			for invokeName, invoke := range resources.Invokes {
-				fullyQualifiedName := openapi.ToFullyQualifiedName(provider, invokeName, version)
+				fullyQualifiedName := openapi.ToFullyQualifiedName(provider, invokeName, string(version))
 				// Check if the "resource" removal is actually an invoke.
-				if removedResources.CanBeRemoved(provider, invokeName, version) {
+				if removedResources.CanBeRemoved(provider, invokeName, string(version)) {
 					removableInvokes[fullyQualifiedName] = ""
 					continue
 				}

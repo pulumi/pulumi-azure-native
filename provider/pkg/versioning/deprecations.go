@@ -1,12 +1,12 @@
 package versioning
 
 import (
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
 func FindDeprecations(specVersions ProvidersVersionResources, defaultVersion openapi.DefaultVersionLock) openapi.ProviderVersionList {
-	deprecationCutoff := "2021-01-01"
+	deprecationCutoff := openapi.ApiVersion("2021-01-01")
 	olderVersions := findOlderVersions(specVersions, defaultVersion)
 	for name, versions := range olderVersions {
 		filteredVersions := []openapi.ApiVersion{}
@@ -24,7 +24,7 @@ func RemoveDeprecations(versions ProvidersVersionResources, deprecations openapi
 	filteredSpec := ProvidersVersionResources{}
 	for providerName, versionResources := range versions {
 		filteredVersions := VersionResources{}
-		versionsToRemove := codegen.NewStringSet(deprecations[providerName]...)
+		versionsToRemove := collections.NewOrderableSet[openapi.ApiVersion](deprecations[providerName]...)
 		for apiVersion, resourceNames := range versionResources {
 			if versionsToRemove.Has(apiVersion) {
 				continue

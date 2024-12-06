@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get environment.
  * Azure REST API version: 2018-09-15.
- *
- * Other available API versions: 2016-05-15.
  */
 export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -99,8 +97,6 @@ export interface GetEnvironmentResult {
 /**
  * Get environment.
  * Azure REST API version: 2018-09-15.
- *
- * Other available API versions: 2016-05-15.
  */
 export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

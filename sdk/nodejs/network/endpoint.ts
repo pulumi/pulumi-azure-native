@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Class representing a Traffic Manager endpoint.
  * Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-08-01.
  *
- * Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"path/filepath"
 	"regexp"
+	"slices"
 	"sort"
 	"strings"
 	"time"
@@ -23,7 +24,9 @@ import (
 type ProviderName = string
 
 // ApiVersion e.g. 2020-01-30
-type ApiVersion = string
+// Occasionally we use empty string to represent the default version or no version.
+// Sometimes this is also used as a query and can include a wildcard.
+type ApiVersion string
 
 // DefinitionName is the name of either an 'invoke' or a resource (e.g. listBuckets or Bucket)
 type DefinitionName = string
@@ -35,7 +38,7 @@ type ResourceName = string
 type InvokeName = string
 
 // SdkVersion e.g. v20200130
-type SdkVersion = string
+type SdkVersion string
 
 // AzureProviders maps provider names (e.g. Compute) to versions in that providers and resources therein.
 type AzureProviders map[ProviderName]ProviderVersions
@@ -186,10 +189,10 @@ type ResourceSpec struct {
 	PathItem           *spec.PathItem
 	PathItemList       *spec.PathItem
 	Swagger            *Spec
-	CompatibleVersions []string
+	CompatibleVersions []SdkVersion
 	DefaultBody        map[string]interface{}
 	DeprecationMessage string
-	PreviousVersion    string
+	PreviousVersion    ApiVersion
 }
 
 // ApplyProvidersTransformations adds the default version for each provider and deprecates and removes specified API versions.
@@ -201,7 +204,7 @@ func ApplyProvidersTransformations(providers AzureProviders, defaultVersion Defa
 	return providers
 }
 
-func ApplyRemovals(providers map[string]map[string]VersionResources, removed map[string][]string) {
+func ApplyRemovals(providers map[ProviderName]ProviderVersions, removed ProviderVersionList) {
 	for _, providerName := range codegen.SortedKeys(providers) {
 		versionMap := providers[providerName]
 		if removedVersion, ok := removed[providerName]; ok {
@@ -213,7 +216,7 @@ func ApplyRemovals(providers map[string]map[string]VersionResources, removed map
 	}
 }
 
-func AddDefaultVersion(providers map[string]map[string]VersionResources, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) {
+func AddDefaultVersion(providers AzureProviders, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) {
 	for _, providerName := range codegen.SortedKeys(providers) {
 		versionMap := providers[providerName]
 		// Add a default version for each resource and invoke.
@@ -222,16 +225,16 @@ func AddDefaultVersion(providers map[string]map[string]VersionResources, default
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)
-		versions := []string{}
+		versions := []SdkVersion{}
 		for version := range versionMap {
 			versions = append(versions, version)
 		}
-		sort.Strings(versions)
+		slices.Sort(versions)
 		for _, version := range versions {
 			items := versionMap[version]
 			for _, resourceName := range codegen.SortedKeys(items.Resources) {
 				r := items.Resources[resourceName]
-				var otherVersions []string
+				var otherVersions []SdkVersion
 				normalisedPath := paths.NormalizePath(r.Path)
 				otherVersionsSorted := pathVersions[normalisedPath].SortedValues()
 				for _, otherVersion := range otherVersionsSorted {
@@ -333,7 +336,7 @@ func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders
 	return providers, diagnostics, nil
 }
 
-func deprecateAll(resourceSpecs map[string]*ResourceSpec, version string) {
+func deprecateAll(resourceSpecs map[string]*ResourceSpec, version ApiVersion) {
 	for _, resourceSpec := range resourceSpecs {
 		deprecationMessage := fmt.Sprintf(
 			"Version %s will be removed in v2 of the provider.",
@@ -360,27 +363,30 @@ func IsPreview(apiVersion string) bool {
 	return strings.Contains(lower, "preview") || strings.Contains(lower, "beta")
 }
 
-func ApiVersionToDate(apiVersion string) (time.Time, error) {
+func ApiVersionToDate(apiVersion ApiVersion) (time.Time, error) {
 	if len(apiVersion) < 10 {
 		return time.Time{}, fmt.Errorf("invalid API version %q", apiVersion)
 	}
 	// The API version is in the format YYYY-MM-DD - ignore suffixes like "-preview".
-	return time.Parse("2006-01-02", apiVersion[:10])
+	return time.Parse("2006-01-02", string(apiVersion)[:10])
 }
 
+// Check if the string contains the word "private", ignoring case.
 func IsPrivate(apiVersion string) bool {
 	lower := strings.ToLower(apiVersion)
 	return strings.Contains(lower, "private")
 }
 
-func CompareApiVersions(a, b string) int {
+// Attempt to convert both versions to dates and compare them.
+// Fall back to string comparison if either version is not a date.
+func CompareApiVersions(a, b ApiVersion) int {
 	timeA, err := ApiVersionToDate(a)
 	if err != nil {
-		return strings.Compare(a, b)
+		return strings.Compare(string(a), string(b))
 	}
 	timeB, err := ApiVersionToDate(b)
 	if err != nil {
-		return strings.Compare(a, b)
+		return strings.Compare(string(a), string(b))
 	}
 	timeDiff := timeA.Compare(timeB)
 	if timeDiff != 0 {
@@ -388,16 +394,16 @@ func CompareApiVersions(a, b string) int {
 	}
 
 	// Sort private first, preview second, stable last.
-	aPrivate := IsPrivate(a)
-	bPrivate := IsPrivate(b)
+	aPrivate := IsPrivate(string(a))
+	bPrivate := IsPrivate(string(b))
 	if aPrivate != bPrivate {
 		if aPrivate {
 			return -1
 		}
 		return 1
 	}
-	aPreview := IsPreview(a)
-	bPreview := IsPreview(b)
+	aPreview := IsPreview(string(a))
+	bPreview := IsPreview(string(b))
 	if aPreview != bPreview {
 		if aPreview {
 			return -1
@@ -407,7 +413,7 @@ func CompareApiVersions(a, b string) int {
 	return 0
 }
 
-func SortApiVersions(versions []string) {
+func SortApiVersions(versions []ApiVersion) {
 	sort.SliceStable(versions, func(i, j int) bool {
 		return CompareApiVersions(versions[i], versions[j]) < 0
 	})
@@ -487,23 +493,25 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	// Find (or create) the version map with this name.
 	versionMap, ok := providers[prov]
 	if !ok {
-		versionMap = map[string]VersionResources{}
+		versionMap = map[SdkVersion]VersionResources{}
 		providers[prov] = versionMap
 	}
 
 	// Find (or create) the resource map with this name.
-	apiVersion := ApiToSdkVersion(swagger.Info.Version)
-	version, ok := versionMap[apiVersion]
+	apiVersion := ApiVersion(swagger.Info.Version)
+	sdkVersion := ApiToSdkVersion(apiVersion)
+	version, ok := versionMap[sdkVersion]
 	if !ok {
 		version = NewVersionResources()
-		versionMap[apiVersion] = version
+		versionMap[sdkVersion] = version
 	}
 
 	return addResourcesAndInvokes(version, fileLocation, path, prov, swagger)
 }
 
 func addResourcesAndInvokes(version VersionResources, fileLocation, path, provider string, swagger *Spec) DiscoveryDiagnostics {
-	sdkVersion := ApiToSdkVersion(swagger.Info.Version)
+	apiVersion := ApiVersion(swagger.Info.Version)
+	sdkVersion := ApiToSdkVersion(apiVersion)
 
 	pathItem := swagger.Paths.Paths[path]
 	pathItemList, hasList := swagger.Paths.Paths[path+"/list"]

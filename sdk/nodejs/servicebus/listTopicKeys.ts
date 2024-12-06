@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Gets the primary and secondary connection strings for the topic.
  * Azure REST API version: 2022-01-01-preview.
  *
- * Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
  */
 export function listTopicKeys(args: ListTopicKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListTopicKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,7 +76,7 @@ export interface ListTopicKeysResult {
  * Gets the primary and secondary connection strings for the topic.
  * Azure REST API version: 2022-01-01-preview.
  *
- * Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
  */
 export function listTopicKeysOutput(args: ListTopicKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListTopicKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

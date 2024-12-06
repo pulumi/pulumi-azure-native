@@ -118,7 +118,7 @@ def get_sync_group(resource_group_name: Optional[str] = None,
     Get a given SyncGroup.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2017-06-05-preview, 2018-04-02, 2022-09-01.
+    Other available API versions: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -147,7 +147,7 @@ def get_sync_group_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     Get a given SyncGroup.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2017-06-05-preview, 2018-04-02, 2022-09-01.
+    Other available API versions: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

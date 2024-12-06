@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// Get the metadata of an IoT Central application.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2018-09-01, 2021-11-01-preview.
+        /// Other available API versions: 2021-11-01-preview.
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.IoTCentral
         /// Get the metadata of an IoT Central application.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2018-09-01, 2021-11-01-preview.
+        /// Other available API versions: 2021-11-01-preview.
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());

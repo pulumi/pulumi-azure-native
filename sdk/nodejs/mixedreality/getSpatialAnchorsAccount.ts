@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Retrieve a Spatial Anchors Account.
  * Azure REST API version: 2021-01-01.
  *
- * Other available API versions: 2019-02-28-preview, 2021-03-01-preview.
+ * Other available API versions: 2021-03-01-preview.
  */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +93,7 @@ export interface GetSpatialAnchorsAccountResult {
  * Retrieve a Spatial Anchors Account.
  * Azure REST API version: 2021-01-01.
  *
- * Other available API versions: 2019-02-28-preview, 2021-03-01-preview.
+ * Other available API versions: 2021-03-01-preview.
  */
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -16,7 +16,7 @@ import (
 func TestTypeAliasFormatting(t *testing.T) {
 	generator := packageGenerator{
 		pkg:        &pschema.PackageSpec{Name: "azure-native"},
-		apiVersion: "v20220222",
+		sdkVersion: "v20220222",
 		provider:   "Compute",
 	}
 
@@ -34,12 +34,12 @@ func TestTypeAliasFormatting(t *testing.T) {
 var _ Versioning = (*versioningStub)(nil)
 
 type versioningStub struct {
-	shouldInclude   func(provider string, version string, typeName, token string) bool
+	shouldInclude   func(provider string, version *openapi.ApiVersion, typeName, token string) bool
 	getDeprecations func(token string) (ResourceDeprecation, bool)
-	getAllVersions  func(provider, resource string) []string
+	getAllVersions  func(provider, resource string) []openapi.ApiVersion
 }
 
-func (v versioningStub) ShouldInclude(provider string, version string, typeName, token string) bool {
+func (v versioningStub) ShouldInclude(provider string, version *openapi.ApiVersion, typeName, token string) bool {
 	if v.shouldInclude != nil {
 		return v.shouldInclude(provider, version, typeName, token)
 	}
@@ -53,17 +53,17 @@ func (v versioningStub) GetDeprecation(token string) (ResourceDeprecation, bool)
 	return ResourceDeprecation{}, false
 }
 
-func (v versioningStub) GetAllVersions(provider, resource string) []string {
+func (v versioningStub) GetAllVersions(provider, resource string) []openapi.ApiVersion {
 	if v.getAllVersions != nil {
 		return v.getAllVersions(provider, resource)
 	}
-	return []string{}
+	return []openapi.ApiVersion{}
 }
 
 func TestAliases(t *testing.T) {
 	generator := packageGenerator{
 		pkg:          &pschema.PackageSpec{Name: "azure-native"},
-		apiVersion:   "v20220222",
+		sdkVersion:   "v20220222",
 		versioning:   versioningStub{},
 		provider:     "Insights",
 		majorVersion: 2,
@@ -71,7 +71,7 @@ func TestAliases(t *testing.T) {
 
 	resource := &resourceVariant{
 		ResourceSpec: &openapi.ResourceSpec{
-			CompatibleVersions: []string{"v20210111"},
+			CompatibleVersions: []openapi.SdkVersion{"v20210111"},
 		},
 		typeName: "PrivateLinkForAzureAd",
 	}

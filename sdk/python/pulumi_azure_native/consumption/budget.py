@@ -185,7 +185,7 @@ class Budget(pulumi.CustomResource):
         A budget resource.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01.
 
-        Other available API versions: 2017-12-30-preview, 2018-10-01, 2019-05-01, 2019-06-01, 2023-11-01, 2024-08-01.
+        Other available API versions: 2023-11-01, 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,7 +209,7 @@ class Budget(pulumi.CustomResource):
         A budget resource.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2019-10-01.
 
-        Other available API versions: 2017-12-30-preview, 2018-10-01, 2019-05-01, 2019-06-01, 2023-11-01, 2024-08-01.
+        Other available API versions: 2023-11-01, 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.

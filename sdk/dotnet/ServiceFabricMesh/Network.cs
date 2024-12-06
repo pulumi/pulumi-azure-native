@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     /// <summary>
     /// This type describes a network resource.
     /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
-    /// 
-    /// Other available API versions: 2018-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh:Network")]
     public partial class Network : global::Pulumi.CustomResource

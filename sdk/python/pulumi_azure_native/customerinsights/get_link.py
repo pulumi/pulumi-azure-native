@@ -238,8 +238,6 @@ def get_link(hub_name: Optional[str] = None,
     Gets a link in the hub.
     Azure REST API version: 2017-04-26.
 
-    Other available API versions: 2017-01-01.
-
 
     :param str hub_name: The name of the hub.
     :param str link_name: The name of the link.
@@ -276,8 +274,6 @@ def get_link_output(hub_name: Optional[pulumi.Input[str]] = None,
     """
     Gets a link in the hub.
     Azure REST API version: 2017-04-26.
-
-    Other available API versions: 2017-01-01.
 
 
     :param str hub_name: The name of the hub.

@@ -70,8 +70,6 @@ def list_schedule_applicable(lab_name: Optional[str] = None,
     Lists all applicable schedules
     Azure REST API version: 2018-09-15.
 
-    Other available API versions: 2016-05-15.
-
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the schedule.
@@ -94,8 +92,6 @@ def list_schedule_applicable_output(lab_name: Optional[pulumi.Input[str]] = None
     """
     Lists all applicable schedules
     Azure REST API version: 2018-09-15.
-
-    Other available API versions: 2016-05-15.
 
 
     :param str lab_name: The name of the lab.

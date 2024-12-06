@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.DevTestLab
     /// <summary>
     /// A schedule.
     /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
-    /// 
-    /// Other available API versions: 2016-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

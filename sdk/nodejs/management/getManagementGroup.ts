@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Azure REST API version: 2021-04-01.
  *
- * Other available API versions: 2017-11-01-preview, 2020-02-01, 2023-04-01.
+ * Other available API versions: 2023-04-01.
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,7 +81,7 @@ export interface GetManagementGroupResult {
  *
  * Azure REST API version: 2021-04-01.
  *
- * Other available API versions: 2017-11-01-preview, 2020-02-01, 2023-04-01.
+ * Other available API versions: 2023-04-01.
  */
 export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

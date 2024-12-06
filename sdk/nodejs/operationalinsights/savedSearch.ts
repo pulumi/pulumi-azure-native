@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Value object for saved search results.
  * Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
  *
- * Other available API versions: 2015-03-20, 2023-09-01.
+ * Other available API versions: 2023-09-01.
  */
 export class SavedSearch extends pulumi.CustomResource {
     /**

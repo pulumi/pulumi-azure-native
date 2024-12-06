@@ -369,7 +369,7 @@ def get_device(device_name: Optional[str] = None,
     Gets the properties of the Data Box Edge/Data Box Gateway device.
     Azure REST API version: 2022-03-01.
 
-    Other available API versions: 2020-05-01-preview, 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
 
     :param str device_name: The device name.
@@ -416,7 +416,7 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
     Gets the properties of the Data Box Edge/Data Box Gateway device.
     Azure REST API version: 2022-03-01.
 
-    Other available API versions: 2020-05-01-preview, 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
 
 
     :param str device_name: The device name.

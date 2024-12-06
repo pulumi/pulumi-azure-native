@@ -1,6 +1,7 @@
 package versioning
 
 import (
+	"slices"
 	"sort"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
@@ -16,12 +17,12 @@ func FindAllResources(providerVersions openapi.AzureProviders) ProvidersVersionR
 	for providerName, versions := range providerVersions {
 		versionResources := VersionResources{}
 		for _, resources := range versions {
-			version := ""
+			version := openapi.ApiVersion("")
 			allResources := resources.All()
 			specResources := make([]string, 0, len(allResources))
 			for resourceName, spec := range allResources {
 				specResources = append(specResources, resourceName)
-				version = spec.Swagger.Info.Version
+				version = openapi.ApiVersion(spec.Swagger.Info.Version)
 			}
 			sort.Strings(specResources)
 			versionResources[version] = specResources
@@ -46,7 +47,7 @@ func FormatResourceVersions(providerVersions ProvidersVersionResources) Provider
 			}
 		}
 		for _, apiVersions := range resourceVersions {
-			sort.Strings(apiVersions)
+			slices.Sort(apiVersions)
 		}
 		formatted[providerName] = resourceVersions
 	}

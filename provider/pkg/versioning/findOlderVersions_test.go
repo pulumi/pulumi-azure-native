@@ -50,12 +50,12 @@ func fakeApiVersion(spec FakeApiVersion) openapi.ApiVersion {
 	min, _ := time.Parse(ApiVersionLayout, "2000-01-01")
 	max, _ := time.Parse(ApiVersionLayout, "2100-01-01")
 	if spec.GreaterThan != "" {
-		min, _ = time.Parse(ApiVersionLayout, spec.GreaterThan)
+		min, _ = time.Parse(ApiVersionLayout, string(spec.GreaterThan))
 		min = min.AddDate(0, 0, 1)
 	}
 	if spec.LessThan != "" {
-		max, _ = time.Parse(ApiVersionLayout, spec.LessThan)
+		max, _ = time.Parse(ApiVersionLayout, string(spec.LessThan))
 		max = max.AddDate(0, 0, -1)
 	}
-	return gofakeit.DateRange(min, max).Format(ApiVersionLayout)
+	return openapi.ApiVersion(gofakeit.DateRange(min, max).Format(ApiVersionLayout))
 }

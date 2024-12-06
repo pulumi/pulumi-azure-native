@@ -239,8 +239,6 @@ def get_schedule(expand: Optional[str] = None,
     Get schedule.
     Azure REST API version: 2018-09-15.
 
-    Other available API versions: 2016-05-15.
-
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param str lab_name: The name of the lab.
@@ -280,8 +278,6 @@ def get_schedule_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Get schedule.
     Azure REST API version: 2018-09-15.
-
-    Other available API versions: 2016-05-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'

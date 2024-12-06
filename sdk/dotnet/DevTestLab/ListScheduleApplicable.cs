@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Lists all applicable schedules
         /// Azure REST API version: 2018-09-15.
-        /// 
-        /// Other available API versions: 2016-05-15.
         /// </summary>
         public static Task<ListScheduleApplicableResult> InvokeAsync(ListScheduleApplicableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListScheduleApplicableResult>("azure-native:devtestlab:listScheduleApplicable", args ?? new ListScheduleApplicableArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Lists all applicable schedules
         /// Azure REST API version: 2018-09-15.
-        /// 
-        /// Other available API versions: 2016-05-15.
         /// </summary>
         public static Output<ListScheduleApplicableResult> Invoke(ListScheduleApplicableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListScheduleApplicableResult>("azure-native:devtestlab:listScheduleApplicable", args ?? new ListScheduleApplicableInvokeArgs(), options.WithDefaults());

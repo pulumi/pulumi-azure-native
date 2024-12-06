@@ -35,7 +35,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
         Class representing Traffic Manager User Metrics.
         Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-08-01.
 
-        Other available API versions: 2017-09-01-preview, 2022-04-01-preview.
+        Other available API versions: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -50,7 +50,7 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
         Class representing Traffic Manager User Metrics.
         Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-08-01.
 
-        Other available API versions: 2017-09-01-preview, 2022-04-01-preview.
+        Other available API versions: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TrafficManagerUserMetricsKeyArgs args: The arguments to use to populate this resource's properties.

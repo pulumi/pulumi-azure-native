@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.StorageSync
         /// Get a given registered server.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2022-09-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Task<GetRegisteredServerResult> InvokeAsync(GetRegisteredServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.StorageSync
         /// Get a given registered server.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2017-06-05-preview, 2018-04-02, 2018-07-01, 2022-09-01.
+        /// Other available API versions: 2022-09-01.
         /// </summary>
         public static Output<GetRegisteredServerResult> Invoke(GetRegisteredServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithDefaults());

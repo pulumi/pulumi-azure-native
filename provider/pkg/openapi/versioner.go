@@ -9,8 +9,8 @@ import (
 	"os"
 	"strings"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/segmentio/encoding/json"
 )
 
@@ -58,14 +58,14 @@ func ReadDefaultVersionLock(path string) (DefaultVersionLock, error) {
 
 // calculatePathVersions builds a map of all versions defined for an API paths from a map of all versions of a resource
 // provider. The result is a map from a normalized path to a set of versions for that path.
-func calculatePathVersions(versionMap ProviderVersions) map[string]codegen.StringSet {
-	pathVersions := map[string]codegen.StringSet{}
+func calculatePathVersions(versionMap ProviderVersions) map[string]*collections.OrderableSet[SdkVersion] {
+	pathVersions := map[string]*collections.OrderableSet[SdkVersion]{}
 	for version, items := range versionMap {
 		for _, r := range items.Resources {
 			normalizedPath := paths.NormalizePath(r.Path)
 			versions, ok := pathVersions[normalizedPath]
 			if !ok {
-				versions = codegen.StringSet{}
+				versions = collections.NewOrderableSet[SdkVersion]()
 				pathVersions[normalizedPath] = versions
 			}
 			versions.Add(version)
@@ -76,41 +76,43 @@ func calculatePathVersions(versionMap ProviderVersions) map[string]codegen.Strin
 
 // 2022-02-02-preview -> v20220202preview
 func ApiToSdkVersion(apiVersion ApiVersion) SdkVersion {
-	return "v" + strings.ReplaceAll(apiVersion, "-", "")
+	return SdkVersion("v" + strings.ReplaceAll(string(apiVersion), "-", ""))
 }
 
 // v20220202preview -> 2022-02-02-preview
 func SdkToApiVersion(v SdkVersion) (ApiVersion, error) {
-	if !strings.HasPrefix(v, "v") || len(v) < len("v20220202") || len(v) > len("v20220202privatepreview") {
+	if !strings.HasPrefix(string(v), "v") || len(v) < len("v20220202") || len(v) > len("v20220202privatepreview") {
 		return "", fmt.Errorf("invalid sdk version: %s", v)
 	}
 	res := v[1:5] + "-" + v[5:7] + "-" + v[7:9]
 	suffix := v[9:]
 	switch suffix {
-	case "preview", "privatepreview":
+	case "preview", "privatepreview", "beta":
 		res += "-" + suffix
 	case "":
 	default:
 		return "", fmt.Errorf("invalid sdk version suffix: %s", v)
 	}
-	return res, nil
+	return ApiVersion(res), nil
 }
 
 // RemovableResources represents removable resources mapped to the resource that can replace them since the two are
 // schema-compatible. Both are represented as fully qualified names like azure-native:azuread/v20210301:DomainService.
 type RemovableResources map[string]string
 
-// Returns azure-native:azureProvider/version:resource
+// Returns azure-native:azureProvider/version:resource.
+// Version can be either ApiVersion or SdkVersion.
 // TODO tkappler version should be optional
 func ToFullyQualifiedName(azureProvider, resource, version string) string {
 	// construct fully qualified name like azure-native:aad/v20210301:DomainService
 	const fqnFmt = "azure-native:%s/%s:%s"
 	if !strings.HasPrefix(version, "v") {
-		version = ApiToSdkVersion(version)
+		version = string(ApiToSdkVersion(ApiVersion(version)))
 	}
 	return fmt.Sprintf(fqnFmt, strings.ToLower(azureProvider), version, resource)
 }
 
+// Version can be either ApiVersion or SdkVersion
 func (s RemovableResources) CanBeRemoved(azureProvider, resource, version string) bool {
 	fqn := ToFullyQualifiedName(azureProvider, resource, version)
 	_, ok := s[fqn]
@@ -127,7 +129,7 @@ func RemoveResources(providers AzureProviders, removable RemovableResources) Azu
 			filteredResources := NewVersionResources()
 			removedResourcePaths := []string{}
 			for resourceName, resource := range resources.Resources {
-				if removable.CanBeRemoved(provider, resourceName, version) {
+				if removable.CanBeRemoved(provider, resourceName, string(version)) {
 					removedResourceCount++
 					removedResourcePaths = append(removedResourcePaths, paths.NormalizePath(resource.Path))
 					continue
@@ -135,7 +137,7 @@ func RemoveResources(providers AzureProviders, removable RemovableResources) Azu
 				filteredResources.Resources[resourceName] = resource
 			}
 			for invokeName, invoke := range resources.Invokes {
-				if removable.CanBeRemoved(provider, invokeName, version) {
+				if removable.CanBeRemoved(provider, invokeName, string(version)) {
 					removedInvokeCount++
 					continue
 				}

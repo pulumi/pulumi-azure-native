@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Authorization
         /// Get a role assignment by scope and name.
         /// Azure REST API version: 2022-04-01.
         /// 
-        /// Other available API versions: 2015-07-01, 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
+        /// Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
         /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:authorization:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Authorization
         /// Get a role assignment by scope and name.
         /// Azure REST API version: 2022-04-01.
         /// 
-        /// Other available API versions: 2015-07-01, 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
+        /// Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
         /// </summary>
         public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:authorization:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithDefaults());

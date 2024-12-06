@@ -106,7 +106,7 @@ def list_namespace_keys(authorization_rule_name: Optional[str] = None,
     Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
     Azure REST API version: 2023-01-01-preview.
 
-    Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
+    Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
 
 
     :param str authorization_rule_name: Authorization Rule Name
@@ -134,7 +134,7 @@ def list_namespace_keys_output(authorization_rule_name: Optional[pulumi.Input[st
     Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
     Azure REST API version: 2023-01-01-preview.
 
-    Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
+    Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
 
 
     :param str authorization_rule_name: Authorization Rule Name

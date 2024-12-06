@@ -130,8 +130,6 @@ def list_virtual_machine_applicable_schedules(lab_name: Optional[str] = None,
     Lists the applicable start/stop schedules, if any.
     Azure REST API version: 2018-09-15.
 
-    Other available API versions: 2016-05-15.
-
 
     :param str lab_name: The name of the lab.
     :param str name: The name of the virtual machine.
@@ -159,8 +157,6 @@ def list_virtual_machine_applicable_schedules_output(lab_name: Optional[pulumi.I
     """
     Lists the applicable start/stop schedules, if any.
     Azure REST API version: 2018-09-15.
-
-    Other available API versions: 2016-05-15.
 
 
     :param str lab_name: The name of the lab.

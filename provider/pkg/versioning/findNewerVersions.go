@@ -1,32 +1,31 @@
 package versioning
 
 import (
-	"sort"
-
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 )
 
 func FindNewerVersions(specVersions ProvidersVersionResources, defaultVersion openapi.DefaultVersionLock) openapi.ProviderVersionList {
 	olderProviderVersions := openapi.ProviderVersionList{}
 	for providerName, versions := range specVersions {
-		//goland:noinspection GoPreferNilSlice
-		newerVersions := []openapi.ApiVersion{}
+		newerVersions := collections.NewOrderableSet[openapi.ApiVersion]()
 		defaultResourceVersions := defaultVersion[providerName]
 		maxCuratedVersion := findMaxDefaultVersion(defaultResourceVersions)
-		for version, _ := range versions {
+		for version := range versions {
 			if version == "" || version <= maxCuratedVersion {
 				continue
 			}
-			newerVersions = append(newerVersions, version)
+			newerVersions.Add(version)
 		}
-		sort.Strings(newerVersions)
-		olderProviderVersions[providerName] = newerVersions
+		olderProviderVersions[providerName] = newerVersions.SortedValues()
 	}
 	return olderProviderVersions
 }
 
 func findMaxDefaultVersion(resourceVersions map[openapi.DefinitionName]openapi.ApiVersion) openapi.ApiVersion {
-	minVersion := ""
+	// We currently use empty string to represent when there is no version available which must be handled above.
+	// This might be better being represented as a nil value.
+	minVersion := openapi.ApiVersion("")
 	for _, version := range resourceVersions {
 		if minVersion == "" || version < minVersion {
 			minVersion = version

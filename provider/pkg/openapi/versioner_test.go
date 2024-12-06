@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/go-openapi/spec"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -17,15 +17,15 @@ import (
 //     (e.g., happened in Web provider for ServerFarm -> AppServicePlan)
 //   - Res 4 is named consistently, but the path has changed over time
 //     (e.g., happened with several resources in ApiManagement)
-var versionMap = map[string]VersionResources{
-	"2020-01-01": {
+var versionMap = map[SdkVersion]VersionResources{
+	"v20200101": {
 		Resources: map[string]*ResourceSpec{
 			"Res1": makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v1"),
 			"Res2": makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v1"),
 			"Res3": makeResource("/someprefix/Microsoft.Foo/res3/{res3Name}", "Res 3 v1"),
 		},
 	},
-	"2020-02-01": {
+	"v20200201": {
 		Resources: map[string]*ResourceSpec{
 			"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v2"),
 			"Res2":        makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v2"),
@@ -33,7 +33,7 @@ var versionMap = map[string]VersionResources{
 			"Res4":        makeResource("/someprefix/Microsoft.Foo/res4/{res4Name}", "Res 4 v1"),
 		},
 	},
-	"2020-03-01": {
+	"v20200301": {
 		Resources: map[string]*ResourceSpec{
 			"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v3"),
 			"Res3Renamed": makeResource("/someprefix/Microsoft.Foo/res3/{res3Name}", "Res 3 v3"),
@@ -41,7 +41,7 @@ var versionMap = map[string]VersionResources{
 		},
 	},
 	// The next version is "unknown" yet.
-	"2020-04-01": {
+	"v20200401": {
 		Resources: map[string]*ResourceSpec{
 			"Res1": makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v4"),
 			"Res4": makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v3"),
@@ -50,15 +50,15 @@ var versionMap = map[string]VersionResources{
 }
 
 func TestFindingPathVersions(t *testing.T) {
-	expected := map[string]codegen.StringSet{
-		"/someprefix/microsoft.foo/res1/{}": codegen.NewStringSet("2020-01-01", "2020-02-01", "2020-03-01", "2020-04-01"),
-		"/someprefix/microsoft.foo/res2/{}": codegen.NewStringSet("2020-01-01", "2020-02-01"),
-		"/someprefix/microsoft.foo/res3/{}": codegen.NewStringSet("2020-01-01", "2020-02-01", "2020-03-01"),
-		"/someprefix/microsoft.foo/res4/{}": codegen.NewStringSet("2020-02-01", "2020-03-01", "2020-04-01"),
+	expected := map[string]*collections.OrderableSet[SdkVersion]{
+		"/someprefix/microsoft.foo/res1/{}": collections.NewOrderableSet[SdkVersion]("v20200101", "v20200201", "v20200301", "v20200401"),
+		"/someprefix/microsoft.foo/res2/{}": collections.NewOrderableSet[SdkVersion]("v20200101", "v20200201"),
+		"/someprefix/microsoft.foo/res3/{}": collections.NewOrderableSet[SdkVersion]("v20200101", "v20200201", "v20200301"),
+		"/someprefix/microsoft.foo/res4/{}": collections.NewOrderableSet[SdkVersion]("v20200201", "v20200301", "v20200401"),
 	}
 
 	actual := calculatePathVersions(versionMap)
-	assert.Equal(t, actual, expected)
+	assert.Equal(t, expected, actual)
 }
 
 func TestSqueezeSimple(t *testing.T) {
@@ -150,7 +150,7 @@ func makeResource(path, description string) *ResourceSpec {
 }
 
 func TestSdkToApiVersion(t *testing.T) {
-	testConvert := func(t *testing.T, input, expected string) {
+	testConvert := func(t *testing.T, input SdkVersion, expected ApiVersion) {
 		t.Helper()
 		actual, err := SdkToApiVersion(input)
 		assert.Nil(t, err)
@@ -165,7 +165,9 @@ func TestSdkToApiVersion(t *testing.T) {
 	t.Run("privatepreview", func(t *testing.T) {
 		testConvert(t, "v20200101privatepreview", "2020-01-01-privatepreview")
 	})
-
+	t.Run("beta", func(t *testing.T) {
+		testConvert(t, "v20200101beta", "2020-01-01-beta")
+	})
 	t.Run("missing leading v", func(t *testing.T) {
 		_, err := SdkToApiVersion("20200101privatepreview")
 		assert.Error(t, err)

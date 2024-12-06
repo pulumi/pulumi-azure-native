@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * PNS credentials.
  * Azure REST API version: 2023-01-01-preview.
  *
- * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
+ * Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
  */
 export function getNotificationHubPnsCredentials(args: GetNotificationHubPnsCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubPnsCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,7 +77,7 @@ export interface GetNotificationHubPnsCredentialsResult {
  * PNS credentials.
  * Azure REST API version: 2023-01-01-preview.
  *
- * Other available API versions: 2014-09-01, 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
+ * Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
  */
 export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

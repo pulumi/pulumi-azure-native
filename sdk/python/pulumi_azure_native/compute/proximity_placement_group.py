@@ -172,7 +172,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         Specifies information about the proximity placement group.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2019-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,7 +195,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         Specifies information about the proximity placement group.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
 
-        Other available API versions: 2019-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param ProximityPlacementGroupArgs args: The arguments to use to populate this resource's properties.

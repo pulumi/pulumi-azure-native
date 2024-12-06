@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// Gets the properties of the specified configuration store.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2019-02-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
         /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// Gets the properties of the specified configuration store.
         /// Azure REST API version: 2023-03-01.
         /// 
-        /// Other available API versions: 2019-02-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
         /// </summary>
         public static Output<GetConfigurationStoreResult> Invoke(GetConfigurationStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithDefaults());

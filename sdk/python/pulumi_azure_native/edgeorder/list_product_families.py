@@ -73,8 +73,6 @@ def list_product_families(customer_subscription_details: Optional[Union['Custome
     This method provides the list of product families for the given subscription.
     Azure REST API version: 2021-12-01.
 
-    Other available API versions: 2020-12-01-preview.
-
 
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
     :param str expand: $expand is supported on configurations parameter for product, which provides details on the configurations for the product.
@@ -100,8 +98,6 @@ def list_product_families_output(customer_subscription_details: Optional[pulumi.
     """
     This method provides the list of product families for the given subscription.
     Azure REST API version: 2021-12-01.
-
-    Other available API versions: 2020-12-01-preview.
 
 
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details

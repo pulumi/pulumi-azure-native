@@ -201,8 +201,6 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
     Gets details about the specified dedicated capacity.
     Azure REST API version: 2021-01-01.
 
-    Other available API versions: 2017-10-01.
-
 
     :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
     :param str resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
@@ -233,8 +231,6 @@ def get_capacity_details_output(dedicated_capacity_name: Optional[pulumi.Input[s
     """
     Gets details about the specified dedicated capacity.
     Azure REST API version: 2021-01-01.
-
-    Other available API versions: 2017-10-01.
 
 
     :param str dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.

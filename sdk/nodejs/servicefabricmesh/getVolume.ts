@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
  * Azure REST API version: 2018-09-01-preview.
- *
- * Other available API versions: 2018-07-01-preview.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,8 +82,6 @@ export interface GetVolumeResult {
 /**
  * Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
  * Azure REST API version: 2018-09-01-preview.
- *
- * Other available API versions: 2018-07-01-preview.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -345,8 +345,6 @@ def get_domain_service(domain_service_name: Optional[str] = None,
     The Get Domain Service operation retrieves a json representation of the Domain Service.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2017-06-01.
-
 
     :param str domain_service_name: The name of the domain service.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -389,8 +387,6 @@ def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] =
     """
     The Get Domain Service operation retrieves a json representation of the Domain Service.
     Azure REST API version: 2022-12-01.
-
-    Other available API versions: 2017-06-01.
 
 
     :param str domain_service_name: The name of the domain service.

@@ -21,6 +21,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"slices"
 	"sort"
 	"strings"
 
@@ -49,7 +50,7 @@ type ResourceDeprecation struct {
 }
 
 type Versioning interface {
-	ShouldInclude(provider string, version string, typeName, token string) bool
+	ShouldInclude(provider string, version *openapi.ApiVersion, typeName, token string) bool
 	GetDeprecation(token string) (ResourceDeprecation, bool)
 	GetAllVersions(openapi.ProviderName, openapi.ResourceName) []openapi.ApiVersion
 }
@@ -285,19 +286,29 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
-		var versions []string
+		var versions []openapi.SdkVersion
 		for version := range versionMap {
 			versions = append(versions, version)
 		}
-		sort.Strings(versions)
+		slices.Sort(versions)
 
-		for _, version := range versions {
+		for _, sdkVersion := range versions {
+			// Attempt to convert back to an API version for use elsewhere
+			var apiVersion *openapi.ApiVersion
+			if sdkVersion != "" {
+				apiVersionConverted, err := openapi.SdkToApiVersion(sdkVersion)
+				if err != nil {
+					return nil, fmt.Errorf("failed to convert SDK version %s back to API version: %v", sdkVersion, err)
+				}
+				apiVersion = &apiVersionConverted
+			}
 			gen := packageGenerator{
 				pkg:                        &pkg,
 				metadata:                   &metadata,
 				provider:                   providerName,
-				apiVersion:                 version,
-				allApiVersions:             versions,
+				apiVersion:                 apiVersion,
+				sdkVersion:                 sdkVersion,
+				allSdkVersions:             versions,
 				examples:                   exampleMap,
 				versioning:                 versioning,
 				caseSensitiveTypes:         caseSensitiveTypes,
@@ -311,16 +322,16 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			module := gen.moduleName()
 			csharpNamespaces[strings.ToLower(providerName)] = providerName
 			javaPackages[module] = strings.ToLower(providerName)
-			if version != "" {
-				csVersion := strings.Title(csharpVersionReplacer.Replace(version))
+			if sdkVersion != "" {
+				csVersion := strings.Title(csharpVersionReplacer.Replace(string(sdkVersion)))
 				csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
-				javaPackages[module] = fmt.Sprintf("%s.%s", strings.ToLower(providerName), version)
+				javaPackages[module] = fmt.Sprintf("%s.%s", strings.ToLower(providerName), sdkVersion)
 			}
 			pythonModuleNames[module] = module
 			golangImportAliases[filepath.Join(goModuleRepoPath, gen.versionedModuleName())] = strings.ToLower(providerName)
 
 			// Populate resources and get invokes.
-			items := versionMap[version]
+			items := versionMap[sdkVersion]
 			var resources []string
 			for resource := range items.Resources {
 				resources = append(resources, resource)
@@ -626,8 +637,9 @@ type packageGenerator struct {
 	metadata           *resources.AzureAPIMetadata
 	provider           openapi.ProviderName
 	examples           map[string][]resources.AzureAPIExample
-	apiVersion         string
-	allApiVersions     []openapi.ApiVersion
+	apiVersion         *openapi.ApiVersion
+	sdkVersion         openapi.SdkVersion
+	allSdkVersions     []openapi.SdkVersion
 	versioning         Versioning
 	caseSensitiveTypes caseSensitiveTokens
 	warnings           []string
@@ -769,7 +781,7 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 	return result, nil
 }
 
-func (g *packageGenerator) makeTypeAlias(alias, apiVersion string) pschema.AliasSpec {
+func (g *packageGenerator) makeTypeAlias(alias string, apiVersion openapi.SdkVersion) pschema.AliasSpec {
 	fqAlias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, g.providerApiToModule(apiVersion), alias)
 	return pschema.AliasSpec{Type: &fqAlias}
 }
@@ -847,7 +859,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: g.formatDescription(resourceResponse.description, resource.typeName, swagger.Info.Version, apiSpec.PreviousVersion, additionalDocs),
+			Description: g.formatDescription(resourceResponse.description, resource.typeName, openapi.ApiVersion(swagger.Info.Version), apiSpec.PreviousVersion, additionalDocs),
 			Type:        "object",
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
@@ -962,7 +974,7 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAl
 	var aliases []pschema.AliasSpec
 
 	for _, alias := range typeNameAliases {
-		aliases = append(aliases, g.makeTypeAlias(alias, g.apiVersion))
+		aliases = append(aliases, g.makeTypeAlias(alias, g.sdkVersion))
 	}
 
 	// Add an alias for each API version that has the same path in it.
@@ -1050,7 +1062,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 	}
 
 	// Generate the function to get this resource.
-	functionTok := g.generateTok(typeName, g.apiVersion)
+	functionTok := g.generateTok(typeName, g.sdkVersion)
 	if !g.shouldInclude(typeName, functionTok, g.apiVersion) {
 		return
 	}
@@ -1098,31 +1110,31 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 	g.metadata.Invokes[functionTok] = f
 }
 
-// moduleName produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
+// moduleName produces the module name from the provider name and the version e.g. `compute/v20200701`.
 func (g *packageGenerator) moduleName() string {
-	return g.providerApiToModule(g.apiVersion)
+	return g.providerApiToModule(g.sdkVersion)
 }
 
 func (g *packageGenerator) versionedModuleName() string {
 	versionedModule := strings.ToLower(g.provider) + goModuleVersion
-	if g.apiVersion == "" {
+	if g.sdkVersion == "" {
 		return versionedModule
 	}
-	return fmt.Sprintf("%s/%s", versionedModule, g.apiVersion)
+	return fmt.Sprintf("%s/%s", versionedModule, g.sdkVersion)
 }
 
-func (g *packageGenerator) providerApiToModule(apiVersion string) string {
+func (g *packageGenerator) providerApiToModule(apiVersion openapi.SdkVersion) string {
 	if apiVersion == "" {
 		return strings.ToLower(g.provider)
 	}
 	return fmt.Sprintf("%s/%s", strings.ToLower(g.provider), apiVersion)
 }
 
-func (g *packageGenerator) generateTok(typeName string, apiVersion string) string {
+func (g *packageGenerator) generateTok(typeName string, apiVersion openapi.SdkVersion) string {
 	return fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, g.providerApiToModule(apiVersion), typeName)
 }
 
-func (g *packageGenerator) shouldInclude(typeName, tok, version string) bool {
+func (g *packageGenerator) shouldInclude(typeName, tok string, version *openapi.ApiVersion) bool {
 	return g.versioning.ShouldInclude(g.provider, version, typeName, tok)
 }
 
@@ -1131,14 +1143,14 @@ func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, typeNam
 	if op.Description != "" {
 		desc = op.Description
 	}
-	return g.formatDescription(desc, typeName, info.Version, "", nil)
+	return g.formatDescription(desc, typeName, openapi.ApiVersion(info.Version), "", nil)
 }
 
-func (g *packageGenerator) formatDescription(desc string, typeName string, defaultVersion, previousDefaultVersion string, additionalDocs *string) string {
+func (g *packageGenerator) formatDescription(desc string, typeName string, defaultVersion, previousDefaultVersion openapi.ApiVersion, additionalDocs *string) string {
 	var b strings.Builder
 	b.WriteString(desc)
 
-	if g.apiVersion == "" {
+	if g.sdkVersion == "" {
 		fmt.Fprintf(&b, "\nAzure REST API version: %s.", defaultVersion)
 		if previousDefaultVersion != "" {
 			fmt.Fprintf(&b, " Prior API version in Azure Native 1.x: %s.", previousDefaultVersion)
@@ -1146,15 +1158,15 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 
 		// List other available API versions, if any.
 		allVersions := g.versioning.GetAllVersions(g.provider, typeName)
-		includedVersions := []openapi.ApiVersion{}
+		includedVersions := []string{}
 		for _, v := range allVersions {
 			// Don't list the default version twice.
 			if v == defaultVersion {
 				continue
 			}
 			tok := g.generateTok(typeName, openapi.ApiToSdkVersion(v))
-			if g.shouldInclude(typeName, tok, v) {
-				includedVersions = append(includedVersions, v)
+			if g.shouldInclude(typeName, tok, &v) {
+				includedVersions = append(includedVersions, string(v))
 			}
 		}
 
