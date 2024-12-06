@@ -206,8 +206,6 @@ class Factory(pulumi.CustomResource):
         Factory resource type.
         Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
 
-        Other available API versions: 2017-09-01-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['EncryptionConfigurationArgs', 'EncryptionConfigurationArgsDict']] encryption: Properties to enable Customer Managed Key for the factory.
@@ -230,8 +228,6 @@ class Factory(pulumi.CustomResource):
         """
         Factory resource type.
         Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
-
-        Other available API versions: 2017-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param FactoryArgs args: The arguments to use to populate this resource's properties.

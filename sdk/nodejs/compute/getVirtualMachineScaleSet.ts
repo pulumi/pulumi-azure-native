@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Display information about a virtual machine scale set.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2015-06-15, 2016-04-30-preview, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -162,7 +162,7 @@ export interface GetVirtualMachineScaleSetResult {
  * Display information about a virtual machine scale set.
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2015-06-15, 2016-04-30-preview, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
  */
 export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

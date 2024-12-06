@@ -213,8 +213,6 @@ def get_assignment(assignment_name: Optional[str] = None,
     Get a blueprint assignment.
     Azure REST API version: 2018-11-01-preview.
 
-    Other available API versions: 2017-11-11-preview.
-
 
     :param str assignment_name: Name of the blueprint assignment.
     :param str resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
@@ -246,8 +244,6 @@ def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
     """
     Get a blueprint assignment.
     Azure REST API version: 2018-11-01-preview.
-
-    Other available API versions: 2017-11-11-preview.
 
 
     :param str assignment_name: Name of the blueprint assignment.

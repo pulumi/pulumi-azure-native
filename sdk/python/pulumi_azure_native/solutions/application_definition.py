@@ -392,7 +392,7 @@ class ApplicationDefinition(pulumi.CustomResource):
         Information about managed application definition.
         Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
 
-        Other available API versions: 2017-12-01, 2023-12-01-preview.
+        Other available API versions: 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -428,7 +428,7 @@ class ApplicationDefinition(pulumi.CustomResource):
         Information about managed application definition.
         Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
 
-        Other available API versions: 2017-12-01, 2023-12-01-preview.
+        Other available API versions: 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ApplicationDefinitionArgs args: The arguments to use to populate this resource's properties.

@@ -142,8 +142,6 @@ def get_storage_account_credential(manager_name: Optional[str] = None,
     Gets the properties of the specified storage account credential name.
     Azure REST API version: 2017-06-01.
 
-    Other available API versions: 2016-10-01.
-
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
@@ -172,8 +170,6 @@ def get_storage_account_credential_output(manager_name: Optional[pulumi.Input[st
     """
     Gets the properties of the specified storage account credential name.
     Azure REST API version: 2017-06-01.
-
-    Other available API versions: 2016-10-01.
 
 
     :param str manager_name: The manager name

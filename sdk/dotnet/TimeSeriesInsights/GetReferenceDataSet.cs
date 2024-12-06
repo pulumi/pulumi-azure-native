@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// Gets the reference data set with the specified name in the specified environment.
         /// Azure REST API version: 2020-05-15.
         /// 
-        /// Other available API versions: 2017-11-15, 2021-06-30-preview.
+        /// Other available API versions: 2021-06-30-preview.
         /// </summary>
         public static Task<GetReferenceDataSetResult> InvokeAsync(GetReferenceDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReferenceDataSetResult>("azure-native:timeseriesinsights:getReferenceDataSet", args ?? new GetReferenceDataSetArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// Gets the reference data set with the specified name in the specified environment.
         /// Azure REST API version: 2020-05-15.
         /// 
-        /// Other available API versions: 2017-11-15, 2021-06-30-preview.
+        /// Other available API versions: 2021-06-30-preview.
         /// </summary>
         public static Output<GetReferenceDataSetResult> Invoke(GetReferenceDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReferenceDataSetResult>("azure-native:timeseriesinsights:getReferenceDataSet", args ?? new GetReferenceDataSetInvokeArgs(), options.WithDefaults());

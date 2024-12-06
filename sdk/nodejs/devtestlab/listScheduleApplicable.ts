@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Lists all applicable schedules
  * Azure REST API version: 2018-09-15.
- *
- * Other available API versions: 2016-05-15.
  */
 export function listScheduleApplicable(args: ListScheduleApplicableArgs, opts?: pulumi.InvokeOptions): Promise<ListScheduleApplicableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,8 +51,6 @@ export interface ListScheduleApplicableResult {
 /**
  * Lists all applicable schedules
  * Azure REST API version: 2018-09-15.
- *
- * Other available API versions: 2016-05-15.
  */
 export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListScheduleApplicableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

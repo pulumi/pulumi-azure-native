@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get environment.
         /// Azure REST API version: 2018-09-15.
-        /// 
-        /// Other available API versions: 2016-05-15.
         /// </summary>
         public static Task<GetEnvironmentResult> InvokeAsync(GetEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnvironmentResult>("azure-native:devtestlab:getEnvironment", args ?? new GetEnvironmentArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get environment.
         /// Azure REST API version: 2018-09-15.
-        /// 
-        /// Other available API versions: 2016-05-15.
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("azure-native:devtestlab:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());

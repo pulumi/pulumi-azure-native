@@ -128,7 +128,7 @@ def get_resource_group(resource_group_name: Optional[str] = None,
     Gets a resource group.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2018-02-01, 2023-07-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
 
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.
@@ -152,7 +152,7 @@ def get_resource_group_output(resource_group_name: Optional[pulumi.Input[str]] =
     Gets a resource group.
     Azure REST API version: 2022-09-01.
 
-    Other available API versions: 2018-02-01, 2023-07-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
 
 
     :param str resource_group_name: The name of the resource group to get. The name is case insensitive.

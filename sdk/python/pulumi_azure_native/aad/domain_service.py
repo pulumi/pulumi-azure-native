@@ -293,8 +293,6 @@ class DomainService(pulumi.CustomResource):
         Domain service.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-03-01.
 
-        Other available API versions: 2017-06-01.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ConfigDiagnosticsArgs', 'ConfigDiagnosticsArgsDict']] config_diagnostics: Configuration diagnostics data containing latest execution from client.
@@ -322,8 +320,6 @@ class DomainService(pulumi.CustomResource):
         """
         Domain service.
         Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param DomainServiceArgs args: The arguments to use to populate this resource's properties.

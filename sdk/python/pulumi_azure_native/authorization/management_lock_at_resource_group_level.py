@@ -120,8 +120,6 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
         The lock information.
         Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2015-01-01.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
@@ -139,8 +137,6 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
         """
         The lock information.
         Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2015-01-01.
 
         :param str resource_name: The name of the resource.
         :param ManagementLockAtResourceGroupLevelArgs args: The arguments to use to populate this resource's properties.

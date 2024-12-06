@@ -340,7 +340,7 @@ class Subscription(pulumi.CustomResource):
         Description of subscription resource.
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -373,7 +373,7 @@ class Subscription(pulumi.CustomResource):
         Description of subscription resource.
         Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2015-08-01, 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.

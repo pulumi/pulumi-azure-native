@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     /// Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14.
     /// 
-    /// Other available API versions: 2018-02-01-preview, 2019-05-01-preview, 2023-07-01, 2024-02-01.
+    /// Other available API versions: 2023-07-01, 2024-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:virtualmachineimages:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : global::Pulumi.CustomResource

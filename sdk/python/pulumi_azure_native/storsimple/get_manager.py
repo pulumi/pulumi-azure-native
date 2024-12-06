@@ -153,8 +153,6 @@ def get_manager(manager_name: Optional[str] = None,
     Returns the properties of the specified manager name.
     Azure REST API version: 2017-06-01.
 
-    Other available API versions: 2016-10-01.
-
 
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
@@ -181,8 +179,6 @@ def get_manager_output(manager_name: Optional[pulumi.Input[str]] = None,
     """
     Returns the properties of the specified manager name.
     Azure REST API version: 2017-06-01.
-
-    Other available API versions: 2016-10-01.
 
 
     :param str manager_name: The manager name

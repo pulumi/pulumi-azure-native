@@ -525,7 +525,7 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
     Gets an API Management service resource description.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -585,7 +585,7 @@ def get_api_management_service_output(resource_group_name: Optional[pulumi.Input
     Gets an API Management service resource description.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2016-07-07, 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

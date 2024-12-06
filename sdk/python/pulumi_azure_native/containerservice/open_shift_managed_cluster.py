@@ -256,8 +256,6 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         OpenShift Managed cluster.
         Azure REST API version: 2019-10-27-preview. Prior API version in Azure Native 1.x: 2019-04-30.
 
-        Other available API versions: 2018-09-30-preview.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OpenShiftManagedClusterAgentPoolProfileArgs', 'OpenShiftManagedClusterAgentPoolProfileArgsDict']]]] agent_pool_profiles: Configuration of OpenShift cluster VMs.
@@ -283,8 +281,6 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         """
         OpenShift Managed cluster.
         Azure REST API version: 2019-10-27-preview. Prior API version in Azure Native 1.x: 2019-04-30.
-
-        Other available API versions: 2018-09-30-preview.
 
         :param str resource_name: The name of the resource.
         :param OpenShiftManagedClusterArgs args: The arguments to use to populate this resource's properties.

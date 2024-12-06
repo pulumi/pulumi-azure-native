@@ -117,8 +117,6 @@ def get_action_rule_by_name(action_rule_name: Optional[str] = None,
     Get a specific action rule
     Azure REST API version: 2019-05-05-preview.
 
-    Other available API versions: 2018-11-02-privatepreview.
-
 
     :param str action_rule_name: The name of action rule that needs to be fetched
     :param str resource_group_name: Resource group name where the resource is created.
@@ -142,8 +140,6 @@ def get_action_rule_by_name_output(action_rule_name: Optional[pulumi.Input[str]]
     """
     Get a specific action rule
     Azure REST API version: 2019-05-05-preview.
-
-    Other available API versions: 2018-11-02-privatepreview.
 
 
     :param str action_rule_name: The name of action rule that needs to be fetched

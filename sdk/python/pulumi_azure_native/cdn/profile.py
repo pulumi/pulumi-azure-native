@@ -154,7 +154,7 @@ class Profile(pulumi.CustomResource):
         A profile is a logical grouping of endpoints that share the same settings.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
 
-        Other available API versions: 2016-04-02, 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,7 +176,7 @@ class Profile(pulumi.CustomResource):
         A profile is a logical grouping of endpoints that share the same settings.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
 
-        Other available API versions: 2016-04-02, 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

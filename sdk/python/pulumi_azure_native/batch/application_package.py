@@ -99,7 +99,7 @@ class ApplicationPackage(pulumi.CustomResource):
         An application package which represents a particular version of an application.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2017-09-01, 2023-11-01, 2024-02-01, 2024-07-01.
+        Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +118,7 @@ class ApplicationPackage(pulumi.CustomResource):
         An application package which represents a particular version of an application.
         Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2017-09-01, 2023-11-01, 2024-02-01, 2024-07-01.
+        Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param ApplicationPackageArgs args: The arguments to use to populate this resource's properties.

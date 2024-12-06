@@ -252,8 +252,6 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
     Gets details of the Source Control Configuration.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2019-11-01-preview.
-
 
     :param str cluster_name: The name of the kubernetes cluster.
     :param str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
@@ -297,8 +295,6 @@ def get_source_control_configuration_output(cluster_name: Optional[pulumi.Input[
     """
     Gets details of the Source Control Configuration.
     Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2019-11-01-preview.
 
 
     :param str cluster_name: The name of the kubernetes cluster.

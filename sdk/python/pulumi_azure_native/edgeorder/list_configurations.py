@@ -72,8 +72,6 @@ def list_configurations(configuration_filters: Optional[Sequence[Union['Configur
     This method provides the list of configurations for the given product family, product line and product under subscription.
     Azure REST API version: 2021-12-01.
 
-    Other available API versions: 2020-12-01-preview.
-
 
     :param Sequence[Union['ConfigurationFilters', 'ConfigurationFiltersDict']] configuration_filters: Holds details about product hierarchy information and filterable property.
     :param Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
@@ -96,8 +94,6 @@ def list_configurations_output(configuration_filters: Optional[pulumi.Input[Sequ
     """
     This method provides the list of configurations for the given product family, product line and product under subscription.
     Azure REST API version: 2021-12-01.
-
-    Other available API versions: 2020-12-01-preview.
 
 
     :param Sequence[Union['ConfigurationFilters', 'ConfigurationFiltersDict']] configuration_filters: Holds details about product hierarchy information and filterable property.

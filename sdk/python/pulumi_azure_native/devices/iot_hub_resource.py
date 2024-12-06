@@ -154,7 +154,7 @@ class IotHubResource(pulumi.CustomResource):
         The description of the IoT hub.
         Azure REST API version: 2022-04-30-preview. Prior API version in Azure Native 1.x: 2020-08-31.
 
-        Other available API versions: 2017-07-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+        Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,7 +176,7 @@ class IotHubResource(pulumi.CustomResource):
         The description of the IoT hub.
         Azure REST API version: 2022-04-30-preview. Prior API version in Azure Native 1.x: 2020-08-31.
 
-        Other available API versions: 2017-07-01, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+        Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
 
         :param str resource_name: The name of the resource.
         :param IotHubResourceArgs args: The arguments to use to populate this resource's properties.

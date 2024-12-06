@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
  * Azure REST API version: 2022-12-01.
- *
- * Other available API versions: 2017-06-01.
  */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -140,8 +138,6 @@ export interface GetDomainServiceResult {
 /**
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
  * Azure REST API version: 2022-12-01.
- *
- * Other available API versions: 2017-06-01.
  */
 export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

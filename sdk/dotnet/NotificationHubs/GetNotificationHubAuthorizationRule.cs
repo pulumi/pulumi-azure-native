@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// Response for POST requests that return single SharedAccessAuthorizationRule.
         /// Azure REST API version: 2023-01-01-preview.
         /// 
-        /// Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
+        /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
         /// </summary>
         public static Task<GetNotificationHubAuthorizationRuleResult> InvokeAsync(GetNotificationHubAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotificationHubAuthorizationRuleResult>("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// Response for POST requests that return single SharedAccessAuthorizationRule.
         /// Azure REST API version: 2023-01-01-preview.
         /// 
-        /// Other available API versions: 2016-03-01, 2017-04-01, 2023-09-01, 2023-10-01-preview.
+        /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
         /// </summary>
         public static Output<GetNotificationHubAuthorizationRuleResult> Invoke(GetNotificationHubAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubAuthorizationRuleResult>("azure-native:notificationhubs:getNotificationHubAuthorizationRule", args ?? new GetNotificationHubAuthorizationRuleInvokeArgs(), options.WithDefaults());

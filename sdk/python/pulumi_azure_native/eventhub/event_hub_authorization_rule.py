@@ -117,7 +117,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         Single item in a List or Get AuthorizationRule operation
         Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +137,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         Single item in a List or Get AuthorizationRule operation
         Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
 
-        Other available API versions: 2015-08-01, 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EventHubAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

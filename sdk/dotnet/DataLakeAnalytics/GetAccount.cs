@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// Gets details of the specified Data Lake Analytics account.
         /// Azure REST API version: 2019-11-01-preview.
-        /// 
-        /// Other available API versions: 2015-10-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:datalakeanalytics:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// Gets details of the specified Data Lake Analytics account.
         /// Azure REST API version: 2019-11-01-preview.
-        /// 
-        /// Other available API versions: 2015-10-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datalakeanalytics:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get formula.
         /// Azure REST API version: 2018-09-15.
-        /// 
-        /// Other available API versions: 2016-05-15.
         /// </summary>
         public static Task<GetFormulaResult> InvokeAsync(GetFormulaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFormulaResult>("azure-native:devtestlab:getFormula", args ?? new GetFormulaArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// Get formula.
         /// Azure REST API version: 2018-09-15.
-        /// 
-        /// Other available API versions: 2016-05-15.
         /// </summary>
         public static Output<GetFormulaResult> Invoke(GetFormulaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFormulaResult>("azure-native:devtestlab:getFormula", args ?? new GetFormulaInvokeArgs(), options.WithDefaults());

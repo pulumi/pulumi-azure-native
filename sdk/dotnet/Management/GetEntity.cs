@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Management
         /// 
         /// Azure REST API version: 2021-04-01.
         /// 
-        /// Other available API versions: 2018-01-01-preview, 2018-03-01-preview, 2019-11-01, 2020-02-01, 2020-05-01, 2020-10-01, 2023-04-01.
+        /// Other available API versions: 2020-05-01, 2020-10-01, 2023-04-01.
         /// </summary>
         public static Task<GetEntityResult> InvokeAsync(GetEntityArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityResult>("azure-native:management:getEntity", args ?? new GetEntityArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Management
         /// 
         /// Azure REST API version: 2021-04-01.
         /// 
-        /// Other available API versions: 2018-01-01-preview, 2018-03-01-preview, 2019-11-01, 2020-02-01, 2020-05-01, 2020-10-01, 2023-04-01.
+        /// Other available API versions: 2020-05-01, 2020-10-01, 2023-04-01.
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());

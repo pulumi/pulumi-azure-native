@@ -90,7 +90,7 @@ def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = 
     Get the subscription-level key used for Real User Metrics collection.
     Azure REST API version: 2022-04-01.
 
-    Other available API versions: 2017-09-01-preview, 2022-04-01-preview.
+    Other available API versions: 2022-04-01-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -106,7 +106,7 @@ def get_traffic_manager_user_metrics_key_output(opts: Optional[Union[pulumi.Invo
     Get the subscription-level key used for Real User Metrics collection.
     Azure REST API version: 2022-04-01.
 
-    Other available API versions: 2017-09-01-preview, 2022-04-01-preview.
+    Other available API versions: 2022-04-01-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

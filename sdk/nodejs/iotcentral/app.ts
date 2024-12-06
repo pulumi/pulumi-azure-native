@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The IoT Central application.
  * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-06-01.
  *
- * Other available API versions: 2018-09-01, 2021-11-01-preview.
+ * Other available API versions: 2021-11-01-preview.
  */
 export class App extends pulumi.CustomResource {
     /**

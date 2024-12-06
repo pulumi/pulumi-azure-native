@@ -201,7 +201,7 @@ def get_spatial_anchors_account(account_name: Optional[str] = None,
     Retrieve a Spatial Anchors Account.
     Azure REST API version: 2021-01-01.
 
-    Other available API versions: 2019-02-28-preview, 2021-03-01-preview.
+    Other available API versions: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -234,7 +234,7 @@ def get_spatial_anchors_account_output(account_name: Optional[pulumi.Input[str]]
     Retrieve a Spatial Anchors Account.
     Azure REST API version: 2021-01-01.
 
-    Other available API versions: 2019-02-28-preview, 2021-03-01-preview.
+    Other available API versions: 2021-03-01-preview.
 
 
     :param str account_name: Name of an Mixed Reality Account.

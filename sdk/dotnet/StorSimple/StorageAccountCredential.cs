@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.StorSimple
     /// <summary>
     /// The storage account credential.
     /// Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
-    /// 
-    /// Other available API versions: 2016-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:StorageAccountCredential")]
     public partial class StorageAccountCredential : global::Pulumi.CustomResource

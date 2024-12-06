@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets all deployments for a remediation at subscription scope.
  * Azure REST API version: 2021-10-01.
  *
- * Other available API versions: 2018-07-01-preview, 2024-10-01.
+ * Other available API versions: 2024-10-01.
  */
 export function listRemediationDeploymentsAtSubscription(args: ListRemediationDeploymentsAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,7 +49,7 @@ export interface ListRemediationDeploymentsAtSubscriptionResult {
  * Gets all deployments for a remediation at subscription scope.
  * Azure REST API version: 2021-10-01.
  *
- * Other available API versions: 2018-07-01-preview, 2024-10-01.
+ * Other available API versions: 2024-10-01.
  */
 export function listRemediationDeploymentsAtSubscriptionOutput(args: ListRemediationDeploymentsAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRemediationDeploymentsAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

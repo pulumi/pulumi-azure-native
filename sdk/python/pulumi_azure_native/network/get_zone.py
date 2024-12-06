@@ -201,7 +201,7 @@ def get_zone(resource_group_name: Optional[str] = None,
     Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
     Azure REST API version: 2018-05-01.
 
-    Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
+    Other available API versions: 2023-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -234,7 +234,7 @@ def get_zone_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
     Azure REST API version: 2018-05-01.
 
-    Other available API versions: 2015-05-04-preview, 2016-04-01, 2023-07-01-preview.
+    Other available API versions: 2023-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.

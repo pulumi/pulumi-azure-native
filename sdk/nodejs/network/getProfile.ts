@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets a Traffic Manager profile.
  * Azure REST API version: 2022-04-01.
  *
- * Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +93,7 @@ export interface GetProfileResult {
  * Gets a Traffic Manager profile.
  * Azure REST API version: 2022-04-01.
  *
- * Other available API versions: 2017-03-01, 2018-02-01, 2022-04-01-preview.
+ * Other available API versions: 2022-04-01-preview.
  */
 export function getProfileOutput(args: GetProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
