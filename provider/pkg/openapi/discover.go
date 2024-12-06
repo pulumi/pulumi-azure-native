@@ -170,7 +170,18 @@ func NewVersionResources() VersionResources {
 type ProviderVersionList = map[ProviderName][]ApiVersion
 
 // DefaultVersionLock is an amalgamation of multiple API versions
-type DefaultVersionLock = map[ProviderName]map[DefinitionName]ApiVersion
+type DefaultVersionLock map[ProviderName]map[DefinitionName]ApiVersion
+
+func (lock DefaultVersionLock) IsAtVersion(provider ProviderName, typeName DefinitionName, version ApiVersion) bool {
+	if resources, ok := lock[provider]; ok {
+		if resourceVersion, ok := resources[typeName]; ok {
+			if resourceVersion == version {
+				return true
+			}
+		}
+	}
+	return false
+}
 
 func (v VersionResources) All() map[string]*ResourceSpec {
 	specs := map[string]*ResourceSpec{}
