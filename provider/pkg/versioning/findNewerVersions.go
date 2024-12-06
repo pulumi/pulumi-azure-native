@@ -23,7 +23,8 @@ func FindNewerVersions(specVersions ProvidersVersionResources, defaultVersion op
 }
 
 func findMaxDefaultVersion(resourceVersions map[openapi.DefinitionName]openapi.ApiVersion) openapi.ApiVersion {
-	// TODO: Consider using a pointer instead of empty string for when there is no version
+	// We currently use empty string to represent when there is no version available which must be handled above.
+	// This might be better being represented as a nil value.
 	minVersion := openapi.ApiVersion("")
 	for _, version := range resourceVersions {
 		if minVersion == "" || version < minVersion {

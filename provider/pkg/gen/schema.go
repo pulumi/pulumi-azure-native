@@ -50,7 +50,7 @@ type ResourceDeprecation struct {
 }
 
 type Versioning interface {
-	ShouldInclude(provider string, version openapi.ApiVersion, typeName, token string) bool
+	ShouldInclude(provider string, version *openapi.ApiVersion, typeName, token string) bool
 	GetDeprecation(token string) (ResourceDeprecation, bool)
 	GetAllVersions(openapi.ProviderName, openapi.ResourceName) []openapi.ApiVersion
 }
@@ -295,8 +295,12 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 		for _, sdkVersion := range versions {
 			// Attempt to convert back to an API version for use elsewhere
 			var apiVersion *openapi.ApiVersion
-			if converted, err := openapi.SdkToApiVersion(sdkVersion); err == nil {
-				apiVersion = &converted
+			if sdkVersion != "" {
+				apiVersionConverted, err := openapi.SdkToApiVersion(sdkVersion)
+				if err != nil {
+					return nil, fmt.Errorf("failed to convert SDK version %s back to API version: %v", sdkVersion, err)
+				}
+				apiVersion = &apiVersionConverted
 			}
 			gen := packageGenerator{
 				pkg:                        &pkg,
@@ -788,7 +792,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	path := resource.PathItem
 
 	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, resource.typeName)
-	if g.apiVersion != nil && !g.versioning.ShouldInclude(g.provider, *g.apiVersion, resource.typeName, resourceTok) {
+	if !g.versioning.ShouldInclude(g.provider, g.apiVersion, resource.typeName, resourceTok) {
 		return nil
 	}
 
@@ -869,7 +873,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, resource.typeName)
-	if g.apiVersion == nil || g.versioning.ShouldInclude(g.provider, *g.apiVersion, resource.typeName, functionTok) {
+	if g.versioning.ShouldInclude(g.provider, g.apiVersion, resource.typeName, functionTok) {
 		var readOp *spec.Operation
 		switch {
 		case resource.PathItemList != nil:
@@ -1059,7 +1063,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 
 	// Generate the function to get this resource.
 	functionTok := g.generateTok(typeName, g.sdkVersion)
-	if g.apiVersion != nil && !g.shouldInclude(typeName, functionTok, *g.apiVersion) {
+	if !g.shouldInclude(typeName, functionTok, g.apiVersion) {
 		return
 	}
 
@@ -1106,7 +1110,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 	g.metadata.Invokes[functionTok] = f
 }
 
-// moduleName produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
+// moduleName produces the module name from the provider name and the version e.g. `compute/v20200701`.
 func (g *packageGenerator) moduleName() string {
 	return g.providerApiToModule(g.sdkVersion)
 }
@@ -1130,7 +1134,7 @@ func (g *packageGenerator) generateTok(typeName string, apiVersion openapi.SdkVe
 	return fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, g.providerApiToModule(apiVersion), typeName)
 }
 
-func (g *packageGenerator) shouldInclude(typeName, tok string, version openapi.ApiVersion) bool {
+func (g *packageGenerator) shouldInclude(typeName, tok string, version *openapi.ApiVersion) bool {
 	return g.versioning.ShouldInclude(g.provider, version, typeName, tok)
 }
 
@@ -1161,7 +1165,7 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 				continue
 			}
 			tok := g.generateTok(typeName, openapi.ApiToSdkVersion(v))
-			if g.shouldInclude(typeName, tok, v) {
+			if g.shouldInclude(typeName, tok, &v) {
 				includedVersions = append(includedVersions, string(v))
 			}
 		}

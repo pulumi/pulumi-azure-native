@@ -33,11 +33,17 @@ type VersionMetadata struct {
 // The compiler will raise an error here if the interface isn't implemented
 var _ gen.Versioning = (*VersionMetadata)(nil)
 
-func (v VersionMetadata) ShouldInclude(provider string, version openapi.ApiVersion, typeName, token string) bool {
+// Determine if an explicit resource version is being included in the SDK.
+// Version being nil indicates the default version of the resource which should always be included.
+func (v VersionMetadata) ShouldInclude(provider string, version *openapi.ApiVersion, typeName, token string) bool {
+	// Nil version indicates this is in the default version.
+	if version == nil {
+		return true
+	}
 	// Keep any resources in the default version lock
 	if resources, ok := v.Lock[provider]; ok {
 		if defaultResourceVersion, ok := resources[typeName]; ok {
-			if defaultResourceVersion == version {
+			if defaultResourceVersion == *version {
 				return true
 			}
 		}
@@ -45,7 +51,7 @@ func (v VersionMetadata) ShouldInclude(provider string, version openapi.ApiVersi
 	// Exclude versions from removed versions
 	if versions, ok := v.RemovedVersions[provider]; ok {
 		for _, removedVersion := range versions {
-			if removedVersion == version {
+			if removedVersion == *version {
 				return false
 			}
 		}

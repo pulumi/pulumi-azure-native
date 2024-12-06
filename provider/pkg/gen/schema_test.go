@@ -34,12 +34,12 @@ func TestTypeAliasFormatting(t *testing.T) {
 var _ Versioning = (*versioningStub)(nil)
 
 type versioningStub struct {
-	shouldInclude   func(provider string, version openapi.ApiVersion, typeName, token string) bool
+	shouldInclude   func(provider string, version *openapi.ApiVersion, typeName, token string) bool
 	getDeprecations func(token string) (ResourceDeprecation, bool)
 	getAllVersions  func(provider, resource string) []openapi.ApiVersion
 }
 
-func (v versioningStub) ShouldInclude(provider string, version openapi.ApiVersion, typeName, token string) bool {
+func (v versioningStub) ShouldInclude(provider string, version *openapi.ApiVersion, typeName, token string) bool {
 	if v.shouldInclude != nil {
 		return v.shouldInclude(provider, version, typeName, token)
 	}
