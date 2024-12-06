@@ -70,6 +70,7 @@ func postgresFlexibleServerConfiguration(crudClientFactory crud.ResourceCrudClie
 			}
 			return nil
 		},
+		isSingleton: true,
 	}, nil
 }
 

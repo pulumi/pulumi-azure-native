@@ -1429,6 +1429,10 @@ func restoreDefaultInputsForRemovedProperties(inputs resource.PropertyMap, res r
 	return nil
 }
 
+func isSingleton(res *resources.AzureAPIResource) bool {
+	return res.Singleton
+}
+
 // Delete tears down an existing resource with the given ID. If it fails, the resource is assumed
 // to still exist.
 func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest) (*pbempty.Empty, error) {
@@ -1469,7 +1473,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 		if err != nil {
 			return nil, azure.AzureError(err)
 		}
-	case res.Singleton:
+	case isSingleton(res):
 		// Singleton resources can't be deleted (or created), set them to the default state.
 		for _, param := range res.PutParameters {
 			if defaults.SkipDeleteOperation(res.Path, res.APIVersion) {

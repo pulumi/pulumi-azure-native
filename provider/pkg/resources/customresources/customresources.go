@@ -68,6 +68,11 @@ type CustomResource struct {
 	Update func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
 	Delete func(ctx context.Context, id string, properties resource.PropertyMap) error
+	// IsSingleton is true if the resource is a singleton resource that cannot be created or deleted, only initialized
+	// and reset to a default state. Normally, we infer this from whether the `Delete` property is set. In some cases
+	// we need to set it explicitly if the resource is a singleton but does have a `Delete` property implementing a
+	// custom reset to the default state.
+	isSingleton bool
 }
 
 // ResourceDefinition is a combination of the external schema and runtime metadata
@@ -231,6 +236,13 @@ var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, n
 func HasCustomDelete(path string) bool {
 	if res, ok := featureLookup[path]; ok {
 		return res.Delete != nil
+	}
+	return false
+}
+
+func IsSingleton(path string) bool {
+	if res, ok := featureLookup[path]; ok {
+		return res.isSingleton
 	}
 	return false
 }

@@ -949,7 +949,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		PutParameters:        resourceRequest.parameters,
 		Response:             resourceResponse.properties,
 		DefaultBody:          resource.DefaultBody,
-		Singleton:            resource.PathItem.Delete == nil,
+		Singleton:            isSingleton(resource),
 		PutAsyncStyle:        g.getAsyncStyle(updateOp),
 		DeleteAsyncStyle:     g.getAsyncStyle(resource.PathItem.Delete),
 		ReadMethod:           readMethod,
@@ -968,6 +968,10 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		g.flattenedPropertyConflicts[resourceTok] = gen.flattenedPropertyConflicts
 	}
 	return nil
+}
+
+func isSingleton(resource *resourceVariant) bool {
+	return resource.PathItem.Delete == nil || customresources.IsSingleton(resource.Path)
 }
 
 func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
