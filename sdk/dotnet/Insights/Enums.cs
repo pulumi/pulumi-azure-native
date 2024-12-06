@@ -1438,40 +1438,6 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
-    /// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-    /// </summary>
-    [EnumType]
-    public readonly struct TimeAggregationOperator : IEquatable<TimeAggregationOperator>
-    {
-        private readonly string _value;
-
-        private TimeAggregationOperator(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static TimeAggregationOperator Average { get; } = new TimeAggregationOperator("Average");
-        public static TimeAggregationOperator Minimum { get; } = new TimeAggregationOperator("Minimum");
-        public static TimeAggregationOperator Maximum { get; } = new TimeAggregationOperator("Maximum");
-        public static TimeAggregationOperator Total { get; } = new TimeAggregationOperator("Total");
-        public static TimeAggregationOperator Last { get; } = new TimeAggregationOperator("Last");
-
-        public static bool operator ==(TimeAggregationOperator left, TimeAggregationOperator right) => left.Equals(right);
-        public static bool operator !=(TimeAggregationOperator left, TimeAggregationOperator right) => !left.Equals(right);
-
-        public static explicit operator string(TimeAggregationOperator value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TimeAggregationOperator other && Equals(other);
-        public bool Equals(TimeAggregationOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
     /// </summary>
     [EnumType]

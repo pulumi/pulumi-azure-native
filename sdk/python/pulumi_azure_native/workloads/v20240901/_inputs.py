@@ -1413,7 +1413,7 @@ class ImageReferenceArgs:
 if not MYPY:
     class LinuxConfigurationArgsDict(TypedDict):
         """
-        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         """
         os_type: pulumi.Input[str]
         """
@@ -1443,7 +1443,7 @@ class LinuxConfigurationArgs:
                  ssh: Optional[pulumi.Input['SshConfigurationArgs']] = None,
                  ssh_key_pair: Optional[pulumi.Input['SshKeyPairArgs']] = None):
         """
-        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         :param pulumi.Input[str] os_type: The OS Type
                Expected value is 'Linux'.
         :param pulumi.Input[bool] disable_password_authentication: Specifies whether password authentication should be disabled.
@@ -2304,7 +2304,7 @@ class SharedStorageResourceNamesArgs:
 if not MYPY:
     class SingleServerConfigurationArgsDict(TypedDict):
         """
-        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
         """
         app_resource_group: pulumi.Input[str]
         """
@@ -2354,7 +2354,7 @@ class SingleServerConfigurationArgs:
                  db_disk_configuration: Optional[pulumi.Input['DiskConfigurationArgs']] = None,
                  network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None):
         """
-        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
         :param pulumi.Input[str] app_resource_group: The application resource group where SAP system resources will be deployed.
         :param pulumi.Input[str] deployment_type: The type of SAP deployment, single server or Three tier.
                Expected value is 'SingleServer'.
@@ -2611,7 +2611,7 @@ class SshConfigurationArgs:
 if not MYPY:
     class SshKeyPairArgsDict(TypedDict):
         """
-        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
         private_key: NotRequired[pulumi.Input[str]]
         """
@@ -2630,7 +2630,7 @@ class SshKeyPairArgs:
                  private_key: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None):
         """
-        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         :param pulumi.Input[str] private_key: SSH private key.
         :param pulumi.Input[str] public_key: SSH public key
         """
@@ -2739,7 +2739,7 @@ class StorageConfigurationArgs:
 if not MYPY:
     class ThreeTierConfigurationArgsDict(TypedDict):
         """
-        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
         """
         app_resource_group: pulumi.Input[str]
         """
@@ -2794,7 +2794,7 @@ class ThreeTierConfigurationArgs:
                  network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None,
                  storage_configuration: Optional[pulumi.Input['StorageConfigurationArgs']] = None):
         """
-        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
         :param pulumi.Input[str] app_resource_group: The application resource group where SAP system resources will be deployed.
         :param pulumi.Input['ApplicationServerConfigurationArgs'] application_server: The application server configuration.
         :param pulumi.Input['CentralServerConfigurationArgs'] central_server: The central server configuration.

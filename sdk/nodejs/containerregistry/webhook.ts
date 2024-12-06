@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An object that represents a webhook for a container registry.
  * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
  *
- * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
  */
 export class Webhook extends pulumi.CustomResource {
     /**
@@ -126,7 +126,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20171001:Webhook" }, { type: "azure-native:containerregistry/v20190501:Webhook" }, { type: "azure-native:containerregistry/v20191201preview:Webhook" }, { type: "azure-native:containerregistry/v20201101preview:Webhook" }, { type: "azure-native:containerregistry/v20210601preview:Webhook" }, { type: "azure-native:containerregistry/v20210801preview:Webhook" }, { type: "azure-native:containerregistry/v20210901:Webhook" }, { type: "azure-native:containerregistry/v20211201preview:Webhook" }, { type: "azure-native:containerregistry/v20220201preview:Webhook" }, { type: "azure-native:containerregistry/v20221201:Webhook" }, { type: "azure-native:containerregistry/v20230101preview:Webhook" }, { type: "azure-native:containerregistry/v20230601preview:Webhook" }, { type: "azure-native:containerregistry/v20230701:Webhook" }, { type: "azure-native:containerregistry/v20230801preview:Webhook" }, { type: "azure-native:containerregistry/v20231101preview:Webhook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20171001:Webhook" }, { type: "azure-native:containerregistry/v20190501:Webhook" }, { type: "azure-native:containerregistry/v20191201preview:Webhook" }, { type: "azure-native:containerregistry/v20201101preview:Webhook" }, { type: "azure-native:containerregistry/v20210601preview:Webhook" }, { type: "azure-native:containerregistry/v20210801preview:Webhook" }, { type: "azure-native:containerregistry/v20210901:Webhook" }, { type: "azure-native:containerregistry/v20211201preview:Webhook" }, { type: "azure-native:containerregistry/v20220201preview:Webhook" }, { type: "azure-native:containerregistry/v20221201:Webhook" }, { type: "azure-native:containerregistry/v20230101preview:Webhook" }, { type: "azure-native:containerregistry/v20230601preview:Webhook" }, { type: "azure-native:containerregistry/v20230701:Webhook" }, { type: "azure-native:containerregistry/v20230801preview:Webhook" }, { type: "azure-native:containerregistry/v20231101preview:Webhook" }, { type: "azure-native:containerregistry/v20241101preview:Webhook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Webhook.__pulumiType, name, resourceInputs, opts);
     }

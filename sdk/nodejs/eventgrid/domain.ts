@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * EventGrid Domain.
  * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
  *
- * Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -181,7 +181,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20180915preview:Domain" }, { type: "azure-native:eventgrid/v20190201preview:Domain" }, { type: "azure-native:eventgrid/v20190601:Domain" }, { type: "azure-native:eventgrid/v20200101preview:Domain" }, { type: "azure-native:eventgrid/v20200401preview:Domain" }, { type: "azure-native:eventgrid/v20200601:Domain" }, { type: "azure-native:eventgrid/v20201015preview:Domain" }, { type: "azure-native:eventgrid/v20210601preview:Domain" }, { type: "azure-native:eventgrid/v20211015preview:Domain" }, { type: "azure-native:eventgrid/v20211201:Domain" }, { type: "azure-native:eventgrid/v20220615:Domain" }, { type: "azure-native:eventgrid/v20230601preview:Domain" }, { type: "azure-native:eventgrid/v20231215preview:Domain" }, { type: "azure-native:eventgrid/v20240601preview:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20180915preview:Domain" }, { type: "azure-native:eventgrid/v20190201preview:Domain" }, { type: "azure-native:eventgrid/v20190601:Domain" }, { type: "azure-native:eventgrid/v20200101preview:Domain" }, { type: "azure-native:eventgrid/v20200401preview:Domain" }, { type: "azure-native:eventgrid/v20200601:Domain" }, { type: "azure-native:eventgrid/v20201015preview:Domain" }, { type: "azure-native:eventgrid/v20210601preview:Domain" }, { type: "azure-native:eventgrid/v20211015preview:Domain" }, { type: "azure-native:eventgrid/v20211201:Domain" }, { type: "azure-native:eventgrid/v20220615:Domain" }, { type: "azure-native:eventgrid/v20230601preview:Domain" }, { type: "azure-native:eventgrid/v20231215preview:Domain" }, { type: "azure-native:eventgrid/v20240601preview:Domain" }, { type: "azure-native:eventgrid/v20241215preview:Domain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }

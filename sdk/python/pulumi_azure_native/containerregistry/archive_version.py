@@ -116,7 +116,7 @@ class ArchiveVersion(pulumi.CustomResource):
         An object that represents an export pipeline for a container registry.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-11-01-preview.
+        Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,7 +136,7 @@ class ArchiveVersion(pulumi.CustomResource):
         An object that represents an export pipeline for a container registry.
         Azure REST API version: 2023-06-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-11-01-preview.
+        Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ArchiveVersionArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +185,7 @@ class ArchiveVersion(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:ArchiveVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20230601preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20230801preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20231101preview:ArchiveVersion"), pulumi.Alias(type_="azure-native:containerregistry/v20241101preview:ArchiveVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ArchiveVersion, __self__).__init__(
             'azure-native:containerregistry:ArchiveVersion',

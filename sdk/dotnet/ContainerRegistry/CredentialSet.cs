@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// An object that represents a credential set resource for a container registry.
     /// Azure REST API version: 2023-01-01-preview.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
+    /// Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:CredentialSet")]
     public partial class CredentialSet : global::Pulumi.CustomResource
@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230701:CredentialSet" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:CredentialSet" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:CredentialSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:CredentialSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

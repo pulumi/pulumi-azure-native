@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get properties of a client.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
  */
 export function getClient(args: GetClientArgs, opts?: pulumi.InvokeOptions): Promise<GetClientResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,7 +92,7 @@ export interface GetClientResult {
  * Get properties of a client.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
  */
 export function getClientOutput(args: GetClientOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClientResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

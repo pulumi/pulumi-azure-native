@@ -293,7 +293,7 @@ class Domain(pulumi.CustomResource):
         EventGrid Domain.
         Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+        Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -334,7 +334,7 @@ class Domain(pulumi.CustomResource):
         EventGrid Domain.
         Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
 
-        Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+        Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
@@ -405,7 +405,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20180915preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:Domain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20180915preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:Domain"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:Domain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Domain, __self__).__init__(
             'azure-native:eventgrid:Domain',

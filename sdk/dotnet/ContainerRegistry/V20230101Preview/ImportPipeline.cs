@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:ImportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:ImportPipeline" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:ImportPipeline" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:ImportPipeline" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

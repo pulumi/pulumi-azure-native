@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get properties of a client group.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
         /// </summary>
         public static Task<GetClientGroupResult> InvokeAsync(GetClientGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientGroupResult>("azure-native:eventgrid:getClientGroup", args ?? new GetClientGroupArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get properties of a client group.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
         /// </summary>
         public static Output<GetClientGroupResult> Invoke(GetClientGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientGroupResult>("azure-native:eventgrid:getClientGroup", args ?? new GetClientGroupInvokeArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An object that represents a token for a container registry.
  * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
  *
- * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
  */
 export class Token extends pulumi.CustomResource {
     /**
@@ -112,7 +112,7 @@ export class Token extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20190501preview:Token" }, { type: "azure-native:containerregistry/v20201101preview:Token" }, { type: "azure-native:containerregistry/v20210601preview:Token" }, { type: "azure-native:containerregistry/v20210801preview:Token" }, { type: "azure-native:containerregistry/v20211201preview:Token" }, { type: "azure-native:containerregistry/v20220201preview:Token" }, { type: "azure-native:containerregistry/v20221201:Token" }, { type: "azure-native:containerregistry/v20230101preview:Token" }, { type: "azure-native:containerregistry/v20230601preview:Token" }, { type: "azure-native:containerregistry/v20230701:Token" }, { type: "azure-native:containerregistry/v20230801preview:Token" }, { type: "azure-native:containerregistry/v20231101preview:Token" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20190501preview:Token" }, { type: "azure-native:containerregistry/v20201101preview:Token" }, { type: "azure-native:containerregistry/v20210601preview:Token" }, { type: "azure-native:containerregistry/v20210801preview:Token" }, { type: "azure-native:containerregistry/v20211201preview:Token" }, { type: "azure-native:containerregistry/v20220201preview:Token" }, { type: "azure-native:containerregistry/v20221201:Token" }, { type: "azure-native:containerregistry/v20230101preview:Token" }, { type: "azure-native:containerregistry/v20230601preview:Token" }, { type: "azure-native:containerregistry/v20230701:Token" }, { type: "azure-native:containerregistry/v20230801preview:Token" }, { type: "azure-native:containerregistry/v20231101preview:Token" }, { type: "azure-native:containerregistry/v20241101preview:Token" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Token.__pulumiType, name, resourceInputs, opts);
     }

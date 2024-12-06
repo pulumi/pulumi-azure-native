@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Get the full endpoint URL for an event subscription of a namespace topic.
  * Azure REST API version: 2024-06-01-preview.
+ *
+ * Other available API versions: 2024-12-15-preview.
  */
 export function getNamespaceTopicEventSubscriptionFullUrl(args: GetNamespaceTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceTopicEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +51,8 @@ export interface GetNamespaceTopicEventSubscriptionFullUrlResult {
 /**
  * Get the full endpoint URL for an event subscription of a namespace topic.
  * Azure REST API version: 2024-06-01-preview.
+ *
+ * Other available API versions: 2024-12-15-preview.
  */
 export function getNamespaceTopicEventSubscriptionFullUrlOutput(args: GetNamespaceTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamespaceTopicEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

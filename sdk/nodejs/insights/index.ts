@@ -15,11 +15,6 @@ export type ActivityLogAlert = import("./activityLogAlert").ActivityLogAlert;
 export const ActivityLogAlert: typeof import("./activityLogAlert").ActivityLogAlert = null as any;
 utilities.lazyLoad(exports, ["ActivityLogAlert"], () => require("./activityLogAlert"));
 
-export { AlertRuleArgs } from "./alertRule";
-export type AlertRule = import("./alertRule").AlertRule;
-export const AlertRule: typeof import("./alertRule").AlertRule = null as any;
-utilities.lazyLoad(exports, ["AlertRule"], () => require("./alertRule"));
-
 export { AnalyticsItemArgs } from "./analyticsItem";
 export type AnalyticsItem = import("./analyticsItem").AnalyticsItem;
 export const AnalyticsItem: typeof import("./analyticsItem").AnalyticsItem = null as any;
@@ -84,11 +79,6 @@ export { GetActivityLogAlertArgs, GetActivityLogAlertResult, GetActivityLogAlert
 export const getActivityLogAlert: typeof import("./getActivityLogAlert").getActivityLogAlert = null as any;
 export const getActivityLogAlertOutput: typeof import("./getActivityLogAlert").getActivityLogAlertOutput = null as any;
 utilities.lazyLoad(exports, ["getActivityLogAlert","getActivityLogAlertOutput"], () => require("./getActivityLogAlert"));
-
-export { GetAlertRuleArgs, GetAlertRuleResult, GetAlertRuleOutputArgs } from "./getAlertRule";
-export const getAlertRule: typeof import("./getAlertRule").getAlertRule = null as any;
-export const getAlertRuleOutput: typeof import("./getAlertRule").getAlertRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getAlertRule","getAlertRuleOutput"], () => require("./getAlertRule"));
 
 export { GetAnalyticsItemArgs, GetAnalyticsItemResult, GetAnalyticsItemOutputArgs } from "./getAnalyticsItem";
 export const getAnalyticsItem: typeof import("./getAnalyticsItem").getAnalyticsItem = null as any;
@@ -434,8 +424,6 @@ const _module = {
                 return new ActionGroup(name, <any>undefined, { urn })
             case "azure-native:insights:ActivityLogAlert":
                 return new ActivityLogAlert(name, <any>undefined, { urn })
-            case "azure-native:insights:AlertRule":
-                return new AlertRule(name, <any>undefined, { urn })
             case "azure-native:insights:AnalyticsItem":
                 return new AnalyticsItem(name, <any>undefined, { urn })
             case "azure-native:insights:AutoscaleSetting":

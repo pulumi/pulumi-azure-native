@@ -348,8 +348,6 @@ __all__ = [
     'UriFolderJobOutputResponse',
     'UserAccountCredentialsResponse',
     'UserAssignedIdentityResponse',
-    'UserCreatedAcrAccountResponse',
-    'UserCreatedStorageAccountResponse',
     'UserIdentityResponse',
     'UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse',
     'VirtualMachineImageResponse',
@@ -1270,8 +1268,6 @@ class AcrDetailsResponse(dict):
         suggest = None
         if key == "systemCreatedAcrAccount":
             suggest = "system_created_acr_account"
-        elif key == "userCreatedAcrAccount":
-            suggest = "user_created_acr_account"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AcrDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1285,17 +1281,13 @@ class AcrDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 system_created_acr_account: Optional['outputs.SystemCreatedAcrAccountResponse'] = None,
-                 user_created_acr_account: Optional['outputs.UserCreatedAcrAccountResponse'] = None):
+                 system_created_acr_account: Optional['outputs.SystemCreatedAcrAccountResponse'] = None):
         """
         Details of ACR account to be used for the Registry
         :param 'SystemCreatedAcrAccountResponse' system_created_acr_account: Details of system created ACR account to be used for the Registry
-        :param 'UserCreatedAcrAccountResponse' user_created_acr_account: Details of user created ACR account to be used for the Registry
         """
         if system_created_acr_account is not None:
             pulumi.set(__self__, "system_created_acr_account", system_created_acr_account)
-        if user_created_acr_account is not None:
-            pulumi.set(__self__, "user_created_acr_account", user_created_acr_account)
 
     @property
     @pulumi.getter(name="systemCreatedAcrAccount")
@@ -1304,14 +1296,6 @@ class AcrDetailsResponse(dict):
         Details of system created ACR account to be used for the Registry
         """
         return pulumi.get(self, "system_created_acr_account")
-
-    @property
-    @pulumi.getter(name="userCreatedAcrAccount")
-    def user_created_acr_account(self) -> Optional['outputs.UserCreatedAcrAccountResponse']:
-        """
-        Details of user created ACR account to be used for the Registry
-        """
-        return pulumi.get(self, "user_created_acr_account")
 
 
 @pulumi.output_type
@@ -29497,8 +29481,6 @@ class StorageAccountDetailsResponse(dict):
         suggest = None
         if key == "systemCreatedStorageAccount":
             suggest = "system_created_storage_account"
-        elif key == "userCreatedStorageAccount":
-            suggest = "user_created_storage_account"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in StorageAccountDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -29512,17 +29494,13 @@ class StorageAccountDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 system_created_storage_account: Optional['outputs.SystemCreatedStorageAccountResponse'] = None,
-                 user_created_storage_account: Optional['outputs.UserCreatedStorageAccountResponse'] = None):
+                 system_created_storage_account: Optional['outputs.SystemCreatedStorageAccountResponse'] = None):
         """
         Details of storage account to be used for the Registry
         :param 'SystemCreatedStorageAccountResponse' system_created_storage_account: Details of system created storage account to be used for the registry
-        :param 'UserCreatedStorageAccountResponse' user_created_storage_account: Details of user created storage account to be used for the registry
         """
         if system_created_storage_account is not None:
             pulumi.set(__self__, "system_created_storage_account", system_created_storage_account)
-        if user_created_storage_account is not None:
-            pulumi.set(__self__, "user_created_storage_account", user_created_storage_account)
 
     @property
     @pulumi.getter(name="systemCreatedStorageAccount")
@@ -29531,14 +29509,6 @@ class StorageAccountDetailsResponse(dict):
         Details of system created storage account to be used for the registry
         """
         return pulumi.get(self, "system_created_storage_account")
-
-    @property
-    @pulumi.getter(name="userCreatedStorageAccount")
-    def user_created_storage_account(self) -> Optional['outputs.UserCreatedStorageAccountResponse']:
-        """
-        Details of user created storage account to be used for the registry
-        """
-        return pulumi.get(self, "user_created_storage_account")
 
 
 @pulumi.output_type
@@ -32619,78 +32589,6 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
-
-
-@pulumi.output_type
-class UserCreatedAcrAccountResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "armResourceId":
-            suggest = "arm_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserCreatedAcrAccountResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserCreatedAcrAccountResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserCreatedAcrAccountResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arm_resource_id: Optional['outputs.ArmResourceIdResponse'] = None):
-        """
-        :param 'ArmResourceIdResponse' arm_resource_id: ARM ResourceId of a resource
-        """
-        if arm_resource_id is not None:
-            pulumi.set(__self__, "arm_resource_id", arm_resource_id)
-
-    @property
-    @pulumi.getter(name="armResourceId")
-    def arm_resource_id(self) -> Optional['outputs.ArmResourceIdResponse']:
-        """
-        ARM ResourceId of a resource
-        """
-        return pulumi.get(self, "arm_resource_id")
-
-
-@pulumi.output_type
-class UserCreatedStorageAccountResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "armResourceId":
-            suggest = "arm_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserCreatedStorageAccountResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserCreatedStorageAccountResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserCreatedStorageAccountResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arm_resource_id: Optional['outputs.ArmResourceIdResponse'] = None):
-        """
-        :param 'ArmResourceIdResponse' arm_resource_id: ARM ResourceId of a resource
-        """
-        if arm_resource_id is not None:
-            pulumi.set(__self__, "arm_resource_id", arm_resource_id)
-
-    @property
-    @pulumi.getter(name="armResourceId")
-    def arm_resource_id(self) -> Optional['outputs.ArmResourceIdResponse']:
-        """
-        ARM ResourceId of a resource
-        """
-        return pulumi.get(self, "arm_resource_id")
 
 
 @pulumi.output_type

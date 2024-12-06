@@ -20,19 +20,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001.Outputs
         /// Details of system created ACR account to be used for the Registry
         /// </summary>
         public readonly Outputs.SystemCreatedAcrAccountResponse? SystemCreatedAcrAccount;
-        /// <summary>
-        /// Details of user created ACR account to be used for the Registry
-        /// </summary>
-        public readonly Outputs.UserCreatedAcrAccountResponse? UserCreatedAcrAccount;
 
         [OutputConstructor]
-        private AcrDetailsResponse(
-            Outputs.SystemCreatedAcrAccountResponse? systemCreatedAcrAccount,
-
-            Outputs.UserCreatedAcrAccountResponse? userCreatedAcrAccount)
+        private AcrDetailsResponse(Outputs.SystemCreatedAcrAccountResponse? systemCreatedAcrAccount)
         {
             SystemCreatedAcrAccount = systemCreatedAcrAccount;
-            UserCreatedAcrAccount = userCreatedAcrAccount;
         }
     }
 }

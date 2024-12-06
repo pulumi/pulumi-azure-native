@@ -202,7 +202,7 @@ def get_partner_destination(partner_destination_name: Optional[str] = None,
     Get properties of a partner destination.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview.
+    Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
 
 
     :param str partner_destination_name: Name of the partner destination.
@@ -235,7 +235,7 @@ def get_partner_destination_output(partner_destination_name: Optional[pulumi.Inp
     Get properties of a partner destination.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview.
+    Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
 
 
     :param str partner_destination_name: Name of the partner destination.

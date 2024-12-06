@@ -175,7 +175,7 @@ export class LicenseProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:LicenseProfile" }, { type: "azure-native:hybridcompute/v20230620preview:LicenseProfile" }, { type: "azure-native:hybridcompute/v20231003preview:LicenseProfile" }, { type: "azure-native:hybridcompute/v20240520preview:LicenseProfile" }, { type: "azure-native:hybridcompute/v20240710:LicenseProfile" }, { type: "azure-native:hybridcompute/v20240731preview:LicenseProfile" }, { type: "azure-native:hybridcompute/v20240910preview:LicenseProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:LicenseProfile" }, { type: "azure-native:hybridcompute/v20230620preview:LicenseProfile" }, { type: "azure-native:hybridcompute/v20231003preview:LicenseProfile" }, { type: "azure-native:hybridcompute/v20240520preview:LicenseProfile" }, { type: "azure-native:hybridcompute/v20240710:LicenseProfile" }, { type: "azure-native:hybridcompute/v20240731preview:LicenseProfile" }, { type: "azure-native:hybridcompute/v20240910preview:LicenseProfile" }, { type: "azure-native:hybridcompute/v20241110preview:LicenseProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LicenseProfile.__pulumiType, name, resourceInputs, opts);
     }

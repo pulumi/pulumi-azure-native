@@ -3,7 +3,6 @@
 
 // Export sub-modules:
 import * as v20150501 from "./v20150501";
-import * as v20160301 from "./v20160301";
 import * as v20180301 from "./v20180301";
 import * as v20180416 from "./v20180416";
 import * as v20200202 from "./v20200202";
@@ -28,7 +27,6 @@ import * as v20241001preview from "./v20241001preview";
 
 export {
     v20150501,
-    v20160301,
     v20180301,
     v20180416,
     v20200202,
@@ -557,19 +555,6 @@ export const TimeAggregation = {
  * Aggregation type. Relevant and required only for rules of the kind LogAlert.
  */
 export type TimeAggregation = (typeof TimeAggregation)[keyof typeof TimeAggregation];
-
-export const TimeAggregationOperator = {
-    Average: "Average",
-    Minimum: "Minimum",
-    Maximum: "Maximum",
-    Total: "Total",
-    Last: "Last",
-} as const;
-
-/**
- * the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
- */
-export type TimeAggregationOperator = (typeof TimeAggregationOperator)[keyof typeof TimeAggregationOperator];
 
 export const TimeAggregationType = {
     Average: "Average",

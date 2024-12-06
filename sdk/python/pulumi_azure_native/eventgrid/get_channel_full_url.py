@@ -57,7 +57,7 @@ def get_channel_full_url(channel_name: Optional[str] = None,
     Get the full endpoint URL of a partner destination channel.
     Azure REST API version: 2022-06-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
 
 
     :param str channel_name: Name of the Channel.
@@ -81,7 +81,7 @@ def get_channel_full_url_output(channel_name: Optional[pulumi.Input[str]] = None
     Get the full endpoint URL of a partner destination channel.
     Azure REST API version: 2022-06-15.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
 
 
     :param str channel_name: Name of the Channel.

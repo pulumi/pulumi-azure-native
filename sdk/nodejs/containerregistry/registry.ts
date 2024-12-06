@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An object that represents a container registry.
  * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
  *
- * Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
  */
 export class Registry extends pulumi.CustomResource {
     /**
@@ -189,7 +189,7 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["zoneRedundancy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20170301:Registry" }, { type: "azure-native:containerregistry/v20171001:Registry" }, { type: "azure-native:containerregistry/v20190501:Registry" }, { type: "azure-native:containerregistry/v20191201preview:Registry" }, { type: "azure-native:containerregistry/v20201101preview:Registry" }, { type: "azure-native:containerregistry/v20210601preview:Registry" }, { type: "azure-native:containerregistry/v20210801preview:Registry" }, { type: "azure-native:containerregistry/v20210901:Registry" }, { type: "azure-native:containerregistry/v20211201preview:Registry" }, { type: "azure-native:containerregistry/v20220201preview:Registry" }, { type: "azure-native:containerregistry/v20221201:Registry" }, { type: "azure-native:containerregistry/v20230101preview:Registry" }, { type: "azure-native:containerregistry/v20230601preview:Registry" }, { type: "azure-native:containerregistry/v20230701:Registry" }, { type: "azure-native:containerregistry/v20230801preview:Registry" }, { type: "azure-native:containerregistry/v20231101preview:Registry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20170301:Registry" }, { type: "azure-native:containerregistry/v20171001:Registry" }, { type: "azure-native:containerregistry/v20190501:Registry" }, { type: "azure-native:containerregistry/v20191201preview:Registry" }, { type: "azure-native:containerregistry/v20201101preview:Registry" }, { type: "azure-native:containerregistry/v20210601preview:Registry" }, { type: "azure-native:containerregistry/v20210801preview:Registry" }, { type: "azure-native:containerregistry/v20210901:Registry" }, { type: "azure-native:containerregistry/v20211201preview:Registry" }, { type: "azure-native:containerregistry/v20220201preview:Registry" }, { type: "azure-native:containerregistry/v20221201:Registry" }, { type: "azure-native:containerregistry/v20230101preview:Registry" }, { type: "azure-native:containerregistry/v20230601preview:Registry" }, { type: "azure-native:containerregistry/v20230701:Registry" }, { type: "azure-native:containerregistry/v20230801preview:Registry" }, { type: "azure-native:containerregistry/v20231101preview:Registry" }, { type: "azure-native:containerregistry/v20241101preview:Registry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Registry.__pulumiType, name, resourceInputs, opts);
     }

@@ -1767,7 +1767,7 @@ class ImageReferenceResponse(dict):
 @pulumi.output_type
 class LinuxConfigurationResponse(dict):
     """
-    Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+    Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1796,7 +1796,7 @@ class LinuxConfigurationResponse(dict):
                  ssh: Optional['outputs.SshConfigurationResponse'] = None,
                  ssh_key_pair: Optional['outputs.SshKeyPairResponse'] = None):
         """
-        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         :param str os_type: The OS Type
                Expected value is 'Linux'.
         :param bool disable_password_authentication: Specifies whether password authentication should be disabled.
@@ -2864,7 +2864,7 @@ class SharedStorageResourceNamesResponse(dict):
 @pulumi.output_type
 class SingleServerConfigurationResponse(dict):
     """
-    Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+    Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2907,7 +2907,7 @@ class SingleServerConfigurationResponse(dict):
                  db_disk_configuration: Optional['outputs.DiskConfigurationResponse'] = None,
                  network_configuration: Optional['outputs.NetworkConfigurationResponse'] = None):
         """
-        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
         :param str app_resource_group: The application resource group where SAP system resources will be deployed.
         :param str deployment_type: The type of SAP deployment, single server or Three tier.
                Expected value is 'SingleServer'.
@@ -3136,7 +3136,7 @@ class SshConfigurationResponse(dict):
 @pulumi.output_type
 class SshKeyPairResponse(dict):
     """
-    The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+    The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3161,7 +3161,7 @@ class SshKeyPairResponse(dict):
                  private_key: Optional[str] = None,
                  public_key: Optional[str] = None):
         """
-        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         :param str private_key: SSH private key.
         :param str public_key: SSH public key
         """
@@ -3402,7 +3402,7 @@ class SystemDataResponse(dict):
 @pulumi.output_type
 class ThreeTierConfigurationResponse(dict):
     """
-    Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+    Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3448,7 +3448,7 @@ class ThreeTierConfigurationResponse(dict):
                  network_configuration: Optional['outputs.NetworkConfigurationResponse'] = None,
                  storage_configuration: Optional['outputs.StorageConfigurationResponse'] = None):
         """
-        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
         :param str app_resource_group: The application resource group where SAP system resources will be deployed.
         :param 'ApplicationServerConfigurationResponse' application_server: The application server configuration.
         :param 'CentralServerConfigurationResponse' central_server: The central server configuration.

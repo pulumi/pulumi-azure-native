@@ -58,6 +58,8 @@ def get_namespace_topic_event_subscription_full_url(event_subscription_name: Opt
     Get the full endpoint URL for an event subscription of a namespace topic.
     Azure REST API version: 2024-06-01-preview.
 
+    Other available API versions: 2024-12-15-preview.
+
 
     :param str event_subscription_name: Name of the event subscription.
     :param str namespace_name: Name of the namespace.
@@ -82,6 +84,8 @@ def get_namespace_topic_event_subscription_full_url_output(event_subscription_na
     """
     Get the full endpoint URL for an event subscription of a namespace topic.
     Azure REST API version: 2024-06-01-preview.
+
+    Other available API versions: 2024-12-15-preview.
 
 
     :param str event_subscription_name: Name of the event subscription.

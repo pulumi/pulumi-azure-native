@@ -131,6 +131,7 @@ namespace Pulumi.AzureNative.EventGrid.V20230601Preview
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerTopic" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20231215preview:PartnerTopic" },
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20240601preview:PartnerTopic" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20241215preview:PartnerTopic" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -8,7 +8,6 @@ import typing
 from ._enums import *
 from .action_group import *
 from .activity_log_alert import *
-from .alert_rule import *
 from .analytics_item import *
 from .autoscale_setting import *
 from .component import *
@@ -22,7 +21,6 @@ from .export_configuration import *
 from .favorite import *
 from .get_action_group import *
 from .get_activity_log_alert import *
-from .get_alert_rule import *
 from .get_analytics_item import *
 from .get_autoscale_setting import *
 from .get_component import *

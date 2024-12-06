@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Event Subscription
  * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-04-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
  */
 export class SystemTopicEventSubscription extends pulumi.CustomResource {
     /**
@@ -152,7 +152,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211201:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20220615:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20231215preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20240601preview:SystemTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211201:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20220615:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20231215preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20240601preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20241215preview:SystemTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

@@ -129,7 +129,7 @@ export class SecurityConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security:SecurityConnector" }, { type: "azure-native:security/v20210701preview:SecurityConnector" }, { type: "azure-native:security/v20211201preview:SecurityConnector" }, { type: "azure-native:security/v20220501preview:SecurityConnector" }, { type: "azure-native:security/v20220801preview:SecurityConnector" }, { type: "azure-native:security/v20231001preview:SecurityConnector" }, { type: "azure-native:security/v20240301preview:SecurityConnector" }, { type: "azure-native:security/v20240701preview:SecurityConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:SecurityConnector" }, { type: "azure-native:security/v20210701preview:SecurityConnector" }, { type: "azure-native:security/v20211201preview:SecurityConnector" }, { type: "azure-native:security/v20220501preview:SecurityConnector" }, { type: "azure-native:security/v20220801preview:SecurityConnector" }, { type: "azure-native:security/v20231001preview:SecurityConnector" }, { type: "azure-native:security/v20240301preview:SecurityConnector" }, { type: "azure-native:security/v20240701preview:SecurityConnector" }, { type: "azure-native:security/v20240801preview:SecurityConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityConnector.__pulumiType, name, resourceInputs, opts);
     }

@@ -49,7 +49,6 @@ __all__ = [
     'ScaleRuleMetricDimensionOperationType',
     'ScaleType',
     'TimeAggregation',
-    'TimeAggregationOperator',
     'TimeAggregationType',
     'WebTestKind',
     'WorkbookSharedTypeKind',
@@ -472,17 +471,6 @@ class TimeAggregation(str, Enum):
     MINIMUM = "Minimum"
     MAXIMUM = "Maximum"
     TOTAL = "Total"
-
-
-class TimeAggregationOperator(str, Enum):
-    """
-    the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-    """
-    AVERAGE = "Average"
-    MINIMUM = "Minimum"
-    MAXIMUM = "Maximum"
-    TOTAL = "Total"
-    LAST = "Last"
 
 
 class TimeAggregationType(str, Enum):

@@ -154,7 +154,7 @@ def get_ca_certificate(ca_certificate_name: Optional[str] = None,
     Get properties of a CA certificate.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
+    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
 
 
     :param str ca_certificate_name: Name of the CA certificate.
@@ -186,7 +186,7 @@ def get_ca_certificate_output(ca_certificate_name: Optional[pulumi.Input[str]] =
     Get properties of a CA certificate.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
+    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
 
 
     :param str ca_certificate_name: Name of the CA certificate.

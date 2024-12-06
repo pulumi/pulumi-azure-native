@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// The operation to get the extension.
         /// Azure REST API version: 2022-12-27.
         /// 
-        /// Other available API versions: 2019-08-02-preview, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview.
+        /// Other available API versions: 2019-08-02-preview, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:hybridcompute:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.HybridCompute
         /// The operation to get the extension.
         /// Azure REST API version: 2022-12-27.
         /// 
-        /// Other available API versions: 2019-08-02-preview, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview.
+        /// Other available API versions: 2019-08-02-preview, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:hybridcompute:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());

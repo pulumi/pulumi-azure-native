@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get properties of a topic space.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
         /// </summary>
         public static Task<GetTopicSpaceResult> InvokeAsync(GetTopicSpaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicSpaceResult>("azure-native:eventgrid:getTopicSpace", args ?? new GetTopicSpaceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get properties of a topic space.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
         /// </summary>
         public static Output<GetTopicSpaceResult> Invoke(GetTopicSpaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicSpaceResult>("azure-native:eventgrid:getTopicSpace", args ?? new GetTopicSpaceInvokeArgs(), options.WithDefaults());

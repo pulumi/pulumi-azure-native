@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An object that represents a credential set resource for a container registry.
  * Azure REST API version: 2023-01-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
  */
 export class CredentialSet extends pulumi.CustomResource {
     /**
@@ -113,7 +113,7 @@ export class CredentialSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230101preview:CredentialSet" }, { type: "azure-native:containerregistry/v20230601preview:CredentialSet" }, { type: "azure-native:containerregistry/v20230701:CredentialSet" }, { type: "azure-native:containerregistry/v20230801preview:CredentialSet" }, { type: "azure-native:containerregistry/v20231101preview:CredentialSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230101preview:CredentialSet" }, { type: "azure-native:containerregistry/v20230601preview:CredentialSet" }, { type: "azure-native:containerregistry/v20230701:CredentialSet" }, { type: "azure-native:containerregistry/v20230801preview:CredentialSet" }, { type: "azure-native:containerregistry/v20231101preview:CredentialSet" }, { type: "azure-native:containerregistry/v20241101preview:CredentialSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CredentialSet.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the properties of the connected registry.
  * Azure REST API version: 2023-01-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
  */
 export function getConnectedRegistry(args: GetConnectedRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -110,7 +110,7 @@ export interface GetConnectedRegistryResult {
  * Gets the properties of the connected registry.
  * Azure REST API version: 2023-01-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
  */
 export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectedRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

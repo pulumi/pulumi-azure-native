@@ -69,7 +69,7 @@ def get_webhook_callback_config(registry_name: Optional[str] = None,
     Gets the configuration of service URI and custom headers for the webhook.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
+    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -94,7 +94,7 @@ def get_webhook_callback_config_output(registry_name: Optional[pulumi.Input[str]
     Gets the configuration of service URI and custom headers for the webhook.
     Azure REST API version: 2022-12-01.
 
-    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview.
+    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
 
 
     :param str registry_name: The name of the container registry.

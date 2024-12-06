@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Event Subscription
  * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
  */
 export class DomainEventSubscription extends pulumi.CustomResource {
     /**
@@ -152,7 +152,7 @@ export class DomainEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20220615:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20231215preview:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20240601preview:DomainEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20220615:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20231215preview:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20240601preview:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20241215preview:DomainEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

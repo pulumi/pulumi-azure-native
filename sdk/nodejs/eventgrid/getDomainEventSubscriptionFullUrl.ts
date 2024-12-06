@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Get the full endpoint URL for an event subscription for domain.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
  */
 export function getDomainEventSubscriptionFullUrl(args: GetDomainEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,7 +47,7 @@ export interface GetDomainEventSubscriptionFullUrlResult {
  * Get the full endpoint URL for an event subscription for domain.
  * Azure REST API version: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
  */
 export function getDomainEventSubscriptionFullUrlOutput(args: GetDomainEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

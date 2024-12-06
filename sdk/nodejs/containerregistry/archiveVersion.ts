@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An object that represents an export pipeline for a container registry.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
  */
 export class ArchiveVersion extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class ArchiveVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230601preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20230801preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20231101preview:ArchiveVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230601preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20230801preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20231101preview:ArchiveVersion" }, { type: "azure-native:containerregistry/v20241101preview:ArchiveVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArchiveVersion.__pulumiType, name, resourceInputs, opts);
     }

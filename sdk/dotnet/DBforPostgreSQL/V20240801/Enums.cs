@@ -257,6 +257,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240801
 
         public static IdentityType None { get; } = new IdentityType("None");
         public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
         public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);

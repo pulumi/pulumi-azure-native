@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An object that represents an import pipeline for a container registry.
  * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
  */
 export class ImportPipeline extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class ImportPipeline extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20191201preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20201101preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20210601preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20210801preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20211201preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20220201preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20230101preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20230601preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20230801preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20231101preview:ImportPipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20191201preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20201101preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20210601preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20210801preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20211201preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20220201preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20230101preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20230601preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20230801preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20231101preview:ImportPipeline" }, { type: "azure-native:containerregistry/v20241101preview:ImportPipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ImportPipeline.__pulumiType, name, resourceInputs, opts);
     }

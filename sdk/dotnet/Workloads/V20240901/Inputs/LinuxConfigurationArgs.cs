@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.V20240901.Inputs
 {
 
     /// <summary>
-    /// Specifies the Linux operating system settings on the virtual machine. &lt;br&gt;&lt;br&gt;For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+    /// Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
     /// </summary>
     public sealed class LinuxConfigurationArgs : global::Pulumi.ResourceArgs
     {

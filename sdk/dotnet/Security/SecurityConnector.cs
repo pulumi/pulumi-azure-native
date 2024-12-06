@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Security
     /// The security connector resource.
     /// Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
     /// 
-    /// Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview.
+    /// Other available API versions: 2021-07-01-preview, 2023-10-01-preview, 2024-03-01-preview, 2024-07-01-preview, 2024-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityConnector")]
     public partial class SecurityConnector : global::Pulumi.CustomResource
@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Security
                     new global::Pulumi.Alias { Type = "azure-native:security/v20231001preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240301preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240701preview:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20240801preview:SecurityConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

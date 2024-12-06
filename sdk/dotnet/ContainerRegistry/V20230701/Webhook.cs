@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:Webhook" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:Webhook" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:Webhook" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:Webhook" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

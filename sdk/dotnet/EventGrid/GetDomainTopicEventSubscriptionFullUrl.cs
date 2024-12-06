@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get the full endpoint URL for a nested event subscription for domain topic.
         /// Azure REST API version: 2022-06-15.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
         /// </summary>
         public static Task<GetDomainTopicEventSubscriptionFullUrlResult> InvokeAsync(GetDomainTopicEventSubscriptionFullUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid:getDomainTopicEventSubscriptionFullUrl", args ?? new GetDomainTopicEventSubscriptionFullUrlArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Get the full endpoint URL for a nested event subscription for domain topic.
         /// Azure REST API version: 2022-06-15.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
         /// </summary>
         public static Output<GetDomainTopicEventSubscriptionFullUrlResult> Invoke(GetDomainTopicEventSubscriptionFullUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicEventSubscriptionFullUrlResult>("azure-native:eventgrid:getDomainTopicEventSubscriptionFullUrl", args ?? new GetDomainTopicEventSubscriptionFullUrlInvokeArgs(), options.WithDefaults());

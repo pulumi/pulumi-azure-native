@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.V20240901.Inputs
 {
 
     /// <summary>
-    /// Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
+    /// Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;amp;clcid=0x409)
     /// </summary>
     public sealed class ThreeTierConfigurationArgs : global::Pulumi.ResourceArgs
     {

@@ -231,6 +231,7 @@ import * as v20230601preview from "./v20230601preview";
 import * as v20230701 from "./v20230701";
 import * as v20230801preview from "./v20230801preview";
 import * as v20231101preview from "./v20231101preview";
+import * as v20241101preview from "./v20241101preview";
 
 export {
     v20170301,
@@ -244,6 +245,7 @@ export {
     v20230701,
     v20230801preview,
     v20231101preview,
+    v20241101preview,
 };
 
 const _module = {
