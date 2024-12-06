@@ -68,6 +68,11 @@ type CustomResource struct {
 	Update func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]interface{}, error)
 	// Delete an existing resource. Constructs the resource ID based on input values.
 	Delete func(ctx context.Context, id string, properties resource.PropertyMap) error
+	// IsSingleton is true if the resource is a singleton resource that cannot be created or deleted, only initialized
+	// and reset to a default state. Normally, we infer this from whether the `Delete` property is set. In some cases
+	// we need to set it explicitly if the resource is a singleton but does have a `Delete` property implementing a
+	// custom reset to the default state.
+	isSingleton bool
 }
 
 // ResourceDefinition is a combination of the external schema and runtime metadata
@@ -176,6 +181,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 		return nil, err
 	}
 
+	postgresConf, err := postgresFlexibleServerConfiguration(crudClientFactory, lookupResource)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		keyVaultAccessPolicy(armKVClient),
 
@@ -184,6 +194,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		portalDashboard(),
 		customWebApp,
 		customWebAppSlot,
+		postgresConf,
 	}
 
 	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
@@ -225,6 +236,13 @@ var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, n
 func HasCustomDelete(path string) bool {
 	if res, ok := featureLookup[path]; ok {
 		return res.Delete != nil
+	}
+	return false
+}
+
+func IsSingleton(path string) bool {
+	if res, ok := featureLookup[path]; ok {
+		return res.isSingleton
 	}
 	return false
 }
@@ -300,12 +318,12 @@ func MetaTypeOverrides() map[string]AzureAPIType {
 func createCrudClient(
 	crudClientFactory crud.ResourceCrudClientFactory, lookupResource ResourceLookupFunc, resourceToken string,
 ) (crud.ResourceCrudClient, error) {
-	res, ok, err := lookupResource(webAppResourceType)
+	res, ok, err := lookupResource(resourceToken)
 	if err != nil {
 		return nil, err
 	}
 	if !ok {
-		return nil, fmt.Errorf("resource %s not found", webAppResourceType)
+		return nil, fmt.Errorf("resource %s not found", resourceToken)
 	}
 
 	return crudClientFactory(&res), nil

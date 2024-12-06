@@ -253,3 +253,38 @@ func TestPropertyDescriptions(t *testing.T) {
 		assert.Equal(t, "This  is not  allowed", desc)
 	})
 }
+
+func TestResourceIsSingleton(t *testing.T) {
+	t.Run("singleton", func(t *testing.T) {
+		res := &resourceVariant{
+			ResourceSpec: &openapi.ResourceSpec{
+				Path:     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/configurations/{configurationName}",
+				PathItem: &spec.PathItem{},
+			},
+		}
+		assert.True(t, isSingleton(res))
+	})
+
+	t.Run("implicit singleton", func(t *testing.T) {
+		res := &resourceVariant{
+			ResourceSpec: &openapi.ResourceSpec{
+				Path:     "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Foo/bar",
+				PathItem: &spec.PathItem{},
+			},
+		}
+		assert.True(t, isSingleton(res))
+	})
+
+	t.Run("not a singleton", func(t *testing.T) {
+		res := &resourceVariant{
+			ResourceSpec: &openapi.ResourceSpec{
+				Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Foo/bar",
+				PathItem: &spec.PathItem{
+					PathItemProps: spec.PathItemProps{
+						Delete: &spec.Operation{},
+					},
+				}},
+		}
+		assert.False(t, isSingleton(res))
+	})
+}

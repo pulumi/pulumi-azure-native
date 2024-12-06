@@ -7683,12 +7683,10 @@
       "ServerKey"
     ],
     "2020-02-14-preview": [
-      "Configuration",
       "FirewallRule",
       "Server"
     ],
     "2020-02-14-privatepreview": [
-      "Configuration",
       "FirewallRule",
       "Server",
       "ServerKey"
@@ -7704,7 +7702,6 @@
       "getGetPrivateDnsZoneSuffixExecute"
     ],
     "2021-04-10-privatepreview": [
-      "Configuration",
       "FirewallRule",
       "Server"
     ],
