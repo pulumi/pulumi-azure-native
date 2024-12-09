@@ -80,6 +80,9 @@ export class StaticSiteLinkedBackend extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            if ((!args || args.region === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'region'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +134,7 @@ export interface StaticSiteLinkedBackendArgs {
     /**
      * The region of the backend linked to the static site
      */
-    region?: pulumi.Input<string>;
+    region: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

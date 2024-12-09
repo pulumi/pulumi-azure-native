@@ -1412,6 +1412,15 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			// Top-level location is never required: it can be derived from a config value or the parent resource group.
 			props.requiredSpecs.Delete("location")
 
+			// #3757 StaticSiteLinkedBackend has a non-required property that is required in the API.
+			// https://github.com/Azure/azure-rest-api-specs/issues/31807
+			if m.resourceToken == "azure-native:web:StaticSiteLinkedBackend" {
+				if _, ok := props.properties["region"]; ok {
+					props.requiredProperties.Add("region")
+					props.requiredSpecs.Add("region")
+				}
+			}
+
 			result.merge(props)
 			apiParameter.Body = &resources.AzureAPIType{
 				Properties:         props.properties,
