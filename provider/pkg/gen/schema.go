@@ -35,7 +35,6 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
@@ -488,26 +487,26 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 	if _, has := pkg.Functions["azure-native:authorization:getClientConfig"]; has {
 		return errors.New("Invoke 'azure-native:authorization:getClientConfig' is already defined")
 	}
-	pkg.Functions["azure-native:authorization:getClientConfig"] = schema.FunctionSpec{
+	pkg.Functions["azure-native:authorization:getClientConfig"] = pschema.FunctionSpec{
 		Description: "Use this function to access the current configuration of the native Azure provider.",
-		Outputs: &schema.ObjectTypeSpec{
+		Outputs: &pschema.ObjectTypeSpec{
 			Description: "Configuration values returned by getClientConfig.",
-			Properties: map[string]schema.PropertySpec{
+			Properties: map[string]pschema.PropertySpec{
 				"clientId": {
 					Description: "Azure Client ID (Application Object ID).",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"objectId": {
 					Description: "Azure Object ID of the current user or service principal.",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"subscriptionId": {
 					Description: "Azure Subscription ID",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 				"tenantId": {
 					Description: "Azure Tenant ID",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 			},
 			Type:     "object",
@@ -519,23 +518,23 @@ func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) e
 	if _, has := pkg.Functions["azure-native:authorization:getClientToken"]; has {
 		return errors.New("Invoke 'azure-native:authorization:getClientToken' is already defined")
 	}
-	pkg.Functions["azure-native:authorization:getClientToken"] = schema.FunctionSpec{
+	pkg.Functions["azure-native:authorization:getClientToken"] = pschema.FunctionSpec{
 		Description: "Use this function to get an Azure authentication token for the current login context.",
-		Inputs: &schema.ObjectTypeSpec{
-			Properties: map[string]schema.PropertySpec{
+		Inputs: &pschema.ObjectTypeSpec{
+			Properties: map[string]pschema.PropertySpec{
 				"endpoint": {
 					Description: "Optional authentication endpoint. Defaults to the endpoint of Azure Resource Manager.",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 			},
 			Type: "object",
 		},
-		Outputs: &schema.ObjectTypeSpec{
+		Outputs: &pschema.ObjectTypeSpec{
 			Description: "Configuration values returned by getClientToken.",
-			Properties: map[string]schema.PropertySpec{
+			Properties: map[string]pschema.PropertySpec{
 				"token": {
 					Description: "OAuth token for Azure Management API and SDK authentication.",
-					TypeSpec:    schema.TypeSpec{Type: "string"},
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
 				},
 			},
 			Type:     "object",
@@ -1579,21 +1578,21 @@ func (bag *parameterBag) merge(other *propertyBag) {
 
 func rawMessage(v interface{}) pschema.RawMessage {
 	bytes, err := json.Marshal(v)
-	contract.Assert(err == nil)
+	contract.AssertNoErrorf(err, "failed to marshal '%v'", v)
 	return bytes
 }
 
 // InMemoryPackageLoader prevents having to fetch the schema from
 // the provider every time which significantly speeds up codegen.
-func InMemoryPackageLoader(pkgs map[string]*schema.Package) schema.Loader {
+func InMemoryPackageLoader(pkgs map[string]*pschema.Package) pschema.Loader {
 	return &inMemoryLoader{pkgs: pkgs}
 }
 
 type inMemoryLoader struct {
-	pkgs map[string]*schema.Package
+	pkgs map[string]*pschema.Package
 }
 
-func (l *inMemoryLoader) LoadPackage(pkg string, _ *semver.Version) (*schema.Package, error) {
+func (l *inMemoryLoader) LoadPackage(pkg string, _ *semver.Version) (*pschema.Package, error) {
 	if p, ok := l.pkgs[pkg]; ok {
 		return p, nil
 	}
@@ -1601,7 +1600,7 @@ func (l *inMemoryLoader) LoadPackage(pkg string, _ *semver.Version) (*schema.Pac
 	return nil, errors.Errorf("package %s not found in the in-memory map", pkg)
 }
 
-func (l *inMemoryLoader) LoadPackageV2(ctx context.Context, descriptor *schema.PackageDescriptor) (*schema.Package, error) {
+func (l *inMemoryLoader) LoadPackageV2(ctx context.Context, descriptor *pschema.PackageDescriptor) (*pschema.Package, error) {
 	if p, ok := l.pkgs[descriptor.Name]; ok {
 		return p, nil
 	}
