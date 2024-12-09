@@ -67,7 +67,7 @@ func newPulumiTest(t *testing.T, testProgramDir string) *pulumitest.PulumiTest {
 	dir := filepath.Join("test-programs", testProgramDir)
 	azureLocation := getLocation()
 	rpFactory := providers.ResourceProviderFactory(providerServer)
-	attachOpt := opttest.AttachProvider("azure", rpFactory)
+	attachOpt := opttest.AttachProvider("azure-native", rpFactory)
 	pt := pulumitest.NewPulumiTest(t, dir, attachOpt)
 	pt.SetConfig(t, "azure-native:location", azureLocation)
 	return pt
