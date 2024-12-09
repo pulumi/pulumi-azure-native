@@ -1,0 +1,410 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-12-09T15:24:22.298633Z",
+      "magic": "3b1911ae6e2d8d1f468975cdca7c3c6a48585f5e805330548231ecc6cfbc84ff",
+      "version": "v3.136.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:Q4tZftjolq4=:v1:p+got9NGESvXNITl:BxzQhMZT/pF28YmtgiVzY0ZxwmAflw=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-12-09T15:22:12.734495Z",
+        "modified": "2024-12-09T15:22:12.734495Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default",
+        "custom": true,
+        "id": "50060ed0-a139-4381-8995-aa492caeb639",
+        "type": "pulumi:providers:azure-native",
+        "inputs": {
+          "location": "westus2"
+        },
+        "outputs": {
+          "location": "westus2"
+        },
+        "created": "2024-12-09T15:22:13.873214Z",
+        "modified": "2024-12-09T15:22:13.873214Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592",
+        "type": "azure-native:resources:ResourceGroup",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "location": "westus2",
+          "resourceGroupName": "rg8baa4592"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592",
+          "location": "westus2",
+          "name": "rg8baa4592",
+          "properties": {
+            "provisioningState": "Succeeded"
+          },
+          "type": "Microsoft.Resources/resourceGroups"
+        },
+        "parent": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "provider": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default::50060ed0-a139-4381-8995-aa492caeb639",
+        "created": "2024-12-09T15:22:16.849063Z",
+        "modified": "2024-12-09T15:22:16.849063Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::azure-native:network:PublicIPAddress::publicIp",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/publicIPAddresses/publicIpe23ec76e",
+        "type": "azure-native:network:PublicIPAddress",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "location": "westus2",
+          "publicIPAddressVersion": "IPv4",
+          "publicIPAllocationMethod": "Dynamic",
+          "publicIpAddressName": "publicIpe23ec76e",
+          "resourceGroupName": "rg8baa4592",
+          "sku": {
+            "name": "basic"
+          }
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "etag": "W/\"a99a6db0-0d30-438d-8383-2e8f9b02f88e\"",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/publicIPAddresses/publicIpe23ec76e",
+          "idleTimeoutInMinutes": 4,
+          "ipTags": [],
+          "location": "westus2",
+          "name": "publicIpe23ec76e",
+          "provisioningState": "Succeeded",
+          "publicIPAddressVersion": "IPv4",
+          "publicIPAllocationMethod": "Dynamic",
+          "resourceGuid": "9759e2eb-219f-4b76-aea2-80c9770473ff",
+          "sku": {
+            "name": "Basic",
+            "tier": "Regional"
+          },
+          "type": "Microsoft.Network/publicIPAddresses"
+        },
+        "parent": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default::50060ed0-a139-4381-8995-aa492caeb639",
+        "propertyDependencies": {
+          "publicIPAddressVersion": [],
+          "publicIPAllocationMethod": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+          ],
+          "sku": []
+        },
+        "created": "2024-12-09T15:22:20.971979Z",
+        "modified": "2024-12-09T15:22:20.971979Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::azure-native:network:VirtualNetwork::vnet",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/virtualNetworks/vnet318be6d2",
+        "type": "azure-native:network:VirtualNetwork",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "addressSpace": {
+            "addressPrefixes": [
+              "10.1.0.0/16"
+            ]
+          },
+          "location": "westus2",
+          "resourceGroupName": "rg8baa4592",
+          "virtualNetworkName": "vnet318be6d2"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "addressSpace": {
+            "addressPrefixes": [
+              "10.1.0.0/16"
+            ]
+          },
+          "enableDdosProtection": false,
+          "etag": "W/\"89358cfb-d2fa-432c-9338-f03587ce0217\"",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/virtualNetworks/vnet318be6d2",
+          "location": "westus2",
+          "name": "vnet318be6d2",
+          "provisioningState": "Succeeded",
+          "resourceGuid": "22546ab5-013b-45cb-94e9-b7b6dba1fac4",
+          "subnets": [],
+          "type": "Microsoft.Network/virtualNetworks",
+          "virtualNetworkPeerings": []
+        },
+        "parent": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default::50060ed0-a139-4381-8995-aa492caeb639",
+        "propertyDependencies": {
+          "addressSpace": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2024-12-09T15:22:23.706174Z",
+        "modified": "2024-12-09T15:22:23.706174Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::azure-native:network:Subnet::subnet",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/virtualNetworks/vnet318be6d2/subnets/subnet",
+        "type": "azure-native:network:Subnet",
+        "inputs": {
+          "addressPrefix": "10.1.0.0/24",
+          "resourceGroupName": "rg8baa4592",
+          "subnetName": "subnet",
+          "virtualNetworkName": "vnet318be6d2"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "addressPrefix": "10.1.0.0/24",
+          "delegations": [],
+          "etag": "W/\"bd9a101c-8c0a-4b42-be01-c0b7650192ed\"",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/virtualNetworks/vnet318be6d2/subnets/subnet",
+          "name": "subnet",
+          "privateEndpointNetworkPolicies": "Disabled",
+          "privateLinkServiceNetworkPolicies": "Enabled",
+          "provisioningState": "Succeeded",
+          "type": "Microsoft.Network/virtualNetworks/subnets"
+        },
+        "parent": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:network:VirtualNetwork::vnet"
+        ],
+        "provider": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default::50060ed0-a139-4381-8995-aa492caeb639",
+        "propertyDependencies": {
+          "addressPrefix": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+          ],
+          "virtualNetworkName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:network:VirtualNetwork::vnet"
+          ]
+        },
+        "created": "2024-12-09T15:22:29.057932Z",
+        "modified": "2024-12-09T15:22:29.057932Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::azure-native:network:NetworkInterface::networkInterface",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/networkInterfaces/networkInterface1887b05c",
+        "type": "azure-native:network:NetworkInterface",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "ipConfigurations": [
+            {
+              "name": "ipconfig1",
+              "privateIPAllocationMethod": "Dynamic",
+              "subnet": {
+                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/virtualNetworks/vnet318be6d2/subnets/subnet"
+              }
+            }
+          ],
+          "location": "westus2",
+          "networkInterfaceName": "networkInterface1887b05c",
+          "resourceGroupName": "rg8baa4592"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "auxiliaryMode": "None",
+          "auxiliarySku": "None",
+          "disableTcpStateTracking": false,
+          "dnsSettings": {
+            "appliedDnsServers": [],
+            "dnsServers": [],
+            "internalDomainNameSuffix": "wvvfiir1ahfulfhjw41nxip0ye.xx.internal.cloudapp.net"
+          },
+          "enableAcceleratedNetworking": false,
+          "enableIPForwarding": false,
+          "etag": "W/\"972368ac-75d5-4e75-bc11-993902a04d60\"",
+          "hostedWorkloads": [],
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/networkInterfaces/networkInterface1887b05c",
+          "ipConfigurations": [
+            {
+              "etag": "W/\"972368ac-75d5-4e75-bc11-993902a04d60\"",
+              "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/networkInterfaces/networkInterface1887b05c/ipConfigurations/ipconfig1",
+              "name": "ipconfig1",
+              "primary": true,
+              "privateIPAddress": "10.1.0.4",
+              "privateIPAddressVersion": "IPv4",
+              "privateIPAllocationMethod": "Dynamic",
+              "provisioningState": "Succeeded",
+              "subnet": {
+                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/virtualNetworks/vnet318be6d2/subnets/subnet"
+              },
+              "type": "Microsoft.Network/networkInterfaces/ipConfigurations"
+            }
+          ],
+          "location": "westus2",
+          "name": "networkInterface1887b05c",
+          "nicType": "Standard",
+          "provisioningState": "Succeeded",
+          "resourceGuid": "020a004d-22b3-49f0-bc5f-7041e247bb58",
+          "tapConfigurations": [],
+          "type": "Microsoft.Network/networkInterfaces",
+          "vnetEncryptionSupported": false
+        },
+        "parent": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:network:Subnet::subnet",
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default::50060ed0-a139-4381-8995-aa492caeb639",
+        "propertyDependencies": {
+          "ipConfigurations": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:network:Subnet::subnet"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2024-12-09T15:22:31.658479Z",
+        "modified": "2024-12-09T15:22:31.658479Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::azure-native:compute:VirtualMachine::vm",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Compute/virtualMachines/vm9d630779",
+        "type": "azure-native:compute:VirtualMachine",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "hardwareProfile": {
+            "vmSize": "Standard_A0"
+          },
+          "location": "westus2",
+          "networkProfile": {
+            "networkInterfaces": [
+              {
+                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/networkInterfaces/networkInterface1887b05c"
+              }
+            ]
+          },
+          "osProfile": {
+            "adminPassword": "someFancyp@wd2!",
+            "adminUsername": "someusername",
+            "computerName": "mycomputer"
+          },
+          "resourceGroupName": "rg8baa4592",
+          "storageProfile": {
+            "imageReference": {
+              "offer": "UbuntuServer",
+              "publisher": "Canonical",
+              "sku": "18.04-LTS",
+              "version": "latest"
+            }
+          },
+          "vmName": "vm9d630779"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "hardwareProfile": {
+            "vmSize": "Standard_A0"
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Compute/virtualMachines/vm9d630779",
+          "location": "westus2",
+          "name": "vm9d630779",
+          "networkProfile": {
+            "networkInterfaces": [
+              {
+                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Network/networkInterfaces/networkInterface1887b05c"
+              }
+            ]
+          },
+          "osProfile": {
+            "adminUsername": "someusername",
+            "allowExtensionOperations": true,
+            "computerName": "mycomputer",
+            "linuxConfiguration": {
+              "disablePasswordAuthentication": false,
+              "patchSettings": {
+                "assessmentMode": "ImageDefault",
+                "patchMode": "ImageDefault"
+              },
+              "provisionVMAgent": true
+            },
+            "requireGuestProvisionSignal": true,
+            "secrets": []
+          },
+          "provisioningState": "Succeeded",
+          "storageProfile": {
+            "dataDisks": [],
+            "imageReference": {
+              "exactVersion": "18.04.202401161",
+              "offer": "UbuntuServer",
+              "publisher": "Canonical",
+              "sku": "18.04-LTS",
+              "version": "latest"
+            },
+            "osDisk": {
+              "caching": "ReadWrite",
+              "createOption": "FromImage",
+              "deleteOption": "Detach",
+              "diskSizeGB": 30,
+              "managedDisk": {
+                "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg8baa4592/providers/Microsoft.Compute/disks/vm9d630779_OsDisk_1_b544de2500e14e88a9f54b2f9e75db5c",
+                "storageAccountType": "Standard_LRS"
+              },
+              "name": "vm9d630779_OsDisk_1_b544de2500e14e88a9f54b2f9e75db5c",
+              "osType": "Linux"
+            }
+          },
+          "timeCreated": "2024-12-09T15:22:33.9499709+00:00",
+          "type": "Microsoft.Compute/virtualMachines",
+          "vmId": "29540c80-5a99-4c24-b682-f2df939c94b1"
+        },
+        "parent": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:network:NetworkInterface::networkInterface",
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default::50060ed0-a139-4381-8995-aa492caeb639",
+        "propertyDependencies": {
+          "hardwareProfile": [],
+          "networkProfile": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:network:NetworkInterface::networkInterface"
+          ],
+          "osProfile": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+          ],
+          "storageProfile": []
+        },
+        "created": "2024-12-09T15:24:22.256961Z",
+        "modified": "2024-12-09T15:24:22.256961Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

@@ -1,0 +1,59 @@
+name: upgrade-networked-vm
+runtime: yaml
+description: Upgrade test for VirtualNetwork and VirtualMachine
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  vnet:
+    type: azure-native:network:VirtualNetwork
+    properties:
+      resourceGroupName: ${rg.name}
+      addressSpace:
+        addressPrefixes: ["10.1.0.0/16"]
+
+  subnet:
+    type: azure-native:network:Subnet
+    properties:
+      resourceGroupName: ${rg.name}
+      virtualNetworkName: ${vnet.name}
+      addressPrefix: "10.1.0.0/24"
+
+  networkInterface:
+    type: azure-native:network:NetworkInterface
+    properties:
+      resourceGroupName: ${rg.name}
+      ipConfigurations:
+        - name: ipconfig1
+          subnet:
+            id: ${subnet.id}
+          privateIPAllocationMethod: Dynamic
+
+  publicIp:
+    type: azure-native:network:PublicIPAddress
+    properties:
+      resourceGroupName: ${rg.name}
+      sku:
+        name: basic
+      publicIPAddressVersion: IPv4
+      publicIPAllocationMethod: Dynamic
+
+  vm:
+    type: azure-native:compute:VirtualMachine
+    properties:
+      resourceGroupName: ${rg.name}
+      hardwareProfile:
+        vmSize: Standard_A0
+      networkProfile:
+        networkInterfaces:
+          - id: ${networkInterface.id}
+      storageProfile:
+        imageReference:
+          publisher: "Canonical"
+          offer: "UbuntuServer"
+          sku: "18.04-LTS"
+          version: "latest"
+      osProfile:
+        computerName: "mycomputer"
+        adminUsername: "someusername"
+        adminPassword: "someFancyp@wd2!"

@@ -80,6 +80,11 @@ func TestUpgradeKeyVault_2_76_0(t *testing.T) {
 	upgradeTest(t, "upgrade-keyvault", "2.76.0")
 }
 
+func TestUpgradeNetworkedVm_2_76_0(t *testing.T) {
+	t.Parallel()
+	upgradeTest(t, "upgrade-networked-vm", "2.76.0")
+}
+
 func upgradeTest(t *testing.T, testProgramDir string, upgradeFromVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
 	t.Helper()
 	if testing.Short() {
