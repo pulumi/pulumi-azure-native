@@ -366,6 +366,27 @@ jobs:
           make --touch codegen schema
           make provider_prebuild
 
+      - name: Build and sign windows provider
+        run: |
+          make bin/windows-amd64/pulumi-resource-azure-native.exe;
+
+          az login --service-principal \
+            -u ${{ secrets.AZURE_SIGNING_CLIENT_ID }} \
+            -p ${{ secrets.AZURE_SIGNING_CLIENT_SECRET }} \
+            -t ${{ secrets.AZURE_SIGNING_TENANT_ID }} \
+            -o none;
+
+          wget https://github.com/ebourg/jsign/releases/download/6.0/jsign-6.0.jar;
+
+          java -jar jsign-6.0.jar \
+             --storetype AZUREKEYVAULT \
+             --keystore "PulumiCodeSigning" \
+             --url ${{ secrets.AZURE_SIGNING_KEY_VAULT_URI }} \
+             --storepass "$(az account get-access-token --resource "https://vault.azure.net" | jq -r .accessToken)" \
+             bin/windows-amd64/pulumi-resource-azure-native.exe;
+
+          az logout;
+
       - name: Build dist packages
         run: make dist --jobs=2
 
