@@ -7,123 +7,86 @@
 package provider
 
 import (
-	"context"
 	"fmt"
 	"os"
 	"path/filepath"
 	"testing"
 
-	"google.golang.org/grpc"
-
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 
-	rp "github.com/pulumi/pulumi/pkg/v3/resource/provider"
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil"
+	"github.com/pulumi/providertest/providers"
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/assertrefresh"
+	"github.com/pulumi/providertest/pulumitest/opttest"
+
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
 func TestStorageBlob(t *testing.T) {
-	runTestProgram(t, "storage-blob")
+	t.Parallel()
+	pt := newPulumiTest(t, "storage-blob")
+	pt.Preview(t)
+	pt.Up(t)
+	assertrefresh.HasNoChanges(t, pt.Refresh(t))
 }
 
 func TestApi(t *testing.T) {
-	runTestProgram(t, "api")
+	t.Parallel()
+	pt := newPulumiTest(t, "api")
+	pt.Preview(t)
+	pt.Up(t)
+	assertrefresh.HasNoChanges(t, pt.Refresh(t))
 }
 
 func TestRequiredContainers(t *testing.T) {
-	runTestProgram(t, "required-containers")
+	t.Parallel()
+	pt := newPulumiTest(t, "required-containers")
+	pt.Preview(t)
+	pt.Up(t)
+	assertrefresh.HasNoChanges(t, pt.Refresh(t))
 }
 
 func TestParallelSubnetCreation(t *testing.T) {
+	t.Parallel()
 	if !util.EnableAzcoreBackend() {
 		t.Skip("Skipping test because it requires the AZCore backend")
 	}
-	runTestProgram(t, "parallel-subnet-creation")
+	pt := newPulumiTest(t, "parallel-subnet-creation")
+	pt.Preview(t)
+	pt.Up(t)
+	assertrefresh.HasNoChanges(t, pt.Refresh(t))
 }
 
-// runTestProgram runs an example from ./examples/<initialDir>
-// Any editDirs are applied in order, and the program is run after each edit. e.g. ./examples/<editDir>
-func runTestProgram(t *testing.T, initialDir string, editDirs ...string) {
-	if t.Skipped() {
-		return
+func newPulumiTest(t *testing.T, testProgramDir string) *pulumitest.PulumiTest {
+	t.Helper()
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without cloud credentials")
+		return nil
 	}
-	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
-	port, err := startProvider(ctx)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	opts, err := getTestOptions(initialDir, editDirs, port)
-	if err != nil {
-		t.Fatal(err)
-		return
-	}
-
-	integration.ProgramTest(t, opts)
-}
-
-func getTestOptions(initialDir string, editDirs []string, port int) (*integration.ProgramTestOptions, error) {
-	cwd, err := os.Getwd()
-	if err != nil {
-		return nil, err
-	}
+	dir := filepath.Join("test-programs", testProgramDir)
 	azureLocation := getLocation()
-	test := integration.ProgramTestOptions{
-		Dir:                  filepath.Join(cwd, "test-programs", initialDir),
-		ExpectRefreshChanges: true,
-		Config: map[string]string{
-			"azure-native:location": azureLocation,
-		},
-		Env: []string{
-			fmt.Sprintf("PULUMI_DEBUG_PROVIDERS=azure-native:%d", port),
-		},
-	}
-	for _, editDir := range editDirs {
-		test.EditDirs = append(test.EditDirs, integration.EditDir{
-			Dir: filepath.Join(cwd, "test-programs", editDir),
-		})
-	}
-	return &test, nil
+	rpFactory := providers.ResourceProviderFactory(providerServer)
+	attachOpt := opttest.AttachProvider("azure", rpFactory)
+	pt := pulumitest.NewPulumiTest(t, dir, attachOpt)
+	pt.SetConfig(t, "azure-native:location", azureLocation)
+	return pt
 }
 
-// startProvider starts the provider in a goProc and returns the port it's listening on.
-// To shut down the provider, cancel the context.
-func startProvider(ctx context.Context) (int, error) {
-	providerName := "azure-native"
-	cancelChannel := make(chan bool)
-	go func() {
-		<-ctx.Done()
-		close(cancelChannel)
-	}()
-	var host *rp.HostClient // We don't initialize this - to mimic attach mode
-	version := ""
+func providerServer(_ providers.PulumiTest) (pulumirpc.ResourceProviderServer, error) {
+	version.Version = "0.0.1"
+
 	schemaBytes, err := os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-full.json"))
 	if err != nil {
-		return 0, err
-	}
-	azureAPIResourcesBytes, err := os.ReadFile(filepath.Join("..", "..", "..", "bin", "metadata-compact.json"))
-	if err != nil {
-		return 0, err
-	}
-	handle, err := rpcutil.ServeWithOptions(rpcutil.ServeOptions{
-		Cancel: cancelChannel,
-		Init: func(srv *grpc.Server) error {
-			prov, proverr := makeProvider(host, providerName, version, schemaBytes, azureAPIResourcesBytes)
-			if proverr != nil {
-				return fmt.Errorf("failed to create resource provider: %v", proverr)
-			}
-			pulumirpc.RegisterResourceProviderServer(srv, prov)
-			return nil
-		},
-		Options: rpcutil.OpenTracingServerInterceptorOptions(nil),
-	})
-	if err != nil {
-		return 0, fmt.Errorf("fatal: %v", err)
+		return nil, fmt.Errorf("failed to read schema file, run `make schema` before running tests: %v", err)
 	}
 
-	return handle.Port, nil
+	azureAPIResourcesBytes, err := os.ReadFile(filepath.Join("..", "..", "..", "bin", "metadata-compact.json"))
+	if err != nil {
+		return nil, fmt.Errorf("failed to read metadata file, run `make schema` before running tests: %v", err)
+	}
+
+	return makeProvider(nil, "azure-native", "2.0.0", schemaBytes, azureAPIResourcesBytes)
 }
 
 func getLocation() string {
