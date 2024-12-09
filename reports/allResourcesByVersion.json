@@ -20212,6 +20212,24 @@
       "listHypervSitesControllerHealthSummary",
       "listServerSitesControllerHealthSummary",
       "listSitesControllerHealthSummary"
+    ],
+    "2024-05-01-preview": [
+      "HypervClusterControllerCluster",
+      "HypervHostController",
+      "HypervSitesController",
+      "ImportSitesController",
+      "MasterSitesController",
+      "PrivateEndpointConnectionController",
+      "ServerSitesController",
+      "SitesController",
+      "SqlDiscoverySiteDataSourceController",
+      "SqlSitesController",
+      "VcenterController",
+      "WebAppDiscoverySiteDataSourcesController",
+      "WebAppSitesController",
+      "listHypervSitesControllerHealthSummary",
+      "listServerSitesControllerHealthSummary",
+      "listSitesControllerHealthSummary"
     ]
   },
   "OffAzureSpringBoot": {

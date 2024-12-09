@@ -20840,37 +20840,44 @@
     ],
     "HypervClusterControllerCluster": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "HypervHostController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "HypervSitesController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "ImportSitesController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "MasterSite": [
       "2020-07-07"
     ],
     "MasterSitesController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2020-07-07"
     ],
     "PrivateEndpointConnectionController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "ServerSitesController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "Site": [
       "2020-01-01",
@@ -20878,15 +20885,18 @@
     ],
     "SitesController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "SqlDiscoverySiteDataSourceController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "SqlSitesController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "VCenter": [
       "2020-01-01",
@@ -20894,27 +20904,33 @@
     ],
     "VcenterController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "WebAppDiscoverySiteDataSourcesController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "WebAppSitesController": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "listHypervSitesControllerHealthSummary": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "listServerSitesControllerHealthSummary": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ],
     "listSitesControllerHealthSummary": [
       "2023-06-06",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-05-01-preview"
     ]
   },
   "OffAzureSpringBoot": {

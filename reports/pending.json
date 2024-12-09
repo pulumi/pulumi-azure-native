@@ -1030,7 +1030,8 @@
   ],
   "OffAzure": [
     "2023-06-06",
-    "2023-10-01-preview"
+    "2023-10-01-preview",
+    "2024-05-01-preview"
   ],
   "OffAzureSpringBoot": [
     "2024-04-01-preview"
