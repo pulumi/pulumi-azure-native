@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// The region of the backend linked to the static site
         /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
+        [Input("region", required: true)]
+        public Input<string> Region { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
