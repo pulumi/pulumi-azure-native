@@ -35,6 +35,9 @@ PROVIDER_VERSION ?= 2.0.0-alpha.0+dev
 # These variables are lazy (no `:`) so they're not calculated until after the dependency is installed
 VERSION_GENERIC = $(shell bin/pulumictl convert-version -l generic -v "$(PROVIDER_VERSION)")
 VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version.Version=${VERSION_GENERIC}"
+MAJOR_VERSION   = $(shell echo $(PROVIDER_VERSION) | cut -d. -f1)
+PREVIOUS_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)-1 | bc)
+NEXT_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)+1 | bc)
 
 # Ensure make directory exists
 # For targets which either don't generate a single file output, or the file is committed, we use a "sentinel"
@@ -61,7 +64,6 @@ provider_prebuild: .make/provider_prebuild
 .PHONY: prebuild
 prebuild: .make/prebuild
 
-# We don't include v2 here yet as this is executed on the nightly updates
 .PHONY: schema generate_schema generate_docs
 schema: bin/schema-full.json
 generate_schema: bin/schema-full.json
@@ -221,12 +223,12 @@ bin/$(CODEGEN): bin/pulumictl .make/prebuild .make/provider_mod_download provide
 
 # Writes schema-full.json and metadata-compact.json to bin/
 # Also re-calculates files in versions/ at same time
-bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) versions/az-provider-list.json versions/v1-lock.json versions/v2-config.yaml versions/v2-spec.yaml versions/v2-removed-resources.json
+bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) versions/az-provider-list.json versions/v${PREVIOUS_MAJOR_VERSION}-lock.json versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-spec.yaml versions/v${MAJOR_VERSION}-removed-resources.json versions/v${NEXT_MAJOR_VERSION}-removed-resources.json
 	bin/$(CODEGEN) schema $(VERSION_GENERIC)
 
 # Docs schema - treat as phony becasuse it's committed so we always need to rebuild it.
 .PHONY: provider/cmd/pulumi-resource-azure-native/schema.json
-provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v1-lock.json versions/v2-config.yaml versions/v2-removed-resources.json
+provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v${PREVIOUS_MAJOR_VERSION}-lock.json versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-removed-resources.json
 	bin/$(CODEGEN) docs $(VERSION_GENERIC)
 
 bin/$(LOCAL_PROVIDER_FILENAME): bin/pulumictl .make/prebuild .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
@@ -269,13 +271,13 @@ dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(P
 	cd provider && go mod download
 	@touch $@
 
-.make/provider_prebuild: .make/prebuild bin/schema-full.json bin/metadata-compact.json versions/v2-lock.json
+.make/provider_prebuild: .make/prebuild bin/schema-full.json bin/metadata-compact.json versions/v${MAJOR_VERSION}-lock.json
 	cp bin/schema-full.json provider/cmd/$(PROVIDER)
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
 	@touch $@
 
 .make/prebuild: .pulumi/bin/pulumi
-	cp -v versions/v2-lock.json provider/pkg/versionLookup/
+	cp -v versions/v${MAJOR_VERSION}-lock.json provider/pkg/versionLookup/
 	@touch $@
 
 define FAKE_MODULE
