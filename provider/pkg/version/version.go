@@ -8,5 +8,10 @@ import "github.com/blang/semver"
 var Version string
 
 func GetVersion() semver.Version {
-	return semver.MustParse(Version)
+	v := Version
+	if v == "" {
+		// fallback to a default version e.g. for unit tests (see: PROVIDER_VERSION in Makefile)
+		v = "2.0.0-alpha.0+dev"
+	}
+	return semver.MustParse(v)
 }
