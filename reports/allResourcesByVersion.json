@@ -3220,6 +3220,33 @@
       "SourceControl",
       "Variable",
       "listKeyByAutomationAccount"
+    ],
+    "2024-10-23": [
+      "AutomationAccount",
+      "Certificate",
+      "Connection",
+      "ConnectionType",
+      "Credential",
+      "DscConfiguration",
+      "DscNodeConfiguration",
+      "HybridRunbookWorker",
+      "HybridRunbookWorkerGroup",
+      "JobSchedule",
+      "Module",
+      "Package",
+      "PrivateEndpointConnection",
+      "Python2Package",
+      "Python3Package",
+      "Runbook",
+      "RuntimeEnvironment",
+      "Schedule",
+      "SoftwareUpdateConfigurationByName",
+      "SourceControl",
+      "Variable",
+      "Watcher",
+      "Webhook",
+      "listAutomationAccountDeletedRunbooks",
+      "listKeyByAutomationAccount"
     ]
   },
   "AwsConnector": {
@@ -20196,6 +20223,24 @@
       "listSitesControllerHealthSummary"
     ],
     "2023-10-01-preview": [
+      "HypervClusterControllerCluster",
+      "HypervHostController",
+      "HypervSitesController",
+      "ImportSitesController",
+      "MasterSitesController",
+      "PrivateEndpointConnectionController",
+      "ServerSitesController",
+      "SitesController",
+      "SqlDiscoverySiteDataSourceController",
+      "SqlSitesController",
+      "VcenterController",
+      "WebAppDiscoverySiteDataSourcesController",
+      "WebAppSitesController",
+      "listHypervSitesControllerHealthSummary",
+      "listServerSitesControllerHealthSummary",
+      "listSitesControllerHealthSummary"
+    ],
+    "2024-05-01-preview": [
       "HypervClusterControllerCluster",
       "HypervHostController",
       "HypervSitesController",
