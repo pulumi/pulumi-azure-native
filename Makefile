@@ -31,15 +31,12 @@ endif
 # Input during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local builds will just used this fixed default version unless specified
 PROVIDER_VERSION ?= 2.0.0-alpha.0+dev
-# Ensure the leading "v" is removed - use this normalised version everywhere rather than the raw input to ensure consistency.
-# These variables are lazy (no `:`) so they're not calculated until after the dependency is installed
-VERSION_GENERIC = $(shell bin/pulumictl convert-version -l generic -v "$(PROVIDER_VERSION)")
-VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version.Version=${VERSION_GENERIC}"
 # Check version doesn't start with a "v" - this is a common mistake
 ifeq ($(shell echo $(PROVIDER_VERSION) | cut -c1),v)
 $(error PROVIDER_VERSION should not start with a "v")
 endif
 
+VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version.Version=${PROVIDER_VERSION}"
 MAJOR_VERSION   = $(shell echo $(PROVIDER_VERSION) | cut -d. -f1)
 PREVIOUS_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)-1 | bc)
 NEXT_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)+1 | bc)
@@ -53,7 +50,7 @@ _ := $(shell mkdir -p .make)
 .PHONY: default ensure dist
 default: provider build_sdks
 ensure: bin/pulumictl .make/provider_mod_download
-dist: dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt dist/docs-schema.json
+dist: dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt dist/docs-schema.json
 
 # Binaries
 .PHONY: codegen provider
@@ -173,7 +170,7 @@ test_nodejs: provider install_nodejs_sdk
 
 .PHONY: schema_squeeze
 schema_squeeze: bin/$(CODEGEN)
-	bin/$(CODEGEN) squeeze $(VERSION_GENERIC)
+	bin/$(CODEGEN) squeeze $(PROVIDER_VERSION)
 
 .PHONY: explode_schema
 explode_schema: dist/docs-schema.json
@@ -229,12 +226,12 @@ bin/$(CODEGEN): bin/pulumictl .make/prebuild .make/provider_mod_download provide
 # Writes schema-full.json and metadata-compact.json to bin/
 # Also re-calculates files in versions/ at same time
 bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) versions/az-provider-list.json versions/v${PREVIOUS_MAJOR_VERSION}-lock.json versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-spec.yaml versions/v${MAJOR_VERSION}-removed-resources.json versions/v${NEXT_MAJOR_VERSION}-removed-resources.json
-	bin/$(CODEGEN) schema $(VERSION_GENERIC)
+	bin/$(CODEGEN) schema $(PROVIDER_VERSION)
 
 # Docs schema - treat as phony becasuse it's committed so we always need to rebuild it.
 .PHONY: provider/cmd/pulumi-resource-azure-native/schema.json
 provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v${PREVIOUS_MAJOR_VERSION}-lock.json versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-removed-resources.json
-	bin/$(CODEGEN) docs $(VERSION_GENERIC)
+	bin/$(CODEGEN) docs $(PROVIDER_VERSION)
 
 bin/$(LOCAL_PROVIDER_FILENAME): bin/pulumictl .make/prebuild .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	cd provider && \
@@ -263,12 +260,12 @@ dist/$(PROVIDER)-v$(PROVIDER_VERSION)-%.tar.gz:
 	@# $< is the last dependency (the binary path from above)
 	tar --gzip -cf $@ README.md LICENSE -C $$(dirname $<) .
 
-dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-amd64.tar.gz
-dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-arm64.tar.gz
-dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-amd64.tar.gz
-dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-arm64.tar.gz
-dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-amd64.tar.gz
-	cd dist && shasum *.tar.gz > pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt
+dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-amd64.tar.gz
+dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-arm64.tar.gz
+dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-amd64.tar.gz
+dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-arm64.tar.gz
+dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-amd64.tar.gz
+	cd dist && shasum *.tar.gz > pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt
 
 # --------- Sentinel targets --------- #
 
@@ -332,7 +329,7 @@ export FAKE_MODULE
 	@# Unmark this is as an up-to-date local build
 	rm -f .make/prepublish_go
 	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
-	bin/$(CODEGEN) go $(VERSION_GENERIC)
+	bin/$(CODEGEN) go $(PROVIDER_VERSION)
 	@# Tidy up all go.mod files
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy" \;
 	@touch $@
@@ -357,7 +354,7 @@ export FAKE_MODULE
 	yarn install --cwd sdk/nodejs
 	@touch $@
 
-.make/build_nodejs: VERSION_JS = $(shell bin/pulumictl convert-version -l javascript -v "$(VERSION_GENERIC)")
+.make/build_nodejs: VERSION_JS = $(shell bin/pulumictl convert-version -l javascript -v "$(PROVIDER_VERSION)")
 .make/build_nodejs: bin/pulumictl .make/nodejs_yarn_install
 	cd sdk/nodejs/ && \
 		NODE_OPTIONS=--max-old-space-size=12288 yarn run tsc --diagnostics --incremental && \
@@ -366,7 +363,7 @@ export FAKE_MODULE
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
 	@touch $@
 
-.make/build_python: VERSION_PYTHON = $(shell bin/pulumictl convert-version -l python -v "$(VERSION_GENERIC)")
+.make/build_python: VERSION_PYTHON = $(shell bin/pulumictl convert-version -l python -v "$(PROVIDER_VERSION)")
 .make/build_python: bin/pulumictl .make/generate_python
 	cd sdk/python && \
 		git clean -fxd && \
@@ -389,7 +386,7 @@ export FAKE_MODULE
 
 .make/build_java: bin/pulumictl .make/generate_java
 	cd sdk/java/ && \
-		gradle --console=plain -Pversion=$(VERSION_GENERIC) build
+		gradle --console=plain -Pversion=$(PROVIDER_VERSION) build
 	@touch $@
 
 .make/build_go: .make/generate_go_local
