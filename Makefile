@@ -35,6 +35,11 @@ PROVIDER_VERSION ?= 2.0.0-alpha.0+dev
 # These variables are lazy (no `:`) so they're not calculated until after the dependency is installed
 VERSION_GENERIC = $(shell bin/pulumictl convert-version -l generic -v "$(PROVIDER_VERSION)")
 VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version.Version=${VERSION_GENERIC}"
+# Check version doesn't start with a "v" - this is a common mistake
+ifeq ($(shell echo $(PROVIDER_VERSION) | cut -c1),v)
+$(error PROVIDER_VERSION should not start with a "v")
+endif
+
 MAJOR_VERSION   = $(shell echo $(PROVIDER_VERSION) | cut -d. -f1)
 PREVIOUS_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)-1 | bc)
 NEXT_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)+1 | bc)
