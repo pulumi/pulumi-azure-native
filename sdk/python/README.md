@@ -60,12 +60,6 @@ quality and higher fidelity with the Azure platform.
 
 To learn how to configure credentials refer to the [Azure configuration options](https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#configuration-options).
 
-## Other Configuration
-
-In addition to the configuration options in the official documentation linked above, the following environment variables can be used to tweak lower-level behavior of the provider:
-
-  - `PULUMI_FORCE_NEW_FROM_SUBTYPES`: if, after a change in your program, the provider does not replace a resource that should be replaced because it cannot be updated, setting this variable to `true` might allow the provider to infer the correct behavior. For more details please see PR #2970. We're planning to make this behavior the default in the future.
-
 ## Building
 
 See [contributing](CONTRIBUTING.md) for details on how to build and contribute to this provider.
