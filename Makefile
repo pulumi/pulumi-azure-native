@@ -220,7 +220,7 @@ dist/docs-schema.json: bin/schema-full.json
 	mkdir -p dist
 	yarn schema implode --cwd bin/schema --outFile dist/docs-schema.json
 
-bin/$(CODEGEN): bin/pulumictl .make/prebuild .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
+bin/$(CODEGEN): .make/prebuild .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(CODEGEN)
 
 # Writes schema-full.json and metadata-compact.json to bin/
@@ -233,7 +233,7 @@ bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) versio
 provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v${PREVIOUS_MAJOR_VERSION}-lock.json versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-removed-resources.json
 	bin/$(CODEGEN) docs $(PROVIDER_VERSION)
 
-bin/$(LOCAL_PROVIDER_FILENAME): bin/pulumictl .make/prebuild .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
+bin/$(LOCAL_PROVIDER_FILENAME): .make/prebuild .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	cd provider && \
 		CGO_ENABLED=0 go build -o $(WORKING_DIR)/bin/$(LOCAL_PROVIDER_FILENAME) $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(PROVIDER)
 
@@ -242,7 +242,7 @@ bin/linux-arm64/$(PROVIDER): TARGET := linux-arm64
 bin/darwin-amd64/$(PROVIDER): TARGET := darwin-amd64
 bin/darwin-arm64/$(PROVIDER): TARGET := darwin-arm64
 bin/windows-amd64/$(PROVIDER).exe: TARGET := windows-amd64
-bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: bin/pulumictl .make/provider_mod_download .make/prebuild provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
+bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: .make/provider_mod_download .make/prebuild provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	@# check the TARGET is set
 	test $(TARGET)
 	cd provider && \
@@ -291,14 +291,14 @@ endef
 export FAKE_MODULE
 
 # We use the docs schema for java but don't depend on it because it changes on every generation
-.make/generate_java: bin/pulumictl bin/pulumi-java-gen
+.make/generate_java: bin/pulumi-java-gen
 	@mkdir -p sdk/java
 	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1)
 	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch $@
 
-.make/generate_nodejs: bin/pulumictl .pulumi/bin/pulumi bin/schema-full.json
+.make/generate_nodejs: .pulumi/bin/pulumi bin/schema-full.json
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language nodejs
@@ -307,7 +307,7 @@ export FAKE_MODULE
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch $@
 
-.make/generate_python: bin/pulumictl .pulumi/bin/pulumi bin/schema-full.json
+.make/generate_python: .pulumi/bin/pulumi bin/schema-full.json
 	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language python
@@ -315,7 +315,7 @@ export FAKE_MODULE
 	cp README.md sdk/python
 	@touch $@
 
-.make/generate_dotnet: bin/pulumictl .pulumi/bin/pulumi bin/schema-full.json
+.make/generate_dotnet: .pulumi/bin/pulumi bin/schema-full.json
 	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language dotnet
@@ -324,7 +324,7 @@ export FAKE_MODULE
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
 	@touch $@
 
-.make/generate_go_local: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
+.make/generate_go_local: bin/$(CODEGEN) bin/schema-full.json
 	@mkdir -p sdk/pulumi-azure-native-sdk
 	@# Unmark this is as an up-to-date local build
 	rm -f .make/prepublish_go
@@ -384,7 +384,7 @@ export FAKE_MODULE
 		dotnet build /p:Version=$(VERSION_DOTNET)
 	@touch $@
 
-.make/build_java: bin/pulumictl .make/generate_java
+.make/build_java: .make/generate_java
 	cd sdk/java/ && \
 		gradle --console=plain -Pversion=$(PROVIDER_VERSION) build
 	@touch $@
@@ -407,6 +407,6 @@ export FAKE_MODULE
 	; fi
 	@touch $@
 
-.make/install_provider: bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
+.make/install_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
 	cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
 	@touch $@
