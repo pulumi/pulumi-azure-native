@@ -368,13 +368,15 @@ jobs:
 
       - name: Build and sign windows provider
         run: |
+          set -euxo pipefail
+
           make bin/windows-amd64/pulumi-resource-azure-native.exe;
 
           az login --service-principal \
-            -u ${{ secrets.AZURE_SIGNING_CLIENT_ID }} \
-            -p ${{ secrets.AZURE_SIGNING_CLIENT_SECRET }} \
-            -t ${{ secrets.AZURE_SIGNING_TENANT_ID }} \
-            -o none;
+            --username ${{ secrets.AZURE_SIGNING_CLIENT_ID }} \
+            --password ${{ secrets.AZURE_SIGNING_CLIENT_SECRET }} \
+            --tenant ${{ secrets.AZURE_SIGNING_TENANT_ID }} \
+            --output none;
 
           wget https://github.com/ebourg/jsign/releases/download/6.0/jsign-6.0.jar;
 
