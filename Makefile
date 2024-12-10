@@ -7,7 +7,7 @@ CODEGEN         := pulumi-gen-azure-native
 WORKING_DIR     := $(shell pwd)
 
 PROVIDER_PKG    := $(shell find provider/pkg -type f)
-SPECS           := $(shell find azure-rest-api-specs/specification/*/resource-manager -type f -name "*.json" ! -path "**/examples/**")
+SPECS           := .git/modules/azure-rest-api-specs/HEAD
 
 # Fail fast if the specs submodule doesn't exist
 ifeq (,$(SPECS))
