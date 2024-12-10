@@ -367,9 +367,8 @@ jobs:
           make provider_prebuild
 
       - name: Build and sign windows provider
+        shell: bash # Runs with -eo pipefail
         run: |
-          set -euxo pipefail
-
           make bin/windows-amd64/pulumi-resource-azure-native.exe;
 
           az login --service-principal \
