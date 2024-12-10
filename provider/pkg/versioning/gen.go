@@ -199,7 +199,7 @@ func ReadVersionSources(rootDir string, providers openapi.AzureProviders, majorV
 	}
 
 	nextVersionFilePrefix := fmt.Sprintf("v%d-", majorVersion+1)
-	nextResourcesToRemovePath := path.Join(rootDir, "versions", nextVersionFilePrefix+"removed-resources.yaml")
+	nextResourcesToRemovePath := path.Join(rootDir, "versions", nextVersionFilePrefix+"removed-resources.json")
 	nextResourcesToRemove, err := ReadResourceRemovals(nextResourcesToRemovePath)
 	if err != nil {
 		return VersionSources{}, fmt.Errorf("could not read %s: %v", nextResourcesToRemovePath, err)
