@@ -7,7 +7,7 @@ CODEGEN         := pulumi-gen-azure-native
 WORKING_DIR     := $(shell pwd)
 
 PROVIDER_PKG    := $(shell find provider/pkg -type f)
-SPECS           := $(shell find azure-rest-api-specs/specification/*/resource-manager -type f -name "*.json" ! -path "**/examples/**")
+SPECS           := .git/modules/azure-rest-api-specs/HEAD
 
 # Fail fast if the specs submodule doesn't exist
 ifeq (,$(SPECS))
@@ -31,10 +31,12 @@ endif
 # Input during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local builds will just used this fixed default version unless specified
 PROVIDER_VERSION ?= 2.0.0-alpha.0+dev
-# Ensure the leading "v" is removed - use this normalised version everywhere rather than the raw input to ensure consistency.
-# These variables are lazy (no `:`) so they're not calculated until after the dependency is installed
-VERSION_GENERIC = $(shell bin/pulumictl convert-version -l generic -v "$(PROVIDER_VERSION)")
-VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version.Version=${VERSION_GENERIC}"
+# Check version doesn't start with a "v" - this is a common mistake
+ifeq ($(shell echo $(PROVIDER_VERSION) | cut -c1),v)
+$(error PROVIDER_VERSION should not start with a "v")
+endif
+
+VERSION_FLAGS   = -ldflags "-X github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version.Version=${PROVIDER_VERSION}"
 MAJOR_VERSION   = $(shell echo $(PROVIDER_VERSION) | cut -d. -f1)
 PREVIOUS_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)-1 | bc)
 NEXT_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)+1 | bc)
@@ -48,7 +50,7 @@ _ := $(shell mkdir -p .make)
 .PHONY: default ensure dist
 default: provider build_sdks
 ensure: bin/pulumictl .make/provider_mod_download
-dist: dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt dist/docs-schema.json
+dist: dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt dist/docs-schema.json
 
 # Binaries
 .PHONY: codegen provider
@@ -168,7 +170,7 @@ test_nodejs: provider install_nodejs_sdk
 
 .PHONY: schema_squeeze
 schema_squeeze: bin/$(CODEGEN)
-	bin/$(CODEGEN) squeeze $(VERSION_GENERIC)
+	bin/$(CODEGEN) squeeze $(PROVIDER_VERSION)
 
 .PHONY: explode_schema
 explode_schema: dist/docs-schema.json
@@ -218,20 +220,20 @@ dist/docs-schema.json: bin/schema-full.json
 	mkdir -p dist
 	yarn schema implode --cwd bin/schema --outFile dist/docs-schema.json
 
-bin/$(CODEGEN): bin/pulumictl .make/prebuild .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
+bin/$(CODEGEN): .make/prebuild .make/provider_mod_download provider/cmd/$(CODEGEN)/* $(PROVIDER_PKG)
 	cd provider && go build -o $(WORKING_DIR)/bin/$(CODEGEN) $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(CODEGEN)
 
 # Writes schema-full.json and metadata-compact.json to bin/
 # Also re-calculates files in versions/ at same time
 bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) versions/az-provider-list.json versions/v${PREVIOUS_MAJOR_VERSION}-lock.json versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-spec.yaml versions/v${MAJOR_VERSION}-removed-resources.json versions/v${NEXT_MAJOR_VERSION}-removed-resources.json
-	bin/$(CODEGEN) schema $(VERSION_GENERIC)
+	bin/$(CODEGEN) schema $(PROVIDER_VERSION)
 
 # Docs schema - treat as phony becasuse it's committed so we always need to rebuild it.
 .PHONY: provider/cmd/pulumi-resource-azure-native/schema.json
 provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v${PREVIOUS_MAJOR_VERSION}-lock.json versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-removed-resources.json
-	bin/$(CODEGEN) docs $(VERSION_GENERIC)
+	bin/$(CODEGEN) docs $(PROVIDER_VERSION)
 
-bin/$(LOCAL_PROVIDER_FILENAME): bin/pulumictl .make/prebuild .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
+bin/$(LOCAL_PROVIDER_FILENAME): .make/prebuild .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	cd provider && \
 		CGO_ENABLED=0 go build -o $(WORKING_DIR)/bin/$(LOCAL_PROVIDER_FILENAME) $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(PROVIDER)
 
@@ -240,7 +242,7 @@ bin/linux-arm64/$(PROVIDER): TARGET := linux-arm64
 bin/darwin-amd64/$(PROVIDER): TARGET := darwin-amd64
 bin/darwin-arm64/$(PROVIDER): TARGET := darwin-arm64
 bin/windows-amd64/$(PROVIDER).exe: TARGET := windows-amd64
-bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: bin/pulumictl .make/provider_mod_download .make/prebuild provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
+bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: .make/provider_mod_download .make/prebuild provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	@# check the TARGET is set
 	test $(TARGET)
 	cd provider && \
@@ -258,12 +260,12 @@ dist/$(PROVIDER)-v$(PROVIDER_VERSION)-%.tar.gz:
 	@# $< is the last dependency (the binary path from above)
 	tar --gzip -cf $@ README.md LICENSE -C $$(dirname $<) .
 
-dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-amd64.tar.gz
-dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-arm64.tar.gz
-dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-amd64.tar.gz
-dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-arm64.tar.gz
-dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-amd64.tar.gz
-	cd dist && shasum *.tar.gz > pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt
+dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-amd64.tar.gz
+dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-arm64.tar.gz
+dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-amd64.tar.gz
+dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-darwin-arm64.tar.gz
+dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(PROVIDER_VERSION)-windows-amd64.tar.gz
+	cd dist && shasum *.tar.gz > pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt
 
 # --------- Sentinel targets --------- #
 
@@ -289,14 +291,14 @@ endef
 export FAKE_MODULE
 
 # We use the docs schema for java but don't depend on it because it changes on every generation
-.make/generate_java: bin/pulumictl bin/pulumi-java-gen
+.make/generate_java: bin/pulumi-java-gen
 	@mkdir -p sdk/java
 	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1)
 	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch $@
 
-.make/generate_nodejs: bin/pulumictl .pulumi/bin/pulumi bin/schema-full.json
+.make/generate_nodejs: .pulumi/bin/pulumi bin/schema-full.json
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language nodejs
@@ -305,7 +307,7 @@ export FAKE_MODULE
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch $@
 
-.make/generate_python: bin/pulumictl .pulumi/bin/pulumi bin/schema-full.json
+.make/generate_python: .pulumi/bin/pulumi bin/schema-full.json
 	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language python
@@ -313,21 +315,22 @@ export FAKE_MODULE
 	cp README.md sdk/python
 	@touch $@
 
-.make/generate_dotnet: bin/pulumictl .pulumi/bin/pulumi bin/schema-full.json
+.make/generate_dotnet: .pulumi/bin/pulumi bin/schema-full.json
 	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
 	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language dotnet
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > sdk/dotnet/go.mod
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
+	echo "azure-native\n$(PROVIDER_VERSION)" > sdk/dotnet/version.txt
 	@touch $@
 
-.make/generate_go_local: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
+.make/generate_go_local: bin/$(CODEGEN) bin/schema-full.json
 	@mkdir -p sdk/pulumi-azure-native-sdk
 	@# Unmark this is as an up-to-date local build
 	rm -f .make/prepublish_go
 	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
-	bin/$(CODEGEN) go $(VERSION_GENERIC)
+	bin/$(CODEGEN) go $(PROVIDER_VERSION)
 	@# Tidy up all go.mod files
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy" \;
 	@touch $@
@@ -352,22 +355,16 @@ export FAKE_MODULE
 	yarn install --cwd sdk/nodejs
 	@touch $@
 
-.make/build_nodejs: VERSION_JS = $(shell bin/pulumictl convert-version -l javascript -v "$(VERSION_GENERIC)")
-.make/build_nodejs: bin/pulumictl .make/nodejs_yarn_install
+.make/build_nodejs: .make/nodejs_yarn_install
 	cd sdk/nodejs/ && \
 		NODE_OPTIONS=--max-old-space-size=12288 yarn run tsc --diagnostics --incremental && \
-		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		mkdir -p bin/scripts && \
-		sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
+		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/
 	@touch $@
 
-.make/build_python: VERSION_PYTHON = $(shell bin/pulumictl convert-version -l python -v "$(VERSION_GENERIC)")
-.make/build_python: bin/pulumictl .make/generate_python
+.make/build_python: .make/generate_python
 	cd sdk/python && \
 		git clean -fxd && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-		sed -i.bak -e 's/^  version = .*/  version = "$(VERSION_PYTHON)"/g' ./bin/pyproject.toml && \
-		rm ./bin/pyproject.toml.bak && \
 		rm ./bin/go.mod && \
 		python3 -m venv venv && \
 		./venv/bin/python -m pip install build && \
@@ -375,16 +372,13 @@ export FAKE_MODULE
 		../venv/bin/python -m build .
 	@touch $@
 
-.make/build_dotnet: VERSION_DOTNET = $(shell bin/pulumictl convert-version -l dotnet -v "$(PROVIDER_VERSION)")
-.make/build_dotnet: bin/pulumictl .make/generate_dotnet
-	cd sdk/dotnet && \
-		echo "azure-native\n$(VERSION_DOTNET)" >version.txt && \
-		dotnet build /p:Version=$(VERSION_DOTNET)
+.make/build_dotnet: .make/generate_dotnet
+	cd sdk/dotnet && dotnet build
 	@touch $@
 
-.make/build_java: bin/pulumictl .make/generate_java
+.make/build_java: .make/generate_java
 	cd sdk/java/ && \
-		gradle --console=plain -Pversion=$(VERSION_GENERIC) build
+		gradle --console=plain -Pversion=$(PROVIDER_VERSION) build
 	@touch $@
 
 .make/build_go: .make/generate_go_local
@@ -405,6 +399,6 @@ export FAKE_MODULE
 	; fi
 	@touch $@
 
-.make/install_provider: bin/pulumictl .make/provider_mod_download provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
+.make/install_provider: .make/provider_mod_download provider/cmd/$(PROVIDER)/* $(PROVIDER_PKG)
 	cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER)
 	@touch $@
