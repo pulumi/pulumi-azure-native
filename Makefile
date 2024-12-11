@@ -14,8 +14,6 @@ ifeq (,$(SPECS))
 $(error Specs missing! Checkout submodules before building: git submodule update --init --recursive)
 endif
 
-JAVA_GEN        := pulumi-java-gen
-
 GOOS ?= $(shell go env GOOS)
 GOARCH ?= $(shell go env GOARCH)
 GOEXE ?= $(shell go env GOEXE)
@@ -55,7 +53,7 @@ _ := $(shell mkdir -p .make)
 
 .PHONY: default ensure dist
 default: provider build_sdks
-ensure: bin/pulumictl .make/provider_mod_download
+ensure: .make/provider_mod_download
 dist: dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt dist/docs-schema.json
 
 # Binaries
@@ -181,14 +179,10 @@ schema_squeeze: bin/$(CODEGEN)
 .PHONY: explode_schema
 explode_schema: dist/docs-schema.json
 
-.PHONY: upgrade_tools upgrade_java upgrade_pulumi upgrade_pulumictl upgrade_schematools
-upgrade_tools: upgrade_java upgrade_pulumi upgrade_pulumictl upgrade_schematools
-upgrade_java:
-	gh release list --repo pulumi/pulumi-java --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 > .pulumi-java-gen.version
+.PHONY: upgrade_tools upgrade_pulumi upgrade_schematools
+upgrade_tools: upgrade_pulumi upgrade_schematools
 upgrade_pulumi:
 	gh release list --repo pulumi/pulumi --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 | sed 's/^v//' > .pulumi.version
-upgrade_pulumictl:
-	gh release list --repo pulumi/pulumictl --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 | sed 's/^v//' > .pulumictl.version
 upgrade_schematools:
 	gh release list --repo pulumi/schema-tools --exclude-drafts --exclude-pre-releases --limit 1 | cut -f1 | sed 's/^v//' > .schema-tools.version
 
@@ -198,22 +192,6 @@ upgrade_schematools:
 .pulumi/bin/pulumi: HOME := $(WORKING_DIR)
 .pulumi/bin/pulumi: .pulumi.version
 	curl -fsSL https://get.pulumi.com | sh -s -- --version "$(PULUMI_VERSION)"
-
-# Download local copy of pulumictl based on the version in .pulumictl.version
-# Anywhere which uses VERSION_GENERIC or VERSION_FLAGS should depend on bin/pulumictl
-bin/pulumictl: PULUMICTL_VERSION := $(shell cat .pulumictl.version)
-bin/pulumictl: PLAT := $(shell go version | sed -En "s/go version go.* (.*)\/(.*)/\1-\2/p")
-bin/pulumictl: PULUMICTL_URL := "https://github.com/pulumi/pulumictl/releases/download/v$(PULUMICTL_VERSION)/pulumictl-v$(PULUMICTL_VERSION)-$(PLAT).tar.gz"
-bin/pulumictl: .pulumictl.version
-	@echo "Installing pulumictl"
-	@mkdir -p bin
-	wget -q -O - "$(PULUMICTL_URL)" | tar -xzf - -C $(WORKING_DIR)/bin pulumictl
-	@touch bin/pulumictl
-	@echo "pulumictl" $$(./bin/pulumictl version)
-
-bin/pulumi-java-gen: .pulumi-java-gen.version bin/pulumictl
-	@mkdir -p bin
-	bin/pulumictl download-binary -n pulumi-language-java -v $(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
 
 dist/docs-schema.json: bin/schema-full.json
 	rm -rf bin/schema
