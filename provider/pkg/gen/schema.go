@@ -420,6 +420,9 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 
 	pkg.Language["java"] = rawMessage(map[string]interface{}{
 		"packages": javaPackages,
+		// https://github.com/pulumi/pulumi-java/blob/cfe8b2ad051d4767d04340542bd1ad28097095b2/pkg/cmd/pulumi-java-gen/command.go#L174-L178
+		"buildFiles":                      "gradle",
+		"gradleNexusPublishPluginVersion": "2.0.0",
 	})
 
 	return &GenerationResult{

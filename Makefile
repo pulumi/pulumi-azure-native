@@ -322,11 +322,11 @@ endef
 
 export FAKE_MODULE
 
-# We use the docs schema for java but don't depend on it because it changes on every generation
-.make/generate_java: bin/pulumi-java-gen
+# We use the docs schema for java but don't depend on it because it's committed.
+.make/generate_java: .pulumi/bin/pulumi
 	@mkdir -p sdk/java
 	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1)
-	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
+	.pulumi/bin/pulumi package gen-sdk provider/cmd/$(PROVIDER)/schema.json --language java --version $(PROVIDER_VERSION)
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch $@
 
