@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
@@ -258,10 +259,13 @@ func (r *resourceCrudClient) currentResourceStateCheckpoint(ctx context.Context,
 	)
 }
 
-// checkpointObject puts inputs in the `__inputs` field of the state.
+// checkpointObject produces the checkpointed state for the given inputs and outputs.
+// In v2, we stored the inputs in an `__inputs` field of the state; removed in v3.
 func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
 	object := resource.NewPropertyMapFromMap(outputs)
-	object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
+	if version.GetVersion().Major < 3 {
+		object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
+	}
 	return object
 }
 

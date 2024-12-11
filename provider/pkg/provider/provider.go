@@ -34,6 +34,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
@@ -165,6 +166,11 @@ func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAtt
 // Configure configures the resource provider with "globals" that control its behavior.
 func (k *azureNativeProvider) Configure(ctx context.Context,
 	req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
+
+	if version.GetVersion().Major >= 3 && (!req.GetSendsOldInputs() || !req.GetSendsOldInputsToDelete()) {
+		// https://github.com/pulumi/pulumi-azure-native/issues/2686
+		return nil, errors.New("Azure Native provider requires Pulumi CLI v3.74.0 or later")
+	}
 
 	for key, val := range req.GetVariables() {
 		k.config[strings.TrimPrefix(key, "azure-native:config:")] = val
@@ -1578,10 +1584,13 @@ func azureContext(ctx context.Context, timeoutSeconds float64) (context.Context,
 	return context.WithTimeout(ctx, d)
 }
 
-// checkpointObject puts inputs in the `__inputs` field of the state.
+// checkpointObject produces the checkpointed state for the given inputs and outputs.
+// In v2, we stored the inputs in an `__inputs` field of the state; removed in v3.
 func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
 	object := resource.NewPropertyMapFromMap(outputs)
-	object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
+	if version.GetVersion().Major < 3 {
+		object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
+	}
 	return object
 }
 

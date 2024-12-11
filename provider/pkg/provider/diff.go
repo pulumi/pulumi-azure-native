@@ -9,10 +9,12 @@ import (
 	"reflect"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 
 	"github.com/davegardnerisme/deephash"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
@@ -285,7 +287,14 @@ func calculateDetailedDiff(resource *resources.AzureAPIResource, lookupType reso
 }
 
 func findForceNew(base string, props map[string]resources.AzureAPIProperty, replaceKeys codegen.StringSet) {
-	forceNewFromSubtypes := os.Getenv("PULUMI_FORCE_NEW_FROM_SUBTYPES") == "true"
+	var forceNewFromSubtypes bool
+	if v, ok := os.LookupEnv("PULUMI_FORCE_NEW_FROM_SUBTYPES"); ok {
+		forceNewFromSubtypes, _ = strconv.ParseBool(v)
+	} else {
+		// https://github.com/pulumi/pulumi-azure-native/issues/3006
+		forceNewFromSubtypes = version.GetVersion().Major >= 3
+	}
+
 	for propName, prop := range props {
 		if prop.ForceNew || (prop.ForceNewInferredFromReferencedTypes && forceNewFromSubtypes) {
 			name := propName
