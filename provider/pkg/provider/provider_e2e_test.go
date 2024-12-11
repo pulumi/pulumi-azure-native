@@ -95,6 +95,11 @@ func TestUpgradeSqlDatabase_2_76_0(t *testing.T) {
 	upgradeTest(t, "upgrade-sql-database", "2.76.0")
 }
 
+func TestUpgradeServiceBusMessaging_2_76_0(t *testing.T) {
+	t.Parallel()
+	upgradeTest(t, "upgrade-servicebus-messaging", "2.76.0")
+}
+
 func upgradeTest(t *testing.T, testProgramDir string, upgradeFromVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
 	t.Helper()
 	if testing.Short() {

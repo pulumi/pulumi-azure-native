@@ -1,0 +1,398 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-12-11T14:35:26.417336-08:00",
+      "magic": "ef3f5f63f5bdd04617263a579cf04a31800069d90aa87492a89d92526519e879",
+      "version": "v3.132.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:DpFjqtKlwcE=:v1:CbyPrPIzjYZAANDh:lS7kye0w/oCh9hVk9F4q3kfSLwkxeg=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:pulumi:Stack::upgrade-servicebus-messaging-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-12-11T22:35:01.929444Z",
+        "modified": "2024-12-11T22:35:01.929444Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:providers:azure-native::default",
+        "custom": true,
+        "id": "e20584f2-0435-4523-becd-fe16773ebca4",
+        "type": "pulumi:providers:azure-native",
+        "inputs": {
+          "location": "westus2"
+        },
+        "outputs": {
+          "location": "westus2"
+        },
+        "created": "2024-12-11T22:35:03.088606Z",
+        "modified": "2024-12-11T22:35:03.088606Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90",
+        "type": "azure-native:resources:ResourceGroup",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "location": "westus2",
+          "resourceGroupName": "rgd01a8a90"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90",
+          "location": "westus2",
+          "name": "rgd01a8a90",
+          "properties": {
+            "provisioningState": "Succeeded"
+          },
+          "type": "Microsoft.Resources/resourceGroups"
+        },
+        "parent": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:pulumi:Stack::upgrade-servicebus-messaging-test",
+        "provider": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:providers:azure-native::default::e20584f2-0435-4523-becd-fe16773ebca4",
+        "created": "2024-12-11T22:35:05.182154Z",
+        "modified": "2024-12-11T22:35:05.182154Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Namespace::namespace",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90/providers/Microsoft.ServiceBus/namespaces/namespacea118e18e",
+        "type": "azure-native:servicebus:Namespace",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "location": "westus2",
+          "namespaceName": "namespacea118e18e",
+          "resourceGroupName": "rgd01a8a90",
+          "sku": {
+            "name": "Standard",
+            "tier": "Standard"
+          }
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "createdAt": "2024-12-11T22:35:07.4286528Z",
+          "disableLocalAuth": false,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90/providers/Microsoft.ServiceBus/namespaces/namespacea118e18e",
+          "location": "westus2",
+          "metricId": "0282681f-7a9e-424b-80b2-96babd57a8a1:namespacea118e18e",
+          "minimumTlsVersion": "1.2",
+          "name": "namespacea118e18e",
+          "provisioningState": "Succeeded",
+          "publicNetworkAccess": "Enabled",
+          "serviceBusEndpoint": "https://namespacea118e18e.servicebus.windows.net:443/",
+          "sku": {
+            "name": "Standard",
+            "tier": "Standard"
+          },
+          "status": "Active",
+          "tags": {},
+          "type": "Microsoft.ServiceBus/Namespaces",
+          "updatedAt": "2024-12-11T22:35:11.9913153Z",
+          "zoneRedundant": false
+        },
+        "parent": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:pulumi:Stack::upgrade-servicebus-messaging-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:providers:azure-native::default::e20584f2-0435-4523-becd-fe16773ebca4",
+        "propertyDependencies": {
+          "location": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg"
+          ],
+          "sku": []
+        },
+        "created": "2024-12-11T22:35:17.656389Z",
+        "modified": "2024-12-11T22:35:17.656389Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Queue::queue",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90/providers/Microsoft.ServiceBus/namespaces/namespacea118e18e/queues/myqueue",
+        "type": "azure-native:servicebus:Queue",
+        "inputs": {
+          "enablePartitioning": true,
+          "lockDuration": "PT5M",
+          "maxDeliveryCount": 10,
+          "namespaceName": "namespacea118e18e",
+          "queueName": "myqueue",
+          "resourceGroupName": "rgd01a8a90"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "accessedAt": "0001-01-01T00:00:00Z",
+          "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+          "countDetails": {
+            "activeMessageCount": 0,
+            "deadLetterMessageCount": 0,
+            "scheduledMessageCount": 0,
+            "transferDeadLetterMessageCount": 0,
+            "transferMessageCount": 0
+          },
+          "createdAt": "2024-12-11T22:35:20.003Z",
+          "deadLetteringOnMessageExpiration": false,
+          "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+          "duplicateDetectionHistoryTimeWindow": "PT10M",
+          "enableBatchedOperations": true,
+          "enableExpress": false,
+          "enablePartitioning": true,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90/providers/Microsoft.ServiceBus/namespaces/namespacea118e18e/queues/myqueue",
+          "location": "westus2",
+          "lockDuration": "PT5M",
+          "maxDeliveryCount": 10,
+          "maxMessageSizeInKilobytes": 256,
+          "maxSizeInMegabytes": 16384,
+          "messageCount": 0,
+          "name": "myqueue",
+          "requiresDuplicateDetection": false,
+          "requiresSession": false,
+          "sizeInBytes": 0,
+          "status": "Active",
+          "type": "Microsoft.ServiceBus/namespaces/queues",
+          "updatedAt": "2024-12-11T22:35:20.16Z"
+        },
+        "parent": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:pulumi:Stack::upgrade-servicebus-messaging-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Namespace::namespace"
+        ],
+        "provider": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:providers:azure-native::default::e20584f2-0435-4523-becd-fe16773ebca4",
+        "propertyDependencies": {
+          "enablePartitioning": [],
+          "lockDuration": [],
+          "maxDeliveryCount": [],
+          "namespaceName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Namespace::namespace"
+          ],
+          "queueName": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2024-12-11T22:35:20.656359Z",
+        "modified": "2024-12-11T22:35:20.656359Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Topic::topic",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90/providers/Microsoft.ServiceBus/namespaces/namespacea118e18e/topics/mytopic",
+        "type": "azure-native:servicebus:Topic",
+        "inputs": {
+          "defaultMessageTimeToLive": "P14D",
+          "enablePartitioning": true,
+          "namespaceName": "namespacea118e18e",
+          "resourceGroupName": "rgd01a8a90",
+          "topicName": "mytopic"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "accessedAt": "0001-01-01T00:00:00Z",
+          "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+          "countDetails": {
+            "activeMessageCount": 0,
+            "deadLetterMessageCount": 0,
+            "scheduledMessageCount": 0,
+            "transferDeadLetterMessageCount": 0,
+            "transferMessageCount": 0
+          },
+          "createdAt": "2024-12-11T22:35:20Z",
+          "defaultMessageTimeToLive": "P14D",
+          "duplicateDetectionHistoryTimeWindow": "PT10M",
+          "enableBatchedOperations": true,
+          "enableExpress": false,
+          "enablePartitioning": true,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90/providers/Microsoft.ServiceBus/namespaces/namespacea118e18e/topics/mytopic",
+          "location": "westus2",
+          "maxMessageSizeInKilobytes": 256,
+          "maxSizeInMegabytes": 16384,
+          "name": "mytopic",
+          "requiresDuplicateDetection": false,
+          "sizeInBytes": 0,
+          "status": "Active",
+          "subscriptionCount": 0,
+          "supportOrdering": false,
+          "type": "Microsoft.ServiceBus/namespaces/topics",
+          "updatedAt": "2024-12-11T22:35:20.437Z"
+        },
+        "parent": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:pulumi:Stack::upgrade-servicebus-messaging-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Namespace::namespace"
+        ],
+        "provider": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:providers:azure-native::default::e20584f2-0435-4523-becd-fe16773ebca4",
+        "propertyDependencies": {
+          "defaultMessageTimeToLive": [],
+          "enablePartitioning": [],
+          "namespaceName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Namespace::namespace"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg"
+          ],
+          "topicName": []
+        },
+        "created": "2024-12-11T22:35:20.938078Z",
+        "modified": "2024-12-11T22:35:20.938078Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Subscription::subscription",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90/providers/Microsoft.ServiceBus/namespaces/namespacea118e18e/topics/mytopic/subscriptions/mysubscription",
+        "type": "azure-native:servicebus:Subscription",
+        "inputs": {
+          "forwardTo": "myqueue",
+          "namespaceName": "namespacea118e18e",
+          "resourceGroupName": "rgd01a8a90",
+          "subscriptionName": "mysubscription",
+          "topicName": "mytopic"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "accessedAt": "2024-12-11T22:35:23.377Z",
+          "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+          "countDetails": {
+            "activeMessageCount": 0,
+            "deadLetterMessageCount": 0,
+            "scheduledMessageCount": 0,
+            "transferDeadLetterMessageCount": 0,
+            "transferMessageCount": 0
+          },
+          "createdAt": "2024-12-11T22:35:23.3569535Z",
+          "deadLetteringOnFilterEvaluationExceptions": true,
+          "deadLetteringOnMessageExpiration": false,
+          "defaultMessageTimeToLive": "P10675199DT2H48M5.4775807S",
+          "enableBatchedOperations": true,
+          "forwardTo": "myqueue",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90/providers/Microsoft.ServiceBus/namespaces/namespacea118e18e/topics/mytopic/subscriptions/mysubscription",
+          "isClientAffine": false,
+          "location": "westus2",
+          "lockDuration": "PT1M",
+          "maxDeliveryCount": 10,
+          "messageCount": 0,
+          "name": "mysubscription",
+          "requiresSession": false,
+          "status": "Active",
+          "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions",
+          "updatedAt": "2024-12-11T22:35:23.3766227Z"
+        },
+        "parent": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:pulumi:Stack::upgrade-servicebus-messaging-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Namespace::namespace",
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Queue::queue",
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Topic::topic"
+        ],
+        "provider": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:providers:azure-native::default::e20584f2-0435-4523-becd-fe16773ebca4",
+        "propertyDependencies": {
+          "forwardTo": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Queue::queue"
+          ],
+          "namespaceName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Namespace::namespace"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg"
+          ],
+          "subscriptionName": [],
+          "topicName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Topic::topic"
+          ]
+        },
+        "created": "2024-12-11T22:35:23.81367Z",
+        "modified": "2024-12-11T22:35:23.81367Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Rule::rule",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90/providers/Microsoft.ServiceBus/namespaces/namespacea118e18e/topics/mytopic/subscriptions/mysubscription/rules/myrule",
+        "type": "azure-native:servicebus:Rule",
+        "inputs": {
+          "action": {
+            "sqlExpression": "set FilterTag = 'true'"
+          },
+          "filterType": "SqlFilter",
+          "namespaceName": "namespacea118e18e",
+          "resourceGroupName": "rgd01a8a90",
+          "ruleName": "myrule",
+          "sqlFilter": {
+            "requiresPreprocessing": false,
+            "sqlExpression": "StoreName = 'Store1'\n"
+          },
+          "subscriptionName": "mysubscription",
+          "topicName": "mytopic"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "action": {
+            "compatibilityLevel": 20,
+            "sqlExpression": "set FilterTag = 'true'"
+          },
+          "filterType": "SqlFilter",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgd01a8a90/providers/Microsoft.ServiceBus/namespaces/namespacea118e18e/topics/mytopic/subscriptions/mysubscription/rules/myrule",
+          "location": "westus2",
+          "name": "myrule",
+          "sqlFilter": {
+            "compatibilityLevel": 20,
+            "sqlExpression": "StoreName = 'Store1'\n"
+          },
+          "type": "Microsoft.ServiceBus/namespaces/topics/subscriptions/rules"
+        },
+        "parent": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:pulumi:Stack::upgrade-servicebus-messaging-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Subscription::subscription",
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Topic::topic",
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Namespace::namespace"
+        ],
+        "provider": "urn:pulumi:test::upgrade-servicebus-messaging::pulumi:providers:azure-native::default::e20584f2-0435-4523-becd-fe16773ebca4",
+        "propertyDependencies": {
+          "action": [],
+          "filterType": [],
+          "namespaceName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Namespace::namespace"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:resources:ResourceGroup::rg"
+          ],
+          "ruleName": [],
+          "sqlFilter": [],
+          "subscriptionName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Subscription::subscription"
+          ],
+          "topicName": [
+            "urn:pulumi:test::upgrade-servicebus-messaging::azure-native:servicebus:Topic::topic"
+          ]
+        },
+        "created": "2024-12-11T22:35:26.409362Z",
+        "modified": "2024-12-11T22:35:26.409362Z"
+      }
+    ],
+    "metadata": {}
+  }
+}
