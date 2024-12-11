@@ -1,0 +1,361 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-12-11T11:20:59.576559-08:00",
+      "magic": "ef3f5f63f5bdd04617263a579cf04a31800069d90aa87492a89d92526519e879",
+      "version": "v3.132.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:Sl3x9KtCI7o=:v1:2+tsmyBEv+mCMmvL:zPygL+KCvS1up1UWWq987HMh72+P0w=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::upgrade-sql-database::pulumi:pulumi:Stack::upgrade-sql-database-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-12-11T19:18:45.641447Z",
+        "modified": "2024-12-11T19:18:45.641447Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-sql-database::pulumi:providers:random::default",
+        "custom": true,
+        "id": "33e4f2c6-1c5a-4b0c-852b-783ae0eeec98",
+        "type": "pulumi:providers:random",
+        "created": "2024-12-11T19:18:46.746445Z",
+        "modified": "2024-12-11T19:18:46.746445Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-sql-database::pulumi:providers:azure-native::default",
+        "custom": true,
+        "id": "ed341efd-1dbe-4055-a2cd-570a98d631f3",
+        "type": "pulumi:providers:azure-native",
+        "inputs": {
+          "location": "westus2"
+        },
+        "outputs": {
+          "location": "westus2"
+        },
+        "created": "2024-12-11T19:18:46.749341Z",
+        "modified": "2024-12-11T19:18:46.749341Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-sql-database::random:index/randomPet:RandomPet::serverName",
+        "custom": true,
+        "id": "pulumi-awake-platypus",
+        "type": "random:index/randomPet:RandomPet",
+        "inputs": {
+          "prefix": "pulumi"
+        },
+        "outputs": {
+          "id": "pulumi-awake-platypus",
+          "length": 2,
+          "prefix": "pulumi",
+          "separator": "-"
+        },
+        "parent": "urn:pulumi:test::upgrade-sql-database::pulumi:pulumi:Stack::upgrade-sql-database-test",
+        "provider": "urn:pulumi:test::upgrade-sql-database::pulumi:providers:random::default::33e4f2c6-1c5a-4b0c-852b-783ae0eeec98",
+        "propertyDependencies": {
+          "prefix": []
+        },
+        "created": "2024-12-11T19:18:46.753669Z",
+        "modified": "2024-12-11T19:18:46.753669Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-sql-database::random:index/randomPassword:RandomPassword::adminPassword",
+        "custom": true,
+        "id": "none",
+        "type": "random:index/randomPassword:RandomPassword",
+        "inputs": {
+          "length": 12,
+          "special": true
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"3\"}",
+          "bcryptHash": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "none",
+          "length": 12,
+          "lower": true,
+          "minLower": 0,
+          "minNumeric": 0,
+          "minSpecial": 0,
+          "minUpper": 0,
+          "number": true,
+          "numeric": true,
+          "result": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "special": true,
+          "upper": true
+        },
+        "parent": "urn:pulumi:test::upgrade-sql-database::pulumi:pulumi:Stack::upgrade-sql-database-test",
+        "provider": "urn:pulumi:test::upgrade-sql-database::pulumi:providers:random::default::33e4f2c6-1c5a-4b0c-852b-783ae0eeec98",
+        "propertyDependencies": {
+          "length": [],
+          "special": []
+        },
+        "additionalSecretOutputs": [
+          "bcryptHash",
+          "result"
+        ],
+        "created": "2024-12-11T19:18:46.817674Z",
+        "modified": "2024-12-11T19:18:46.817674Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg16b3bd53",
+        "type": "azure-native:resources:ResourceGroup",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "location": "westus2",
+          "resourceGroupName": "rg16b3bd53"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg16b3bd53",
+          "location": "westus2",
+          "name": "rg16b3bd53",
+          "properties": {
+            "provisioningState": "Succeeded"
+          },
+          "type": "Microsoft.Resources/resourceGroups"
+        },
+        "parent": "urn:pulumi:test::upgrade-sql-database::pulumi:pulumi:Stack::upgrade-sql-database-test",
+        "provider": "urn:pulumi:test::upgrade-sql-database::pulumi:providers:azure-native::default::ed341efd-1dbe-4055-a2cd-570a98d631f3",
+        "created": "2024-12-11T19:18:48.827271Z",
+        "modified": "2024-12-11T19:18:48.827271Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-sql-database::azure-native:sql:Server::server",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg16b3bd53/providers/Microsoft.Sql/servers/pulumi-awake-platypus",
+        "type": "azure-native:sql:Server",
+        "inputs": {
+          "administratorLogin": "adminuser",
+          "administratorLoginPassword": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "location": "westus2",
+          "resourceGroupName": "rg16b3bd53",
+          "serverName": "pulumi-awake-platypus"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "administratorLogin": "adminuser",
+          "fullyQualifiedDomainName": "pulumi-awake-platypus.database.windows.net",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg16b3bd53/providers/Microsoft.Sql/servers/pulumi-awake-platypus",
+          "kind": "v12.0",
+          "location": "westus2",
+          "minimalTlsVersion": "None",
+          "name": "pulumi-awake-platypus",
+          "privateEndpointConnections": [],
+          "publicNetworkAccess": "Enabled",
+          "restrictOutboundNetworkAccess": "Disabled",
+          "state": "Ready",
+          "type": "Microsoft.Sql/servers",
+          "version": "12.0"
+        },
+        "parent": "urn:pulumi:test::upgrade-sql-database::pulumi:pulumi:Stack::upgrade-sql-database-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-sql-database::random:index/randomPassword:RandomPassword::adminPassword",
+          "urn:pulumi:test::upgrade-sql-database::random:index/randomPet:RandomPet::serverName"
+        ],
+        "provider": "urn:pulumi:test::upgrade-sql-database::pulumi:providers:azure-native::default::ed341efd-1dbe-4055-a2cd-570a98d631f3",
+        "propertyDependencies": {
+          "administratorLogin": [],
+          "administratorLoginPassword": [
+            "urn:pulumi:test::upgrade-sql-database::random:index/randomPassword:RandomPassword::adminPassword"
+          ],
+          "location": [
+            "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg"
+          ],
+          "serverName": [
+            "urn:pulumi:test::upgrade-sql-database::random:index/randomPet:RandomPet::serverName"
+          ]
+        },
+        "created": "2024-12-11T19:19:57.218372Z",
+        "modified": "2024-12-11T19:19:57.218372Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-sql-database::azure-native:sql:FirewallRule::firewallRuleCorp",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg16b3bd53/providers/Microsoft.Sql/servers/pulumi-awake-platypus/firewallRules/myfirewallrule",
+        "type": "azure-native:sql:FirewallRule",
+        "inputs": {
+          "endIpAddress": "192.0.2.255",
+          "firewallRuleName": "myfirewallrule",
+          "resourceGroupName": "rg16b3bd53",
+          "serverName": "pulumi-awake-platypus",
+          "startIpAddress": "192.0.2.0"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "endIpAddress": "192.0.2.255",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg16b3bd53/providers/Microsoft.Sql/servers/pulumi-awake-platypus/firewallRules/myfirewallrule",
+          "name": "myfirewallrule",
+          "startIpAddress": "192.0.2.0",
+          "type": "Microsoft.Sql/servers/firewallRules"
+        },
+        "parent": "urn:pulumi:test::upgrade-sql-database::pulumi:pulumi:Stack::upgrade-sql-database-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-sql-database::azure-native:sql:Server::server"
+        ],
+        "provider": "urn:pulumi:test::upgrade-sql-database::pulumi:providers:azure-native::default::ed341efd-1dbe-4055-a2cd-570a98d631f3",
+        "propertyDependencies": {
+          "endIpAddress": [],
+          "firewallRuleName": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg"
+          ],
+          "serverName": [
+            "urn:pulumi:test::upgrade-sql-database::azure-native:sql:Server::server"
+          ],
+          "startIpAddress": []
+        },
+        "created": "2024-12-11T19:19:58.344394Z",
+        "modified": "2024-12-11T19:19:58.344394Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-sql-database::azure-native:sql:FirewallRule::firewallRuleAllowAzure",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg16b3bd53/providers/Microsoft.Sql/servers/pulumi-awake-platypus/firewallRules/AllowAllWindowsAzureIps",
+        "type": "azure-native:sql:FirewallRule",
+        "inputs": {
+          "endIpAddress": "0.0.0.0",
+          "firewallRuleName": "AllowAllWindowsAzureIps",
+          "resourceGroupName": "rg16b3bd53",
+          "serverName": "pulumi-awake-platypus",
+          "startIpAddress": "0.0.0.0"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "endIpAddress": "0.0.0.0",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg16b3bd53/providers/Microsoft.Sql/servers/pulumi-awake-platypus/firewallRules/AllowAllWindowsAzureIps",
+          "name": "AllowAllWindowsAzureIps",
+          "startIpAddress": "0.0.0.0",
+          "type": "Microsoft.Sql/servers/firewallRules"
+        },
+        "parent": "urn:pulumi:test::upgrade-sql-database::pulumi:pulumi:Stack::upgrade-sql-database-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-sql-database::azure-native:sql:Server::server"
+        ],
+        "provider": "urn:pulumi:test::upgrade-sql-database::pulumi:providers:azure-native::default::ed341efd-1dbe-4055-a2cd-570a98d631f3",
+        "propertyDependencies": {
+          "endIpAddress": [],
+          "firewallRuleName": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg"
+          ],
+          "serverName": [
+            "urn:pulumi:test::upgrade-sql-database::azure-native:sql:Server::server"
+          ],
+          "startIpAddress": []
+        },
+        "created": "2024-12-11T19:19:58.489718Z",
+        "modified": "2024-12-11T19:19:58.489718Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-sql-database::azure-native:sql:Database::database",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg16b3bd53/providers/Microsoft.Sql/servers/pulumi-awake-platypus/databases/mydatabase",
+        "type": "azure-native:sql:Database",
+        "inputs": {
+          "databaseName": "mydatabase",
+          "location": "westus2",
+          "resourceGroupName": "rg16b3bd53",
+          "serverName": "pulumi-awake-platypus",
+          "sku": {
+            "name": "Standard",
+            "tier": "Standard"
+          }
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+          "collation": "SQL_Latin1_General_CP1_CI_AS",
+          "creationDate": "2024-12-11T19:20:56.693Z",
+          "currentBackupStorageRedundancy": "Geo",
+          "currentServiceObjectiveName": "S0",
+          "currentSku": {
+            "capacity": 10,
+            "name": "Standard",
+            "tier": "Standard"
+          },
+          "databaseId": "4b70315a-9a2a-4614-870a-15dee56c9963",
+          "defaultSecondaryLocation": "westcentralus",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg16b3bd53/providers/Microsoft.Sql/servers/pulumi-awake-platypus/databases/mydatabase",
+          "isInfraEncryptionEnabled": false,
+          "isLedgerOn": false,
+          "kind": "v12.0,user",
+          "location": "westus2",
+          "maintenanceConfigurationId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_Default",
+          "maxSizeBytes": 268435456000,
+          "name": "mydatabase",
+          "readScale": "Disabled",
+          "requestedBackupStorageRedundancy": "Geo",
+          "requestedServiceObjectiveName": "S0",
+          "sku": {
+            "capacity": 10,
+            "name": "Standard",
+            "tier": "Standard"
+          },
+          "status": "Online",
+          "type": "Microsoft.Sql/servers/databases",
+          "zoneRedundant": false
+        },
+        "parent": "urn:pulumi:test::upgrade-sql-database::pulumi:pulumi:Stack::upgrade-sql-database-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-sql-database::azure-native:sql:Server::server"
+        ],
+        "provider": "urn:pulumi:test::upgrade-sql-database::pulumi:providers:azure-native::default::ed341efd-1dbe-4055-a2cd-570a98d631f3",
+        "propertyDependencies": {
+          "databaseName": [],
+          "location": [
+            "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-sql-database::azure-native:resources:ResourceGroup::rg"
+          ],
+          "serverName": [
+            "urn:pulumi:test::upgrade-sql-database::azure-native:sql:Server::server"
+          ],
+          "sku": []
+        },
+        "created": "2024-12-11T19:20:59.566563Z",
+        "modified": "2024-12-11T19:20:59.566563Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

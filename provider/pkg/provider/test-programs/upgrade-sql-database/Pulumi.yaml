@@ -1,0 +1,59 @@
+name: upgrade-sql-database
+runtime: yaml
+description: |
+  Upgrade test for SQL Server, Database, and related network objects, based on:
+  https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-create-arm-template-quickstart?view=azuresql
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  serverName:
+    type: random:RandomPet
+    properties:
+      prefix: pulumi
+
+  adminPassword:
+    type: random:RandomPassword
+    properties:
+      special: true
+      length: 12
+
+  server:
+    type: azure-native:sql:Server
+    properties:
+      resourceGroupName: ${rg.name}
+      serverName: ${serverName.id}
+      location: ${rg.location}
+      administratorLogin: adminuser
+      administratorLoginPassword: ${adminPassword.result}
+
+  database:
+    type: azure-native:sql:Database
+    properties:
+      resourceGroupName: ${rg.name}
+      serverName: ${server.name}
+      databaseName: mydatabase
+      location: ${rg.location}
+      sku:
+        name: "Standard"
+        tier: "Standard"
+
+  firewallRuleCorp:
+    type: azure-native:sql:FirewallRule
+    properties:
+      resourceGroupName: ${rg.name}
+      serverName: ${server.name}
+      firewallRuleName: "myfirewallrule"
+      startIpAddress: "192.0.2.0"
+      endIpAddress: "192.0.2.255"
+
+  firewallRuleAllowAzure:
+    type: azure-native:sql:FirewallRule
+    properties:
+      resourceGroupName: ${rg.name}
+      serverName: ${server.name}
+      firewallRuleName: "AllowAllWindowsAzureIps"
+      startIpAddress: "0.0.0.0"
+      endIpAddress: "0.0.0.0"
+
