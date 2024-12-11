@@ -1,0 +1,270 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-12-10T16:21:28.972125-08:00",
+      "magic": "ef3f5f63f5bdd04617263a579cf04a31800069d90aa87492a89d92526519e879",
+      "version": "v3.132.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:JfCoIQljULA=:v1:Rvb3lnP/jN27ZHQt:IvUAha7wGYR4fJ6h5oCvGwI55zDWSg=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2024-12-11T00:21:01.702529Z",
+        "modified": "2024-12-11T00:21:01.702529Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default",
+        "custom": true,
+        "id": "ada5b0b6-ac2b-45a9-840c-ffe8da70cef1",
+        "type": "pulumi:providers:azure-native",
+        "inputs": {
+          "location": "westus2"
+        },
+        "outputs": {
+          "location": "westus2"
+        },
+        "created": "2024-12-11T00:21:02.396188Z",
+        "modified": "2024-12-11T00:21:02.396188Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgc5b4011e",
+        "type": "azure-native:resources:ResourceGroup",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "location": "westus2",
+          "resourceGroupName": "rgc5b4011e"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgc5b4011e",
+          "location": "westus2",
+          "name": "rgc5b4011e",
+          "properties": {
+            "provisioningState": "Succeeded"
+          },
+          "type": "Microsoft.Resources/resourceGroups"
+        },
+        "parent": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "provider": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default::ada5b0b6-ac2b-45a9-840c-ffe8da70cef1",
+        "created": "2024-12-11T00:21:05.004427Z",
+        "modified": "2024-12-11T00:21:05.004427Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::azure-native:storage:StorageAccount::store",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgc5b4011e/providers/Microsoft.Storage/storageAccounts/store010c93fe",
+        "type": "azure-native:storage:StorageAccount",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "accountName": "store010c93fe",
+          "allowBlobPublicAccess": true,
+          "kind": "StorageV2",
+          "location": "westus2",
+          "resourceGroupName": "rgc5b4011e",
+          "sku": {
+            "name": "Standard_LRS"
+          }
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "accessTier": "Hot",
+          "allowBlobPublicAccess": true,
+          "allowCrossTenantReplication": false,
+          "creationTime": "2024-12-11T00:21:05.6534673Z",
+          "enableHttpsTrafficOnly": true,
+          "encryption": {
+            "keySource": "Microsoft.Storage",
+            "services": {
+              "blob": {
+                "enabled": true,
+                "keyType": "Account",
+                "lastEnabledTime": "2024-12-11T00:21:06.9816065Z"
+              },
+              "file": {
+                "enabled": true,
+                "keyType": "Account",
+                "lastEnabledTime": "2024-12-11T00:21:06.9816065Z"
+              }
+            }
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgc5b4011e/providers/Microsoft.Storage/storageAccounts/store010c93fe",
+          "keyCreationTime": {
+            "key1": "2024-12-11T00:21:05.8097530Z",
+            "key2": "2024-12-11T00:21:05.8097530Z"
+          },
+          "kind": "StorageV2",
+          "location": "westus2",
+          "minimumTlsVersion": "TLS1_0",
+          "name": "store010c93fe",
+          "networkRuleSet": {
+            "bypass": "AzureServices",
+            "defaultAction": "Allow",
+            "ipRules": [],
+            "virtualNetworkRules": []
+          },
+          "primaryEndpoints": {
+            "blob": "https://store010c93fe.blob.core.windows.net/",
+            "dfs": "https://store010c93fe.dfs.core.windows.net/",
+            "file": "https://store010c93fe.file.core.windows.net/",
+            "queue": "https://store010c93fe.queue.core.windows.net/",
+            "table": "https://store010c93fe.table.core.windows.net/",
+            "web": "https://store010c93fe.z5.web.core.windows.net/"
+          },
+          "primaryLocation": "westus2",
+          "privateEndpointConnections": [],
+          "provisioningState": "Succeeded",
+          "sku": {
+            "name": "Standard_LRS",
+            "tier": "Standard"
+          },
+          "statusOfPrimary": "available",
+          "tags": {},
+          "type": "Microsoft.Storage/storageAccounts"
+        },
+        "parent": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default::ada5b0b6-ac2b-45a9-840c-ffe8da70cef1",
+        "propertyDependencies": {
+          "allowBlobPublicAccess": [],
+          "kind": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+          ],
+          "sku": []
+        },
+        "created": "2024-12-11T00:21:26.533817Z",
+        "modified": "2024-12-11T00:21:26.533817Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::azure-native:storage:BlobContainer::blobContainer",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgc5b4011e/providers/Microsoft.Storage/storageAccounts/store010c93fe/blobServices/default/containers/assets",
+        "type": "azure-native:storage:BlobContainer",
+        "inputs": {
+          "accountName": "store010c93fe",
+          "containerName": "assets",
+          "publicAccess": "Blob",
+          "resourceGroupName": "rgc5b4011e"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "defaultEncryptionScope": "$account-encryption-key",
+          "deleted": false,
+          "denyEncryptionScopeOverride": false,
+          "etag": "\"0x8DD1979C09AA79F\"",
+          "hasImmutabilityPolicy": false,
+          "hasLegalHold": false,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgc5b4011e/providers/Microsoft.Storage/storageAccounts/store010c93fe/blobServices/default/containers/assets",
+          "lastModifiedTime": "2024-12-11T00:21:26.0000000Z",
+          "leaseState": "Available",
+          "leaseStatus": "Unlocked",
+          "legalHold": {
+            "hasLegalHold": false,
+            "tags": []
+          },
+          "name": "assets",
+          "publicAccess": "Blob",
+          "remainingRetentionDays": 0,
+          "type": "Microsoft.Storage/storageAccounts/blobServices/containers"
+        },
+        "parent": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:storage:StorageAccount::store"
+        ],
+        "provider": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default::ada5b0b6-ac2b-45a9-840c-ffe8da70cef1",
+        "propertyDependencies": {
+          "accountName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:storage:StorageAccount::store"
+          ],
+          "containerName": [],
+          "publicAccess": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2024-12-11T00:21:27.127903Z",
+        "modified": "2024-12-11T00:21:27.127903Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-networked-vm::azure-native:storage:Blob::myBlobFile",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rgc5b4011e/providers/Microsoft.Storage/storageAccounts/store010c93fe/blobServices/default/containers/assets/blobs/mon-fichier.txt",
+        "type": "azure-native:storage:Blob",
+        "inputs": {
+          "accountName": "store010c93fe",
+          "blobName": "mon-fichier.txt",
+          "containerName": "assets",
+          "resourceGroupName": "rgc5b4011e",
+          "source": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "type": "Block"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "accessTier": "Hot",
+          "accountName": "store010c93fe",
+          "blobName": "mon-fichier.txt",
+          "containerName": "assets",
+          "contentMd5": "c+CYTH8+bNpRR9eC2iiDCw==",
+          "contentType": "application/octet-stream",
+          "metadata": {},
+          "name": "mon-fichier.txt",
+          "resourceGroupName": "rgc5b4011e",
+          "type": "Block",
+          "url": "https://store010c93fe.blob.core.windows.net/assets/mon-fichier.txt"
+        },
+        "parent": "urn:pulumi:test::upgrade-networked-vm::pulumi:pulumi:Stack::upgrade-networked-vm-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:storage:BlobContainer::blobContainer",
+          "urn:pulumi:test::upgrade-networked-vm::azure-native:storage:StorageAccount::store"
+        ],
+        "provider": "urn:pulumi:test::upgrade-networked-vm::pulumi:providers:azure-native::default::ada5b0b6-ac2b-45a9-840c-ffe8da70cef1",
+        "propertyDependencies": {
+          "accountName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:storage:StorageAccount::store"
+          ],
+          "blobName": [],
+          "containerName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:storage:BlobContainer::blobContainer"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-networked-vm::azure-native:resources:ResourceGroup::rg"
+          ],
+          "source": [],
+          "type": []
+        },
+        "created": "2024-12-11T00:21:28.967746Z",
+        "modified": "2024-12-11T00:21:28.967746Z"
+      }
+    ],
+    "metadata": {}
+  }
+}
