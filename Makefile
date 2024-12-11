@@ -322,6 +322,7 @@ export FAKE_MODULE
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > sdk/dotnet/go.mod
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
+	echo "azure-native\n$(PROVIDER_VERSION)" > sdk/dotnet/version.txt
 	@touch $@
 
 .make/generate_go_local: bin/$(CODEGEN) bin/schema-full.json
@@ -354,22 +355,16 @@ export FAKE_MODULE
 	yarn install --cwd sdk/nodejs
 	@touch $@
 
-.make/build_nodejs: VERSION_JS = $(shell bin/pulumictl convert-version -l javascript -v "$(PROVIDER_VERSION)")
-.make/build_nodejs: bin/pulumictl .make/nodejs_yarn_install
+.make/build_nodejs: .make/nodejs_yarn_install
 	cd sdk/nodejs/ && \
 		NODE_OPTIONS=--max-old-space-size=12288 yarn run tsc --diagnostics --incremental && \
-		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		mkdir -p bin/scripts && \
-		sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
+		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/
 	@touch $@
 
-.make/build_python: VERSION_PYTHON = $(shell bin/pulumictl convert-version -l python -v "$(PROVIDER_VERSION)")
-.make/build_python: bin/pulumictl .make/generate_python
+.make/build_python: .make/generate_python
 	cd sdk/python && \
 		git clean -fxd && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-		sed -i.bak -e 's/^  version = .*/  version = "$(VERSION_PYTHON)"/g' ./bin/pyproject.toml && \
-		rm ./bin/pyproject.toml.bak && \
 		rm ./bin/go.mod && \
 		python3 -m venv venv && \
 		./venv/bin/python -m pip install build && \
@@ -377,11 +372,8 @@ export FAKE_MODULE
 		../venv/bin/python -m build .
 	@touch $@
 
-.make/build_dotnet: VERSION_DOTNET = $(shell bin/pulumictl convert-version -l dotnet -v "$(PROVIDER_VERSION)")
-.make/build_dotnet: bin/pulumictl .make/generate_dotnet
-	cd sdk/dotnet && \
-		echo "azure-native\n$(VERSION_DOTNET)" >version.txt && \
-		dotnet build /p:Version=$(VERSION_DOTNET)
+.make/build_dotnet: .make/generate_dotnet
+	cd sdk/dotnet && dotnet build
 	@touch $@
 
 .make/build_java: .make/generate_java
