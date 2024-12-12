@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20240701
         /// </summary>
         public static Output<GetClusterManagerResult> Invoke(GetClusterManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterManagerResult>("azure-native:networkcloud/v20240701:getClusterManager", args ?? new GetClusterManagerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the properties of the provided cluster manager.
+        /// </summary>
+        public static Output<GetClusterManagerResult> Invoke(GetClusterManagerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterManagerResult>("azure-native:networkcloud/v20240701:getClusterManager", args ?? new GetClusterManagerInvokeArgs(), options.WithDefaults());
     }
 
 

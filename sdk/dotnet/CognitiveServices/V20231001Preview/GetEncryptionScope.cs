@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:cognitiveservices/v20231001preview:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified EncryptionScope associated with the Cognitive Services account.
+        /// </summary>
+        public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:cognitiveservices/v20231001preview:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());
     }
 
 

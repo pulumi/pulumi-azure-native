@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview
         /// </summary>
         public static Output<GetRegistryEnvironmentVersionResult> Invoke(GetRegistryEnvironmentVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryEnvironmentVersionResult>("azure-native:machinelearningservices/v20241001preview:getRegistryEnvironmentVersion", args ?? new GetRegistryEnvironmentVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Azure Resource Manager resource envelope.
+        /// </summary>
+        public static Output<GetRegistryEnvironmentVersionResult> Invoke(GetRegistryEnvironmentVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryEnvironmentVersionResult>("azure-native:machinelearningservices/v20241001preview:getRegistryEnvironmentVersion", args ?? new GetRegistryEnvironmentVersionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.EngagementFabric
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:engagementfabric:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The list of the EngagementFabric account keys
+        /// Azure REST API version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:engagementfabric:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

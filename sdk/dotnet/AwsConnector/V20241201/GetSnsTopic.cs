@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetSnsTopicResult> Invoke(GetSnsTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnsTopicResult>("azure-native:awsconnector/v20241201:getSnsTopic", args ?? new GetSnsTopicInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SnsTopic
+        /// </summary>
+        public static Output<GetSnsTopicResult> Invoke(GetSnsTopicInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSnsTopicResult>("azure-native:awsconnector/v20241201:getSnsTopic", args ?? new GetSnsTopicInvokeArgs(), options.WithDefaults());
     }
 
 

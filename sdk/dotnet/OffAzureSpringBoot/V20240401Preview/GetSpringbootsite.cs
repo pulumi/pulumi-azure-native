@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot.V20240401Preview
         /// </summary>
         public static Output<GetSpringbootsiteResult> Invoke(GetSpringbootsiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootsiteResult>("azure-native:offazurespringboot/v20240401preview:getSpringbootsite", args ?? new GetSpringbootsiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a springbootsites resource.
+        /// </summary>
+        public static Output<GetSpringbootsiteResult> Invoke(GetSpringbootsiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootsiteResult>("azure-native:offazurespringboot/v20240401preview:getSpringbootsite", args ?? new GetSpringbootsiteInvokeArgs(), options.WithDefaults());
     }
 
 

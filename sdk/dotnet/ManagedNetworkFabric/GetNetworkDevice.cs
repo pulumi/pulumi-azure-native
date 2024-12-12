@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public static Output<GetNetworkDeviceResult> Invoke(GetNetworkDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDeviceResult>("azure-native:managednetworkfabric:getNetworkDevice", args ?? new GetNetworkDeviceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Network Device resource details.
+        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15.
+        /// </summary>
+        public static Output<GetNetworkDeviceResult> Invoke(GetNetworkDeviceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDeviceResult>("azure-native:managednetworkfabric:getNetworkDevice", args ?? new GetNetworkDeviceInvokeArgs(), options.WithDefaults());
     }
 
 

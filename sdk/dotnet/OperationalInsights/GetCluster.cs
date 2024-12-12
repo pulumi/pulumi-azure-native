@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:operationalinsights:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Log Analytics cluster instance.
+        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Other available API versions: 2019-08-01-preview, 2020-08-01, 2022-10-01, 2023-09-01.
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:operationalinsights:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// </summary>
         public static Output<GetSecretValueResult> Invoke(GetSecretValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretValueResult>("azure-native:servicefabricmesh/v20180901preview:getSecretValue", args ?? new GetSecretValueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the information about the specified named secret value resources. The information does not include the actual value of the secret.
+        /// </summary>
+        public static Output<GetSecretValueResult> Invoke(GetSecretValueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretValueResult>("azure-native:servicefabricmesh/v20180901preview:getSecretValue", args ?? new GetSecretValueInvokeArgs(), options.WithDefaults());
     }
 
 

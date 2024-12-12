@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240601Preview
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:devcenter/v20240601preview:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a gallery
+        /// </summary>
+        public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:devcenter/v20240601preview:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
     }
 
 

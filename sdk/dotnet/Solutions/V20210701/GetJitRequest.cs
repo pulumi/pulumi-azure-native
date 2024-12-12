@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Solutions.V20210701
         /// </summary>
         public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions/v20210701:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the JIT request.
+        /// </summary>
+        public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions/v20210701:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());
     }
 
 

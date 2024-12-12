@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
         /// </summary>
         public static Output<GetWorkspaceSubscriptionResult> Invoke(GetWorkspaceSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceSubscriptionResult>("azure-native:apimanagement/v20230901preview:getWorkspaceSubscription", args ?? new GetWorkspaceSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Subscription entity.
+        /// </summary>
+        public static Output<GetWorkspaceSubscriptionResult> Invoke(GetWorkspaceSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceSubscriptionResult>("azure-native:apimanagement/v20230901preview:getWorkspaceSubscription", args ?? new GetWorkspaceSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

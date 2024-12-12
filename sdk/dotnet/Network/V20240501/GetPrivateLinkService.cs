@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240501
         /// </summary>
         public static Output<GetPrivateLinkServiceResult> Invoke(GetPrivateLinkServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServiceResult>("azure-native:network/v20240501:getPrivateLinkService", args ?? new GetPrivateLinkServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified private link service by resource group.
+        /// </summary>
+        public static Output<GetPrivateLinkServiceResult> Invoke(GetPrivateLinkServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServiceResult>("azure-native:network/v20240501:getPrivateLinkService", args ?? new GetPrivateLinkServiceInvokeArgs(), options.WithDefaults());
     }
 
 

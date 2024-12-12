@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20240401
         /// </summary>
         public static Output<GetWebAppDiagnosticLogsConfigurationSlotResult> Invoke(GetWebAppDiagnosticLogsConfigurationSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiagnosticLogsConfigurationSlotResult>("azure-native:web/v20240401:getWebAppDiagnosticLogsConfigurationSlot", args ?? new GetWebAppDiagnosticLogsConfigurationSlotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Gets the logging configuration of an app.
+        /// </summary>
+        public static Output<GetWebAppDiagnosticLogsConfigurationSlotResult> Invoke(GetWebAppDiagnosticLogsConfigurationSlotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiagnosticLogsConfigurationSlotResult>("azure-native:web/v20240401:getWebAppDiagnosticLogsConfigurationSlot", args ?? new GetWebAppDiagnosticLogsConfigurationSlotInvokeArgs(), options.WithDefaults());
     }
 
 

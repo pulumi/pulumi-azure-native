@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CostManagement.V20240801
         /// </summary>
         public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:costmanagement/v20240801:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the budget for the scope by budget name.
+        /// </summary>
+        public static Output<GetBudgetResult> Invoke(GetBudgetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResult>("azure-native:costmanagement/v20240801:getBudget", args ?? new GetBudgetInvokeArgs(), options.WithDefaults());
     }
 
 

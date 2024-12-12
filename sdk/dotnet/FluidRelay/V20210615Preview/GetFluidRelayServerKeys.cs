@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.FluidRelay.V20210615Preview
         /// </summary>
         public static Output<GetFluidRelayServerKeysResult> Invoke(GetFluidRelayServerKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerKeysResult>("azure-native:fluidrelay/v20210615preview:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The set of available keys for this server.
+        /// </summary>
+        public static Output<GetFluidRelayServerKeysResult> Invoke(GetFluidRelayServerKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFluidRelayServerKeysResult>("azure-native:fluidrelay/v20210615preview:getFluidRelayServerKeys", args ?? new GetFluidRelayServerKeysInvokeArgs(), options.WithDefaults());
     }
 
 

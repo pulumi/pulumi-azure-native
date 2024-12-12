@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetDnsSecurityRuleResult> Invoke(GetDnsSecurityRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsSecurityRuleResult>("azure-native:network:getDnsSecurityRule", args ?? new GetDnsSecurityRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a DNS security rule for a DNS resolver policy.
+        /// Azure REST API version: 2023-07-01-preview.
+        /// </summary>
+        public static Output<GetDnsSecurityRuleResult> Invoke(GetDnsSecurityRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsSecurityRuleResult>("azure-native:network:getDnsSecurityRule", args ?? new GetDnsSecurityRuleInvokeArgs(), options.WithDefaults());
     }
 
 

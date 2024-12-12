@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
         /// </summary>
         public static Output<GetScopeAccessReviewScheduleDefinitionByIdResult> Invoke(GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopeAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization/v20211201preview:getScopeAccessReviewScheduleDefinitionById", args ?? new GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get single access review definition
+        /// </summary>
+        public static Output<GetScopeAccessReviewScheduleDefinitionByIdResult> Invoke(GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopeAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization/v20211201preview:getScopeAccessReviewScheduleDefinitionById", args ?? new GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Output<GetVirtualMachineScheduleResult> Invoke(GetVirtualMachineScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScheduleResult>("azure-native:devtestlab/v20180915:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get schedule.
+        /// </summary>
+        public static Output<GetVirtualMachineScheduleResult> Invoke(GetVirtualMachineScheduleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScheduleResult>("azure-native:devtestlab/v20180915:getVirtualMachineSchedule", args ?? new GetVirtualMachineScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

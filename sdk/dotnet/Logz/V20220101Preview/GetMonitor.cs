@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
 
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:logz/v20220101preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:logz/v20220101preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

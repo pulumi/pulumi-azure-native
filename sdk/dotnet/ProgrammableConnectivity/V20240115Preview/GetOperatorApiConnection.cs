@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity.V20240115Preview
         /// </summary>
         public static Output<GetOperatorApiConnectionResult> Invoke(GetOperatorApiConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOperatorApiConnectionResult>("azure-native:programmableconnectivity/v20240115preview:getOperatorApiConnection", args ?? new GetOperatorApiConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an Operator API Connection.
+        /// </summary>
+        public static Output<GetOperatorApiConnectionResult> Invoke(GetOperatorApiConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOperatorApiConnectionResult>("azure-native:programmableconnectivity/v20240115preview:getOperatorApiConnection", args ?? new GetOperatorApiConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

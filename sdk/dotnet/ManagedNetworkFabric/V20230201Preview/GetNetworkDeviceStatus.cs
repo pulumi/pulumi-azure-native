@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// </summary>
         public static Output<GetNetworkDeviceStatusResult> Invoke(GetNetworkDeviceStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDeviceStatusResult>("azure-native:managednetworkfabric/v20230201preview:getNetworkDeviceStatus", args ?? new GetNetworkDeviceStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the running status of the Network Device.
+        /// </summary>
+        public static Output<GetNetworkDeviceStatusResult> Invoke(GetNetworkDeviceStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDeviceStatusResult>("azure-native:managednetworkfabric/v20230201preview:getNetworkDeviceStatus", args ?? new GetNetworkDeviceStatusInvokeArgs(), options.WithDefaults());
     }
 
 

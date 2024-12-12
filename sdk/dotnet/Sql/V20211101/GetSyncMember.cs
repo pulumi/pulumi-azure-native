@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20211101
         /// </summary>
         public static Output<GetSyncMemberResult> Invoke(GetSyncMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncMemberResult>("azure-native:sql/v20211101:getSyncMember", args ?? new GetSyncMemberInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a sync member.
+        /// </summary>
+        public static Output<GetSyncMemberResult> Invoke(GetSyncMemberInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyncMemberResult>("azure-native:sql/v20211101:getSyncMember", args ?? new GetSyncMemberInvokeArgs(), options.WithDefaults());
     }
 
 

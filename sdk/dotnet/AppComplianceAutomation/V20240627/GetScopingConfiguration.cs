@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.V20240627
         /// </summary>
         public static Output<GetScopingConfigurationResult> Invoke(GetScopingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopingConfigurationResult>("azure-native:appcomplianceautomation/v20240627:getScopingConfiguration", args ?? new GetScopingConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the AppComplianceAutomation scoping configuration of the specific report.
+        /// </summary>
+        public static Output<GetScopingConfigurationResult> Invoke(GetScopingConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopingConfigurationResult>("azure-native:appcomplianceautomation/v20240627:getScopingConfiguration", args ?? new GetScopingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

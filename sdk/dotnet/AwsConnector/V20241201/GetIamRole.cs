@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetIamRoleResult> Invoke(GetIamRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamRoleResult>("azure-native:awsconnector/v20241201:getIamRole", args ?? new GetIamRoleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamRole
+        /// </summary>
+        public static Output<GetIamRoleResult> Invoke(GetIamRoleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamRoleResult>("azure-native:awsconnector/v20241201:getIamRole", args ?? new GetIamRoleInvokeArgs(), options.WithDefaults());
     }
 
 

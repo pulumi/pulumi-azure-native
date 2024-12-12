@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.TestBase.V20231101Preview
 
         public static Output<GetBillingHubServiceFreeHourBalanceResult> Invoke(GetBillingHubServiceFreeHourBalanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceFreeHourBalanceResult>("azure-native:testbase/v20231101preview:getBillingHubServiceFreeHourBalance", args ?? new GetBillingHubServiceFreeHourBalanceInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetBillingHubServiceFreeHourBalanceResult> Invoke(GetBillingHubServiceFreeHourBalanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceFreeHourBalanceResult>("azure-native:testbase/v20231101preview:getBillingHubServiceFreeHourBalance", args ?? new GetBillingHubServiceFreeHourBalanceInvokeArgs(), options.WithDefaults());
     }
 
 

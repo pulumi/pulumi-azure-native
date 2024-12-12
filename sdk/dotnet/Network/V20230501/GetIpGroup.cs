@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230501
         /// </summary>
         public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure-native:network/v20230501:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified ipGroups.
+        /// </summary>
+        public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure-native:network/v20230501:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithDefaults());
     }
 
 

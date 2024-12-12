@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetGuardDutyDetectorResult> Invoke(GetGuardDutyDetectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuardDutyDetectorResult>("azure-native:awsconnector/v20241201:getGuardDutyDetector", args ?? new GetGuardDutyDetectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a GuardDutyDetector
+        /// </summary>
+        public static Output<GetGuardDutyDetectorResult> Invoke(GetGuardDutyDetectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuardDutyDetectorResult>("azure-native:awsconnector/v20241201:getGuardDutyDetector", args ?? new GetGuardDutyDetectorInvokeArgs(), options.WithDefaults());
     }
 
 

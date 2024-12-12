@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Output<GetReplicationLinkResult> Invoke(GetReplicationLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationLinkResult>("azure-native:sql:getReplicationLink", args ?? new GetReplicationLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a replication link.
+        /// Azure REST API version: 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetReplicationLinkResult> Invoke(GetReplicationLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationLinkResult>("azure-native:sql:getReplicationLink", args ?? new GetReplicationLinkInvokeArgs(), options.WithDefaults());
     }
 
 

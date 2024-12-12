@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240801Preview
         /// </summary>
         public static Output<GetSecurityRuleResult> Invoke(GetSecurityRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:azurestackhci/v20240801preview:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified security rule.
+        /// </summary>
+        public static Output<GetSecurityRuleResult> Invoke(GetSecurityRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:azurestackhci/v20240801preview:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithDefaults());
     }
 
 

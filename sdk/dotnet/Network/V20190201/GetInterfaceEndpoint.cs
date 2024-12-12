@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20190201
         /// </summary>
         public static Output<GetInterfaceEndpointResult> Invoke(GetInterfaceEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInterfaceEndpointResult>("azure-native:network/v20190201:getInterfaceEndpoint", args ?? new GetInterfaceEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified interface endpoint by resource group.
+        /// </summary>
+        public static Output<GetInterfaceEndpointResult> Invoke(GetInterfaceEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInterfaceEndpointResult>("azure-native:network/v20190201:getInterfaceEndpoint", args ?? new GetInterfaceEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

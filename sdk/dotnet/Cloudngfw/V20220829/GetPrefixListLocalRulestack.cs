@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20220829
         /// </summary>
         public static Output<GetPrefixListLocalRulestackResult> Invoke(GetPrefixListLocalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrefixListLocalRulestackResult>("azure-native:cloudngfw/v20220829:getPrefixListLocalRulestack", args ?? new GetPrefixListLocalRulestackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a PrefixListResource
+        /// </summary>
+        public static Output<GetPrefixListLocalRulestackResult> Invoke(GetPrefixListLocalRulestackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrefixListLocalRulestackResult>("azure-native:cloudngfw/v20220829:getPrefixListLocalRulestack", args ?? new GetPrefixListLocalRulestackInvokeArgs(), options.WithDefaults());
     }
 
 

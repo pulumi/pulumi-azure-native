@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview
         /// </summary>
         public static Output<GetSolutionConfigResult> Invoke(GetSolutionConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionConfigResult>("azure-native:migrate/v20180901preview:getSolutionConfig", args ?? new GetSolutionConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Class representing the config for the solution in the migrate project.
+        /// </summary>
+        public static Output<GetSolutionConfigResult> Invoke(GetSolutionConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSolutionConfigResult>("azure-native:migrate/v20180901preview:getSolutionConfig", args ?? new GetSolutionConfigInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CostManagement.V20221005Preview
         /// </summary>
         public static Output<GetMarkupRuleResult> Invoke(GetMarkupRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarkupRuleResult>("azure-native:costmanagement/v20221005preview:getMarkupRule", args ?? new GetMarkupRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a markup rule by its rule name.
+        /// </summary>
+        public static Output<GetMarkupRuleResult> Invoke(GetMarkupRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMarkupRuleResult>("azure-native:costmanagement/v20221005preview:getMarkupRule", args ?? new GetMarkupRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20231201
         /// </summary>
         public static Output<GetWebAppHybridConnectionResult> Invoke(GetWebAppHybridConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHybridConnectionResult>("azure-native:web/v20231201:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
+        /// </summary>
+        public static Output<GetWebAppHybridConnectionResult> Invoke(GetWebAppHybridConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppHybridConnectionResult>("azure-native:web/v20231201:getWebAppHybridConnection", args ?? new GetWebAppHybridConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

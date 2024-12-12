@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ImportExport.V20210101
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:importexport/v20210101:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about an existing job.
+        /// </summary>
+        public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:importexport/v20210101:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

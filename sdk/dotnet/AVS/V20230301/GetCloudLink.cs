@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230301
         /// </summary>
         public static Output<GetCloudLinkResult> Invoke(GetCloudLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudLinkResult>("azure-native:avs/v20230301:getCloudLink", args ?? new GetCloudLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A cloud link resource
+        /// </summary>
+        public static Output<GetCloudLinkResult> Invoke(GetCloudLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudLinkResult>("azure-native:avs/v20230301:getCloudLink", args ?? new GetCloudLinkInvokeArgs(), options.WithDefaults());
     }
 
 

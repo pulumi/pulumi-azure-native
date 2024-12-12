@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Impact.V20240501Preview
         /// </summary>
         public static Output<GetWorkloadImpactResult> Invoke(GetWorkloadImpactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadImpactResult>("azure-native:impact/v20240501preview:getWorkloadImpact", args ?? new GetWorkloadImpactInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a WorkloadImpact
+        /// </summary>
+        public static Output<GetWorkloadImpactResult> Invoke(GetWorkloadImpactInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadImpactResult>("azure-native:impact/v20240501preview:getWorkloadImpact", args ?? new GetWorkloadImpactInvokeArgs(), options.WithDefaults());
     }
 
 

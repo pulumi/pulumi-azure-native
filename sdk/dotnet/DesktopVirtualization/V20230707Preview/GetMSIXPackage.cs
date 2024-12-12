@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20230707Preview
         /// </summary>
         public static Output<GetMSIXPackageResult> Invoke(GetMSIXPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMSIXPackageResult>("azure-native:desktopvirtualization/v20230707preview:getMSIXPackage", args ?? new GetMSIXPackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a msixpackage.
+        /// </summary>
+        public static Output<GetMSIXPackageResult> Invoke(GetMSIXPackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMSIXPackageResult>("azure-native:desktopvirtualization/v20230707preview:getMSIXPackage", args ?? new GetMSIXPackageInvokeArgs(), options.WithDefaults());
     }
 
 

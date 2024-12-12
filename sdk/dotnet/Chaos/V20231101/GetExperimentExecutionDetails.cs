@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Chaos.V20231101
         /// </summary>
         public static Output<GetExperimentExecutionDetailsResult> Invoke(GetExperimentExecutionDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentExecutionDetailsResult>("azure-native:chaos/v20231101:getExperimentExecutionDetails", args ?? new GetExperimentExecutionDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Execution details of an experiment resource.
+        /// </summary>
+        public static Output<GetExperimentExecutionDetailsResult> Invoke(GetExperimentExecutionDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExperimentExecutionDetailsResult>("azure-native:chaos/v20231101:getExperimentExecutionDetails", args ?? new GetExperimentExecutionDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

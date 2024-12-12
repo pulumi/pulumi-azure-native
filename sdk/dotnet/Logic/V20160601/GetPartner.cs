@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:logic/v20160601:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an integration account partner.
+        /// </summary>
+        public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:logic/v20160601:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithDefaults());
     }
 
 

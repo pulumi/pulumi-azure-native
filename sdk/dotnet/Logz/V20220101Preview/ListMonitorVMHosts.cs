@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         /// </summary>
         public static Output<ListMonitorVMHostsResult> Invoke(ListMonitorVMHostsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorVMHostsResult>("azure-native:logz/v20220101preview:listMonitorVMHosts", args ?? new ListMonitorVMHostsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response of a list VM Host Update Operation.
+        /// </summary>
+        public static Output<ListMonitorVMHostsResult> Invoke(ListMonitorVMHostsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitorVMHostsResult>("azure-native:logz/v20220101preview:listMonitorVMHosts", args ?? new ListMonitorVMHostsInvokeArgs(), options.WithDefaults());
     }
 
 

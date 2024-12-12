@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Output<GetGlobalParameterResult> Invoke(GetGlobalParameterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalParameterResult>("azure-native:datafactory/v20180601:getGlobalParameter", args ?? new GetGlobalParameterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Global parameter
+        /// </summary>
+        public static Output<GetGlobalParameterResult> Invoke(GetGlobalParameterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalParameterResult>("azure-native:datafactory/v20180601:getGlobalParameter", args ?? new GetGlobalParameterInvokeArgs(), options.WithDefaults());
     }
 
 

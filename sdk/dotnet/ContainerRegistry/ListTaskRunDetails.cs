@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public static Output<ListTaskRunDetailsResult> Invoke(ListTaskRunDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTaskRunDetailsResult>("azure-native:containerregistry:listTaskRunDetails", args ?? new ListTaskRunDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the detailed information for a given task run that includes all secrets.
+        /// Azure REST API version: 2019-06-01-preview.
+        /// </summary>
+        public static Output<ListTaskRunDetailsResult> Invoke(ListTaskRunDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListTaskRunDetailsResult>("azure-native:containerregistry:listTaskRunDetails", args ?? new ListTaskRunDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

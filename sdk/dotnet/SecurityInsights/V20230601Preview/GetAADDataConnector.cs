@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230601Preview
         /// </summary>
         public static Output<GetAADDataConnectorResult> Invoke(GetAADDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAADDataConnectorResult>("azure-native:securityinsights/v20230601preview:getAADDataConnector", args ?? new GetAADDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// </summary>
+        public static Output<GetAADDataConnectorResult> Invoke(GetAADDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAADDataConnectorResult>("azure-native:securityinsights/v20230601preview:getAADDataConnector", args ?? new GetAADDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

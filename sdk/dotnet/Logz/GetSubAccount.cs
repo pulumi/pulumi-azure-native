@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Logz
         /// </summary>
         public static Output<GetSubAccountResult> Invoke(GetSubAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// 
+        /// Azure REST API version: 2022-01-01-preview.
+        /// </summary>
+        public static Output<GetSubAccountResult> Invoke(GetSubAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubAccountResult>("azure-native:logz:getSubAccount", args ?? new GetSubAccountInvokeArgs(), options.WithDefaults());
     }
 
 

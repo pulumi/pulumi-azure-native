@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
         /// </summary>
         public static Output<GetStorageApplianceResult> Invoke(GetStorageApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageApplianceResult>("azure-native:networkcloud/v20230701:getStorageAppliance", args ?? new GetStorageApplianceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided storage appliance.
+        /// </summary>
+        public static Output<GetStorageApplianceResult> Invoke(GetStorageApplianceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageApplianceResult>("azure-native:networkcloud/v20230701:getStorageAppliance", args ?? new GetStorageApplianceInvokeArgs(), options.WithDefaults());
     }
 
 

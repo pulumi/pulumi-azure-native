@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20240802Preview
         /// </summary>
         public static Output<ListJobSecretsResult> Invoke(ListJobSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobSecretsResult>("azure-native:app/v20240802preview:listJobSecrets", args ?? new ListJobSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Container Apps Job Secrets Collection ARM resource.
+        /// </summary>
+        public static Output<ListJobSecretsResult> Invoke(ListJobSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListJobSecretsResult>("azure-native:app/v20240802preview:listJobSecrets", args ?? new ListJobSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

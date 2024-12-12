@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         /// </summary>
         public static Output<GetContactProfileResult> Invoke(GetContactProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactProfileResult>("azure-native:orbital/v20220301:getContactProfile", args ?? new GetContactProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified contact Profile in a specified resource group.
+        /// </summary>
+        public static Output<GetContactProfileResult> Invoke(GetContactProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactProfileResult>("azure-native:orbital/v20220301:getContactProfile", args ?? new GetContactProfileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         public static Output<GetRaiPolicyResult> Invoke(GetRaiPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiPolicyResult>("azure-native:cognitiveservices:getRaiPolicy", args ?? new GetRaiPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Content Filters associated with the Azure OpenAI account.
+        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// </summary>
+        public static Output<GetRaiPolicyResult> Invoke(GetRaiPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRaiPolicyResult>("azure-native:cognitiveservices:getRaiPolicy", args ?? new GetRaiPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Output<GetGovernanceRuleResult> Invoke(GetGovernanceRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceRuleResult>("azure-native:security:getGovernanceRule", args ?? new GetGovernanceRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific governance rule for the requested scope by ruleId
+        /// Azure REST API version: 2022-01-01-preview.
+        /// </summary>
+        public static Output<GetGovernanceRuleResult> Invoke(GetGovernanceRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceRuleResult>("azure-native:security:getGovernanceRule", args ?? new GetGovernanceRuleInvokeArgs(), options.WithDefaults());
     }
 
 

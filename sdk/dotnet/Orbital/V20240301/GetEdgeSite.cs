@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Orbital.V20240301
         /// </summary>
         public static Output<GetEdgeSiteResult> Invoke(GetEdgeSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEdgeSiteResult>("azure-native:orbital/v20240301:getEdgeSite", args ?? new GetEdgeSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified edge site in a specified resource group.
+        /// </summary>
+        public static Output<GetEdgeSiteResult> Invoke(GetEdgeSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEdgeSiteResult>("azure-native:orbital/v20240301:getEdgeSite", args ?? new GetEdgeSiteInvokeArgs(), options.WithDefaults());
     }
 
 

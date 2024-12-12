@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a source control byt its identifier.
+        /// Azure REST API version: 2023-05-01-preview.
+        /// 
+        /// Other available API versions: 2021-03-01-preview.
+        /// </summary>
+        public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
     }
 
 

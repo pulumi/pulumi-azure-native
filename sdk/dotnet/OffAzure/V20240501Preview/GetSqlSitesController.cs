@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20240501Preview
         /// </summary>
         public static Output<GetSqlSitesControllerResult> Invoke(GetSqlSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlSitesControllerResult>("azure-native:offazure/v20240501preview:getSqlSitesController", args ?? new GetSqlSitesControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Method to get a site.
+        /// </summary>
+        public static Output<GetSqlSitesControllerResult> Invoke(GetSqlSitesControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlSitesControllerResult>("azure-native:offazure/v20240501preview:getSqlSitesController", args ?? new GetSqlSitesControllerInvokeArgs(), options.WithDefaults());
     }
 
 

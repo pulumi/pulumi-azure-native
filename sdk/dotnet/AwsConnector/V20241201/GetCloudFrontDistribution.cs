@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetCloudFrontDistributionResult> Invoke(GetCloudFrontDistributionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFrontDistributionResult>("azure-native:awsconnector/v20241201:getCloudFrontDistribution", args ?? new GetCloudFrontDistributionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CloudFrontDistribution
+        /// </summary>
+        public static Output<GetCloudFrontDistributionResult> Invoke(GetCloudFrontDistributionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudFrontDistributionResult>("azure-native:awsconnector/v20241201:getCloudFrontDistribution", args ?? new GetCloudFrontDistributionInvokeArgs(), options.WithDefaults());
     }
 
 

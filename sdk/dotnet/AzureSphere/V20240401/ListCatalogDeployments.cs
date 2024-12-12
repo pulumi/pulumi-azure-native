@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureSphere.V20240401
         /// </summary>
         public static Output<ListCatalogDeploymentsResult> Invoke(ListCatalogDeploymentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeploymentsResult>("azure-native:azuresphere/v20240401:listCatalogDeployments", args ?? new ListCatalogDeploymentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists deployments for catalog.
+        /// </summary>
+        public static Output<ListCatalogDeploymentsResult> Invoke(ListCatalogDeploymentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeploymentsResult>("azure-native:azuresphere/v20240401:listCatalogDeployments", args ?? new ListCatalogDeploymentsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20240301
         /// </summary>
         public static Output<GetConnectedEnvironmentsDaprComponentResult> Invoke(GetConnectedEnvironmentsDaprComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsDaprComponentResult>("azure-native:app/v20240301:getConnectedEnvironmentsDaprComponent", args ?? new GetConnectedEnvironmentsDaprComponentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Dapr Component.
+        /// </summary>
+        public static Output<GetConnectedEnvironmentsDaprComponentResult> Invoke(GetConnectedEnvironmentsDaprComponentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsDaprComponentResult>("azure-native:app/v20240301:getConnectedEnvironmentsDaprComponent", args ?? new GetConnectedEnvironmentsDaprComponentInvokeArgs(), options.WithDefaults());
     }
 
 

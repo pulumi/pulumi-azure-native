@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Scom
         /// </summary>
         public static Output<GetManagedGatewayResult> Invoke(GetManagedGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedGatewayResult>("azure-native:scom:getManagedGateway", args ?? new GetManagedGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the details of the gateway resource.
+        /// Azure REST API version: 2023-07-07-preview.
+        /// </summary>
+        public static Output<GetManagedGatewayResult> Invoke(GetManagedGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedGatewayResult>("azure-native:scom:getManagedGateway", args ?? new GetManagedGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

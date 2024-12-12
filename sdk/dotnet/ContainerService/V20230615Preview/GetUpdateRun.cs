@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20230615Preview
         /// </summary>
         public static Output<GetUpdateRunResult> Invoke(GetUpdateRunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateRunResult>("azure-native:containerservice/v20230615preview:getUpdateRun", args ?? new GetUpdateRunInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a UpdateRun
+        /// </summary>
+        public static Output<GetUpdateRunResult> Invoke(GetUpdateRunInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUpdateRunResult>("azure-native:containerservice/v20230615preview:getUpdateRun", args ?? new GetUpdateRunInvokeArgs(), options.WithDefaults());
     }
 
 

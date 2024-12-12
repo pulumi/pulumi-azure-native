@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Output<GetConnectionGatewayResult> Invoke(GetConnectionGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific gateway under a subscription and in a specific resource group
+        /// Azure REST API version: 2016-06-01.
+        /// </summary>
+        public static Output<GetConnectionGatewayResult> Invoke(GetConnectionGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

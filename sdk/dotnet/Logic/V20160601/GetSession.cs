@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public static Output<GetSessionResult> Invoke(GetSessionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSessionResult>("azure-native:logic/v20160601:getSession", args ?? new GetSessionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an integration account session.
+        /// </summary>
+        public static Output<GetSessionResult> Invoke(GetSessionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSessionResult>("azure-native:logic/v20160601:getSession", args ?? new GetSessionInvokeArgs(), options.WithDefaults());
     }
 
 

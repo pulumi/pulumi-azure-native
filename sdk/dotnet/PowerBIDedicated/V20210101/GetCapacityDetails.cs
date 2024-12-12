@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
         /// </summary>
         public static Output<GetCapacityDetailsResult> Invoke(GetCapacityDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityDetailsResult>("azure-native:powerbidedicated/v20210101:getCapacityDetails", args ?? new GetCapacityDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details about the specified dedicated capacity.
+        /// </summary>
+        public static Output<GetCapacityDetailsResult> Invoke(GetCapacityDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapacityDetailsResult>("azure-native:powerbidedicated/v20210101:getCapacityDetails", args ?? new GetCapacityDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

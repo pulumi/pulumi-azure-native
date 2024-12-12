@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
         /// </summary>
         public static Output<GetServerDnsAliasResult> Invoke(GetServerDnsAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerDnsAliasResult>("azure-native:sql/v20230801preview:getServerDnsAlias", args ?? new GetServerDnsAliasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a server DNS alias.
+        /// </summary>
+        public static Output<GetServerDnsAliasResult> Invoke(GetServerDnsAliasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerDnsAliasResult>("azure-native:sql/v20230801preview:getServerDnsAlias", args ?? new GetServerDnsAliasInvokeArgs(), options.WithDefaults());
     }
 
 

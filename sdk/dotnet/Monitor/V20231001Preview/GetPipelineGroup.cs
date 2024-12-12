@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Monitor.V20231001Preview
         /// </summary>
         public static Output<GetPipelineGroupResult> Invoke(GetPipelineGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineGroupResult>("azure-native:monitor/v20231001preview:getPipelineGroup", args ?? new GetPipelineGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the specific pipeline group instance.
+        /// </summary>
+        public static Output<GetPipelineGroupResult> Invoke(GetPipelineGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineGroupResult>("azure-native:monitor/v20231001preview:getPipelineGroup", args ?? new GetPipelineGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         /// </summary>
         public static Output<ListTaskRunDetailsResult> Invoke(ListTaskRunDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTaskRunDetailsResult>("azure-native:containerregistry/v20190601preview:listTaskRunDetails", args ?? new ListTaskRunDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the detailed information for a given task run that includes all secrets.
+        /// </summary>
+        public static Output<ListTaskRunDetailsResult> Invoke(ListTaskRunDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListTaskRunDetailsResult>("azure-native:containerregistry/v20190601preview:listTaskRunDetails", args ?? new ListTaskRunDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

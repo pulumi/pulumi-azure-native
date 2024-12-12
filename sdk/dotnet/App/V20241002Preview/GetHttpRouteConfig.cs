@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20241002Preview
         /// </summary>
         public static Output<GetHttpRouteConfigResult> Invoke(GetHttpRouteConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHttpRouteConfigResult>("azure-native:app/v20241002preview:getHttpRouteConfig", args ?? new GetHttpRouteConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Advanced Ingress routing for path/header based routing for a Container App Environment
+        /// </summary>
+        public static Output<GetHttpRouteConfigResult> Invoke(GetHttpRouteConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHttpRouteConfigResult>("azure-native:app/v20241002preview:getHttpRouteConfig", args ?? new GetHttpRouteConfigInvokeArgs(), options.WithDefaults());
     }
 
 

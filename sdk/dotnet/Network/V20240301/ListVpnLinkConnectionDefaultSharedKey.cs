@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240301
         /// </summary>
         public static Output<ListVpnLinkConnectionDefaultSharedKeyResult> Invoke(ListVpnLinkConnectionDefaultSharedKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVpnLinkConnectionDefaultSharedKeyResult>("azure-native:network/v20240301:listVpnLinkConnectionDefaultSharedKey", args ?? new ListVpnLinkConnectionDefaultSharedKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the value of the shared key of VpnLink connection specified.
+        /// </summary>
+        public static Output<ListVpnLinkConnectionDefaultSharedKeyResult> Invoke(ListVpnLinkConnectionDefaultSharedKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListVpnLinkConnectionDefaultSharedKeyResult>("azure-native:network/v20240301:listVpnLinkConnectionDefaultSharedKey", args ?? new ListVpnLinkConnectionDefaultSharedKeyInvokeArgs(), options.WithDefaults());
     }
 
 

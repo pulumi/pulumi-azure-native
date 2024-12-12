@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20220901
         /// </summary>
         public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:storage/v20220901:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the properties for the specified encryption scope.
+        /// </summary>
+        public static Output<GetEncryptionScopeResult> Invoke(GetEncryptionScopeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionScopeResult>("azure-native:storage/v20220901:getEncryptionScope", args ?? new GetEncryptionScopeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview
         /// </summary>
         public static Output<GetCapabilityHostResult> Invoke(GetCapabilityHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityHostResult>("azure-native:machinelearningservices/v20241001preview:getCapabilityHost", args ?? new GetCapabilityHostInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Azure Resource Manager resource envelope.
+        /// </summary>
+        public static Output<GetCapabilityHostResult> Invoke(GetCapabilityHostInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityHostResult>("azure-native:machinelearningservices/v20241001preview:getCapabilityHost", args ?? new GetCapabilityHostInvokeArgs(), options.WithDefaults());
     }
 
 

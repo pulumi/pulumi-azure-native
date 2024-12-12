@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public static Output<GetInvitationResult> Invoke(GetInvitationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInvitationResult>("azure-native:datashare:getInvitation", args ?? new GetInvitationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an invitation in a share
+        /// Azure REST API version: 2021-08-01.
+        /// </summary>
+        public static Output<GetInvitationResult> Invoke(GetInvitationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInvitationResult>("azure-native:datashare:getInvitation", args ?? new GetInvitationInvokeArgs(), options.WithDefaults());
     }
 
 

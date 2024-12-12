@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.V20240701
         /// </summary>
         public static Output<GetRestorePointResult> Invoke(GetRestorePointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestorePointResult>("azure-native:compute/v20240701:getRestorePoint", args ?? new GetRestorePointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation to get the restore point.
+        /// </summary>
+        public static Output<GetRestorePointResult> Invoke(GetRestorePointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRestorePointResult>("azure-native:compute/v20240701:getRestorePoint", args ?? new GetRestorePointInvokeArgs(), options.WithDefaults());
     }
 
 

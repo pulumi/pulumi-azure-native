@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Syntex
         /// </summary>
         public static Output<GetDocumentProcessorResult> Invoke(GetDocumentProcessorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentProcessorResult>("azure-native:syntex:getDocumentProcessor", args ?? new GetDocumentProcessorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a document processor for a given name.
+        /// Azure REST API version: 2022-09-15-preview.
+        /// </summary>
+        public static Output<GetDocumentProcessorResult> Invoke(GetDocumentProcessorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentProcessorResult>("azure-native:syntex:getDocumentProcessor", args ?? new GetDocumentProcessorInvokeArgs(), options.WithDefaults());
     }
 
 

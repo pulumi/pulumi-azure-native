@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Domains resource and its properties.
+        /// Azure REST API version: 2023-03-31.
+        /// 
+        /// Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview.
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

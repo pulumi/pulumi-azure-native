@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240601Preview
         /// </summary>
         public static Output<ListSkusByProjectResult> Invoke(ListSkusByProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSkusByProjectResult>("azure-native:devcenter/v20240601preview:listSkusByProject", args ?? new ListSkusByProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists SKUs available to the project
+        /// </summary>
+        public static Output<ListSkusByProjectResult> Invoke(ListSkusByProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListSkusByProjectResult>("azure-native:devcenter/v20240601preview:listSkusByProject", args ?? new ListSkusByProjectInvokeArgs(), options.WithDefaults());
     }
 
 

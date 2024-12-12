@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// </summary>
         public static Output<GetWordpressInstanceResult> Invoke(GetWordpressInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWordpressInstanceResult>("azure-native:workloads/v20211201preview:getWordpressInstance", args ?? new GetWordpressInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the WordPress instance resource.
+        /// </summary>
+        public static Output<GetWordpressInstanceResult> Invoke(GetWordpressInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWordpressInstanceResult>("azure-native:workloads/v20211201preview:getWordpressInstance", args ?? new GetWordpressInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

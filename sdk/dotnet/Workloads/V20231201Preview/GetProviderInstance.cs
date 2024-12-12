@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20231201Preview
         /// </summary>
         public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:workloads/v20231201preview:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
+        /// </summary>
+        public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:workloads/v20231201preview:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

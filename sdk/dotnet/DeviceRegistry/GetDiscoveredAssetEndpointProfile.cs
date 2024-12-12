@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         public static Output<GetDiscoveredAssetEndpointProfileResult> Invoke(GetDiscoveredAssetEndpointProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiscoveredAssetEndpointProfileResult>("azure-native:deviceregistry:getDiscoveredAssetEndpointProfile", args ?? new GetDiscoveredAssetEndpointProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DiscoveredAssetEndpointProfile
+        /// Azure REST API version: 2024-09-01-preview.
+        /// </summary>
+        public static Output<GetDiscoveredAssetEndpointProfileResult> Invoke(GetDiscoveredAssetEndpointProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiscoveredAssetEndpointProfileResult>("azure-native:deviceregistry:getDiscoveredAssetEndpointProfile", args ?? new GetDiscoveredAssetEndpointProfileInvokeArgs(), options.WithDefaults());
     }
 
 

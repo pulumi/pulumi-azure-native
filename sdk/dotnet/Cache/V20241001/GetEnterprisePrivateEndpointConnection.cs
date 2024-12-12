@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cache.V20241001
         /// </summary>
         public static Output<GetEnterprisePrivateEndpointConnectionResult> Invoke(GetEnterprisePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterprisePrivateEndpointConnectionResult>("azure-native:cache/v20241001:getEnterprisePrivateEndpointConnection", args ?? new GetEnterprisePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
+        /// </summary>
+        public static Output<GetEnterprisePrivateEndpointConnectionResult> Invoke(GetEnterprisePrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnterprisePrivateEndpointConnectionResult>("azure-native:cache/v20241001:getEnterprisePrivateEndpointConnection", args ?? new GetEnterprisePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

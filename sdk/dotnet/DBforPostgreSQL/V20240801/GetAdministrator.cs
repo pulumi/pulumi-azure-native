@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240801
         /// </summary>
         public static Output<GetAdministratorResult> Invoke(GetAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdministratorResult>("azure-native:dbforpostgresql/v20240801:getAdministrator", args ?? new GetAdministratorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a server.
+        /// </summary>
+        public static Output<GetAdministratorResult> Invoke(GetAdministratorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAdministratorResult>("azure-native:dbforpostgresql/v20240801:getAdministrator", args ?? new GetAdministratorInvokeArgs(), options.WithDefaults());
     }
 
 

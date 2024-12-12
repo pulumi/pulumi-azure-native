@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetIamAccessKeyLastUsedResult> Invoke(GetIamAccessKeyLastUsedInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamAccessKeyLastUsedResult>("azure-native:awsconnector/v20241201:getIamAccessKeyLastUsed", args ?? new GetIamAccessKeyLastUsedInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamAccessKeyLastUsed
+        /// </summary>
+        public static Output<GetIamAccessKeyLastUsedResult> Invoke(GetIamAccessKeyLastUsedInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamAccessKeyLastUsedResult>("azure-native:awsconnector/v20241201:getIamAccessKeyLastUsed", args ?? new GetIamAccessKeyLastUsedInvokeArgs(), options.WithDefaults());
     }
 
 

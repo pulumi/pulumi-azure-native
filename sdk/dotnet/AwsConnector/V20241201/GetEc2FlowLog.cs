@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEc2FlowLogResult> Invoke(GetEc2FlowLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2FlowLogResult>("azure-native:awsconnector/v20241201:getEc2FlowLog", args ?? new GetEc2FlowLogInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2FlowLog
+        /// </summary>
+        public static Output<GetEc2FlowLogResult> Invoke(GetEc2FlowLogInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2FlowLogResult>("azure-native:awsconnector/v20241201:getEc2FlowLog", args ?? new GetEc2FlowLogInvokeArgs(), options.WithDefaults());
     }
 
 

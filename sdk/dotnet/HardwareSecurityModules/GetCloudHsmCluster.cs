@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// </summary>
         public static Output<GetCloudHsmClusterResult> Invoke(GetCloudHsmClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudHsmClusterResult>("azure-native:hardwaresecuritymodules:getCloudHsmCluster", args ?? new GetCloudHsmClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Cloud HSM Cluster
+        /// Azure REST API version: 2022-08-31-preview.
+        /// 
+        /// Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
+        /// </summary>
+        public static Output<GetCloudHsmClusterResult> Invoke(GetCloudHsmClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudHsmClusterResult>("azure-native:hardwaresecuritymodules:getCloudHsmCluster", args ?? new GetCloudHsmClusterInvokeArgs(), options.WithDefaults());
     }
 
 

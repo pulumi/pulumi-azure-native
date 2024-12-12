@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public static Output<GetAppResiliencyResult> Invoke(GetAppResiliencyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResiliencyResult>("azure-native:app:getAppResiliency", args ?? new GetAppResiliencyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get container app resiliency policy.
+        /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// </summary>
+        public static Output<GetAppResiliencyResult> Invoke(GetAppResiliencyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResiliencyResult>("azure-native:app:getAppResiliency", args ?? new GetAppResiliencyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
         /// </summary>
         public static Output<GetMachineGroupResult> Invoke(GetMachineGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineGroupResult>("azure-native:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the specified machine group as it existed during the specified time interval.
+        /// </summary>
+        public static Output<GetMachineGroupResult> Invoke(GetMachineGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineGroupResult>("azure-native:operationalinsights/v20151101preview:getMachineGroup", args ?? new GetMachineGroupInvokeArgs(), options.WithDefaults());
     }
 
 

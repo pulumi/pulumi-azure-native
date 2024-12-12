@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// </summary>
         public static Output<GetPrometheusRuleGroupResult> Invoke(GetPrometheusRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrometheusRuleGroupResult>("azure-native:alertsmanagement:getPrometheusRuleGroup", args ?? new GetPrometheusRuleGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve a Prometheus rule group definition.
+        /// Azure REST API version: 2023-03-01.
+        /// </summary>
+        public static Output<GetPrometheusRuleGroupResult> Invoke(GetPrometheusRuleGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrometheusRuleGroupResult>("azure-native:alertsmanagement:getPrometheusRuleGroup", args ?? new GetPrometheusRuleGroupInvokeArgs(), options.WithDefaults());
     }
 
 

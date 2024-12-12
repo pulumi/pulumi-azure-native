@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SignalRService.V20241001Preview
         /// </summary>
         public static Output<ListSignalRKeysResult> Invoke(ListSignalRKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSignalRKeysResult>("azure-native:signalrservice/v20241001preview:listSignalRKeys", args ?? new ListSignalRKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the access keys of the resource.
+        /// </summary>
+        public static Output<ListSignalRKeysResult> Invoke(ListSignalRKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListSignalRKeysResult>("azure-native:signalrservice/v20241001preview:listSignalRKeys", args ?? new ListSignalRKeysInvokeArgs(), options.WithDefaults());
     }
 
 

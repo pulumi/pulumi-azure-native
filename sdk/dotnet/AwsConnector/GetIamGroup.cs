@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetIamGroupResult> Invoke(GetIamGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamGroupResult>("azure-native:awsconnector:getIamGroup", args ?? new GetIamGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamGroup
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetIamGroupResult> Invoke(GetIamGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamGroupResult>("azure-native:awsconnector:getIamGroup", args ?? new GetIamGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240101
         /// </summary>
         public static Output<GetRoutingIntentResult> Invoke(GetRoutingIntentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutingIntentResult>("azure-native:network/v20240101:getRoutingIntent", args ?? new GetRoutingIntentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the details of a RoutingIntent.
+        /// </summary>
+        public static Output<GetRoutingIntentResult> Invoke(GetRoutingIntentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoutingIntentResult>("azure-native:network/v20240101:getRoutingIntent", args ?? new GetRoutingIntentInvokeArgs(), options.WithDefaults());
     }
 
 

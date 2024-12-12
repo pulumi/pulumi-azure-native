@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
         /// </summary>
         public static Output<GetSystemResult> Invoke(GetSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemResult>("azure-native:securityinsights/v20240401preview:getSystem", args ?? new GetSystemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the system.
+        /// </summary>
+        public static Output<GetSystemResult> Invoke(GetSystemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSystemResult>("azure-native:securityinsights/v20240401preview:getSystem", args ?? new GetSystemInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// </summary>
         public static Output<GetFlowSourceAddressesResult> Invoke(GetFlowSourceAddressesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowSourceAddressesResult>("azure-native:azuredatatransfer:getFlowSourceAddresses", args ?? new GetFlowSourceAddressesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the source addresses for the specified flow.
+        /// Azure REST API version: 2024-09-27.
+        /// </summary>
+        public static Output<GetFlowSourceAddressesResult> Invoke(GetFlowSourceAddressesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowSourceAddressesResult>("azure-native:azuredatatransfer:getFlowSourceAddresses", args ?? new GetFlowSourceAddressesInvokeArgs(), options.WithDefaults());
     }
 
 

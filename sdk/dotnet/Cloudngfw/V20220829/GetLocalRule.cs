@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20220829
         /// </summary>
         public static Output<GetLocalRuleResult> Invoke(GetLocalRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRuleResult>("azure-native:cloudngfw/v20220829:getLocalRule", args ?? new GetLocalRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LocalRulesResource
+        /// </summary>
+        public static Output<GetLocalRuleResult> Invoke(GetLocalRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalRuleResult>("azure-native:cloudngfw/v20220829:getLocalRule", args ?? new GetLocalRuleInvokeArgs(), options.WithDefaults());
     }
 
 

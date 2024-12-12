@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20231001Preview
         /// </summary>
         public static Output<GetWebAppSitesControllerResult> Invoke(GetWebAppSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSitesControllerResult>("azure-native:offazure/v20231001preview:getWebAppSitesController", args ?? new GetWebAppSitesControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Method to get a site.
+        /// </summary>
+        public static Output<GetWebAppSitesControllerResult> Invoke(GetWebAppSitesControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSitesControllerResult>("azure-native:offazure/v20231001preview:getWebAppSitesController", args ?? new GetWebAppSitesControllerInvokeArgs(), options.WithDefaults());
     }
 
 

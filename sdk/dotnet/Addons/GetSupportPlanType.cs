@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Addons
         /// </summary>
         public static Output<GetSupportPlanTypeResult> Invoke(GetSupportPlanTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSupportPlanTypeResult>("azure-native:addons:getSupportPlanType", args ?? new GetSupportPlanTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns whether or not the canonical support plan of type {type} is enabled for the subscription.
+        /// Azure REST API version: 2018-03-01.
+        /// </summary>
+        public static Output<GetSupportPlanTypeResult> Invoke(GetSupportPlanTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSupportPlanTypeResult>("azure-native:addons:getSupportPlanType", args ?? new GetSupportPlanTypeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Portal.V20181001
         /// </summary>
         public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:portal/v20181001:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the console for the user.
+        /// </summary>
+        public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:portal/v20181001:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());
     }
 
 

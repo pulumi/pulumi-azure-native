@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20240101
         /// </summary>
         public static Output<GetPricingResult> Invoke(GetPricingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPricingResult>("azure-native:security/v20240101:getPricing", args ?? new GetPricingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Defender plans pricing configurations of the selected scope (valid scopes are resource id or a subscription id). At the resource level, supported resource types are 'VirtualMachines, VMSS and ARC Machines'.
+        /// </summary>
+        public static Output<GetPricingResult> Invoke(GetPricingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPricingResult>("azure-native:security/v20240101:getPricing", args ?? new GetPricingInvokeArgs(), options.WithDefaults());
     }
 
 

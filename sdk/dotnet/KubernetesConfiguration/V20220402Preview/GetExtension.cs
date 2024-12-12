@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:kubernetesconfiguration/v20220402preview:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets Kubernetes Cluster Extension.
+        /// </summary>
+        public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:kubernetesconfiguration/v20220402preview:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataReplication
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:datareplication:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the policy.
+        /// Azure REST API version: 2021-02-16-preview.
+        /// </summary>
+        public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:datareplication:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         /// </summary>
         public static Output<GetCustomerEventResult> Invoke(GetCustomerEventInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerEventResult>("azure-native:testbase/v20220401preview:getCustomerEvent", args ?? new GetCustomerEventInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Test Base CustomerEvent.
+        /// </summary>
+        public static Output<GetCustomerEventResult> Invoke(GetCustomerEventInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomerEventResult>("azure-native:testbase/v20220401preview:getCustomerEvent", args ?? new GetCustomerEventInvokeArgs(), options.WithDefaults());
     }
 
 

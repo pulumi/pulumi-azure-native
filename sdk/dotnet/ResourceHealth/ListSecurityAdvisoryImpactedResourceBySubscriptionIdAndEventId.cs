@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ResourceHealth
         /// </summary>
         public static Output<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> Invoke(ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult>("azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId", args ?? new ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists impacted resources in the subscription by an event (Security Advisory).
+        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2022-10-01-preview, 2023-07-01-preview, 2023-10-01-preview, 2024-02-01.
+        /// </summary>
+        public static Output<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult> Invoke(ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult>("azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId", args ?? new ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdInvokeArgs(), options.WithDefaults());
     }
 
 

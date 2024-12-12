@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices/v20181015:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get lab
+        /// </summary>
+        public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices/v20181015:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetSageMakerNotebookInstanceSummaryResult> Invoke(GetSageMakerNotebookInstanceSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSageMakerNotebookInstanceSummaryResult>("azure-native:awsconnector:getSageMakerNotebookInstanceSummary", args ?? new GetSageMakerNotebookInstanceSummaryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SageMakerNotebookInstanceSummary
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetSageMakerNotebookInstanceSummaryResult> Invoke(GetSageMakerNotebookInstanceSummaryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSageMakerNotebookInstanceSummaryResult>("azure-native:awsconnector:getSageMakerNotebookInstanceSummary", args ?? new GetSageMakerNotebookInstanceSummaryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:domainregistration:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Get a domain.
+        /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:domainregistration:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

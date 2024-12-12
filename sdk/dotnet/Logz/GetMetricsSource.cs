@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Logz
         /// </summary>
         public static Output<GetMetricsSourceResult> Invoke(GetMetricsSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricsSourceResult>("azure-native:logz:getMetricsSource", args ?? new GetMetricsSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// 
+        /// Azure REST API version: 2022-01-01-preview.
+        /// </summary>
+        public static Output<GetMetricsSourceResult> Invoke(GetMetricsSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetricsSourceResult>("azure-native:logz:getMetricsSource", args ?? new GetMetricsSourceInvokeArgs(), options.WithDefaults());
     }
 
 

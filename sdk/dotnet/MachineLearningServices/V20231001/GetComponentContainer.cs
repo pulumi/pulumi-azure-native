@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20231001
         /// </summary>
         public static Output<GetComponentContainerResult> Invoke(GetComponentContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentContainerResult>("azure-native:machinelearningservices/v20231001:getComponentContainer", args ?? new GetComponentContainerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Azure Resource Manager resource envelope.
+        /// </summary>
+        public static Output<GetComponentContainerResult> Invoke(GetComponentContainerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentContainerResult>("azure-native:machinelearningservices/v20231001:getComponentContainer", args ?? new GetComponentContainerInvokeArgs(), options.WithDefaults());
     }
 
 

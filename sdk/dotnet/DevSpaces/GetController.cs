@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DevSpaces
         /// </summary>
         public static Output<GetControllerResult> Invoke(GetControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetControllerResult>("azure-native:devspaces:getController", args ?? new GetControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties for an Azure Dev Spaces Controller.
+        /// Azure REST API version: 2019-04-01.
+        /// </summary>
+        public static Output<GetControllerResult> Invoke(GetControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetControllerResult>("azure-native:devspaces:getController", args ?? new GetControllerInvokeArgs(), options.WithDefaults());
     }
 
 

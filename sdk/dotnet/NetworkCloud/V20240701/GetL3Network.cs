@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20240701
         /// </summary>
         public static Output<GetL3NetworkResult> Invoke(GetL3NetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL3NetworkResult>("azure-native:networkcloud/v20240701:getL3Network", args ?? new GetL3NetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided layer 3 (L3) network.
+        /// </summary>
+        public static Output<GetL3NetworkResult> Invoke(GetL3NetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetL3NetworkResult>("azure-native:networkcloud/v20240701:getL3Network", args ?? new GetL3NetworkInvokeArgs(), options.WithDefaults());
     }
 
 

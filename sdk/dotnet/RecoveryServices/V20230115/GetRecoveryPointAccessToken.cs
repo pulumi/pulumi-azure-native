@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230115
 
         public static Output<GetRecoveryPointAccessTokenResult> Invoke(GetRecoveryPointAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices/v20230115:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetRecoveryPointAccessTokenResult> Invoke(GetRecoveryPointAccessTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecoveryPointAccessTokenResult>("azure-native:recoveryservices/v20230115:getRecoveryPointAccessToken", args ?? new GetRecoveryPointAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

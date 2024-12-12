@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:hybridnetwork:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified network site.
+        /// Azure REST API version: 2023-09-01.
+        /// 
+        /// Other available API versions: 2024-04-15.
+        /// </summary>
+        public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:hybridnetwork:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

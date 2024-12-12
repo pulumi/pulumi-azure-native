@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         public static Output<GetHybridConnectionResult> Invoke(GetHybridConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the description for the specified hybrid connection.
+        /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Other available API versions: 2024-01-01.
+        /// </summary>
+        public static Output<GetHybridConnectionResult> Invoke(GetHybridConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

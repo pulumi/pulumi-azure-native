@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
         /// </summary>
         public static Output<GetNamespaceIpFilterRuleResult> Invoke(GetNamespaceIpFilterRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceIpFilterRuleResult>("azure-native:servicebus/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an IpFilterRule for a Namespace by rule name.
+        /// </summary>
+        public static Output<GetNamespaceIpFilterRuleResult> Invoke(GetNamespaceIpFilterRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceIpFilterRuleResult>("azure-native:servicebus/v20180101preview:getNamespaceIpFilterRule", args ?? new GetNamespaceIpFilterRuleInvokeArgs(), options.WithDefaults());
     }
 
 

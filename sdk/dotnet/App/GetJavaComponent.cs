@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public static Output<GetJavaComponentResult> Invoke(GetJavaComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJavaComponentResult>("azure-native:app:getJavaComponent", args ?? new GetJavaComponentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Java Component.
+        /// Azure REST API version: 2023-11-02-preview.
+        /// 
+        /// Other available API versions: 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// </summary>
+        public static Output<GetJavaComponentResult> Invoke(GetJavaComponentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJavaComponentResult>("azure-native:app:getJavaComponent", args ?? new GetJavaComponentInvokeArgs(), options.WithDefaults());
     }
 
 

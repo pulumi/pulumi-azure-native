@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetEc2IpamResult> Invoke(GetEc2IpamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2IpamResult>("azure-native:awsconnector:getEc2Ipam", args ?? new GetEc2IpamInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2Ipam
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetEc2IpamResult> Invoke(GetEc2IpamInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2IpamResult>("azure-native:awsconnector:getEc2Ipam", args ?? new GetEc2IpamInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetOpenSearchDomainStatusResult> Invoke(GetOpenSearchDomainStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenSearchDomainStatusResult>("azure-native:awsconnector:getOpenSearchDomainStatus", args ?? new GetOpenSearchDomainStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a OpenSearchDomainStatus
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetOpenSearchDomainStatusResult> Invoke(GetOpenSearchDomainStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOpenSearchDomainStatusResult>("azure-native:awsconnector:getOpenSearchDomainStatus", args ?? new GetOpenSearchDomainStatusInvokeArgs(), options.WithDefaults());
     }
 
 

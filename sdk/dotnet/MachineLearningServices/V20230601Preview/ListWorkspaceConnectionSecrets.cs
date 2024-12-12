@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230601Preview
 
         public static Output<ListWorkspaceConnectionSecretsResult> Invoke(ListWorkspaceConnectionSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceConnectionSecretsResult>("azure-native:machinelearningservices/v20230601preview:listWorkspaceConnectionSecrets", args ?? new ListWorkspaceConnectionSecretsInvokeArgs(), options.WithDefaults());
+
+        public static Output<ListWorkspaceConnectionSecretsResult> Invoke(ListWorkspaceConnectionSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceConnectionSecretsResult>("azure-native:machinelearningservices/v20230601preview:listWorkspaceConnectionSecrets", args ?? new ListWorkspaceConnectionSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

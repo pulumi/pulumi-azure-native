@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.PolicyInsights.V20241001
         /// </summary>
         public static Output<GetAttestationAtResourceResult> Invoke(GetAttestationAtResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceResult>("azure-native:policyinsights/v20241001:getAttestationAtResource", args ?? new GetAttestationAtResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing attestation at resource scope.
+        /// </summary>
+        public static Output<GetAttestationAtResourceResult> Invoke(GetAttestationAtResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceResult>("azure-native:policyinsights/v20241001:getAttestationAtResource", args ?? new GetAttestationAtResourceInvokeArgs(), options.WithDefaults());
     }
 
 

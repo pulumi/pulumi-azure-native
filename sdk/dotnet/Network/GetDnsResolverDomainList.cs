@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetDnsResolverDomainListResult> Invoke(GetDnsResolverDomainListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverDomainListResult>("azure-native:network:getDnsResolverDomainList", args ?? new GetDnsResolverDomainListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a DNS resolver domain list.
+        /// Azure REST API version: 2023-07-01-preview.
+        /// </summary>
+        public static Output<GetDnsResolverDomainListResult> Invoke(GetDnsResolverDomainListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverDomainListResult>("azure-native:network:getDnsResolverDomainList", args ?? new GetDnsResolverDomainListInvokeArgs(), options.WithDefaults());
     }
 
 

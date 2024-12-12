@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
         /// </summary>
         public static Output<GetServerTrustGroupResult> Invoke(GetServerTrustGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerTrustGroupResult>("azure-native:sql/v20230201preview:getServerTrustGroup", args ?? new GetServerTrustGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a server trust group.
+        /// </summary>
+        public static Output<GetServerTrustGroupResult> Invoke(GetServerTrustGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerTrustGroupResult>("azure-native:sql/v20230201preview:getServerTrustGroup", args ?? new GetServerTrustGroupInvokeArgs(), options.WithDefaults());
     }
 
 

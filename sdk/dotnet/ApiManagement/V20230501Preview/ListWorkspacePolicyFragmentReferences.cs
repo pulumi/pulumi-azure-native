@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230501Preview
         /// </summary>
         public static Output<ListWorkspacePolicyFragmentReferencesResult> Invoke(ListWorkspacePolicyFragmentReferencesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspacePolicyFragmentReferencesResult>("azure-native:apimanagement/v20230501preview:listWorkspacePolicyFragmentReferences", args ?? new ListWorkspacePolicyFragmentReferencesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists policy resources that reference the policy fragment.
+        /// </summary>
+        public static Output<ListWorkspacePolicyFragmentReferencesResult> Invoke(ListWorkspacePolicyFragmentReferencesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkspacePolicyFragmentReferencesResult>("azure-native:apimanagement/v20230501preview:listWorkspacePolicyFragmentReferences", args ?? new ListWorkspacePolicyFragmentReferencesInvokeArgs(), options.WithDefaults());
     }
 
 

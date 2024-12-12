@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Solutions.V20231201Preview
         /// </summary>
         public static Output<ListApplicationTokensResult> Invoke(ListApplicationTokensInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationTokensResult>("azure-native:solutions/v20231201preview:listApplicationTokens", args ?? new ListApplicationTokensInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List tokens for application.
+        /// </summary>
+        public static Output<ListApplicationTokensResult> Invoke(ListApplicationTokensInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListApplicationTokensResult>("azure-native:solutions/v20231201preview:listApplicationTokens", args ?? new ListApplicationTokensInvokeArgs(), options.WithDefaults());
     }
 
 

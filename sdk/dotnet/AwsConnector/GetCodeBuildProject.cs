@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetCodeBuildProjectResult> Invoke(GetCodeBuildProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeBuildProjectResult>("azure-native:awsconnector:getCodeBuildProject", args ?? new GetCodeBuildProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CodeBuildProject
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetCodeBuildProjectResult> Invoke(GetCodeBuildProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodeBuildProjectResult>("azure-native:awsconnector:getCodeBuildProject", args ?? new GetCodeBuildProjectInvokeArgs(), options.WithDefaults());
     }
 
 

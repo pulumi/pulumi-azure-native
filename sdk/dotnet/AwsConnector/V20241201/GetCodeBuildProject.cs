@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetCodeBuildProjectResult> Invoke(GetCodeBuildProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeBuildProjectResult>("azure-native:awsconnector/v20241201:getCodeBuildProject", args ?? new GetCodeBuildProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CodeBuildProject
+        /// </summary>
+        public static Output<GetCodeBuildProjectResult> Invoke(GetCodeBuildProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodeBuildProjectResult>("azure-native:awsconnector/v20241201:getCodeBuildProject", args ?? new GetCodeBuildProjectInvokeArgs(), options.WithDefaults());
     }
 
 

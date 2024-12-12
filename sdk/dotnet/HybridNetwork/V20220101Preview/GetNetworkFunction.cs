@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
         /// </summary>
         public static Output<GetNetworkFunctionResult> Invoke(GetNetworkFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionResult>("azure-native:hybridnetwork/v20220101preview:getNetworkFunction", args ?? new GetNetworkFunctionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified network function resource.
+        /// </summary>
+        public static Output<GetNetworkFunctionResult> Invoke(GetNetworkFunctionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionResult>("azure-native:hybridnetwork/v20220101preview:getNetworkFunction", args ?? new GetNetworkFunctionInvokeArgs(), options.WithDefaults());
     }
 
 

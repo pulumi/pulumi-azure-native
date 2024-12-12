@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20231001Preview
         /// </summary>
         public static Output<ListConnectedPartnerResourceResult> Invoke(ListConnectedPartnerResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectedPartnerResourceResult>("azure-native:elastic/v20231001preview:listConnectedPartnerResource", args ?? new ListConnectedPartnerResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        ///  List of all active elastic deployments.
+        /// </summary>
+        public static Output<ListConnectedPartnerResourceResult> Invoke(ListConnectedPartnerResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListConnectedPartnerResourceResult>("azure-native:elastic/v20231001preview:listConnectedPartnerResource", args ?? new ListConnectedPartnerResourceInvokeArgs(), options.WithDefaults());
     }
 
 

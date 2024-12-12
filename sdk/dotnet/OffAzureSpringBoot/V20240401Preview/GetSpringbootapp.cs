@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot.V20240401Preview
         /// </summary>
         public static Output<GetSpringbootappResult> Invoke(GetSpringbootappInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootappResult>("azure-native:offazurespringboot/v20240401preview:getSpringbootapp", args ?? new GetSpringbootappInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a springbootapps resource.
+        /// </summary>
+        public static Output<GetSpringbootappResult> Invoke(GetSpringbootappInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootappResult>("azure-native:offazurespringboot/v20240401preview:getSpringbootapp", args ?? new GetSpringbootappInvokeArgs(), options.WithDefaults());
     }
 
 

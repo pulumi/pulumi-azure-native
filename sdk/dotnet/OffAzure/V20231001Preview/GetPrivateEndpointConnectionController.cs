@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20231001Preview
         /// </summary>
         public static Output<GetPrivateEndpointConnectionControllerResult> Invoke(GetPrivateEndpointConnectionControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionControllerResult>("azure-native:offazure/v20231001preview:getPrivateEndpointConnectionController", args ?? new GetPrivateEndpointConnectionControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the private link resource.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionControllerResult> Invoke(GetPrivateEndpointConnectionControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionControllerResult>("azure-native:offazure/v20231001preview:getPrivateEndpointConnectionController", args ?? new GetPrivateEndpointConnectionControllerInvokeArgs(), options.WithDefaults());
     }
 
 

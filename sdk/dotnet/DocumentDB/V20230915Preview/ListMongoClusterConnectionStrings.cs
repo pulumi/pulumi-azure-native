@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20230915Preview
         /// </summary>
         public static Output<ListMongoClusterConnectionStringsResult> Invoke(ListMongoClusterConnectionStringsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMongoClusterConnectionStringsResult>("azure-native:documentdb/v20230915preview:listMongoClusterConnectionStrings", args ?? new ListMongoClusterConnectionStringsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List mongo cluster connection strings. This includes the default connection string using SCRAM-SHA-256, as well as other connection strings supported by the cluster.
+        /// </summary>
+        public static Output<ListMongoClusterConnectionStringsResult> Invoke(ListMongoClusterConnectionStringsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListMongoClusterConnectionStringsResult>("azure-native:documentdb/v20230915preview:listMongoClusterConnectionStrings", args ?? new ListMongoClusterConnectionStringsInvokeArgs(), options.WithDefaults());
     }
 
 

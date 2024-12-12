@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
         /// </summary>
         public static Output<GetStandardResult> Invoke(GetStandardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandardResult>("azure-native:security/v20210801preview:getStandard", args ?? new GetStandardInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific security standard for the requested scope
+        /// </summary>
+        public static Output<GetStandardResult> Invoke(GetStandardInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStandardResult>("azure-native:security/v20210801preview:getStandard", args ?? new GetStandardInvokeArgs(), options.WithDefaults());
     }
 
 

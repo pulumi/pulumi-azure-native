@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Aad.V20221201
         /// </summary>
         public static Output<GetDomainServiceResult> Invoke(GetDomainServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad/v20221201:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The Get Domain Service operation retrieves a json representation of the Domain Service.
+        /// </summary>
+        public static Output<GetDomainServiceResult> Invoke(GetDomainServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad/v20221201:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithDefaults());
     }
 
 

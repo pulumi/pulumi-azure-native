@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.FluidRelay
         /// </summary>
         public static Output<ListFluidRelayServerKeysResult> Invoke(ListFluidRelayServerKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFluidRelayServerKeysResult>("azure-native:fluidrelay:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The set of available keys for this server.
+        /// Azure REST API version: 2022-06-01.
+        /// </summary>
+        public static Output<ListFluidRelayServerKeysResult> Invoke(ListFluidRelayServerKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListFluidRelayServerKeysResult>("azure-native:fluidrelay:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysInvokeArgs(), options.WithDefaults());
     }
 
 

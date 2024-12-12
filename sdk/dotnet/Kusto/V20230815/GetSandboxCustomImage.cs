@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Kusto.V20230815
         /// </summary>
         public static Output<GetSandboxCustomImageResult> Invoke(GetSandboxCustomImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSandboxCustomImageResult>("azure-native:kusto/v20230815:getSandboxCustomImage", args ?? new GetSandboxCustomImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a sandbox custom image
+        /// </summary>
+        public static Output<GetSandboxCustomImageResult> Invoke(GetSandboxCustomImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSandboxCustomImageResult>("azure-native:kusto/v20230815:getSandboxCustomImage", args ?? new GetSandboxCustomImageInvokeArgs(), options.WithDefaults());
     }
 
 

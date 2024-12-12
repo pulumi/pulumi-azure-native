@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20201001
         /// </summary>
         public static Output<GetStaticSiteResult> Invoke(GetStaticSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteResult>("azure-native:web/v20201001:getStaticSite", args ?? new GetStaticSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of a static site.
+        /// </summary>
+        public static Output<GetStaticSiteResult> Invoke(GetStaticSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteResult>("azure-native:web/v20201001:getStaticSite", args ?? new GetStaticSiteInvokeArgs(), options.WithDefaults());
     }
 
 

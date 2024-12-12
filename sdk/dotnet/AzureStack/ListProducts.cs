@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AzureStack
         /// </summary>
         public static Output<ListProductsResult> Invoke(ListProductsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductsResult>("azure-native:azurestack:listProducts", args ?? new ListProductsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a list of products.
+        /// Azure REST API version: 2022-06-01.
+        /// </summary>
+        public static Output<ListProductsResult> Invoke(ListProductsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListProductsResult>("azure-native:azurestack:listProducts", args ?? new ListProductsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20231101Preview
         /// </summary>
         public static Output<GetArchiveVersionResult> Invoke(GetArchiveVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArchiveVersionResult>("azure-native:containerregistry/v20231101preview:getArchiveVersion", args ?? new GetArchiveVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the archive version.
+        /// </summary>
+        public static Output<GetArchiveVersionResult> Invoke(GetArchiveVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetArchiveVersionResult>("azure-native:containerregistry/v20231101preview:getArchiveVersion", args ?? new GetArchiveVersionInvokeArgs(), options.WithDefaults());
     }
 
 

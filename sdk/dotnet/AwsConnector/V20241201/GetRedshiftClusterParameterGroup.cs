@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetRedshiftClusterParameterGroupResult> Invoke(GetRedshiftClusterParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedshiftClusterParameterGroupResult>("azure-native:awsconnector/v20241201:getRedshiftClusterParameterGroup", args ?? new GetRedshiftClusterParameterGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a RedshiftClusterParameterGroup
+        /// </summary>
+        public static Output<GetRedshiftClusterParameterGroupResult> Invoke(GetRedshiftClusterParameterGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRedshiftClusterParameterGroupResult>("azure-native:awsconnector/v20241201:getRedshiftClusterParameterGroup", args ?? new GetRedshiftClusterParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.VerifiedId.V20240126Preview
         /// </summary>
         public static Output<GetAuthorityResult> Invoke(GetAuthorityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorityResult>("azure-native:verifiedid/v20240126preview:getAuthority", args ?? new GetAuthorityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Authority
+        /// </summary>
+        public static Output<GetAuthorityResult> Invoke(GetAuthorityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorityResult>("azure-native:verifiedid/v20240126preview:getAuthority", args ?? new GetAuthorityInvokeArgs(), options.WithDefaults());
     }
 
 

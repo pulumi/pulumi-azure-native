@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         /// </summary>
         public static Output<GetAKSServiceResult> Invoke(GetAKSServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAKSServiceResult>("azure-native:machinelearningservices/v20210401:getAKSService", args ?? new GetAKSServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Service by name.
+        /// </summary>
+        public static Output<GetAKSServiceResult> Invoke(GetAKSServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAKSServiceResult>("azure-native:machinelearningservices/v20210401:getAKSService", args ?? new GetAKSServiceInvokeArgs(), options.WithDefaults());
     }
 
 

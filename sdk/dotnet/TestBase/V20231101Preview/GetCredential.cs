@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.TestBase.V20231101Preview
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:testbase/v20231101preview:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a test base credential Resource
+        /// </summary>
+        public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:testbase/v20231101preview:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

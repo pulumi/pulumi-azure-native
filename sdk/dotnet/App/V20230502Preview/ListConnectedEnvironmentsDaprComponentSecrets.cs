@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20230502Preview
         /// </summary>
         public static Output<ListConnectedEnvironmentsDaprComponentSecretsResult> Invoke(ListConnectedEnvironmentsDaprComponentSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectedEnvironmentsDaprComponentSecretsResult>("azure-native:app/v20230502preview:listConnectedEnvironmentsDaprComponentSecrets", args ?? new ListConnectedEnvironmentsDaprComponentSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Dapr component Secrets Collection for ListSecrets Action.
+        /// </summary>
+        public static Output<ListConnectedEnvironmentsDaprComponentSecretsResult> Invoke(ListConnectedEnvironmentsDaprComponentSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListConnectedEnvironmentsDaprComponentSecretsResult>("azure-native:app/v20230502preview:listConnectedEnvironmentsDaprComponentSecrets", args ?? new ListConnectedEnvironmentsDaprComponentSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

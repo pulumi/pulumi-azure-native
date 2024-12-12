@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20230501
         /// </summary>
         public static Output<GetStorageTaskAssignmentResult> Invoke(GetStorageTaskAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTaskAssignmentResult>("azure-native:storage/v20230501:getStorageTaskAssignment", args ?? new GetStorageTaskAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the storage task assignment properties
+        /// </summary>
+        public static Output<GetStorageTaskAssignmentResult> Invoke(GetStorageTaskAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageTaskAssignmentResult>("azure-native:storage/v20230501:getStorageTaskAssignment", args ?? new GetStorageTaskAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

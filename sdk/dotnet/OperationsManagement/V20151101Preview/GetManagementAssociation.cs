@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
         /// </summary>
         public static Output<GetManagementAssociationResult> Invoke(GetManagementAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementAssociationResult>("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", args ?? new GetManagementAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the user ManagementAssociation.
+        /// </summary>
+        public static Output<GetManagementAssociationResult> Invoke(GetManagementAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementAssociationResult>("azure-native:operationsmanagement/v20151101preview:getManagementAssociation", args ?? new GetManagementAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

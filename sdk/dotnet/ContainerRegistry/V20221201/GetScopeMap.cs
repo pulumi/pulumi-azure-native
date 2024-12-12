@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20221201
         /// </summary>
         public static Output<GetScopeMapResult> Invoke(GetScopeMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopeMapResult>("azure-native:containerregistry/v20221201:getScopeMap", args ?? new GetScopeMapInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified scope map.
+        /// </summary>
+        public static Output<GetScopeMapResult> Invoke(GetScopeMapInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopeMapResult>("azure-native:containerregistry/v20221201:getScopeMap", args ?? new GetScopeMapInvokeArgs(), options.WithDefaults());
     }
 
 

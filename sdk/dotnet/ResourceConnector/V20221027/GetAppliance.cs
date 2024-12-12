@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ResourceConnector.V20221027
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector/v20221027:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of an Appliance with a specified resource group and name.
+        /// </summary>
+        public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector/v20221027:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         /// </summary>
         public static Output<GetTaskRunResult> Invoke(GetTaskRunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskRunResult>("azure-native:containerregistry/v20190601preview:getTaskRun", args ?? new GetTaskRunInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the detailed information for a given task run.
+        /// </summary>
+        public static Output<GetTaskRunResult> Invoke(GetTaskRunInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskRunResult>("azure-native:containerregistry/v20190601preview:getTaskRun", args ?? new GetTaskRunInvokeArgs(), options.WithDefaults());
     }
 
 

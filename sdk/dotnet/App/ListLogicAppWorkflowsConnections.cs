@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public static Output<ListLogicAppWorkflowsConnectionsResult> Invoke(ListLogicAppWorkflowsConnectionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLogicAppWorkflowsConnectionsResult>("azure-native:app:listLogicAppWorkflowsConnections", args ?? new ListLogicAppWorkflowsConnectionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Workflow properties definition.
+        /// Azure REST API version: 2024-02-02-preview.
+        /// 
+        /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+        /// </summary>
+        public static Output<ListLogicAppWorkflowsConnectionsResult> Invoke(ListLogicAppWorkflowsConnectionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListLogicAppWorkflowsConnectionsResult>("azure-native:app:listLogicAppWorkflowsConnections", args ?? new ListLogicAppWorkflowsConnectionsInvokeArgs(), options.WithDefaults());
     }
 
 

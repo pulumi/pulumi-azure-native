@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetApiGatewayRestApiResult> Invoke(GetApiGatewayRestApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayRestApiResult>("azure-native:awsconnector/v20241201:getApiGatewayRestApi", args ?? new GetApiGatewayRestApiInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ApiGatewayRestApi
+        /// </summary>
+        public static Output<GetApiGatewayRestApiResult> Invoke(GetApiGatewayRestApiInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayRestApiResult>("azure-native:awsconnector/v20241201:getApiGatewayRestApi", args ?? new GetApiGatewayRestApiInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230901
         /// </summary>
         public static Output<GetIscsiPathResult> Invoke(GetIscsiPathInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIscsiPathResult>("azure-native:avs/v20230901:getIscsiPath", args ?? new GetIscsiPathInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IscsiPath
+        /// </summary>
+        public static Output<GetIscsiPathResult> Invoke(GetIscsiPathInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIscsiPathResult>("azure-native:avs/v20230901:getIscsiPath", args ?? new GetIscsiPathInvokeArgs(), options.WithDefaults());
     }
 
 

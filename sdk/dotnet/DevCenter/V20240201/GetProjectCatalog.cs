@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240201
         /// </summary>
         public static Output<GetProjectCatalogResult> Invoke(GetProjectCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogResult>("azure-native:devcenter/v20240201:getProjectCatalog", args ?? new GetProjectCatalogInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an associated project catalog.
+        /// </summary>
+        public static Output<GetProjectCatalogResult> Invoke(GetProjectCatalogInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogResult>("azure-native:devcenter/v20240201:getProjectCatalog", args ?? new GetProjectCatalogInvokeArgs(), options.WithDefaults());
     }
 
 

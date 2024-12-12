@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public static Output<GetMonitoringConfigResult> Invoke(GetMonitoringConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The metric setting details for the role
+        /// Azure REST API version: 2022-03-01.
+        /// 
+        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// </summary>
+        public static Output<GetMonitoringConfigResult> Invoke(GetMonitoringConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigInvokeArgs(), options.WithDefaults());
     }
 
 

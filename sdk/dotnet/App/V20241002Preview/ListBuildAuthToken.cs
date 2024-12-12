@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20241002Preview
         /// </summary>
         public static Output<ListBuildAuthTokenResult> Invoke(ListBuildAuthTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBuildAuthTokenResult>("azure-native:app/v20241002preview:listBuildAuthToken", args ?? new ListBuildAuthTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the token used to connect to the endpoint where source code can be uploaded for a build.
+        /// </summary>
+        public static Output<ListBuildAuthTokenResult> Invoke(ListBuildAuthTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListBuildAuthTokenResult>("azure-native:app/v20241002preview:listBuildAuthToken", args ?? new ListBuildAuthTokenInvokeArgs(), options.WithDefaults());
     }
 
 

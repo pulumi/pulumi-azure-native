@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
         /// </summary>
         public static Output<ListEventHubKeysResult> Invoke(ListEventHubKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEventHubKeysResult>("azure-native:eventhub/v20221001preview:listEventHubKeys", args ?? new ListEventHubKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the ACS and SAS connection strings for the Event Hub.
+        /// </summary>
+        public static Output<ListEventHubKeysResult> Invoke(ListEventHubKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListEventHubKeysResult>("azure-native:eventhub/v20221001preview:listEventHubKeys", args ?? new ListEventHubKeysInvokeArgs(), options.WithDefaults());
     }
 
 

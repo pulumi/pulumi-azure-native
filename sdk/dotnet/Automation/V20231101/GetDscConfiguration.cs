@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20231101
         /// </summary>
         public static Output<GetDscConfigurationResult> Invoke(GetDscConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDscConfigurationResult>("azure-native:automation/v20231101:getDscConfiguration", args ?? new GetDscConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the configuration identified by configuration name.
+        /// </summary>
+        public static Output<GetDscConfigurationResult> Invoke(GetDscConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDscConfigurationResult>("azure-native:automation/v20231101:getDscConfiguration", args ?? new GetDscConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

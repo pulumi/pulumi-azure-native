@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HealthDataAIServices.V20240228Preview
         /// </summary>
         public static Output<GetDeidServiceResult> Invoke(GetDeidServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeidServiceResult>("azure-native:healthdataaiservices/v20240228preview:getDeidService", args ?? new GetDeidServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DeidService
+        /// </summary>
+        public static Output<GetDeidServiceResult> Invoke(GetDeidServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeidServiceResult>("azure-native:healthdataaiservices/v20240228preview:getDeidService", args ?? new GetDeidServiceInvokeArgs(), options.WithDefaults());
     }
 
 

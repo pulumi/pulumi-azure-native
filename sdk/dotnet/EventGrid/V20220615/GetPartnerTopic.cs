@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
         /// </summary>
         public static Output<GetPartnerTopicResult> Invoke(GetPartnerTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerTopicResult>("azure-native:eventgrid/v20220615:getPartnerTopic", args ?? new GetPartnerTopicInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a partner topic.
+        /// </summary>
+        public static Output<GetPartnerTopicResult> Invoke(GetPartnerTopicInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnerTopicResult>("azure-native:eventgrid/v20220615:getPartnerTopic", args ?? new GetPartnerTopicInvokeArgs(), options.WithDefaults());
     }
 
 

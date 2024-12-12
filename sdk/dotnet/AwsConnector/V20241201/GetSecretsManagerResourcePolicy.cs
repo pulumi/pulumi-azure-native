@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetSecretsManagerResourcePolicyResult> Invoke(GetSecretsManagerResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsManagerResourcePolicyResult>("azure-native:awsconnector/v20241201:getSecretsManagerResourcePolicy", args ?? new GetSecretsManagerResourcePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SecretsManagerResourcePolicy
+        /// </summary>
+        public static Output<GetSecretsManagerResourcePolicyResult> Invoke(GetSecretsManagerResourcePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretsManagerResourcePolicyResult>("azure-native:awsconnector/v20241201:getSecretsManagerResourcePolicy", args ?? new GetSecretsManagerResourcePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

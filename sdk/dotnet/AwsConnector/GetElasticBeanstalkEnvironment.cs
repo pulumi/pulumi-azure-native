@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetElasticBeanstalkEnvironmentResult> Invoke(GetElasticBeanstalkEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticBeanstalkEnvironmentResult>("azure-native:awsconnector:getElasticBeanstalkEnvironment", args ?? new GetElasticBeanstalkEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ElasticBeanstalkEnvironment
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetElasticBeanstalkEnvironmentResult> Invoke(GetElasticBeanstalkEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticBeanstalkEnvironmentResult>("azure-native:awsconnector:getElasticBeanstalkEnvironment", args ?? new GetElasticBeanstalkEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

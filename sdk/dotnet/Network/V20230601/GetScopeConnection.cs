@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230601
         /// </summary>
         public static Output<GetScopeConnectionResult> Invoke(GetScopeConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopeConnectionResult>("azure-native:network/v20230601:getScopeConnection", args ?? new GetScopeConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get specified scope connection created by this Network Manager.
+        /// </summary>
+        public static Output<GetScopeConnectionResult> Invoke(GetScopeConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopeConnectionResult>("azure-native:network/v20230601:getScopeConnection", args ?? new GetScopeConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

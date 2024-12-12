@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:azuresphere/v20220901preview:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
+        /// </summary>
+        public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:azuresphere/v20220901preview:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
     }
 
 

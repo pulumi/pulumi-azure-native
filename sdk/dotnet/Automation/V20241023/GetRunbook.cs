@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20241023
         /// </summary>
         public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure-native:automation/v20241023:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the runbook identified by runbook name.
+        /// </summary>
+        public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure-native:automation/v20241023:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());
     }
 
 

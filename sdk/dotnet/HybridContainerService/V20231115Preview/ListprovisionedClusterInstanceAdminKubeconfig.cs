@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview
         /// </summary>
         public static Output<ListprovisionedClusterInstanceAdminKubeconfigResult> Invoke(ListprovisionedClusterInstanceAdminKubeconfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListprovisionedClusterInstanceAdminKubeconfigResult>("azure-native:hybridcontainerservice/v20231115preview:listprovisionedClusterInstanceAdminKubeconfig", args ?? new ListprovisionedClusterInstanceAdminKubeconfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the admin credentials of a provisioned cluster instance used only in direct mode.
+        /// </summary>
+        public static Output<ListprovisionedClusterInstanceAdminKubeconfigResult> Invoke(ListprovisionedClusterInstanceAdminKubeconfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListprovisionedClusterInstanceAdminKubeconfigResult>("azure-native:hybridcontainerservice/v20231115preview:listprovisionedClusterInstanceAdminKubeconfig", args ?? new ListprovisionedClusterInstanceAdminKubeconfigInvokeArgs(), options.WithDefaults());
     }
 
 

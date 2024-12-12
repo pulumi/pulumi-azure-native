@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240101Preview
         /// </summary>
         public static Output<GetFileImportResult> Invoke(GetFileImportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileImportResult>("azure-native:securityinsights/v20240101preview:getFileImport", args ?? new GetFileImportInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a file import.
+        /// </summary>
+        public static Output<GetFileImportResult> Invoke(GetFileImportInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileImportResult>("azure-native:securityinsights/v20240101preview:getFileImport", args ?? new GetFileImportInvokeArgs(), options.WithDefaults());
     }
 
 

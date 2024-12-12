@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Output<GetDiagnosticServiceTokenReadWriteResult> Invoke(GetDiagnosticServiceTokenReadWriteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceTokenReadWriteResult>("azure-native:insights:getDiagnosticServiceTokenReadWrite", args ?? new GetDiagnosticServiceTokenReadWriteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an read-write access token for application insights diagnostic service data.
+        /// Azure REST API version: 2021-03-03-preview.
+        /// </summary>
+        public static Output<GetDiagnosticServiceTokenReadWriteResult> Invoke(GetDiagnosticServiceTokenReadWriteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceTokenReadWriteResult>("azure-native:insights:getDiagnosticServiceTokenReadWrite", args ?? new GetDiagnosticServiceTokenReadWriteInvokeArgs(), options.WithDefaults());
     }
 
 

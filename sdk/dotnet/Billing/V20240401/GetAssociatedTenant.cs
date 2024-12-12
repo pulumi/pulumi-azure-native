@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Billing.V20240401
         /// </summary>
         public static Output<GetAssociatedTenantResult> Invoke(GetAssociatedTenantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssociatedTenantResult>("azure-native:billing/v20240401:getAssociatedTenant", args ?? new GetAssociatedTenantInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an associated tenant by ID.
+        /// </summary>
+        public static Output<GetAssociatedTenantResult> Invoke(GetAssociatedTenantInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssociatedTenantResult>("azure-native:billing/v20240401:getAssociatedTenant", args ?? new GetAssociatedTenantInvokeArgs(), options.WithDefaults());
     }
 
 

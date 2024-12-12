@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20230901
         /// </summary>
         public static Output<GetStorageInsightConfigResult> Invoke(GetStorageInsightConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageInsightConfigResult>("azure-native:operationalinsights/v20230901:getStorageInsightConfig", args ?? new GetStorageInsightConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a storage insight instance.
+        /// </summary>
+        public static Output<GetStorageInsightConfigResult> Invoke(GetStorageInsightConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageInsightConfigResult>("azure-native:operationalinsights/v20230901:getStorageInsightConfig", args ?? new GetStorageInsightConfigInvokeArgs(), options.WithDefaults());
     }
 
 

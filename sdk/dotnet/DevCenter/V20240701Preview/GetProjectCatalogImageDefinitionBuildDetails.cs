@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240701Preview
         /// </summary>
         public static Output<GetProjectCatalogImageDefinitionBuildDetailsResult> Invoke(GetProjectCatalogImageDefinitionBuildDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogImageDefinitionBuildDetailsResult>("azure-native:devcenter/v20240701preview:getProjectCatalogImageDefinitionBuildDetails", args ?? new GetProjectCatalogImageDefinitionBuildDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets Build details
+        /// </summary>
+        public static Output<GetProjectCatalogImageDefinitionBuildDetailsResult> Invoke(GetProjectCatalogImageDefinitionBuildDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogImageDefinitionBuildDetailsResult>("azure-native:devcenter/v20240701preview:getProjectCatalogImageDefinitionBuildDetails", args ?? new GetProjectCatalogImageDefinitionBuildDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

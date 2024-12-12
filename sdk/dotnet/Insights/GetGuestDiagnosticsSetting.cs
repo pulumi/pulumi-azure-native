@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Output<GetGuestDiagnosticsSettingResult> Invoke(GetGuestDiagnosticsSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestDiagnosticsSettingResult>("azure-native:insights:getGuestDiagnosticsSetting", args ?? new GetGuestDiagnosticsSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets guest diagnostics settings.
+        /// Azure REST API version: 2018-06-01-preview.
+        /// </summary>
+        public static Output<GetGuestDiagnosticsSettingResult> Invoke(GetGuestDiagnosticsSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuestDiagnosticsSettingResult>("azure-native:insights:getGuestDiagnosticsSetting", args ?? new GetGuestDiagnosticsSettingInvokeArgs(), options.WithDefaults());
     }
 
 

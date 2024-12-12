@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview
 
         public static Output<GetServerlessEndpointResult> Invoke(GetServerlessEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessEndpointResult>("azure-native:machinelearningservices/v20240101preview:getServerlessEndpoint", args ?? new GetServerlessEndpointInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetServerlessEndpointResult> Invoke(GetServerlessEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerlessEndpointResult>("azure-native:machinelearningservices/v20240101preview:getServerlessEndpoint", args ?? new GetServerlessEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
         /// </summary>
         public static Output<GetMTPDataConnectorResult> Invoke(GetMTPDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMTPDataConnectorResult>("azure-native:securityinsights/v20240401preview:getMTPDataConnector", args ?? new GetMTPDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// </summary>
+        public static Output<GetMTPDataConnectorResult> Invoke(GetMTPDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMTPDataConnectorResult>("azure-native:securityinsights/v20240401preview:getMTPDataConnector", args ?? new GetMTPDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

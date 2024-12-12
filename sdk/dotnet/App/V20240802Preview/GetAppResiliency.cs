@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20240802Preview
         /// </summary>
         public static Output<GetAppResiliencyResult> Invoke(GetAppResiliencyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResiliencyResult>("azure-native:app/v20240802preview:getAppResiliency", args ?? new GetAppResiliencyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get container app resiliency policy.
+        /// </summary>
+        public static Output<GetAppResiliencyResult> Invoke(GetAppResiliencyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResiliencyResult>("azure-native:app/v20240802preview:getAppResiliency", args ?? new GetAppResiliencyInvokeArgs(), options.WithDefaults());
     }
 
 

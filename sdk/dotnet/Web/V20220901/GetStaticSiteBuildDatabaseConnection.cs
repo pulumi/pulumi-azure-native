@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20220901
         /// </summary>
         public static Output<GetStaticSiteBuildDatabaseConnectionResult> Invoke(GetStaticSiteBuildDatabaseConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteBuildDatabaseConnectionResult>("azure-native:web/v20220901:getStaticSiteBuildDatabaseConnection", args ?? new GetStaticSiteBuildDatabaseConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Static Site Database Connection resource.
+        /// </summary>
+        public static Output<GetStaticSiteBuildDatabaseConnectionResult> Invoke(GetStaticSiteBuildDatabaseConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteBuildDatabaseConnectionResult>("azure-native:web/v20220901:getStaticSiteBuildDatabaseConnection", args ?? new GetStaticSiteBuildDatabaseConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

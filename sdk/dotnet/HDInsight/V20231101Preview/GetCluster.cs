@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HDInsight.V20231101Preview
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:hdinsight/v20231101preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a HDInsight cluster.
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:hdinsight/v20231101preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

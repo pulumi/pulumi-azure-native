@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Output<ListEASubscriptionListMigrationDatePostResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEASubscriptionListMigrationDatePostResult>("azure-native:insights:listEASubscriptionListMigrationDatePost", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// list date to migrate to new pricing model.
+        /// Azure REST API version: 2017-10-01.
+        /// </summary>
+        public static Output<ListEASubscriptionListMigrationDatePostResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListEASubscriptionListMigrationDatePostResult>("azure-native:insights:listEASubscriptionListMigrationDatePost", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

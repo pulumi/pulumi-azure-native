@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20230101
         /// </summary>
         public static Output<GetStaticSitePrivateEndpointConnectionResult> Invoke(GetStaticSitePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web/v20230101:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Gets a private endpoint connection
+        /// </summary>
+        public static Output<GetStaticSitePrivateEndpointConnectionResult> Invoke(GetStaticSitePrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web/v20230101:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

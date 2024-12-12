@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTOperations.V20240915Preview
         /// </summary>
         public static Output<GetDataflowEndpointResult> Invoke(GetDataflowEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataflowEndpointResult>("azure-native:iotoperations/v20240915preview:getDataflowEndpoint", args ?? new GetDataflowEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DataflowEndpointResource
+        /// </summary>
+        public static Output<GetDataflowEndpointResult> Invoke(GetDataflowEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataflowEndpointResult>("azure-native:iotoperations/v20240915preview:getDataflowEndpoint", args ?? new GetDataflowEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

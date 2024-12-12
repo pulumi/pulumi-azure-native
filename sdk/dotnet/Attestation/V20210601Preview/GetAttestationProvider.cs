@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview
         /// </summary>
         public static Output<GetAttestationProviderResult> Invoke(GetAttestationProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttestationProviderResult>("azure-native:attestation/v20210601preview:getAttestationProvider", args ?? new GetAttestationProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the status of Attestation Provider.
+        /// </summary>
+        public static Output<GetAttestationProviderResult> Invoke(GetAttestationProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAttestationProviderResult>("azure-native:attestation/v20210601preview:getAttestationProvider", args ?? new GetAttestationProviderInvokeArgs(), options.WithDefaults());
     }
 
 

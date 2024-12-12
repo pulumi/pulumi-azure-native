@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public static Output<GetSqlServerAvailabilityGroupResult> Invoke(GetSqlServerAvailabilityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerAvailabilityGroupResult>("azure-native:azurearcdata:getSqlServerAvailabilityGroup", args ?? new GetSqlServerAvailabilityGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves an Arc Sql Server availability group.
+        /// Azure REST API version: 2024-01-01.
+        /// 
+        /// Other available API versions: 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetSqlServerAvailabilityGroupResult> Invoke(GetSqlServerAvailabilityGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerAvailabilityGroupResult>("azure-native:azurearcdata:getSqlServerAvailabilityGroup", args ?? new GetSqlServerAvailabilityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

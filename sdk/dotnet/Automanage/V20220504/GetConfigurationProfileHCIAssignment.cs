@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         /// </summary>
         public static Output<GetConfigurationProfileHCIAssignmentResult> Invoke(GetConfigurationProfileHCIAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileHCIAssignmentResult>("azure-native:automanage/v20220504:getConfigurationProfileHCIAssignment", args ?? new GetConfigurationProfileHCIAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about a configuration profile assignment
+        /// </summary>
+        public static Output<GetConfigurationProfileHCIAssignmentResult> Invoke(GetConfigurationProfileHCIAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileHCIAssignmentResult>("azure-native:automanage/v20220504:getConfigurationProfileHCIAssignment", args ?? new GetConfigurationProfileHCIAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

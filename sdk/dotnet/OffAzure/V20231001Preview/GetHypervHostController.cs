@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20231001Preview
         /// </summary>
         public static Output<GetHypervHostControllerResult> Invoke(GetHypervHostControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervHostControllerResult>("azure-native:offazure/v20231001preview:getHypervHostController", args ?? new GetHypervHostControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a HypervHost
+        /// </summary>
+        public static Output<GetHypervHostControllerResult> Invoke(GetHypervHostControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHypervHostControllerResult>("azure-native:offazure/v20231001preview:getHypervHostController", args ?? new GetHypervHostControllerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.NetworkAnalytics
         /// </summary>
         public static Output<GetDataProductResult> Invoke(GetDataProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataProductResult>("azure-native:networkanalytics:getDataProduct", args ?? new GetDataProductInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve data product resource.
+        /// Azure REST API version: 2023-11-15.
+        /// </summary>
+        public static Output<GetDataProductResult> Invoke(GetDataProductInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataProductResult>("azure-native:networkanalytics:getDataProduct", args ?? new GetDataProductInvokeArgs(), options.WithDefaults());
     }
 
 

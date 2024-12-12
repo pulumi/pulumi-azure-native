@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DurableTask.V20241001Preview
         /// </summary>
         public static Output<GetTaskHubResult> Invoke(GetTaskHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskHubResult>("azure-native:durabletask/v20241001preview:getTaskHub", args ?? new GetTaskHubInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Task Hub
+        /// </summary>
+        public static Output<GetTaskHubResult> Invoke(GetTaskHubInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskHubResult>("azure-native:durabletask/v20241001preview:getTaskHub", args ?? new GetTaskHubInvokeArgs(), options.WithDefaults());
     }
 
 

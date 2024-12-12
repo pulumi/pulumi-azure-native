@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public static Output<GetConfigurationGroupSchemaResult> Invoke(GetConfigurationGroupSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationGroupSchemaResult>("azure-native:hybridnetwork:getConfigurationGroupSchema", args ?? new GetConfigurationGroupSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified configuration group schema.
+        /// Azure REST API version: 2023-09-01.
+        /// 
+        /// Other available API versions: 2024-04-15.
+        /// </summary>
+        public static Output<GetConfigurationGroupSchemaResult> Invoke(GetConfigurationGroupSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationGroupSchemaResult>("azure-native:hybridnetwork:getConfigurationGroupSchema", args ?? new GetConfigurationGroupSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

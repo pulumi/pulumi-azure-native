@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// </summary>
         public static Output<ListApplianceKeysResult> Invoke(ListApplianceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplianceKeysResult>("azure-native:resourceconnector:listApplianceKeys", args ?? new ListApplianceKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the cluster customer credentials for the dedicated appliance.
+        /// Azure REST API version: 2022-10-27.
+        /// </summary>
+        public static Output<ListApplianceKeysResult> Invoke(ListApplianceKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListApplianceKeysResult>("azure-native:resourceconnector:listApplianceKeys", args ?? new ListApplianceKeysInvokeArgs(), options.WithDefaults());
     }
 
 

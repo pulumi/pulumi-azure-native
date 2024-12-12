@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:engagementfabric/v20180901preview:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The EngagementFabric channel
+        /// </summary>
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("azure-native:engagementfabric/v20180901preview:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:streamanalytics:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified cluster.
+        /// Azure REST API version: 2020-03-01.
+        /// 
+        /// Other available API versions: 2020-03-01-preview.
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:streamanalytics:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

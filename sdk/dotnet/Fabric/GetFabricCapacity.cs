@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Fabric
         /// </summary>
         public static Output<GetFabricCapacityResult> Invoke(GetFabricCapacityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricCapacityResult>("azure-native:fabric:getFabricCapacity", args ?? new GetFabricCapacityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a FabricCapacity
+        /// Azure REST API version: 2023-11-01.
+        /// </summary>
+        public static Output<GetFabricCapacityResult> Invoke(GetFabricCapacityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFabricCapacityResult>("azure-native:fabric:getFabricCapacity", args ?? new GetFabricCapacityInvokeArgs(), options.WithDefaults());
     }
 
 

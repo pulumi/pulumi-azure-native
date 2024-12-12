@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("azure-native:migrate:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Solution REST Resource.
+        /// Azure REST API version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("azure-native:migrate:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
         /// </summary>
         public static Output<GetLivePipelineResult> Invoke(GetLivePipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLivePipelineResult>("azure-native:videoanalyzer/v20211101preview:getLivePipeline", args ?? new GetLivePipelineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a specific live pipeline by name. If a live pipeline with that name has been previously created, the call will return the JSON representation of that instance.
+        /// </summary>
+        public static Output<GetLivePipelineResult> Invoke(GetLivePipelineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLivePipelineResult>("azure-native:videoanalyzer/v20211101preview:getLivePipeline", args ?? new GetLivePipelineInvokeArgs(), options.WithDefaults());
     }
 
 

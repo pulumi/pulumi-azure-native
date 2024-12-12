@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20230517Preview
         /// </summary>
         public static Output<GetGuestUsageResult> Invoke(GetGuestUsageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestUsageResult>("azure-native:azureactivedirectory/v20230517preview:getGuestUsage", args ?? new GetGuestUsageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
+        /// </summary>
+        public static Output<GetGuestUsageResult> Invoke(GetGuestUsageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuestUsageResult>("azure-native:azureactivedirectory/v20230517preview:getGuestUsage", args ?? new GetGuestUsageInvokeArgs(), options.WithDefaults());
     }
 
 

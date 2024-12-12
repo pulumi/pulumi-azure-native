@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20240401
         /// </summary>
         public static Output<ListGitHubOwnerAvailableResult> Invoke(ListGitHubOwnerAvailableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGitHubOwnerAvailableResult>("azure-native:security/v20240401:listGitHubOwnerAvailable", args ?? new ListGitHubOwnerAvailableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List of RP resources which supports pagination.
+        /// </summary>
+        public static Output<ListGitHubOwnerAvailableResult> Invoke(ListGitHubOwnerAvailableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGitHubOwnerAvailableResult>("azure-native:security/v20240401:listGitHubOwnerAvailable", args ?? new ListGitHubOwnerAvailableInvokeArgs(), options.WithDefaults());
     }
 
 

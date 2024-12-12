@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public static Output<ListEffectiveConnectivityConfigurationResult> Invoke(ListEffectiveConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEffectiveConnectivityConfigurationResult>("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List all effective connectivity configurations applied on a virtual network.
+        /// </summary>
+        public static Output<ListEffectiveConnectivityConfigurationResult> Invoke(ListEffectiveConnectivityConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListEffectiveConnectivityConfigurationResult>("azure-native:network/v20210201preview:listEffectiveConnectivityConfiguration", args ?? new ListEffectiveConnectivityConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public static Output<ListIntegrationAccountMapContentCallbackUrlResult> Invoke(ListIntegrationAccountMapContentCallbackUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountMapContentCallbackUrlResult>("azure-native:logic/v20190501:listIntegrationAccountMapContentCallbackUrl", args ?? new ListIntegrationAccountMapContentCallbackUrlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the content callback url.
+        /// </summary>
+        public static Output<ListIntegrationAccountMapContentCallbackUrlResult> Invoke(ListIntegrationAccountMapContentCallbackUrlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountMapContentCallbackUrlResult>("azure-native:logic/v20190501:listIntegrationAccountMapContentCallbackUrl", args ?? new ListIntegrationAccountMapContentCallbackUrlInvokeArgs(), options.WithDefaults());
     }
 
 

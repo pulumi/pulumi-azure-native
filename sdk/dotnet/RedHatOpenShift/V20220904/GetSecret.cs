@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220904
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:redhatopenshift/v20220904:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation returns properties of a Secret.
+        /// </summary>
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:redhatopenshift/v20220904:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 

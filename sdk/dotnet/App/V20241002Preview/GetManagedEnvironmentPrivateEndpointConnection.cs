@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20241002Preview
         /// </summary>
         public static Output<GetManagedEnvironmentPrivateEndpointConnectionResult> Invoke(GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentPrivateEndpointConnectionResult>("azure-native:app/v20241002preview:getManagedEnvironmentPrivateEndpointConnection", args ?? new GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The Private Endpoint Connection resource.
+        /// </summary>
+        public static Output<GetManagedEnvironmentPrivateEndpointConnectionResult> Invoke(GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentPrivateEndpointConnectionResult>("azure-native:app/v20241002preview:getManagedEnvironmentPrivateEndpointConnection", args ?? new GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

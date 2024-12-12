@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEmrClusterResult> Invoke(GetEmrClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmrClusterResult>("azure-native:awsconnector/v20241201:getEmrCluster", args ?? new GetEmrClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EmrCluster
+        /// </summary>
+        public static Output<GetEmrClusterResult> Invoke(GetEmrClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmrClusterResult>("azure-native:awsconnector/v20241201:getEmrCluster", args ?? new GetEmrClusterInvokeArgs(), options.WithDefaults());
     }
 
 

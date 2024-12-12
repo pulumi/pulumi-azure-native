@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
         /// </summary>
         public static Output<GetCloudConnectorResult> Invoke(GetCloudConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudConnectorResult>("azure-native:costmanagement/v20190301preview:getCloudConnector", args ?? new GetCloudConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a cloud connector definition
+        /// </summary>
+        public static Output<GetCloudConnectorResult> Invoke(GetCloudConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudConnectorResult>("azure-native:costmanagement/v20190301preview:getCloudConnector", args ?? new GetCloudConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

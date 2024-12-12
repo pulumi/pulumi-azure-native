@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.IoTOperations
         /// </summary>
         public static Output<GetDataFlowEndpointResult> Invoke(GetDataFlowEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowEndpointResult>("azure-native:iotoperations:getDataFlowEndpoint", args ?? new GetDataFlowEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DataFlowEndpointResource
+        /// Azure REST API version: 2024-07-01-preview.
+        /// </summary>
+        public static Output<GetDataFlowEndpointResult> Invoke(GetDataFlowEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowEndpointResult>("azure-native:iotoperations:getDataFlowEndpoint", args ?? new GetDataFlowEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Devices.V20230301Preview
         /// </summary>
         public static Output<GetIotDpsResourceResult> Invoke(GetIotDpsResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotDpsResourceResult>("azure-native:devices/v20230301preview:getIotDpsResource", args ?? new GetIotDpsResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the metadata of the provisioning service without SAS keys.
+        /// </summary>
+        public static Output<GetIotDpsResourceResult> Invoke(GetIotDpsResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIotDpsResourceResult>("azure-native:devices/v20230301preview:getIotDpsResource", args ?? new GetIotDpsResourceInvokeArgs(), options.WithDefaults());
     }
 
 

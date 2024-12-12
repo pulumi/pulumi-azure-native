@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified pool.
+        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// </summary>
+        public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

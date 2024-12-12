@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public static Output<GetNamespaceTopicResult> Invoke(GetNamespaceTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicResult>("azure-native:eventgrid:getNamespaceTopic", args ?? new GetNamespaceTopicInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a namespace topic.
+        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// </summary>
+        public static Output<GetNamespaceTopicResult> Invoke(GetNamespaceTopicInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicResult>("azure-native:eventgrid:getNamespaceTopic", args ?? new GetNamespaceTopicInvokeArgs(), options.WithDefaults());
     }
 
 

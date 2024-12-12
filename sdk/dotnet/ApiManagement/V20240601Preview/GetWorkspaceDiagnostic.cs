@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
         /// </summary>
         public static Output<GetWorkspaceDiagnosticResult> Invoke(GetWorkspaceDiagnosticInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceDiagnosticResult>("azure-native:apimanagement/v20240601preview:getWorkspaceDiagnostic", args ?? new GetWorkspaceDiagnosticInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the Diagnostic specified by its identifier.
+        /// </summary>
+        public static Output<GetWorkspaceDiagnosticResult> Invoke(GetWorkspaceDiagnosticInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceDiagnosticResult>("azure-native:apimanagement/v20240601preview:getWorkspaceDiagnostic", args ?? new GetWorkspaceDiagnosticInvokeArgs(), options.WithDefaults());
     }
 
 

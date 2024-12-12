@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20240630Preview
         /// </summary>
         public static Output<GetCloudHsmClusterResult> Invoke(GetCloudHsmClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudHsmClusterResult>("azure-native:hardwaresecuritymodules/v20240630preview:getCloudHsmCluster", args ?? new GetCloudHsmClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Cloud HSM Cluster
+        /// </summary>
+        public static Output<GetCloudHsmClusterResult> Invoke(GetCloudHsmClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudHsmClusterResult>("azure-native:hardwaresecuritymodules/v20240630preview:getCloudHsmCluster", args ?? new GetCloudHsmClusterInvokeArgs(), options.WithDefaults());
     }
 
 

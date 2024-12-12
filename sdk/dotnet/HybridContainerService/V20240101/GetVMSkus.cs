@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridContainerService.V20240101
         /// </summary>
         public static Output<GetVMSkusResult> Invoke(GetVMSkusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVMSkusResult>("azure-native:hybridcontainerservice/v20240101:getVMSkus", args ?? new GetVMSkusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the supported VM skus for the specified custom location
+        /// </summary>
+        public static Output<GetVMSkusResult> Invoke(GetVMSkusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVMSkusResult>("azure-native:hybridcontainerservice/v20240101:getVMSkus", args ?? new GetVMSkusInvokeArgs(), options.WithDefaults());
     }
 
 

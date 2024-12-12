@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
         /// </summary>
         public static Output<ListActiveSecurityUserRulesResult> Invoke(ListActiveSecurityUserRulesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListActiveSecurityUserRulesResult>("azure-native:network/v20220401preview:listActiveSecurityUserRules", args ?? new ListActiveSecurityUserRulesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists Active Security User Rules in a network manager.
+        /// </summary>
+        public static Output<ListActiveSecurityUserRulesResult> Invoke(ListActiveSecurityUserRulesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListActiveSecurityUserRulesResult>("azure-native:network/v20220401preview:listActiveSecurityUserRules", args ?? new ListActiveSecurityUserRulesInvokeArgs(), options.WithDefaults());
     }
 
 

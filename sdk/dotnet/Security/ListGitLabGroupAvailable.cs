@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Output<ListGitLabGroupAvailableResult> Invoke(ListGitLabGroupAvailableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGitLabGroupAvailableResult>("azure-native:security:listGitLabGroupAvailable", args ?? new ListGitLabGroupAvailableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List of RP resources which supports pagination.
+        /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+        /// </summary>
+        public static Output<ListGitLabGroupAvailableResult> Invoke(ListGitLabGroupAvailableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGitLabGroupAvailableResult>("azure-native:security:listGitLabGroupAvailable", args ?? new ListGitLabGroupAvailableInvokeArgs(), options.WithDefaults());
     }
 
 

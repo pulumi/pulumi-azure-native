@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         /// </summary>
         public static Output<GetRegistrationResult> Invoke(GetRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack/v20200601preview:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the properties of an Azure Stack registration.
+        /// </summary>
+        public static Output<GetRegistrationResult> Invoke(GetRegistrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationResult>("azure-native:azurestack/v20200601preview:getRegistration", args ?? new GetRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

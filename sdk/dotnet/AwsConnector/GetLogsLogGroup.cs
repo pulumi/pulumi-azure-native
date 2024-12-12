@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetLogsLogGroupResult> Invoke(GetLogsLogGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsLogGroupResult>("azure-native:awsconnector:getLogsLogGroup", args ?? new GetLogsLogGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LogsLogGroup
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetLogsLogGroupResult> Invoke(GetLogsLogGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogsLogGroupResult>("azure-native:awsconnector:getLogsLogGroup", args ?? new GetLogsLogGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetIamPasswordPolicyResult> Invoke(GetIamPasswordPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamPasswordPolicyResult>("azure-native:awsconnector/v20241201:getIamPasswordPolicy", args ?? new GetIamPasswordPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamPasswordPolicy
+        /// </summary>
+        public static Output<GetIamPasswordPolicyResult> Invoke(GetIamPasswordPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamPasswordPolicyResult>("azure-native:awsconnector/v20241201:getIamPasswordPolicy", args ?? new GetIamPasswordPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

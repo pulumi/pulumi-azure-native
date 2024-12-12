@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataShare
         /// </summary>
         public static Output<GetADLSGen2FileSystemDataSetResult> Invoke(GetADLSGen2FileSystemDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileSystemDataSetResult>("azure-native:datashare:getADLSGen2FileSystemDataSet", args ?? new GetADLSGen2FileSystemDataSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DataSet in a share
+        /// Azure REST API version: 2021-08-01.
+        /// </summary>
+        public static Output<GetADLSGen2FileSystemDataSetResult> Invoke(GetADLSGen2FileSystemDataSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileSystemDataSetResult>("azure-native:datashare:getADLSGen2FileSystemDataSet", args ?? new GetADLSGen2FileSystemDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20230701
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:deviceupdate/v20230701:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns instance details for the given instance and account name.
+        /// </summary>
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:deviceupdate/v20230701:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

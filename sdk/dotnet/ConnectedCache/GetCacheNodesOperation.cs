@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// </summary>
         public static Output<GetCacheNodesOperationResult> Invoke(GetCacheNodesOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheNodesOperationResult>("azure-native:connectedcache:getCacheNodesOperation", args ?? new GetCacheNodesOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the properties of a cacheNodes
+        /// Azure REST API version: 2023-05-01-preview.
+        /// </summary>
+        public static Output<GetCacheNodesOperationResult> Invoke(GetCacheNodesOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCacheNodesOperationResult>("azure-native:connectedcache:getCacheNodesOperation", args ?? new GetCacheNodesOperationInvokeArgs(), options.WithDefaults());
     }
 
 

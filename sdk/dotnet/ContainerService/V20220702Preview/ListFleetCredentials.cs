@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20220702Preview
         /// </summary>
         public static Output<ListFleetCredentialsResult> Invoke(ListFleetCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFleetCredentialsResult>("azure-native:containerservice/v20220702preview:listFleetCredentials", args ?? new ListFleetCredentialsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The list credential result response.
+        /// </summary>
+        public static Output<ListFleetCredentialsResult> Invoke(ListFleetCredentialsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListFleetCredentialsResult>("azure-native:containerservice/v20220702preview:listFleetCredentials", args ?? new ListFleetCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

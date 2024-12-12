@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Output<GetCustomImageResult> Invoke(GetCustomImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomImageResult>("azure-native:devtestlab/v20180915:getCustomImage", args ?? new GetCustomImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get custom image.
+        /// </summary>
+        public static Output<GetCustomImageResult> Invoke(GetCustomImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomImageResult>("azure-native:devtestlab/v20180915:getCustomImage", args ?? new GetCustomImageInvokeArgs(), options.WithDefaults());
     }
 
 

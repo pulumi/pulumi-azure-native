@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20230101
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage/v20230101:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the table with the specified table name, under the specified account if it exists.
+        /// </summary>
+        public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage/v20230101:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataMigration.V20230715Preview
         /// </summary>
         public static Output<GetMigrationServiceResult> Invoke(GetMigrationServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationServiceResult>("azure-native:datamigration/v20230715preview:getMigrationService", args ?? new GetMigrationServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the Database Migration Service
+        /// </summary>
+        public static Output<GetMigrationServiceResult> Invoke(GetMigrationServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMigrationServiceResult>("azure-native:datamigration/v20230715preview:getMigrationService", args ?? new GetMigrationServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20171001
         /// </summary>
         public static Output<ListEASubscriptionListMigrationDatePostResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEASubscriptionListMigrationDatePostResult>("azure-native:insights/v20171001:listEASubscriptionListMigrationDatePost", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// list date to migrate to new pricing model.
+        /// </summary>
+        public static Output<ListEASubscriptionListMigrationDatePostResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListEASubscriptionListMigrationDatePostResult>("azure-native:insights/v20171001:listEASubscriptionListMigrationDatePost", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

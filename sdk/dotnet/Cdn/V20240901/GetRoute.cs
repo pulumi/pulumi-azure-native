@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20240901
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:cdn/v20240901:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
+        /// </summary>
+        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:cdn/v20240901:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevHub.V20240801Preview
         /// </summary>
         public static Output<GetADOOAuthInfoResult> Invoke(GetADOOAuthInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADOOAuthInfoResult>("azure-native:devhub/v20240801preview:getADOOAuthInfo", args ?? new GetADOOAuthInfoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response containing ADO OAuth information
+        /// </summary>
+        public static Output<GetADOOAuthInfoResult> Invoke(GetADOOAuthInfoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetADOOAuthInfoResult>("azure-native:devhub/v20240801preview:getADOOAuthInfo", args ?? new GetADOOAuthInfoInvokeArgs(), options.WithDefaults());
     }
 
 

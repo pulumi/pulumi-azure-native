@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta
         /// </summary>
         public static Output<GetServerDetailsResult> Invoke(GetServerDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerDetailsResult>("azure-native:analysisservices/v20170801beta:getServerDetails", args ?? new GetServerDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details about the specified Analysis Services server.
+        /// </summary>
+        public static Output<GetServerDetailsResult> Invoke(GetServerDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerDetailsResult>("azure-native:analysisservices/v20170801beta:getServerDetails", args ?? new GetServerDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IntegrationSpaces.V20231114Preview
         /// </summary>
         public static Output<GetBusinessProcessResult> Invoke(GetBusinessProcessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessProcessResult>("azure-native:integrationspaces/v20231114preview:getBusinessProcess", args ?? new GetBusinessProcessInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a BusinessProcess
+        /// </summary>
+        public static Output<GetBusinessProcessResult> Invoke(GetBusinessProcessInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBusinessProcessResult>("azure-native:integrationspaces/v20231114preview:getBusinessProcess", args ?? new GetBusinessProcessInvokeArgs(), options.WithDefaults());
     }
 
 

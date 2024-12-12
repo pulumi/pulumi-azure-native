@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240501
         /// </summary>
         public static Output<GetReachabilityAnalysisRunResult> Invoke(GetReachabilityAnalysisRunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReachabilityAnalysisRunResult>("azure-native:network/v20240501:getReachabilityAnalysisRun", args ?? new GetReachabilityAnalysisRunInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Configuration information for analysis run.
+        /// </summary>
+        public static Output<GetReachabilityAnalysisRunResult> Invoke(GetReachabilityAnalysisRunInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReachabilityAnalysisRunResult>("azure-native:network/v20240501:getReachabilityAnalysisRun", args ?? new GetReachabilityAnalysisRunInvokeArgs(), options.WithDefaults());
     }
 
 

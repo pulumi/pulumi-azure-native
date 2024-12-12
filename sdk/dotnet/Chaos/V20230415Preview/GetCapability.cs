@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Chaos.V20230415Preview
         /// </summary>
         public static Output<GetCapabilityResult> Invoke(GetCapabilityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("azure-native:chaos/v20230415preview:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Capability resource that extends a Target resource.
+        /// </summary>
+        public static Output<GetCapabilityResult> Invoke(GetCapabilityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("azure-native:chaos/v20230415preview:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithDefaults());
     }
 
 

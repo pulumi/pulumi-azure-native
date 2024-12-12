@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
         /// </summary>
         public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:managementpartner/v20180201:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the management partner using the partnerId, objectId and tenantId.
+        /// </summary>
+        public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:managementpartner/v20180201:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithDefaults());
     }
 
 

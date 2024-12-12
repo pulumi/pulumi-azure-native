@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240408Preview
         /// </summary>
         public static Output<ListHostPoolRegistrationTokensResult> Invoke(ListHostPoolRegistrationTokensInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListHostPoolRegistrationTokensResult>("azure-native:desktopvirtualization/v20240408preview:listHostPoolRegistrationTokens", args ?? new ListHostPoolRegistrationTokensInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Operation to list the RegistrationTokens associated with the HostPool.
+        /// </summary>
+        public static Output<ListHostPoolRegistrationTokensResult> Invoke(ListHostPoolRegistrationTokensInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListHostPoolRegistrationTokensResult>("azure-native:desktopvirtualization/v20240408preview:listHostPoolRegistrationTokens", args ?? new ListHostPoolRegistrationTokensInvokeArgs(), options.WithDefaults());
     }
 
 

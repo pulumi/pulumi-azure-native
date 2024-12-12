@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AadIam.V20200701Preview
         /// </summary>
         public static Output<GetAzureADMetricResult> Invoke(GetAzureADMetricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureADMetricResult>("azure-native:aadiam/v20200701preview:getAzureADMetric", args ?? new GetAzureADMetricInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a azureADMetrics instance with a given name.
+        /// </summary>
+        public static Output<GetAzureADMetricResult> Invoke(GetAzureADMetricInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureADMetricResult>("azure-native:aadiam/v20200701preview:getAzureADMetric", args ?? new GetAzureADMetricInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.KubernetesRuntime.V20240301
         /// </summary>
         public static Output<GetStorageClassResult> Invoke(GetStorageClassInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageClassResult>("azure-native:kubernetesruntime/v20240301:getStorageClass", args ?? new GetStorageClassInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a StorageClassResource
+        /// </summary>
+        public static Output<GetStorageClassResult> Invoke(GetStorageClassInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageClassResult>("azure-native:kubernetesruntime/v20240301:getStorageClass", args ?? new GetStorageClassInvokeArgs(), options.WithDefaults());
     }
 
 

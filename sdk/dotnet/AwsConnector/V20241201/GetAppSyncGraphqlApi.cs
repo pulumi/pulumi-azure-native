@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetAppSyncGraphqlApiResult> Invoke(GetAppSyncGraphqlApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppSyncGraphqlApiResult>("azure-native:awsconnector/v20241201:getAppSyncGraphqlApi", args ?? new GetAppSyncGraphqlApiInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a AppSyncGraphqlApi
+        /// </summary>
+        public static Output<GetAppSyncGraphqlApiResult> Invoke(GetAppSyncGraphqlApiInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppSyncGraphqlApiResult>("azure-native:awsconnector/v20241201:getAppSyncGraphqlApi", args ?? new GetAppSyncGraphqlApiInvokeArgs(), options.WithDefaults());
     }
 
 

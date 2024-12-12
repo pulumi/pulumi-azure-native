@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Logz
         /// </summary>
         public static Output<GetMetricsSourceTagRuleResult> Invoke(GetMetricsSourceTagRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricsSourceTagRuleResult>("azure-native:logz:getMetricsSourceTagRule", args ?? new GetMetricsSourceTagRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Capture metrics of Azure resources based on ARM tags.
+        /// Azure REST API version: 2022-01-01-preview.
+        /// </summary>
+        public static Output<GetMetricsSourceTagRuleResult> Invoke(GetMetricsSourceTagRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetricsSourceTagRuleResult>("azure-native:logz:getMetricsSourceTagRule", args ?? new GetMetricsSourceTagRuleInvokeArgs(), options.WithDefaults());
     }
 
 

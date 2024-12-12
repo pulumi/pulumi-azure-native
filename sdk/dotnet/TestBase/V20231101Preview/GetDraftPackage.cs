@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.TestBase.V20231101Preview
         /// </summary>
         public static Output<GetDraftPackageResult> Invoke(GetDraftPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDraftPackageResult>("azure-native:testbase/v20231101preview:getDraftPackage", args ?? new GetDraftPackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Test Base Draft Package.
+        /// </summary>
+        public static Output<GetDraftPackageResult> Invoke(GetDraftPackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDraftPackageResult>("azure-native:testbase/v20231101preview:getDraftPackage", args ?? new GetDraftPackageInvokeArgs(), options.WithDefaults());
     }
 
 

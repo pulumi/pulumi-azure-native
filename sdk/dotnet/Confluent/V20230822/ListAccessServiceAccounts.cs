@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Confluent.V20230822
         /// </summary>
         public static Output<ListAccessServiceAccountsResult> Invoke(ListAccessServiceAccountsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessServiceAccountsResult>("azure-native:confluent/v20230822:listAccessServiceAccounts", args ?? new ListAccessServiceAccountsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List service accounts success response
+        /// </summary>
+        public static Output<ListAccessServiceAccountsResult> Invoke(ListAccessServiceAccountsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccessServiceAccountsResult>("azure-native:confluent/v20230822:listAccessServiceAccounts", args ?? new ListAccessServiceAccountsInvokeArgs(), options.WithDefaults());
     }
 
 

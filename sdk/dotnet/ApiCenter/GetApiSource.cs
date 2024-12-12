@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ApiCenter
         /// </summary>
         public static Output<GetApiSourceResult> Invoke(GetApiSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiSourceResult>("azure-native:apicenter:getApiSource", args ?? new GetApiSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns details of the API source.
+        /// Azure REST API version: 2024-06-01-preview.
+        /// </summary>
+        public static Output<GetApiSourceResult> Invoke(GetApiSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiSourceResult>("azure-native:apicenter:getApiSource", args ?? new GetApiSourceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:engagementfabric/v20180901preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The EngagementFabric account
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:engagementfabric/v20180901preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

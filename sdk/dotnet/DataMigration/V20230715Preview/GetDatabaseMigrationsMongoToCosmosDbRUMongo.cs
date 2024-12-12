@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataMigration.V20230715Preview
         /// </summary>
         public static Output<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> Invoke(GetDatabaseMigrationsMongoToCosmosDbRUMongoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult>("azure-native:datamigration/v20230715preview:getDatabaseMigrationsMongoToCosmosDbRUMongo", args ?? new GetDatabaseMigrationsMongoToCosmosDbRUMongoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Database Migration resource.
+        /// </summary>
+        public static Output<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult> Invoke(GetDatabaseMigrationsMongoToCosmosDbRUMongoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationsMongoToCosmosDbRUMongoResult>("azure-native:datamigration/v20230715preview:getDatabaseMigrationsMongoToCosmosDbRUMongo", args ?? new GetDatabaseMigrationsMongoToCosmosDbRUMongoInvokeArgs(), options.WithDefaults());
     }
 
 

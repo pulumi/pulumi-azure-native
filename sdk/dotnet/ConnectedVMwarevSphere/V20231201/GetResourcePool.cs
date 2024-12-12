@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20231201
         /// </summary>
         public static Output<GetResourcePoolResult> Invoke(GetResourcePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePoolResult>("azure-native:connectedvmwarevsphere/v20231201:getResourcePool", args ?? new GetResourcePoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements resourcePool GET method.
+        /// </summary>
+        public static Output<GetResourcePoolResult> Invoke(GetResourcePoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcePoolResult>("azure-native:connectedvmwarevsphere/v20231201:getResourcePool", args ?? new GetResourcePoolInvokeArgs(), options.WithDefaults());
     }
 
 

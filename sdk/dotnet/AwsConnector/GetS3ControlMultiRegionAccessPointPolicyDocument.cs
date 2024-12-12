@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetS3ControlMultiRegionAccessPointPolicyDocumentResult> Invoke(GetS3ControlMultiRegionAccessPointPolicyDocumentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3ControlMultiRegionAccessPointPolicyDocumentResult>("azure-native:awsconnector:getS3ControlMultiRegionAccessPointPolicyDocument", args ?? new GetS3ControlMultiRegionAccessPointPolicyDocumentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a S3ControlMultiRegionAccessPointPolicyDocument
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetS3ControlMultiRegionAccessPointPolicyDocumentResult> Invoke(GetS3ControlMultiRegionAccessPointPolicyDocumentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetS3ControlMultiRegionAccessPointPolicyDocumentResult>("azure-native:awsconnector:getS3ControlMultiRegionAccessPointPolicyDocument", args ?? new GetS3ControlMultiRegionAccessPointPolicyDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

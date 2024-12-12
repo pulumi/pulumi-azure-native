@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<ListDnsResolverByVirtualNetworkResult> Invoke(ListDnsResolverByVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDnsResolverByVirtualNetworkResult>("azure-native:network:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists DNS resolver resource IDs linked to a virtual network.
+        /// Azure REST API version: 2022-07-01.
+        /// 
+        /// Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
+        /// </summary>
+        public static Output<ListDnsResolverByVirtualNetworkResult> Invoke(ListDnsResolverByVirtualNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDnsResolverByVirtualNetworkResult>("azure-native:network:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

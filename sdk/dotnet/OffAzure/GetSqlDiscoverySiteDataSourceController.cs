@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.OffAzure
         /// </summary>
         public static Output<GetSqlDiscoverySiteDataSourceControllerResult> Invoke(GetSqlDiscoverySiteDataSourceControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDiscoverySiteDataSourceControllerResult>("azure-native:offazure:getSqlDiscoverySiteDataSourceController", args ?? new GetSqlDiscoverySiteDataSourceControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SqlDiscoverySiteDataSource
+        /// Azure REST API version: 2023-06-06.
+        /// 
+        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetSqlDiscoverySiteDataSourceControllerResult> Invoke(GetSqlDiscoverySiteDataSourceControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlDiscoverySiteDataSourceControllerResult>("azure-native:offazure:getSqlDiscoverySiteDataSourceController", args ?? new GetSqlDiscoverySiteDataSourceControllerInvokeArgs(), options.WithDefaults());
     }
 
 

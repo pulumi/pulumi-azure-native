@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTOperationsMQ.V20231004Preview
         /// </summary>
         public static Output<GetDiagnosticServiceResult> Invoke(GetDiagnosticServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceResult>("azure-native:iotoperationsmq/v20231004preview:getDiagnosticService", args ?? new GetDiagnosticServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DiagnosticServiceResource
+        /// </summary>
+        public static Output<GetDiagnosticServiceResult> Invoke(GetDiagnosticServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceResult>("azure-native:iotoperationsmq/v20231004preview:getDiagnosticService", args ?? new GetDiagnosticServiceInvokeArgs(), options.WithDefaults());
     }
 
 

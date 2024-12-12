@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20241001Preview
         /// </summary>
         public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights/v20241001preview:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an action group.
+        /// </summary>
+        public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights/v20241001preview:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
     }
 
 

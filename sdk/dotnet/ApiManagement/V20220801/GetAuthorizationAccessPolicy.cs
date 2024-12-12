@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
         /// </summary>
         public static Output<GetAuthorizationAccessPolicyResult> Invoke(GetAuthorizationAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationAccessPolicyResult>("azure-native:apimanagement/v20220801:getAuthorizationAccessPolicy", args ?? new GetAuthorizationAccessPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the authorization access policy specified by its identifier.
+        /// </summary>
+        public static Output<GetAuthorizationAccessPolicyResult> Invoke(GetAuthorizationAccessPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationAccessPolicyResult>("azure-native:apimanagement/v20220801:getAuthorizationAccessPolicy", args ?? new GetAuthorizationAccessPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

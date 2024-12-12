@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20240601Preview
         /// </summary>
         public static Output<GetNamespaceTopicResult> Invoke(GetNamespaceTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicResult>("azure-native:eventgrid/v20240601preview:getNamespaceTopic", args ?? new GetNamespaceTopicInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a namespace topic.
+        /// </summary>
+        public static Output<GetNamespaceTopicResult> Invoke(GetNamespaceTopicInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicResult>("azure-native:eventgrid/v20240601preview:getNamespaceTopic", args ?? new GetNamespaceTopicInvokeArgs(), options.WithDefaults());
     }
 
 

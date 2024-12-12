@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20241001Preview
         /// </summary>
         public static Output<GetBillingInfoResult> Invoke(GetBillingInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingInfoResult>("azure-native:elastic/v20241001preview:getBillingInfo", args ?? new GetBillingInfoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Marketplace Subscription and Organization details to which resource gets billed into.
+        /// </summary>
+        public static Output<GetBillingInfoResult> Invoke(GetBillingInfoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBillingInfoResult>("azure-native:elastic/v20241001preview:getBillingInfo", args ?? new GetBillingInfoInvokeArgs(), options.WithDefaults());
     }
 
 

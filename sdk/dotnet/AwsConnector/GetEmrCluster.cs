@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetEmrClusterResult> Invoke(GetEmrClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmrClusterResult>("azure-native:awsconnector:getEmrCluster", args ?? new GetEmrClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EmrCluster
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetEmrClusterResult> Invoke(GetEmrClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmrClusterResult>("azure-native:awsconnector:getEmrCluster", args ?? new GetEmrClusterInvokeArgs(), options.WithDefaults());
     }
 
 

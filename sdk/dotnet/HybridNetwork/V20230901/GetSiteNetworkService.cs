@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20230901
         /// </summary>
         public static Output<GetSiteNetworkServiceResult> Invoke(GetSiteNetworkServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteNetworkServiceResult>("azure-native:hybridnetwork/v20230901:getSiteNetworkService", args ?? new GetSiteNetworkServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified site network service.
+        /// </summary>
+        public static Output<GetSiteNetworkServiceResult> Invoke(GetSiteNetworkServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteNetworkServiceResult>("azure-native:hybridnetwork/v20230901:getSiteNetworkService", args ?? new GetSiteNetworkServiceInvokeArgs(), options.WithDefaults());
     }
 
 

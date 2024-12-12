@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("azure-native:network:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
+        /// Azure REST API version: 2018-05-01.
+        /// 
+        /// Other available API versions: 2023-07-01-preview.
+        /// </summary>
+        public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("azure-native:network:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
     }
 
 

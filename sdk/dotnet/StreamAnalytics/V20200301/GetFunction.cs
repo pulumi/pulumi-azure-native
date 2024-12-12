@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         /// </summary>
         public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("azure-native:streamanalytics/v20200301:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details about the specified function.
+        /// </summary>
+        public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("azure-native:streamanalytics/v20200301:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
     }
 
 

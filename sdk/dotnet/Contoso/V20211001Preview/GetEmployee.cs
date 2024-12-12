@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Contoso.V20211001Preview
         /// </summary>
         public static Output<GetEmployeeResult> Invoke(GetEmployeeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmployeeResult>("azure-native:contoso/v20211001preview:getEmployee", args ?? new GetEmployeeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Employee
+        /// </summary>
+        public static Output<GetEmployeeResult> Invoke(GetEmployeeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmployeeResult>("azure-native:contoso/v20211001preview:getEmployee", args ?? new GetEmployeeInvokeArgs(), options.WithDefaults());
     }
 
 

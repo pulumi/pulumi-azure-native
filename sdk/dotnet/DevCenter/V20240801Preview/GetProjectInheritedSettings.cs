@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240801Preview
         /// </summary>
         public static Output<GetProjectInheritedSettingsResult> Invoke(GetProjectInheritedSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectInheritedSettingsResult>("azure-native:devcenter/v20240801preview:getProjectInheritedSettings", args ?? new GetProjectInheritedSettingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets applicable inherited settings for this project.
+        /// </summary>
+        public static Output<GetProjectInheritedSettingsResult> Invoke(GetProjectInheritedSettingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectInheritedSettingsResult>("azure-native:devcenter/v20240801preview:getProjectInheritedSettings", args ?? new GetProjectInheritedSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

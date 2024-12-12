@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
         /// </summary>
         public static Output<GetIPv6FirewallRuleResult> Invoke(GetIPv6FirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIPv6FirewallRuleResult>("azure-native:sql/v20230801preview:getIPv6FirewallRule", args ?? new GetIPv6FirewallRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an IPv6 firewall rule.
+        /// </summary>
+        public static Output<GetIPv6FirewallRuleResult> Invoke(GetIPv6FirewallRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIPv6FirewallRuleResult>("azure-native:sql/v20230801preview:getIPv6FirewallRule", args ?? new GetIPv6FirewallRuleInvokeArgs(), options.WithDefaults());
     }
 
 

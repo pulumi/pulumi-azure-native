@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public static Output<GetPipelineGroupResult> Invoke(GetPipelineGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineGroupResult>("azure-native:monitor:getPipelineGroup", args ?? new GetPipelineGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the specific pipeline group instance.
+        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetPipelineGroupResult> Invoke(GetPipelineGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineGroupResult>("azure-native:monitor:getPipelineGroup", args ?? new GetPipelineGroupInvokeArgs(), options.WithDefaults());
     }
 
 

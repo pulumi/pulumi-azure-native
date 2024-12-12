@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20240501Preview
         /// </summary>
         public static Output<GetFailoverGroupResult> Invoke(GetFailoverGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFailoverGroupResult>("azure-native:azurearcdata/v20240501preview:getFailoverGroup", args ?? new GetFailoverGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a failover group resource
+        /// </summary>
+        public static Output<GetFailoverGroupResult> Invoke(GetFailoverGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFailoverGroupResult>("azure-native:azurearcdata/v20240501preview:getFailoverGroup", args ?? new GetFailoverGroupInvokeArgs(), options.WithDefaults());
     }
 
 

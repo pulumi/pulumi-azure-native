@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20220901
         /// </summary>
         public static Output<GetBlobServicePropertiesResult> Invoke(GetBlobServicePropertiesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobServicePropertiesResult>("azure-native:storage/v20220901:getBlobServiceProperties", args ?? new GetBlobServicePropertiesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of a storage account’s Blob service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
+        /// </summary>
+        public static Output<GetBlobServicePropertiesResult> Invoke(GetBlobServicePropertiesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobServicePropertiesResult>("azure-native:storage/v20220901:getBlobServiceProperties", args ?? new GetBlobServicePropertiesInvokeArgs(), options.WithDefaults());
     }
 
 

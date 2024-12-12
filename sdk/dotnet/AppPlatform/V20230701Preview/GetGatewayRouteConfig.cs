@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230701Preview
         /// </summary>
         public static Output<GetGatewayRouteConfigResult> Invoke(GetGatewayRouteConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayRouteConfigResult>("azure-native:appplatform/v20230701preview:getGatewayRouteConfig", args ?? new GetGatewayRouteConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Spring Cloud Gateway route configs.
+        /// </summary>
+        public static Output<GetGatewayRouteConfigResult> Invoke(GetGatewayRouteConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayRouteConfigResult>("azure-native:appplatform/v20230701preview:getGatewayRouteConfig", args ?? new GetGatewayRouteConfigInvokeArgs(), options.WithDefaults());
     }
 
 

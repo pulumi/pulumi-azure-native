@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public static Output<GetBlobStorageAccountDataSetResult> Invoke(GetBlobStorageAccountDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobStorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSet", args ?? new GetBlobStorageAccountDataSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DataSet in a share
+        /// </summary>
+        public static Output<GetBlobStorageAccountDataSetResult> Invoke(GetBlobStorageAccountDataSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobStorageAccountDataSetResult>("azure-native:datashare/v20201001preview:getBlobStorageAccountDataSet", args ?? new GetBlobStorageAccountDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230501Preview
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights/v20230501preview:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a source control byt its identifier.
+        /// </summary>
+        public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights/v20230501preview:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
     }
 
 

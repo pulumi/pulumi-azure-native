@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240101
         /// </summary>
         public static Output<GetDeploymentSettingResult> Invoke(GetDeploymentSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentSettingResult>("azure-native:azurestackhci/v20240101:getDeploymentSetting", args ?? new GetDeploymentSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DeploymentSetting
+        /// </summary>
+        public static Output<GetDeploymentSettingResult> Invoke(GetDeploymentSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentSettingResult>("azure-native:azurestackhci/v20240101:getDeploymentSetting", args ?? new GetDeploymentSettingInvokeArgs(), options.WithDefaults());
     }
 
 

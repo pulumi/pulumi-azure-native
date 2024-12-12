@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Output<GetStreamingLocatorResult> Invoke(GetStreamingLocatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingLocatorResult>("azure-native:media:getStreamingLocator", args ?? new GetStreamingLocatorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details of a Streaming Locator in the Media Services account
+        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2018-03-30-preview.
+        /// </summary>
+        public static Output<GetStreamingLocatorResult> Invoke(GetStreamingLocatorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamingLocatorResult>("azure-native:media:getStreamingLocator", args ?? new GetStreamingLocatorInvokeArgs(), options.WithDefaults());
     }
 
 

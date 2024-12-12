@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20241001Preview
         /// </summary>
         public static Output<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult> Invoke(GetProjectCatalogEnvironmentDefinitionErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult>("azure-native:devcenter/v20241001preview:getProjectCatalogEnvironmentDefinitionErrorDetails", args ?? new GetProjectCatalogEnvironmentDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets Environment Definition error details
+        /// </summary>
+        public static Output<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult> Invoke(GetProjectCatalogEnvironmentDefinitionErrorDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogEnvironmentDefinitionErrorDetailsResult>("azure-native:devcenter/v20241001preview:getProjectCatalogEnvironmentDefinitionErrorDetails", args ?? new GetProjectCatalogEnvironmentDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// </summary>
         public static Output<GetBrokerAuthenticationResult> Invoke(GetBrokerAuthenticationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerAuthenticationResult>("azure-native:iotoperationsmq:getBrokerAuthentication", args ?? new GetBrokerAuthenticationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a BrokerAuthenticationResource
+        /// Azure REST API version: 2023-10-04-preview.
+        /// </summary>
+        public static Output<GetBrokerAuthenticationResult> Invoke(GetBrokerAuthenticationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBrokerAuthenticationResult>("azure-native:iotoperationsmq:getBrokerAuthentication", args ?? new GetBrokerAuthenticationInvokeArgs(), options.WithDefaults());
     }
 
 

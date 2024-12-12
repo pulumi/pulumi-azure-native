@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20230401
         /// </summary>
         public static Output<GetSAPSupportedSkuResult> Invoke(GetSAPSupportedSkuInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPSupportedSkuResult>("azure-native:workloads/v20230401:getSAPSupportedSku", args ?? new GetSAPSupportedSkuInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a list of SAP supported SKUs for ASCS, Application and Database tier.
+        /// </summary>
+        public static Output<GetSAPSupportedSkuResult> Invoke(GetSAPSupportedSkuInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPSupportedSkuResult>("azure-native:workloads/v20230401:getSAPSupportedSku", args ?? new GetSAPSupportedSkuInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public static Output<GetServiceFabricResult> Invoke(GetServiceFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceFabricResult>("azure-native:devtestlab:getServiceFabric", args ?? new GetServiceFabricInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get service fabric.
+        /// Azure REST API version: 2018-09-15.
+        /// </summary>
+        public static Output<GetServiceFabricResult> Invoke(GetServiceFabricInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceFabricResult>("azure-native:devtestlab:getServiceFabric", args ?? new GetServiceFabricInvokeArgs(), options.WithDefaults());
     }
 
 

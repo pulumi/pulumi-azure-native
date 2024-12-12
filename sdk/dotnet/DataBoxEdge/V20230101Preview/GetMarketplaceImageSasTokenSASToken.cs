@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
 
         public static Output<GetMarketplaceImageSasTokenSASTokenResult> Invoke(GetMarketplaceImageSasTokenSASTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceImageSasTokenSASTokenResult>("azure-native:databoxedge/v20230101preview:getMarketplaceImageSasTokenSASToken", args ?? new GetMarketplaceImageSasTokenSASTokenInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetMarketplaceImageSasTokenSASTokenResult> Invoke(GetMarketplaceImageSasTokenSASTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceImageSasTokenSASTokenResult>("azure-native:databoxedge/v20230101preview:getMarketplaceImageSasTokenSASToken", args ?? new GetMarketplaceImageSasTokenSASTokenInvokeArgs(), options.WithDefaults());
     }
 
 

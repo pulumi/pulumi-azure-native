@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:datafactory/v20180601:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a trigger.
+        /// </summary>
+        public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:datafactory/v20180601:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

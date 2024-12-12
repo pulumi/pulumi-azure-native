@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cache.V20240901Preview
         /// </summary>
         public static Output<GetAccessPolicyAssignmentResult> Invoke(GetAccessPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyAssignmentResult>("azure-native:cache/v20240901preview:getAccessPolicyAssignment", args ?? new GetAccessPolicyAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about access policy assignment for database.
+        /// </summary>
+        public static Output<GetAccessPolicyAssignmentResult> Invoke(GetAccessPolicyAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyAssignmentResult>("azure-native:cache/v20240901preview:getAccessPolicyAssignment", args ?? new GetAccessPolicyAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

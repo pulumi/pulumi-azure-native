@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         /// </summary>
         public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a blueprint assignment.
+        /// </summary>
+        public static Output<GetAssignmentResult> Invoke(GetAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssignmentResult>("azure-native:blueprint/v20181101preview:getAssignment", args ?? new GetAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

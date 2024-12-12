@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230901
         /// </summary>
         public static Output<ListClusterZonesResult> Invoke(ListClusterZonesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterZonesResult>("azure-native:avs/v20230901:listClusterZones", args ?? new ListClusterZonesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List hosts by zone in a cluster
+        /// </summary>
+        public static Output<ListClusterZonesResult> Invoke(ListClusterZonesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListClusterZonesResult>("azure-native:avs/v20230901:listClusterZones", args ?? new ListClusterZonesInvokeArgs(), options.WithDefaults());
     }
 
 

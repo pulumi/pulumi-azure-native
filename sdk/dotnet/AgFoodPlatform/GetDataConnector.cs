@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// </summary>
         public static Output<GetDataConnectorResult> Invoke(GetDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataConnectorResult>("azure-native:agfoodplatform:getDataConnector", args ?? new GetDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get specific Data Connector resource by DataConnectorName.
+        /// Azure REST API version: 2023-06-01-preview.
+        /// </summary>
+        public static Output<GetDataConnectorResult> Invoke(GetDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataConnectorResult>("azure-native:agfoodplatform:getDataConnector", args ?? new GetDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

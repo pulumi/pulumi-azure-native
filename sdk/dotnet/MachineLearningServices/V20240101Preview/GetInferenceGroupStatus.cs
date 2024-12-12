@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240101Preview
 
         public static Output<GetInferenceGroupStatusResult> Invoke(GetInferenceGroupStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupStatusResult>("azure-native:machinelearningservices/v20240101preview:getInferenceGroupStatus", args ?? new GetInferenceGroupStatusInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetInferenceGroupStatusResult> Invoke(GetInferenceGroupStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupStatusResult>("azure-native:machinelearningservices/v20240101preview:getInferenceGroupStatus", args ?? new GetInferenceGroupStatusInvokeArgs(), options.WithDefaults());
     }
 
 

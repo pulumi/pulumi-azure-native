@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
         /// </summary>
         public static Output<GetPropertyResult> Invoke(GetPropertyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPropertyResult>("azure-native:apimanagement/v20190101:getProperty", args ?? new GetPropertyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the property specified by its identifier.
+        /// </summary>
+        public static Output<GetPropertyResult> Invoke(GetPropertyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPropertyResult>("azure-native:apimanagement/v20190101:getProperty", args ?? new GetPropertyInvokeArgs(), options.WithDefaults());
     }
 
 

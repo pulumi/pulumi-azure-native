@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetRoute53HostedZoneResult> Invoke(GetRoute53HostedZoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoute53HostedZoneResult>("azure-native:awsconnector/v20241201:getRoute53HostedZone", args ?? new GetRoute53HostedZoneInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Route53HostedZone
+        /// </summary>
+        public static Output<GetRoute53HostedZoneResult> Invoke(GetRoute53HostedZoneInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoute53HostedZoneResult>("azure-native:awsconnector/v20241201:getRoute53HostedZone", args ?? new GetRoute53HostedZoneInvokeArgs(), options.WithDefaults());
     }
 
 

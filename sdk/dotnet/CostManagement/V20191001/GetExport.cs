@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CostManagement.V20191001
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement/v20191001:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation to get the export for the defined scope by export name.
+        /// </summary>
+        public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("azure-native:costmanagement/v20191001:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());
     }
 
 

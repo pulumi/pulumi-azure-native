@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Billing.V20240401
         /// </summary>
         public static Output<GetBillingRoleAssignmentByEnrollmentAccountResult> Invoke(GetBillingRoleAssignmentByEnrollmentAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByEnrollmentAccountResult>("azure-native:billing/v20240401:getBillingRoleAssignmentByEnrollmentAccount", args ?? new GetBillingRoleAssignmentByEnrollmentAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement.
+        /// </summary>
+        public static Output<GetBillingRoleAssignmentByEnrollmentAccountResult> Invoke(GetBillingRoleAssignmentByEnrollmentAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByEnrollmentAccountResult>("azure-native:billing/v20240401:getBillingRoleAssignmentByEnrollmentAccount", args ?? new GetBillingRoleAssignmentByEnrollmentAccountInvokeArgs(), options.WithDefaults());
     }
 
 

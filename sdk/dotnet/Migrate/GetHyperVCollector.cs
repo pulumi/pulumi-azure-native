@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetHyperVCollectorResult> Invoke(GetHyperVCollectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHyperVCollectorResult>("azure-native:migrate:getHyperVCollector", args ?? new GetHyperVCollectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Hyper-V collector.
+        /// Azure REST API version: 2019-10-01.
+        /// </summary>
+        public static Output<GetHyperVCollectorResult> Invoke(GetHyperVCollectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHyperVCollectorResult>("azure-native:migrate:getHyperVCollector", args ?? new GetHyperVCollectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20241101
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:deviceregistry/v20241101:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Asset
+        /// </summary>
+        public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:deviceregistry/v20241101:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
 
 

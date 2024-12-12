@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001
 
         public static Output<GetBatchDeploymentResult> Invoke(GetBatchDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchDeploymentResult>("azure-native:machinelearningservices/v20241001:getBatchDeployment", args ?? new GetBatchDeploymentInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetBatchDeploymentResult> Invoke(GetBatchDeploymentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBatchDeploymentResult>("azure-native:machinelearningservices/v20241001:getBatchDeployment", args ?? new GetBatchDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

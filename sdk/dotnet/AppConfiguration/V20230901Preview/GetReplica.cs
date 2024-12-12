@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppConfiguration.V20230901Preview
         /// </summary>
         public static Output<GetReplicaResult> Invoke(GetReplicaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicaResult>("azure-native:appconfiguration/v20230901preview:getReplica", args ?? new GetReplicaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified replica.
+        /// </summary>
+        public static Output<GetReplicaResult> Invoke(GetReplicaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicaResult>("azure-native:appconfiguration/v20230901preview:getReplica", args ?? new GetReplicaInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public static Output<GetNetworkGroupResult> Invoke(GetNetworkGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkGroupResult>("azure-native:network/v20210201preview:getNetworkGroup", args ?? new GetNetworkGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified network group.
+        /// </summary>
+        public static Output<GetNetworkGroupResult> Invoke(GetNetworkGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkGroupResult>("azure-native:network/v20210201preview:getNetworkGroup", args ?? new GetNetworkGroupInvokeArgs(), options.WithDefaults());
     }
 
 

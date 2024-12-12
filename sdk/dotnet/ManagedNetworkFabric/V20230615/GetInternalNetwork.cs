@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetInternalNetworkResult> Invoke(GetInternalNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInternalNetworkResult>("azure-native:managednetworkfabric/v20230615:getInternalNetwork", args ?? new GetInternalNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a InternalNetworks.
+        /// </summary>
+        public static Output<GetInternalNetworkResult> Invoke(GetInternalNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInternalNetworkResult>("azure-native:managednetworkfabric/v20230615:getInternalNetwork", args ?? new GetInternalNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

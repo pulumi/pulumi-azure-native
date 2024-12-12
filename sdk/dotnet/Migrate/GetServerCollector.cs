@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetServerCollectorResult> Invoke(GetServerCollectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCollectorResult>("azure-native:migrate:getServerCollector", args ?? new GetServerCollectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Server collector.
+        /// Azure REST API version: 2019-10-01.
+        /// </summary>
+        public static Output<GetServerCollectorResult> Invoke(GetServerCollectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerCollectorResult>("azure-native:migrate:getServerCollector", args ?? new GetServerCollectorInvokeArgs(), options.WithDefaults());
     }
 
 

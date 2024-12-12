@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetDaxClusterResult> Invoke(GetDaxClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaxClusterResult>("azure-native:awsconnector/v20241201:getDaxCluster", args ?? new GetDaxClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DaxCluster
+        /// </summary>
+        public static Output<GetDaxClusterResult> Invoke(GetDaxClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDaxClusterResult>("azure-native:awsconnector/v20241201:getDaxCluster", args ?? new GetDaxClusterInvokeArgs(), options.WithDefaults());
     }
 
 

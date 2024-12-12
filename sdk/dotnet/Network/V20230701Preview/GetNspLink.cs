@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         /// </summary>
         public static Output<GetNspLinkResult> Invoke(GetNspLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspLinkResult>("azure-native:network/v20230701preview:getNspLink", args ?? new GetNspLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified NSP link resource.
+        /// </summary>
+        public static Output<GetNspLinkResult> Invoke(GetNspLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNspLinkResult>("azure-native:network/v20230701preview:getNspLink", args ?? new GetNspLinkInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240701Preview
         /// </summary>
         public static Output<GetProjectCatalogSyncErrorDetailsResult> Invoke(GetProjectCatalogSyncErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogSyncErrorDetailsResult>("azure-native:devcenter/v20240701preview:getProjectCatalogSyncErrorDetails", args ?? new GetProjectCatalogSyncErrorDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets project catalog synchronization error details
+        /// </summary>
+        public static Output<GetProjectCatalogSyncErrorDetailsResult> Invoke(GetProjectCatalogSyncErrorDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogSyncErrorDetailsResult>("azure-native:devcenter/v20240701preview:getProjectCatalogSyncErrorDetails", args ?? new GetProjectCatalogSyncErrorDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

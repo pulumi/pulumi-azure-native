@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20231101Preview
         /// </summary>
         public static Output<GetAssetEndpointProfileResult> Invoke(GetAssetEndpointProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetEndpointProfileResult>("azure-native:deviceregistry/v20231101preview:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a AssetEndpointProfile
+        /// </summary>
+        public static Output<GetAssetEndpointProfileResult> Invoke(GetAssetEndpointProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetEndpointProfileResult>("azure-native:deviceregistry/v20231101preview:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Output<GetCredentialOperationResult> Invoke(GetCredentialOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialOperationResult>("azure-native:datafactory:getCredentialOperation", args ?? new GetCredentialOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a credential.
+        /// Azure REST API version: 2018-06-01.
+        /// </summary>
+        public static Output<GetCredentialOperationResult> Invoke(GetCredentialOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCredentialOperationResult>("azure-native:datafactory:getCredentialOperation", args ?? new GetCredentialOperationInvokeArgs(), options.WithDefaults());
     }
 
 

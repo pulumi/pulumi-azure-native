@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// </summary>
         public static Output<ListSecretValueResult> Invoke(ListSecretValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSecretValueResult>("azure-native:servicefabricmesh/v20180901preview:listSecretValue", args ?? new ListSecretValueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
+        /// </summary>
+        public static Output<ListSecretValueResult> Invoke(ListSecretValueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListSecretValueResult>("azure-native:servicefabricmesh/v20180901preview:listSecretValue", args ?? new ListSecretValueInvokeArgs(), options.WithDefaults());
     }
 
 

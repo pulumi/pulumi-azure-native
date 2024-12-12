@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Output<GetWebTestResult> Invoke(GetWebTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific Application Insights web test definition.
+        /// Azure REST API version: 2022-06-15.
+        /// 
+        /// Other available API versions: 2020-10-05-preview.
+        /// </summary>
+        public static Output<GetWebTestResult> Invoke(GetWebTestInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithDefaults());
     }
 
 

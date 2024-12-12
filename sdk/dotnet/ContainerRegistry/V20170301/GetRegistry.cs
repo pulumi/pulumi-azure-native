@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20170301
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure-native:containerregistry/v20170301:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified container registry.
+        /// </summary>
+        public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure-native:containerregistry/v20170301:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

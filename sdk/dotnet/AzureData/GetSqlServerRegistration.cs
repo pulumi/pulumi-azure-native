@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AzureData
         /// </summary>
         public static Output<GetSqlServerRegistrationResult> Invoke(GetSqlServerRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerRegistrationResult>("azure-native:azuredata:getSqlServerRegistration", args ?? new GetSqlServerRegistrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a SQL Server registration.
+        /// Azure REST API version: 2019-07-24-preview.
+        /// </summary>
+        public static Output<GetSqlServerRegistrationResult> Invoke(GetSqlServerRegistrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerRegistrationResult>("azure-native:azuredata:getSqlServerRegistration", args ?? new GetSqlServerRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

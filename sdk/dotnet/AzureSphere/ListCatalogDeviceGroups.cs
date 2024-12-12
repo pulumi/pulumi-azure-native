@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.AzureSphere
         /// </summary>
         public static Output<ListCatalogDeviceGroupsResult> Invoke(ListCatalogDeviceGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeviceGroupsResult>("azure-native:azuresphere:listCatalogDeviceGroups", args ?? new ListCatalogDeviceGroupsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List the device groups for the catalog.
+        /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01.
+        /// </summary>
+        public static Output<ListCatalogDeviceGroupsResult> Invoke(ListCatalogDeviceGroupsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeviceGroupsResult>("azure-native:azuresphere:listCatalogDeviceGroups", args ?? new ListCatalogDeviceGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

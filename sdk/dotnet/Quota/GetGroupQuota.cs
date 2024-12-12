@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Quota
         /// </summary>
         public static Output<GetGroupQuotaResult> Invoke(GetGroupQuotaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaResult>("azure-native:quota:getGroupQuota", args ?? new GetGroupQuotaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
+        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2024-10-15-preview.
+        /// </summary>
+        public static Output<GetGroupQuotaResult> Invoke(GetGroupQuotaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaResult>("azure-native:quota:getGroupQuota", args ?? new GetGroupQuotaInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Scheduler
         /// </summary>
         public static Output<GetJobCollectionResult> Invoke(GetJobCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobCollectionResult>("azure-native:scheduler:getJobCollection", args ?? new GetJobCollectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a job collection.
+        /// Azure REST API version: 2016-03-01.
+        /// </summary>
+        public static Output<GetJobCollectionResult> Invoke(GetJobCollectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobCollectionResult>("azure-native:scheduler:getJobCollection", args ?? new GetJobCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

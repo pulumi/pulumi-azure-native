@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240601Preview
         /// </summary>
         public static Output<GetEncryptionSetResult> Invoke(GetEncryptionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionSetResult>("azure-native:devcenter/v20240601preview:getEncryptionSet", args ?? new GetEncryptionSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a devcenter encryption set.
+        /// </summary>
+        public static Output<GetEncryptionSetResult> Invoke(GetEncryptionSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionSetResult>("azure-native:devcenter/v20240601preview:getEncryptionSet", args ?? new GetEncryptionSetInvokeArgs(), options.WithDefaults());
     }
 
 

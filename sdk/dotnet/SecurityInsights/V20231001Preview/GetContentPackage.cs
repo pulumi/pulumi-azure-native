@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231001Preview
         /// </summary>
         public static Output<GetContentPackageResult> Invoke(GetContentPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentPackageResult>("azure-native:securityinsights/v20231001preview:getContentPackage", args ?? new GetContentPackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an installed packages by its id.
+        /// </summary>
+        public static Output<GetContentPackageResult> Invoke(GetContentPackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContentPackageResult>("azure-native:securityinsights/v20231001preview:getContentPackage", args ?? new GetContentPackageInvokeArgs(), options.WithDefaults());
     }
 
 

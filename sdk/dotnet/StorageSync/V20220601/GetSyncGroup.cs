@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorageSync.V20220601
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure-native:storagesync/v20220601:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a given SyncGroup.
+        /// </summary>
+        public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure-native:storagesync/v20220601:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());
     }
 
 

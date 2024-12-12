@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240901Preview
         /// </summary>
         public static Output<GetSecuritySettingResult> Invoke(GetSecuritySettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecuritySettingResult>("azure-native:azurestackhci/v20240901preview:getSecuritySetting", args ?? new GetSecuritySettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SecuritySetting
+        /// </summary>
+        public static Output<GetSecuritySettingResult> Invoke(GetSecuritySettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecuritySettingResult>("azure-native:azurestackhci/v20240901preview:getSecuritySetting", args ?? new GetSecuritySettingInvokeArgs(), options.WithDefaults());
     }
 
 

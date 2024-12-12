@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20240927
         /// </summary>
         public static Output<GetFlowSourceAddressesResult> Invoke(GetFlowSourceAddressesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowSourceAddressesResult>("azure-native:azuredatatransfer/v20240927:getFlowSourceAddresses", args ?? new GetFlowSourceAddressesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the source addresses for the specified flow.
+        /// </summary>
+        public static Output<GetFlowSourceAddressesResult> Invoke(GetFlowSourceAddressesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowSourceAddressesResult>("azure-native:azuredatatransfer/v20240927:getFlowSourceAddresses", args ?? new GetFlowSourceAddressesInvokeArgs(), options.WithDefaults());
     }
 
 

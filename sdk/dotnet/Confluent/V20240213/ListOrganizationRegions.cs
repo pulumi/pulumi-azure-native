@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Confluent.V20240213
         /// </summary>
         public static Output<ListOrganizationRegionsResult> Invoke(ListOrganizationRegionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListOrganizationRegionsResult>("azure-native:confluent/v20240213:listOrganizationRegions", args ?? new ListOrganizationRegionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Result of POST request to list regions supported by confluent
+        /// </summary>
+        public static Output<ListOrganizationRegionsResult> Invoke(ListOrganizationRegionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListOrganizationRegionsResult>("azure-native:confluent/v20240213:listOrganizationRegions", args ?? new ListOrganizationRegionsInvokeArgs(), options.WithDefaults());
     }
 
 

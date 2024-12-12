@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
         /// </summary>
         public static Output<GetServiceConfigurationResult> Invoke(GetServiceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceConfigurationResult>("azure-native:hybridconnectivity/v20241201:getServiceConfiguration", args ?? new GetServiceConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details about the service to the resource.
+        /// </summary>
+        public static Output<GetServiceConfigurationResult> Invoke(GetServiceConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceConfigurationResult>("azure-native:hybridconnectivity/v20241201:getServiceConfiguration", args ?? new GetServiceConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

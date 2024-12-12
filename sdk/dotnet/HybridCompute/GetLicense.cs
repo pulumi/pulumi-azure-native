@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("azure-native:hybridcompute:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about the view of a license.
+        /// Azure REST API version: 2023-06-20-preview.
+        /// 
+        /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        /// </summary>
+        public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("azure-native:hybridcompute:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20220829Preview
         /// </summary>
         public static Output<GetPostRuleResult> Invoke(GetPostRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPostRuleResult>("azure-native:cloudngfw/v20220829preview:getPostRule", args ?? new GetPostRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a PostRulesResource
+        /// </summary>
+        public static Output<GetPostRuleResult> Invoke(GetPostRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPostRuleResult>("azure-native:cloudngfw/v20220829preview:getPostRule", args ?? new GetPostRuleInvokeArgs(), options.WithDefaults());
     }
 
 

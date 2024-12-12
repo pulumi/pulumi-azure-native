@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetCloudFrontDistributionResult> Invoke(GetCloudFrontDistributionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFrontDistributionResult>("azure-native:awsconnector:getCloudFrontDistribution", args ?? new GetCloudFrontDistributionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CloudFrontDistribution
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetCloudFrontDistributionResult> Invoke(GetCloudFrontDistributionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudFrontDistributionResult>("azure-native:awsconnector:getCloudFrontDistribution", args ?? new GetCloudFrontDistributionInvokeArgs(), options.WithDefaults());
     }
 
 

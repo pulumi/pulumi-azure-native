@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
         /// </summary>
         public static Output<ListGeodataByIpResult> Invoke(ListGeodataByIpInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGeodataByIpResult>("azure-native:securityinsights/v20240401preview:listGeodataByIp", args ?? new ListGeodataByIpInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get geodata for a single IP address
+        /// </summary>
+        public static Output<ListGeodataByIpResult> Invoke(ListGeodataByIpInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGeodataByIpResult>("azure-native:securityinsights/v20240401preview:listGeodataByIp", args ?? new ListGeodataByIpInvokeArgs(), options.WithDefaults());
     }
 
 

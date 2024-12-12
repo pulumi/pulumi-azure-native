@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:customerinsights:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a connector in the hub.
+        /// Azure REST API version: 2017-04-26.
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:customerinsights:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

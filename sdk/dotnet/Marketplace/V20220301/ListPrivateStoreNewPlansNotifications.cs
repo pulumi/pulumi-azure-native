@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Marketplace.V20220301
         /// </summary>
         public static Output<ListPrivateStoreNewPlansNotificationsResult> Invoke(ListPrivateStoreNewPlansNotificationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreNewPlansNotificationsResult>("azure-native:marketplace/v20220301:listPrivateStoreNewPlansNotifications", args ?? new ListPrivateStoreNewPlansNotificationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List new plans notifications
+        /// </summary>
+        public static Output<ListPrivateStoreNewPlansNotificationsResult> Invoke(ListPrivateStoreNewPlansNotificationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreNewPlansNotificationsResult>("azure-native:marketplace/v20220301:listPrivateStoreNewPlansNotifications", args ?? new ListPrivateStoreNewPlansNotificationsInvokeArgs(), options.WithDefaults());
     }
 
 

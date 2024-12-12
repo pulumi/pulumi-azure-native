@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public static Output<GetSapLandscapeMonitorResult> Invoke(GetSapLandscapeMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapLandscapeMonitorResult>("azure-native:workloads:getSapLandscapeMonitor", args ?? new GetSapLandscapeMonitorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
+        /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+        /// </summary>
+        public static Output<GetSapLandscapeMonitorResult> Invoke(GetSapLandscapeMonitorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapLandscapeMonitorResult>("azure-native:workloads:getSapLandscapeMonitor", args ?? new GetSapLandscapeMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

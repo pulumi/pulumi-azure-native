@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CognitiveServices.V20241001
         /// </summary>
         public static Output<GetRaiPolicyResult> Invoke(GetRaiPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiPolicyResult>("azure-native:cognitiveservices/v20241001:getRaiPolicy", args ?? new GetRaiPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Content Filters associated with the Azure OpenAI account.
+        /// </summary>
+        public static Output<GetRaiPolicyResult> Invoke(GetRaiPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRaiPolicyResult>("azure-native:cognitiveservices/v20241001:getRaiPolicy", args ?? new GetRaiPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

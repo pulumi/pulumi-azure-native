@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20180301
         /// </summary>
         public static Output<GetMetricAlertResult> Invoke(GetMetricAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricAlertResult>("azure-native:insights/v20180301:getMetricAlert", args ?? new GetMetricAlertInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve an alert rule definition.
+        /// </summary>
+        public static Output<GetMetricAlertResult> Invoke(GetMetricAlertInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetricAlertResult>("azure-native:insights/v20180301:getMetricAlert", args ?? new GetMetricAlertInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// </summary>
         public static Output<GetOrderItemResult> Invoke(GetOrderItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderItemResult>("azure-native:edgeorder:getOrderItem", args ?? new GetOrderItemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an order item.
+        /// Azure REST API version: 2022-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-02-01.
+        /// </summary>
+        public static Output<GetOrderItemResult> Invoke(GetOrderItemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrderItemResult>("azure-native:edgeorder:getOrderItem", args ?? new GetOrderItemInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20240301
         /// </summary>
         public static Output<GetConnectedEnvironmentResult> Invoke(GetConnectedEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentResult>("azure-native:app/v20240301:getConnectedEnvironment", args ?? new GetConnectedEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the properties of an connectedEnvironment.
+        /// </summary>
+        public static Output<GetConnectedEnvironmentResult> Invoke(GetConnectedEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentResult>("azure-native:app/v20240301:getConnectedEnvironment", args ?? new GetConnectedEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

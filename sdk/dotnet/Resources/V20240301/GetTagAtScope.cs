@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Resources.V20240301
         /// </summary>
         public static Output<GetTagAtScopeResult> Invoke(GetTagAtScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagAtScopeResult>("azure-native:resources/v20240301:getTagAtScope", args ?? new GetTagAtScopeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Wrapper resource for tags API requests and responses.
+        /// </summary>
+        public static Output<GetTagAtScopeResult> Invoke(GetTagAtScopeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagAtScopeResult>("azure-native:resources/v20240301:getTagAtScope", args ?? new GetTagAtScopeInvokeArgs(), options.WithDefaults());
     }
 
 

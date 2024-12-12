@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20230601Preview
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbformysql/v20230601preview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a server firewall rule.
+        /// </summary>
+        public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbformysql/v20230601preview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
     }
 
 

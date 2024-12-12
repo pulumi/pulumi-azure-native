@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20230415
         /// </summary>
         public static Output<GetCassandraClusterResult> Invoke(GetCassandraClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraClusterResult>("azure-native:documentdb/v20230415:getCassandraCluster", args ?? new GetCassandraClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the properties of a managed Cassandra cluster.
+        /// </summary>
+        public static Output<GetCassandraClusterResult> Invoke(GetCassandraClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCassandraClusterResult>("azure-native:documentdb/v20230415:getCassandraCluster", args ?? new GetCassandraClusterInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20240415
         /// </summary>
         public static Output<GetNetworkServiceDesignVersionResult> Invoke(GetNetworkServiceDesignVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceDesignVersionResult>("azure-native:hybridnetwork/v20240415:getNetworkServiceDesignVersion", args ?? new GetNetworkServiceDesignVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a network service design version.
+        /// </summary>
+        public static Output<GetNetworkServiceDesignVersionResult> Invoke(GetNetworkServiceDesignVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceDesignVersionResult>("azure-native:hybridnetwork/v20240415:getNetworkServiceDesignVersion", args ?? new GetNetworkServiceDesignVersionInvokeArgs(), options.WithDefaults());
     }
 
 

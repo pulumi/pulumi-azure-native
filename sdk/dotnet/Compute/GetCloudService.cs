@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Display information about a cloud service.
+        /// Azure REST API version: 2022-09-04.
+        /// </summary>
+        public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithDefaults());
     }
 
 

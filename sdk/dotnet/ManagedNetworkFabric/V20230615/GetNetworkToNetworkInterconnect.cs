@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetNetworkToNetworkInterconnectResult> Invoke(GetNetworkToNetworkInterconnectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkToNetworkInterconnectResult>("azure-native:managednetworkfabric/v20230615:getNetworkToNetworkInterconnect", args ?? new GetNetworkToNetworkInterconnectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements NetworkToNetworkInterconnects GET method.
+        /// </summary>
+        public static Output<GetNetworkToNetworkInterconnectResult> Invoke(GetNetworkToNetworkInterconnectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkToNetworkInterconnectResult>("azure-native:managednetworkfabric/v20230615:getNetworkToNetworkInterconnect", args ?? new GetNetworkToNetworkInterconnectInvokeArgs(), options.WithDefaults());
     }
 
 

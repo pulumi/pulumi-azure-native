@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:integrationspaces:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Application
+        /// Azure REST API version: 2023-11-14-preview.
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:integrationspaces:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

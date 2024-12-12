@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         /// </summary>
         public static Output<GetStudentResult> Invoke(GetStudentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStudentResult>("azure-native:education/v20211201preview:getStudent", args ?? new GetStudentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details for a specific student in the specified lab by student alias
+        /// </summary>
+        public static Output<GetStudentResult> Invoke(GetStudentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStudentResult>("azure-native:education/v20211201preview:getStudent", args ?? new GetStudentInvokeArgs(), options.WithDefaults());
     }
 
 

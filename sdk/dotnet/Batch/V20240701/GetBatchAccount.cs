@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Batch.V20240701
         /// </summary>
         public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch/v20240701:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified Batch account.
+        /// </summary>
+        public static Output<GetBatchAccountResult> Invoke(GetBatchAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBatchAccountResult>("azure-native:batch/v20240701:getBatchAccount", args ?? new GetBatchAccountInvokeArgs(), options.WithDefaults());
     }
 
 

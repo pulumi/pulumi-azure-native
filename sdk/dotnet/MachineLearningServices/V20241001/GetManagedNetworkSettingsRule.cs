@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001
         /// </summary>
         public static Output<GetManagedNetworkSettingsRuleResult> Invoke(GetManagedNetworkSettingsRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedNetworkSettingsRuleResult>("azure-native:machinelearningservices/v20241001:getManagedNetworkSettingsRule", args ?? new GetManagedNetworkSettingsRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Outbound Rule Basic Resource for the managed network of a machine learning workspace.
+        /// </summary>
+        public static Output<GetManagedNetworkSettingsRuleResult> Invoke(GetManagedNetworkSettingsRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedNetworkSettingsRuleResult>("azure-native:machinelearningservices/v20241001:getManagedNetworkSettingsRule", args ?? new GetManagedNetworkSettingsRuleInvokeArgs(), options.WithDefaults());
     }
 
 

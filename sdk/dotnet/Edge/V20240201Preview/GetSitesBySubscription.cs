@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Edge.V20240201Preview
         /// </summary>
         public static Output<GetSitesBySubscriptionResult> Invoke(GetSitesBySubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesBySubscriptionResult>("azure-native:edge/v20240201preview:getSitesBySubscription", args ?? new GetSitesBySubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Site
+        /// </summary>
+        public static Output<GetSitesBySubscriptionResult> Invoke(GetSitesBySubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSitesBySubscriptionResult>("azure-native:edge/v20240201preview:getSitesBySubscription", args ?? new GetSitesBySubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

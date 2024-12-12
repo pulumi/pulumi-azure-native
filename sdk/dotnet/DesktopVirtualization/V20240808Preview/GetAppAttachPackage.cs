@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240808Preview
         /// </summary>
         public static Output<GetAppAttachPackageResult> Invoke(GetAppAttachPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppAttachPackageResult>("azure-native:desktopvirtualization/v20240808preview:getAppAttachPackage", args ?? new GetAppAttachPackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an app attach package.
+        /// </summary>
+        public static Output<GetAppAttachPackageResult> Invoke(GetAppAttachPackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppAttachPackageResult>("azure-native:desktopvirtualization/v20240808preview:getAppAttachPackage", args ?? new GetAppAttachPackageInvokeArgs(), options.WithDefaults());
     }
 
 

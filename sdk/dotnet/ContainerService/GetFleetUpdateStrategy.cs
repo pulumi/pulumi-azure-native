@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public static Output<GetFleetUpdateStrategyResult> Invoke(GetFleetUpdateStrategyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetUpdateStrategyResult>("azure-native:containerservice:getFleetUpdateStrategy", args ?? new GetFleetUpdateStrategyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a FleetUpdateStrategy
+        /// Azure REST API version: 2023-08-15-preview.
+        /// 
+        /// Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// </summary>
+        public static Output<GetFleetUpdateStrategyResult> Invoke(GetFleetUpdateStrategyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetUpdateStrategyResult>("azure-native:containerservice:getFleetUpdateStrategy", args ?? new GetFleetUpdateStrategyInvokeArgs(), options.WithDefaults());
     }
 
 

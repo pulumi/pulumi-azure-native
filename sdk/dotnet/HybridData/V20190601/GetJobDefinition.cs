@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridData.V20190601
         /// </summary>
         public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("azure-native:hybriddata/v20190601:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This method gets job definition object by name.
+        /// </summary>
+        public static Output<GetJobDefinitionResult> Invoke(GetJobDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobDefinitionResult>("azure-native:hybriddata/v20190601:getJobDefinition", args ?? new GetJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

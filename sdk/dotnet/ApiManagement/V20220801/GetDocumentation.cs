@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
         /// </summary>
         public static Output<GetDocumentationResult> Invoke(GetDocumentationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationResult>("azure-native:apimanagement/v20220801:getDocumentation", args ?? new GetDocumentationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the Documentation specified by its identifier.
+        /// </summary>
+        public static Output<GetDocumentationResult> Invoke(GetDocumentationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationResult>("azure-native:apimanagement/v20220801:getDocumentation", args ?? new GetDocumentationInvokeArgs(), options.WithDefaults());
     }
 
 

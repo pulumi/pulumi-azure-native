@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20241002Preview
         /// </summary>
         public static Output<GetDaprComponentResiliencyPolicyResult> Invoke(GetDaprComponentResiliencyPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaprComponentResiliencyPolicyResult>("azure-native:app/v20241002preview:getDaprComponentResiliencyPolicy", args ?? new GetDaprComponentResiliencyPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Dapr Component Resiliency Policy.
+        /// </summary>
+        public static Output<GetDaprComponentResiliencyPolicyResult> Invoke(GetDaprComponentResiliencyPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDaprComponentResiliencyPolicyResult>("azure-native:app/v20241002preview:getDaprComponentResiliencyPolicy", args ?? new GetDaprComponentResiliencyPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

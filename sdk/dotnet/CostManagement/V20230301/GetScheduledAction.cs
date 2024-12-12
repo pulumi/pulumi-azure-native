@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CostManagement.V20230301
         /// </summary>
         public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("azure-native:costmanagement/v20230301:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the private scheduled action by name.
+        /// </summary>
+        public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("azure-native:costmanagement/v20230301:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
     }
 
 

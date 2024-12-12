@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.BotService.V20220915
         /// </summary>
         public static Output<GetBotConnectionResult> Invoke(GetBotConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotConnectionResult>("azure-native:botservice/v20220915:getBotConnection", args ?? new GetBotConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Connection Setting registration for a Bot Service
+        /// </summary>
+        public static Output<GetBotConnectionResult> Invoke(GetBotConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBotConnectionResult>("azure-native:botservice/v20220915:getBotConnection", args ?? new GetBotConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

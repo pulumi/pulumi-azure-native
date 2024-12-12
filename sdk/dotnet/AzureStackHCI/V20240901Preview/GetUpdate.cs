@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240901Preview
         /// </summary>
         public static Output<GetUpdateResult> Invoke(GetUpdateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateResult>("azure-native:azurestackhci/v20240901preview:getUpdate", args ?? new GetUpdateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get specified Update
+        /// </summary>
+        public static Output<GetUpdateResult> Invoke(GetUpdateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUpdateResult>("azure-native:azurestackhci/v20240901preview:getUpdate", args ?? new GetUpdateInvokeArgs(), options.WithDefaults());
     }
 
 

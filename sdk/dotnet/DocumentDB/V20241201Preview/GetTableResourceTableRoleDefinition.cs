@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20241201Preview
         /// </summary>
         public static Output<GetTableResourceTableRoleDefinitionResult> Invoke(GetTableResourceTableRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableRoleDefinitionResult>("azure-native:documentdb/v20241201preview:getTableResourceTableRoleDefinition", args ?? new GetTableResourceTableRoleDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the properties of an existing Azure Cosmos DB Table Role Definition with the given Id.
+        /// </summary>
+        public static Output<GetTableResourceTableRoleDefinitionResult> Invoke(GetTableResourceTableRoleDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableRoleDefinitionResult>("azure-native:documentdb/v20241201preview:getTableResourceTableRoleDefinition", args ?? new GetTableResourceTableRoleDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

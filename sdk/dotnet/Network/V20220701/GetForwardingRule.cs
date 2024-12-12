@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// </summary>
         public static Output<GetForwardingRuleResult> Invoke(GetForwardingRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetForwardingRuleResult>("azure-native:network/v20220701:getForwardingRule", args ?? new GetForwardingRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a forwarding rule in a DNS forwarding ruleset.
+        /// </summary>
+        public static Output<GetForwardingRuleResult> Invoke(GetForwardingRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetForwardingRuleResult>("azure-native:network/v20220701:getForwardingRule", args ?? new GetForwardingRuleInvokeArgs(), options.WithDefaults());
     }
 
 

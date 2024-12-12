@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:servicefabricmesh:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.
+        /// Azure REST API version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:servicefabricmesh:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 

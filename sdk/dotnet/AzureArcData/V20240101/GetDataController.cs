@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20240101
         /// </summary>
         public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata/v20240101:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a dataController resource
+        /// </summary>
+        public static Output<GetDataControllerResult> Invoke(GetDataControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataControllerResult>("azure-native:azurearcdata/v20240101:getDataController", args ?? new GetDataControllerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20231101Preview
         /// </summary>
         public static Output<GetmanagedMaintenanceWindowStatusResult> Invoke(GetmanagedMaintenanceWindowStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetmanagedMaintenanceWindowStatusResult>("azure-native:servicefabric/v20231101preview:getmanagedMaintenanceWindowStatus", args ?? new GetmanagedMaintenanceWindowStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Action to get Maintenance Window Status of the Service Fabric Managed Clusters.
+        /// </summary>
+        public static Output<GetmanagedMaintenanceWindowStatusResult> Invoke(GetmanagedMaintenanceWindowStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetmanagedMaintenanceWindowStatusResult>("azure-native:servicefabric/v20231101preview:getmanagedMaintenanceWindowStatus", args ?? new GetmanagedMaintenanceWindowStatusInvokeArgs(), options.WithDefaults());
     }
 
 

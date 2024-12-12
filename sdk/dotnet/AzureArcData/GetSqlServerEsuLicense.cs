@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public static Output<GetSqlServerEsuLicenseResult> Invoke(GetSqlServerEsuLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerEsuLicenseResult>("azure-native:azurearcdata:getSqlServerEsuLicense", args ?? new GetSqlServerEsuLicenseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a SQL Server ESU license resource
+        /// Azure REST API version: 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetSqlServerEsuLicenseResult> Invoke(GetSqlServerEsuLicenseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerEsuLicenseResult>("azure-native:azurearcdata:getSqlServerEsuLicense", args ?? new GetSqlServerEsuLicenseInvokeArgs(), options.WithDefaults());
     }
 
 

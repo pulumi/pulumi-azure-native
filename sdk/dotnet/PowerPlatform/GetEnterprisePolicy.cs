@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         public static Output<GetEnterprisePolicyResult> Invoke(GetEnterprisePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterprisePolicyResult>("azure-native:powerplatform:getEnterprisePolicy", args ?? new GetEnterprisePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about an EnterprisePolicy
+        /// Azure REST API version: 2020-10-30-preview.
+        /// </summary>
+        public static Output<GetEnterprisePolicyResult> Invoke(GetEnterprisePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnterprisePolicyResult>("azure-native:powerplatform:getEnterprisePolicy", args ?? new GetEnterprisePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

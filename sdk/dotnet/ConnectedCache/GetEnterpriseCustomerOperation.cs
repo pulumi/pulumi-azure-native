@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// </summary>
         public static Output<GetEnterpriseCustomerOperationResult> Invoke(GetEnterpriseCustomerOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseCustomerOperationResult>("azure-native:connectedcache:getEnterpriseCustomerOperation", args ?? new GetEnterpriseCustomerOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the properties of a Enterprise customer
+        /// Azure REST API version: 2023-05-01-preview.
+        /// </summary>
+        public static Output<GetEnterpriseCustomerOperationResult> Invoke(GetEnterpriseCustomerOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseCustomerOperationResult>("azure-native:connectedcache:getEnterpriseCustomerOperation", args ?? new GetEnterpriseCustomerOperationInvokeArgs(), options.WithDefaults());
     }
 
 

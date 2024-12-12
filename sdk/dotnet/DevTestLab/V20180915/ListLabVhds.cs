@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Output<ListLabVhdsResult> Invoke(ListLabVhdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLabVhdsResult>("azure-native:devtestlab/v20180915:listLabVhds", args ?? new ListLabVhdsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List disk images available for custom image creation.
+        /// </summary>
+        public static Output<ListLabVhdsResult> Invoke(ListLabVhdsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListLabVhdsResult>("azure-native:devtestlab/v20180915:listLabVhds", args ?? new ListLabVhdsInvokeArgs(), options.WithDefaults());
     }
 
 

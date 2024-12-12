@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Databricks.V20230201
         /// </summary>
         public static Output<GetVNetPeeringResult> Invoke(GetVNetPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVNetPeeringResult>("azure-native:databricks/v20230201:getVNetPeering", args ?? new GetVNetPeeringInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the workspace vNet Peering.
+        /// </summary>
+        public static Output<GetVNetPeeringResult> Invoke(GetVNetPeeringInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVNetPeeringResult>("azure-native:databricks/v20230201:getVNetPeering", args ?? new GetVNetPeeringInvokeArgs(), options.WithDefaults());
     }
 
 

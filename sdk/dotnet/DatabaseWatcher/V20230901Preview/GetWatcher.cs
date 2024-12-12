@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20230901Preview
         /// </summary>
         public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:databasewatcher/v20230901preview:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Watcher
+        /// </summary>
+        public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:databasewatcher/v20230901preview:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
     }
 
 

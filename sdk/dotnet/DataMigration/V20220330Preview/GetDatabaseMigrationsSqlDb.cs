@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
         /// </summary>
         public static Output<GetDatabaseMigrationsSqlDbResult> Invoke(GetDatabaseMigrationsSqlDbInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationsSqlDbResult>("azure-native:datamigration/v20220330preview:getDatabaseMigrationsSqlDb", args ?? new GetDatabaseMigrationsSqlDbInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the Database Migration resource.
+        /// </summary>
+        public static Output<GetDatabaseMigrationsSqlDbResult> Invoke(GetDatabaseMigrationsSqlDbInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationsSqlDbResult>("azure-native:datamigration/v20220330preview:getDatabaseMigrationsSqlDb", args ?? new GetDatabaseMigrationsSqlDbInvokeArgs(), options.WithDefaults());
     }
 
 

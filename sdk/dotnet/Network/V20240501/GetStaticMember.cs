@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240501
         /// </summary>
         public static Output<GetStaticMemberResult> Invoke(GetStaticMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticMemberResult>("azure-native:network/v20240501:getStaticMember", args ?? new GetStaticMemberInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified static member.
+        /// </summary>
+        public static Output<GetStaticMemberResult> Invoke(GetStaticMemberInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticMemberResult>("azure-native:network/v20240501:getStaticMember", args ?? new GetStaticMemberInvokeArgs(), options.WithDefaults());
     }
 
 

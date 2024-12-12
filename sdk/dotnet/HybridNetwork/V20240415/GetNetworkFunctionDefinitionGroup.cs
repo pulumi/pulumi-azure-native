@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20240415
         /// </summary>
         public static Output<GetNetworkFunctionDefinitionGroupResult> Invoke(GetNetworkFunctionDefinitionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionDefinitionGroupResult>("azure-native:hybridnetwork/v20240415:getNetworkFunctionDefinitionGroup", args ?? new GetNetworkFunctionDefinitionGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified networkFunctionDefinition group.
+        /// </summary>
+        public static Output<GetNetworkFunctionDefinitionGroupResult> Invoke(GetNetworkFunctionDefinitionGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionDefinitionGroupResult>("azure-native:hybridnetwork/v20240415:getNetworkFunctionDefinitionGroup", args ?? new GetNetworkFunctionDefinitionGroupInvokeArgs(), options.WithDefaults());
     }
 
 

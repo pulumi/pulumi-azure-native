@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20240101
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:servicebus/v20240101:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a description for the specified topic.
+        /// </summary>
+        public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:servicebus/v20240101:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
     }
 
 

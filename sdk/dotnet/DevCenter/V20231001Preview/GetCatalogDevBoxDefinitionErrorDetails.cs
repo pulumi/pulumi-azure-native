@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20231001Preview
         /// </summary>
         public static Output<GetCatalogDevBoxDefinitionErrorDetailsResult> Invoke(GetCatalogDevBoxDefinitionErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogDevBoxDefinitionErrorDetailsResult>("azure-native:devcenter/v20231001preview:getCatalogDevBoxDefinitionErrorDetails", args ?? new GetCatalogDevBoxDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets Catalog Devbox Definition error details
+        /// </summary>
+        public static Output<GetCatalogDevBoxDefinitionErrorDetailsResult> Invoke(GetCatalogDevBoxDefinitionErrorDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCatalogDevBoxDefinitionErrorDetailsResult>("azure-native:devcenter/v20231001preview:getCatalogDevBoxDefinitionErrorDetails", args ?? new GetCatalogDevBoxDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

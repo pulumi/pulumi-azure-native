@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
         /// </summary>
         public static Output<GetApiGatewayConfigConnectionResult> Invoke(GetApiGatewayConfigConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayConfigConnectionResult>("azure-native:apimanagement/v20230901preview:getApiGatewayConfigConnection", args ?? new GetApiGatewayConfigConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an API Management gateway config connection resource description.
+        /// </summary>
+        public static Output<GetApiGatewayConfigConnectionResult> Invoke(GetApiGatewayConfigConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayConfigConnectionResult>("azure-native:apimanagement/v20230901preview:getApiGatewayConfigConnection", args ?? new GetApiGatewayConfigConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230901Preview
         /// </summary>
         public static Output<GetMarketplaceGalleryImageResult> Invoke(GetMarketplaceGalleryImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceGalleryImageResult>("azure-native:azurestackhci/v20230901preview:getMarketplaceGalleryImage", args ?? new GetMarketplaceGalleryImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a marketplace gallery image
+        /// </summary>
+        public static Output<GetMarketplaceGalleryImageResult> Invoke(GetMarketplaceGalleryImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceGalleryImageResult>("azure-native:azurestackhci/v20230901preview:getMarketplaceGalleryImage", args ?? new GetMarketplaceGalleryImageInvokeArgs(), options.WithDefaults());
     }
 
 

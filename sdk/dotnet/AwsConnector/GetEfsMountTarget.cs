@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetEfsMountTargetResult> Invoke(GetEfsMountTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEfsMountTargetResult>("azure-native:awsconnector:getEfsMountTarget", args ?? new GetEfsMountTargetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EfsMountTarget
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetEfsMountTargetResult> Invoke(GetEfsMountTargetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEfsMountTargetResult>("azure-native:awsconnector:getEfsMountTarget", args ?? new GetEfsMountTargetInvokeArgs(), options.WithDefaults());
     }
 
 

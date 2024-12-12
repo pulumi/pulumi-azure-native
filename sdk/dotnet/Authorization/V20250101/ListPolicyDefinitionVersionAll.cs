@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20250101
         /// </summary>
         public static Output<ListPolicyDefinitionVersionAllResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPolicyDefinitionVersionAllResult>("azure-native:authorization/v20250101:listPolicyDefinitionVersionAll", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// This operation lists all the policy definition versions for all policy definitions within a subscription.
+        /// </summary>
+        public static Output<ListPolicyDefinitionVersionAllResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListPolicyDefinitionVersionAllResult>("azure-native:authorization/v20250101:listPolicyDefinitionVersionAll", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

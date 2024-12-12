@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Orbital.V20240301Preview
         /// </summary>
         public static Output<ListEdgeSiteL2ConnectionsResult> Invoke(ListEdgeSiteL2ConnectionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEdgeSiteL2ConnectionsResult>("azure-native:orbital/v20240301preview:listEdgeSiteL2Connections", args ?? new ListEdgeSiteL2ConnectionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a list of L2 Connections attached to an edge site.
+        /// </summary>
+        public static Output<ListEdgeSiteL2ConnectionsResult> Invoke(ListEdgeSiteL2ConnectionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListEdgeSiteL2ConnectionsResult>("azure-native:orbital/v20240301preview:listEdgeSiteL2Connections", args ?? new ListEdgeSiteL2ConnectionsInvokeArgs(), options.WithDefaults());
     }
 
 

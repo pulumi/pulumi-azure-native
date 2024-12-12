@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240801Preview
         /// </summary>
         public static Output<GetDevCenterResult> Invoke(GetDevCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevCenterResult>("azure-native:devcenter/v20240801preview:getDevCenter", args ?? new GetDevCenterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a devcenter.
+        /// </summary>
+        public static Output<GetDevCenterResult> Invoke(GetDevCenterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevCenterResult>("azure-native:devcenter/v20240801preview:getDevCenter", args ?? new GetDevCenterInvokeArgs(), options.WithDefaults());
     }
 
 

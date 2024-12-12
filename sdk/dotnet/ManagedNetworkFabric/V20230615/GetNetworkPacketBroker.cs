@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetNetworkPacketBrokerResult> Invoke(GetNetworkPacketBrokerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkPacketBrokerResult>("azure-native:managednetworkfabric/v20230615:getNetworkPacketBroker", args ?? new GetNetworkPacketBrokerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves details of this Network Packet Broker.
+        /// </summary>
+        public static Output<GetNetworkPacketBrokerResult> Invoke(GetNetworkPacketBrokerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkPacketBrokerResult>("azure-native:managednetworkfabric/v20230615:getNetworkPacketBroker", args ?? new GetNetworkPacketBrokerInvokeArgs(), options.WithDefaults());
     }
 
 

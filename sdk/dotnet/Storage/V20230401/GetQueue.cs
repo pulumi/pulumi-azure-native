@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20230401
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:storage/v20230401:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the queue with the specified queue name, under the specified account if it exists.
+        /// </summary>
+        public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:storage/v20230401:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
 
 

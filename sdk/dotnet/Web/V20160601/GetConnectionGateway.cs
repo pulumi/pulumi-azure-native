@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20160601
         /// </summary>
         public static Output<GetConnectionGatewayResult> Invoke(GetConnectionGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific gateway under a subscription and in a specific resource group
+        /// </summary>
+        public static Output<GetConnectionGatewayResult> Invoke(GetConnectionGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionGatewayResult>("azure-native:web/v20160601:getConnectionGateway", args ?? new GetConnectionGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

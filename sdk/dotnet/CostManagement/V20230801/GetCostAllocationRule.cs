@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CostManagement.V20230801
         /// </summary>
         public static Output<GetCostAllocationRuleResult> Invoke(GetCostAllocationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCostAllocationRuleResult>("azure-native:costmanagement/v20230801:getCostAllocationRule", args ?? new GetCostAllocationRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a cost allocation rule by rule name and billing account or enterprise enrollment.
+        /// </summary>
+        public static Output<GetCostAllocationRuleResult> Invoke(GetCostAllocationRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCostAllocationRuleResult>("azure-native:costmanagement/v20230801:getCostAllocationRule", args ?? new GetCostAllocationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

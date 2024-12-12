@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Search.V20231101
         /// </summary>
         public static Output<ListAdminKeyResult> Invoke(ListAdminKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAdminKeyResult>("azure-native:search/v20231101:listAdminKey", args ?? new ListAdminKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the primary and secondary admin API keys for the specified search service.
+        /// </summary>
+        public static Output<ListAdminKeyResult> Invoke(ListAdminKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAdminKeyResult>("azure-native:search/v20231101:listAdminKey", args ?? new ListAdminKeyInvokeArgs(), options.WithDefaults());
     }
 
 

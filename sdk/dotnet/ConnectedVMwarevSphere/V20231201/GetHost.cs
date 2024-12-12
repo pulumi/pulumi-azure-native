@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20231201
         /// </summary>
         public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostResult>("azure-native:connectedvmwarevsphere/v20231201:getHost", args ?? new GetHostInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements host GET method.
+        /// </summary>
+        public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostResult>("azure-native:connectedvmwarevsphere/v20231201:getHost", args ?? new GetHostInvokeArgs(), options.WithDefaults());
     }
 
 

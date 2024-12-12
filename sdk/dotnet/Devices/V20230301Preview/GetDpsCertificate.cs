@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Devices.V20230301Preview
         /// </summary>
         public static Output<GetDpsCertificateResult> Invoke(GetDpsCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsCertificateResult>("azure-native:devices/v20230301preview:getDpsCertificate", args ?? new GetDpsCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the certificate from the provisioning service.
+        /// </summary>
+        public static Output<GetDpsCertificateResult> Invoke(GetDpsCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDpsCertificateResult>("azure-native:devices/v20230301preview:getDpsCertificate", args ?? new GetDpsCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// </summary>
         public static Output<GetRoutePolicyResult> Invoke(GetRoutePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutePolicyResult>("azure-native:managednetworkfabric/v20230201preview:getRoutePolicy", args ?? new GetRoutePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements Route Policy GET method.
+        /// </summary>
+        public static Output<GetRoutePolicyResult> Invoke(GetRoutePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoutePolicyResult>("azure-native:managednetworkfabric/v20230201preview:getRoutePolicy", args ?? new GetRoutePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

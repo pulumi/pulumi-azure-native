@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20220501Preview
         /// </summary>
         public static Output<GetWorkloadDeploymentSecretConfigurationsResult> Invoke(GetWorkloadDeploymentSecretConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadDeploymentSecretConfigurationsResult>("azure-native:migrate/v20220501preview:getWorkloadDeploymentSecretConfigurations", args ?? new GetWorkloadDeploymentSecretConfigurationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the secrets of the workload deployment.
+        /// </summary>
+        public static Output<GetWorkloadDeploymentSecretConfigurationsResult> Invoke(GetWorkloadDeploymentSecretConfigurationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadDeploymentSecretConfigurationsResult>("azure-native:migrate/v20220501preview:getWorkloadDeploymentSecretConfigurations", args ?? new GetWorkloadDeploymentSecretConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

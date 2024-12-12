@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         public static Output<GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult> Invoke(GetDatabaseMigrationsMongoToCosmosDbvCoreMongoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult>("azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbvCoreMongo", args ?? new GetDatabaseMigrationsMongoToCosmosDbvCoreMongoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Database Migration resource.
+        /// Azure REST API version: 2023-07-15-preview.
+        /// </summary>
+        public static Output<GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult> Invoke(GetDatabaseMigrationsMongoToCosmosDbvCoreMongoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult>("azure-native:datamigration:getDatabaseMigrationsMongoToCosmosDbvCoreMongo", args ?? new GetDatabaseMigrationsMongoToCosmosDbvCoreMongoInvokeArgs(), options.WithDefaults());
     }
 
 

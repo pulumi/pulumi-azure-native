@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20230501
         /// </summary>
         public static Output<GetRuleSetResult> Invoke(GetRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleSetResult>("azure-native:cdn/v20230501:getRuleSet", args ?? new GetRuleSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.
+        /// </summary>
+        public static Output<GetRuleSetResult> Invoke(GetRuleSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuleSetResult>("azure-native:cdn/v20230501:getRuleSet", args ?? new GetRuleSetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230801Preview
         /// </summary>
         public static Output<GetNspProfileResult> Invoke(GetNspProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspProfileResult>("azure-native:network/v20230801preview:getNspProfile", args ?? new GetNspProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified NSP profile.
+        /// </summary>
+        public static Output<GetNspProfileResult> Invoke(GetNspProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNspProfileResult>("azure-native:network/v20230801preview:getNspProfile", args ?? new GetNspProfileInvokeArgs(), options.WithDefaults());
     }
 
 

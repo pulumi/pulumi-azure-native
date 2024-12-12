@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20180202
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:migrate/v20180202:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the project with the specified name.
+        /// </summary>
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:migrate/v20180202:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

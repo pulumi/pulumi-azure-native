@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.VoiceServices.V20230403
         /// </summary>
         public static Output<GetCommunicationsGatewayResult> Invoke(GetCommunicationsGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommunicationsGatewayResult>("azure-native:voiceservices/v20230403:getCommunicationsGateway", args ?? new GetCommunicationsGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CommunicationsGateway
+        /// </summary>
+        public static Output<GetCommunicationsGatewayResult> Invoke(GetCommunicationsGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCommunicationsGatewayResult>("azure-native:voiceservices/v20230403:getCommunicationsGateway", args ?? new GetCommunicationsGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

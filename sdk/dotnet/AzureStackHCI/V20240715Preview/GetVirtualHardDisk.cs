@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240715Preview
         /// </summary>
         public static Output<GetVirtualHardDiskResult> Invoke(GetVirtualHardDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHardDiskResult>("azure-native:azurestackhci/v20240715preview:getVirtualHardDisk", args ?? new GetVirtualHardDiskInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a virtual hard disk
+        /// </summary>
+        public static Output<GetVirtualHardDiskResult> Invoke(GetVirtualHardDiskInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHardDiskResult>("azure-native:azurestackhci/v20240715preview:getVirtualHardDisk", args ?? new GetVirtualHardDiskInvokeArgs(), options.WithDefaults());
     }
 
 

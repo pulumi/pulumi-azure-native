@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Communication.V20230401
         /// </summary>
         public static Output<GetCommunicationServiceResult> Invoke(GetCommunicationServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommunicationServiceResult>("azure-native:communication/v20230401:getCommunicationService", args ?? new GetCommunicationServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the CommunicationService and its properties.
+        /// </summary>
+        public static Output<GetCommunicationServiceResult> Invoke(GetCommunicationServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCommunicationServiceResult>("azure-native:communication/v20230401:getCommunicationService", args ?? new GetCommunicationServiceInvokeArgs(), options.WithDefaults());
     }
 
 

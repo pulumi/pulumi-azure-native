@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetRoute53ResourceRecordSetResult> Invoke(GetRoute53ResourceRecordSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoute53ResourceRecordSetResult>("azure-native:awsconnector/v20241201:getRoute53ResourceRecordSet", args ?? new GetRoute53ResourceRecordSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Route53ResourceRecordSet
+        /// </summary>
+        public static Output<GetRoute53ResourceRecordSetResult> Invoke(GetRoute53ResourceRecordSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoute53ResourceRecordSetResult>("azure-native:awsconnector/v20241201:getRoute53ResourceRecordSet", args ?? new GetRoute53ResourceRecordSetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20231101
         /// </summary>
         public static Output<GetVpnLinkConnectionIkeSasResult> Invoke(GetVpnLinkConnectionIkeSasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnLinkConnectionIkeSasResult>("azure-native:network/v20231101:getVpnLinkConnectionIkeSas", args ?? new GetVpnLinkConnectionIkeSasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists IKE Security Associations for Vpn Site Link Connection in the specified resource group.
+        /// </summary>
+        public static Output<GetVpnLinkConnectionIkeSasResult> Invoke(GetVpnLinkConnectionIkeSasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpnLinkConnectionIkeSasResult>("azure-native:network/v20231101:getVpnLinkConnectionIkeSas", args ?? new GetVpnLinkConnectionIkeSasInvokeArgs(), options.WithDefaults());
     }
 
 

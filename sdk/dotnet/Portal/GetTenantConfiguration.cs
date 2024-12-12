@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Portal
         /// </summary>
         public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantConfigurationResult>("azure-native:portal:getTenantConfiguration", args ?? new GetTenantConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the tenant configuration.
+        /// Azure REST API version: 2020-09-01-preview.
+        /// 
+        /// Other available API versions: 2022-12-01-preview.
+        /// </summary>
+        public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTenantConfigurationResult>("azure-native:portal:getTenantConfiguration", args ?? new GetTenantConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

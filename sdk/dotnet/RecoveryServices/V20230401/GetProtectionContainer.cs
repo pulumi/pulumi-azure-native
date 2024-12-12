@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401
         /// </summary>
         public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure-native:recoveryservices/v20230401:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details of the specific container registered to your Recovery Services Vault.
+        /// </summary>
+        public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure-native:recoveryservices/v20230401:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AzureLargeInstance.V20240801Preview
         /// </summary>
         public static Output<GetAzureLargeInstanceResult> Invoke(GetAzureLargeInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureLargeInstanceResult>("azure-native:azurelargeinstance/v20240801preview:getAzureLargeInstance", args ?? new GetAzureLargeInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an Azure Large Instance for the specified subscription, resource group,
+        /// and instance name.
+        /// </summary>
+        public static Output<GetAzureLargeInstanceResult> Invoke(GetAzureLargeInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureLargeInstanceResult>("azure-native:azurelargeinstance/v20240801preview:getAzureLargeInstance", args ?? new GetAzureLargeInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

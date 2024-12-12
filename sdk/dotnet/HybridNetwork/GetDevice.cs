@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:hybridnetwork:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified device.
+        /// Azure REST API version: 2022-01-01-preview.
+        /// </summary>
+        public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:hybridnetwork:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
     }
 
 

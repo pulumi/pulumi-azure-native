@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Dashboard.V20210901Preview
         /// </summary>
         public static Output<GetGrafanaResult> Invoke(GetGrafanaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGrafanaResult>("azure-native:dashboard/v20210901preview:getGrafana", args ?? new GetGrafanaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The grafana resource type.
+        /// </summary>
+        public static Output<GetGrafanaResult> Invoke(GetGrafanaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGrafanaResult>("azure-native:dashboard/v20210901preview:getGrafana", args ?? new GetGrafanaInvokeArgs(), options.WithDefaults());
     }
 
 

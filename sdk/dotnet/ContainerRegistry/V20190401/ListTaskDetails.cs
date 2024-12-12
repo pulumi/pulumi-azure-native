@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401
         /// </summary>
         public static Output<ListTaskDetailsResult> Invoke(ListTaskDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTaskDetailsResult>("azure-native:containerregistry/v20190401:listTaskDetails", args ?? new ListTaskDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a task with extended information that includes all secrets.
+        /// </summary>
+        public static Output<ListTaskDetailsResult> Invoke(ListTaskDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListTaskDetailsResult>("azure-native:containerregistry/v20190401:listTaskDetails", args ?? new ListTaskDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

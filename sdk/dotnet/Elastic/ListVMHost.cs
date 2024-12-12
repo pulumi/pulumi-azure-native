@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Elastic
         /// </summary>
         public static Output<ListVMHostResult> Invoke(ListVMHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVMHostResult>("azure-native:elastic:listVMHost", args ?? new ListVMHostInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response of a list operation.
+        /// Azure REST API version: 2023-06-01.
+        /// 
+        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// </summary>
+        public static Output<ListVMHostResult> Invoke(ListVMHostInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListVMHostResult>("azure-native:elastic:listVMHost", args ?? new ListVMHostInvokeArgs(), options.WithDefaults());
     }
 
 

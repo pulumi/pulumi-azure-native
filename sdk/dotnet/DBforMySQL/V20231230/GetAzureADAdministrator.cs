@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20231230
         /// </summary>
         public static Output<GetAzureADAdministratorResult> Invoke(GetAzureADAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureADAdministratorResult>("azure-native:dbformysql/v20231230:getAzureADAdministrator", args ?? new GetAzureADAdministratorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about an azure ad administrator.
+        /// </summary>
+        public static Output<GetAzureADAdministratorResult> Invoke(GetAzureADAdministratorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureADAdministratorResult>("azure-native:dbformysql/v20231230:getAzureADAdministrator", args ?? new GetAzureADAdministratorInvokeArgs(), options.WithDefaults());
     }
 
 

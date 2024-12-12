@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.V20240303
         /// </summary>
         public static Output<GetGalleryInVMAccessControlProfileResult> Invoke(GetGalleryInVMAccessControlProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryInVMAccessControlProfileResult>("azure-native:compute/v20240303:getGalleryInVMAccessControlProfile", args ?? new GetGalleryInVMAccessControlProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about a gallery inVMAccessControlProfile.
+        /// </summary>
+        public static Output<GetGalleryInVMAccessControlProfileResult> Invoke(GetGalleryInVMAccessControlProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryInVMAccessControlProfileResult>("azure-native:compute/v20240303:getGalleryInVMAccessControlProfile", args ?? new GetGalleryInVMAccessControlProfileInvokeArgs(), options.WithDefaults());
     }
 
 

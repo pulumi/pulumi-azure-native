@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
         /// </summary>
         public static Output<ListCatalogDeviceInsightsResult> Invoke(ListCatalogDeviceInsightsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeviceInsightsResult>("azure-native:azuresphere/v20220901preview:listCatalogDeviceInsights", args ?? new ListCatalogDeviceInsightsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists device insights for catalog.
+        /// </summary>
+        public static Output<ListCatalogDeviceInsightsResult> Invoke(ListCatalogDeviceInsightsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeviceInsightsResult>("azure-native:azuresphere/v20220901preview:listCatalogDeviceInsights", args ?? new ListCatalogDeviceInsightsInvokeArgs(), options.WithDefaults());
     }
 
 

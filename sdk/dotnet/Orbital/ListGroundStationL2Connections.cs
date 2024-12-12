@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public static Output<ListGroundStationL2ConnectionsResult> Invoke(ListGroundStationL2ConnectionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGroundStationL2ConnectionsResult>("azure-native:orbital:listGroundStationL2Connections", args ?? new ListGroundStationL2ConnectionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a list of L2 Connections attached to an ground station.
+        /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01.
+        /// </summary>
+        public static Output<ListGroundStationL2ConnectionsResult> Invoke(ListGroundStationL2ConnectionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGroundStationL2ConnectionsResult>("azure-native:orbital:listGroundStationL2Connections", args ?? new ListGroundStationL2ConnectionsInvokeArgs(), options.WithDefaults());
     }
 
 

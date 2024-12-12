@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ScVmm.V20230401Preview
         /// </summary>
         public static Output<GetHybridIdentityMetadataResult> Invoke(GetHybridIdentityMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadataResult>("azure-native:scvmm/v20230401preview:getHybridIdentityMetadata", args ?? new GetHybridIdentityMetadataInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements HybridIdentityMetadata GET method.
+        /// </summary>
+        public static Output<GetHybridIdentityMetadataResult> Invoke(GetHybridIdentityMetadataInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHybridIdentityMetadataResult>("azure-native:scvmm/v20230401preview:getHybridIdentityMetadata", args ?? new GetHybridIdentityMetadataInvokeArgs(), options.WithDefaults());
     }
 
 

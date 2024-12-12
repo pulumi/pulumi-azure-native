@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public static Output<GetConnectionRaiPolicyResult> Invoke(GetConnectionRaiPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiPolicyResult>("azure-native:machinelearningservices:getConnectionRaiPolicy", args ?? new GetConnectionRaiPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Azure OpenAI Content Filters resource.
+        /// Azure REST API version: 2024-04-01-preview.
+        /// 
+        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetConnectionRaiPolicyResult> Invoke(GetConnectionRaiPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiPolicyResult>("azure-native:machinelearningservices:getConnectionRaiPolicy", args ?? new GetConnectionRaiPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

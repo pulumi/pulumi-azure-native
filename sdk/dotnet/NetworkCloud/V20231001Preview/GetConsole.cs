@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20231001Preview
         /// </summary>
         public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:networkcloud/v20231001preview:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided virtual machine console.
+        /// </summary>
+        public static Output<GetConsoleResult> Invoke(GetConsoleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConsoleResult>("azure-native:networkcloud/v20231001preview:getConsole", args ?? new GetConsoleInvokeArgs(), options.WithDefaults());
     }
 
 

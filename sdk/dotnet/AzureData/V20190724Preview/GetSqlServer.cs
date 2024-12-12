@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureData.V20190724Preview
         /// </summary>
         public static Output<GetSqlServerResult> Invoke(GetSqlServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerResult>("azure-native:azuredata/v20190724preview:getSqlServer", args ?? new GetSqlServerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a SQL Server.
+        /// </summary>
+        public static Output<GetSqlServerResult> Invoke(GetSqlServerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerResult>("azure-native:azuredata/v20190724preview:getSqlServer", args ?? new GetSqlServerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         public static Output<GetRaiBlocklistResult> Invoke(GetRaiBlocklistInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiBlocklistResult>("azure-native:cognitiveservices:getRaiBlocklist", args ?? new GetRaiBlocklistInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified custom blocklist associated with the Azure OpenAI account.
+        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// </summary>
+        public static Output<GetRaiBlocklistResult> Invoke(GetRaiBlocklistInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRaiBlocklistResult>("azure-native:cognitiveservices:getRaiBlocklist", args ?? new GetRaiBlocklistInvokeArgs(), options.WithDefaults());
     }
 
 

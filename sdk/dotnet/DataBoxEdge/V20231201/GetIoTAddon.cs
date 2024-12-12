@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
         /// </summary>
         public static Output<GetIoTAddonResult> Invoke(GetIoTAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge/v20231201:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific addon by name.
+        /// </summary>
+        public static Output<GetIoTAddonResult> Invoke(GetIoTAddonInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge/v20231201:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithDefaults());
     }
 
 

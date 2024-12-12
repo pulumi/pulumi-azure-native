@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230701Preview
         /// </summary>
         public static Output<GetActivityCustomEntityQueryResult> Invoke(GetActivityCustomEntityQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActivityCustomEntityQueryResult>("azure-native:securityinsights/v20230701preview:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an entity query.
+        /// </summary>
+        public static Output<GetActivityCustomEntityQueryResult> Invoke(GetActivityCustomEntityQueryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActivityCustomEntityQueryResult>("azure-native:securityinsights/v20230701preview:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryInvokeArgs(), options.WithDefaults());
     }
 
 

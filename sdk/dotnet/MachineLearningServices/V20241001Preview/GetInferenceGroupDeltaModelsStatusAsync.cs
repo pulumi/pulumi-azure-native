@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview
         /// </summary>
         public static Output<GetInferenceGroupDeltaModelsStatusAsyncResult> Invoke(GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupDeltaModelsStatusAsyncResult>("azure-native:machinelearningservices/v20241001preview:getInferenceGroupDeltaModelsStatusAsync", args ?? new GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Contract returning to user the delta models.
+        /// </summary>
+        public static Output<GetInferenceGroupDeltaModelsStatusAsyncResult> Invoke(GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupDeltaModelsStatusAsyncResult>("azure-native:machinelearningservices/v20241001preview:getInferenceGroupDeltaModelsStatusAsync", args ?? new GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.LabServices.V20230607
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices/v20230607:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the properties of a lab Schedule.
+        /// </summary>
+        public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices/v20230607:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HealthcareApis.V20221001Preview
         /// </summary>
         public static Output<GetAnalyticsConnectorResult> Invoke(GetAnalyticsConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnalyticsConnectorResult>("azure-native:healthcareapis/v20221001preview:getAnalyticsConnector", args ?? new GetAnalyticsConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified Analytics Connector.
+        /// </summary>
+        public static Output<GetAnalyticsConnectorResult> Invoke(GetAnalyticsConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnalyticsConnectorResult>("azure-native:healthcareapis/v20221001preview:getAnalyticsConnector", args ?? new GetAnalyticsConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

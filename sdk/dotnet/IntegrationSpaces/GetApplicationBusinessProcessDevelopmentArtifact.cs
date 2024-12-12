@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// </summary>
         public static Output<GetApplicationBusinessProcessDevelopmentArtifactResult> Invoke(GetApplicationBusinessProcessDevelopmentArtifactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationBusinessProcessDevelopmentArtifactResult>("azure-native:integrationspaces:getApplicationBusinessProcessDevelopmentArtifact", args ?? new GetApplicationBusinessProcessDevelopmentArtifactInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The get business process development artifact action.
+        /// Azure REST API version: 2023-11-14-preview.
+        /// </summary>
+        public static Output<GetApplicationBusinessProcessDevelopmentArtifactResult> Invoke(GetApplicationBusinessProcessDevelopmentArtifactInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationBusinessProcessDevelopmentArtifactResult>("azure-native:integrationspaces:getApplicationBusinessProcessDevelopmentArtifact", args ?? new GetApplicationBusinessProcessDevelopmentArtifactInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.PowerBIDedicated
         /// </summary>
         public static Output<GetCapacityDetailsResult> Invoke(GetCapacityDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityDetailsResult>("azure-native:powerbidedicated:getCapacityDetails", args ?? new GetCapacityDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details about the specified dedicated capacity.
+        /// Azure REST API version: 2021-01-01.
+        /// </summary>
+        public static Output<GetCapacityDetailsResult> Invoke(GetCapacityDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapacityDetailsResult>("azure-native:powerbidedicated:getCapacityDetails", args ?? new GetCapacityDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

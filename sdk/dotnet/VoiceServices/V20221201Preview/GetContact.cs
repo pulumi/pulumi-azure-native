@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.VoiceServices.V20221201Preview
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:voiceservices/v20221201preview:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Contact
+        /// </summary>
+        public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:voiceservices/v20221201preview:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
     }
 
 

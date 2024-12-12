@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:mobilenetwork:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified packet capture session.
+        /// Azure REST API version: 2023-06-01.
+        /// 
+        /// Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        /// </summary>
+        public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:mobilenetwork:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
     }
 
 

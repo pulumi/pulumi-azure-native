@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview
 
         public static Output<GetConnectionRaiBlocklistItemResult> Invoke(GetConnectionRaiBlocklistItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiBlocklistItemResult>("azure-native:machinelearningservices/v20240701preview:getConnectionRaiBlocklistItem", args ?? new GetConnectionRaiBlocklistItemInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetConnectionRaiBlocklistItemResult> Invoke(GetConnectionRaiBlocklistItemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiBlocklistItemResult>("azure-native:machinelearningservices/v20240701preview:getConnectionRaiBlocklistItem", args ?? new GetConnectionRaiBlocklistItemInvokeArgs(), options.WithDefaults());
     }
 
 

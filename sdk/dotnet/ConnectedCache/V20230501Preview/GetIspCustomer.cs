@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedCache.V20230501Preview
         /// </summary>
         public static Output<GetIspCustomerResult> Invoke(GetIspCustomerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIspCustomerResult>("azure-native:connectedcache/v20230501preview:getIspCustomer", args ?? new GetIspCustomerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the ispCustomer resource information using this get call
+        /// </summary>
+        public static Output<GetIspCustomerResult> Invoke(GetIspCustomerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIspCustomerResult>("azure-native:connectedcache/v20230501preview:getIspCustomer", args ?? new GetIspCustomerInvokeArgs(), options.WithDefaults());
     }
 
 

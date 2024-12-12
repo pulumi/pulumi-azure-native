@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         /// </summary>
         public static Output<GetTestResultDownloadURLResult> Invoke(GetTestResultDownloadURLInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestResultDownloadURLResult>("azure-native:testbase/v20220401preview:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the download URL of the test result.
+        /// </summary>
+        public static Output<GetTestResultDownloadURLResult> Invoke(GetTestResultDownloadURLInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTestResultDownloadURLResult>("azure-native:testbase/v20220401preview:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLInvokeArgs(), options.WithDefaults());
     }
 
 

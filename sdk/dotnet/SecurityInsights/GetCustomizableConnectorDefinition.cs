@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<GetCustomizableConnectorDefinitionResult> Invoke(GetCustomizableConnectorDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomizableConnectorDefinitionResult>("azure-native:securityinsights:getCustomizableConnectorDefinition", args ?? new GetCustomizableConnectorDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector definition.
+        /// Azure REST API version: 2023-07-01-preview.
+        /// </summary>
+        public static Output<GetCustomizableConnectorDefinitionResult> Invoke(GetCustomizableConnectorDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomizableConnectorDefinitionResult>("azure-native:securityinsights:getCustomizableConnectorDefinition", args ?? new GetCustomizableConnectorDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

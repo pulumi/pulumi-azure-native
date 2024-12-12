@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetCloudFormationStackSetResult> Invoke(GetCloudFormationStackSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationStackSetResult>("azure-native:awsconnector:getCloudFormationStackSet", args ?? new GetCloudFormationStackSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CloudFormationStackSet
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetCloudFormationStackSetResult> Invoke(GetCloudFormationStackSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationStackSetResult>("azure-native:awsconnector:getCloudFormationStackSet", args ?? new GetCloudFormationStackSetInvokeArgs(), options.WithDefaults());
     }
 
 

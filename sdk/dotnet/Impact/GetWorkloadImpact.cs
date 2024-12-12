@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Impact
         /// </summary>
         public static Output<GetWorkloadImpactResult> Invoke(GetWorkloadImpactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadImpactResult>("azure-native:impact:getWorkloadImpact", args ?? new GetWorkloadImpactInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a WorkloadImpact
+        /// Azure REST API version: 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetWorkloadImpactResult> Invoke(GetWorkloadImpactInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadImpactResult>("azure-native:impact:getWorkloadImpact", args ?? new GetWorkloadImpactInvokeArgs(), options.WithDefaults());
     }
 
 

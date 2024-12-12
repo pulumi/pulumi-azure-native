@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HealthBot.V20230501
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:healthbot/v20230501:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a HealthBot.
+        /// </summary>
+        public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:healthbot/v20230501:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
     }
 
 

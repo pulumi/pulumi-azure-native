@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         /// </summary>
         public static Output<GetTestBaseAccountResult> Invoke(GetTestBaseAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountResult>("azure-native:testbase/v20220401preview:getTestBaseAccount", args ?? new GetTestBaseAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Test Base Account.
+        /// </summary>
+        public static Output<GetTestBaseAccountResult> Invoke(GetTestBaseAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountResult>("azure-native:testbase/v20220401preview:getTestBaseAccount", args ?? new GetTestBaseAccountInvokeArgs(), options.WithDefaults());
     }
 
 

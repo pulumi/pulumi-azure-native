@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Kubernetes.V20231101Preview
         /// </summary>
         public static Output<GetConnectedClusterResult> Invoke(GetConnectedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedClusterResult>("azure-native:kubernetes/v20231101preview:getConnectedCluster", args ?? new GetConnectedClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
+        /// </summary>
+        public static Output<GetConnectedClusterResult> Invoke(GetConnectedClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectedClusterResult>("azure-native:kubernetes/v20231101preview:getConnectedCluster", args ?? new GetConnectedClusterInvokeArgs(), options.WithDefaults());
     }
 
 

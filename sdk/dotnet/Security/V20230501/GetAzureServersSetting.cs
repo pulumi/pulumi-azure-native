@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20230501
         /// </summary>
         public static Output<GetAzureServersSettingResult> Invoke(GetAzureServersSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureServersSettingResult>("azure-native:security/v20230501:getAzureServersSetting", args ?? new GetAzureServersSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a server vulnerability assessments setting of the requested kind, that is set on the subscription
+        /// </summary>
+        public static Output<GetAzureServersSettingResult> Invoke(GetAzureServersSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureServersSettingResult>("azure-native:security/v20230501:getAzureServersSetting", args ?? new GetAzureServersSettingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AadIam
         /// </summary>
         public static Output<GetPrivateLinkForAzureAdResult> Invoke(GetPrivateLinkForAzureAdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkForAzureAdResult>("azure-native:aadiam:getPrivateLinkForAzureAd", args ?? new GetPrivateLinkForAzureAdInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a private link policy with a given name.
+        /// Azure REST API version: 2020-03-01.
+        /// </summary>
+        public static Output<GetPrivateLinkForAzureAdResult> Invoke(GetPrivateLinkForAzureAdInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkForAzureAdResult>("azure-native:aadiam:getPrivateLinkForAzureAd", args ?? new GetPrivateLinkForAzureAdInvokeArgs(), options.WithDefaults());
     }
 
 

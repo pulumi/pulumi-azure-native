@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Scom.V20230707Preview
         /// </summary>
         public static Output<GetManagedGatewayResult> Invoke(GetManagedGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedGatewayResult>("azure-native:scom/v20230707preview:getManagedGateway", args ?? new GetManagedGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the details of the gateway resource.
+        /// </summary>
+        public static Output<GetManagedGatewayResult> Invoke(GetManagedGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedGatewayResult>("azure-native:scom/v20230707preview:getManagedGateway", args ?? new GetManagedGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

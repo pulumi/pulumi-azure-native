@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerInstance.V20241101Preview
         /// </summary>
         public static Output<GetCGProfileResult> Invoke(GetCGProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCGProfileResult>("azure-native:containerinstance/v20241101preview:getCGProfile", args ?? new GetCGProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the properties of the specified container group profile.
+        /// </summary>
+        public static Output<GetCGProfileResult> Invoke(GetCGProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCGProfileResult>("azure-native:containerinstance/v20241101preview:getCGProfile", args ?? new GetCGProfileInvokeArgs(), options.WithDefaults());
     }
 
 

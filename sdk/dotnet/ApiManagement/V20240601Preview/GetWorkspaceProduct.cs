@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
         /// </summary>
         public static Output<GetWorkspaceProductResult> Invoke(GetWorkspaceProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceProductResult>("azure-native:apimanagement/v20240601preview:getWorkspaceProduct", args ?? new GetWorkspaceProductInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the product specified by its identifier.
+        /// </summary>
+        public static Output<GetWorkspaceProductResult> Invoke(GetWorkspaceProductInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceProductResult>("azure-native:apimanagement/v20240601preview:getWorkspaceProduct", args ?? new GetWorkspaceProductInvokeArgs(), options.WithDefaults());
     }
 
 

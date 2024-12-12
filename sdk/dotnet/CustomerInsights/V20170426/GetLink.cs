@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("azure-native:customerinsights/v20170426:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a link in the hub.
+        /// </summary>
+        public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("azure-native:customerinsights/v20170426:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
     }
 
 

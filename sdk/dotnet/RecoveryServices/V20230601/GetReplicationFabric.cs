@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230601
         /// </summary>
         public static Output<GetReplicationFabricResult> Invoke(GetReplicationFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationFabricResult>("azure-native:recoveryservices/v20230601:getReplicationFabric", args ?? new GetReplicationFabricInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of an Azure Site Recovery fabric.
+        /// </summary>
+        public static Output<GetReplicationFabricResult> Invoke(GetReplicationFabricInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationFabricResult>("azure-native:recoveryservices/v20230601:getReplicationFabric", args ?? new GetReplicationFabricInvokeArgs(), options.WithDefaults());
     }
 
 

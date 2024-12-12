@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20230901
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:operationalinsights/v20230901:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Log Analytics cluster instance.
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:operationalinsights/v20230901:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

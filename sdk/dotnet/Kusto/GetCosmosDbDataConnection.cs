@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public static Output<GetCosmosDbDataConnectionResult> Invoke(GetCosmosDbDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCosmosDbDataConnectionResult>("azure-native:kusto:getCosmosDbDataConnection", args ?? new GetCosmosDbDataConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a data connection.
+        /// Azure REST API version: 2022-12-29.
+        /// </summary>
+        public static Output<GetCosmosDbDataConnectionResult> Invoke(GetCosmosDbDataConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCosmosDbDataConnectionResult>("azure-native:kusto:getCosmosDbDataConnection", args ?? new GetCosmosDbDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

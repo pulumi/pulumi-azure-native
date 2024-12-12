@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
         /// </summary>
         public static Output<GetTagOperationLinkResult> Invoke(GetTagOperationLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagOperationLinkResult>("azure-native:apimanagement/v20240601preview:getTagOperationLink", args ?? new GetTagOperationLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the operation link for the tag.
+        /// </summary>
+        public static Output<GetTagOperationLinkResult> Invoke(GetTagOperationLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagOperationLinkResult>("azure-native:apimanagement/v20240601preview:getTagOperationLink", args ?? new GetTagOperationLinkInvokeArgs(), options.WithDefaults());
     }
 
 

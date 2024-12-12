@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Confluent.V20240213
         /// </summary>
         public static Output<ListAccessEnvironmentsResult> Invoke(ListAccessEnvironmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessEnvironmentsResult>("azure-native:confluent/v20240213:listAccessEnvironments", args ?? new ListAccessEnvironmentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Details of the environments returned on successful response
+        /// </summary>
+        public static Output<ListAccessEnvironmentsResult> Invoke(ListAccessEnvironmentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccessEnvironmentsResult>("azure-native:confluent/v20240213:listAccessEnvironments", args ?? new ListAccessEnvironmentsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SerialConsole.V20180501
         /// </summary>
         public static Output<GetSerialPortResult> Invoke(GetSerialPortInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the configured settings for a serial port
+        /// </summary>
+        public static Output<GetSerialPortResult> Invoke(GetSerialPortInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSerialPortResult>("azure-native:serialconsole/v20180501:getSerialPort", args ?? new GetSerialPortInvokeArgs(), options.WithDefaults());
     }
 
 

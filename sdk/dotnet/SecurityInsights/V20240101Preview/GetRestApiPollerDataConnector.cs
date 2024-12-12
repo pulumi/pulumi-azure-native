@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240101Preview
         /// </summary>
         public static Output<GetRestApiPollerDataConnectorResult> Invoke(GetRestApiPollerDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiPollerDataConnectorResult>("azure-native:securityinsights/v20240101preview:getRestApiPollerDataConnector", args ?? new GetRestApiPollerDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// </summary>
+        public static Output<GetRestApiPollerDataConnectorResult> Invoke(GetRestApiPollerDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRestApiPollerDataConnectorResult>("azure-native:securityinsights/v20240101preview:getRestApiPollerDataConnector", args ?? new GetRestApiPollerDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

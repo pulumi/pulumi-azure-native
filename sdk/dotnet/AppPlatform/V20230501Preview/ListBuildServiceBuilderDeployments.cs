@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
         /// </summary>
         public static Output<ListBuildServiceBuilderDeploymentsResult> Invoke(ListBuildServiceBuilderDeploymentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBuildServiceBuilderDeploymentsResult>("azure-native:appplatform/v20230501preview:listBuildServiceBuilderDeployments", args ?? new ListBuildServiceBuilderDeploymentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List deployments that are using the builder.
+        /// </summary>
+        public static Output<ListBuildServiceBuilderDeploymentsResult> Invoke(ListBuildServiceBuilderDeploymentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListBuildServiceBuilderDeploymentsResult>("azure-native:appplatform/v20230501preview:listBuildServiceBuilderDeployments", args ?? new ListBuildServiceBuilderDeploymentsInvokeArgs(), options.WithDefaults());
     }
 
 

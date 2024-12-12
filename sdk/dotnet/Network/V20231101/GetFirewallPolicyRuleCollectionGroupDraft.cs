@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20231101
         /// </summary>
         public static Output<GetFirewallPolicyRuleCollectionGroupDraftResult> Invoke(GetFirewallPolicyRuleCollectionGroupDraftInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyRuleCollectionGroupDraftResult>("azure-native:network/v20231101:getFirewallPolicyRuleCollectionGroupDraft", args ?? new GetFirewallPolicyRuleCollectionGroupDraftInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Rule Collection Group Draft.
+        /// </summary>
+        public static Output<GetFirewallPolicyRuleCollectionGroupDraftResult> Invoke(GetFirewallPolicyRuleCollectionGroupDraftInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallPolicyRuleCollectionGroupDraftResult>("azure-native:network/v20231101:getFirewallPolicyRuleCollectionGroupDraft", args ?? new GetFirewallPolicyRuleCollectionGroupDraftInvokeArgs(), options.WithDefaults());
     }
 
 

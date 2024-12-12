@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Output<GetRelationshipResult> Invoke(GetRelationshipInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRelationshipResult>("azure-native:customerinsights/v20170426:getRelationship", args ?? new GetRelationshipInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified relationship.
+        /// </summary>
+        public static Output<GetRelationshipResult> Invoke(GetRelationshipInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRelationshipResult>("azure-native:customerinsights/v20170426:getRelationship", args ?? new GetRelationshipInvokeArgs(), options.WithDefaults());
     }
 
 

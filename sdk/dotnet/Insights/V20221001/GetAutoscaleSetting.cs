@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20221001
         /// </summary>
         public static Output<GetAutoscaleSettingResult> Invoke(GetAutoscaleSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoscaleSettingResult>("azure-native:insights/v20221001:getAutoscaleSetting", args ?? new GetAutoscaleSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an autoscale setting
+        /// </summary>
+        public static Output<GetAutoscaleSettingResult> Invoke(GetAutoscaleSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutoscaleSettingResult>("azure-native:insights/v20221001:getAutoscaleSetting", args ?? new GetAutoscaleSettingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEcrImageDetailResult> Invoke(GetEcrImageDetailInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcrImageDetailResult>("azure-native:awsconnector/v20241201:getEcrImageDetail", args ?? new GetEcrImageDetailInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EcrImageDetail
+        /// </summary>
+        public static Output<GetEcrImageDetailResult> Invoke(GetEcrImageDetailInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEcrImageDetailResult>("azure-native:awsconnector/v20241201:getEcrImageDetail", args ?? new GetEcrImageDetailInvokeArgs(), options.WithDefaults());
     }
 
 

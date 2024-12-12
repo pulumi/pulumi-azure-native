@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240119Preview
         /// </summary>
         public static Output<GetPreRuleResult> Invoke(GetPreRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPreRuleResult>("azure-native:cloudngfw/v20240119preview:getPreRule", args ?? new GetPreRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a PreRulesResource
+        /// </summary>
+        public static Output<GetPreRuleResult> Invoke(GetPreRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPreRuleResult>("azure-native:cloudngfw/v20240119preview:getPreRule", args ?? new GetPreRuleInvokeArgs(), options.WithDefaults());
     }
 
 

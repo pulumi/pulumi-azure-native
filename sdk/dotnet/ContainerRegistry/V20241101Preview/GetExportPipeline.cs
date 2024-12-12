@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20241101Preview
         /// </summary>
         public static Output<GetExportPipelineResult> Invoke(GetExportPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportPipelineResult>("azure-native:containerregistry/v20241101preview:getExportPipeline", args ?? new GetExportPipelineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the export pipeline.
+        /// </summary>
+        public static Output<GetExportPipelineResult> Invoke(GetExportPipelineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExportPipelineResult>("azure-native:containerregistry/v20241101preview:getExportPipeline", args ?? new GetExportPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

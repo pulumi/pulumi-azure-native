@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20240501Preview
         /// </summary>
         public static Output<GetSqlServerAvailabilityGroupDetailViewResult> Invoke(GetSqlServerAvailabilityGroupDetailViewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerAvailabilityGroupDetailViewResult>("azure-native:azurearcdata/v20240501preview:getSqlServerAvailabilityGroupDetailView", args ?? new GetSqlServerAvailabilityGroupDetailViewInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves detailed properties of the Availability Group.
+        /// </summary>
+        public static Output<GetSqlServerAvailabilityGroupDetailViewResult> Invoke(GetSqlServerAvailabilityGroupDetailViewInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerAvailabilityGroupDetailViewResult>("azure-native:azurearcdata/v20240501preview:getSqlServerAvailabilityGroupDetailView", args ?? new GetSqlServerAvailabilityGroupDetailViewInvokeArgs(), options.WithDefaults());
     }
 
 

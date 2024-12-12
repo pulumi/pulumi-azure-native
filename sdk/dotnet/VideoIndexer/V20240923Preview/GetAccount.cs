@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.VideoIndexer.V20240923Preview
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:videoindexer/v20240923preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of an Azure Video Indexer account.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:videoindexer/v20240923preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

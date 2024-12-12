@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public static Output<GetNetworkFabricTopologyResult> Invoke(GetNetworkFabricTopologyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFabricTopologyResult>("azure-native:managednetworkfabric:getNetworkFabricTopology", args ?? new GetNetworkFabricTopologyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets Topology of the underlying resources in the given Network Fabric instance.
+        /// Azure REST API version: 2023-06-15.
+        /// </summary>
+        public static Output<GetNetworkFabricTopologyResult> Invoke(GetNetworkFabricTopologyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFabricTopologyResult>("azure-native:managednetworkfabric:getNetworkFabricTopology", args ?? new GetNetworkFabricTopologyInvokeArgs(), options.WithDefaults());
     }
 
 

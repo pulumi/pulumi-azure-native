@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240401
         /// </summary>
         public static Output<GetReplicationProtectionClusterResult> Invoke(GetReplicationProtectionClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationProtectionClusterResult>("azure-native:recoveryservices/v20240401:getReplicationProtectionCluster", args ?? new GetReplicationProtectionClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of an ASR replication protection cluster.
+        /// </summary>
+        public static Output<GetReplicationProtectionClusterResult> Invoke(GetReplicationProtectionClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationProtectionClusterResult>("azure-native:recoveryservices/v20240401:getReplicationProtectionCluster", args ?? new GetReplicationProtectionClusterInvokeArgs(), options.WithDefaults());
     }
 
 

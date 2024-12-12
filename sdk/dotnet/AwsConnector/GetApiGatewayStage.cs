@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetApiGatewayStageResult> Invoke(GetApiGatewayStageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayStageResult>("azure-native:awsconnector:getApiGatewayStage", args ?? new GetApiGatewayStageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ApiGatewayStage
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetApiGatewayStageResult> Invoke(GetApiGatewayStageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayStageResult>("azure-native:awsconnector:getApiGatewayStage", args ?? new GetApiGatewayStageInvokeArgs(), options.WithDefaults());
     }
 
 

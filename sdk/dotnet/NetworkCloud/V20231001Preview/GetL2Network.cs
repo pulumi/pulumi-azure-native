@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20231001Preview
         /// </summary>
         public static Output<GetL2NetworkResult> Invoke(GetL2NetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2NetworkResult>("azure-native:networkcloud/v20231001preview:getL2Network", args ?? new GetL2NetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided layer 2 (L2) network.
+        /// </summary>
+        public static Output<GetL2NetworkResult> Invoke(GetL2NetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetL2NetworkResult>("azure-native:networkcloud/v20231001preview:getL2Network", args ?? new GetL2NetworkInvokeArgs(), options.WithDefaults());
     }
 
 

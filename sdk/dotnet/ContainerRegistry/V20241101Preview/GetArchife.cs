@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20241101Preview
         /// </summary>
         public static Output<GetArchifeResult> Invoke(GetArchifeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArchifeResult>("azure-native:containerregistry/v20241101preview:getArchife", args ?? new GetArchifeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the archive.
+        /// </summary>
+        public static Output<GetArchifeResult> Invoke(GetArchifeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetArchifeResult>("azure-native:containerregistry/v20241101preview:getArchife", args ?? new GetArchifeInvokeArgs(), options.WithDefaults());
     }
 
 

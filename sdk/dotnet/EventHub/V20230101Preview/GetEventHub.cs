@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventHub.V20230101Preview
         /// </summary>
         public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub/v20230101preview:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an Event Hubs description for the specified Event Hub.
+        /// </summary>
+        public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub/v20230101preview:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());
     }
 
 

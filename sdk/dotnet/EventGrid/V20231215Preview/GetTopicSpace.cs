@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20231215Preview
         /// </summary>
         public static Output<GetTopicSpaceResult> Invoke(GetTopicSpaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicSpaceResult>("azure-native:eventgrid/v20231215preview:getTopicSpace", args ?? new GetTopicSpaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a topic space.
+        /// </summary>
+        public static Output<GetTopicSpaceResult> Invoke(GetTopicSpaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicSpaceResult>("azure-native:eventgrid/v20231215preview:getTopicSpace", args ?? new GetTopicSpaceInvokeArgs(), options.WithDefaults());
     }
 
 

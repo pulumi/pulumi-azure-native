@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetIpCommunityResult> Invoke(GetIpCommunityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpCommunityResult>("azure-native:managednetworkfabric/v20230615:getIpCommunity", args ?? new GetIpCommunityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements an IP Community GET method.
+        /// </summary>
+        public static Output<GetIpCommunityResult> Invoke(GetIpCommunityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpCommunityResult>("azure-native:managednetworkfabric/v20230615:getIpCommunity", args ?? new GetIpCommunityInvokeArgs(), options.WithDefaults());
     }
 
 

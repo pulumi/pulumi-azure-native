@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
         /// </summary>
         public static Output<GetDevToolPortalResult> Invoke(GetDevToolPortalInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevToolPortalResult>("azure-native:appplatform/v20230501preview:getDevToolPortal", args ?? new GetDevToolPortalInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Application Live  and its properties.
+        /// </summary>
+        public static Output<GetDevToolPortalResult> Invoke(GetDevToolPortalInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevToolPortalResult>("azure-native:appplatform/v20230501preview:getDevToolPortal", args ?? new GetDevToolPortalInvokeArgs(), options.WithDefaults());
     }
 
 

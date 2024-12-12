@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20240502Preview
         /// </summary>
         public static Output<GetAutoUpgradeProfileResult> Invoke(GetAutoUpgradeProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoUpgradeProfileResult>("azure-native:containerservice/v20240502preview:getAutoUpgradeProfile", args ?? new GetAutoUpgradeProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a AutoUpgradeProfile
+        /// </summary>
+        public static Output<GetAutoUpgradeProfileResult> Invoke(GetAutoUpgradeProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutoUpgradeProfileResult>("azure-native:containerservice/v20240502preview:getAutoUpgradeProfile", args ?? new GetAutoUpgradeProfileInvokeArgs(), options.WithDefaults());
     }
 
 

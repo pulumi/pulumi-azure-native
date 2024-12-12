@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTCentral.V20211101Preview
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:iotcentral/v20211101preview:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the metadata of an IoT Central application.
+        /// </summary>
+        public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:iotcentral/v20211101preview:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
 

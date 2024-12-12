@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridCompute.V20240710
         /// </summary>
         public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("azure-native:hybridcompute/v20240710:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about the view of a license.
+        /// </summary>
+        public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("azure-native:hybridcompute/v20240710:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
     }
 
 

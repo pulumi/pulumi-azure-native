@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetNetworkTapRuleResult> Invoke(GetNetworkTapRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkTapRuleResult>("azure-native:managednetworkfabric/v20230615:getNetworkTapRule", args ?? new GetNetworkTapRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Network Tap Rule resource details.
+        /// </summary>
+        public static Output<GetNetworkTapRuleResult> Invoke(GetNetworkTapRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkTapRuleResult>("azure-native:managednetworkfabric/v20230615:getNetworkTapRule", args ?? new GetNetworkTapRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         public static Output<GetSliceResult> Invoke(GetSliceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSliceResult>("azure-native:mobilenetwork/v20221101:getSlice", args ?? new GetSliceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified network slice.
+        /// </summary>
+        public static Output<GetSliceResult> Invoke(GetSliceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSliceResult>("azure-native:mobilenetwork/v20221101:getSlice", args ?? new GetSliceInvokeArgs(), options.WithDefaults());
     }
 
 

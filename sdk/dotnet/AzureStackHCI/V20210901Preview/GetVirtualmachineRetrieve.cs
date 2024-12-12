@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         /// </summary>
         public static Output<GetVirtualmachineRetrieveResult> Invoke(GetVirtualmachineRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualmachineRetrieveResult>("azure-native:azurestackhci/v20210901preview:getVirtualmachineRetrieve", args ?? new GetVirtualmachineRetrieveInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets virtual machines by resource name
+        /// </summary>
+        public static Output<GetVirtualmachineRetrieveResult> Invoke(GetVirtualmachineRetrieveInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualmachineRetrieveResult>("azure-native:azurestackhci/v20210901preview:getVirtualmachineRetrieve", args ?? new GetVirtualmachineRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 

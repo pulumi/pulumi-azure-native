@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HealthcareApis.V20231201
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis/v20231201:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the metadata of a service instance.
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis/v20231201:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

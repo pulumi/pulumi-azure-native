@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20240901
         /// </summary>
         public static Output<GetSapVirtualInstanceInvokeSizingRecommendationsResult> Invoke(GetSapVirtualInstanceInvokeSizingRecommendationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceInvokeSizingRecommendationsResult>("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeSizingRecommendations", args ?? new GetSapVirtualInstanceInvokeSizingRecommendationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the sizing recommendations.
+        /// </summary>
+        public static Output<GetSapVirtualInstanceInvokeSizingRecommendationsResult> Invoke(GetSapVirtualInstanceInvokeSizingRecommendationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceInvokeSizingRecommendationsResult>("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeSizingRecommendations", args ?? new GetSapVirtualInstanceInvokeSizingRecommendationsInvokeArgs(), options.WithDefaults());
     }
 
 

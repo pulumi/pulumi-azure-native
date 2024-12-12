@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201
         /// </summary>
         public static Output<GetServerAdministratorResult> Invoke(GetServerAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerAdministratorResult>("azure-native:dbformysql/v20171201:getServerAdministrator", args ?? new GetServerAdministratorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a AAD server administrator.
+        /// </summary>
+        public static Output<GetServerAdministratorResult> Invoke(GetServerAdministratorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerAdministratorResult>("azure-native:dbformysql/v20171201:getServerAdministrator", args ?? new GetServerAdministratorInvokeArgs(), options.WithDefaults());
     }
 
 

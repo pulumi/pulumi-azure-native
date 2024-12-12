@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
 
         public static Output<GetEndpointDeploymentResult> Invoke(GetEndpointDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointDeploymentResult>("azure-native:machinelearningservices/v20240401preview:getEndpointDeployment", args ?? new GetEndpointDeploymentInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetEndpointDeploymentResult> Invoke(GetEndpointDeploymentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEndpointDeploymentResult>("azure-native:machinelearningservices/v20240401preview:getEndpointDeployment", args ?? new GetEndpointDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

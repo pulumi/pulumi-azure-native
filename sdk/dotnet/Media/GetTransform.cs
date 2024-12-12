@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Transform.
+        /// Azure REST API version: 2022-07-01.
+        /// </summary>
+        public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MobileNetwork.V20240201
         /// </summary>
         public static Output<GetDiagnosticsPackageResult> Invoke(GetDiagnosticsPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticsPackageResult>("azure-native:mobilenetwork/v20240201:getDiagnosticsPackage", args ?? new GetDiagnosticsPackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified diagnostics package.
+        /// </summary>
+        public static Output<GetDiagnosticsPackageResult> Invoke(GetDiagnosticsPackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticsPackageResult>("azure-native:mobilenetwork/v20240201:getDiagnosticsPackage", args ?? new GetDiagnosticsPackageInvokeArgs(), options.WithDefaults());
     }
 
 

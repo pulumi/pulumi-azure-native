@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public static Output<GetDeploymentStackAtManagementGroupResult> Invoke(GetDeploymentStackAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtManagementGroupResult>("azure-native:resources:getDeploymentStackAtManagementGroup", args ?? new GetDeploymentStackAtManagementGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Deployment Stack with a given name.
+        /// Azure REST API version: 2022-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01.
+        /// </summary>
+        public static Output<GetDeploymentStackAtManagementGroupResult> Invoke(GetDeploymentStackAtManagementGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtManagementGroupResult>("azure-native:resources:getDeploymentStackAtManagementGroup", args ?? new GetDeploymentStackAtManagementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

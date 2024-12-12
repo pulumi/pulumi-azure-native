@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.V20221116Preview
         /// </summary>
         public static Output<GetReportResult> Invoke(GetReportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportResult>("azure-native:appcomplianceautomation/v20221116preview:getReport", args ?? new GetReportInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the AppComplianceAutomation report and its properties.
+        /// </summary>
+        public static Output<GetReportResult> Invoke(GetReportInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReportResult>("azure-native:appcomplianceautomation/v20221116preview:getReport", args ?? new GetReportInvokeArgs(), options.WithDefaults());
     }
 
 

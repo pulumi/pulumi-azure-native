@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20240501Preview
         /// </summary>
         public static Output<ListJobEnvSecretsResult> Invoke(ListJobEnvSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobEnvSecretsResult>("azure-native:appplatform/v20240501preview:listJobEnvSecrets", args ?? new ListJobEnvSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List sensitive environment variables of the Job.
+        /// </summary>
+        public static Output<ListJobEnvSecretsResult> Invoke(ListJobEnvSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListJobEnvSecretsResult>("azure-native:appplatform/v20240501preview:listJobEnvSecrets", args ?? new ListJobEnvSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         /// </summary>
         public static Output<GetVirtualnetworkRetrieveResult> Invoke(GetVirtualnetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualnetworkRetrieveResult>("azure-native:azurestackhci/v20210901preview:getVirtualnetworkRetrieve", args ?? new GetVirtualnetworkRetrieveInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The virtual network resource definition.
+        /// </summary>
+        public static Output<GetVirtualnetworkRetrieveResult> Invoke(GetVirtualnetworkRetrieveInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualnetworkRetrieveResult>("azure-native:azurestackhci/v20210901preview:getVirtualnetworkRetrieve", args ?? new GetVirtualnetworkRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 

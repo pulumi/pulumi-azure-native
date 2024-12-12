@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20230701Preview
         /// </summary>
         public static Output<GetSyncSetResult> Invoke(GetSyncSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncSetResult>("azure-native:redhatopenshift/v20230701preview:getSyncSet", args ?? new GetSyncSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation returns properties of a SyncSet.
+        /// </summary>
+        public static Output<GetSyncSetResult> Invoke(GetSyncSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyncSetResult>("azure-native:redhatopenshift/v20230701preview:getSyncSet", args ?? new GetSyncSetInvokeArgs(), options.WithDefaults());
     }
 
 

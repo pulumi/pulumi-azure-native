@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
         /// </summary>
         public static Output<GetContentTypeResult> Invoke(GetContentTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentTypeResult>("azure-native:apimanagement/v20220801:getContentType", args ?? new GetContentTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
+        /// </summary>
+        public static Output<GetContentTypeResult> Invoke(GetContentTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContentTypeResult>("azure-native:apimanagement/v20220801:getContentType", args ?? new GetContentTypeInvokeArgs(), options.WithDefaults());
     }
 
 

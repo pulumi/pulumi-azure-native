@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public static Output<GetConnectionRaiBlocklistResult> Invoke(GetConnectionRaiBlocklistInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiBlocklistResult>("azure-native:machinelearningservices:getConnectionRaiBlocklist", args ?? new GetConnectionRaiBlocklistInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// 
+        /// Azure REST API version: 2024-04-01-preview.
+        /// 
+        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetConnectionRaiBlocklistResult> Invoke(GetConnectionRaiBlocklistInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiBlocklistResult>("azure-native:machinelearningservices:getConnectionRaiBlocklist", args ?? new GetConnectionRaiBlocklistInvokeArgs(), options.WithDefaults());
     }
 
 

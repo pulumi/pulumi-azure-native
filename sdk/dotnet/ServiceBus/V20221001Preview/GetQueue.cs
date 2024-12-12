@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20221001Preview
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:servicebus/v20221001preview:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a description for the specified queue.
+        /// </summary>
+        public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:servicebus/v20221001preview:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
     }
 
 

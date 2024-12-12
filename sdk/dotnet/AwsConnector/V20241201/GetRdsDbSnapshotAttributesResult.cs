@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetRdsDbSnapshotAttributesResultResult> Invoke(GetRdsDbSnapshotAttributesResultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRdsDbSnapshotAttributesResultResult>("azure-native:awsconnector/v20241201:getRdsDbSnapshotAttributesResult", args ?? new GetRdsDbSnapshotAttributesResultInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a RdsDBSnapshotAttributesResult
+        /// </summary>
+        public static Output<GetRdsDbSnapshotAttributesResultResult> Invoke(GetRdsDbSnapshotAttributesResultInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRdsDbSnapshotAttributesResultResult>("azure-native:awsconnector/v20241201:getRdsDbSnapshotAttributesResult", args ?? new GetRdsDbSnapshotAttributesResultInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.HybridData
         /// </summary>
         public static Output<GetDataManagerResult> Invoke(GetDataManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataManagerResult>("azure-native:hybriddata:getDataManager", args ?? new GetDataManagerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified data manager resource.
+        /// Azure REST API version: 2019-06-01.
+        /// </summary>
+        public static Output<GetDataManagerResult> Invoke(GetDataManagerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataManagerResult>("azure-native:hybriddata:getDataManager", args ?? new GetDataManagerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20240601Preview
         /// </summary>
         public static Output<GetTunnelPolicyResult> Invoke(GetTunnelPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTunnelPolicyResult>("azure-native:cdn/v20240601preview:getTunnelPolicy", args ?? new GetTunnelPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing tunnel policy within a profile.
+        /// </summary>
+        public static Output<GetTunnelPolicyResult> Invoke(GetTunnelPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTunnelPolicyResult>("azure-native:cdn/v20240601preview:getTunnelPolicy", args ?? new GetTunnelPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

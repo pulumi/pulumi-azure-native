@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public static Output<ListArtifactManifestCredentialResult> Invoke(ListArtifactManifestCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListArtifactManifestCredentialResult>("azure-native:hybridnetwork:listArtifactManifestCredential", args ?? new ListArtifactManifestCredentialInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List credential for publishing artifacts defined in artifact manifest.
+        /// Azure REST API version: 2023-09-01.
+        /// 
+        /// Other available API versions: 2024-04-15.
+        /// </summary>
+        public static Output<ListArtifactManifestCredentialResult> Invoke(ListArtifactManifestCredentialInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListArtifactManifestCredentialResult>("azure-native:hybridnetwork:listArtifactManifestCredential", args ?? new ListArtifactManifestCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

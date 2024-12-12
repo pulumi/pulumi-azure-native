@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataProtection.V20230101
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:dataprotection/v20230101:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a backup policy belonging to a backup vault
+        /// </summary>
+        public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:dataprotection/v20230101:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

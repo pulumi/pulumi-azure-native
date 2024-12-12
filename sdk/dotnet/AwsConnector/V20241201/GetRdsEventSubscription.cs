@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetRdsEventSubscriptionResult> Invoke(GetRdsEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRdsEventSubscriptionResult>("azure-native:awsconnector/v20241201:getRdsEventSubscription", args ?? new GetRdsEventSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a RdsEventSubscription
+        /// </summary>
+        public static Output<GetRdsEventSubscriptionResult> Invoke(GetRdsEventSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRdsEventSubscriptionResult>("azure-native:awsconnector/v20241201:getRdsEventSubscription", args ?? new GetRdsEventSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

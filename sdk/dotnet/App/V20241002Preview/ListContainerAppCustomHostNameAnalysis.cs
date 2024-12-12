@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20241002Preview
         /// </summary>
         public static Output<ListContainerAppCustomHostNameAnalysisResult> Invoke(ListContainerAppCustomHostNameAnalysisInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListContainerAppCustomHostNameAnalysisResult>("azure-native:app/v20241002preview:listContainerAppCustomHostNameAnalysis", args ?? new ListContainerAppCustomHostNameAnalysisInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Custom domain analysis.
+        /// </summary>
+        public static Output<ListContainerAppCustomHostNameAnalysisResult> Invoke(ListContainerAppCustomHostNameAnalysisInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListContainerAppCustomHostNameAnalysisResult>("azure-native:app/v20241002preview:listContainerAppCustomHostNameAnalysis", args ?? new ListContainerAppCustomHostNameAnalysisInvokeArgs(), options.WithDefaults());
     }
 
 

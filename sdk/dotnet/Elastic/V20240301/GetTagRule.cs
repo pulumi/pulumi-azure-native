@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20240301
         /// </summary>
         public static Output<GetTagRuleResult> Invoke(GetTagRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:elastic/v20240301:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Capture logs and metrics of Azure resources based on ARM tags.
+        /// </summary>
+        public static Output<GetTagRuleResult> Invoke(GetTagRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagRuleResult>("azure-native:elastic/v20240301:getTagRule", args ?? new GetTagRuleInvokeArgs(), options.WithDefaults());
     }
 
 

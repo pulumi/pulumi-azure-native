@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetS3AccessControlPolicyResult> Invoke(GetS3AccessControlPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3AccessControlPolicyResult>("azure-native:awsconnector:getS3AccessControlPolicy", args ?? new GetS3AccessControlPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a S3AccessControlPolicy
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetS3AccessControlPolicyResult> Invoke(GetS3AccessControlPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetS3AccessControlPolicyResult>("azure-native:awsconnector:getS3AccessControlPolicy", args ?? new GetS3AccessControlPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

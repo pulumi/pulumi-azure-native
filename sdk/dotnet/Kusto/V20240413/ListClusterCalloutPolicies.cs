@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Kusto.V20240413
         /// </summary>
         public static Output<ListClusterCalloutPoliciesResult> Invoke(ListClusterCalloutPoliciesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterCalloutPoliciesResult>("azure-native:kusto/v20240413:listClusterCalloutPolicies", args ?? new ListClusterCalloutPoliciesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the allowed callout policies for the specified service.
+        /// </summary>
+        public static Output<ListClusterCalloutPoliciesResult> Invoke(ListClusterCalloutPoliciesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListClusterCalloutPoliciesResult>("azure-native:kusto/v20240413:listClusterCalloutPolicies", args ?? new ListClusterCalloutPoliciesInvokeArgs(), options.WithDefaults());
     }
 
 

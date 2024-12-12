@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         /// </summary>
         public static Output<GetSapDiscoverySiteResult> Invoke(GetSapDiscoverySiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapDiscoverySiteResult>("azure-native:workloads/v20231001preview:getSapDiscoverySite", args ?? new GetSapDiscoverySiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a SAP Migration discovery site resource.
+        /// </summary>
+        public static Output<GetSapDiscoverySiteResult> Invoke(GetSapDiscoverySiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapDiscoverySiteResult>("azure-native:workloads/v20231001preview:getSapDiscoverySite", args ?? new GetSapDiscoverySiteInvokeArgs(), options.WithDefaults());
     }
 
 

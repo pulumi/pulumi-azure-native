@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetAccessAnalyzerAnalyzerResult> Invoke(GetAccessAnalyzerAnalyzerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessAnalyzerAnalyzerResult>("azure-native:awsconnector:getAccessAnalyzerAnalyzer", args ?? new GetAccessAnalyzerAnalyzerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a AccessAnalyzerAnalyzer
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetAccessAnalyzerAnalyzerResult> Invoke(GetAccessAnalyzerAnalyzerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessAnalyzerAnalyzerResult>("azure-native:awsconnector:getAccessAnalyzerAnalyzer", args ?? new GetAccessAnalyzerAnalyzerInvokeArgs(), options.WithDefaults());
     }
 
 

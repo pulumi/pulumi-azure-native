@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20220501Preview
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure-native:authorization/v20220501preview:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get role definition by ID (GUID).
+        /// </summary>
+        public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure-native:authorization/v20220501preview:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240207Preview
         /// </summary>
         public static Output<GetFirewallLogProfileResult> Invoke(GetFirewallLogProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallLogProfileResult>("azure-native:cloudngfw/v20240207preview:getFirewallLogProfile", args ?? new GetFirewallLogProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Log Profile for Firewall
+        /// </summary>
+        public static Output<GetFirewallLogProfileResult> Invoke(GetFirewallLogProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallLogProfileResult>("azure-native:cloudngfw/v20240207preview:getFirewallLogProfile", args ?? new GetFirewallLogProfileInvokeArgs(), options.WithDefaults());
     }
 
 

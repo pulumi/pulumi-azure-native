@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:deviceupdate:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns instance details for the given instance and account name.
+        /// Azure REST API version: 2023-07-01.
+        /// </summary>
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:deviceupdate:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

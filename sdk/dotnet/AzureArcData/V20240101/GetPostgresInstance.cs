@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20240101
         /// </summary>
         public static Output<GetPostgresInstanceResult> Invoke(GetPostgresInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPostgresInstanceResult>("azure-native:azurearcdata/v20240101:getPostgresInstance", args ?? new GetPostgresInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a postgres Instance resource
+        /// </summary>
+        public static Output<GetPostgresInstanceResult> Invoke(GetPostgresInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPostgresInstanceResult>("azure-native:azurearcdata/v20240101:getPostgresInstance", args ?? new GetPostgresInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

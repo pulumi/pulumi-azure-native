@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Relay.V20240101
         /// </summary>
         public static Output<GetWCFRelayResult> Invoke(GetWCFRelayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWCFRelayResult>("azure-native:relay/v20240101:getWCFRelay", args ?? new GetWCFRelayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the description for the specified WCF relay.
+        /// </summary>
+        public static Output<GetWCFRelayResult> Invoke(GetWCFRelayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWCFRelayResult>("azure-native:relay/v20240101:getWCFRelay", args ?? new GetWCFRelayInvokeArgs(), options.WithDefaults());
     }
 
 

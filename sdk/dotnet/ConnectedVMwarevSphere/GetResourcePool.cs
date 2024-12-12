@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public static Output<GetResourcePoolResult> Invoke(GetResourcePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePoolResult>("azure-native:connectedvmwarevsphere:getResourcePool", args ?? new GetResourcePoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements resourcePool GET method.
+        /// Azure REST API version: 2022-07-15-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// </summary>
+        public static Output<GetResourcePoolResult> Invoke(GetResourcePoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcePoolResult>("azure-native:connectedvmwarevsphere:getResourcePool", args ?? new GetResourcePoolInvokeArgs(), options.WithDefaults());
     }
 
 

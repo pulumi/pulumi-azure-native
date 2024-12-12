@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240101
         /// </summary>
         public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure-native:network/v20240101:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the details of a VirtualHub.
+        /// </summary>
+        public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure-native:network/v20240101:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithDefaults());
     }
 
 

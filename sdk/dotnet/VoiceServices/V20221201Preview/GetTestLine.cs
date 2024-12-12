@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.VoiceServices.V20221201Preview
         /// </summary>
         public static Output<GetTestLineResult> Invoke(GetTestLineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestLineResult>("azure-native:voiceservices/v20221201preview:getTestLine", args ?? new GetTestLineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a TestLine
+        /// </summary>
+        public static Output<GetTestLineResult> Invoke(GetTestLineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTestLineResult>("azure-native:voiceservices/v20221201preview:getTestLine", args ?? new GetTestLineInvokeArgs(), options.WithDefaults());
     }
 
 

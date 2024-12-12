@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
         /// </summary>
         public static Output<ListUserAssignedIdentityAssociatedResourcesResult> Invoke(ListUserAssignedIdentityAssociatedResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListUserAssignedIdentityAssociatedResourcesResult>("azure-native:managedidentity/v20220131preview:listUserAssignedIdentityAssociatedResources", args ?? new ListUserAssignedIdentityAssociatedResourcesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the associated resources for this identity.
+        /// </summary>
+        public static Output<ListUserAssignedIdentityAssociatedResourcesResult> Invoke(ListUserAssignedIdentityAssociatedResourcesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListUserAssignedIdentityAssociatedResourcesResult>("azure-native:managedidentity/v20220131preview:listUserAssignedIdentityAssociatedResources", args ?? new ListUserAssignedIdentityAssociatedResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

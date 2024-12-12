@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cache.V20230501Preview
         /// </summary>
         public static Output<GetLinkedServerResult> Invoke(GetLinkedServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServerResult>("azure-native:cache/v20230501preview:getLinkedServer", args ?? new GetLinkedServerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
+        /// </summary>
+        public static Output<GetLinkedServerResult> Invoke(GetLinkedServerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServerResult>("azure-native:cache/v20230501preview:getLinkedServer", args ?? new GetLinkedServerInvokeArgs(), options.WithDefaults());
     }
 
 

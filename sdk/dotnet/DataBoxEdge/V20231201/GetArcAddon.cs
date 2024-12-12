@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
         /// </summary>
         public static Output<GetArcAddonResult> Invoke(GetArcAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge/v20231201:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific addon by name.
+        /// </summary>
+        public static Output<GetArcAddonResult> Invoke(GetArcAddonInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge/v20231201:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithDefaults());
     }
 
 

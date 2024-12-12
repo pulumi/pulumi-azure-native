@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetEc2KeyPairResult> Invoke(GetEc2KeyPairInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2KeyPairResult>("azure-native:awsconnector:getEc2KeyPair", args ?? new GetEc2KeyPairInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2KeyPair
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetEc2KeyPairResult> Invoke(GetEc2KeyPairInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2KeyPairResult>("azure-native:awsconnector:getEc2KeyPair", args ?? new GetEc2KeyPairInvokeArgs(), options.WithDefaults());
     }
 
 

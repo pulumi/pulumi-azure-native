@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure.V20230804Preview
         /// </summary>
         public static Output<GetAzureBareMetalStorageInstanceResult> Invoke(GetAzureBareMetalStorageInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureBareMetalStorageInstanceResult>("azure-native:baremetalinfrastructure/v20230804preview:getAzureBareMetalStorageInstance", args ?? new GetAzureBareMetalStorageInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an Azure Bare Metal Storage instance for the specified subscription, resource group, and instance name.
+        /// </summary>
+        public static Output<GetAzureBareMetalStorageInstanceResult> Invoke(GetAzureBareMetalStorageInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureBareMetalStorageInstanceResult>("azure-native:baremetalinfrastructure/v20230804preview:getAzureBareMetalStorageInstance", args ?? new GetAzureBareMetalStorageInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

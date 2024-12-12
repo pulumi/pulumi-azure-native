@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.V20230101
         /// </summary>
         public static Output<GetMediaServiceResult> Invoke(GetMediaServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media/v20230101:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details of a Media Services account
+        /// </summary>
+        public static Output<GetMediaServiceResult> Invoke(GetMediaServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media/v20230101:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithDefaults());
     }
 
 

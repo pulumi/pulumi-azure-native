@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20150501
         /// </summary>
         public static Output<GetFavoriteResult> Invoke(GetFavoriteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFavoriteResult>("azure-native:insights/v20150501:getFavorite", args ?? new GetFavoriteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a single favorite by its FavoriteId, defined within an Application Insights component.
+        /// </summary>
+        public static Output<GetFavoriteResult> Invoke(GetFavoriteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFavoriteResult>("azure-native:insights/v20150501:getFavorite", args ?? new GetFavoriteInvokeArgs(), options.WithDefaults());
     }
 
 

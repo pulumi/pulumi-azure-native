@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230101
         /// </summary>
         public static Output<GetPrivateEndpointConnectionProxyControllerResult> Invoke(GetPrivateEndpointConnectionProxyControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionProxyControllerResult>("azure-native:migrate/v20230101:getPrivateEndpointConnectionProxyController", args ?? new GetPrivateEndpointConnectionProxyControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the of private link proxy resources from a migrate project and private link proxy resource.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionProxyControllerResult> Invoke(GetPrivateEndpointConnectionProxyControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionProxyControllerResult>("azure-native:migrate/v20230101:getPrivateEndpointConnectionProxyController", args ?? new GetPrivateEndpointConnectionProxyControllerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.KeyVault.V20230701
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault/v20230701:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Azure key vault.
+        /// </summary>
+        public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault/v20230701:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
     }
 
 

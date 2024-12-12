@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEcsTaskDefinitionResult> Invoke(GetEcsTaskDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcsTaskDefinitionResult>("azure-native:awsconnector/v20241201:getEcsTaskDefinition", args ?? new GetEcsTaskDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EcsTaskDefinition
+        /// </summary>
+        public static Output<GetEcsTaskDefinitionResult> Invoke(GetEcsTaskDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEcsTaskDefinitionResult>("azure-native:awsconnector/v20241201:getEcsTaskDefinition", args ?? new GetEcsTaskDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetMacieAllowListResult> Invoke(GetMacieAllowListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMacieAllowListResult>("azure-native:awsconnector:getMacieAllowList", args ?? new GetMacieAllowListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a MacieAllowList
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetMacieAllowListResult> Invoke(GetMacieAllowListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMacieAllowListResult>("azure-native:awsconnector:getMacieAllowList", args ?? new GetMacieAllowListInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.WebPubSub.V20241001Preview
         /// </summary>
         public static Output<GetWebPubSubReplicaResult> Invoke(GetWebPubSubReplicaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubReplicaResult>("azure-native:webpubsub/v20241001preview:getWebPubSubReplica", args ?? new GetWebPubSubReplicaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the replica and its properties.
+        /// </summary>
+        public static Output<GetWebPubSubReplicaResult> Invoke(GetWebPubSubReplicaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubReplicaResult>("azure-native:webpubsub/v20241001preview:getWebPubSubReplica", args ?? new GetWebPubSubReplicaInvokeArgs(), options.WithDefaults());
     }
 
 

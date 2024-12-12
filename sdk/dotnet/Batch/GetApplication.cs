@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:batch:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified application.
+        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:batch:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

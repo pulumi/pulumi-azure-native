@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         /// </summary>
         public static Output<GetNamespaceVirtualNetworkRuleResult> Invoke(GetNamespaceVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceVirtualNetworkRuleResult>("azure-native:eventhub/v20180101preview:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an VirtualNetworkRule for a Namespace by rule name.
+        /// </summary>
+        public static Output<GetNamespaceVirtualNetworkRuleResult> Invoke(GetNamespaceVirtualNetworkRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceVirtualNetworkRuleResult>("azure-native:eventhub/v20180101preview:getNamespaceVirtualNetworkRule", args ?? new GetNamespaceVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
     }
 
 

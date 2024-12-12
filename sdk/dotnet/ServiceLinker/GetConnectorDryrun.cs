@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// </summary>
         public static Output<GetConnectorDryrunResult> Invoke(GetConnectorDryrunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorDryrunResult>("azure-native:servicelinker:getConnectorDryrun", args ?? new GetConnectorDryrunInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// get a dryrun job
+        /// Azure REST API version: 2022-11-01-preview.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        /// </summary>
+        public static Output<GetConnectorDryrunResult> Invoke(GetConnectorDryrunInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorDryrunResult>("azure-native:servicelinker:getConnectorDryrun", args ?? new GetConnectorDryrunInvokeArgs(), options.WithDefaults());
     }
 
 

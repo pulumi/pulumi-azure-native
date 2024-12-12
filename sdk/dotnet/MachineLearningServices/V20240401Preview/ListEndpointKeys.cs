@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
 
         public static Output<ListEndpointKeysResult> Invoke(ListEndpointKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointKeysResult>("azure-native:machinelearningservices/v20240401preview:listEndpointKeys", args ?? new ListEndpointKeysInvokeArgs(), options.WithDefaults());
+
+        public static Output<ListEndpointKeysResult> Invoke(ListEndpointKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListEndpointKeysResult>("azure-native:machinelearningservices/v20240401preview:listEndpointKeys", args ?? new ListEndpointKeysInvokeArgs(), options.WithDefaults());
     }
 
 

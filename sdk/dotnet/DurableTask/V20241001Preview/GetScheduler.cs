@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DurableTask.V20241001Preview
         /// </summary>
         public static Output<GetSchedulerResult> Invoke(GetSchedulerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchedulerResult>("azure-native:durabletask/v20241001preview:getScheduler", args ?? new GetSchedulerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Scheduler
+        /// </summary>
+        public static Output<GetSchedulerResult> Invoke(GetSchedulerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchedulerResult>("azure-native:durabletask/v20241001preview:getScheduler", args ?? new GetSchedulerInvokeArgs(), options.WithDefaults());
     }
 
 

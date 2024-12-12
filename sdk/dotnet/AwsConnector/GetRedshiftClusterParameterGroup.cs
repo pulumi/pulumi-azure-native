@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetRedshiftClusterParameterGroupResult> Invoke(GetRedshiftClusterParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedshiftClusterParameterGroupResult>("azure-native:awsconnector:getRedshiftClusterParameterGroup", args ?? new GetRedshiftClusterParameterGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a RedshiftClusterParameterGroup
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetRedshiftClusterParameterGroupResult> Invoke(GetRedshiftClusterParameterGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRedshiftClusterParameterGroupResult>("azure-native:awsconnector:getRedshiftClusterParameterGroup", args ?? new GetRedshiftClusterParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

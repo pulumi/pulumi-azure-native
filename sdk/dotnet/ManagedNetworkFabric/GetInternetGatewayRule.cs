@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public static Output<GetInternetGatewayRuleResult> Invoke(GetInternetGatewayRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayRuleResult>("azure-native:managednetworkfabric:getInternetGatewayRule", args ?? new GetInternetGatewayRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an Internet Gateway Rule resource.
+        /// Azure REST API version: 2023-06-15.
+        /// </summary>
+        public static Output<GetInternetGatewayRuleResult> Invoke(GetInternetGatewayRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayRuleResult>("azure-native:managednetworkfabric:getInternetGatewayRule", args ?? new GetInternetGatewayRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20201005Preview
         /// </summary>
         public static Output<GetWebTestResult> Invoke(GetWebTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights/v20201005preview:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific Application Insights web test definition.
+        /// </summary>
+        public static Output<GetWebTestResult> Invoke(GetWebTestInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights/v20201005preview:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20230801Preview
         /// </summary>
         public static Output<GetContainerAppsAuthConfigResult> Invoke(GetContainerAppsAuthConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsAuthConfigResult>("azure-native:app/v20230801preview:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
+        /// </summary>
+        public static Output<GetContainerAppsAuthConfigResult> Invoke(GetContainerAppsAuthConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsAuthConfigResult>("azure-native:app/v20230801preview:getContainerAppsAuthConfig", args ?? new GetContainerAppsAuthConfigInvokeArgs(), options.WithDefaults());
     }
 
 

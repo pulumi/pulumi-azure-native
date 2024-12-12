@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20241002Preview
         /// </summary>
         public static Output<GetLogicAppResult> Invoke(GetLogicAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogicAppResult>("azure-native:app/v20241002preview:getLogicApp", args ?? new GetLogicAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A logic app extension resource
+        /// </summary>
+        public static Output<GetLogicAppResult> Invoke(GetLogicAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogicAppResult>("azure-native:app/v20241002preview:getLogicApp", args ?? new GetLogicAppInvokeArgs(), options.WithDefaults());
     }
 
 

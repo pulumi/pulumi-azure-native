@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("azure-native:streamanalytics:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details about the specified input.
+        /// Azure REST API version: 2020-03-01.
+        /// 
+        /// Other available API versions: 2021-10-01-preview.
+        /// </summary>
+        public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("azure-native:streamanalytics:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
     }
 
 

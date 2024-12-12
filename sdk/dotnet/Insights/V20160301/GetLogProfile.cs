@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20160301
         /// </summary>
         public static Output<GetLogProfileResult> Invoke(GetLogProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure-native:insights/v20160301:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the log profile.
+        /// </summary>
+        public static Output<GetLogProfileResult> Invoke(GetLogProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure-native:insights/v20160301:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithDefaults());
     }
 
 

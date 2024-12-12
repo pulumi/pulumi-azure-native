@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Chaos.V20240322Preview
         /// </summary>
         public static Output<GetPrivateAccessResult> Invoke(GetPrivateAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAccessResult>("azure-native:chaos/v20240322preview:getPrivateAccess", args ?? new GetPrivateAccessInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a private access resource
+        /// </summary>
+        public static Output<GetPrivateAccessResult> Invoke(GetPrivateAccessInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAccessResult>("azure-native:chaos/v20240322preview:getPrivateAccess", args ?? new GetPrivateAccessInvokeArgs(), options.WithDefaults());
     }
 
 

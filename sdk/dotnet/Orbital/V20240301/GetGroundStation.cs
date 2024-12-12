@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Orbital.V20240301
         /// </summary>
         public static Output<GetGroundStationResult> Invoke(GetGroundStationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroundStationResult>("azure-native:orbital/v20240301:getGroundStation", args ?? new GetGroundStationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified ground station in a specified resource group.
+        /// </summary>
+        public static Output<GetGroundStationResult> Invoke(GetGroundStationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroundStationResult>("azure-native:orbital/v20240301:getGroundStation", args ?? new GetGroundStationInvokeArgs(), options.WithDefaults());
     }
 
 

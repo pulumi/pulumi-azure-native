@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         public static Output<GetConnectionMonitorTestResult> Invoke(GetConnectionMonitorTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorTestResult>("azure-native:peering:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
+        /// Azure REST API version: 2022-10-01.
+        /// </summary>
+        public static Output<GetConnectionMonitorTestResult> Invoke(GetConnectionMonitorTestInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorTestResult>("azure-native:peering:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestInvokeArgs(), options.WithDefaults());
     }
 
 

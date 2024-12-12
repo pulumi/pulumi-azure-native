@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20240601Preview
         /// </summary>
         public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:cdn/v20240601preview:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing custom domain within an endpoint.
+        /// </summary>
+        public static Output<GetCustomDomainResult> Invoke(GetCustomDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomDomainResult>("azure-native:cdn/v20240601preview:getCustomDomain", args ?? new GetCustomDomainInvokeArgs(), options.WithDefaults());
     }
 
 

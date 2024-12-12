@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
         /// </summary>
         public static Output<ListIdentityProviderSecretsResult> Invoke(ListIdentityProviderSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIdentityProviderSecretsResult>("azure-native:apimanagement/v20240501:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the client secret details of the Identity Provider.
+        /// </summary>
+        public static Output<ListIdentityProviderSecretsResult> Invoke(ListIdentityProviderSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListIdentityProviderSecretsResult>("azure-native:apimanagement/v20240501:listIdentityProviderSecrets", args ?? new ListIdentityProviderSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

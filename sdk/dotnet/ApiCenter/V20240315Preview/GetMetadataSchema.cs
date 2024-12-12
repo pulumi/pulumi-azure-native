@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiCenter.V20240315Preview
         /// </summary>
         public static Output<GetMetadataSchemaResult> Invoke(GetMetadataSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetadataSchemaResult>("azure-native:apicenter/v20240315preview:getMetadataSchema", args ?? new GetMetadataSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns details of the metadata schema.
+        /// </summary>
+        public static Output<GetMetadataSchemaResult> Invoke(GetMetadataSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetadataSchemaResult>("azure-native:apicenter/v20240315preview:getMetadataSchema", args ?? new GetMetadataSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

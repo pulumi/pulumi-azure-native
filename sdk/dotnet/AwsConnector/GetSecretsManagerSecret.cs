@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetSecretsManagerSecretResult> Invoke(GetSecretsManagerSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsManagerSecretResult>("azure-native:awsconnector:getSecretsManagerSecret", args ?? new GetSecretsManagerSecretInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SecretsManagerSecret
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetSecretsManagerSecretResult> Invoke(GetSecretsManagerSecretInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretsManagerSecretResult>("azure-native:awsconnector:getSecretsManagerSecret", args ?? new GetSecretsManagerSecretInvokeArgs(), options.WithDefaults());
     }
 
 

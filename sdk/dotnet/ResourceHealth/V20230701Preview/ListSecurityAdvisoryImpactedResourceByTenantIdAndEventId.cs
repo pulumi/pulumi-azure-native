@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ResourceHealth.V20230701Preview
         /// </summary>
         public static Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> Invoke(ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult>("azure-native:resourcehealth/v20230701preview:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId", args ?? new ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists impacted resources in the tenant by an event (Security Advisory).
+        /// </summary>
+        public static Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> Invoke(ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult>("azure-native:resourcehealth/v20230701preview:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId", args ?? new ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdInvokeArgs(), options.WithDefaults());
     }
 
 

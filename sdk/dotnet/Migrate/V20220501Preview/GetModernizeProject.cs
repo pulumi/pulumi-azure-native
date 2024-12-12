@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20220501Preview
         /// </summary>
         public static Output<GetModernizeProjectResult> Invoke(GetModernizeProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModernizeProjectResult>("azure-native:migrate/v20220501preview:getModernizeProject", args ?? new GetModernizeProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the modernize project.
+        /// </summary>
+        public static Output<GetModernizeProjectResult> Invoke(GetModernizeProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetModernizeProjectResult>("azure-native:migrate/v20220501preview:getModernizeProject", args ?? new GetModernizeProjectInvokeArgs(), options.WithDefaults());
     }
 
 

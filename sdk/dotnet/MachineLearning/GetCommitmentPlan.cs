@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.MachineLearning
         /// </summary>
         public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve an Azure ML commitment plan by its subscription, resource group and name.
+        /// Azure REST API version: 2016-05-01-preview.
+        /// </summary>
+        public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithDefaults());
     }
 
 

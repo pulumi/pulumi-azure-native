@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240301
         /// </summary>
         public static Output<GetNatRuleResult> Invoke(GetNatRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatRuleResult>("azure-native:network/v20240301:getNatRule", args ?? new GetNatRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the details of a nat ruleGet.
+        /// </summary>
+        public static Output<GetNatRuleResult> Invoke(GetNatRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNatRuleResult>("azure-native:network/v20240301:getNatRule", args ?? new GetNatRuleInvokeArgs(), options.WithDefaults());
     }
 
 

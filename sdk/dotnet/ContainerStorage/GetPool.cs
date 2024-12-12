@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ContainerStorage
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:containerstorage:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Pool
+        /// Azure REST API version: 2023-07-01-preview.
+        /// </summary>
+        public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:containerstorage:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

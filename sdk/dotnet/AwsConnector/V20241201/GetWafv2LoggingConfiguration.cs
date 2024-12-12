@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetWafv2LoggingConfigurationResult> Invoke(GetWafv2LoggingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafv2LoggingConfigurationResult>("azure-native:awsconnector/v20241201:getWafv2LoggingConfiguration", args ?? new GetWafv2LoggingConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Wafv2LoggingConfiguration
+        /// </summary>
+        public static Output<GetWafv2LoggingConfigurationResult> Invoke(GetWafv2LoggingConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWafv2LoggingConfigurationResult>("azure-native:awsconnector/v20241201:getWafv2LoggingConfiguration", args ?? new GetWafv2LoggingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

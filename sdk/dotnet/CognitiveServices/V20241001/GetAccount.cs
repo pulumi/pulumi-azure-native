@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CognitiveServices.V20241001
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:cognitiveservices/v20241001:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a Cognitive Services account specified by the parameters.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:cognitiveservices/v20241001:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

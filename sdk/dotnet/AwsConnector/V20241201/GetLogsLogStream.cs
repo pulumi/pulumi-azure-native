@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetLogsLogStreamResult> Invoke(GetLogsLogStreamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsLogStreamResult>("azure-native:awsconnector/v20241201:getLogsLogStream", args ?? new GetLogsLogStreamInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LogsLogStream
+        /// </summary>
+        public static Output<GetLogsLogStreamResult> Invoke(GetLogsLogStreamInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogsLogStreamResult>("azure-native:awsconnector/v20241201:getLogsLogStream", args ?? new GetLogsLogStreamInvokeArgs(), options.WithDefaults());
     }
 
 

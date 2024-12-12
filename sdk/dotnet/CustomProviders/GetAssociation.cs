@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.CustomProviders
         /// </summary>
         public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssociationResult>("azure-native:customproviders:getAssociation", args ?? new GetAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an association.
+        /// Azure REST API version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssociationResult>("azure-native:customproviders:getAssociation", args ?? new GetAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

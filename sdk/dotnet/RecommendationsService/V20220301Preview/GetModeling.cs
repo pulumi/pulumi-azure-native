@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220301Preview
         /// </summary>
         public static Output<GetModelingResult> Invoke(GetModelingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelingResult>("azure-native:recommendationsservice/v20220301preview:getModeling", args ?? new GetModelingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns Modeling resources for a given name.
+        /// </summary>
+        public static Output<GetModelingResult> Invoke(GetModelingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelingResult>("azure-native:recommendationsservice/v20220301preview:getModeling", args ?? new GetModelingInvokeArgs(), options.WithDefaults());
     }
 
 

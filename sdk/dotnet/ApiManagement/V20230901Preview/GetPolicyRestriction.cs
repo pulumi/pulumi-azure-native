@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
         /// </summary>
         public static Output<GetPolicyRestrictionResult> Invoke(GetPolicyRestrictionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyRestrictionResult>("azure-native:apimanagement/v20230901preview:getPolicyRestriction", args ?? new GetPolicyRestrictionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the policy restriction of the Api Management service.
+        /// </summary>
+        public static Output<GetPolicyRestrictionResult> Invoke(GetPolicyRestrictionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyRestrictionResult>("azure-native:apimanagement/v20230901preview:getPolicyRestriction", args ?? new GetPolicyRestrictionInvokeArgs(), options.WithDefaults());
     }
 
 

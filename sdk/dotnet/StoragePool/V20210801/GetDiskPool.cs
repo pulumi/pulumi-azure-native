@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
         /// </summary>
         public static Output<GetDiskPoolResult> Invoke(GetDiskPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskPoolResult>("azure-native:storagepool/v20210801:getDiskPool", args ?? new GetDiskPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Disk pool.
+        /// </summary>
+        public static Output<GetDiskPoolResult> Invoke(GetDiskPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiskPoolResult>("azure-native:storagepool/v20210801:getDiskPool", args ?? new GetDiskPoolInvokeArgs(), options.WithDefaults());
     }
 
 

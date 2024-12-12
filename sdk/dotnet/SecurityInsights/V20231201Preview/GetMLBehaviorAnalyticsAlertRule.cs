@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231201Preview
         /// </summary>
         public static Output<GetMLBehaviorAnalyticsAlertRuleResult> Invoke(GetMLBehaviorAnalyticsAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMLBehaviorAnalyticsAlertRuleResult>("azure-native:securityinsights/v20231201preview:getMLBehaviorAnalyticsAlertRule", args ?? new GetMLBehaviorAnalyticsAlertRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the alert rule.
+        /// </summary>
+        public static Output<GetMLBehaviorAnalyticsAlertRuleResult> Invoke(GetMLBehaviorAnalyticsAlertRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMLBehaviorAnalyticsAlertRuleResult>("azure-native:securityinsights/v20231201preview:getMLBehaviorAnalyticsAlertRule", args ?? new GetMLBehaviorAnalyticsAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20241001Preview
         /// </summary>
         public static Output<GetOpenAIResult> Invoke(GetOpenAIInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenAIResult>("azure-native:elastic/v20241001preview:getOpenAI", args ?? new GetOpenAIInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Capture properties of Open AI resource Integration.
+        /// </summary>
+        public static Output<GetOpenAIResult> Invoke(GetOpenAIInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOpenAIResult>("azure-native:elastic/v20241001preview:getOpenAI", args ?? new GetOpenAIInvokeArgs(), options.WithDefaults());
     }
 
 

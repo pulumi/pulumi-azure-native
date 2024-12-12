@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20240501Preview
         /// </summary>
         public static Output<GetSqlServerInstanceTelemetryResult> Invoke(GetSqlServerInstanceTelemetryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceTelemetryResult>("azure-native:azurearcdata/v20240501preview:getSqlServerInstanceTelemetry", args ?? new GetSqlServerInstanceTelemetryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves SQL Server instance telemetry
+        /// </summary>
+        public static Output<GetSqlServerInstanceTelemetryResult> Invoke(GetSqlServerInstanceTelemetryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceTelemetryResult>("azure-native:azurearcdata/v20240501preview:getSqlServerInstanceTelemetry", args ?? new GetSqlServerInstanceTelemetryInvokeArgs(), options.WithDefaults());
     }
 
 

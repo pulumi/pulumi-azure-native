@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public static Output<GetBandwidthSettingResult> Invoke(GetBandwidthSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBandwidthSettingResult>("azure-native:storsimple/v20170601:getBandwidthSetting", args ?? new GetBandwidthSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the properties of the specified bandwidth setting name.
+        /// </summary>
+        public static Output<GetBandwidthSettingResult> Invoke(GetBandwidthSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBandwidthSettingResult>("azure-native:storsimple/v20170601:getBandwidthSetting", args ?? new GetBandwidthSettingInvokeArgs(), options.WithDefaults());
     }
 
 

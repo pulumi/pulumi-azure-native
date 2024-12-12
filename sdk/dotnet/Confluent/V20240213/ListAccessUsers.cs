@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Confluent.V20240213
         /// </summary>
         public static Output<ListAccessUsersResult> Invoke(ListAccessUsersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessUsersResult>("azure-native:confluent/v20240213:listAccessUsers", args ?? new ListAccessUsersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List users success response
+        /// </summary>
+        public static Output<ListAccessUsersResult> Invoke(ListAccessUsersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccessUsersResult>("azure-native:confluent/v20240213:listAccessUsers", args ?? new ListAccessUsersInvokeArgs(), options.WithDefaults());
     }
 
 

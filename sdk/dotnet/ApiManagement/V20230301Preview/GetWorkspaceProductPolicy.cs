@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230301Preview
         /// </summary>
         public static Output<GetWorkspaceProductPolicyResult> Invoke(GetWorkspaceProductPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceProductPolicyResult>("azure-native:apimanagement/v20230301preview:getWorkspaceProductPolicy", args ?? new GetWorkspaceProductPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the policy configuration at the Product level.
+        /// </summary>
+        public static Output<GetWorkspaceProductPolicyResult> Invoke(GetWorkspaceProductPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceProductPolicyResult>("azure-native:apimanagement/v20230301preview:getWorkspaceProductPolicy", args ?? new GetWorkspaceProductPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

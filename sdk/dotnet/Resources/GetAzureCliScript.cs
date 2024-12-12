@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public static Output<GetAzureCliScriptResult> Invoke(GetAzureCliScriptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a deployment script with a given name.
+        /// Azure REST API version: 2020-10-01.
+        /// </summary>
+        public static Output<GetAzureCliScriptResult> Invoke(GetAzureCliScriptInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithDefaults());
     }
 
 

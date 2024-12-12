@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static Output<GetVariableValueResult> Invoke(GetVariableValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueResult>("azure-native:authorization:getVariableValue", args ?? new GetVariableValueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.
+        /// Azure REST API version: 2022-08-01-preview.
+        /// </summary>
+        public static Output<GetVariableValueResult> Invoke(GetVariableValueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVariableValueResult>("azure-native:authorization:getVariableValue", args ?? new GetVariableValueInvokeArgs(), options.WithDefaults());
     }
 
 

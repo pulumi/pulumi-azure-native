@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230501Preview
         /// </summary>
         public static Output<GetWebAppAssessmentV2OperationResult> Invoke(GetWebAppAssessmentV2OperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppAssessmentV2OperationResult>("azure-native:migrate/v20230501preview:getWebAppAssessmentV2Operation", args ?? new GetWebAppAssessmentV2OperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a WebAppAssessmentV2
+        /// </summary>
+        public static Output<GetWebAppAssessmentV2OperationResult> Invoke(GetWebAppAssessmentV2OperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppAssessmentV2OperationResult>("azure-native:migrate/v20230501preview:getWebAppAssessmentV2Operation", args ?? new GetWebAppAssessmentV2OperationInvokeArgs(), options.WithDefaults());
     }
 
 

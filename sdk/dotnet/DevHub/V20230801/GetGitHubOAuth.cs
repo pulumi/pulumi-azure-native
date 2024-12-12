@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevHub.V20230801
         /// </summary>
         public static Output<GetGitHubOAuthResult> Invoke(GetGitHubOAuthInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGitHubOAuthResult>("azure-native:devhub/v20230801:getGitHubOAuth", args ?? new GetGitHubOAuthInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// URL used to authorize the Developer Hub GitHub App
+        /// </summary>
+        public static Output<GetGitHubOAuthResult> Invoke(GetGitHubOAuthInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGitHubOAuthResult>("azure-native:devhub/v20230801:getGitHubOAuth", args ?? new GetGitHubOAuthInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorageMover.V20240701
         /// </summary>
         public static Output<GetStorageMoverResult> Invoke(GetStorageMoverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageMoverResult>("azure-native:storagemover/v20240701:getStorageMover", args ?? new GetStorageMoverInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Storage Mover resource.
+        /// </summary>
+        public static Output<GetStorageMoverResult> Invoke(GetStorageMoverInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageMoverResult>("azure-native:storagemover/v20240701:getStorageMover", args ?? new GetStorageMoverInvokeArgs(), options.WithDefaults());
     }
 
 

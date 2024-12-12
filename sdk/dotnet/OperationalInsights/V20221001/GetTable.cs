@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20221001
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights/v20221001:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Log Analytics workspace table.
+        /// </summary>
+        public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights/v20221001:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

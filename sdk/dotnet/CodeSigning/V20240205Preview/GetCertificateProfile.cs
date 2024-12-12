@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CodeSigning.V20240205Preview
         /// </summary>
         public static Output<GetCertificateProfileResult> Invoke(GetCertificateProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateProfileResult>("azure-native:codesigning/v20240205preview:getCertificateProfile", args ?? new GetCertificateProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get details of a certificate profile.
+        /// </summary>
+        public static Output<GetCertificateProfileResult> Invoke(GetCertificateProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateProfileResult>("azure-native:codesigning/v20240205preview:getCertificateProfile", args ?? new GetCertificateProfileInvokeArgs(), options.WithDefaults());
     }
 
 

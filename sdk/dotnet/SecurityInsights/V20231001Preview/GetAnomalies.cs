@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231001Preview
         /// </summary>
         public static Output<GetAnomaliesResult> Invoke(GetAnomaliesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnomaliesResult>("azure-native:securityinsights/v20231001preview:getAnomalies", args ?? new GetAnomaliesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a setting.
+        /// </summary>
+        public static Output<GetAnomaliesResult> Invoke(GetAnomaliesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnomaliesResult>("azure-native:securityinsights/v20231001preview:getAnomalies", args ?? new GetAnomaliesInvokeArgs(), options.WithDefaults());
     }
 
 

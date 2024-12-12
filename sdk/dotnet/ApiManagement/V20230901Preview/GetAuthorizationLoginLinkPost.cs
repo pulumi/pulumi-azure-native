@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
         /// </summary>
         public static Output<GetAuthorizationLoginLinkPostResult> Invoke(GetAuthorizationLoginLinkPostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationLoginLinkPostResult>("azure-native:apimanagement/v20230901preview:getAuthorizationLoginLinkPost", args ?? new GetAuthorizationLoginLinkPostInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets authorization login links.
+        /// </summary>
+        public static Output<GetAuthorizationLoginLinkPostResult> Invoke(GetAuthorizationLoginLinkPostInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationLoginLinkPostResult>("azure-native:apimanagement/v20230901preview:getAuthorizationLoginLinkPost", args ?? new GetAuthorizationLoginLinkPostInvokeArgs(), options.WithDefaults());
     }
 
 

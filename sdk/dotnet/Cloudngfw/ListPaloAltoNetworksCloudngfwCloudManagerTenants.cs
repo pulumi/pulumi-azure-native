@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwCloudManagerTenants", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Cloud Manager Tenant
+        /// Azure REST API version: 2024-02-07-preview.
+        /// </summary>
+        public static Output<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwCloudManagerTenants", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

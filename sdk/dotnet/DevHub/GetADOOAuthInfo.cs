@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         public static Output<GetADOOAuthInfoResult> Invoke(GetADOOAuthInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADOOAuthInfoResult>("azure-native:devhub:getADOOAuthInfo", args ?? new GetADOOAuthInfoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response containing ADO OAuth information
+        /// Azure REST API version: 2024-08-01-preview.
+        /// </summary>
+        public static Output<GetADOOAuthInfoResult> Invoke(GetADOOAuthInfoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetADOOAuthInfoResult>("azure-native:devhub:getADOOAuthInfo", args ?? new GetADOOAuthInfoInvokeArgs(), options.WithDefaults());
     }
 
 

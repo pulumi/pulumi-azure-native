@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
         /// </summary>
         public static Output<GetWorkspaceApiVersionSetResult> Invoke(GetWorkspaceApiVersionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiVersionSetResult>("azure-native:apimanagement/v20230901preview:getWorkspaceApiVersionSet", args ?? new GetWorkspaceApiVersionSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the Api Version Set specified by its identifier.
+        /// </summary>
+        public static Output<GetWorkspaceApiVersionSetResult> Invoke(GetWorkspaceApiVersionSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiVersionSetResult>("azure-native:apimanagement/v20230901preview:getWorkspaceApiVersionSet", args ?? new GetWorkspaceApiVersionSetInvokeArgs(), options.WithDefaults());
     }
 
 

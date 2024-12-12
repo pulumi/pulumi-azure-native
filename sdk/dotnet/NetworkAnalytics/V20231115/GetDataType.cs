@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkAnalytics.V20231115
         /// </summary>
         public static Output<GetDataTypeResult> Invoke(GetDataTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataTypeResult>("azure-native:networkanalytics/v20231115:getDataType", args ?? new GetDataTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve data type resource.
+        /// </summary>
+        public static Output<GetDataTypeResult> Invoke(GetDataTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataTypeResult>("azure-native:networkanalytics/v20231115:getDataType", args ?? new GetDataTypeInvokeArgs(), options.WithDefaults());
     }
 
 

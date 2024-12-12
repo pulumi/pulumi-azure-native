@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<ListWhoisByDomainResult> Invoke(ListWhoisByDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWhoisByDomainResult>("azure-native:securityinsights:listWhoisByDomain", args ?? new ListWhoisByDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get whois information for a single domain name
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01-preview.
+        /// </summary>
+        public static Output<ListWhoisByDomainResult> Invoke(ListWhoisByDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWhoisByDomainResult>("azure-native:securityinsights:listWhoisByDomain", args ?? new ListWhoisByDomainInvokeArgs(), options.WithDefaults());
     }
 
 

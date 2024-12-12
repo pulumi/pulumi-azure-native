@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20241215Preview
         /// </summary>
         public static Output<GetDomainTopicResult> Invoke(GetDomainTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicResult>("azure-native:eventgrid/v20241215preview:getDomainTopic", args ?? new GetDomainTopicInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a domain topic.
+        /// </summary>
+        public static Output<GetDomainTopicResult> Invoke(GetDomainTopicInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicResult>("azure-native:eventgrid/v20241215preview:getDomainTopic", args ?? new GetDomainTopicInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public static Output<GetNetworkPacketBrokerResult> Invoke(GetNetworkPacketBrokerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkPacketBrokerResult>("azure-native:managednetworkfabric:getNetworkPacketBroker", args ?? new GetNetworkPacketBrokerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves details of this Network Packet Broker.
+        /// Azure REST API version: 2023-06-15.
+        /// </summary>
+        public static Output<GetNetworkPacketBrokerResult> Invoke(GetNetworkPacketBrokerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkPacketBrokerResult>("azure-native:managednetworkfabric:getNetworkPacketBroker", args ?? new GetNetworkPacketBrokerInvokeArgs(), options.WithDefaults());
     }
 
 

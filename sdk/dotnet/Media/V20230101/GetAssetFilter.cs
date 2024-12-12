@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.V20230101
         /// </summary>
         public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media/v20230101:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details of an Asset Filter associated with the specified Asset.
+        /// </summary>
+        public static Output<GetAssetFilterResult> Invoke(GetAssetFilterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetFilterResult>("azure-native:media/v20230101:getAssetFilter", args ?? new GetAssetFilterInvokeArgs(), options.WithDefaults());
     }
 
 

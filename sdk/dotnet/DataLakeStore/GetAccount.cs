@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datalakestore:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Data Lake Store account.
+        /// Azure REST API version: 2016-11-01.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datalakestore:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

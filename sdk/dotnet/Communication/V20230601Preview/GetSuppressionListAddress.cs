@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Communication.V20230601Preview
         /// </summary>
         public static Output<GetSuppressionListAddressResult> Invoke(GetSuppressionListAddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionListAddressResult>("azure-native:communication/v20230601preview:getSuppressionListAddress", args ?? new GetSuppressionListAddressInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SuppressionListAddress.
+        /// </summary>
+        public static Output<GetSuppressionListAddressResult> Invoke(GetSuppressionListAddressInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionListAddressResult>("azure-native:communication/v20230601preview:getSuppressionListAddress", args ?? new GetSuppressionListAddressInvokeArgs(), options.WithDefaults());
     }
 
 

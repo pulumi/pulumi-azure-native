@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:mobilenetwork/v20221101:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified service.
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:mobilenetwork/v20221101:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

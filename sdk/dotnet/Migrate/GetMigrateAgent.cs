@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetMigrateAgentResult> Invoke(GetMigrateAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrateAgentResult>("azure-native:migrate:getMigrateAgent", args ?? new GetMigrateAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the modernizeProject agent.
+        /// Azure REST API version: 2022-05-01-preview.
+        /// </summary>
+        public static Output<GetMigrateAgentResult> Invoke(GetMigrateAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMigrateAgentResult>("azure-native:migrate:getMigrateAgent", args ?? new GetMigrateAgentInvokeArgs(), options.WithDefaults());
     }
 
 

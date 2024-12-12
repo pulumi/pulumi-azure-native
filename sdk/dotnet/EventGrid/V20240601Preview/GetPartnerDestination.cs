@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20240601Preview
         /// </summary>
         public static Output<GetPartnerDestinationResult> Invoke(GetPartnerDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerDestinationResult>("azure-native:eventgrid/v20240601preview:getPartnerDestination", args ?? new GetPartnerDestinationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a partner destination.
+        /// </summary>
+        public static Output<GetPartnerDestinationResult> Invoke(GetPartnerDestinationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnerDestinationResult>("azure-native:eventgrid/v20240601preview:getPartnerDestination", args ?? new GetPartnerDestinationInvokeArgs(), options.WithDefaults());
     }
 
 

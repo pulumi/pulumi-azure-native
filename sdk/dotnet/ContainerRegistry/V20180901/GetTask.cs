@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:containerregistry/v20180901:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the properties of a specified task.
+        /// </summary>
+        public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:containerregistry/v20180901:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         public static Output<GetPeeringServiceResult> Invoke(GetPeeringServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing peering service with the specified name under the given subscription and resource group.
+        /// Azure REST API version: 2022-10-01.
+        /// </summary>
+        public static Output<GetPeeringServiceResult> Invoke(GetPeeringServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPeeringServiceResult>("azure-native:peering:getPeeringService", args ?? new GetPeeringServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CognitiveServices.V20240601Preview
         /// </summary>
         public static Output<GetSharedCommitmentPlanResult> Invoke(GetSharedCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedCommitmentPlanResult>("azure-native:cognitiveservices/v20240601preview:getSharedCommitmentPlan", args ?? new GetSharedCommitmentPlanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a Cognitive Services commitment plan specified by the parameters.
+        /// </summary>
+        public static Output<GetSharedCommitmentPlanResult> Invoke(GetSharedCommitmentPlanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSharedCommitmentPlanResult>("azure-native:cognitiveservices/v20240601preview:getSharedCommitmentPlan", args ?? new GetSharedCommitmentPlanInvokeArgs(), options.WithDefaults());
     }
 
 

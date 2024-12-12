@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20240401
         /// </summary>
         public static Output<GetDevOpsConfigurationResult> Invoke(GetDevOpsConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevOpsConfigurationResult>("azure-native:security/v20240401:getDevOpsConfiguration", args ?? new GetDevOpsConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// DevOps Configuration resource.
+        /// </summary>
+        public static Output<GetDevOpsConfigurationResult> Invoke(GetDevOpsConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevOpsConfigurationResult>("azure-native:security/v20240401:getDevOpsConfiguration", args ?? new GetDevOpsConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

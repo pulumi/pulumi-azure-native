@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTOperationsMQ.V20231004Preview
         /// </summary>
         public static Output<GetMqResult> Invoke(GetMqInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMqResult>("azure-native:iotoperationsmq/v20231004preview:getMq", args ?? new GetMqInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a MqResource
+        /// </summary>
+        public static Output<GetMqResult> Invoke(GetMqInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMqResult>("azure-native:iotoperationsmq/v20231004preview:getMq", args ?? new GetMqInvokeArgs(), options.WithDefaults());
     }
 
 

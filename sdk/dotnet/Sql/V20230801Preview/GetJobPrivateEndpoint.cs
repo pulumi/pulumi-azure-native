@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
         /// </summary>
         public static Output<GetJobPrivateEndpointResult> Invoke(GetJobPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobPrivateEndpointResult>("azure-native:sql/v20230801preview:getJobPrivateEndpoint", args ?? new GetJobPrivateEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a private endpoint.
+        /// </summary>
+        public static Output<GetJobPrivateEndpointResult> Invoke(GetJobPrivateEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobPrivateEndpointResult>("azure-native:sql/v20230801preview:getJobPrivateEndpoint", args ?? new GetJobPrivateEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

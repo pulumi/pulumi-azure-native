@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230801Preview
         /// </summary>
         public static Output<GetContentTemplateResult> Invoke(GetContentTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentTemplateResult>("azure-native:securityinsights/v20230801preview:getContentTemplate", args ?? new GetContentTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a template byt its identifier.
+        /// </summary>
+        public static Output<GetContentTemplateResult> Invoke(GetContentTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContentTemplateResult>("azure-native:securityinsights/v20230801preview:getContentTemplate", args ?? new GetContentTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

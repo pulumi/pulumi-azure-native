@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// </summary>
         public static Output<GetTimeSeriesDatabaseConnectionResult> Invoke(GetTimeSeriesDatabaseConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the description of an existing time series database connection.
+        /// Azure REST API version: 2023-01-31.
+        /// </summary>
+        public static Output<GetTimeSeriesDatabaseConnectionResult> Invoke(GetTimeSeriesDatabaseConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTimeSeriesDatabaseConnectionResult>("azure-native:digitaltwins:getTimeSeriesDatabaseConnection", args ?? new GetTimeSeriesDatabaseConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

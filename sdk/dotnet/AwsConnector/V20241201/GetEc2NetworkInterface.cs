@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEc2NetworkInterfaceResult> Invoke(GetEc2NetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2NetworkInterfaceResult>("azure-native:awsconnector/v20241201:getEc2NetworkInterface", args ?? new GetEc2NetworkInterfaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2NetworkInterface
+        /// </summary>
+        public static Output<GetEc2NetworkInterfaceResult> Invoke(GetEc2NetworkInterfaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2NetworkInterfaceResult>("azure-native:awsconnector/v20241201:getEc2NetworkInterface", args ?? new GetEc2NetworkInterfaceInvokeArgs(), options.WithDefaults());
     }
 
 

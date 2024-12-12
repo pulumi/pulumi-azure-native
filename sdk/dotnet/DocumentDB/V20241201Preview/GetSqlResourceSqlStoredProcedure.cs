@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20241201Preview
         /// </summary>
         public static Output<GetSqlResourceSqlStoredProcedureResult> Invoke(GetSqlResourceSqlStoredProcedureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlStoredProcedureResult>("azure-native:documentdb/v20241201preview:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.
+        /// </summary>
+        public static Output<GetSqlResourceSqlStoredProcedureResult> Invoke(GetSqlResourceSqlStoredProcedureInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlStoredProcedureResult>("azure-native:documentdb/v20241201preview:getSqlResourceSqlStoredProcedure", args ?? new GetSqlResourceSqlStoredProcedureInvokeArgs(), options.WithDefaults());
     }
 
 

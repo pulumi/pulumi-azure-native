@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20230901
         /// </summary>
         public static Output<GetCertificateObjectLocalRulestackResult> Invoke(GetCertificateObjectLocalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateObjectLocalRulestackResult>("azure-native:cloudngfw/v20230901:getCertificateObjectLocalRulestack", args ?? new GetCertificateObjectLocalRulestackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CertificateObjectLocalRulestackResource
+        /// </summary>
+        public static Output<GetCertificateObjectLocalRulestackResult> Invoke(GetCertificateObjectLocalRulestackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateObjectLocalRulestackResult>("azure-native:cloudngfw/v20230901:getCertificateObjectLocalRulestack", args ?? new GetCertificateObjectLocalRulestackInvokeArgs(), options.WithDefaults());
     }
 
 

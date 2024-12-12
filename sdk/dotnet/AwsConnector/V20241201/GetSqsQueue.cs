@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetSqsQueueResult> Invoke(GetSqsQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqsQueueResult>("azure-native:awsconnector/v20241201:getSqsQueue", args ?? new GetSqsQueueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SqsQueue
+        /// </summary>
+        public static Output<GetSqsQueueResult> Invoke(GetSqsQueueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqsQueueResult>("azure-native:awsconnector/v20241201:getSqsQueue", args ?? new GetSqsQueueInvokeArgs(), options.WithDefaults());
     }
 
 

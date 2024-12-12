@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Peering.V20221001
         /// </summary>
         public static Output<GetPrefixResult> Invoke(GetPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrefixResult>("azure-native:peering/v20221001:getPrefix", args ?? new GetPrefixInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing prefix with the specified name under the given subscription, resource group and peering service.
+        /// </summary>
+        public static Output<GetPrefixResult> Invoke(GetPrefixInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrefixResult>("azure-native:peering/v20221001:getPrefix", args ?? new GetPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

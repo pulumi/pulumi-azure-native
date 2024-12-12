@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
         /// </summary>
         public static Output<GetControllerDetailsResult> Invoke(GetControllerDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetControllerDetailsResult>("azure-native:delegatednetwork/v20210315:getControllerDetails", args ?? new GetControllerDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details about the specified dnc controller.
+        /// </summary>
+        public static Output<GetControllerDetailsResult> Invoke(GetControllerDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetControllerDetailsResult>("azure-native:delegatednetwork/v20210315:getControllerDetails", args ?? new GetControllerDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

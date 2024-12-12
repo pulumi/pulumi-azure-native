@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230901
         /// </summary>
         public static Output<GetNetworkVirtualApplianceConnectionResult> Invoke(GetNetworkVirtualApplianceConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceConnectionResult>("azure-native:network/v20230901:getNetworkVirtualApplianceConnection", args ?? new GetNetworkVirtualApplianceConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the details of specified NVA connection.
+        /// </summary>
+        public static Output<GetNetworkVirtualApplianceConnectionResult> Invoke(GetNetworkVirtualApplianceConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceConnectionResult>("azure-native:network/v20230901:getNetworkVirtualApplianceConnection", args ?? new GetNetworkVirtualApplianceConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

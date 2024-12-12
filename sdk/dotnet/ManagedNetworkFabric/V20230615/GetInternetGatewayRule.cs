@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetInternetGatewayRuleResult> Invoke(GetInternetGatewayRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayRuleResult>("azure-native:managednetworkfabric/v20230615:getInternetGatewayRule", args ?? new GetInternetGatewayRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an Internet Gateway Rule resource.
+        /// </summary>
+        public static Output<GetInternetGatewayRuleResult> Invoke(GetInternetGatewayRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayRuleResult>("azure-native:managednetworkfabric/v20230615:getInternetGatewayRule", args ?? new GetInternetGatewayRuleInvokeArgs(), options.WithDefaults());
     }
 
 

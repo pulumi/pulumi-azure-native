@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DomainRegistration.V20240401
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:domainregistration/v20240401:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Get a domain.
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:domainregistration/v20240401:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

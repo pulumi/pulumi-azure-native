@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         /// </summary>
         public static Output<GetACSSBackupConnectionResult> Invoke(GetACSSBackupConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetACSSBackupConnectionResult>("azure-native:workloads/v20231001preview:getACSSBackupConnection", args ?? new GetACSSBackupConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the backup connection resource of virtual instance for SAP.
+        /// </summary>
+        public static Output<GetACSSBackupConnectionResult> Invoke(GetACSSBackupConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetACSSBackupConnectionResult>("azure-native:workloads/v20231001preview:getACSSBackupConnection", args ?? new GetACSSBackupConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HealthBot.V20240201
         /// </summary>
         public static Output<ListBotSecretsResult> Invoke(ListBotSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBotSecretsResult>("azure-native:healthbot/v20240201:listBotSecrets", args ?? new ListBotSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List all secrets of a HealthBot.
+        /// </summary>
+        public static Output<ListBotSecretsResult> Invoke(ListBotSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListBotSecretsResult>("azure-native:healthbot/v20240201:listBotSecrets", args ?? new ListBotSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

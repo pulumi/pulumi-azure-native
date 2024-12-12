@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetModernizeProjectResult> Invoke(GetModernizeProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModernizeProjectResult>("azure-native:migrate:getModernizeProject", args ?? new GetModernizeProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the modernize project.
+        /// Azure REST API version: 2022-05-01-preview.
+        /// </summary>
+        public static Output<GetModernizeProjectResult> Invoke(GetModernizeProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetModernizeProjectResult>("azure-native:migrate:getModernizeProject", args ?? new GetModernizeProjectInvokeArgs(), options.WithDefaults());
     }
 
 

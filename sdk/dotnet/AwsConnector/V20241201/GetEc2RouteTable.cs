@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEc2RouteTableResult> Invoke(GetEc2RouteTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2RouteTableResult>("azure-native:awsconnector/v20241201:getEc2RouteTable", args ?? new GetEc2RouteTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2RouteTable
+        /// </summary>
+        public static Output<GetEc2RouteTableResult> Invoke(GetEc2RouteTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2RouteTableResult>("azure-native:awsconnector/v20241201:getEc2RouteTable", args ?? new GetEc2RouteTableInvokeArgs(), options.WithDefaults());
     }
 
 

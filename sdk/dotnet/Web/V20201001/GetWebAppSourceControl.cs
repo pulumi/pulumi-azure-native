@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20201001
         /// </summary>
         public static Output<GetWebAppSourceControlResult> Invoke(GetWebAppSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSourceControlResult>("azure-native:web/v20201001:getWebAppSourceControl", args ?? new GetWebAppSourceControlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the source control configuration of an app.
+        /// </summary>
+        public static Output<GetWebAppSourceControlResult> Invoke(GetWebAppSourceControlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSourceControlResult>("azure-native:web/v20201001:getWebAppSourceControl", args ?? new GetWebAppSourceControlInvokeArgs(), options.WithDefaults());
     }
 
 

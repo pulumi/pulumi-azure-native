@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetAksAssessmentOperationResult> Invoke(GetAksAssessmentOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAksAssessmentOperationResult>("azure-native:migrate:getAksAssessmentOperation", args ?? new GetAksAssessmentOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a AKSAssessment
+        /// Azure REST API version: 2023-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+        /// </summary>
+        public static Output<GetAksAssessmentOperationResult> Invoke(GetAksAssessmentOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAksAssessmentOperationResult>("azure-native:migrate:getAksAssessmentOperation", args ?? new GetAksAssessmentOperationInvokeArgs(), options.WithDefaults());
     }
 
 

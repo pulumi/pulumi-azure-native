@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         /// </summary>
         public static Output<GetSkusResult> Invoke(GetSkusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSkusResult>("azure-native:providerhub/v20210901preview:getSkus", args ?? new GetSkusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the sku details for the given resource type and sku name.
+        /// </summary>
+        public static Output<GetSkusResult> Invoke(GetSkusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSkusResult>("azure-native:providerhub/v20210901preview:getSkus", args ?? new GetSkusInvokeArgs(), options.WithDefaults());
     }
 
 

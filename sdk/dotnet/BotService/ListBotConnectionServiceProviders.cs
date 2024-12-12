@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.BotService
         /// </summary>
         public static Output<ListBotConnectionServiceProvidersResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBotConnectionServiceProvidersResult>("azure-native:botservice:listBotConnectionServiceProviders", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Lists the available Service Providers for creating Connection Settings
+        /// Azure REST API version: 2022-09-15.
+        /// 
+        /// Other available API versions: 2018-07-12, 2020-06-02, 2021-03-01, 2021-05-01-preview, 2022-06-15-preview, 2023-09-15-preview.
+        /// </summary>
+        public static Output<ListBotConnectionServiceProvidersResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListBotConnectionServiceProvidersResult>("azure-native:botservice:listBotConnectionServiceProviders", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

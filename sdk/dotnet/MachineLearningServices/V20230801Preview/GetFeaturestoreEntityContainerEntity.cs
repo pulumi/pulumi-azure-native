@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230801Preview
         /// </summary>
         public static Output<GetFeaturestoreEntityContainerEntityResult> Invoke(GetFeaturestoreEntityContainerEntityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFeaturestoreEntityContainerEntityResult>("azure-native:machinelearningservices/v20230801preview:getFeaturestoreEntityContainerEntity", args ?? new GetFeaturestoreEntityContainerEntityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Azure Resource Manager resource envelope.
+        /// </summary>
+        public static Output<GetFeaturestoreEntityContainerEntityResult> Invoke(GetFeaturestoreEntityContainerEntityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFeaturestoreEntityContainerEntityResult>("azure-native:machinelearningservices/v20230801preview:getFeaturestoreEntityContainerEntity", args ?? new GetFeaturestoreEntityContainerEntityInvokeArgs(), options.WithDefaults());
     }
 
 

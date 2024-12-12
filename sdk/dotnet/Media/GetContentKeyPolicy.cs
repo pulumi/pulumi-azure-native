@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Output<GetContentKeyPolicyResult> Invoke(GetContentKeyPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyResult>("azure-native:media:getContentKeyPolicy", args ?? new GetContentKeyPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details of a Content Key Policy in the Media Services account
+        /// Azure REST API version: 2023-01-01.
+        /// </summary>
+        public static Output<GetContentKeyPolicyResult> Invoke(GetContentKeyPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContentKeyPolicyResult>("azure-native:media:getContentKeyPolicy", args ?? new GetContentKeyPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

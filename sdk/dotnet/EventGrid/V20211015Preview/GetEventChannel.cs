@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
         /// </summary>
         public static Output<GetEventChannelResult> Invoke(GetEventChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventChannelResult>("azure-native:eventgrid/v20211015preview:getEventChannel", args ?? new GetEventChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of an event channel.
+        /// </summary>
+        public static Output<GetEventChannelResult> Invoke(GetEventChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventChannelResult>("azure-native:eventgrid/v20211015preview:getEventChannel", args ?? new GetEventChannelInvokeArgs(), options.WithDefaults());
     }
 
 

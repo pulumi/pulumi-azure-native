@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20240701Preview
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:netapp/v20240701preview:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get details of the specified capacity pool
+        /// </summary>
+        public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:netapp/v20240701preview:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

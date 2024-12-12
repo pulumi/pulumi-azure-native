@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20190601
         /// </summary>
         public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure-native:network/v20190601:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified nat gateway in a specified resource group.
+        /// </summary>
+        public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("azure-native:network/v20190601:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

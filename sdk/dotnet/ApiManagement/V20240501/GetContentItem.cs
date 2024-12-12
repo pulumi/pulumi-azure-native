@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
         /// </summary>
         public static Output<GetContentItemResult> Invoke(GetContentItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContentItemResult>("azure-native:apimanagement/v20240501:getContentItem", args ?? new GetContentItemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the developer portal's content item specified by its identifier.
+        /// </summary>
+        public static Output<GetContentItemResult> Invoke(GetContentItemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContentItemResult>("azure-native:apimanagement/v20240501:getContentItem", args ?? new GetContentItemInvokeArgs(), options.WithDefaults());
     }
 
 

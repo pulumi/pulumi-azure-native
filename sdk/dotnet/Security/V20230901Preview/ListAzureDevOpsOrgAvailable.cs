@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20230901Preview
         /// </summary>
         public static Output<ListAzureDevOpsOrgAvailableResult> Invoke(ListAzureDevOpsOrgAvailableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAzureDevOpsOrgAvailableResult>("azure-native:security/v20230901preview:listAzureDevOpsOrgAvailable", args ?? new ListAzureDevOpsOrgAvailableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List of RP resources which supports pagination.
+        /// </summary>
+        public static Output<ListAzureDevOpsOrgAvailableResult> Invoke(ListAzureDevOpsOrgAvailableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAzureDevOpsOrgAvailableResult>("azure-native:security/v20230901preview:listAzureDevOpsOrgAvailable", args ?? new ListAzureDevOpsOrgAvailableInvokeArgs(), options.WithDefaults());
     }
 
 

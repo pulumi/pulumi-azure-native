@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Output<GetSecurityStandardResult> Invoke(GetSecurityStandardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityStandardResult>("azure-native:security:getSecurityStandard", args ?? new GetSecurityStandardInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific security standard for the requested scope by standardId
+        /// Azure REST API version: 2024-08-01.
+        /// </summary>
+        public static Output<GetSecurityStandardResult> Invoke(GetSecurityStandardInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityStandardResult>("azure-native:security:getSecurityStandard", args ?? new GetSecurityStandardInvokeArgs(), options.WithDefaults());
     }
 
 

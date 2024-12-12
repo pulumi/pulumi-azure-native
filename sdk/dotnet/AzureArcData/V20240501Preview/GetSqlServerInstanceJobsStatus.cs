@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20240501Preview
         /// </summary>
         public static Output<GetSqlServerInstanceJobsStatusResult> Invoke(GetSqlServerInstanceJobsStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceJobsStatusResult>("azure-native:azurearcdata/v20240501preview:getSqlServerInstanceJobsStatus", args ?? new GetSqlServerInstanceJobsStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets jobs status details for sql arc resource
+        /// </summary>
+        public static Output<GetSqlServerInstanceJobsStatusResult> Invoke(GetSqlServerInstanceJobsStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceJobsStatusResult>("azure-native:azurearcdata/v20240501preview:getSqlServerInstanceJobsStatus", args ?? new GetSqlServerInstanceJobsStatusInvokeArgs(), options.WithDefaults());
     }
 
 

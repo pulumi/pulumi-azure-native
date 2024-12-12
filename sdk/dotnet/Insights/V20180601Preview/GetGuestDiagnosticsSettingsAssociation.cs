@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         /// </summary>
         public static Output<GetGuestDiagnosticsSettingsAssociationResult> Invoke(GetGuestDiagnosticsSettingsAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestDiagnosticsSettingsAssociationResult>("azure-native:insights/v20180601preview:getGuestDiagnosticsSettingsAssociation", args ?? new GetGuestDiagnosticsSettingsAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets guest diagnostics association settings.
+        /// </summary>
+        public static Output<GetGuestDiagnosticsSettingsAssociationResult> Invoke(GetGuestDiagnosticsSettingsAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuestDiagnosticsSettingsAssociationResult>("azure-native:insights/v20180601preview:getGuestDiagnosticsSettingsAssociation", args ?? new GetGuestDiagnosticsSettingsAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

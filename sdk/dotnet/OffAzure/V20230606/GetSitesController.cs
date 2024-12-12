@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20230606
         /// </summary>
         public static Output<GetSitesControllerResult> Invoke(GetSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesControllerResult>("azure-native:offazure/v20230606:getSitesController", args ?? new GetSitesControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a VmwareSite
+        /// </summary>
+        public static Output<GetSitesControllerResult> Invoke(GetSitesControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSitesControllerResult>("azure-native:offazure/v20230606:getSitesController", args ?? new GetSitesControllerInvokeArgs(), options.WithDefaults());
     }
 
 

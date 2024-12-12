@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorageCache.V20231101Preview
         /// </summary>
         public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache/v20231101preview:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a Storage Target from a cache.
+        /// </summary>
+        public static Output<GetStorageTargetResult> Invoke(GetStorageTargetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageTargetResult>("azure-native:storagecache/v20231101preview:getStorageTarget", args ?? new GetStorageTargetInvokeArgs(), options.WithDefaults());
     }
 
 

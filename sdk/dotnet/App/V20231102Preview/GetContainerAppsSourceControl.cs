@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20231102Preview
         /// </summary>
         public static Output<GetContainerAppsSourceControlResult> Invoke(GetContainerAppsSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsSourceControlResult>("azure-native:app/v20231102preview:getContainerAppsSourceControl", args ?? new GetContainerAppsSourceControlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Container App SourceControl.
+        /// </summary>
+        public static Output<GetContainerAppsSourceControlResult> Invoke(GetContainerAppsSourceControlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppsSourceControlResult>("azure-native:app/v20231102preview:getContainerAppsSourceControl", args ?? new GetContainerAppsSourceControlInvokeArgs(), options.WithDefaults());
     }
 
 

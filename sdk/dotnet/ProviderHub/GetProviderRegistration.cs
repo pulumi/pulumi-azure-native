@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ProviderHub
         /// </summary>
         public static Output<GetProviderRegistrationResult> Invoke(GetProviderRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderRegistrationResult>("azure-native:providerhub:getProviderRegistration", args ?? new GetProviderRegistrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the provider registration details.
+        /// Azure REST API version: 2021-09-01-preview.
+        /// </summary>
+        public static Output<GetProviderRegistrationResult> Invoke(GetProviderRegistrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProviderRegistrationResult>("azure-native:providerhub:getProviderRegistration", args ?? new GetProviderRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

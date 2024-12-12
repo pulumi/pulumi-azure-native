@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20240301Preview
         /// </summary>
         public static Output<GetMongoClusterResult> Invoke(GetMongoClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMongoClusterResult>("azure-native:documentdb/v20240301preview:getMongoCluster", args ?? new GetMongoClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a mongo cluster.
+        /// </summary>
+        public static Output<GetMongoClusterResult> Invoke(GetMongoClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMongoClusterResult>("azure-native:documentdb/v20240301preview:getMongoCluster", args ?? new GetMongoClusterInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.PortalServices.V20240401Preview
         /// </summary>
         public static Output<GetCopilotSettingResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCopilotSettingResult>("azure-native:portalservices/v20240401preview:getCopilotSetting", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Get a CopilotSettingsResource
+        /// </summary>
+        public static Output<GetCopilotSettingResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCopilotSettingResult>("azure-native:portalservices/v20240401preview:getCopilotSetting", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.V20230101
         /// </summary>
         public static Output<ListAssetContainerSasResult> Invoke(ListAssetContainerSasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAssetContainerSasResult>("azure-native:media/v20230101:listAssetContainerSas", args ?? new ListAssetContainerSasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists storage container URLs with shared access signatures (SAS) for uploading and downloading Asset content. The signatures are derived from the storage account keys.
+        /// </summary>
+        public static Output<ListAssetContainerSasResult> Invoke(ListAssetContainerSasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAssetContainerSasResult>("azure-native:media/v20230101:listAssetContainerSas", args ?? new ListAssetContainerSasInvokeArgs(), options.WithDefaults());
     }
 
 

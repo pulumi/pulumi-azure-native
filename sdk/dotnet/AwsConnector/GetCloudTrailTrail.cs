@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetCloudTrailTrailResult> Invoke(GetCloudTrailTrailInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudTrailTrailResult>("azure-native:awsconnector:getCloudTrailTrail", args ?? new GetCloudTrailTrailInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CloudTrailTrail
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetCloudTrailTrailResult> Invoke(GetCloudTrailTrailInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudTrailTrailResult>("azure-native:awsconnector:getCloudTrailTrail", args ?? new GetCloudTrailTrailInvokeArgs(), options.WithDefaults());
     }
 
 

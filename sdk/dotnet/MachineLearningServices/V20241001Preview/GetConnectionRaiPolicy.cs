@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview
         /// </summary>
         public static Output<GetConnectionRaiPolicyResult> Invoke(GetConnectionRaiPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiPolicyResult>("azure-native:machinelearningservices/v20241001preview:getConnectionRaiPolicy", args ?? new GetConnectionRaiPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Azure OpenAI Content Filters resource.
+        /// </summary>
+        public static Output<GetConnectionRaiPolicyResult> Invoke(GetConnectionRaiPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiPolicyResult>("azure-native:machinelearningservices/v20241001preview:getConnectionRaiPolicy", args ?? new GetConnectionRaiPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

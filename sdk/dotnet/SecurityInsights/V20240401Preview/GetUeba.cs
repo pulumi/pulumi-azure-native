@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
         /// </summary>
         public static Output<GetUebaResult> Invoke(GetUebaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUebaResult>("azure-native:securityinsights/v20240401preview:getUeba", args ?? new GetUebaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a setting.
+        /// </summary>
+        public static Output<GetUebaResult> Invoke(GetUebaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUebaResult>("azure-native:securityinsights/v20240401preview:getUeba", args ?? new GetUebaInvokeArgs(), options.WithDefaults());
     }
 
 

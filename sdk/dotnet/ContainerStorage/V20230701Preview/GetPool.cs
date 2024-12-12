@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerStorage.V20230701Preview
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:containerstorage/v20230701preview:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Pool
+        /// </summary>
+        public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:containerstorage/v20230701preview:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

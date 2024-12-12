@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20230515Preview
         /// </summary>
         public static Output<GetJobScheduleResult> Invoke(GetJobScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobScheduleResult>("azure-native:automation/v20230515preview:getJobSchedule", args ?? new GetJobScheduleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the job schedule identified by job schedule name.
+        /// </summary>
+        public static Output<GetJobScheduleResult> Invoke(GetJobScheduleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobScheduleResult>("azure-native:automation/v20230515preview:getJobSchedule", args ?? new GetJobScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

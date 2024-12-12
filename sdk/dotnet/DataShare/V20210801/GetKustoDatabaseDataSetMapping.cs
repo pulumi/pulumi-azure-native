@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         public static Output<GetKustoDatabaseDataSetMappingResult> Invoke(GetKustoDatabaseDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare/v20210801:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DataSetMapping in a shareSubscription
+        /// </summary>
+        public static Output<GetKustoDatabaseDataSetMappingResult> Invoke(GetKustoDatabaseDataSetMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKustoDatabaseDataSetMappingResult>("azure-native:datashare/v20210801:getKustoDatabaseDataSetMapping", args ?? new GetKustoDatabaseDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

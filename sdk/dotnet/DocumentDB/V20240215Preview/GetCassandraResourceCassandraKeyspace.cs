@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20240215Preview
         /// </summary>
         public static Output<GetCassandraResourceCassandraKeyspaceResult> Invoke(GetCassandraResourceCassandraKeyspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraKeyspaceResult>("azure-native:documentdb/v20240215preview:getCassandraResourceCassandraKeyspace", args ?? new GetCassandraResourceCassandraKeyspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.
+        /// </summary>
+        public static Output<GetCassandraResourceCassandraKeyspaceResult> Invoke(GetCassandraResourceCassandraKeyspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraKeyspaceResult>("azure-native:documentdb/v20240215preview:getCassandraResourceCassandraKeyspace", args ?? new GetCassandraResourceCassandraKeyspaceInvokeArgs(), options.WithDefaults());
     }
 
 

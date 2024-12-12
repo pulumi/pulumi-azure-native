@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
         /// </summary>
         public static Output<ListWorkspaceConnectionModelsResult> Invoke(ListWorkspaceConnectionModelsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceConnectionModelsResult>("azure-native:machinelearningservices/v20240401preview:listWorkspaceConnectionModels", args ?? new ListWorkspaceConnectionModelsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List available models from all connections.
+        /// </summary>
+        public static Output<ListWorkspaceConnectionModelsResult> Invoke(ListWorkspaceConnectionModelsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceConnectionModelsResult>("azure-native:machinelearningservices/v20240401preview:listWorkspaceConnectionModels", args ?? new ListWorkspaceConnectionModelsInvokeArgs(), options.WithDefaults());
     }
 
 

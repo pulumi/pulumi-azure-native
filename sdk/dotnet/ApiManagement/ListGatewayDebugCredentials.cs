@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Output<ListGatewayDebugCredentialsResult> Invoke(ListGatewayDebugCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGatewayDebugCredentialsResult>("azure-native:apimanagement:listGatewayDebugCredentials", args ?? new ListGatewayDebugCredentialsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Create new debug credentials for gateway.
+        /// Azure REST API version: 2023-03-01-preview.
+        /// 
+        /// Other available API versions: 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// </summary>
+        public static Output<ListGatewayDebugCredentialsResult> Invoke(ListGatewayDebugCredentialsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGatewayDebugCredentialsResult>("azure-native:apimanagement:listGatewayDebugCredentials", args ?? new ListGatewayDebugCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

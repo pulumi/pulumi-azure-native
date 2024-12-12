@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
         /// </summary>
         public static Output<GetVendorSkuPreviewResult> Invoke(GetVendorSkuPreviewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVendorSkuPreviewResult>("azure-native:hybridnetwork/v20220101preview:getVendorSkuPreview", args ?? new GetVendorSkuPreviewInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the preview information of a vendor sku.
+        /// </summary>
+        public static Output<GetVendorSkuPreviewResult> Invoke(GetVendorSkuPreviewInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVendorSkuPreviewResult>("azure-native:hybridnetwork/v20220101preview:getVendorSkuPreview", args ?? new GetVendorSkuPreviewInvokeArgs(), options.WithDefaults());
     }
 
 

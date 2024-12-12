@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
         /// </summary>
         public static Output<GetNotificationHubResult> Invoke(GetNotificationHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubResult>("azure-native:notificationhubs/v20170401:getNotificationHub", args ?? new GetNotificationHubInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the notification hubs associated with a namespace.
+        /// </summary>
+        public static Output<GetNotificationHubResult> Invoke(GetNotificationHubInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotificationHubResult>("azure-native:notificationhubs/v20170401:getNotificationHub", args ?? new GetNotificationHubInvokeArgs(), options.WithDefaults());
     }
 
 

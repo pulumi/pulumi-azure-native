@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230401Preview
         /// </summary>
         public static Output<GetHypervCollectorsOperationResult> Invoke(GetHypervCollectorsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervCollectorsOperationResult>("azure-native:migrate/v20230401preview:getHypervCollectorsOperation", args ?? new GetHypervCollectorsOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a HypervCollector
+        /// </summary>
+        public static Output<GetHypervCollectorsOperationResult> Invoke(GetHypervCollectorsOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHypervCollectorsOperationResult>("azure-native:migrate/v20230401preview:getHypervCollectorsOperation", args ?? new GetHypervCollectorsOperationInvokeArgs(), options.WithDefaults());
     }
 
 

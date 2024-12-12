@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public static Output<GetPipelineJobResult> Invoke(GetPipelineJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineJobResult>("azure-native:videoanalyzer:getPipelineJob", args ?? new GetPipelineJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a specific pipeline job by name. If a pipeline job with that name has been previously created, the call will return the JSON representation of that instance.
+        /// Azure REST API version: 2021-11-01-preview.
+        /// </summary>
+        public static Output<GetPipelineJobResult> Invoke(GetPipelineJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineJobResult>("azure-native:videoanalyzer:getPipelineJob", args ?? new GetPipelineJobInvokeArgs(), options.WithDefaults());
     }
 
 

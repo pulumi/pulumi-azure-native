@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetAutoScalingAutoScalingGroupResult> Invoke(GetAutoScalingAutoScalingGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoScalingAutoScalingGroupResult>("azure-native:awsconnector/v20241201:getAutoScalingAutoScalingGroup", args ?? new GetAutoScalingAutoScalingGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a AutoScalingAutoScalingGroup
+        /// </summary>
+        public static Output<GetAutoScalingAutoScalingGroupResult> Invoke(GetAutoScalingAutoScalingGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutoScalingAutoScalingGroupResult>("azure-native:awsconnector/v20241201:getAutoScalingAutoScalingGroup", args ?? new GetAutoScalingAutoScalingGroupInvokeArgs(), options.WithDefaults());
     }
 
 

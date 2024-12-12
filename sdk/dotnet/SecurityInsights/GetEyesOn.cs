@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<GetEyesOnResult> Invoke(GetEyesOnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEyesOnResult>("azure-native:securityinsights:getEyesOn", args ?? new GetEyesOnInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a setting.
+        /// Azure REST API version: 2023-06-01-preview.
+        /// </summary>
+        public static Output<GetEyesOnResult> Invoke(GetEyesOnInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEyesOnResult>("azure-native:securityinsights:getEyesOn", args ?? new GetEyesOnInvokeArgs(), options.WithDefaults());
     }
 
 

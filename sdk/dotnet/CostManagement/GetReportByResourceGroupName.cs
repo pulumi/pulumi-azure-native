@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public static Output<GetReportByResourceGroupNameResult> Invoke(GetReportByResourceGroupNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportByResourceGroupNameResult>("azure-native:costmanagement:getReportByResourceGroupName", args ?? new GetReportByResourceGroupNameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the report for a resource group under a subscription by report name.
+        /// Azure REST API version: 2018-08-01-preview.
+        /// </summary>
+        public static Output<GetReportByResourceGroupNameResult> Invoke(GetReportByResourceGroupNameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReportByResourceGroupNameResult>("azure-native:costmanagement:getReportByResourceGroupName", args ?? new GetReportByResourceGroupNameInvokeArgs(), options.WithDefaults());
     }
 
 

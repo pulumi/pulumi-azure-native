@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEc2AddressResult> Invoke(GetEc2AddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2AddressResult>("azure-native:awsconnector/v20241201:getEc2Address", args ?? new GetEc2AddressInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2Address
+        /// </summary>
+        public static Output<GetEc2AddressResult> Invoke(GetEc2AddressInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2AddressResult>("azure-native:awsconnector/v20241201:getEc2Address", args ?? new GetEc2AddressInvokeArgs(), options.WithDefaults());
     }
 
 

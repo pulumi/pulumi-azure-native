@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public static Output<GetSapVirtualInstanceInvokeSapSupportedSkuResult> Invoke(GetSapVirtualInstanceInvokeSapSupportedSkuInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceInvokeSapSupportedSkuResult>("azure-native:workloads:getSapVirtualInstanceInvokeSapSupportedSku", args ?? new GetSapVirtualInstanceInvokeSapSupportedSkuInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a list of SAP supported SKUs for ASCS, Application and Database tier.
+        /// Azure REST API version: 2024-09-01.
+        /// </summary>
+        public static Output<GetSapVirtualInstanceInvokeSapSupportedSkuResult> Invoke(GetSapVirtualInstanceInvokeSapSupportedSkuInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceInvokeSapSupportedSkuResult>("azure-native:workloads:getSapVirtualInstanceInvokeSapSupportedSku", args ?? new GetSapVirtualInstanceInvokeSapSupportedSkuInvokeArgs(), options.WithDefaults());
     }
 
 

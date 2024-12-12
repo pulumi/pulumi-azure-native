@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataReplication.V20210216Preview
         /// </summary>
         public static Output<GetDraResult> Invoke(GetDraInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDraResult>("azure-native:datareplication/v20210216preview:getDra", args ?? new GetDraInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the fabric agent.
+        /// </summary>
+        public static Output<GetDraResult> Invoke(GetDraInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDraResult>("azure-native:datareplication/v20210216preview:getDra", args ?? new GetDraInvokeArgs(), options.WithDefaults());
     }
 
 

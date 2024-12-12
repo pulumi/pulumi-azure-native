@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20240101
         /// </summary>
         public static Output<GetVolumeGroupIdForLdapUserResult> Invoke(GetVolumeGroupIdForLdapUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupIdForLdapUserResult>("azure-native:netapp/v20240101:getVolumeGroupIdForLdapUser", args ?? new GetVolumeGroupIdForLdapUserInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the list of group Ids for a specific LDAP User
+        /// </summary>
+        public static Output<GetVolumeGroupIdForLdapUserResult> Invoke(GetVolumeGroupIdForLdapUserInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupIdForLdapUserResult>("azure-native:netapp/v20240101:getVolumeGroupIdForLdapUser", args ?? new GetVolumeGroupIdForLdapUserInvokeArgs(), options.WithDefaults());
     }
 
 

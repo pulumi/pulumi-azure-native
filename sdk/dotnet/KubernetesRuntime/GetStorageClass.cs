@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// </summary>
         public static Output<GetStorageClassResult> Invoke(GetStorageClassInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageClassResult>("azure-native:kubernetesruntime:getStorageClass", args ?? new GetStorageClassInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a StorageClassResource
+        /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
+        /// </summary>
+        public static Output<GetStorageClassResult> Invoke(GetStorageClassInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageClassResult>("azure-native:kubernetesruntime:getStorageClass", args ?? new GetStorageClassInvokeArgs(), options.WithDefaults());
     }
 
 

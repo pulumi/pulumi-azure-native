@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetPrivateZoneResult> Invoke(GetPrivateZoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateZoneResult>("azure-native:network:getPrivateZone", args ?? new GetPrivateZoneInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
+        /// Azure REST API version: 2020-06-01.
+        /// 
+        /// Other available API versions: 2024-06-01.
+        /// </summary>
+        public static Output<GetPrivateZoneResult> Invoke(GetPrivateZoneInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateZoneResult>("azure-native:network:getPrivateZone", args ?? new GetPrivateZoneInvokeArgs(), options.WithDefaults());
     }
 
 

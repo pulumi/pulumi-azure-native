@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridContainerService.V20231115Preview
         /// </summary>
         public static Output<ListprovisionedClusterInstanceUserKubeconfigResult> Invoke(ListprovisionedClusterInstanceUserKubeconfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListprovisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice/v20231115preview:listprovisionedClusterInstanceUserKubeconfig", args ?? new ListprovisionedClusterInstanceUserKubeconfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the AAD user credentials of a provisioned cluster instance used only in direct mode.
+        /// </summary>
+        public static Output<ListprovisionedClusterInstanceUserKubeconfigResult> Invoke(ListprovisionedClusterInstanceUserKubeconfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListprovisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice/v20231115preview:listprovisionedClusterInstanceUserKubeconfig", args ?? new ListprovisionedClusterInstanceUserKubeconfigInvokeArgs(), options.WithDefaults());
     }
 
 

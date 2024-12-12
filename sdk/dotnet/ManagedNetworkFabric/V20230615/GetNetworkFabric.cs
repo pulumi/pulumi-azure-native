@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetNetworkFabricResult> Invoke(GetNetworkFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFabricResult>("azure-native:managednetworkfabric/v20230615:getNetworkFabric", args ?? new GetNetworkFabricInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Network Fabric resource details.
+        /// </summary>
+        public static Output<GetNetworkFabricResult> Invoke(GetNetworkFabricInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFabricResult>("azure-native:managednetworkfabric/v20230615:getNetworkFabric", args ?? new GetNetworkFabricInvokeArgs(), options.WithDefaults());
     }
 
 

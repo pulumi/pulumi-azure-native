@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240901
         /// </summary>
         public static Output<GetASCDataConnectorResult> Invoke(GetASCDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetASCDataConnectorResult>("azure-native:securityinsights/v20240901:getASCDataConnector", args ?? new GetASCDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// </summary>
+        public static Output<GetASCDataConnectorResult> Invoke(GetASCDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetASCDataConnectorResult>("azure-native:securityinsights/v20240901:getASCDataConnector", args ?? new GetASCDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

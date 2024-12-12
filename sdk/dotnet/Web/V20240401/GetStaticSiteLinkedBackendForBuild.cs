@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20240401
         /// </summary>
         public static Output<GetStaticSiteLinkedBackendForBuildResult> Invoke(GetStaticSiteLinkedBackendForBuildInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteLinkedBackendForBuildResult>("azure-native:web/v20240401:getStaticSiteLinkedBackendForBuild", args ?? new GetStaticSiteLinkedBackendForBuildInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Static Site Linked Backend ARM resource.
+        /// </summary>
+        public static Output<GetStaticSiteLinkedBackendForBuildResult> Invoke(GetStaticSiteLinkedBackendForBuildInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteLinkedBackendForBuildResult>("azure-native:web/v20240401:getStaticSiteLinkedBackendForBuild", args ?? new GetStaticSiteLinkedBackendForBuildInvokeArgs(), options.WithDefaults());
     }
 
 

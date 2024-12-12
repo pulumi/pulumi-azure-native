@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         /// </summary>
         public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("azure-native:apimanagement/v20210401preview:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the Schema specified by its identifier.
+        /// </summary>
+        public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("azure-native:apimanagement/v20210401preview:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEc2ImageResult> Invoke(GetEc2ImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2ImageResult>("azure-native:awsconnector/v20241201:getEc2Image", args ?? new GetEc2ImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2Image
+        /// </summary>
+        public static Output<GetEc2ImageResult> Invoke(GetEc2ImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2ImageResult>("azure-native:awsconnector/v20241201:getEc2Image", args ?? new GetEc2ImageInvokeArgs(), options.WithDefaults());
     }
 
 

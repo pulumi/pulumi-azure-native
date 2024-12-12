@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401
         /// </summary>
         public static Output<ListComputeKeysResult> Invoke(ListComputeKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListComputeKeysResult>("azure-native:machinelearningservices/v20240401:listComputeKeys", args ?? new ListComputeKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).
+        /// </summary>
+        public static Output<ListComputeKeysResult> Invoke(ListComputeKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListComputeKeysResult>("azure-native:machinelearningservices/v20240401:listComputeKeys", args ?? new ListComputeKeysInvokeArgs(), options.WithDefaults());
     }
 
 

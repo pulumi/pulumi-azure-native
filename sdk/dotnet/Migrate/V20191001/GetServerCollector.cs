@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20191001
         /// </summary>
         public static Output<GetServerCollectorResult> Invoke(GetServerCollectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCollectorResult>("azure-native:migrate/v20191001:getServerCollector", args ?? new GetServerCollectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Server collector.
+        /// </summary>
+        public static Output<GetServerCollectorResult> Invoke(GetServerCollectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerCollectorResult>("azure-native:migrate/v20191001:getServerCollector", args ?? new GetServerCollectorInvokeArgs(), options.WithDefaults());
     }
 
 

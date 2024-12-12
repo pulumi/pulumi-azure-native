@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.V20240627
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:appcomplianceautomation/v20240627:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the AppComplianceAutomation webhook and its properties.
+        /// </summary>
+        public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:appcomplianceautomation/v20240627:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
     }
 
 

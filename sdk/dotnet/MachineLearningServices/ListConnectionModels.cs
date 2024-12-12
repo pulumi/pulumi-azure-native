@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public static Output<ListConnectionModelsResult> Invoke(ListConnectionModelsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectionModelsResult>("azure-native:machinelearningservices:listConnectionModels", args ?? new ListConnectionModelsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// 
+        /// Azure REST API version: 2024-07-01-preview.
+        /// </summary>
+        public static Output<ListConnectionModelsResult> Invoke(ListConnectionModelsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListConnectionModelsResult>("azure-native:machinelearningservices:listConnectionModels", args ?? new ListConnectionModelsInvokeArgs(), options.WithDefaults());
     }
 
 

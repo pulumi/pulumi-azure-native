@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.HybridData
         /// </summary>
         public static Output<GetDataStoreResult> Invoke(GetDataStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataStoreResult>("azure-native:hybriddata:getDataStore", args ?? new GetDataStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This method gets the data store/repository by name.
+        /// Azure REST API version: 2019-06-01.
+        /// </summary>
+        public static Output<GetDataStoreResult> Invoke(GetDataStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataStoreResult>("azure-native:hybriddata:getDataStore", args ?? new GetDataStoreInvokeArgs(), options.WithDefaults());
     }
 
 

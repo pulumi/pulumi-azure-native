@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230501Preview
         /// </summary>
         public static Output<GetWorkspaceApiReleaseResult> Invoke(GetWorkspaceApiReleaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiReleaseResult>("azure-native:apimanagement/v20230501preview:getWorkspaceApiRelease", args ?? new GetWorkspaceApiReleaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the details of an API release.
+        /// </summary>
+        public static Output<GetWorkspaceApiReleaseResult> Invoke(GetWorkspaceApiReleaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiReleaseResult>("azure-native:apimanagement/v20230501preview:getWorkspaceApiRelease", args ?? new GetWorkspaceApiReleaseInvokeArgs(), options.WithDefaults());
     }
 
 

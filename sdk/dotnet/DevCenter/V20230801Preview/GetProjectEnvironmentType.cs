@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20230801Preview
         /// </summary>
         public static Output<GetProjectEnvironmentTypeResult> Invoke(GetProjectEnvironmentTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectEnvironmentTypeResult>("azure-native:devcenter/v20230801preview:getProjectEnvironmentType", args ?? new GetProjectEnvironmentTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a project environment type.
+        /// </summary>
+        public static Output<GetProjectEnvironmentTypeResult> Invoke(GetProjectEnvironmentTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectEnvironmentTypeResult>("azure-native:devcenter/v20230801preview:getProjectEnvironmentType", args ?? new GetProjectEnvironmentTypeInvokeArgs(), options.WithDefaults());
     }
 
 

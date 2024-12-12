@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetCodeBuildSourceCredentialsInfoResult> Invoke(GetCodeBuildSourceCredentialsInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeBuildSourceCredentialsInfoResult>("azure-native:awsconnector/v20241201:getCodeBuildSourceCredentialsInfo", args ?? new GetCodeBuildSourceCredentialsInfoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CodeBuildSourceCredentialsInfo
+        /// </summary>
+        public static Output<GetCodeBuildSourceCredentialsInfoResult> Invoke(GetCodeBuildSourceCredentialsInfoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodeBuildSourceCredentialsInfoResult>("azure-native:awsconnector/v20241201:getCodeBuildSourceCredentialsInfo", args ?? new GetCodeBuildSourceCredentialsInfoInvokeArgs(), options.WithDefaults());
     }
 
 

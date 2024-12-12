@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20201001
         /// </summary>
         public static Output<GetWebAppSlotResult> Invoke(GetWebAppSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSlotResult>("azure-native:web/v20201001:getWebAppSlot", args ?? new GetWebAppSlotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of a web, mobile, or API app.
+        /// </summary>
+        public static Output<GetWebAppSlotResult> Invoke(GetWebAppSlotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSlotResult>("azure-native:web/v20201001:getWebAppSlot", args ?? new GetWebAppSlotInvokeArgs(), options.WithDefaults());
     }
 
 

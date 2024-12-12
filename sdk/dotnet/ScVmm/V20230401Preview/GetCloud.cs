@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ScVmm.V20230401Preview
         /// </summary>
         public static Output<GetCloudResult> Invoke(GetCloudInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudResult>("azure-native:scvmm/v20230401preview:getCloud", args ?? new GetCloudInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements Cloud GET method.
+        /// </summary>
+        public static Output<GetCloudResult> Invoke(GetCloudInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudResult>("azure-native:scvmm/v20230401preview:getCloud", args ?? new GetCloudInvokeArgs(), options.WithDefaults());
     }
 
 

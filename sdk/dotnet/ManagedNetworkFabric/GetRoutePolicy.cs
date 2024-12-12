@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public static Output<GetRoutePolicyResult> Invoke(GetRoutePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutePolicyResult>("azure-native:managednetworkfabric:getRoutePolicy", args ?? new GetRoutePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements Route Policy GET method.
+        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15.
+        /// </summary>
+        public static Output<GetRoutePolicyResult> Invoke(GetRoutePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoutePolicyResult>("azure-native:managednetworkfabric:getRoutePolicy", args ?? new GetRoutePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

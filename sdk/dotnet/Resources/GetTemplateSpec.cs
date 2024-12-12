@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Template Spec with a given name.
+        /// Azure REST API version: 2022-02-01.
+        /// </summary>
+        public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetS3AccessControlPolicyResult> Invoke(GetS3AccessControlPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3AccessControlPolicyResult>("azure-native:awsconnector/v20241201:getS3AccessControlPolicy", args ?? new GetS3AccessControlPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a S3AccessControlPolicy
+        /// </summary>
+        public static Output<GetS3AccessControlPolicyResult> Invoke(GetS3AccessControlPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetS3AccessControlPolicyResult>("azure-native:awsconnector/v20241201:getS3AccessControlPolicy", args ?? new GetS3AccessControlPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

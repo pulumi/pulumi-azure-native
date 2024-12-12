@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// </summary>
         public static Output<GetBigDataPoolResult> Invoke(GetBigDataPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBigDataPoolResult>("azure-native:synapse/v20210601:getBigDataPool", args ?? new GetBigDataPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Big Data pool.
+        /// </summary>
+        public static Output<GetBigDataPoolResult> Invoke(GetBigDataPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBigDataPoolResult>("azure-native:synapse/v20210601:getBigDataPool", args ?? new GetBigDataPoolInvokeArgs(), options.WithDefaults());
     }
 
 

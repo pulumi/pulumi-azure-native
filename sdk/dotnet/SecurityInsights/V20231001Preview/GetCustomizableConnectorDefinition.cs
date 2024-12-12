@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231001Preview
         /// </summary>
         public static Output<GetCustomizableConnectorDefinitionResult> Invoke(GetCustomizableConnectorDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomizableConnectorDefinitionResult>("azure-native:securityinsights/v20231001preview:getCustomizableConnectorDefinition", args ?? new GetCustomizableConnectorDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector definition.
+        /// </summary>
+        public static Output<GetCustomizableConnectorDefinitionResult> Invoke(GetCustomizableConnectorDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomizableConnectorDefinitionResult>("azure-native:securityinsights/v20231001preview:getCustomizableConnectorDefinition", args ?? new GetCustomizableConnectorDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.V20240627
         /// </summary>
         public static Output<GetReportScopingQuestionsResult> Invoke(GetReportScopingQuestionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportScopingQuestionsResult>("azure-native:appcomplianceautomation/v20240627:getReportScopingQuestions", args ?? new GetReportScopingQuestionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.
+        /// </summary>
+        public static Output<GetReportScopingQuestionsResult> Invoke(GetReportScopingQuestionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReportScopingQuestionsResult>("azure-native:appcomplianceautomation/v20240627:getReportScopingQuestions", args ?? new GetReportScopingQuestionsInvokeArgs(), options.WithDefaults());
     }
 
 

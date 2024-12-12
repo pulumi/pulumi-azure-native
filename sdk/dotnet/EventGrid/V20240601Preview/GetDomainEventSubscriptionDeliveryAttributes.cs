@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20240601Preview
         /// </summary>
         public static Output<GetDomainEventSubscriptionDeliveryAttributesResult> Invoke(GetDomainEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20240601preview:getDomainEventSubscriptionDeliveryAttributes", args ?? new GetDomainEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get all delivery attributes for an event subscription for domain.
+        /// </summary>
+        public static Output<GetDomainEventSubscriptionDeliveryAttributesResult> Invoke(GetDomainEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20240601preview:getDomainEventSubscriptionDeliveryAttributes", args ?? new GetDomainEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
     }
 
 

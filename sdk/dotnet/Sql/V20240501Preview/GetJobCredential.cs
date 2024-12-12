@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
         /// </summary>
         public static Output<GetJobCredentialResult> Invoke(GetJobCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobCredentialResult>("azure-native:sql/v20240501preview:getJobCredential", args ?? new GetJobCredentialInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a jobs credential.
+        /// </summary>
+        public static Output<GetJobCredentialResult> Invoke(GetJobCredentialInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobCredentialResult>("azure-native:sql/v20240501preview:getJobCredential", args ?? new GetJobCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

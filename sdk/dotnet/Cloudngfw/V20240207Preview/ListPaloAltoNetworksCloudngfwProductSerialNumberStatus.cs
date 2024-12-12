@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240207Preview
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult>("azure-native:cloudngfw/v20240207preview:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Product serial and status for the service
+        /// </summary>
+        public static Output<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult>("azure-native:cloudngfw/v20240207preview:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

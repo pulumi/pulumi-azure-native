@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
         /// </summary>
         public static Output<ListSourceControlRepositoriesResult> Invoke(ListSourceControlRepositoriesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSourceControlRepositoriesResult>("azure-native:securityinsights/v20221001preview:listSourceControlRepositories", args ?? new ListSourceControlRepositoriesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a list of repositories metadata.
+        /// </summary>
+        public static Output<ListSourceControlRepositoriesResult> Invoke(ListSourceControlRepositoriesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListSourceControlRepositoriesResult>("azure-native:securityinsights/v20221001preview:listSourceControlRepositories", args ?? new ListSourceControlRepositoriesInvokeArgs(), options.WithDefaults());
     }
 
 

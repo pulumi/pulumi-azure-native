@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.KeyVault.V20230701
         /// </summary>
         public static Output<GetManagedHsmResult> Invoke(GetManagedHsmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault/v20230701:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified managed HSM Pool.
+        /// </summary>
+        public static Output<GetManagedHsmResult> Invoke(GetManagedHsmInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault/v20230701:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithDefaults());
     }
 
 

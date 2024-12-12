@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Output<GetWorkspaceGroupResult> Invoke(GetWorkspaceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceGroupResult>("azure-native:apimanagement:getWorkspaceGroup", args ?? new GetWorkspaceGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the group specified by its identifier.
+        /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// </summary>
+        public static Output<GetWorkspaceGroupResult> Invoke(GetWorkspaceGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceGroupResult>("azure-native:apimanagement:getWorkspaceGroup", args ?? new GetWorkspaceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

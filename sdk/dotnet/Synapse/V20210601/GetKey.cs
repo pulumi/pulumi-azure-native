@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:synapse/v20210601:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a workspace key
+        /// </summary>
+        public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:synapse/v20210601:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
     }
 
 

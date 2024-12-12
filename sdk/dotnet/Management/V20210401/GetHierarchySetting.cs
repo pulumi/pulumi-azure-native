@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Management.V20210401
         /// </summary>
         public static Output<GetHierarchySettingResult> Invoke(GetHierarchySettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHierarchySettingResult>("azure-native:management/v20210401:getHierarchySetting", args ?? new GetHierarchySettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.
+        /// </summary>
+        public static Output<GetHierarchySettingResult> Invoke(GetHierarchySettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHierarchySettingResult>("azure-native:management/v20210401:getHierarchySetting", args ?? new GetHierarchySettingInvokeArgs(), options.WithDefaults());
     }
 
 

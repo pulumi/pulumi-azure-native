@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public static Output<GetIoTAddonResult> Invoke(GetIoTAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific addon by name.
+        /// Azure REST API version: 2022-03-01.
+        /// </summary>
+        public static Output<GetIoTAddonResult> Invoke(GetIoTAddonInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIoTAddonResult>("azure-native:databoxedge:getIoTAddon", args ?? new GetIoTAddonInvokeArgs(), options.WithDefaults());
     }
 
 

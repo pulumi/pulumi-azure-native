@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetConfigServiceConfigurationRecorderStatusResult> Invoke(GetConfigServiceConfigurationRecorderStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigServiceConfigurationRecorderStatusResult>("azure-native:awsconnector/v20241201:getConfigServiceConfigurationRecorderStatus", args ?? new GetConfigServiceConfigurationRecorderStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ConfigServiceConfigurationRecorderStatus
+        /// </summary>
+        public static Output<GetConfigServiceConfigurationRecorderStatusResult> Invoke(GetConfigServiceConfigurationRecorderStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigServiceConfigurationRecorderStatusResult>("azure-native:awsconnector/v20241201:getConfigServiceConfigurationRecorderStatus", args ?? new GetConfigServiceConfigurationRecorderStatusInvokeArgs(), options.WithDefaults());
     }
 
 

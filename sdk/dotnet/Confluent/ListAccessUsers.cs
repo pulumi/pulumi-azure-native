@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public static Output<ListAccessUsersResult> Invoke(ListAccessUsersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessUsersResult>("azure-native:confluent:listAccessUsers", args ?? new ListAccessUsersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List users success response
+        /// Azure REST API version: 2023-08-22.
+        /// 
+        /// Other available API versions: 2024-02-13.
+        /// </summary>
+        public static Output<ListAccessUsersResult> Invoke(ListAccessUsersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccessUsersResult>("azure-native:confluent:listAccessUsers", args ?? new ListAccessUsersInvokeArgs(), options.WithDefaults());
     }
 
 

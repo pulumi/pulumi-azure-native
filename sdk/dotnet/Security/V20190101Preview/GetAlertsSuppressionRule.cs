@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         /// </summary>
         public static Output<GetAlertsSuppressionRuleResult> Invoke(GetAlertsSuppressionRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertsSuppressionRuleResult>("azure-native:security/v20190101preview:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
+        /// </summary>
+        public static Output<GetAlertsSuppressionRuleResult> Invoke(GetAlertsSuppressionRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAlertsSuppressionRuleResult>("azure-native:security/v20190101preview:getAlertsSuppressionRule", args ?? new GetAlertsSuppressionRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240101
         /// </summary>
         public static Output<GetVirtualNetworkGatewayVpnProfilePackageUrlResult> Invoke(GetVirtualNetworkGatewayVpnProfilePackageUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayVpnProfilePackageUrlResult>("azure-native:network/v20240101:getVirtualNetworkGatewayVpnProfilePackageUrl", args ?? new GetVirtualNetworkGatewayVpnProfilePackageUrlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.
+        /// </summary>
+        public static Output<GetVirtualNetworkGatewayVpnProfilePackageUrlResult> Invoke(GetVirtualNetworkGatewayVpnProfilePackageUrlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayVpnProfilePackageUrlResult>("azure-native:network/v20240101:getVirtualNetworkGatewayVpnProfilePackageUrl", args ?? new GetVirtualNetworkGatewayVpnProfilePackageUrlInvokeArgs(), options.WithDefaults());
     }
 
 

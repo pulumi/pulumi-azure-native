@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Output<GetFactoryResult> Invoke(GetFactoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFactoryResult>("azure-native:datafactory/v20180601:getFactory", args ?? new GetFactoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a factory.
+        /// </summary>
+        public static Output<GetFactoryResult> Invoke(GetFactoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFactoryResult>("azure-native:datafactory/v20180601:getFactory", args ?? new GetFactoryInvokeArgs(), options.WithDefaults());
     }
 
 

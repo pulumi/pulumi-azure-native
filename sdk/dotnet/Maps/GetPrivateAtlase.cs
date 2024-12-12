@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Maps
         /// </summary>
         public static Output<GetPrivateAtlaseResult> Invoke(GetPrivateAtlaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAtlaseResult>("azure-native:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// [Deprecated] Get a Private Atlas resource.
+        /// Azure REST API version: 2020-02-01-preview.
+        /// </summary>
+        public static Output<GetPrivateAtlaseResult> Invoke(GetPrivateAtlaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAtlaseResult>("azure-native:maps:getPrivateAtlase", args ?? new GetPrivateAtlaseInvokeArgs(), options.WithDefaults());
     }
 
 

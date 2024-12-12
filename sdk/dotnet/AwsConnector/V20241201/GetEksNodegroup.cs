@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEksNodegroupResult> Invoke(GetEksNodegroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEksNodegroupResult>("azure-native:awsconnector/v20241201:getEksNodegroup", args ?? new GetEksNodegroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EksNodegroup
+        /// </summary>
+        public static Output<GetEksNodegroupResult> Invoke(GetEksNodegroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEksNodegroupResult>("azure-native:awsconnector/v20241201:getEksNodegroup", args ?? new GetEksNodegroupInvokeArgs(), options.WithDefaults());
     }
 
 

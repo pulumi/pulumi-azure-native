@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Chaos.V20230901Preview
         /// </summary>
         public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:chaos/v20230901preview:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Target resource that extends a tracked regional resource.
+        /// </summary>
+        public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:chaos/v20230901preview:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());
     }
 
 

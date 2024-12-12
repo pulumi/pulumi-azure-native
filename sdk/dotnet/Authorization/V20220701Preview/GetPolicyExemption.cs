@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20220701Preview
         /// </summary>
         public static Output<GetPolicyExemptionResult> Invoke(GetPolicyExemptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization/v20220701preview:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This operation retrieves a single policy exemption, given its name and the scope it was created at.
+        /// </summary>
+        public static Output<GetPolicyExemptionResult> Invoke(GetPolicyExemptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization/v20220701preview:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithDefaults());
     }
 
 

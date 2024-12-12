@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20231010Preview
         /// </summary>
         public static Output<GetFirewallGlobalRulestackResult> Invoke(GetFirewallGlobalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallGlobalRulestackResult>("azure-native:cloudngfw/v20231010preview:getFirewallGlobalRulestack", args ?? new GetFirewallGlobalRulestackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Global Rulestack associated with the Firewall
+        /// </summary>
+        public static Output<GetFirewallGlobalRulestackResult> Invoke(GetFirewallGlobalRulestackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallGlobalRulestackResult>("azure-native:cloudngfw/v20231010preview:getFirewallGlobalRulestack", args ?? new GetFirewallGlobalRulestackInvokeArgs(), options.WithDefaults());
     }
 
 

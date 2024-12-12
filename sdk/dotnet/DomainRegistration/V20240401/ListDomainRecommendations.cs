@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DomainRegistration.V20240401
         /// </summary>
         public static Output<ListDomainRecommendationsResult> Invoke(ListDomainRecommendationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDomainRecommendationsResult>("azure-native:domainregistration/v20240401:listDomainRecommendations", args ?? new ListDomainRecommendationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Get domain name recommendations based on keywords.
+        /// </summary>
+        public static Output<ListDomainRecommendationsResult> Invoke(ListDomainRecommendationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDomainRecommendationsResult>("azure-native:domainregistration/v20240401:listDomainRecommendations", args ?? new ListDomainRecommendationsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Education
         /// </summary>
         public static Output<GetStudentResult> Invoke(GetStudentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStudentResult>("azure-native:education:getStudent", args ?? new GetStudentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details for a specific student in the specified lab by student alias
+        /// Azure REST API version: 2021-12-01-preview.
+        /// </summary>
+        public static Output<GetStudentResult> Invoke(GetStudentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStudentResult>("azure-native:education:getStudent", args ?? new GetStudentInvokeArgs(), options.WithDefaults());
     }
 
 

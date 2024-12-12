@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// </summary>
         public static Output<GetEnvironmentSettingResult> Invoke(GetEnvironmentSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentSettingResult>("azure-native:labservices/v20181015:getEnvironmentSetting", args ?? new GetEnvironmentSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get environment setting
+        /// </summary>
+        public static Output<GetEnvironmentSettingResult> Invoke(GetEnvironmentSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentSettingResult>("azure-native:labservices/v20181015:getEnvironmentSetting", args ?? new GetEnvironmentSettingInvokeArgs(), options.WithDefaults());
     }
 
 

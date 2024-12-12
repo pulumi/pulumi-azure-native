@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HealthcareApis.V20231101
         /// </summary>
         public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis/v20231101:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified DICOM Service.
+        /// </summary>
+        public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis/v20231101:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
     }
 
 

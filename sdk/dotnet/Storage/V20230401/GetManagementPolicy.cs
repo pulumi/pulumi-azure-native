@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20230401
         /// </summary>
         public static Output<GetManagementPolicyResult> Invoke(GetManagementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementPolicyResult>("azure-native:storage/v20230401:getManagementPolicy", args ?? new GetManagementPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the managementpolicy associated with the specified storage account.
+        /// </summary>
+        public static Output<GetManagementPolicyResult> Invoke(GetManagementPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementPolicyResult>("azure-native:storage/v20230401:getManagementPolicy", args ?? new GetManagementPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

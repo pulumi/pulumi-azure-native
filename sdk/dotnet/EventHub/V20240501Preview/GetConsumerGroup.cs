@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
         /// </summary>
         public static Output<GetConsumerGroupResult> Invoke(GetConsumerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsumerGroupResult>("azure-native:eventhub/v20240501preview:getConsumerGroup", args ?? new GetConsumerGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a description for the specified consumer group.
+        /// </summary>
+        public static Output<GetConsumerGroupResult> Invoke(GetConsumerGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConsumerGroupResult>("azure-native:eventhub/v20240501preview:getConsumerGroup", args ?? new GetConsumerGroupInvokeArgs(), options.WithDefaults());
     }
 
 

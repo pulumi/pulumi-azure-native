@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20190801
         /// </summary>
         public static Output<GetWebAppScmAllowedResult> Invoke(GetWebAppScmAllowedInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppScmAllowedResult>("azure-native:web/v20190801:getWebAppScmAllowed", args ?? new GetWebAppScmAllowedInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns whether Scm basic auth is allowed on the site or not.
+        /// </summary>
+        public static Output<GetWebAppScmAllowedResult> Invoke(GetWebAppScmAllowedInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppScmAllowedResult>("azure-native:web/v20190801:getWebAppScmAllowed", args ?? new GetWebAppScmAllowedInvokeArgs(), options.WithDefaults());
     }
 
 

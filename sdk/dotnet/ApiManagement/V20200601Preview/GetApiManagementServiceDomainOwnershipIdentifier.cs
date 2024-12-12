@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
         /// </summary>
         public static Output<GetApiManagementServiceDomainOwnershipIdentifierResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceDomainOwnershipIdentifierResult>("azure-native:apimanagement/v20200601preview:getApiManagementServiceDomainOwnershipIdentifier", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Get the custom domain ownership identifier for an API Management service.
+        /// </summary>
+        public static Output<GetApiManagementServiceDomainOwnershipIdentifierResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceDomainOwnershipIdentifierResult>("azure-native:apimanagement/v20200601preview:getApiManagementServiceDomainOwnershipIdentifier", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

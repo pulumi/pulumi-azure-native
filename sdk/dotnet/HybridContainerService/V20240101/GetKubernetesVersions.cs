@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridContainerService.V20240101
         /// </summary>
         public static Output<GetKubernetesVersionsResult> Invoke(GetKubernetesVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesVersionsResult>("azure-native:hybridcontainerservice/v20240101:getKubernetesVersions", args ?? new GetKubernetesVersionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the supported kubernetes versions for the specified custom location
+        /// </summary>
+        public static Output<GetKubernetesVersionsResult> Invoke(GetKubernetesVersionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesVersionsResult>("azure-native:hybridcontainerservice/v20240101:getKubernetesVersions", args ?? new GetKubernetesVersionsInvokeArgs(), options.WithDefaults());
     }
 
 

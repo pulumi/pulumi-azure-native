@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public static Output<GetServerInstanceResult> Invoke(GetServerInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerInstanceResult>("azure-native:workloads:getServerInstance", args ?? new GetServerInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Server Instance resource.
+        /// Azure REST API version: 2023-10-01-preview.
+        /// </summary>
+        public static Output<GetServerInstanceResult> Invoke(GetServerInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerInstanceResult>("azure-native:workloads:getServerInstance", args ?? new GetServerInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

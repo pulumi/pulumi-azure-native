@@ -26,6 +26,14 @@ namespace Pulumi.AzureNative.AzureLargeInstance
         /// </summary>
         public static Output<GetAzureLargeStorageInstanceResult> Invoke(GetAzureLargeStorageInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureLargeStorageInstanceResult>("azure-native:azurelargeinstance:getAzureLargeStorageInstance", args ?? new GetAzureLargeStorageInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an Azure Large Storage instance for the specified subscription, resource
+        /// group, and instance name.
+        /// Azure REST API version: 2024-08-01-preview.
+        /// </summary>
+        public static Output<GetAzureLargeStorageInstanceResult> Invoke(GetAzureLargeStorageInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureLargeStorageInstanceResult>("azure-native:azurelargeinstance:getAzureLargeStorageInstance", args ?? new GetAzureLargeStorageInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

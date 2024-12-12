@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetL2IsolationDomainResult> Invoke(GetL2IsolationDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2IsolationDomainResult>("azure-native:managednetworkfabric/v20230615:getL2IsolationDomain", args ?? new GetL2IsolationDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements L2 Isolation Domain GET method.
+        /// </summary>
+        public static Output<GetL2IsolationDomainResult> Invoke(GetL2IsolationDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetL2IsolationDomainResult>("azure-native:managednetworkfabric/v20230615:getL2IsolationDomain", args ?? new GetL2IsolationDomainInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.LoadTestService
         /// </summary>
         public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LoadTestResource
+        /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Other available API versions: 2021-12-01-preview, 2023-12-01-preview.
+        /// </summary>
+        public static Output<GetLoadTestResult> Invoke(GetLoadTestInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestResult>("azure-native:loadtestservice:getLoadTest", args ?? new GetLoadTestInvokeArgs(), options.WithDefaults());
     }
 
 

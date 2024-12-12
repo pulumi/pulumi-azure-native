@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Management.V20200501
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management/v20200501:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.
+        /// </summary>
+        public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("azure-native:management/v20200501:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
     }
 
 

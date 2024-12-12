@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20230901
         /// </summary>
         public static Output<GetFqdnListGlobalRulestackResult> Invoke(GetFqdnListGlobalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFqdnListGlobalRulestackResult>("azure-native:cloudngfw/v20230901:getFqdnListGlobalRulestack", args ?? new GetFqdnListGlobalRulestackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a FqdnListGlobalRulestackResource
+        /// </summary>
+        public static Output<GetFqdnListGlobalRulestackResult> Invoke(GetFqdnListGlobalRulestackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFqdnListGlobalRulestackResult>("azure-native:cloudngfw/v20230901:getFqdnListGlobalRulestack", args ?? new GetFqdnListGlobalRulestackInvokeArgs(), options.WithDefaults());
     }
 
 

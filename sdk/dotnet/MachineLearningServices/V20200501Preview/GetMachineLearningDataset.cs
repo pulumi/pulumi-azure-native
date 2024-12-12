@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
         /// </summary>
         public static Output<GetMachineLearningDatasetResult> Invoke(GetMachineLearningDatasetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineLearningDatasetResult>("azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset", args ?? new GetMachineLearningDatasetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Dataset by name.
+        /// </summary>
+        public static Output<GetMachineLearningDatasetResult> Invoke(GetMachineLearningDatasetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineLearningDatasetResult>("azure-native:machinelearningservices/v20200501preview:getMachineLearningDataset", args ?? new GetMachineLearningDatasetInvokeArgs(), options.WithDefaults());
     }
 
 

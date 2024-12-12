@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetDatabaseMigrationServiceReplicationInstanceResult> Invoke(GetDatabaseMigrationServiceReplicationInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationServiceReplicationInstanceResult>("azure-native:awsconnector:getDatabaseMigrationServiceReplicationInstance", args ?? new GetDatabaseMigrationServiceReplicationInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DatabaseMigrationServiceReplicationInstance
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetDatabaseMigrationServiceReplicationInstanceResult> Invoke(GetDatabaseMigrationServiceReplicationInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationServiceReplicationInstanceResult>("azure-native:awsconnector:getDatabaseMigrationServiceReplicationInstance", args ?? new GetDatabaseMigrationServiceReplicationInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

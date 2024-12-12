@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEc2VolumeResult> Invoke(GetEc2VolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2VolumeResult>("azure-native:awsconnector/v20241201:getEc2Volume", args ?? new GetEc2VolumeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2Volume
+        /// </summary>
+        public static Output<GetEc2VolumeResult> Invoke(GetEc2VolumeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2VolumeResult>("azure-native:awsconnector/v20241201:getEc2Volume", args ?? new GetEc2VolumeInvokeArgs(), options.WithDefaults());
     }
 
 

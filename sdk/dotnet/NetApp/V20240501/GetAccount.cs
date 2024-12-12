@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20240501
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp/v20240501:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the NetApp account
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp/v20240501:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

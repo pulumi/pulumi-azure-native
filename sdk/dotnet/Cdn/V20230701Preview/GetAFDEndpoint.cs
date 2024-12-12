@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20230701Preview
         /// </summary>
         public static Output<GetAFDEndpointResult> Invoke(GetAFDEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDEndpointResult>("azure-native:cdn/v20230701preview:getAFDEndpoint", args ?? new GetAFDEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
+        /// </summary>
+        public static Output<GetAFDEndpointResult> Invoke(GetAFDEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAFDEndpointResult>("azure-native:cdn/v20230701preview:getAFDEndpoint", args ?? new GetAFDEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

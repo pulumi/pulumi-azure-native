@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Output<GetAccountFilterResult> Invoke(GetAccountFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountFilterResult>("azure-native:media:getAccountFilter", args ?? new GetAccountFilterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details of an Account Filter in the Media Services account.
+        /// Azure REST API version: 2023-01-01.
+        /// </summary>
+        public static Output<GetAccountFilterResult> Invoke(GetAccountFilterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountFilterResult>("azure-native:media:getAccountFilter", args ?? new GetAccountFilterInvokeArgs(), options.WithDefaults());
     }
 
 

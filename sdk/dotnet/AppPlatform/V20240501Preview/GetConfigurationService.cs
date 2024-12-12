@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20240501Preview
         /// </summary>
         public static Output<GetConfigurationServiceResult> Invoke(GetConfigurationServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationServiceResult>("azure-native:appplatform/v20240501preview:getConfigurationService", args ?? new GetConfigurationServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Application Configuration Service and its properties.
+        /// </summary>
+        public static Output<GetConfigurationServiceResult> Invoke(GetConfigurationServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationServiceResult>("azure-native:appplatform/v20240501preview:getConfigurationService", args ?? new GetConfigurationServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20240501Preview
         /// </summary>
         public static Output<GetSqlServerEsuLicenseResult> Invoke(GetSqlServerEsuLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerEsuLicenseResult>("azure-native:azurearcdata/v20240501preview:getSqlServerEsuLicense", args ?? new GetSqlServerEsuLicenseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a SQL Server ESU license resource
+        /// </summary>
+        public static Output<GetSqlServerEsuLicenseResult> Invoke(GetSqlServerEsuLicenseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerEsuLicenseResult>("azure-native:azurearcdata/v20240501preview:getSqlServerEsuLicense", args ?? new GetSqlServerEsuLicenseInvokeArgs(), options.WithDefaults());
     }
 
 

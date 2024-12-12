@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Communication.V20230601Preview
         /// </summary>
         public static Output<GetSenderUsernameResult> Invoke(GetSenderUsernameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSenderUsernameResult>("azure-native:communication/v20230601preview:getSenderUsername", args ?? new GetSenderUsernameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a valid sender username for a domains resource.
+        /// </summary>
+        public static Output<GetSenderUsernameResult> Invoke(GetSenderUsernameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSenderUsernameResult>("azure-native:communication/v20230601preview:getSenderUsername", args ?? new GetSenderUsernameInvokeArgs(), options.WithDefaults());
     }
 
 

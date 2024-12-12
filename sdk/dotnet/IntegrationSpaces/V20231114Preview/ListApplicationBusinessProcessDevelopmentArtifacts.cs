@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IntegrationSpaces.V20231114Preview
         /// </summary>
         public static Output<ListApplicationBusinessProcessDevelopmentArtifactsResult> Invoke(ListApplicationBusinessProcessDevelopmentArtifactsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationBusinessProcessDevelopmentArtifactsResult>("azure-native:integrationspaces/v20231114preview:listApplicationBusinessProcessDevelopmentArtifacts", args ?? new ListApplicationBusinessProcessDevelopmentArtifactsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The list business process development artifacts action.
+        /// </summary>
+        public static Output<ListApplicationBusinessProcessDevelopmentArtifactsResult> Invoke(ListApplicationBusinessProcessDevelopmentArtifactsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListApplicationBusinessProcessDevelopmentArtifactsResult>("azure-native:integrationspaces/v20231114preview:listApplicationBusinessProcessDevelopmentArtifacts", args ?? new ListApplicationBusinessProcessDevelopmentArtifactsInvokeArgs(), options.WithDefaults());
     }
 
 

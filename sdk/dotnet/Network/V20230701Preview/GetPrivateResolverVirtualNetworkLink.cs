@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         /// </summary>
         public static Output<GetPrivateResolverVirtualNetworkLinkResult> Invoke(GetPrivateResolverVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateResolverVirtualNetworkLinkResult>("azure-native:network/v20230701preview:getPrivateResolverVirtualNetworkLink", args ?? new GetPrivateResolverVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a virtual network link to a DNS forwarding ruleset.
+        /// </summary>
+        public static Output<GetPrivateResolverVirtualNetworkLinkResult> Invoke(GetPrivateResolverVirtualNetworkLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateResolverVirtualNetworkLinkResult>("azure-native:network/v20230701preview:getPrivateResolverVirtualNetworkLink", args ?? new GetPrivateResolverVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
     }
 
 
