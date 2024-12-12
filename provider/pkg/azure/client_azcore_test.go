@@ -697,3 +697,37 @@ func TestPostResponsesCanBeAnything(t *testing.T) {
 		assert.Equal(t, map[string]any{"k": 1.0}, val)
 	})
 }
+
+func TestNewResponseError(t *testing.T) {
+	t.Run("standard azcore error", func(t *testing.T) {
+		resp := &http.Response{
+			StatusCode: 409,
+			Body:       io.NopCloser(strings.NewReader(`{"error": {"message": "Foo already exists"}}`)),
+			Header:     http.Header{"X-Ms-Error-Code": []string{"Conflict"}},
+		}
+		err := newResponseError(resp)
+		require.Error(t, err)
+		assert.Equal(t, "Code=\"Conflict\" Message=\"Foo already exists\"", err.Error())
+	})
+
+	t.Run("no message", func(t *testing.T) {
+		resp := &http.Response{
+			StatusCode: 409,
+			Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "Conflict"}}`)),
+			Header:     http.Header{"X-Ms-Error-Code": []string{"Conflict"}},
+		}
+		err := newResponseError(resp)
+		require.Error(t, err)
+		assert.Equal(t, `Code="Conflict" Message="{"error": {"code": "Conflict"}}"`, err.Error())
+	})
+
+	t.Run("unknown error", func(t *testing.T) {
+		resp := &http.Response{
+			StatusCode: 409,
+			Body:       io.NopCloser(strings.NewReader(`{"foo": "bar"}`)),
+		}
+		err := newResponseError(resp)
+		require.Error(t, err)
+		assert.Equal(t, `Code="409" Message="{"foo": "bar"}"`, err.Error())
+	})
+}
