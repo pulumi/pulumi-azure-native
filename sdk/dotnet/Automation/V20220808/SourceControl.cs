@@ -112,6 +112,7 @@ namespace Pulumi.AzureNative.Automation.V20220808
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:SourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:SourceControl" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:SourceControl" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:SourceControl" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

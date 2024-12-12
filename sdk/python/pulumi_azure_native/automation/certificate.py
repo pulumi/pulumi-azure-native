@@ -166,7 +166,7 @@ class Certificate(pulumi.CustomResource):
         Definition of the certificate.
         Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
 
-        Other available API versions: 2023-05-15-preview, 2023-11-01.
+        Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,7 +189,7 @@ class Certificate(pulumi.CustomResource):
         Definition of the certificate.
         Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
 
-        Other available API versions: 2023-05-15-preview, 2023-11-01.
+        Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
@@ -243,7 +243,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["expiry_time"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Certificate"), pulumi.Alias(type_="azure-native:automation/v20190601:Certificate"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Certificate"), pulumi.Alias(type_="azure-native:automation/v20220808:Certificate"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Certificate"), pulumi.Alias(type_="azure-native:automation/v20231101:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Certificate"), pulumi.Alias(type_="azure-native:automation/v20190601:Certificate"), pulumi.Alias(type_="azure-native:automation/v20200113preview:Certificate"), pulumi.Alias(type_="azure-native:automation/v20220808:Certificate"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Certificate"), pulumi.Alias(type_="azure-native:automation/v20231101:Certificate"), pulumi.Alias(type_="azure-native:automation/v20241023:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-native:automation:Certificate',

@@ -250,7 +250,7 @@ def get_module(automation_account_name: Optional[str] = None,
     Retrieve the module identified by module name.
     Azure REST API version: 2022-08-08.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01.
+    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -290,7 +290,7 @@ def get_module_output(automation_account_name: Optional[pulumi.Input[str]] = Non
     Retrieve the module identified by module name.
     Azure REST API version: 2022-08-08.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01.
+    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
 
 
     :param str automation_account_name: The name of the automation account.

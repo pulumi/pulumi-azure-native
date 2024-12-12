@@ -133,7 +133,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             resourceInputs["updateConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation:SoftwareUpdateConfigurationByName" }, { type: "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName" }, { type: "azure-native:automation/v20190601:SoftwareUpdateConfigurationByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:SoftwareUpdateConfigurationByName" }, { type: "azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName" }, { type: "azure-native:automation/v20190601:SoftwareUpdateConfigurationByName" }, { type: "azure-native:automation/v20241023:SoftwareUpdateConfigurationByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SoftwareUpdateConfigurationByName.__pulumiType, name, resourceInputs, opts);
     }

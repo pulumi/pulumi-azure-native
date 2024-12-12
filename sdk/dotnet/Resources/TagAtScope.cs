@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Resources
     /// Wrapper resource for tags API requests and responses.
     /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-10-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
+    /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:TagAtScope")]
     public partial class TagAtScope : global::Pulumi.CustomResource
@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Resources
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20230701:TagAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20240301:TagAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20240701:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20241101:TagAtScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

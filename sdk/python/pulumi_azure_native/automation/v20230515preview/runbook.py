@@ -366,7 +366,7 @@ class Runbook(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:Runbook"), pulumi.Alias(type_="azure-native:automation/v20151031:Runbook"), pulumi.Alias(type_="azure-native:automation/v20180630:Runbook"), pulumi.Alias(type_="azure-native:automation/v20190601:Runbook"), pulumi.Alias(type_="azure-native:automation/v20220808:Runbook"), pulumi.Alias(type_="azure-native:automation/v20231101:Runbook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:Runbook"), pulumi.Alias(type_="azure-native:automation/v20151031:Runbook"), pulumi.Alias(type_="azure-native:automation/v20180630:Runbook"), pulumi.Alias(type_="azure-native:automation/v20190601:Runbook"), pulumi.Alias(type_="azure-native:automation/v20220808:Runbook"), pulumi.Alias(type_="azure-native:automation/v20231101:Runbook"), pulumi.Alias(type_="azure-native:automation/v20241023:Runbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Runbook, __self__).__init__(
             'azure-native:automation/v20230515preview:Runbook',

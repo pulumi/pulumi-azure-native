@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Definition of the webhook type.
  * Azure REST API version: 2015-10-31. Prior API version in Azure Native 1.x: 2015-10-31.
  *
- * Other available API versions: 2023-05-15-preview.
+ * Other available API versions: 2023-05-15-preview, 2024-10-23.
  */
 export class Webhook extends pulumi.CustomResource {
     /**
@@ -145,7 +145,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Webhook" }, { type: "azure-native:automation/v20230515preview:Webhook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Webhook" }, { type: "azure-native:automation/v20230515preview:Webhook" }, { type: "azure-native:automation/v20241023:Webhook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Webhook.__pulumiType, name, resourceInputs, opts);
     }

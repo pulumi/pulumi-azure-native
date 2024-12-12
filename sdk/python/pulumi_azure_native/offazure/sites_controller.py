@@ -175,7 +175,7 @@ class SitesController(pulumi.CustomResource):
         A VmwareSite
         Azure REST API version: 2023-06-06.
 
-        Other available API versions: 2023-10-01-preview.
+        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -200,7 +200,7 @@ class SitesController(pulumi.CustomResource):
         A VmwareSite
         Azure REST API version: 2023-06-06.
 
-        Other available API versions: 2023-10-01-preview.
+        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SitesControllerArgs args: The arguments to use to populate this resource's properties.
@@ -251,7 +251,7 @@ class SitesController(pulumi.CustomResource):
             __props__.__dict__["service_endpoint"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200101:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20200707:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20230606:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:SitesController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20200101:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20200707:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20230606:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:SitesController"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:SitesController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SitesController, __self__).__init__(
             'azure-native:offazure:SitesController',

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.OffAzure
         /// Method to get site health summary.
         /// Azure REST API version: 2023-06-06.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<ListHypervSitesControllerHealthSummaryResult> InvokeAsync(ListHypervSitesControllerHealthSummaryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListHypervSitesControllerHealthSummaryResult>("azure-native:offazure:listHypervSitesControllerHealthSummary", args ?? new ListHypervSitesControllerHealthSummaryArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.OffAzure
         /// Method to get site health summary.
         /// Azure REST API version: 2023-06-06.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<ListHypervSitesControllerHealthSummaryResult> Invoke(ListHypervSitesControllerHealthSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListHypervSitesControllerHealthSummaryResult>("azure-native:offazure:listHypervSitesControllerHealthSummary", args ?? new ListHypervSitesControllerHealthSummaryInvokeArgs(), options.WithDefaults());

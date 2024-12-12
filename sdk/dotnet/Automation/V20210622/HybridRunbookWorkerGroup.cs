@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.Automation.V20210622
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:HybridRunbookWorkerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:HybridRunbookWorkerGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:HybridRunbookWorkerGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:HybridRunbookWorkerGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

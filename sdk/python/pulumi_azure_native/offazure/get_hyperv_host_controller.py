@@ -178,7 +178,7 @@ def get_hyperv_host_controller(host_name: Optional[str] = None,
     Get a HypervHost
     Azure REST API version: 2023-06-06.
 
-    Other available API versions: 2023-10-01-preview.
+    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
 
     :param str host_name:  Host name
@@ -212,7 +212,7 @@ def get_hyperv_host_controller_output(host_name: Optional[pulumi.Input[str]] = N
     Get a HypervHost
     Azure REST API version: 2023-06-06.
 
-    Other available API versions: 2023-10-01-preview.
+    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
 
     :param str host_name:  Host name

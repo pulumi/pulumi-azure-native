@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Resources.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20220901:DeploymentAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20230701:DeploymentAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20240701:DeploymentAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20241101:DeploymentAtScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

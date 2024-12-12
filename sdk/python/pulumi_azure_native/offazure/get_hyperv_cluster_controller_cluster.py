@@ -202,7 +202,7 @@ def get_hyperv_cluster_controller_cluster(cluster_name: Optional[str] = None,
     Method to get a Hyper-V cluster.
     Azure REST API version: 2023-06-06.
 
-    Other available API versions: 2023-10-01-preview.
+    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
 
     :param str cluster_name:  Cluster ARM name
@@ -238,7 +238,7 @@ def get_hyperv_cluster_controller_cluster_output(cluster_name: Optional[pulumi.I
     Method to get a Hyper-V cluster.
     Azure REST API version: 2023-06-06.
 
-    Other available API versions: 2023-10-01-preview.
+    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
 
 
     :param str cluster_name:  Cluster ARM name

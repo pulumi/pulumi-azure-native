@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Automation
         /// Gets a private endpoint connection.
         /// Azure REST API version: 2020-01-13-preview.
         /// 
-        /// Other available API versions: 2023-05-15-preview.
+        /// Other available API versions: 2023-05-15-preview, 2024-10-23.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:automation:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Automation
         /// Gets a private endpoint connection.
         /// Azure REST API version: 2020-01-13-preview.
         /// 
-        /// Other available API versions: 2023-05-15-preview.
+        /// Other available API versions: 2023-05-15-preview, 2024-10-23.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:automation:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

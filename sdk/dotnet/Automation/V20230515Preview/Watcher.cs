@@ -134,6 +134,7 @@ namespace Pulumi.AzureNative.Automation.V20230515Preview
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20151031:Watcher" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20190601:Watcher" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Watcher" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:Watcher" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

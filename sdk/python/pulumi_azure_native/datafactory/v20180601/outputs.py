@@ -73469,6 +73469,8 @@ class ScriptActivityResponse(dict):
             suggest = "log_settings"
         elif key == "onInactiveMarkAs":
             suggest = "on_inactive_mark_as"
+        elif key == "returnMultistatementResult":
+            suggest = "return_multistatement_result"
         elif key == "scriptBlockExecutionTimeout":
             suggest = "script_block_execution_timeout"
         elif key == "userProperties":
@@ -73494,6 +73496,7 @@ class ScriptActivityResponse(dict):
                  log_settings: Optional['outputs.ScriptActivityTypePropertiesResponseLogSettings'] = None,
                  on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 return_multistatement_result: Optional[Any] = None,
                  script_block_execution_timeout: Optional[Any] = None,
                  scripts: Optional[Sequence['outputs.ScriptActivityScriptBlockResponse']] = None,
                  state: Optional[str] = None,
@@ -73509,6 +73512,7 @@ class ScriptActivityResponse(dict):
         :param 'ScriptActivityTypePropertiesResponseLogSettings' log_settings: Log settings of script activity.
         :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Any return_multistatement_result: Enable to retrieve result sets from multiple SQL statements and the number of rows affected by the DML statement. Supported connector: SnowflakeV2. Type: boolean (or Expression with resultType boolean).
         :param Any script_block_execution_timeout: ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Sequence['ScriptActivityScriptBlockResponse'] scripts: Array of script blocks. Type: array.
         :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
@@ -73527,6 +73531,8 @@ class ScriptActivityResponse(dict):
             pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if return_multistatement_result is not None:
+            pulumi.set(__self__, "return_multistatement_result", return_multistatement_result)
         if script_block_execution_timeout is not None:
             pulumi.set(__self__, "script_block_execution_timeout", script_block_execution_timeout)
         if scripts is not None:
@@ -73600,6 +73606,14 @@ class ScriptActivityResponse(dict):
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="returnMultistatementResult")
+    def return_multistatement_result(self) -> Optional[Any]:
+        """
+        Enable to retrieve result sets from multiple SQL statements and the number of rows affected by the DML statement. Supported connector: SnowflakeV2. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "return_multistatement_result")
 
     @property
     @pulumi.getter(name="scriptBlockExecutionTimeout")

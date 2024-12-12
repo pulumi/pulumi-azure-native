@@ -209,7 +209,7 @@ class HyperVSite(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure:HyperVSite"), pulumi.Alias(type_="azure-native:offazure/v20200101:HyperVSite"), pulumi.Alias(type_="azure-native:offazure/v20230606:HyperVSite"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:HyperVSite")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure:HyperVSite"), pulumi.Alias(type_="azure-native:offazure/v20200101:HyperVSite"), pulumi.Alias(type_="azure-native:offazure/v20230606:HyperVSite"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:HyperVSite"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:HyperVSite")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HyperVSite, __self__).__init__(
             'azure-native:offazure/v20200707:HyperVSite',

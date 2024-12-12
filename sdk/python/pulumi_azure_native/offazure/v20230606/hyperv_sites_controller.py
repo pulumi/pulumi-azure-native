@@ -264,7 +264,7 @@ class HypervSitesController(pulumi.CustomResource):
             __props__.__dict__["service_endpoint"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure:HypervSitesController"), pulumi.Alias(type_="azure-native:offazure/v20200101:HypervSitesController"), pulumi.Alias(type_="azure-native:offazure/v20200707:HypervSitesController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:HypervSitesController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure:HypervSitesController"), pulumi.Alias(type_="azure-native:offazure/v20200101:HypervSitesController"), pulumi.Alias(type_="azure-native:offazure/v20200707:HypervSitesController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:HypervSitesController"), pulumi.Alias(type_="azure-native:offazure/v20240501preview:HypervSitesController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HypervSitesController, __self__).__init__(
             'azure-native:offazure/v20230606:HypervSitesController',

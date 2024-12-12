@@ -7558,6 +7558,8 @@ class AzureStorageContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "operationType":
+            suggest = "operation_type"
         elif key == "protectableObjectType":
             suggest = "protectable_object_type"
         elif key == "protectedItemCount":
@@ -7588,6 +7590,7 @@ class AzureStorageContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 operation_type: Optional[str] = None,
                  protectable_object_type: Optional[str] = None,
                  protected_item_count: Optional[float] = None,
                  registration_status: Optional[str] = None,
@@ -7605,6 +7608,7 @@ class AzureStorageContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str operation_type: Re-Do Operation
         :param str protectable_object_type: Type of the protectable object associated with this container
         :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
@@ -7621,6 +7625,8 @@ class AzureStorageContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if operation_type is not None:
+            pulumi.set(__self__, "operation_type", operation_type)
         if protectable_object_type is not None:
             pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
@@ -7677,6 +7683,14 @@ class AzureStorageContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[str]:
+        """
+        Re-Do Operation
+        """
+        return pulumi.get(self, "operation_type")
 
     @property
     @pulumi.getter(name="protectableObjectType")

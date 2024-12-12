@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.OffAzure
         /// Method to get a site.
         /// Azure REST API version: 2023-06-06.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetSqlSitesControllerResult> InvokeAsync(GetSqlSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlSitesControllerResult>("azure-native:offazure:getSqlSitesController", args ?? new GetSqlSitesControllerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.OffAzure
         /// Method to get a site.
         /// Azure REST API version: 2023-06-06.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetSqlSitesControllerResult> Invoke(GetSqlSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlSitesControllerResult>("azure-native:offazure:getSqlSitesController", args ?? new GetSqlSitesControllerInvokeArgs(), options.WithDefaults());

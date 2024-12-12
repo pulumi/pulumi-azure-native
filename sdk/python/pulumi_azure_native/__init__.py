@@ -2972,6 +2972,36 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "automation/v20241023",
+  "fqn": "pulumi_azure_native.automation.v20241023",
+  "classes": {
+   "azure-native:automation/v20241023:AutomationAccount": "AutomationAccount",
+   "azure-native:automation/v20241023:Certificate": "Certificate",
+   "azure-native:automation/v20241023:Connection": "Connection",
+   "azure-native:automation/v20241023:ConnectionType": "ConnectionType",
+   "azure-native:automation/v20241023:Credential": "Credential",
+   "azure-native:automation/v20241023:DscConfiguration": "DscConfiguration",
+   "azure-native:automation/v20241023:DscNodeConfiguration": "DscNodeConfiguration",
+   "azure-native:automation/v20241023:HybridRunbookWorker": "HybridRunbookWorker",
+   "azure-native:automation/v20241023:HybridRunbookWorkerGroup": "HybridRunbookWorkerGroup",
+   "azure-native:automation/v20241023:JobSchedule": "JobSchedule",
+   "azure-native:automation/v20241023:Module": "Module",
+   "azure-native:automation/v20241023:Package": "Package",
+   "azure-native:automation/v20241023:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:automation/v20241023:Python2Package": "Python2Package",
+   "azure-native:automation/v20241023:Python3Package": "Python3Package",
+   "azure-native:automation/v20241023:Runbook": "Runbook",
+   "azure-native:automation/v20241023:RuntimeEnvironment": "RuntimeEnvironment",
+   "azure-native:automation/v20241023:Schedule": "Schedule",
+   "azure-native:automation/v20241023:SoftwareUpdateConfigurationByName": "SoftwareUpdateConfigurationByName",
+   "azure-native:automation/v20241023:SourceControl": "SourceControl",
+   "azure-native:automation/v20241023:Variable": "Variable",
+   "azure-native:automation/v20241023:Watcher": "Watcher",
+   "azure-native:automation/v20241023:Webhook": "Webhook"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "avs",
   "fqn": "pulumi_azure_native.avs",
   "classes": {
@@ -15798,6 +15828,26 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "offazure/v20240501preview",
+  "fqn": "pulumi_azure_native.offazure.v20240501preview",
+  "classes": {
+   "azure-native:offazure/v20240501preview:HypervClusterControllerCluster": "HypervClusterControllerCluster",
+   "azure-native:offazure/v20240501preview:HypervHostController": "HypervHostController",
+   "azure-native:offazure/v20240501preview:HypervSitesController": "HypervSitesController",
+   "azure-native:offazure/v20240501preview:ImportSitesController": "ImportSitesController",
+   "azure-native:offazure/v20240501preview:MasterSitesController": "MasterSitesController",
+   "azure-native:offazure/v20240501preview:PrivateEndpointConnectionController": "PrivateEndpointConnectionController",
+   "azure-native:offazure/v20240501preview:ServerSitesController": "ServerSitesController",
+   "azure-native:offazure/v20240501preview:SitesController": "SitesController",
+   "azure-native:offazure/v20240501preview:SqlDiscoverySiteDataSourceController": "SqlDiscoverySiteDataSourceController",
+   "azure-native:offazure/v20240501preview:SqlSitesController": "SqlSitesController",
+   "azure-native:offazure/v20240501preview:VcenterController": "VcenterController",
+   "azure-native:offazure/v20240501preview:WebAppDiscoverySiteDataSourcesController": "WebAppDiscoverySiteDataSourcesController",
+   "azure-native:offazure/v20240501preview:WebAppSitesController": "WebAppSitesController"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "offazurespringboot",
   "fqn": "pulumi_azure_native.offazurespringboot",
   "classes": {
@@ -17047,6 +17097,21 @@ _utilities.register(
    "azure-native:resources/v20240701:Resource": "Resource",
    "azure-native:resources/v20240701:ResourceGroup": "ResourceGroup",
    "azure-native:resources/v20240701:TagAtScope": "TagAtScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "resources/v20241101",
+  "fqn": "pulumi_azure_native.resources.v20241101",
+  "classes": {
+   "azure-native:resources/v20241101:Deployment": "Deployment",
+   "azure-native:resources/v20241101:DeploymentAtManagementGroupScope": "DeploymentAtManagementGroupScope",
+   "azure-native:resources/v20241101:DeploymentAtScope": "DeploymentAtScope",
+   "azure-native:resources/v20241101:DeploymentAtSubscriptionScope": "DeploymentAtSubscriptionScope",
+   "azure-native:resources/v20241101:DeploymentAtTenantScope": "DeploymentAtTenantScope",
+   "azure-native:resources/v20241101:Resource": "Resource",
+   "azure-native:resources/v20241101:ResourceGroup": "ResourceGroup",
+   "azure-native:resources/v20241101:TagAtScope": "TagAtScope"
   }
  },
  {

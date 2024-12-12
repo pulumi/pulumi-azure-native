@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Automation
     /// A private endpoint connection
     /// Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2020-01-13-preview.
     /// 
-    /// Other available API versions: 2023-05-15-preview.
+    /// Other available API versions: 2023-05-15-preview, 2024-10-23.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.Automation
                 {
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

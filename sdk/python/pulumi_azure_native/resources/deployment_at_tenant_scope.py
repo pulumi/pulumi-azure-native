@@ -104,7 +104,7 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
         Deployment information.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
+        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +123,7 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
         Deployment information.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01.
+        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtTenantScopeArgs args: The arguments to use to populate this resource's properties.
@@ -161,7 +161,7 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20190701:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20190801:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20191001:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20200601:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20200801:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20210101:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20210401:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20220901:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20230701:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20240701:DeploymentAtTenantScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20190701:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20190801:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20191001:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20200601:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20200801:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20210101:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20210401:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20220901:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20230701:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20240701:DeploymentAtTenantScope"), pulumi.Alias(type_="azure-native:resources/v20241101:DeploymentAtTenantScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentAtTenantScope, __self__).__init__(
             'azure-native:resources:DeploymentAtTenantScope',

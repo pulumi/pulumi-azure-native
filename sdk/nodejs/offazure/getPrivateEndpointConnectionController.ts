@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets the private link resource.
  * Azure REST API version: 2023-06-06.
  *
- * Other available API versions: 2023-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
  */
 export function getPrivateEndpointConnectionController(args: GetPrivateEndpointConnectionControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +78,7 @@ export interface GetPrivateEndpointConnectionControllerResult {
  * Gets the private link resource.
  * Azure REST API version: 2023-06-06.
  *
- * Other available API versions: 2023-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
  */
 export function getPrivateEndpointConnectionControllerOutput(args: GetPrivateEndpointConnectionControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

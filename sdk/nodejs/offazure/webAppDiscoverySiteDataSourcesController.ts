@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Web app data source web model.
  * Azure REST API version: 2023-06-06.
  *
- * Other available API versions: 2023-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
  */
 export class WebAppDiscoverySiteDataSourcesController extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class WebAppDiscoverySiteDataSourcesController extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:WebAppDiscoverySiteDataSourcesController" }, { type: "azure-native:offazure/v20231001preview:WebAppDiscoverySiteDataSourcesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:WebAppDiscoverySiteDataSourcesController" }, { type: "azure-native:offazure/v20231001preview:WebAppDiscoverySiteDataSourcesController" }, { type: "azure-native:offazure/v20240501preview:WebAppDiscoverySiteDataSourcesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppDiscoverySiteDataSourcesController.__pulumiType, name, resourceInputs, opts);
     }

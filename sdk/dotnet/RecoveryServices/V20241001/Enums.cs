@@ -825,6 +825,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20241001
         public static OperationType Invalid { get; } = new OperationType("Invalid");
         public static OperationType Register { get; } = new OperationType("Register");
         public static OperationType Reregister { get; } = new OperationType("Reregister");
+        public static OperationType Rehydrate { get; } = new OperationType("Rehydrate");
 
         public static bool operator ==(OperationType left, OperationType right) => left.Equals(right);
         public static bool operator !=(OperationType left, OperationType right) => !left.Equals(right);

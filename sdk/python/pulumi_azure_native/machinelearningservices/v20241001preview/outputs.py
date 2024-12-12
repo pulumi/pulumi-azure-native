@@ -1307,7 +1307,7 @@ class ActualCapacityInfoResponse(dict):
                  succeeded: Optional[int] = None,
                  total: Optional[int] = None):
         """
-        :param int failed: Gets or sets the number of instances (scale units) which Failed provisioning state and have target group payload.
+        :param int failed: Gets or sets the number of instances (scale units) which have Failed provisioning state and have target group payload.
         :param int outdated_failed: Gets or sets the number of instances (scale units) which have Failed provisioning state but do not have target group payload.
         :param int outdated_succeeded: Gets or sets the number of instances (scale units) which have Succeeded provisioning state but do not have target group payload.
         :param int succeeded: Gets or sets the number of instances (scale units) which have Succeeded provisioning state and target group payload.
@@ -1338,7 +1338,7 @@ class ActualCapacityInfoResponse(dict):
     @pulumi.getter
     def failed(self) -> Optional[int]:
         """
-        Gets or sets the number of instances (scale units) which Failed provisioning state and have target group payload.
+        Gets or sets the number of instances (scale units) which have Failed provisioning state and have target group payload.
         """
         return pulumi.get(self, "failed")
 

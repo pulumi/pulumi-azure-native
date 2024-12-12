@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.OffAzure
         /// Get a HypervSite
         /// Azure REST API version: 2023-06-06.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetHypervSitesControllerResult> InvokeAsync(GetHypervSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHypervSitesControllerResult>("azure-native:offazure:getHypervSitesController", args ?? new GetHypervSitesControllerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.OffAzure
         /// Get a HypervSite
         /// Azure REST API version: 2023-06-06.
         /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetHypervSitesControllerResult> Invoke(GetHypervSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervSitesControllerResult>("azure-native:offazure:getHypervSitesController", args ?? new GetHypervSitesControllerInvokeArgs(), options.WithDefaults());

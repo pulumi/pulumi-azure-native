@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Definition of the Package type.
  * Azure REST API version: 2023-05-15-preview.
+ *
+ * Other available API versions: 2024-10-23.
  */
 export class Package extends pulumi.CustomResource {
     /**
@@ -141,7 +143,7 @@ export class Package extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20230515preview:Package" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20230515preview:Package" }, { type: "azure-native:automation/v20241023:Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Package.__pulumiType, name, resourceInputs, opts);
     }

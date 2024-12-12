@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Automation.V20220808
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Connection" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Connection" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:Connection" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:Connection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

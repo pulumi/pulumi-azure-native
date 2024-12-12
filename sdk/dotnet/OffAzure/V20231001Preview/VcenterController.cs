@@ -128,6 +128,7 @@ namespace Pulumi.AzureNative.OffAzure.V20231001Preview
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:VcenterController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:VcenterController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:VcenterController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:VcenterController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

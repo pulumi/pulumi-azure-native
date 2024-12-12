@@ -64,6 +64,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.ActivityPolicyArgs>? Policy { get; set; }
 
         /// <summary>
+        /// Enable to retrieve result sets from multiple SQL statements and the number of rows affected by the DML statement. Supported connector: SnowflakeV2. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("returnMultistatementResult")]
+        public Input<object>? ReturnMultistatementResult { get; set; }
+
+        /// <summary>
         /// ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         [Input("scriptBlockExecutionTimeout")]

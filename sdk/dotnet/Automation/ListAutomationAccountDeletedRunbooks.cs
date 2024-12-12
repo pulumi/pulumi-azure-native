@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the deleted runbooks for an automation account.
         /// Azure REST API version: 2023-05-15-preview.
+        /// 
+        /// Other available API versions: 2024-10-23.
         /// </summary>
         public static Task<ListAutomationAccountDeletedRunbooksResult> InvokeAsync(ListAutomationAccountDeletedRunbooksArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAutomationAccountDeletedRunbooksResult>("azure-native:automation:listAutomationAccountDeletedRunbooks", args ?? new ListAutomationAccountDeletedRunbooksArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the deleted runbooks for an automation account.
         /// Azure REST API version: 2023-05-15-preview.
+        /// 
+        /// Other available API versions: 2024-10-23.
         /// </summary>
         public static Output<ListAutomationAccountDeletedRunbooksResult> Invoke(ListAutomationAccountDeletedRunbooksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAutomationAccountDeletedRunbooksResult>("azure-native:automation:listAutomationAccountDeletedRunbooks", args ?? new ListAutomationAccountDeletedRunbooksInvokeArgs(), options.WithDefaults());

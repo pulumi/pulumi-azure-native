@@ -142,7 +142,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation:Webhook" }, { type: "azure-native:automation/v20230515preview:Webhook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:Webhook" }, { type: "azure-native:automation/v20230515preview:Webhook" }, { type: "azure-native:automation/v20241023:Webhook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Webhook.__pulumiType, name, resourceInputs, opts);
     }

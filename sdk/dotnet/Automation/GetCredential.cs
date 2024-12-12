@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Automation
         /// Retrieve the credential identified by credential name.
         /// Azure REST API version: 2022-08-08.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01.
+        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
         /// </summary>
         public static Task<GetCredentialResult> InvokeAsync(GetCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialResult>("azure-native:automation:getCredential", args ?? new GetCredentialArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Automation
         /// Retrieve the credential identified by credential name.
         /// Azure REST API version: 2022-08-08.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01.
+        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:automation:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());

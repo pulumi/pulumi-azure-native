@@ -1645,6 +1645,13 @@
     "Property": "location"
   },
   {
+    "Module": "automation/v20241023",
+    "Provider": "Automation",
+    "ResourceName": "Package",
+    "ReferenceName": "TrackedResource",
+    "Property": "location"
+  },
+  {
     "Module": "azureactivedirectory",
     "Provider": "AzureActiveDirectory",
     "ResourceName": "CIAMTenant",

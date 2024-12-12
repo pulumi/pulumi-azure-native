@@ -283,6 +283,7 @@ export const OperationType = {
     Invalid: "Invalid",
     Register: "Register",
     Reregister: "Reregister",
+    Rehydrate: "Rehydrate",
 } as const;
 
 /**

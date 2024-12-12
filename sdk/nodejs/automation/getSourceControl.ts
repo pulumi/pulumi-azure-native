@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
  * Retrieve the source control identified by source control name.
  * Azure REST API version: 2022-08-08.
  *
- * Other available API versions: 2023-05-15-preview, 2023-11-01.
+ * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
  */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,7 +91,7 @@ export interface GetSourceControlResult {
  * Retrieve the source control identified by source control name.
  * Azure REST API version: 2022-08-08.
  *
- * Other available API versions: 2023-05-15-preview, 2023-11-01.
+ * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
  */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

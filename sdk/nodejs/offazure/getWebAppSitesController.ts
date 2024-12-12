@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Method to get a site.
  * Azure REST API version: 2023-06-06.
  *
- * Other available API versions: 2023-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
  */
 export function getWebAppSitesController(args: GetWebAppSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,7 +80,7 @@ export interface GetWebAppSitesControllerResult {
  * Method to get a site.
  * Azure REST API version: 2023-06-06.
  *
- * Other available API versions: 2023-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
  */
 export function getWebAppSitesControllerOutput(args: GetWebAppSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

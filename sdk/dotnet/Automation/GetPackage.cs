@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the Package identified by Package name.
         /// Azure REST API version: 2023-05-15-preview.
+        /// 
+        /// Other available API versions: 2024-10-23.
         /// </summary>
         public static Task<GetPackageResult> InvokeAsync(GetPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("azure-native:automation:getPackage", args ?? new GetPackageArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the Package identified by Package name.
         /// Azure REST API version: 2023-05-15-preview.
+        /// 
+        /// Other available API versions: 2024-10-23.
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:automation:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());

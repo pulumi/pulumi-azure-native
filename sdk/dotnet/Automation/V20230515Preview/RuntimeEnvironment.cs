@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.Automation.V20230515Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:automation:RuntimeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:RuntimeEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

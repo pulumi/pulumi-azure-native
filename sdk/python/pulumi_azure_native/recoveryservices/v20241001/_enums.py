@@ -299,6 +299,7 @@ class OperationType(str, Enum):
     INVALID = "Invalid"
     REGISTER = "Register"
     REREGISTER = "Reregister"
+    REHYDRATE = "Rehydrate"
 
 
 class PolicyType(str, Enum):

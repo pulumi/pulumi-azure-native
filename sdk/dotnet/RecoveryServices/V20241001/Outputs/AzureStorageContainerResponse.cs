@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20241001.Outputs
         /// </summary>
         public readonly string? HealthStatus;
         /// <summary>
+        /// Re-Do Operation
+        /// </summary>
+        public readonly string? OperationType;
+        /// <summary>
         /// Type of the protectable object associated with this container
         /// </summary>
         public readonly string? ProtectableObjectType;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20241001.Outputs
 
             string? healthStatus,
 
+            string? operationType,
+
             string? protectableObjectType,
 
             double? protectedItemCount,
@@ -94,6 +100,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20241001.Outputs
             ContainerType = containerType;
             FriendlyName = friendlyName;
             HealthStatus = healthStatus;
+            OperationType = operationType;
             ProtectableObjectType = protectableObjectType;
             ProtectedItemCount = protectedItemCount;
             RegistrationStatus = registrationStatus;

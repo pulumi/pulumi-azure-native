@@ -7503,6 +7503,10 @@ if not MYPY:
         """
         Status of health of the container.
         """
+        operation_type: NotRequired[pulumi.Input[Union[str, 'OperationType']]]
+        """
+        Re-Do Operation
+        """
         protectable_object_type: NotRequired[pulumi.Input[str]]
         """
         Type of the protectable object associated with this container
@@ -7538,6 +7542,7 @@ class AzureStorageContainerArgs:
                  backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input[Union[str, 'OperationType']]] = None,
                  protectable_object_type: Optional[pulumi.Input[str]] = None,
                  protected_item_count: Optional[pulumi.Input[float]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None,
@@ -7555,6 +7560,7 @@ class AzureStorageContainerArgs:
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
+        :param pulumi.Input[Union[str, 'OperationType']] operation_type: Re-Do Operation
         :param pulumi.Input[str] protectable_object_type: Type of the protectable object associated with this container
         :param pulumi.Input[float] protected_item_count: Number of items backed up in this container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
@@ -7571,6 +7577,8 @@ class AzureStorageContainerArgs:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if operation_type is not None:
+            pulumi.set(__self__, "operation_type", operation_type)
         if protectable_object_type is not None:
             pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
@@ -7647,6 +7655,18 @@ class AzureStorageContainerArgs:
     @health_status.setter
     def health_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "health_status", value)
+
+    @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[pulumi.Input[Union[str, 'OperationType']]]:
+        """
+        Re-Do Operation
+        """
+        return pulumi.get(self, "operation_type")
+
+    @operation_type.setter
+    def operation_type(self, value: Optional[pulumi.Input[Union[str, 'OperationType']]]):
+        pulumi.set(self, "operation_type", value)
 
     @property
     @pulumi.getter(name="protectableObjectType")

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Automation
         /// Retrieve the connection identified by connection name.
         /// Azure REST API version: 2022-08-08.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01.
+        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("azure-native:automation:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Automation
         /// Retrieve the connection identified by connection name.
         /// Azure REST API version: 2022-08-08.
         /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01.
+        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:automation:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());

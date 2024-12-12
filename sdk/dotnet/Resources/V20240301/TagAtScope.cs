@@ -68,6 +68,7 @@ namespace Pulumi.AzureNative.Resources.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20220901:TagAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20230701:TagAtScope" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20240701:TagAtScope" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20241101:TagAtScope" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

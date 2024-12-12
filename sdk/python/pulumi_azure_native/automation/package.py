@@ -134,6 +134,8 @@ class Package(pulumi.CustomResource):
         Definition of the Package type.
         Azure REST API version: 2023-05-15-preview.
 
+        Other available API versions: 2024-10-23.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']] all_of: The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
@@ -152,6 +154,8 @@ class Package(pulumi.CustomResource):
         """
         Definition of the Package type.
         Azure REST API version: 2023-05-15-preview.
+
+        Other available API versions: 2024-10-23.
 
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.
@@ -207,7 +211,7 @@ class Package(pulumi.CustomResource):
             __props__.__dict__["tags"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20230515preview:Package")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20230515preview:Package"), pulumi.Alias(type_="azure-native:automation/v20241023:Package")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Package, __self__).__init__(
             'azure-native:automation:Package',

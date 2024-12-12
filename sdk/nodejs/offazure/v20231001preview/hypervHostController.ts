@@ -121,7 +121,7 @@ export class HypervHostController extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure:HypervHostController" }, { type: "azure-native:offazure/v20230606:HypervHostController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure:HypervHostController" }, { type: "azure-native:offazure/v20230606:HypervHostController" }, { type: "azure-native:offazure/v20240501preview:HypervHostController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HypervHostController.__pulumiType, name, resourceInputs, opts);
     }

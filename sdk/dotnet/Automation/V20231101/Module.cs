@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.Automation.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Module" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20220808:Module" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Module" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:Module" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

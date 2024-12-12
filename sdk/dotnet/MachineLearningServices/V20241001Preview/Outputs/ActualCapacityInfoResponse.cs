@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Outputs
     public sealed class ActualCapacityInfoResponse
     {
         /// <summary>
-        /// Gets or sets the number of instances (scale units) which Failed provisioning state and have target group payload.
+        /// Gets or sets the number of instances (scale units) which have Failed provisioning state and have target group payload.
         /// </summary>
         public readonly int? Failed;
         /// <summary>

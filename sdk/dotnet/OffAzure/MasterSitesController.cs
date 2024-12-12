@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OffAzure
     /// A MasterSite
     /// Azure REST API version: 2023-06-06.
     /// 
-    /// Other available API versions: 2023-10-01-preview.
+    /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:MasterSitesController")]
     public partial class MasterSitesController : global::Pulumi.CustomResource
@@ -121,6 +121,7 @@ namespace Pulumi.AzureNative.OffAzure
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:MasterSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:MasterSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:MasterSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:MasterSitesController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

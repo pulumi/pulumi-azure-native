@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Automation.V20220808
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20231101:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:Certificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * A private endpoint connection
  * Azure REST API version: 2020-01-13-preview. Prior API version in Azure Native 1.x: 2020-01-13-preview.
  *
- * Other available API versions: 2023-05-15-preview.
+ * Other available API versions: 2023-05-15-preview, 2024-10-23.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20200113preview:PrivateEndpointConnection" }, { type: "azure-native:automation/v20230515preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20200113preview:PrivateEndpointConnection" }, { type: "azure-native:automation/v20230515preview:PrivateEndpointConnection" }, { type: "azure-native:automation/v20241023:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

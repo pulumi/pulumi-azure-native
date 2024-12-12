@@ -205,7 +205,7 @@ class Package(pulumi.CustomResource):
             __props__.__dict__["tags"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:Package")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation:Package"), pulumi.Alias(type_="azure-native:automation/v20241023:Package")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Package, __self__).__init__(
             'azure-native:automation/v20230515preview:Package',

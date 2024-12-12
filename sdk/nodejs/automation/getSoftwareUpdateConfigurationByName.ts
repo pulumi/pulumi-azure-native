@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a single software update configuration by name.
  * Azure REST API version: 2019-06-01.
  *
- * Other available API versions: 2017-05-15-preview, 2023-05-15-preview.
+ * Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
  */
 export function getSoftwareUpdateConfigurationByName(args: GetSoftwareUpdateConfigurationByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetSoftwareUpdateConfigurationByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -94,7 +94,7 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
  * Get a single software update configuration by name.
  * Azure REST API version: 2019-06-01.
  *
- * Other available API versions: 2017-05-15-preview, 2023-05-15-preview.
+ * Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
  */
 export function getSoftwareUpdateConfigurationByNameOutput(args: GetSoftwareUpdateConfigurationByNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSoftwareUpdateConfigurationByNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

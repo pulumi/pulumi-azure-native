@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.OffAzure
     /// A host resource belonging to a site resource.
     /// Azure REST API version: 2023-06-06.
     /// 
-    /// Other available API versions: 2023-10-01-preview.
+    /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:HypervHostController")]
     public partial class HypervHostController : global::Pulumi.CustomResource
@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.OffAzure
                 {
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:HypervHostController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:HypervHostController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:HypervHostController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

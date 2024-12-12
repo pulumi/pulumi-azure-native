@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
         /// <summary>
+        /// Enable to retrieve result sets from multiple SQL statements and the number of rows affected by the DML statement. Supported connector: SnowflakeV2. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? ReturnMultistatementResult;
+        /// <summary>
         /// ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         public readonly object? ScriptBlockExecutionTimeout;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Outputs.ActivityPolicyResponse? policy,
 
+            object? returnMultistatementResult,
+
             object? scriptBlockExecutionTimeout,
 
             ImmutableArray<Outputs.ScriptActivityScriptBlockResponse> scripts,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Name = name;
             OnInactiveMarkAs = onInactiveMarkAs;
             Policy = policy;
+            ReturnMultistatementResult = returnMultistatementResult;
             ScriptBlockExecutionTimeout = scriptBlockExecutionTimeout;
             Scripts = scripts;
             State = state;

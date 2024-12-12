@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Automation
     /// <summary>
     /// Definition of the Runtime Environment type.
     /// Azure REST API version: 2023-05-15-preview.
+    /// 
+    /// Other available API versions: 2024-10-23.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:RuntimeEnvironment")]
     public partial class RuntimeEnvironment : global::Pulumi.CustomResource
@@ -96,6 +98,7 @@ namespace Pulumi.AzureNative.Automation
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:automation/v20230515preview:RuntimeEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:automation/v20241023:RuntimeEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
