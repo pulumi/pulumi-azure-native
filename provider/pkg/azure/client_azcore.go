@@ -4,6 +4,7 @@ package azure
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -21,6 +22,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/log"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
@@ -167,7 +169,7 @@ func (c *azCoreClient) Get(ctx context.Context, id, apiVersion string, queryPara
 		return nil, err
 	}
 	if !runtime.HasStatusCode(resp, http.StatusOK) {
-		return nil, runtime.NewResponseError(resp)
+		return nil, newResponseError(resp)
 	}
 
 	var responseBody map[string]interface{}
@@ -218,7 +220,7 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 	}
 
 	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound) {
-		return runtime.NewResponseError(resp)
+		return newResponseError(resp)
 	}
 	return err
 }
@@ -259,7 +261,7 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		return nil, false, err
 	}
 	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusCreated, http.StatusAccepted) {
-		return nil, false, runtime.NewResponseError(resp)
+		return nil, false, newResponseError(resp)
 	}
 
 	var outputs map[string]any
@@ -350,7 +352,7 @@ func (c *azCoreClient) Post(ctx context.Context, id string, bodyProps map[string
 	}
 
 	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusCreated) {
-		return nil, runtime.NewResponseError(resp)
+		return nil, newResponseError(resp)
 	}
 
 	return readResponse(resp)
@@ -375,7 +377,7 @@ func (c *azCoreClient) Head(ctx context.Context, id string, apiVersion string) e
 	}
 
 	if !runtime.HasStatusCode(resp, http.StatusOK, http.StatusNoContent) {
-		return runtime.NewResponseError(resp)
+		return newResponseError(resp)
 	}
 	return nil
 }
@@ -516,4 +518,38 @@ type requestAssertingTransporter struct {
 func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, error) {
 	r.assertions(r.t, req)
 	return nil, nil
+}
+
+func newResponseError(resp *http.Response) error {
+	err := runtime.NewResponseError(resp)
+	azcoreErr, ok := err.(*azcore.ResponseError)
+	if !ok {
+		return err
+	}
+
+	body, err2 := runtime.Payload(resp)
+	if err2 != nil {
+		return err
+	}
+
+	var payload map[string]any
+	if err2 := json.Unmarshal(body, &payload); err2 != nil {
+		return err
+	}
+
+	errMsg := string(body)
+	if e, ok := util.GetInnerMap(payload, "error"); ok {
+		if msg, ok := e["message"]; ok {
+			errMsg = msg.(string)
+		}
+	}
+
+	errCode := azcoreErr.ErrorCode
+	if errCode == "" {
+		errCode = fmt.Sprintf("%d", resp.StatusCode)
+	}
+
+	// The capitalized message replicates the error message format of the previous autorest client.
+	//nolint:ST1005
+	return fmt.Errorf(`Code="%s" Message="%s"`, errCode, errMsg)
 }
