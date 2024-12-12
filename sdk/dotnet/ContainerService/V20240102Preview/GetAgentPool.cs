@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20240102Preview
         /// </summary>
         public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:containerservice/v20240102preview:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Agent Pool.
+        /// </summary>
+        public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:containerservice/v20240102preview:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
     }
 
 

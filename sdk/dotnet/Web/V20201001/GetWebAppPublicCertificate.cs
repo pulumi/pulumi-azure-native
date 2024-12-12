@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20201001
         /// </summary>
         public static Output<GetWebAppPublicCertificateResult> Invoke(GetWebAppPublicCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPublicCertificateResult>("azure-native:web/v20201001:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the named public certificate for an app (or deployment slot, if specified).
+        /// </summary>
+        public static Output<GetWebAppPublicCertificateResult> Invoke(GetWebAppPublicCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPublicCertificateResult>("azure-native:web/v20201001:getWebAppPublicCertificate", args ?? new GetWebAppPublicCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

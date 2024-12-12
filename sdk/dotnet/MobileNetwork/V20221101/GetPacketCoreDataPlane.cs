@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
         /// </summary>
         public static Output<GetPacketCoreDataPlaneResult> Invoke(GetPacketCoreDataPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork/v20221101:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified packet core data plane.
+        /// </summary>
+        public static Output<GetPacketCoreDataPlaneResult> Invoke(GetPacketCoreDataPlaneInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork/v20221101:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());
     }
 
 

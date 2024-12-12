@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cache.V20241101
         /// </summary>
         public static Output<GetRedisResult> Invoke(GetRedisInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedisResult>("azure-native:cache/v20241101:getRedis", args ?? new GetRedisInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Redis cache (resource description).
+        /// </summary>
+        public static Output<GetRedisResult> Invoke(GetRedisInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRedisResult>("azure-native:cache/v20241101:getRedis", args ?? new GetRedisInvokeArgs(), options.WithDefaults());
     }
 
 

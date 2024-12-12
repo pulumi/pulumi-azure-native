@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20231001
         /// </summary>
         public static Output<ListDatastoreSecretsResult> Invoke(ListDatastoreSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatastoreSecretsResult>("azure-native:machinelearningservices/v20231001:listDatastoreSecrets", args ?? new ListDatastoreSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Base definition for datastore secrets.
+        /// </summary>
+        public static Output<ListDatastoreSecretsResult> Invoke(ListDatastoreSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDatastoreSecretsResult>("azure-native:machinelearningservices/v20231001:listDatastoreSecrets", args ?? new ListDatastoreSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

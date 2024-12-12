@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public static Output<ListClusterFollowerDatabasesResult> Invoke(ListClusterFollowerDatabasesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterFollowerDatabasesResult>("azure-native:kusto:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a list of databases that are owned by this cluster and were followed by another cluster.
+        /// Azure REST API version: 2022-12-29.
+        /// 
+        /// Other available API versions: 2022-07-07, 2023-05-02, 2023-08-15, 2024-04-13.
+        /// </summary>
+        public static Output<ListClusterFollowerDatabasesResult> Invoke(ListClusterFollowerDatabasesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListClusterFollowerDatabasesResult>("azure-native:kusto:listClusterFollowerDatabases", args ?? new ListClusterFollowerDatabasesInvokeArgs(), options.WithDefaults());
     }
 
 

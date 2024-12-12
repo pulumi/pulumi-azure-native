@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20241215Preview
         /// </summary>
         public static Output<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetNamespaceTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20241215preview:getNamespaceTopicEventSubscriptionDeliveryAttributes", args ?? new GetNamespaceTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get all delivery attributes for an event subscription of a namespace topic.
+        /// </summary>
+        public static Output<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetNamespaceTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid/v20241215preview:getNamespaceTopicEventSubscriptionDeliveryAttributes", args ?? new GetNamespaceTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
     }
 
 

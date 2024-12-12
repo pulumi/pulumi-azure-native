@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public static Output<GetTrunkedNetworkResult> Invoke(GetTrunkedNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrunkedNetworkResult>("azure-native:networkcloud:getTrunkedNetwork", args ?? new GetTrunkedNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided trunked network.
+        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
+        /// </summary>
+        public static Output<GetTrunkedNetworkResult> Invoke(GetTrunkedNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrunkedNetworkResult>("azure-native:networkcloud:getTrunkedNetwork", args ?? new GetTrunkedNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

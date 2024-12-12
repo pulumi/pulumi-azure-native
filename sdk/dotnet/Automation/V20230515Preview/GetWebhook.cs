@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20230515Preview
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:automation/v20230515preview:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the webhook identified by webhook name.
+        /// </summary>
+        public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:automation/v20230515preview:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
     }
 
 

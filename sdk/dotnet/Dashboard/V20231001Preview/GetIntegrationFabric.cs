@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Dashboard.V20231001Preview
         /// </summary>
         public static Output<GetIntegrationFabricResult> Invoke(GetIntegrationFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationFabricResult>("azure-native:dashboard/v20231001preview:getIntegrationFabric", args ?? new GetIntegrationFabricInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The integration fabric resource type.
+        /// </summary>
+        public static Output<GetIntegrationFabricResult> Invoke(GetIntegrationFabricInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationFabricResult>("azure-native:dashboard/v20231001preview:getIntegrationFabric", args ?? new GetIntegrationFabricInvokeArgs(), options.WithDefaults());
     }
 
 

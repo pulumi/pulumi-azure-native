@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20231215Preview
         /// </summary>
         public static Output<GetClientGroupResult> Invoke(GetClientGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientGroupResult>("azure-native:eventgrid/v20231215preview:getClientGroup", args ?? new GetClientGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a client group.
+        /// </summary>
+        public static Output<GetClientGroupResult> Invoke(GetClientGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClientGroupResult>("azure-native:eventgrid/v20231215preview:getClientGroup", args ?? new GetClientGroupInvokeArgs(), options.WithDefaults());
     }
 
 

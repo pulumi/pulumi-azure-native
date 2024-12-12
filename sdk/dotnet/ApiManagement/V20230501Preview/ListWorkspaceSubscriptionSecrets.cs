@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230501Preview
         /// </summary>
         public static Output<ListWorkspaceSubscriptionSecretsResult> Invoke(ListWorkspaceSubscriptionSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceSubscriptionSecretsResult>("azure-native:apimanagement/v20230501preview:listWorkspaceSubscriptionSecrets", args ?? new ListWorkspaceSubscriptionSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Subscription keys.
+        /// </summary>
+        public static Output<ListWorkspaceSubscriptionSecretsResult> Invoke(ListWorkspaceSubscriptionSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceSubscriptionSecretsResult>("azure-native:apimanagement/v20230501preview:listWorkspaceSubscriptionSecrets", args ?? new ListWorkspaceSubscriptionSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
         /// </summary>
         public static Output<GetTagByProductResult> Invoke(GetTagByProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagByProductResult>("azure-native:apimanagement/v20230901preview:getTagByProduct", args ?? new GetTagByProductInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get tag associated with the Product.
+        /// </summary>
+        public static Output<GetTagByProductResult> Invoke(GetTagByProductInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagByProductResult>("azure-native:apimanagement/v20230901preview:getTagByProduct", args ?? new GetTagByProductInvokeArgs(), options.WithDefaults());
     }
 
 

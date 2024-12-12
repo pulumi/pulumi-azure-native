@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240101
         /// </summary>
         public static Output<GetConnectionMonitorResult> Invoke(GetConnectionMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorResult>("azure-native:network/v20240101:getConnectionMonitor", args ?? new GetConnectionMonitorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a connection monitor by name.
+        /// </summary>
+        public static Output<GetConnectionMonitorResult> Invoke(GetConnectionMonitorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorResult>("azure-native:network/v20240101:getConnectionMonitor", args ?? new GetConnectionMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20231001Preview
         /// </summary>
         public static Output<GetTrunkedNetworkResult> Invoke(GetTrunkedNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrunkedNetworkResult>("azure-native:networkcloud/v20231001preview:getTrunkedNetwork", args ?? new GetTrunkedNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided trunked network.
+        /// </summary>
+        public static Output<GetTrunkedNetworkResult> Invoke(GetTrunkedNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrunkedNetworkResult>("azure-native:networkcloud/v20231001preview:getTrunkedNetwork", args ?? new GetTrunkedNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

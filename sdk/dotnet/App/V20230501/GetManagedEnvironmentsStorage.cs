@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20230501
         /// </summary>
         public static Output<GetManagedEnvironmentsStorageResult> Invoke(GetManagedEnvironmentsStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentsStorageResult>("azure-native:app/v20230501:getManagedEnvironmentsStorage", args ?? new GetManagedEnvironmentsStorageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get storage for a managedEnvironment.
+        /// </summary>
+        public static Output<GetManagedEnvironmentsStorageResult> Invoke(GetManagedEnvironmentsStorageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentsStorageResult>("azure-native:app/v20230501:getManagedEnvironmentsStorage", args ?? new GetManagedEnvironmentsStorageInvokeArgs(), options.WithDefaults());
     }
 
 

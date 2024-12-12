@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("azure-native:logic/v20160601:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an integration account agreement.
+        /// </summary>
+        public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("azure-native:logic/v20160601:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithDefaults());
     }
 
 

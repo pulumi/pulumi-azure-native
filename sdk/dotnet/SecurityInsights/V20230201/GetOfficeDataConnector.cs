@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
         /// </summary>
         public static Output<GetOfficeDataConnectorResult> Invoke(GetOfficeDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfficeDataConnectorResult>("azure-native:securityinsights/v20230201:getOfficeDataConnector", args ?? new GetOfficeDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// </summary>
+        public static Output<GetOfficeDataConnectorResult> Invoke(GetOfficeDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOfficeDataConnectorResult>("azure-native:securityinsights/v20230201:getOfficeDataConnector", args ?? new GetOfficeDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public static Output<GetCurationProfileResult> Invoke(GetCurationProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCurationProfileResult>("azure-native:devcenter:getCurationProfile", args ?? new GetCurationProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific curation profile.
+        /// Azure REST API version: 2024-08-01-preview.
+        /// 
+        /// Other available API versions: 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetCurationProfileResult> Invoke(GetCurationProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCurationProfileResult>("azure-native:devcenter:getCurationProfile", args ?? new GetCurationProfileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230301Preview
         /// </summary>
         public static Output<GetWorkspaceProductGroupLinkResult> Invoke(GetWorkspaceProductGroupLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceProductGroupLinkResult>("azure-native:apimanagement/v20230301preview:getWorkspaceProductGroupLink", args ?? new GetWorkspaceProductGroupLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the group link for the product.
+        /// </summary>
+        public static Output<GetWorkspaceProductGroupLinkResult> Invoke(GetWorkspaceProductGroupLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceProductGroupLinkResult>("azure-native:apimanagement/v20230301preview:getWorkspaceProductGroupLink", args ?? new GetWorkspaceProductGroupLinkInvokeArgs(), options.WithDefaults());
     }
 
 

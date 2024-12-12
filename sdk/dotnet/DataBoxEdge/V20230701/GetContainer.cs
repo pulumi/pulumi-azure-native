@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230701
         /// </summary>
         public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerResult>("azure-native:databoxedge/v20230701:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a container on the  Data Box Edge/Gateway device.
+        /// </summary>
+        public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerResult>("azure-native:databoxedge/v20230701:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
     }
 
 

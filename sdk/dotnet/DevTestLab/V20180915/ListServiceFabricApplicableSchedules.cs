@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Output<ListServiceFabricApplicableSchedulesResult> Invoke(ListServiceFabricApplicableSchedulesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListServiceFabricApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules", args ?? new ListServiceFabricApplicableSchedulesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the applicable start/stop schedules, if any.
+        /// </summary>
+        public static Output<ListServiceFabricApplicableSchedulesResult> Invoke(ListServiceFabricApplicableSchedulesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListServiceFabricApplicableSchedulesResult>("azure-native:devtestlab/v20180915:listServiceFabricApplicableSchedules", args ?? new ListServiceFabricApplicableSchedulesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CostManagement.V20240801
         /// </summary>
         public static Output<GetTagInheritanceSettingResult> Invoke(GetTagInheritanceSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagInheritanceSettingResult>("azure-native:costmanagement/v20240801:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the setting from the given scope by name.
+        /// </summary>
+        public static Output<GetTagInheritanceSettingResult> Invoke(GetTagInheritanceSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagInheritanceSettingResult>("azure-native:costmanagement/v20240801:getTagInheritanceSetting", args ?? new GetTagInheritanceSettingInvokeArgs(), options.WithDefaults());
     }
 
 

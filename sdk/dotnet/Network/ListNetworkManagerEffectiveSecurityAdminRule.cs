@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<ListNetworkManagerEffectiveSecurityAdminRuleResult> Invoke(ListNetworkManagerEffectiveSecurityAdminRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNetworkManagerEffectiveSecurityAdminRuleResult>("azure-native:network:listNetworkManagerEffectiveSecurityAdminRule", args ?? new ListNetworkManagerEffectiveSecurityAdminRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List all effective security admin rules applied on a virtual network.
+        /// Azure REST API version: 2021-02-01-preview.
+        /// </summary>
+        public static Output<ListNetworkManagerEffectiveSecurityAdminRuleResult> Invoke(ListNetworkManagerEffectiveSecurityAdminRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListNetworkManagerEffectiveSecurityAdminRuleResult>("azure-native:network:listNetworkManagerEffectiveSecurityAdminRule", args ?? new ListNetworkManagerEffectiveSecurityAdminRuleInvokeArgs(), options.WithDefaults());
     }
 
 

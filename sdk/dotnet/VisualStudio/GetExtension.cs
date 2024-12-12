@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.VisualStudio
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:visualstudio:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of an extension associated with a Visual Studio Team Services account resource.
+        /// Azure REST API version: 2017-11-01-preview.
+        /// </summary>
+        public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:visualstudio:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

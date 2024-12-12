@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Impact.V20240501Preview
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:impact/v20240501preview:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Connector
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:impact/v20240501preview:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

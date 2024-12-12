@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Purview.V20240401Preview
         /// </summary>
         public static Output<ListFeatureSubscriptionResult> Invoke(ListFeatureSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFeatureSubscriptionResult>("azure-native:purview/v20240401preview:listFeatureSubscription", args ?? new ListFeatureSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details from a list of feature names.
+        /// </summary>
+        public static Output<ListFeatureSubscriptionResult> Invoke(ListFeatureSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListFeatureSubscriptionResult>("azure-native:purview/v20240401preview:listFeatureSubscription", args ?? new ListFeatureSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

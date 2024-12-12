@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20230315Preview
         /// </summary>
         public static Output<GetFleetMemberResult> Invoke(GetFleetMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetMemberResult>("azure-native:containerservice/v20230315preview:getFleetMember", args ?? new GetFleetMemberInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a FleetMember
+        /// </summary>
+        public static Output<GetFleetMemberResult> Invoke(GetFleetMemberInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetMemberResult>("azure-native:containerservice/v20230315preview:getFleetMember", args ?? new GetFleetMemberInvokeArgs(), options.WithDefaults());
     }
 
 

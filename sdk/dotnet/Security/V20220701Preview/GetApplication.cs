@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:security/v20220701preview:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific application for the requested scope by applicationId
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:security/v20220701preview:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

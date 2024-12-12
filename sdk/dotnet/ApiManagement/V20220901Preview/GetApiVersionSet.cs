@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20220901Preview
         /// </summary>
         public static Output<GetApiVersionSetResult> Invoke(GetApiVersionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiVersionSetResult>("azure-native:apimanagement/v20220901preview:getApiVersionSet", args ?? new GetApiVersionSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the Api Version Set specified by its identifier.
+        /// </summary>
+        public static Output<GetApiVersionSetResult> Invoke(GetApiVersionSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiVersionSetResult>("azure-native:apimanagement/v20220901preview:getApiVersionSet", args ?? new GetApiVersionSetInvokeArgs(), options.WithDefaults());
     }
 
 

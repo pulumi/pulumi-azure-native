@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20220808
         /// </summary>
         public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:automation/v20220808:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the credential identified by credential name.
+        /// </summary>
+        public static Output<GetCredentialResult> Invoke(GetCredentialInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCredentialResult>("azure-native:automation/v20220808:getCredential", args ?? new GetCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230601
         /// </summary>
         public static Output<GetProtectionIntentResult> Invoke(GetProtectionIntentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionIntentResult>("azure-native:recoveryservices/v20230601:getProtectionIntent", args ?? new GetProtectionIntentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides the details of the protection intent up item. This is an asynchronous operation. To know the status of the operation,
+        /// call the GetItemOperationResult API.
+        /// </summary>
+        public static Output<GetProtectionIntentResult> Invoke(GetProtectionIntentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectionIntentResult>("azure-native:recoveryservices/v20230601:getProtectionIntent", args ?? new GetProtectionIntentInvokeArgs(), options.WithDefaults());
     }
 
 

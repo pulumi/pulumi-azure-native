@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Output<GetIntegrationRuntimeResult> Invoke(GetIntegrationRuntimeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:datafactory:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an integration runtime.
+        /// Azure REST API version: 2018-06-01.
+        /// </summary>
+        public static Output<GetIntegrationRuntimeResult> Invoke(GetIntegrationRuntimeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationRuntimeResult>("azure-native:datafactory:getIntegrationRuntime", args ?? new GetIntegrationRuntimeInvokeArgs(), options.WithDefaults());
     }
 
 

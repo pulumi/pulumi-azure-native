@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         /// </summary>
         public static Output<GetSAPCentralInstanceResult> Invoke(GetSAPCentralInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPCentralInstanceResult>("azure-native:workloads/v20231001preview:getSAPCentralInstance", args ?? new GetSAPCentralInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the SAP Central Services Instance resource.
+        /// </summary>
+        public static Output<GetSAPCentralInstanceResult> Invoke(GetSAPCentralInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPCentralInstanceResult>("azure-native:workloads/v20231001preview:getSAPCentralInstance", args ?? new GetSAPCentralInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

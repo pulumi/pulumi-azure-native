@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetNetworkFirewallFirewallPolicyResult> Invoke(GetNetworkFirewallFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFirewallFirewallPolicyResult>("azure-native:awsconnector/v20241201:getNetworkFirewallFirewallPolicy", args ?? new GetNetworkFirewallFirewallPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a NetworkFirewallFirewallPolicy
+        /// </summary>
+        public static Output<GetNetworkFirewallFirewallPolicyResult> Invoke(GetNetworkFirewallFirewallPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFirewallFirewallPolicyResult>("azure-native:awsconnector/v20241201:getNetworkFirewallFirewallPolicy", args ?? new GetNetworkFirewallFirewallPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

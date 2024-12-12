@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Intune.V20150114PrivatePreview
         /// </summary>
         public static Output<GetIoMAMPolicyByNameResult> Invoke(GetIoMAMPolicyByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIoMAMPolicyByNameResult>("azure-native:intune/v20150114privatepreview:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns Intune iOS policies.
+        /// </summary>
+        public static Output<GetIoMAMPolicyByNameResult> Invoke(GetIoMAMPolicyByNameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIoMAMPolicyByNameResult>("azure-native:intune/v20150114privatepreview:getIoMAMPolicyByName", args ?? new GetIoMAMPolicyByNameInvokeArgs(), options.WithDefaults());
     }
 
 

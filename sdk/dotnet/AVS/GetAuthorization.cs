@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:avs:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ExpressRoute Circuit Authorization
+        /// Azure REST API version: 2022-05-01.
+        /// 
+        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// </summary>
+        public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:avs:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
     }
 
 

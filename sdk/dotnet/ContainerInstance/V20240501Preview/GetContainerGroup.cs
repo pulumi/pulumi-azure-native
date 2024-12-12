@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerInstance.V20240501Preview
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance/v20240501preview:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
+        /// </summary>
+        public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance/v20240501preview:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
     }
 
 

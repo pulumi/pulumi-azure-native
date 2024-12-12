@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// </summary>
         public static Output<GetGlobalUserPersonalPreferencesResult> Invoke(GetGlobalUserPersonalPreferencesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalUserPersonalPreferencesResult>("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get personal preferences for a user
+        /// </summary>
+        public static Output<GetGlobalUserPersonalPreferencesResult> Invoke(GetGlobalUserPersonalPreferencesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalUserPersonalPreferencesResult>("azure-native:labservices/v20181015:getGlobalUserPersonalPreferences", args ?? new GetGlobalUserPersonalPreferencesInvokeArgs(), options.WithDefaults());
     }
 
 

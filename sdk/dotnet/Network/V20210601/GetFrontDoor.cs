@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20210601
         /// </summary>
         public static Output<GetFrontDoorResult> Invoke(GetFrontDoorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontDoorResult>("azure-native:network/v20210601:getFrontDoor", args ?? new GetFrontDoorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
+        /// </summary>
+        public static Output<GetFrontDoorResult> Invoke(GetFrontDoorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrontDoorResult>("azure-native:network/v20210601:getFrontDoor", args ?? new GetFrontDoorInvokeArgs(), options.WithDefaults());
     }
 
 

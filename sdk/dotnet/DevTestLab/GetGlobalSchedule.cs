@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public static Output<GetGlobalScheduleResult> Invoke(GetGlobalScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalScheduleResult>("azure-native:devtestlab:getGlobalSchedule", args ?? new GetGlobalScheduleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get schedule.
+        /// Azure REST API version: 2018-09-15.
+        /// </summary>
+        public static Output<GetGlobalScheduleResult> Invoke(GetGlobalScheduleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalScheduleResult>("azure-native:devtestlab:getGlobalSchedule", args ?? new GetGlobalScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

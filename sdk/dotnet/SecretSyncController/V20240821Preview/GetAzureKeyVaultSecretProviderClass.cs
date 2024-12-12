@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecretSyncController.V20240821Preview
         /// </summary>
         public static Output<GetAzureKeyVaultSecretProviderClassResult> Invoke(GetAzureKeyVaultSecretProviderClassInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureKeyVaultSecretProviderClassResult>("azure-native:secretsynccontroller/v20240821preview:getAzureKeyVaultSecretProviderClass", args ?? new GetAzureKeyVaultSecretProviderClassInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of an AzureKeyVaultSecretProviderClass instance.
+        /// </summary>
+        public static Output<GetAzureKeyVaultSecretProviderClassResult> Invoke(GetAzureKeyVaultSecretProviderClassInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureKeyVaultSecretProviderClassResult>("azure-native:secretsynccontroller/v20240821preview:getAzureKeyVaultSecretProviderClass", args ?? new GetAzureKeyVaultSecretProviderClassInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedCache.V20230501Preview
         /// </summary>
         public static Output<GetIspCacheNodesOperationCacheNodeInstallDetailsResult> Invoke(GetIspCacheNodesOperationCacheNodeInstallDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIspCacheNodesOperationCacheNodeInstallDetailsResult>("azure-native:connectedcache/v20230501preview:getIspCacheNodesOperationCacheNodeInstallDetails", args ?? new GetIspCacheNodesOperationCacheNodeInstallDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This api gets secrets of the ispCacheNode resource install details
+        /// </summary>
+        public static Output<GetIspCacheNodesOperationCacheNodeInstallDetailsResult> Invoke(GetIspCacheNodesOperationCacheNodeInstallDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIspCacheNodesOperationCacheNodeInstallDetailsResult>("azure-native:connectedcache/v20230501preview:getIspCacheNodesOperationCacheNodeInstallDetails", args ?? new GetIspCacheNodesOperationCacheNodeInstallDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

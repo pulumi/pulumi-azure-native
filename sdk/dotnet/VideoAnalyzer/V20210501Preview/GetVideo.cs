@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         /// </summary>
         public static Output<GetVideoResult> Invoke(GetVideoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVideoResult>("azure-native:videoanalyzer/v20210501preview:getVideo", args ?? new GetVideoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves an existing video resource within an account with a given name.
+        /// </summary>
+        public static Output<GetVideoResult> Invoke(GetVideoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVideoResult>("azure-native:videoanalyzer/v20210501preview:getVideo", args ?? new GetVideoInvokeArgs(), options.WithDefaults());
     }
 
 

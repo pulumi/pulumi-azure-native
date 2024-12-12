@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Solutions.V20231201Preview
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:solutions/v20231201preview:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the managed application.
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:solutions/v20231201preview:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

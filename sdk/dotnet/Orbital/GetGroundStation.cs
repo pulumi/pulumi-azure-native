@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public static Output<GetGroundStationResult> Invoke(GetGroundStationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroundStationResult>("azure-native:orbital:getGroundStation", args ?? new GetGroundStationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified ground station in a specified resource group.
+        /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01.
+        /// </summary>
+        public static Output<GetGroundStationResult> Invoke(GetGroundStationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroundStationResult>("azure-native:orbital:getGroundStation", args ?? new GetGroundStationInvokeArgs(), options.WithDefaults());
     }
 
 

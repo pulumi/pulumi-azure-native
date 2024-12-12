@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240730Preview
         /// </summary>
         public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:recoveryservices/v20240730preview:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
+        /// call the GetItemOperationResult API.
+        /// </summary>
+        public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:recoveryservices/v20240730preview:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());
     }
 
 

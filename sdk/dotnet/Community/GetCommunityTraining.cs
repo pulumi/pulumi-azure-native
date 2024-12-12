@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Community
         /// </summary>
         public static Output<GetCommunityTrainingResult> Invoke(GetCommunityTrainingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommunityTrainingResult>("azure-native:community:getCommunityTraining", args ?? new GetCommunityTrainingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CommunityTraining
+        /// Azure REST API version: 2023-11-01.
+        /// </summary>
+        public static Output<GetCommunityTrainingResult> Invoke(GetCommunityTrainingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCommunityTrainingResult>("azure-native:community:getCommunityTraining", args ?? new GetCommunityTrainingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetDatabaseMigrationServiceReplicationInstanceResult> Invoke(GetDatabaseMigrationServiceReplicationInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationServiceReplicationInstanceResult>("azure-native:awsconnector/v20241201:getDatabaseMigrationServiceReplicationInstance", args ?? new GetDatabaseMigrationServiceReplicationInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DatabaseMigrationServiceReplicationInstance
+        /// </summary>
+        public static Output<GetDatabaseMigrationServiceReplicationInstanceResult> Invoke(GetDatabaseMigrationServiceReplicationInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseMigrationServiceReplicationInstanceResult>("azure-native:awsconnector/v20241201:getDatabaseMigrationServiceReplicationInstance", args ?? new GetDatabaseMigrationServiceReplicationInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

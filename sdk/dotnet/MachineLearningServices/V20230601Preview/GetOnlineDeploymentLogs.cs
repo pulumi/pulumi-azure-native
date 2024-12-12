@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230601Preview
 
         public static Output<GetOnlineDeploymentLogsResult> Invoke(GetOnlineDeploymentLogsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20230601preview:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetOnlineDeploymentLogsResult> Invoke(GetOnlineDeploymentLogsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOnlineDeploymentLogsResult>("azure-native:machinelearningservices/v20230601preview:getOnlineDeploymentLogs", args ?? new GetOnlineDeploymentLogsInvokeArgs(), options.WithDefaults());
     }
 
 

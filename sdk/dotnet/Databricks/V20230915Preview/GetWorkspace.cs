@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Databricks.V20230915Preview
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:databricks/v20230915preview:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the workspace.
+        /// </summary>
+        public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:databricks/v20230915preview:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

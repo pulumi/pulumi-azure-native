@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001
         /// </summary>
         public static Output<GetMarketplaceSubscriptionResult> Invoke(GetMarketplaceSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceSubscriptionResult>("azure-native:machinelearningservices/v20241001:getMarketplaceSubscription", args ?? new GetMarketplaceSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Azure Resource Manager resource envelope.
+        /// </summary>
+        public static Output<GetMarketplaceSubscriptionResult> Invoke(GetMarketplaceSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceSubscriptionResult>("azure-native:machinelearningservices/v20241001:getMarketplaceSubscription", args ?? new GetMarketplaceSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

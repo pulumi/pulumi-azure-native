@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20190801
         /// </summary>
         public static Output<GetExpressRoutePortResult> Invoke(GetExpressRoutePortInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortResult>("azure-native:network/v20190801:getExpressRoutePort", args ?? new GetExpressRoutePortInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the requested ExpressRoutePort resource.
+        /// </summary>
+        public static Output<GetExpressRoutePortResult> Invoke(GetExpressRoutePortInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortResult>("azure-native:network/v20190801:getExpressRoutePort", args ?? new GetExpressRoutePortInvokeArgs(), options.WithDefaults());
     }
 
 

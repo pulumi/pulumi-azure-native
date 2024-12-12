@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Output<GetDataFlowResult> Invoke(GetDataFlowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowResult>("azure-native:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data flow.
+        /// </summary>
+        public static Output<GetDataFlowResult> Invoke(GetDataFlowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowResult>("azure-native:datafactory/v20180601:getDataFlow", args ?? new GetDataFlowInvokeArgs(), options.WithDefaults());
     }
 
 

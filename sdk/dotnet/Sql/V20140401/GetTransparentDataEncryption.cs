@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// </summary>
         public static Output<GetTransparentDataEncryptionResult> Invoke(GetTransparentDataEncryptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransparentDataEncryptionResult>("azure-native:sql/v20140401:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a database's transparent data encryption configuration.
+        /// </summary>
+        public static Output<GetTransparentDataEncryptionResult> Invoke(GetTransparentDataEncryptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransparentDataEncryptionResult>("azure-native:sql/v20140401:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionInvokeArgs(), options.WithDefaults());
     }
 
 

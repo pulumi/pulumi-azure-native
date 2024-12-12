@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Confluent.V20211201
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent/v20211201:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Organization resource.
+        /// </summary>
+        public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent/v20211201:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetEc2SecurityGroupResult> Invoke(GetEc2SecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2SecurityGroupResult>("azure-native:awsconnector:getEc2SecurityGroup", args ?? new GetEc2SecurityGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2SecurityGroup
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetEc2SecurityGroupResult> Invoke(GetEc2SecurityGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2SecurityGroupResult>("azure-native:awsconnector:getEc2SecurityGroup", args ?? new GetEc2SecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

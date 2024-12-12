@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedCache.V20230501Preview
         /// </summary>
         public static Output<GetEnterpriseMccCustomerResult> Invoke(GetEnterpriseMccCustomerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseMccCustomerResult>("azure-native:connectedcache/v20230501preview:getEnterpriseMccCustomer", args ?? new GetEnterpriseMccCustomerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the enterprise mcc customer resource information using this get call
+        /// </summary>
+        public static Output<GetEnterpriseMccCustomerResult> Invoke(GetEnterpriseMccCustomerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseMccCustomerResult>("azure-native:connectedcache/v20230501preview:getEnterpriseMccCustomer", args ?? new GetEnterpriseMccCustomerInvokeArgs(), options.WithDefaults());
     }
 
 

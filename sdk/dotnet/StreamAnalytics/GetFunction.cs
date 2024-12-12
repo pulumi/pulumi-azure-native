@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("azure-native:streamanalytics:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details about the specified function.
+        /// Azure REST API version: 2020-03-01.
+        /// 
+        /// Other available API versions: 2016-03-01, 2021-10-01-preview.
+        /// </summary>
+        public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("azure-native:streamanalytics:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
     }
 
 

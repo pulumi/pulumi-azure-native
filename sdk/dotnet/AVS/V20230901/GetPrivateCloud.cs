@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230901
         /// </summary>
         public static Output<GetPrivateCloudResult> Invoke(GetPrivateCloudInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateCloudResult>("azure-native:avs/v20230901:getPrivateCloud", args ?? new GetPrivateCloudInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a PrivateCloud
+        /// </summary>
+        public static Output<GetPrivateCloudResult> Invoke(GetPrivateCloudInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateCloudResult>("azure-native:avs/v20230901:getPrivateCloud", args ?? new GetPrivateCloudInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Resources.V20240301
         /// </summary>
         public static Output<GetDeploymentStackAtSubscriptionResult> Invoke(GetDeploymentStackAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtSubscriptionResult>("azure-native:resources/v20240301:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Deployment stack with a given name at Subscription scope.
+        /// </summary>
+        public static Output<GetDeploymentStackAtSubscriptionResult> Invoke(GetDeploymentStackAtSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtSubscriptionResult>("azure-native:resources/v20240301:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

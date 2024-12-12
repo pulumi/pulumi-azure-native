@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTOperations.V20240815Preview
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:iotoperations/v20240815preview:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a InstanceResource
+        /// </summary>
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:iotoperations/v20240815preview:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

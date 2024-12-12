@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         public static Output<ListEndpointIngressGatewayCredentialsResult> Invoke(ListEndpointIngressGatewayCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointIngressGatewayCredentialsResult>("azure-native:hybridconnectivity:listEndpointIngressGatewayCredentials", args ?? new ListEndpointIngressGatewayCredentialsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the ingress gateway endpoint credentials 
+        /// Azure REST API version: 2023-03-15.
+        /// 
+        /// Other available API versions: 2024-12-01.
+        /// </summary>
+        public static Output<ListEndpointIngressGatewayCredentialsResult> Invoke(ListEndpointIngressGatewayCredentialsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListEndpointIngressGatewayCredentialsResult>("azure-native:hybridconnectivity:listEndpointIngressGatewayCredentials", args ?? new ListEndpointIngressGatewayCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

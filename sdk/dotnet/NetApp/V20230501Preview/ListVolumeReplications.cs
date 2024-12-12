@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20230501Preview
         /// </summary>
         public static Output<ListVolumeReplicationsResult> Invoke(ListVolumeReplicationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVolumeReplicationsResult>("azure-native:netapp/v20230501preview:listVolumeReplications", args ?? new ListVolumeReplicationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List all replications for a specified volume
+        /// </summary>
+        public static Output<ListVolumeReplicationsResult> Invoke(ListVolumeReplicationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListVolumeReplicationsResult>("azure-native:netapp/v20230501preview:listVolumeReplications", args ?? new ListVolumeReplicationsInvokeArgs(), options.WithDefaults());
     }
 
 

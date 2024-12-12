@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20240201
         /// </summary>
         public static Output<GetAFDOriginGroupResult> Invoke(GetAFDOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDOriginGroupResult>("azure-native:cdn/v20240201:getAFDOriginGroup", args ?? new GetAFDOriginGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing origin group within a profile.
+        /// </summary>
+        public static Output<GetAFDOriginGroupResult> Invoke(GetAFDOriginGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAFDOriginGroupResult>("azure-native:cdn/v20240201:getAFDOriginGroup", args ?? new GetAFDOriginGroupInvokeArgs(), options.WithDefaults());
     }
 
 

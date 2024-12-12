@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorageSync.V20220901
         /// </summary>
         public static Output<GetServerEndpointResult> Invoke(GetServerEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerEndpointResult>("azure-native:storagesync/v20220901:getServerEndpoint", args ?? new GetServerEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ServerEndpoint.
+        /// </summary>
+        public static Output<GetServerEndpointResult> Invoke(GetServerEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerEndpointResult>("azure-native:storagesync/v20220901:getServerEndpoint", args ?? new GetServerEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

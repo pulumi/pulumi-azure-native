@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20231101
         /// </summary>
         public static Output<GetPowerShell72ModuleResult> Invoke(GetPowerShell72ModuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPowerShell72ModuleResult>("azure-native:automation/v20231101:getPowerShell72Module", args ?? new GetPowerShell72ModuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the module identified by module name.
+        /// </summary>
+        public static Output<GetPowerShell72ModuleResult> Invoke(GetPowerShell72ModuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPowerShell72ModuleResult>("azure-native:automation/v20231101:getPowerShell72Module", args ?? new GetPowerShell72ModuleInvokeArgs(), options.WithDefaults());
     }
 
 

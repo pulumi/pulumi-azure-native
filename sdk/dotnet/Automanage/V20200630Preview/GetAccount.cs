@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:automanage/v20200630preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about a Automanage account
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:automanage/v20200630preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

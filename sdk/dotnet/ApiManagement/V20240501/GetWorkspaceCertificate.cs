@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
         /// </summary>
         public static Output<GetWorkspaceCertificateResult> Invoke(GetWorkspaceCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceCertificateResult>("azure-native:apimanagement/v20240501:getWorkspaceCertificate", args ?? new GetWorkspaceCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the certificate specified by its identifier.
+        /// </summary>
+        public static Output<GetWorkspaceCertificateResult> Invoke(GetWorkspaceCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceCertificateResult>("azure-native:apimanagement/v20240501:getWorkspaceCertificate", args ?? new GetWorkspaceCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

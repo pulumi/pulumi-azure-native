@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
         /// </summary>
         public static Output<GetCacheRuleResult> Invoke(GetCacheRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheRuleResult>("azure-native:containerregistry/v20230101preview:getCacheRule", args ?? new GetCacheRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified cache rule resource.
+        /// </summary>
+        public static Output<GetCacheRuleResult> Invoke(GetCacheRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCacheRuleResult>("azure-native:containerregistry/v20230101preview:getCacheRule", args ?? new GetCacheRuleInvokeArgs(), options.WithDefaults());
     }
 
 

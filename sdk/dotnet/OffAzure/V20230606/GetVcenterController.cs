@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20230606
         /// </summary>
         public static Output<GetVcenterControllerResult> Invoke(GetVcenterControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVcenterControllerResult>("azure-native:offazure/v20230606:getVcenterController", args ?? new GetVcenterControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Vcenter
+        /// </summary>
+        public static Output<GetVcenterControllerResult> Invoke(GetVcenterControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVcenterControllerResult>("azure-native:offazure/v20230606:getVcenterController", args ?? new GetVcenterControllerInvokeArgs(), options.WithDefaults());
     }
 
 

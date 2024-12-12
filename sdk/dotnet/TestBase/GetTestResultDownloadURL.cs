@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public static Output<GetTestResultDownloadURLResult> Invoke(GetTestResultDownloadURLInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestResultDownloadURLResult>("azure-native:testbase:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the download URL of the test result.
+        /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-01-preview.
+        /// </summary>
+        public static Output<GetTestResultDownloadURLResult> Invoke(GetTestResultDownloadURLInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTestResultDownloadURLResult>("azure-native:testbase:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLInvokeArgs(), options.WithDefaults());
     }
 
 

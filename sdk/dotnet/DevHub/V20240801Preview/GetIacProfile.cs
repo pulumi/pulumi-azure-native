@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevHub.V20240801Preview
         /// </summary>
         public static Output<GetIacProfileResult> Invoke(GetIacProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIacProfileResult>("azure-native:devhub/v20240801preview:getIacProfile", args ?? new GetIacProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource representation of a IacProfile.
+        /// </summary>
+        public static Output<GetIacProfileResult> Invoke(GetIacProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIacProfileResult>("azure-native:devhub/v20240801preview:getIacProfile", args ?? new GetIacProfileInvokeArgs(), options.WithDefaults());
     }
 
 

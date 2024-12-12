@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetCodeBuildSourceCredentialsInfoResult> Invoke(GetCodeBuildSourceCredentialsInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeBuildSourceCredentialsInfoResult>("azure-native:awsconnector:getCodeBuildSourceCredentialsInfo", args ?? new GetCodeBuildSourceCredentialsInfoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CodeBuildSourceCredentialsInfo
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetCodeBuildSourceCredentialsInfoResult> Invoke(GetCodeBuildSourceCredentialsInfoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodeBuildSourceCredentialsInfoResult>("azure-native:awsconnector:getCodeBuildSourceCredentialsInfo", args ?? new GetCodeBuildSourceCredentialsInfoInvokeArgs(), options.WithDefaults());
     }
 
 

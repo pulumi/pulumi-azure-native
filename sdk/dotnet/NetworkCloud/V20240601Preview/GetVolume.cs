@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20240601Preview
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:networkcloud/v20240601preview:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided volume.
+        /// </summary>
+        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:networkcloud/v20240601preview:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
         /// </summary>
         public static Output<GetCustomResourceProviderResult> Invoke(GetCustomResourceProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomResourceProviderResult>("azure-native:customproviders/v20180901preview:getCustomResourceProvider", args ?? new GetCustomResourceProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the custom resource provider manifest.
+        /// </summary>
+        public static Output<GetCustomResourceProviderResult> Invoke(GetCustomResourceProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomResourceProviderResult>("azure-native:customproviders/v20180901preview:getCustomResourceProvider", args ?? new GetCustomResourceProviderInvokeArgs(), options.WithDefaults());
     }
 
 

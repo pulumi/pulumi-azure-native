@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetGroupsOperationResult> Invoke(GetGroupsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupsOperationResult>("azure-native:migrate:getGroupsOperation", args ?? new GetGroupsOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Group
+        /// Azure REST API version: 2023-03-15.
+        /// 
+        /// Other available API versions: 2023-04-01-preview, 2023-05-01-preview, 2023-09-09-preview.
+        /// </summary>
+        public static Output<GetGroupsOperationResult> Invoke(GetGroupsOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupsOperationResult>("azure-native:migrate:getGroupsOperation", args ?? new GetGroupsOperationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SignalRService.V20230201
         /// </summary>
         public static Output<GetSignalRResult> Invoke(GetSignalRInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRResult>("azure-native:signalrservice/v20230201:getSignalR", args ?? new GetSignalRInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the resource and its properties.
+        /// </summary>
+        public static Output<GetSignalRResult> Invoke(GetSignalRInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSignalRResult>("azure-native:signalrservice/v20230201:getSignalR", args ?? new GetSignalRInvokeArgs(), options.WithDefaults());
     }
 
 

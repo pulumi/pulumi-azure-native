@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240101Preview
         /// </summary>
         public static Output<GetAnomalySecurityMLAnalyticsSettingsResult> Invoke(GetAnomalySecurityMLAnalyticsSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnomalySecurityMLAnalyticsSettingsResult>("azure-native:securityinsights/v20240101preview:getAnomalySecurityMLAnalyticsSettings", args ?? new GetAnomalySecurityMLAnalyticsSettingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Security ML Analytics Settings.
+        /// </summary>
+        public static Output<GetAnomalySecurityMLAnalyticsSettingsResult> Invoke(GetAnomalySecurityMLAnalyticsSettingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnomalySecurityMLAnalyticsSettingsResult>("azure-native:securityinsights/v20240101preview:getAnomalySecurityMLAnalyticsSettings", args ?? new GetAnomalySecurityMLAnalyticsSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

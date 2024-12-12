@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Output<GetDiagnosticSettingResult> Invoke(GetDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:insights:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the active diagnostic settings for the specified resource.
+        /// Azure REST API version: 2021-05-01-preview.
+        /// </summary>
+        public static Output<GetDiagnosticSettingResult> Invoke(GetDiagnosticSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:insights:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithDefaults());
     }
 
 

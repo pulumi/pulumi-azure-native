@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20240202Preview
         /// </summary>
         public static Output<ListLogicAppWorkflowsConnectionsResult> Invoke(ListLogicAppWorkflowsConnectionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLogicAppWorkflowsConnectionsResult>("azure-native:app/v20240202preview:listLogicAppWorkflowsConnections", args ?? new ListLogicAppWorkflowsConnectionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Workflow properties definition.
+        /// </summary>
+        public static Output<ListLogicAppWorkflowsConnectionsResult> Invoke(ListLogicAppWorkflowsConnectionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListLogicAppWorkflowsConnectionsResult>("azure-native:app/v20240202preview:listLogicAppWorkflowsConnections", args ?? new ListLogicAppWorkflowsConnectionsInvokeArgs(), options.WithDefaults());
     }
 
 

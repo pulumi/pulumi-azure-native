@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EdgeMarketplace.V20230801Preview
         /// </summary>
         public static Output<GetOfferAccessTokenResult> Invoke(GetOfferAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfferAccessTokenResult>("azure-native:edgemarketplace/v20230801preview:getOfferAccessToken", args ?? new GetOfferAccessTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// get access token.
+        /// </summary>
+        public static Output<GetOfferAccessTokenResult> Invoke(GetOfferAccessTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOfferAccessTokenResult>("azure-native:edgemarketplace/v20230801preview:getOfferAccessToken", args ?? new GetOfferAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

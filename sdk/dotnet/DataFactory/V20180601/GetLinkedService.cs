@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:datafactory/v20180601:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a linked service.
+        /// </summary>
+        public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:datafactory/v20180601:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithDefaults());
     }
 
 

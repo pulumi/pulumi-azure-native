@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20230501
         /// </summary>
         public static Output<GetContainerAppAuthTokenResult> Invoke(GetContainerAppAuthTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppAuthTokenResult>("azure-native:app/v20230501:getContainerAppAuthToken", args ?? new GetContainerAppAuthTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Container App Auth Token.
+        /// </summary>
+        public static Output<GetContainerAppAuthTokenResult> Invoke(GetContainerAppAuthTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppAuthTokenResult>("azure-native:app/v20230501:getContainerAppAuthToken", args ?? new GetContainerAppAuthTokenInvokeArgs(), options.WithDefaults());
     }
 
 

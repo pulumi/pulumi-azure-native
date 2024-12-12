@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Output<GetImageUploadUrlForDataResult> Invoke(GetImageUploadUrlForDataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageUploadUrlForDataResult>("azure-native:customerinsights/v20170426:getImageUploadUrlForData", args ?? new GetImageUploadUrlForDataInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets data image upload URL.
+        /// </summary>
+        public static Output<GetImageUploadUrlForDataResult> Invoke(GetImageUploadUrlForDataInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageUploadUrlForDataResult>("azure-native:customerinsights/v20170426:getImageUploadUrlForData", args ?? new GetImageUploadUrlForDataInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a security assessment on your scanned resource
+        /// Azure REST API version: 2021-06-01.
+        /// 
+        /// Other available API versions: 2020-01-01.
+        /// </summary>
+        public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
     }
 
 

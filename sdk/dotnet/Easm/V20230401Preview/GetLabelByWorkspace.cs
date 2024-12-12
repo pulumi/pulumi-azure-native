@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Easm.V20230401Preview
         /// </summary>
         public static Output<GetLabelByWorkspaceResult> Invoke(GetLabelByWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelByWorkspaceResult>("azure-native:easm/v20230401preview:getLabelByWorkspace", args ?? new GetLabelByWorkspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a label in the given workspace.
+        /// </summary>
+        public static Output<GetLabelByWorkspaceResult> Invoke(GetLabelByWorkspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabelByWorkspaceResult>("azure-native:easm/v20230401preview:getLabelByWorkspace", args ?? new GetLabelByWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

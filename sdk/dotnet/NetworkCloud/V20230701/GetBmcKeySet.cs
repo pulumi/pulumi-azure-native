@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
         /// </summary>
         public static Output<GetBmcKeySetResult> Invoke(GetBmcKeySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBmcKeySetResult>("azure-native:networkcloud/v20230701:getBmcKeySet", args ?? new GetBmcKeySetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get baseboard management controller key set of the provided cluster.
+        /// </summary>
+        public static Output<GetBmcKeySetResult> Invoke(GetBmcKeySetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBmcKeySetResult>("azure-native:networkcloud/v20230701:getBmcKeySet", args ?? new GetBmcKeySetInvokeArgs(), options.WithDefaults());
     }
 
 

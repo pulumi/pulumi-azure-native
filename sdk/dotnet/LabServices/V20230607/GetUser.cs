@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.LabServices.V20230607
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:labservices/v20230607:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the properties of a lab user.
+        /// </summary>
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:labservices/v20230607:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 

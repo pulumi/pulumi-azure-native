@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20230815Preview
         /// </summary>
         public static Output<GetFleetUpdateStrategyResult> Invoke(GetFleetUpdateStrategyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetUpdateStrategyResult>("azure-native:containerservice/v20230815preview:getFleetUpdateStrategy", args ?? new GetFleetUpdateStrategyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a FleetUpdateStrategy
+        /// </summary>
+        public static Output<GetFleetUpdateStrategyResult> Invoke(GetFleetUpdateStrategyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetUpdateStrategyResult>("azure-native:containerservice/v20230815preview:getFleetUpdateStrategy", args ?? new GetFleetUpdateStrategyInvokeArgs(), options.WithDefaults());
     }
 
 

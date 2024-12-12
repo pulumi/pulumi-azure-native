@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public static Output<GetSandboxCustomImageResult> Invoke(GetSandboxCustomImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSandboxCustomImageResult>("azure-native:kusto:getSandboxCustomImage", args ?? new GetSandboxCustomImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a sandbox custom image
+        /// Azure REST API version: 2023-08-15.
+        /// 
+        /// Other available API versions: 2024-04-13.
+        /// </summary>
+        public static Output<GetSandboxCustomImageResult> Invoke(GetSandboxCustomImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSandboxCustomImageResult>("azure-native:kusto:getSandboxCustomImage", args ?? new GetSandboxCustomImageInvokeArgs(), options.WithDefaults());
     }
 
 

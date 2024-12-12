@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetEc2AddressResult> Invoke(GetEc2AddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2AddressResult>("azure-native:awsconnector:getEc2Address", args ?? new GetEc2AddressInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2Address
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetEc2AddressResult> Invoke(GetEc2AddressInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2AddressResult>("azure-native:awsconnector:getEc2Address", args ?? new GetEc2AddressInvokeArgs(), options.WithDefaults());
     }
 
 

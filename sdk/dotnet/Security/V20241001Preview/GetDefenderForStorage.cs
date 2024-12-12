@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20241001Preview
         /// </summary>
         public static Output<GetDefenderForStorageResult> Invoke(GetDefenderForStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefenderForStorageResult>("azure-native:security/v20241001preview:getDefenderForStorage", args ?? new GetDefenderForStorageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Defender for Storage settings for the specified storage account.
+        /// </summary>
+        public static Output<GetDefenderForStorageResult> Invoke(GetDefenderForStorageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDefenderForStorageResult>("azure-native:security/v20241001preview:getDefenderForStorage", args ?? new GetDefenderForStorageInvokeArgs(), options.WithDefaults());
     }
 
 

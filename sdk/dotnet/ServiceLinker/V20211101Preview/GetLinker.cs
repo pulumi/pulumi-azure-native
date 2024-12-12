@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceLinker.V20211101Preview
         /// </summary>
         public static Output<GetLinkerResult> Invoke(GetLinkerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkerResult>("azure-native:servicelinker/v20211101preview:getLinker", args ?? new GetLinkerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns Linker resource for a given name.
+        /// </summary>
+        public static Output<GetLinkerResult> Invoke(GetLinkerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkerResult>("azure-native:servicelinker/v20211101preview:getLinker", args ?? new GetLinkerInvokeArgs(), options.WithDefaults());
     }
 
 

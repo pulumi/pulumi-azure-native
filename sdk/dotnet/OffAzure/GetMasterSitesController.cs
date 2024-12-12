@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.OffAzure
         /// </summary>
         public static Output<GetMasterSitesControllerResult> Invoke(GetMasterSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMasterSitesControllerResult>("azure-native:offazure:getMasterSitesController", args ?? new GetMasterSitesControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a MasterSite
+        /// Azure REST API version: 2023-06-06.
+        /// 
+        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetMasterSitesControllerResult> Invoke(GetMasterSitesControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMasterSitesControllerResult>("azure-native:offazure:getMasterSitesController", args ?? new GetMasterSitesControllerInvokeArgs(), options.WithDefaults());
     }
 
 

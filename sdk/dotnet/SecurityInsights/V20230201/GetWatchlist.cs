@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
         /// </summary>
         public static Output<GetWatchlistResult> Invoke(GetWatchlistInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatchlistResult>("azure-native:securityinsights/v20230201:getWatchlist", args ?? new GetWatchlistInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a watchlist, without its watchlist items.
+        /// </summary>
+        public static Output<GetWatchlistResult> Invoke(GetWatchlistInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWatchlistResult>("azure-native:securityinsights/v20230201:getWatchlist", args ?? new GetWatchlistInvokeArgs(), options.WithDefaults());
     }
 
 

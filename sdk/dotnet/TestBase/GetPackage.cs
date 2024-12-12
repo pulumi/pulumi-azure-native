@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Test Base Package.
+        /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-01-preview.
+        /// </summary>
+        public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
     }
 
 

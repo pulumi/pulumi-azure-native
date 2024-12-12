@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20230501
         /// </summary>
         public static Output<ListStorageAccountServiceSASResult> Invoke(ListStorageAccountServiceSASInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountServiceSASResult>("azure-native:storage/v20230501:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List service SAS credentials of a specific resource.
+        /// </summary>
+        public static Output<ListStorageAccountServiceSASResult> Invoke(ListStorageAccountServiceSASInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListStorageAccountServiceSASResult>("azure-native:storage/v20230501:listStorageAccountServiceSAS", args ?? new ListStorageAccountServiceSASInvokeArgs(), options.WithDefaults());
     }
 
 

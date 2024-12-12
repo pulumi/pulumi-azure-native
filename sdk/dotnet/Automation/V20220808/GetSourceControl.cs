@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20220808
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:automation/v20220808:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the source control identified by source control name.
+        /// </summary>
+        public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:automation/v20220808:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
     }
 
 

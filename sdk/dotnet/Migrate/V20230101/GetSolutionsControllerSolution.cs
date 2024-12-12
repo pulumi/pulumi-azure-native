@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230101
         /// </summary>
         public static Output<GetSolutionsControllerSolutionResult> Invoke(GetSolutionsControllerSolutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionsControllerSolutionResult>("azure-native:migrate/v20230101:getSolutionsControllerSolution", args ?? new GetSolutionsControllerSolutionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Solution REST Resource.
+        /// </summary>
+        public static Output<GetSolutionsControllerSolutionResult> Invoke(GetSolutionsControllerSolutionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSolutionsControllerSolutionResult>("azure-native:migrate/v20230101:getSolutionsControllerSolution", args ?? new GetSolutionsControllerSolutionInvokeArgs(), options.WithDefaults());
     }
 
 

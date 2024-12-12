@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         public static Output<GetMigrationServiceResult> Invoke(GetMigrationServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationServiceResult>("azure-native:datamigration:getMigrationService", args ?? new GetMigrationServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the Database Migration Service
+        /// Azure REST API version: 2023-07-15-preview.
+        /// </summary>
+        public static Output<GetMigrationServiceResult> Invoke(GetMigrationServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMigrationServiceResult>("azure-native:datamigration:getMigrationService", args ?? new GetMigrationServiceInvokeArgs(), options.WithDefaults());
     }
 
 

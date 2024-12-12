@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20230101
         /// </summary>
         public static Output<ListWebAppMetadataSlotResult> Invoke(ListWebAppMetadataSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppMetadataSlotResult>("azure-native:web/v20230101:listWebAppMetadataSlot", args ?? new ListWebAppMetadataSlotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Gets the metadata of an app.
+        /// </summary>
+        public static Output<ListWebAppMetadataSlotResult> Invoke(ListWebAppMetadataSlotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppMetadataSlotResult>("azure-native:web/v20230101:listWebAppMetadataSlot", args ?? new ListWebAppMetadataSlotInvokeArgs(), options.WithDefaults());
     }
 
 

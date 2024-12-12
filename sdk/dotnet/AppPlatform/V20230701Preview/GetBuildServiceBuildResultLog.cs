@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230701Preview
         /// </summary>
         public static Output<GetBuildServiceBuildResultLogResult> Invoke(GetBuildServiceBuildResultLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuildResultLogResult>("azure-native:appplatform/v20230701preview:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a KPack build result log download URL.
+        /// </summary>
+        public static Output<GetBuildServiceBuildResultLogResult> Invoke(GetBuildServiceBuildResultLogInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuildResultLogResult>("azure-native:appplatform/v20230701preview:getBuildServiceBuildResultLog", args ?? new GetBuildServiceBuildResultLogInvokeArgs(), options.WithDefaults());
     }
 
 

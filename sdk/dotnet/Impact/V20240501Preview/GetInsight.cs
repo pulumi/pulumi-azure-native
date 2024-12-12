@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Impact.V20240501Preview
         /// </summary>
         public static Output<GetInsightResult> Invoke(GetInsightInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInsightResult>("azure-native:impact/v20240501preview:getInsight", args ?? new GetInsightInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Insight resources by workloadImpactName and insightName
+        /// </summary>
+        public static Output<GetInsightResult> Invoke(GetInsightInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInsightResult>("azure-native:impact/v20240501preview:getInsight", args ?? new GetInsightInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20240709Preview
         /// </summary>
         public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("azure-native:confidentialledger/v20240709preview:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the properties of a Confidential Ledger.
+        /// </summary>
+        public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("azure-native:confidentialledger/v20240709preview:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
     }
 
 

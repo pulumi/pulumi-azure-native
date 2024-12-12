@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20230501Preview
         /// </summary>
         public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:netapp/v20230501preview:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the specified Backup under Backup Vault.
+        /// </summary>
+        public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:netapp/v20230501preview:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview
 
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure-native:machinelearningservices/v20241001preview:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("azure-native:machinelearningservices/v20241001preview:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

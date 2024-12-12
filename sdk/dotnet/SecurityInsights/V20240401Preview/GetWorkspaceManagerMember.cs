@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
         /// </summary>
         public static Output<GetWorkspaceManagerMemberResult> Invoke(GetWorkspaceManagerMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceManagerMemberResult>("azure-native:securityinsights/v20240401preview:getWorkspaceManagerMember", args ?? new GetWorkspaceManagerMemberInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a workspace manager member
+        /// </summary>
+        public static Output<GetWorkspaceManagerMemberResult> Invoke(GetWorkspaceManagerMemberInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceManagerMemberResult>("azure-native:securityinsights/v20240401preview:getWorkspaceManagerMember", args ?? new GetWorkspaceManagerMemberInvokeArgs(), options.WithDefaults());
     }
 
 

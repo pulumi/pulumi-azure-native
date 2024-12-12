@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         /// </summary>
         public static Output<GetPrivateLinkServicesForM365ComplianceCenterResult> Invoke(GetPrivateLinkServicesForM365ComplianceCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForM365ComplianceCenterResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForM365ComplianceCenter", args ?? new GetPrivateLinkServicesForM365ComplianceCenterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the metadata of a privateLinkServicesForM365ComplianceCenter resource.
+        /// Azure REST API version: 2021-03-25-preview.
+        /// </summary>
+        public static Output<GetPrivateLinkServicesForM365ComplianceCenterResult> Invoke(GetPrivateLinkServicesForM365ComplianceCenterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForM365ComplianceCenterResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForM365ComplianceCenter", args ?? new GetPrivateLinkServicesForM365ComplianceCenterInvokeArgs(), options.WithDefaults());
     }
 
 

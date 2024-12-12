@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datalakeanalytics/v20191101preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details of the specified Data Lake Analytics account.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:datalakeanalytics/v20191101preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

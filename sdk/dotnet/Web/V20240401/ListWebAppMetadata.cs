@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20240401
         /// </summary>
         public static Output<ListWebAppMetadataResult> Invoke(ListWebAppMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppMetadataResult>("azure-native:web/v20240401:listWebAppMetadata", args ?? new ListWebAppMetadataInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Gets the metadata of an app.
+        /// </summary>
+        public static Output<ListWebAppMetadataResult> Invoke(ListWebAppMetadataInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppMetadataResult>("azure-native:web/v20240401:listWebAppMetadata", args ?? new ListWebAppMetadataInvokeArgs(), options.WithDefaults());
     }
 
 

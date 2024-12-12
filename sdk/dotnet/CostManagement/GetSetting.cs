@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public static Output<GetSettingResult> Invoke(GetSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSettingResult>("azure-native:costmanagement:getSetting", args ?? new GetSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the current value for a specific setting.
+        /// Azure REST API version: 2019-11-01.
+        /// </summary>
+        public static Output<GetSettingResult> Invoke(GetSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSettingResult>("azure-native:costmanagement:getSetting", args ?? new GetSettingInvokeArgs(), options.WithDefaults());
     }
 
 

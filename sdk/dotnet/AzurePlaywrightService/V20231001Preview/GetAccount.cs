@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzurePlaywrightService.V20231001Preview
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:azureplaywrightservice/v20231001preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Account
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:azureplaywrightservice/v20231001preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

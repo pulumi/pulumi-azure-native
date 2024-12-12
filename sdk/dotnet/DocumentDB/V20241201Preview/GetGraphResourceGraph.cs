@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20241201Preview
         /// </summary>
         public static Output<GetGraphResourceGraphResult> Invoke(GetGraphResourceGraphInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphResourceGraphResult>("azure-native:documentdb/v20241201preview:getGraphResourceGraph", args ?? new GetGraphResourceGraphInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
+        /// </summary>
+        public static Output<GetGraphResourceGraphResult> Invoke(GetGraphResourceGraphInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGraphResourceGraphResult>("azure-native:documentdb/v20241201preview:getGraphResourceGraph", args ?? new GetGraphResourceGraphInvokeArgs(), options.WithDefaults());
     }
 
 

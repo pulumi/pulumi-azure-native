@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.NetworkAnalytics
         /// </summary>
         public static Output<ListDataProductRolesAssignmentsResult> Invoke(ListDataProductRolesAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDataProductRolesAssignmentsResult>("azure-native:networkanalytics:listDataProductRolesAssignments", args ?? new ListDataProductRolesAssignmentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List user roles associated with the data product.
+        /// Azure REST API version: 2023-11-15.
+        /// </summary>
+        public static Output<ListDataProductRolesAssignmentsResult> Invoke(ListDataProductRolesAssignmentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDataProductRolesAssignmentsResult>("azure-native:networkanalytics:listDataProductRolesAssignments", args ?? new ListDataProductRolesAssignmentsInvokeArgs(), options.WithDefaults());
     }
 
 

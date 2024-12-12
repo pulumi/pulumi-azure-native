@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.AadIam
         /// </summary>
         public static Output<GetDiagnosticSettingResult> Invoke(GetDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:aadiam:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the active diagnostic setting for AadIam.
+        /// Azure REST API version: 2017-04-01.
+        /// 
+        /// Other available API versions: 2017-04-01-preview.
+        /// </summary>
+        public static Output<GetDiagnosticSettingResult> Invoke(GetDiagnosticSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:aadiam:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20240815
         /// </summary>
         public static Output<GetTableResourceTableResult> Invoke(GetTableResourceTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableResult>("azure-native:documentdb/v20240815:getTableResourceTable", args ?? new GetTableResourceTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Tables under an existing Azure Cosmos DB database account with the provided name.
+        /// </summary>
+        public static Output<GetTableResourceTableResult> Invoke(GetTableResourceTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResourceTableResult>("azure-native:documentdb/v20240815:getTableResourceTable", args ?? new GetTableResourceTableInvokeArgs(), options.WithDefaults());
     }
 
 

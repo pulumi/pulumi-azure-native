@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public static Output<ListInferenceGroupDeltaModelsAsyncResult> Invoke(ListInferenceGroupDeltaModelsAsyncInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListInferenceGroupDeltaModelsAsyncResult>("azure-native:machinelearningservices:listInferenceGroupDeltaModelsAsync", args ?? new ListInferenceGroupDeltaModelsAsyncInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A paginated list of String entities.
+        /// Azure REST API version: 2024-10-01-preview.
+        /// </summary>
+        public static Output<ListInferenceGroupDeltaModelsAsyncResult> Invoke(ListInferenceGroupDeltaModelsAsyncInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListInferenceGroupDeltaModelsAsyncResult>("azure-native:machinelearningservices:listInferenceGroupDeltaModelsAsync", args ?? new ListInferenceGroupDeltaModelsAsyncInvokeArgs(), options.WithDefaults());
     }
 
 

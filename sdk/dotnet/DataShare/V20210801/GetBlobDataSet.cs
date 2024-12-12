@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         public static Output<GetBlobDataSetResult> Invoke(GetBlobDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobDataSetResult>("azure-native:datashare/v20210801:getBlobDataSet", args ?? new GetBlobDataSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DataSet in a share
+        /// </summary>
+        public static Output<GetBlobDataSetResult> Invoke(GetBlobDataSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobDataSetResult>("azure-native:datashare/v20210801:getBlobDataSet", args ?? new GetBlobDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

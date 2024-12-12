@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Batch.V20231101
         /// </summary>
         public static Output<GetApplicationPackageResult> Invoke(GetApplicationPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationPackageResult>("azure-native:batch/v20231101:getApplicationPackage", args ?? new GetApplicationPackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified application package.
+        /// </summary>
+        public static Output<GetApplicationPackageResult> Invoke(GetApplicationPackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationPackageResult>("azure-native:batch/v20231101:getApplicationPackage", args ?? new GetApplicationPackageInvokeArgs(), options.WithDefaults());
     }
 
 

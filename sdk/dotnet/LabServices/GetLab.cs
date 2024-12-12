@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the properties of a lab resource.
+        /// Azure REST API version: 2022-08-01.
+        /// 
+        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// </summary>
+        public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
     }
 
 

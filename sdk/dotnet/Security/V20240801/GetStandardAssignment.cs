@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20240801
         /// </summary>
         public static Output<GetStandardAssignmentResult> Invoke(GetStandardAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandardAssignmentResult>("azure-native:security/v20240801:getStandardAssignment", args ?? new GetStandardAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This operation retrieves a single standard assignment, given its name and the scope it was created at.
+        /// </summary>
+        public static Output<GetStandardAssignmentResult> Invoke(GetStandardAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStandardAssignmentResult>("azure-native:security/v20240801:getStandardAssignment", args ?? new GetStandardAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

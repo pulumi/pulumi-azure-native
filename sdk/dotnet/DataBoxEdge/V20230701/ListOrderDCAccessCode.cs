@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230701
         /// </summary>
         public static Output<ListOrderDCAccessCodeResult> Invoke(ListOrderDCAccessCodeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListOrderDCAccessCodeResult>("azure-native:databoxedge/v20230701:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// DC Access code in the case of Self Managed Shipping.
+        /// </summary>
+        public static Output<ListOrderDCAccessCodeResult> Invoke(ListOrderDCAccessCodeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListOrderDCAccessCodeResult>("azure-native:databoxedge/v20230701:listOrderDCAccessCode", args ?? new ListOrderDCAccessCodeInvokeArgs(), options.WithDefaults());
     }
 
 

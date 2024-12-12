@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CostManagement.V20191101
         /// </summary>
         public static Output<GetSettingResult> Invoke(GetSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSettingResult>("azure-native:costmanagement/v20191101:getSetting", args ?? new GetSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the current value for a specific setting.
+        /// </summary>
+        public static Output<GetSettingResult> Invoke(GetSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSettingResult>("azure-native:costmanagement/v20191101:getSetting", args ?? new GetSettingInvokeArgs(), options.WithDefaults());
     }
 
 

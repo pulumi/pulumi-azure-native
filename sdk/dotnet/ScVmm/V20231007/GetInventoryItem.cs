@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// </summary>
         public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:scvmm/v20231007:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Shows an inventory item.
+        /// </summary>
+        public static Output<GetInventoryItemResult> Invoke(GetInventoryItemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInventoryItemResult>("azure-native:scvmm/v20231007:getInventoryItem", args ?? new GetInventoryItemInvokeArgs(), options.WithDefaults());
     }
 
 

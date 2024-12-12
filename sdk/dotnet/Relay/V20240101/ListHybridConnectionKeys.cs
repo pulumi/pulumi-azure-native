@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Relay.V20240101
         /// </summary>
         public static Output<ListHybridConnectionKeysResult> Invoke(ListHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListHybridConnectionKeysResult>("azure-native:relay/v20240101:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Primary and secondary connection strings to the hybrid connection.
+        /// </summary>
+        public static Output<ListHybridConnectionKeysResult> Invoke(ListHybridConnectionKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListHybridConnectionKeysResult>("azure-native:relay/v20240101:listHybridConnectionKeys", args ?? new ListHybridConnectionKeysInvokeArgs(), options.WithDefaults());
     }
 
 

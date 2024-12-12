@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         /// </summary>
         public static Output<ListDiagnosticSettingsCategoryResult> Invoke(ListDiagnosticSettingsCategoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDiagnosticSettingsCategoryResult>("azure-native:insights/v20210501preview:listDiagnosticSettingsCategory", args ?? new ListDiagnosticSettingsCategoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the diagnostic settings categories for the specified resource.
+        /// </summary>
+        public static Output<ListDiagnosticSettingsCategoryResult> Invoke(ListDiagnosticSettingsCategoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDiagnosticSettingsCategoryResult>("azure-native:insights/v20210501preview:listDiagnosticSettingsCategory", args ?? new ListDiagnosticSettingsCategoryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240101
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure-native:network/v20240101:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified subnet by virtual network and resource group.
+        /// </summary>
+        public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("azure-native:network/v20240101:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
     }
 
 

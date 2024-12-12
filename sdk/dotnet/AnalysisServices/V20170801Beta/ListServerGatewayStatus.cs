@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AnalysisServices.V20170801Beta
         /// </summary>
         public static Output<ListServerGatewayStatusResult> Invoke(ListServerGatewayStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListServerGatewayStatusResult>("azure-native:analysisservices/v20170801beta:listServerGatewayStatus", args ?? new ListServerGatewayStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Return the gateway status of the specified Analysis Services server instance.
+        /// </summary>
+        public static Output<ListServerGatewayStatusResult> Invoke(ListServerGatewayStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListServerGatewayStatusResult>("azure-native:analysisservices/v20170801beta:listServerGatewayStatus", args ?? new ListServerGatewayStatusInvokeArgs(), options.WithDefaults());
     }
 
 

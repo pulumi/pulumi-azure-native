@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public static Output<GetKustoPoolDatabasePrincipalAssignmentResult> Invoke(GetKustoPoolDatabasePrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolDatabasePrincipalAssignmentResult>("azure-native:synapse/v20210601preview:getKustoPoolDatabasePrincipalAssignment", args ?? new GetKustoPoolDatabasePrincipalAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Kusto pool database principalAssignment.
+        /// </summary>
+        public static Output<GetKustoPoolDatabasePrincipalAssignmentResult> Invoke(GetKustoPoolDatabasePrincipalAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolDatabasePrincipalAssignmentResult>("azure-native:synapse/v20210601preview:getKustoPoolDatabasePrincipalAssignment", args ?? new GetKustoPoolDatabasePrincipalAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.LabServices.V20181015
         /// </summary>
         public static Output<ListGlobalUserEnvironmentsResult> Invoke(ListGlobalUserEnvironmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGlobalUserEnvironmentsResult>("azure-native:labservices/v20181015:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List Environments for the user
+        /// </summary>
+        public static Output<ListGlobalUserEnvironmentsResult> Invoke(ListGlobalUserEnvironmentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGlobalUserEnvironmentsResult>("azure-native:labservices/v20181015:listGlobalUserEnvironments", args ?? new ListGlobalUserEnvironmentsInvokeArgs(), options.WithDefaults());
     }
 
 

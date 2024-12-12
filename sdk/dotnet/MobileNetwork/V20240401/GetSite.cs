@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MobileNetwork.V20240401
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:mobilenetwork/v20240401:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified mobile network site.
+        /// </summary>
+        public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:mobilenetwork/v20240401:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

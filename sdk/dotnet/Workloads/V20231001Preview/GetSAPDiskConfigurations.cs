@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         /// </summary>
         public static Output<GetSAPDiskConfigurationsResult> Invoke(GetSAPDiskConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPDiskConfigurationsResult>("azure-native:workloads/v20231001preview:getSAPDiskConfigurations", args ?? new GetSAPDiskConfigurationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the SAP Disk Configuration Layout prod/non-prod SAP System.
+        /// </summary>
+        public static Output<GetSAPDiskConfigurationsResult> Invoke(GetSAPDiskConfigurationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPDiskConfigurationsResult>("azure-native:workloads/v20231001preview:getSAPDiskConfigurations", args ?? new GetSAPDiskConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

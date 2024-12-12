@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Output<ListGlobalUserLabsResult> Invoke(ListGlobalUserLabsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGlobalUserLabsResult>("azure-native:labservices:listGlobalUserLabs", args ?? new ListGlobalUserLabsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List labs for the user.
+        /// Azure REST API version: 2018-10-15.
+        /// </summary>
+        public static Output<ListGlobalUserLabsResult> Invoke(ListGlobalUserLabsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGlobalUserLabsResult>("azure-native:labservices:listGlobalUserLabs", args ?? new ListGlobalUserLabsInvokeArgs(), options.WithDefaults());
     }
 
 

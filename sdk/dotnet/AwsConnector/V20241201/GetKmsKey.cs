@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetKmsKeyResult> Invoke(GetKmsKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKmsKeyResult>("azure-native:awsconnector/v20241201:getKmsKey", args ?? new GetKmsKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a KmsKey
+        /// </summary>
+        public static Output<GetKmsKeyResult> Invoke(GetKmsKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKmsKeyResult>("azure-native:awsconnector/v20241201:getKmsKey", args ?? new GetKmsKeyInvokeArgs(), options.WithDefaults());
     }
 
 

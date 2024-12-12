@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20240801Preview
         /// </summary>
         public static Output<GetSecurityConnectorResult> Invoke(GetSecurityConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConnectorResult>("azure-native:security/v20240801preview:getSecurityConnector", args ?? new GetSecurityConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves details of a specific security connector
+        /// </summary>
+        public static Output<GetSecurityConnectorResult> Invoke(GetSecurityConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConnectorResult>("azure-native:security/v20240801preview:getSecurityConnector", args ?? new GetSecurityConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

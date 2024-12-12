@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetConfigServiceConfigurationRecorderResult> Invoke(GetConfigServiceConfigurationRecorderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigServiceConfigurationRecorderResult>("azure-native:awsconnector:getConfigServiceConfigurationRecorder", args ?? new GetConfigServiceConfigurationRecorderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ConfigServiceConfigurationRecorder
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetConfigServiceConfigurationRecorderResult> Invoke(GetConfigServiceConfigurationRecorderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigServiceConfigurationRecorderResult>("azure-native:awsconnector:getConfigServiceConfigurationRecorder", args ?? new GetConfigServiceConfigurationRecorderInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240101Preview
         /// </summary>
         public static Output<GetIpamPoolResult> Invoke(GetIpamPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamPoolResult>("azure-native:network/v20240101preview:getIpamPool", args ?? new GetIpamPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Instance of Pool resource.
+        /// </summary>
+        public static Output<GetIpamPoolResult> Invoke(GetIpamPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpamPoolResult>("azure-native:network/v20240101preview:getIpamPool", args ?? new GetIpamPoolInvokeArgs(), options.WithDefaults());
     }
 
 

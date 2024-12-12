@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20231201
         /// </summary>
         public static Output<ListWebAppWorkflowsConnectionsResult> Invoke(ListWebAppWorkflowsConnectionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppWorkflowsConnectionsResult>("azure-native:web/v20231201:listWebAppWorkflowsConnections", args ?? new ListWebAppWorkflowsConnectionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Workflow properties definition.
+        /// </summary>
+        public static Output<ListWebAppWorkflowsConnectionsResult> Invoke(ListWebAppWorkflowsConnectionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppWorkflowsConnectionsResult>("azure-native:web/v20231201:listWebAppWorkflowsConnections", args ?? new ListWebAppWorkflowsConnectionsInvokeArgs(), options.WithDefaults());
     }
 
 

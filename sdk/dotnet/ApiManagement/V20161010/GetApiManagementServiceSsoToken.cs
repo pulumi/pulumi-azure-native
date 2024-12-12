@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20161010
         /// </summary>
         public static Output<GetApiManagementServiceSsoTokenResult> Invoke(GetApiManagementServiceSsoTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement/v20161010:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
+        /// </summary>
+        public static Output<GetApiManagementServiceSsoTokenResult> Invoke(GetApiManagementServiceSsoTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiManagementServiceSsoTokenResult>("azure-native:apimanagement/v20161010:getApiManagementServiceSsoToken", args ?? new GetApiManagementServiceSsoTokenInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Output<GetCredentialOperationResult> Invoke(GetCredentialOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialOperationResult>("azure-native:datafactory/v20180601:getCredentialOperation", args ?? new GetCredentialOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a credential.
+        /// </summary>
+        public static Output<GetCredentialOperationResult> Invoke(GetCredentialOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCredentialOperationResult>("azure-native:datafactory/v20180601:getCredentialOperation", args ?? new GetCredentialOperationInvokeArgs(), options.WithDefaults());
     }
 
 

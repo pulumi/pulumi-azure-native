@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20240901
         /// </summary>
         public static Output<GetTrustedAccessRoleBindingResult> Invoke(GetTrustedAccessRoleBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustedAccessRoleBindingResult>("azure-native:containerservice/v20240901:getTrustedAccessRoleBinding", args ?? new GetTrustedAccessRoleBindingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Defines binding between a resource and role
+        /// </summary>
+        public static Output<GetTrustedAccessRoleBindingResult> Invoke(GetTrustedAccessRoleBindingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrustedAccessRoleBindingResult>("azure-native:containerservice/v20240901:getTrustedAccessRoleBinding", args ?? new GetTrustedAccessRoleBindingInvokeArgs(), options.WithDefaults());
     }
 
 

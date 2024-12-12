@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ResourceGraph.V20180901Preview
         /// </summary>
         public static Output<GetGraphQueryResult> Invoke(GetGraphQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph/v20180901preview:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a single graph query by its resourceName.
+        /// </summary>
+        public static Output<GetGraphQueryResult> Invoke(GetGraphQueryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph/v20180901preview:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20231010Preview
         /// </summary>
         public static Output<GetFirewallSupportInfoResult> Invoke(GetFirewallSupportInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallSupportInfoResult>("azure-native:cloudngfw/v20231010preview:getFirewallSupportInfo", args ?? new GetFirewallSupportInfoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// support info for firewall.
+        /// </summary>
+        public static Output<GetFirewallSupportInfoResult> Invoke(GetFirewallSupportInfoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallSupportInfoResult>("azure-native:cloudngfw/v20231010preview:getFirewallSupportInfo", args ?? new GetFirewallSupportInfoInvokeArgs(), options.WithDefaults());
     }
 
 

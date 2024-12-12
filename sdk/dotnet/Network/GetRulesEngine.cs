@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetRulesEngineResult> Invoke(GetRulesEngineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRulesEngineResult>("azure-native:network:getRulesEngine", args ?? new GetRulesEngineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Rules Engine Configuration with the specified name within the specified Front Door.
+        /// Azure REST API version: 2021-06-01.
+        /// </summary>
+        public static Output<GetRulesEngineResult> Invoke(GetRulesEngineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRulesEngineResult>("azure-native:network:getRulesEngine", args ?? new GetRulesEngineInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Output<GetServiceRunnerResult> Invoke(GetServiceRunnerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceRunnerResult>("azure-native:devtestlab/v20180915:getServiceRunner", args ?? new GetServiceRunnerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get service runner.
+        /// </summary>
+        public static Output<GetServiceRunnerResult> Invoke(GetServiceRunnerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceRunnerResult>("azure-native:devtestlab/v20180915:getServiceRunner", args ?? new GetServiceRunnerInvokeArgs(), options.WithDefaults());
     }
 
 

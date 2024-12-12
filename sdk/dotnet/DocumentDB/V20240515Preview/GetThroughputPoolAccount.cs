@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20240515Preview
         /// </summary>
         public static Output<GetThroughputPoolAccountResult> Invoke(GetThroughputPoolAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThroughputPoolAccountResult>("azure-native:documentdb/v20240515preview:getThroughputPoolAccount", args ?? new GetThroughputPoolAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
+        /// </summary>
+        public static Output<GetThroughputPoolAccountResult> Invoke(GetThroughputPoolAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetThroughputPoolAccountResult>("azure-native:documentdb/v20240515preview:getThroughputPoolAccount", args ?? new GetThroughputPoolAccountInvokeArgs(), options.WithDefaults());
     }
 
 

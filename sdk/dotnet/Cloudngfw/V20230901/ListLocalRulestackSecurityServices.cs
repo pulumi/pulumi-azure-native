@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20230901
         /// </summary>
         public static Output<ListLocalRulestackSecurityServicesResult> Invoke(ListLocalRulestackSecurityServicesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocalRulestackSecurityServicesResult>("azure-native:cloudngfw/v20230901:listLocalRulestackSecurityServices", args ?? new ListLocalRulestackSecurityServicesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List the security services for rulestack
+        /// </summary>
+        public static Output<ListLocalRulestackSecurityServicesResult> Invoke(ListLocalRulestackSecurityServicesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListLocalRulestackSecurityServicesResult>("azure-native:cloudngfw/v20230901:listLocalRulestackSecurityServices", args ?? new ListLocalRulestackSecurityServicesInvokeArgs(), options.WithDefaults());
     }
 
 

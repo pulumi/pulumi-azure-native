@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetRoute53DomainsDomainSummaryResult> Invoke(GetRoute53DomainsDomainSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoute53DomainsDomainSummaryResult>("azure-native:awsconnector:getRoute53DomainsDomainSummary", args ?? new GetRoute53DomainsDomainSummaryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Route53DomainsDomainSummary
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetRoute53DomainsDomainSummaryResult> Invoke(GetRoute53DomainsDomainSummaryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoute53DomainsDomainSummaryResult>("azure-native:awsconnector:getRoute53DomainsDomainSummary", args ?? new GetRoute53DomainsDomainSummaryInvokeArgs(), options.WithDefaults());
     }
 
 

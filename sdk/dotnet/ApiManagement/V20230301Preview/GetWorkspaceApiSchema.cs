@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230301Preview
         /// </summary>
         public static Output<GetWorkspaceApiSchemaResult> Invoke(GetWorkspaceApiSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiSchemaResult>("azure-native:apimanagement/v20230301preview:getWorkspaceApiSchema", args ?? new GetWorkspaceApiSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the schema configuration at the API level.
+        /// </summary>
+        public static Output<GetWorkspaceApiSchemaResult> Invoke(GetWorkspaceApiSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiSchemaResult>("azure-native:apimanagement/v20230301preview:getWorkspaceApiSchema", args ?? new GetWorkspaceApiSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

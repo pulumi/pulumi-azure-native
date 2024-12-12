@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppConfiguration.V20240501
         /// </summary>
         public static Output<GetKeyValueResult> Invoke(GetKeyValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyValueResult>("azure-native:appconfiguration/v20240501:getKeyValue", args ?? new GetKeyValueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
+        /// </summary>
+        public static Output<GetKeyValueResult> Invoke(GetKeyValueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyValueResult>("azure-native:appconfiguration/v20240501:getKeyValue", args ?? new GetKeyValueInvokeArgs(), options.WithDefaults());
     }
 
 

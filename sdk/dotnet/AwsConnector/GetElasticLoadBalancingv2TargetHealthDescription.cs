@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetElasticLoadBalancingv2TargetHealthDescriptionResult> Invoke(GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticLoadBalancingv2TargetHealthDescriptionResult>("azure-native:awsconnector:getElasticLoadBalancingv2TargetHealthDescription", args ?? new GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ElasticLoadBalancingv2TargetHealthDescription
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetElasticLoadBalancingv2TargetHealthDescriptionResult> Invoke(GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticLoadBalancingv2TargetHealthDescriptionResult>("azure-native:awsconnector:getElasticLoadBalancingv2TargetHealthDescription", args ?? new GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs(), options.WithDefaults());
     }
 
 

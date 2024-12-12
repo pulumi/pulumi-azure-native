@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240401
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:recoveryservices/v20240401:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Vault details.
+        /// </summary>
+        public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:recoveryservices/v20240401:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
     }
 
 

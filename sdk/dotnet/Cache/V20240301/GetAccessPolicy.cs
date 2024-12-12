@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cache.V20240301
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:cache/v20240301:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the detailed information about an access policy of a redis cache
+        /// </summary>
+        public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure-native:cache/v20240301:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

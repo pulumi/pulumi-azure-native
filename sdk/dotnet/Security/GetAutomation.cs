@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Output<GetAutomationResult> Invoke(GetAutomationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about the model of a security automation.
+        /// Azure REST API version: 2019-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-12-01-preview.
+        /// </summary>
+        public static Output<GetAutomationResult> Invoke(GetAutomationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20160601
         /// </summary>
         public static Output<ListConnectionConsentLinksResult> Invoke(ListConnectionConsentLinksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectionConsentLinksResult>("azure-native:web/v20160601:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the consent links of a connection
+        /// </summary>
+        public static Output<ListConnectionConsentLinksResult> Invoke(ListConnectionConsentLinksInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListConnectionConsentLinksResult>("azure-native:web/v20160601:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logic.V20150201Preview
         /// </summary>
         public static Output<GetWorkflowAccessKeyResult> Invoke(GetWorkflowAccessKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowAccessKeyResult>("azure-native:logic/v20150201preview:getWorkflowAccessKey", args ?? new GetWorkflowAccessKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a workflow access key.
+        /// </summary>
+        public static Output<GetWorkflowAccessKeyResult> Invoke(GetWorkflowAccessKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowAccessKeyResult>("azure-native:logic/v20150201preview:getWorkflowAccessKey", args ?? new GetWorkflowAccessKeyInvokeArgs(), options.WithDefaults());
     }
 
 

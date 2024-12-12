@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// </summary>
         public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:databasewatcher:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Target
+        /// Azure REST API version: 2023-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:databasewatcher:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20181101
         /// </summary>
         public static Output<ListWebAppBackupStatusSecretsResult> Invoke(ListWebAppBackupStatusSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppBackupStatusSecretsResult>("azure-native:web/v20181101:listWebAppBackupStatusSecrets", args ?? new ListWebAppBackupStatusSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets status of a web app backup that may be in progress, including secrets associated with the backup, such as the Azure Storage SAS URL. Also can be used to update the SAS URL for the backup if a new URL is passed in the request body.
+        /// </summary>
+        public static Output<ListWebAppBackupStatusSecretsResult> Invoke(ListWebAppBackupStatusSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppBackupStatusSecretsResult>("azure-native:web/v20181101:listWebAppBackupStatusSecrets", args ?? new ListWebAppBackupStatusSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

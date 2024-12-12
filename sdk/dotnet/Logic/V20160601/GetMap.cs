@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logic.V20160601
         /// </summary>
         public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("azure-native:logic/v20160601:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an integration account map.
+        /// </summary>
+        public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("azure-native:logic/v20160601:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
     }
 
 

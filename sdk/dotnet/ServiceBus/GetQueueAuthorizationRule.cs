@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public static Output<GetQueueAuthorizationRuleResult> Invoke(GetQueueAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure-native:servicebus:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an authorization rule for a queue by rule name.
+        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// </summary>
+        public static Output<GetQueueAuthorizationRuleResult> Invoke(GetQueueAuthorizationRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure-native:servicebus:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

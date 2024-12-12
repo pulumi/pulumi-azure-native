@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.KeyVault
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Azure key vault.
+        /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2023-07-01, 2024-04-01-preview.
+        /// </summary>
+        public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
         /// </summary>
         public static Output<ListWorkspaceNamedValueResult> Invoke(ListWorkspaceNamedValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceNamedValueResult>("azure-native:apimanagement/v20240501:listWorkspaceNamedValue", args ?? new ListWorkspaceNamedValueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the secret of the named value specified by its identifier.
+        /// </summary>
+        public static Output<ListWorkspaceNamedValueResult> Invoke(ListWorkspaceNamedValueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceNamedValueResult>("azure-native:apimanagement/v20240501:listWorkspaceNamedValue", args ?? new ListWorkspaceNamedValueInvokeArgs(), options.WithDefaults());
     }
 
 

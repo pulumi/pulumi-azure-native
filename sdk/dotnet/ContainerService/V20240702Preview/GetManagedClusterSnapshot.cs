@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20240702Preview
         /// </summary>
         public static Output<GetManagedClusterSnapshotResult> Invoke(GetManagedClusterSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterSnapshotResult>("azure-native:containerservice/v20240702preview:getManagedClusterSnapshot", args ?? new GetManagedClusterSnapshotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A managed cluster snapshot resource.
+        /// </summary>
+        public static Output<GetManagedClusterSnapshotResult> Invoke(GetManagedClusterSnapshotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterSnapshotResult>("azure-native:containerservice/v20240702preview:getManagedClusterSnapshot", args ?? new GetManagedClusterSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridCompute.V20240331Preview
         /// </summary>
         public static Output<GetMachineRunCommandResult> Invoke(GetMachineRunCommandInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineRunCommandResult>("azure-native:hybridcompute/v20240331preview:getMachineRunCommand", args ?? new GetMachineRunCommandInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation to get a run command.
+        /// </summary>
+        public static Output<GetMachineRunCommandResult> Invoke(GetMachineRunCommandInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineRunCommandResult>("azure-native:hybridcompute/v20240331preview:getMachineRunCommand", args ?? new GetMachineRunCommandInvokeArgs(), options.WithDefaults());
     }
 
 

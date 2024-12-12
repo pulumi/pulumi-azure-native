@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetS3BucketResult> Invoke(GetS3BucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3BucketResult>("azure-native:awsconnector:getS3Bucket", args ?? new GetS3BucketInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a S3Bucket
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetS3BucketResult> Invoke(GetS3BucketInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetS3BucketResult>("azure-native:awsconnector:getS3Bucket", args ?? new GetS3BucketInvokeArgs(), options.WithDefaults());
     }
 
 

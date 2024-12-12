@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public static Output<GetEdgeDeviceResult> Invoke(GetEdgeDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEdgeDeviceResult>("azure-native:azurestackhci:getEdgeDevice", args ?? new GetEdgeDeviceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EdgeDevice
+        /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
+        /// </summary>
+        public static Output<GetEdgeDeviceResult> Invoke(GetEdgeDeviceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEdgeDeviceResult>("azure-native:azurestackhci:getEdgeDevice", args ?? new GetEdgeDeviceInvokeArgs(), options.WithDefaults());
     }
 
 

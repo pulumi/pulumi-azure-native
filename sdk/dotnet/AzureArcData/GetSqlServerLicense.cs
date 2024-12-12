@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public static Output<GetSqlServerLicenseResult> Invoke(GetSqlServerLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerLicenseResult>("azure-native:azurearcdata:getSqlServerLicense", args ?? new GetSqlServerLicenseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a SQL Server license resource
+        /// Azure REST API version: 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetSqlServerLicenseResult> Invoke(GetSqlServerLicenseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerLicenseResult>("azure-native:azurearcdata:getSqlServerLicense", args ?? new GetSqlServerLicenseInvokeArgs(), options.WithDefaults());
     }
 
 

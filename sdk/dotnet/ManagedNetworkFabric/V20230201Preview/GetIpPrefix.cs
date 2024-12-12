@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// </summary>
         public static Output<GetIpPrefixResult> Invoke(GetIpPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpPrefixResult>("azure-native:managednetworkfabric/v20230201preview:getIpPrefix", args ?? new GetIpPrefixInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements IP Prefix GET method.
+        /// </summary>
+        public static Output<GetIpPrefixResult> Invoke(GetIpPrefixInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpPrefixResult>("azure-native:managednetworkfabric/v20230201preview:getIpPrefix", args ?? new GetIpPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

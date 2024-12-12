@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20220501
         /// </summary>
         public static Output<GetWorkloadNetworkDhcpResult> Invoke(GetWorkloadNetworkDhcpInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDhcpResult>("azure-native:avs/v20220501:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// NSX DHCP
+        /// </summary>
+        public static Output<GetWorkloadNetworkDhcpResult> Invoke(GetWorkloadNetworkDhcpInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDhcpResult>("azure-native:avs/v20220501:getWorkloadNetworkDhcp", args ?? new GetWorkloadNetworkDhcpInvokeArgs(), options.WithDefaults());
     }
 
 

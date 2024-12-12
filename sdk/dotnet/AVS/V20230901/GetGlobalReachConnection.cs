@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230901
         /// </summary>
         public static Output<GetGlobalReachConnectionResult> Invoke(GetGlobalReachConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs/v20230901:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a GlobalReachConnection
+        /// </summary>
+        public static Output<GetGlobalReachConnectionResult> Invoke(GetGlobalReachConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalReachConnectionResult>("azure-native:avs/v20230901:getGlobalReachConnection", args ?? new GetGlobalReachConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

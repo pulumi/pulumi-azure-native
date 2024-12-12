@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230501Preview
         /// </summary>
         public static Output<GetBusinessCaseOperationReportDownloadUrlResult> Invoke(GetBusinessCaseOperationReportDownloadUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessCaseOperationReportDownloadUrlResult>("azure-native:migrate/v20230501preview:getBusinessCaseOperationReportDownloadUrl", args ?? new GetBusinessCaseOperationReportDownloadUrlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the URL for downloading the business case in a report format.
+        /// </summary>
+        public static Output<GetBusinessCaseOperationReportDownloadUrlResult> Invoke(GetBusinessCaseOperationReportDownloadUrlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBusinessCaseOperationReportDownloadUrlResult>("azure-native:migrate/v20230501preview:getBusinessCaseOperationReportDownloadUrl", args ?? new GetBusinessCaseOperationReportDownloadUrlInvokeArgs(), options.WithDefaults());
     }
 
 

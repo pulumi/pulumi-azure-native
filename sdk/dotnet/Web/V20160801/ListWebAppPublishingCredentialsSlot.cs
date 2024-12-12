@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20160801
         /// </summary>
         public static Output<ListWebAppPublishingCredentialsSlotResult> Invoke(ListWebAppPublishingCredentialsSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppPublishingCredentialsSlotResult>("azure-native:web/v20160801:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Git/FTP publishing credentials of an app.
+        /// </summary>
+        public static Output<ListWebAppPublishingCredentialsSlotResult> Invoke(ListWebAppPublishingCredentialsSlotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppPublishingCredentialsSlotResult>("azure-native:web/v20160801:listWebAppPublishingCredentialsSlot", args ?? new ListWebAppPublishingCredentialsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

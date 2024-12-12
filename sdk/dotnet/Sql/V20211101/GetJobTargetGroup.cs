@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20211101
         /// </summary>
         public static Output<GetJobTargetGroupResult> Invoke(GetJobTargetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobTargetGroupResult>("azure-native:sql/v20211101:getJobTargetGroup", args ?? new GetJobTargetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a target group.
+        /// </summary>
+        public static Output<GetJobTargetGroupResult> Invoke(GetJobTargetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobTargetGroupResult>("azure-native:sql/v20211101:getJobTargetGroup", args ?? new GetJobTargetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

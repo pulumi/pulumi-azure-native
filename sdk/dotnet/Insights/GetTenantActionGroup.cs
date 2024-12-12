@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Output<GetTenantActionGroupResult> Invoke(GetTenantActionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantActionGroupResult>("azure-native:insights:getTenantActionGroup", args ?? new GetTenantActionGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a tenant action group.
+        /// Azure REST API version: 2023-05-01-preview.
+        /// </summary>
+        public static Output<GetTenantActionGroupResult> Invoke(GetTenantActionGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTenantActionGroupResult>("azure-native:insights:getTenantActionGroup", args ?? new GetTenantActionGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public static Output<GetTemplateSpecVersionResult> Invoke(GetTemplateSpecVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure-native:resources:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Template Spec version from a specific Template Spec.
+        /// Azure REST API version: 2022-02-01.
+        /// 
+        /// Other available API versions: 2019-06-01-preview.
+        /// </summary>
+        public static Output<GetTemplateSpecVersionResult> Invoke(GetTemplateSpecVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure-native:resources:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithDefaults());
     }
 
 

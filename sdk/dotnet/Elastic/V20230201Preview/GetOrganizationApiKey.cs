@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20230201Preview
         /// </summary>
         public static Output<GetOrganizationApiKeyResult> Invoke(GetOrganizationApiKeyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationApiKeyResult>("azure-native:elastic/v20230201preview:getOrganizationApiKey", args ?? new GetOrganizationApiKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Fetch User API Key from internal database, if it was generated and stored while creating the Elasticsearch Organization.
+        /// </summary>
+        public static Output<GetOrganizationApiKeyResult> Invoke(GetOrganizationApiKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationApiKeyResult>("azure-native:elastic/v20230201preview:getOrganizationApiKey", args ?? new GetOrganizationApiKeyInvokeArgs(), options.WithDefaults());
     }
 
 

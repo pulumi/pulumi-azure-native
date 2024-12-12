@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:servicebus/v20220101preview:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a description for the specified namespace.
+        /// </summary>
+        public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:servicebus/v20220101preview:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

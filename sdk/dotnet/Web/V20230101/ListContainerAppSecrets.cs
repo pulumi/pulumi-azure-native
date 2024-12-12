@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20230101
         /// </summary>
         public static Output<ListContainerAppSecretsResult> Invoke(ListContainerAppSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListContainerAppSecretsResult>("azure-native:web/v20230101:listContainerAppSecrets", args ?? new ListContainerAppSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Container App Secrets Collection ARM resource.
+        /// </summary>
+        public static Output<ListContainerAppSecretsResult> Invoke(ListContainerAppSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListContainerAppSecretsResult>("azure-native:web/v20230101:listContainerAppSecrets", args ?? new ListContainerAppSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

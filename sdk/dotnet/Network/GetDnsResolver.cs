@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetDnsResolverResult> Invoke(GetDnsResolverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverResult>("azure-native:network:getDnsResolver", args ?? new GetDnsResolverInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a DNS resolver.
+        /// Azure REST API version: 2022-07-01.
+        /// 
+        /// Other available API versions: 2023-07-01-preview.
+        /// </summary>
+        public static Output<GetDnsResolverResult> Invoke(GetDnsResolverInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverResult>("azure-native:network:getDnsResolver", args ?? new GetDnsResolverInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// </summary>
         public static Output<GetIspCustomerResult> Invoke(GetIspCustomerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIspCustomerResult>("azure-native:connectedcache:getIspCustomer", args ?? new GetIspCustomerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the ispCustomer resource information using this get call
+        /// Azure REST API version: 2023-05-01-preview.
+        /// </summary>
+        public static Output<GetIspCustomerResult> Invoke(GetIspCustomerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIspCustomerResult>("azure-native:connectedcache:getIspCustomer", args ?? new GetIspCustomerInvokeArgs(), options.WithDefaults());
     }
 
 

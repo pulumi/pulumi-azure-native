@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetIamInstanceProfileResult> Invoke(GetIamInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamInstanceProfileResult>("azure-native:awsconnector/v20241201:getIamInstanceProfile", args ?? new GetIamInstanceProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamInstanceProfile
+        /// </summary>
+        public static Output<GetIamInstanceProfileResult> Invoke(GetIamInstanceProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamInstanceProfileResult>("azure-native:awsconnector/v20241201:getIamInstanceProfile", args ?? new GetIamInstanceProfileInvokeArgs(), options.WithDefaults());
     }
 
 

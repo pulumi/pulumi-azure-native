@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20220101
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformysql/v20220101:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a configuration of server.
+        /// </summary>
+        public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformysql/v20220101:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

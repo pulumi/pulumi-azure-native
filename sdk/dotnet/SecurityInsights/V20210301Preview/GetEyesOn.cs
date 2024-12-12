@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public static Output<GetEyesOnResult> Invoke(GetEyesOnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEyesOnResult>("azure-native:securityinsights/v20210301preview:getEyesOn", args ?? new GetEyesOnInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a setting.
+        /// </summary>
+        public static Output<GetEyesOnResult> Invoke(GetEyesOnInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEyesOnResult>("azure-native:securityinsights/v20210301preview:getEyesOn", args ?? new GetEyesOnInvokeArgs(), options.WithDefaults());
     }
 
 

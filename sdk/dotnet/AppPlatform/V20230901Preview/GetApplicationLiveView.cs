@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
         /// </summary>
         public static Output<GetApplicationLiveViewResult> Invoke(GetApplicationLiveViewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationLiveViewResult>("azure-native:appplatform/v20230901preview:getApplicationLiveView", args ?? new GetApplicationLiveViewInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Application Live  and its properties.
+        /// </summary>
+        public static Output<GetApplicationLiveViewResult> Invoke(GetApplicationLiveViewInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationLiveViewResult>("azure-native:appplatform/v20230901preview:getApplicationLiveView", args ?? new GetApplicationLiveViewInvokeArgs(), options.WithDefaults());
     }
 
 

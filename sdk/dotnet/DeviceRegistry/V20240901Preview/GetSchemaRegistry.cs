@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DeviceRegistry.V20240901Preview
         /// </summary>
         public static Output<GetSchemaRegistryResult> Invoke(GetSchemaRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryResult>("azure-native:deviceregistry/v20240901preview:getSchemaRegistry", args ?? new GetSchemaRegistryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SchemaRegistry
+        /// </summary>
+        public static Output<GetSchemaRegistryResult> Invoke(GetSchemaRegistryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryResult>("azure-native:deviceregistry/v20240901preview:getSchemaRegistry", args ?? new GetSchemaRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.LoadTestService
         /// </summary>
         public static Output<GetLoadTestProfileMappingResult> Invoke(GetLoadTestProfileMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestProfileMappingResult>("azure-native:loadtestservice:getLoadTestProfileMapping", args ?? new GetLoadTestProfileMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LoadTestProfileMappingResource
+        /// Azure REST API version: 2023-12-01-preview.
+        /// </summary>
+        public static Output<GetLoadTestProfileMappingResult> Invoke(GetLoadTestProfileMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestProfileMappingResult>("azure-native:loadtestservice:getLoadTestProfileMapping", args ?? new GetLoadTestProfileMappingInvokeArgs(), options.WithDefaults());
     }
 
 

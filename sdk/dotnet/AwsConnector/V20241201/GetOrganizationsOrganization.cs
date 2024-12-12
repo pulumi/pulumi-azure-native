@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetOrganizationsOrganizationResult> Invoke(GetOrganizationsOrganizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationsOrganizationResult>("azure-native:awsconnector/v20241201:getOrganizationsOrganization", args ?? new GetOrganizationsOrganizationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a OrganizationsOrganization
+        /// </summary>
+        public static Output<GetOrganizationsOrganizationResult> Invoke(GetOrganizationsOrganizationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationsOrganizationResult>("azure-native:awsconnector/v20241201:getOrganizationsOrganization", args ?? new GetOrganizationsOrganizationInvokeArgs(), options.WithDefaults());
     }
 
 

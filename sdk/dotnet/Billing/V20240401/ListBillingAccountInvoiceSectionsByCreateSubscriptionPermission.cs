@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Billing.V20240401
         /// </summary>
         public static Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> Invoke(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult>("azure-native:billing/v20240401:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args ?? new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
+        /// </summary>
+        public static Output<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult> Invoke(ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult>("azure-native:billing/v20240401:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission", args ?? new ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionInvokeArgs(), options.WithDefaults());
     }
 
 

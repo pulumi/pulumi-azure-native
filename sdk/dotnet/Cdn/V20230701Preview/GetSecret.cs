@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20230701Preview
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:cdn/v20230701preview:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing Secret within a profile.
+        /// </summary>
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:cdn/v20230701preview:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 

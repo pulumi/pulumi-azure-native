@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DurableTask
         /// </summary>
         public static Output<GetSchedulerResult> Invoke(GetSchedulerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchedulerResult>("azure-native:durabletask:getScheduler", args ?? new GetSchedulerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Scheduler
+        /// Azure REST API version: 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetSchedulerResult> Invoke(GetSchedulerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchedulerResult>("azure-native:durabletask:getScheduler", args ?? new GetSchedulerInvokeArgs(), options.WithDefaults());
     }
 
 

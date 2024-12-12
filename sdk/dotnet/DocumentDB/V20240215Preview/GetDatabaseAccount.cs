@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20240215Preview
         /// </summary>
         public static Output<GetDatabaseAccountResult> Invoke(GetDatabaseAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountResult>("azure-native:documentdb/v20240215preview:getDatabaseAccount", args ?? new GetDatabaseAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the properties of an existing Azure Cosmos DB database account.
+        /// </summary>
+        public static Output<GetDatabaseAccountResult> Invoke(GetDatabaseAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseAccountResult>("azure-native:documentdb/v20240215preview:getDatabaseAccount", args ?? new GetDatabaseAccountInvokeArgs(), options.WithDefaults());
     }
 
 

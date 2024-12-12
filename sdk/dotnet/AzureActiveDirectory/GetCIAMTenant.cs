@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// </summary>
         public static Output<GetCIAMTenantResult> Invoke(GetCIAMTenantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCIAMTenantResult>("azure-native:azureactivedirectory:getCIAMTenant", args ?? new GetCIAMTenantInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Azure AD for customers tenant resource.
+        /// Azure REST API version: 2023-05-17-preview.
+        /// </summary>
+        public static Output<GetCIAMTenantResult> Invoke(GetCIAMTenantInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCIAMTenantResult>("azure-native:azureactivedirectory:getCIAMTenant", args ?? new GetCIAMTenantInvokeArgs(), options.WithDefaults());
     }
 
 

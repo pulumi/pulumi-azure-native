@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:deviceregistry:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Asset
+        /// Azure REST API version: 2023-11-01-preview.
+        /// 
+        /// Other available API versions: 2024-09-01-preview, 2024-11-01.
+        /// </summary>
+        public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:deviceregistry:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
 
 

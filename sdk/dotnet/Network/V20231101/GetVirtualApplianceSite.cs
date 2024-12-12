@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20231101
         /// </summary>
         public static Output<GetVirtualApplianceSiteResult> Invoke(GetVirtualApplianceSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualApplianceSiteResult>("azure-native:network/v20231101:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Virtual Appliance Site.
+        /// </summary>
+        public static Output<GetVirtualApplianceSiteResult> Invoke(GetVirtualApplianceSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualApplianceSiteResult>("azure-native:network/v20231101:getVirtualApplianceSite", args ?? new GetVirtualApplianceSiteInvokeArgs(), options.WithDefaults());
     }
 
 

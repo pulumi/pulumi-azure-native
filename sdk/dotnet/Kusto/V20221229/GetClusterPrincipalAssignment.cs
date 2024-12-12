@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Kusto.V20221229
         /// </summary>
         public static Output<GetClusterPrincipalAssignmentResult> Invoke(GetClusterPrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterPrincipalAssignmentResult>("azure-native:kusto/v20221229:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Kusto cluster principalAssignment.
+        /// </summary>
+        public static Output<GetClusterPrincipalAssignmentResult> Invoke(GetClusterPrincipalAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterPrincipalAssignmentResult>("azure-native:kusto/v20221229:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

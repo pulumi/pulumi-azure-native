@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEc2SecurityGroupResult> Invoke(GetEc2SecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2SecurityGroupResult>("azure-native:awsconnector/v20241201:getEc2SecurityGroup", args ?? new GetEc2SecurityGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2SecurityGroup
+        /// </summary>
+        public static Output<GetEc2SecurityGroupResult> Invoke(GetEc2SecurityGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2SecurityGroupResult>("azure-native:awsconnector/v20241201:getEc2SecurityGroup", args ?? new GetEc2SecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

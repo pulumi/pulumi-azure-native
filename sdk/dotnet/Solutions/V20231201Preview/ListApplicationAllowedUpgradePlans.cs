@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Solutions.V20231201Preview
         /// </summary>
         public static Output<ListApplicationAllowedUpgradePlansResult> Invoke(ListApplicationAllowedUpgradePlansInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApplicationAllowedUpgradePlansResult>("azure-native:solutions/v20231201preview:listApplicationAllowedUpgradePlans", args ?? new ListApplicationAllowedUpgradePlansInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List allowed upgrade plans for application.
+        /// </summary>
+        public static Output<ListApplicationAllowedUpgradePlansResult> Invoke(ListApplicationAllowedUpgradePlansInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListApplicationAllowedUpgradePlansResult>("azure-native:solutions/v20231201preview:listApplicationAllowedUpgradePlans", args ?? new ListApplicationAllowedUpgradePlansInvokeArgs(), options.WithDefaults());
     }
 
 

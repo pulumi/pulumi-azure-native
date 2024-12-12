@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetOrganizationsOrganizationResult> Invoke(GetOrganizationsOrganizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationsOrganizationResult>("azure-native:awsconnector:getOrganizationsOrganization", args ?? new GetOrganizationsOrganizationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a OrganizationsOrganization
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetOrganizationsOrganizationResult> Invoke(GetOrganizationsOrganizationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationsOrganizationResult>("azure-native:awsconnector:getOrganizationsOrganization", args ?? new GetOrganizationsOrganizationInvokeArgs(), options.WithDefaults());
     }
 
 

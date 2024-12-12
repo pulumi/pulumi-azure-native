@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
         /// </summary>
         public static Output<GetPolicyAssignmentArtifactResult> Invoke(GetPolicyAssignmentArtifactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentArtifactResult>("azure-native:blueprint/v20181101preview:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a blueprint artifact.
+        /// </summary>
+        public static Output<GetPolicyAssignmentArtifactResult> Invoke(GetPolicyAssignmentArtifactInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentArtifactResult>("azure-native:blueprint/v20181101preview:getPolicyAssignmentArtifact", args ?? new GetPolicyAssignmentArtifactInvokeArgs(), options.WithDefaults());
     }
 
 

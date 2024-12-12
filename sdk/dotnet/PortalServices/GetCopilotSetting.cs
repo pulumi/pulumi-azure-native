@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.PortalServices
         /// </summary>
         public static Output<GetCopilotSettingResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCopilotSettingResult>("azure-native:portalservices:getCopilotSetting", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Get a CopilotSettingsResource
+        /// Azure REST API version: 2024-04-01-preview.
+        /// </summary>
+        public static Output<GetCopilotSettingResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCopilotSettingResult>("azure-native:portalservices:getCopilotSetting", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

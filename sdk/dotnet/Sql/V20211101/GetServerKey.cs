@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20211101
         /// </summary>
         public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:sql/v20211101:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a server key.
+        /// </summary>
+        public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:sql/v20211101:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithDefaults());
     }
 
 

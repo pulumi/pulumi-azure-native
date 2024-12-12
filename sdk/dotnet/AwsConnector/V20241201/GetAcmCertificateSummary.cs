@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetAcmCertificateSummaryResult> Invoke(GetAcmCertificateSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAcmCertificateSummaryResult>("azure-native:awsconnector/v20241201:getAcmCertificateSummary", args ?? new GetAcmCertificateSummaryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a AcmCertificateSummary
+        /// </summary>
+        public static Output<GetAcmCertificateSummaryResult> Invoke(GetAcmCertificateSummaryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAcmCertificateSummaryResult>("azure-native:awsconnector/v20241201:getAcmCertificateSummary", args ?? new GetAcmCertificateSummaryInvokeArgs(), options.WithDefaults());
     }
 
 

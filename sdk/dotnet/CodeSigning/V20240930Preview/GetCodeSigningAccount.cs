@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CodeSigning.V20240930Preview
         /// </summary>
         public static Output<GetCodeSigningAccountResult> Invoke(GetCodeSigningAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningAccountResult>("azure-native:codesigning/v20240930preview:getCodeSigningAccount", args ?? new GetCodeSigningAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a trusted Signing Account.
+        /// </summary>
+        public static Output<GetCodeSigningAccountResult> Invoke(GetCodeSigningAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningAccountResult>("azure-native:codesigning/v20240930preview:getCodeSigningAccount", args ?? new GetCodeSigningAccountInvokeArgs(), options.WithDefaults());
     }
 
 

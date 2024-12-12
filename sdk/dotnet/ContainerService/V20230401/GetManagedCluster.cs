@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20230401
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:containerservice/v20230401:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Managed cluster.
+        /// </summary>
+        public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:containerservice/v20230401:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
     }
 
 

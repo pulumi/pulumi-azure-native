@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTOperations.V20241101
         /// </summary>
         public static Output<GetBrokerListenerResult> Invoke(GetBrokerListenerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerListenerResult>("azure-native:iotoperations/v20241101:getBrokerListener", args ?? new GetBrokerListenerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a BrokerListenerResource
+        /// </summary>
+        public static Output<GetBrokerListenerResult> Invoke(GetBrokerListenerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBrokerListenerResult>("azure-native:iotoperations/v20241101:getBrokerListener", args ?? new GetBrokerListenerInvokeArgs(), options.WithDefaults());
     }
 
 

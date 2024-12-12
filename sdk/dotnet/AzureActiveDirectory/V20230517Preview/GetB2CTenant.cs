@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20230517Preview
         /// </summary>
         public static Output<GetB2CTenantResult> Invoke(GetB2CTenantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory/v20230517preview:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Azure AD B2C tenant resource.
+        /// </summary>
+        public static Output<GetB2CTenantResult> Invoke(GetB2CTenantInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory/v20230517preview:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Subscription.V20200901
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("azure-native:subscription/v20200901:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Alias Subscription.
+        /// </summary>
+        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("azure-native:subscription/v20200901:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
         /// </summary>
         public static Output<GetOutputResult> Invoke(GetOutputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutputResult>("azure-native:streamanalytics/v20211001preview:getOutput", args ?? new GetOutputInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details about the specified output.
+        /// </summary>
+        public static Output<GetOutputResult> Invoke(GetOutputInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOutputResult>("azure-native:streamanalytics/v20211001preview:getOutput", args ?? new GetOutputInvokeArgs(), options.WithDefaults());
     }
 
 

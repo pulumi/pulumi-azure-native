@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public static Output<GetAzureADAdministratorResult> Invoke(GetAzureADAdministratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureADAdministratorResult>("azure-native:dbformysql:getAzureADAdministrator", args ?? new GetAzureADAdministratorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about an azure ad administrator.
+        /// Azure REST API version: 2022-01-01.
+        /// 
+        /// Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        /// </summary>
+        public static Output<GetAzureADAdministratorResult> Invoke(GetAzureADAdministratorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureADAdministratorResult>("azure-native:dbformysql:getAzureADAdministrator", args ?? new GetAzureADAdministratorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:servicefabric/v20210601:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Service Fabric application resource created or in the process of being created in the Service Fabric cluster resource.
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:servicefabric/v20210601:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

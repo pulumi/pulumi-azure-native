@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public static Output<ListAccessRoleBindingsResult> Invoke(ListAccessRoleBindingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessRoleBindingsResult>("azure-native:confluent:listAccessRoleBindings", args ?? new ListAccessRoleBindingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List cluster success response
+        /// Azure REST API version: 2023-08-22.
+        /// 
+        /// Other available API versions: 2024-02-13.
+        /// </summary>
+        public static Output<ListAccessRoleBindingsResult> Invoke(ListAccessRoleBindingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccessRoleBindingsResult>("azure-native:confluent:listAccessRoleBindings", args ?? new ListAccessRoleBindingsInvokeArgs(), options.WithDefaults());
     }
 
 

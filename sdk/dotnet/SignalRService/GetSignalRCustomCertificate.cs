@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public static Output<GetSignalRCustomCertificateResult> Invoke(GetSignalRCustomCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRCustomCertificateResult>("azure-native:signalrservice:getSignalRCustomCertificate", args ?? new GetSignalRCustomCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a custom certificate.
+        /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetSignalRCustomCertificateResult> Invoke(GetSignalRCustomCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSignalRCustomCertificateResult>("azure-native:signalrservice:getSignalRCustomCertificate", args ?? new GetSignalRCustomCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

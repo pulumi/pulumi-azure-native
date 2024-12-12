@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20240802Preview
         /// </summary>
         public static Output<GetDaprSubscriptionResult> Invoke(GetDaprSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaprSubscriptionResult>("azure-native:app/v20240802preview:getDaprSubscription", args ?? new GetDaprSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Dapr PubSub Event Subscription.
+        /// </summary>
+        public static Output<GetDaprSubscriptionResult> Invoke(GetDaprSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDaprSubscriptionResult>("azure-native:app/v20240802preview:getDaprSubscription", args ?? new GetDaprSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

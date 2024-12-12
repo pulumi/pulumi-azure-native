@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Resources.V20220201
         /// </summary>
         public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources/v20220201:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Template Spec with a given name.
+        /// </summary>
+        public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources/v20220201:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithDefaults());
     }
 
 

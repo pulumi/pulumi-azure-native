@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20220829Preview
         /// </summary>
         public static Output<GetLocalRulestackResult> Invoke(GetLocalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackResult>("azure-native:cloudngfw/v20220829preview:getLocalRulestack", args ?? new GetLocalRulestackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LocalRulestackResource
+        /// </summary>
+        public static Output<GetLocalRulestackResult> Invoke(GetLocalRulestackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackResult>("azure-native:cloudngfw/v20220829preview:getLocalRulestack", args ?? new GetLocalRulestackInvokeArgs(), options.WithDefaults());
     }
 
 

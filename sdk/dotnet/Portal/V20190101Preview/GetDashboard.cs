@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Portal.V20190101Preview
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:portal/v20190101preview:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Dashboard.
+        /// </summary>
+        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:portal/v20190101preview:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 

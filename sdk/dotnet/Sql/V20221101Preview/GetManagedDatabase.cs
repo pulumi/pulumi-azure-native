@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
         /// </summary>
         public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure-native:sql/v20221101preview:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a managed database.
+        /// </summary>
+        public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure-native:sql/v20221101preview:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

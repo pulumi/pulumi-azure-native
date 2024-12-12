@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         /// </summary>
         public static Output<GetGetPrivateDnsZoneSuffixExecuteResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGetPrivateDnsZoneSuffixExecuteResult>("azure-native:dbforpostgresql/v20221201:getGetPrivateDnsZoneSuffixExecute", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Get private DNS zone suffix in the cloud
+        /// </summary>
+        public static Output<GetGetPrivateDnsZoneSuffixExecuteResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGetPrivateDnsZoneSuffixExecuteResult>("azure-native:dbforpostgresql/v20221201:getGetPrivateDnsZoneSuffixExecute", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

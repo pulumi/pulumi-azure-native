@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// </summary>
         public static Output<GetDatabaseThreatDetectionPolicyResult> Invoke(GetDatabaseThreatDetectionPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a database's threat detection policy.
+        /// </summary>
+        public static Output<GetDatabaseThreatDetectionPolicyResult> Invoke(GetDatabaseThreatDetectionPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseThreatDetectionPolicyResult>("azure-native:sql/v20140401:getDatabaseThreatDetectionPolicy", args ?? new GetDatabaseThreatDetectionPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

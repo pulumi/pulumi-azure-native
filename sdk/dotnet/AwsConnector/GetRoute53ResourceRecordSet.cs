@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetRoute53ResourceRecordSetResult> Invoke(GetRoute53ResourceRecordSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoute53ResourceRecordSetResult>("azure-native:awsconnector:getRoute53ResourceRecordSet", args ?? new GetRoute53ResourceRecordSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Route53ResourceRecordSet
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetRoute53ResourceRecordSetResult> Invoke(GetRoute53ResourceRecordSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoute53ResourceRecordSetResult>("azure-native:awsconnector:getRoute53ResourceRecordSet", args ?? new GetRoute53ResourceRecordSetInvokeArgs(), options.WithDefaults());
     }
 
 

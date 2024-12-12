@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<GetActivityCustomEntityQueryResult> Invoke(GetActivityCustomEntityQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActivityCustomEntityQueryResult>("azure-native:securityinsights:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an entity query.
+        /// Azure REST API version: 2023-06-01-preview.
+        /// </summary>
+        public static Output<GetActivityCustomEntityQueryResult> Invoke(GetActivityCustomEntityQueryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActivityCustomEntityQueryResult>("azure-native:securityinsights:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryInvokeArgs(), options.WithDefaults());
     }
 
 

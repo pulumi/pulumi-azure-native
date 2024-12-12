@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240207Preview
         /// </summary>
         public static Output<ListLocalRulestackAppIdsResult> Invoke(ListLocalRulestackAppIdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocalRulestackAppIdsResult>("azure-native:cloudngfw/v20240207preview:listLocalRulestackAppIds", args ?? new ListLocalRulestackAppIdsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List of AppIds for LocalRulestack ApiVersion
+        /// </summary>
+        public static Output<ListLocalRulestackAppIdsResult> Invoke(ListLocalRulestackAppIdsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListLocalRulestackAppIdsResult>("azure-native:cloudngfw/v20240207preview:listLocalRulestackAppIds", args ?? new ListLocalRulestackAppIdsInvokeArgs(), options.WithDefaults());
     }
 
 

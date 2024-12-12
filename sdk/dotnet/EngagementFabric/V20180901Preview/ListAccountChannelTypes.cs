@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
         /// </summary>
         public static Output<ListAccountChannelTypesResult> Invoke(ListAccountChannelTypesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccountChannelTypesResult>("azure-native:engagementfabric/v20180901preview:listAccountChannelTypes", args ?? new ListAccountChannelTypesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List of the EngagementFabric channel descriptions
+        /// </summary>
+        public static Output<ListAccountChannelTypesResult> Invoke(ListAccountChannelTypesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccountChannelTypesResult>("azure-native:engagementfabric/v20180901preview:listAccountChannelTypes", args ?? new ListAccountChannelTypesInvokeArgs(), options.WithDefaults());
     }
 
 

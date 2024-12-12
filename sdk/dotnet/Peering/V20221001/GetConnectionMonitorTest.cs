@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Peering.V20221001
         /// </summary>
         public static Output<GetConnectionMonitorTestResult> Invoke(GetConnectionMonitorTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorTestResult>("azure-native:peering/v20221001:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing connection monitor test with the specified name under the given subscription, resource group and peering service.
+        /// </summary>
+        public static Output<GetConnectionMonitorTestResult> Invoke(GetConnectionMonitorTestInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionMonitorTestResult>("azure-native:peering/v20221001:getConnectionMonitorTest", args ?? new GetConnectionMonitorTestInvokeArgs(), options.WithDefaults());
     }
 
 

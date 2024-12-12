@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         public static Output<GetADLSGen2FileSystemDataSetResult> Invoke(GetADLSGen2FileSystemDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileSystemDataSetResult>("azure-native:datashare/v20210801:getADLSGen2FileSystemDataSet", args ?? new GetADLSGen2FileSystemDataSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DataSet in a share
+        /// </summary>
+        public static Output<GetADLSGen2FileSystemDataSetResult> Invoke(GetADLSGen2FileSystemDataSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2FileSystemDataSetResult>("azure-native:datashare/v20210801:getADLSGen2FileSystemDataSet", args ?? new GetADLSGen2FileSystemDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

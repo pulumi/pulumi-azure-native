@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
         /// </summary>
         public static Output<GetDeploymentRemoteDebuggingConfigResult> Invoke(GetDeploymentRemoteDebuggingConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentRemoteDebuggingConfigResult>("azure-native:appplatform/v20230901preview:getDeploymentRemoteDebuggingConfig", args ?? new GetDeploymentRemoteDebuggingConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get remote debugging config.
+        /// </summary>
+        public static Output<GetDeploymentRemoteDebuggingConfigResult> Invoke(GetDeploymentRemoteDebuggingConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentRemoteDebuggingConfigResult>("azure-native:appplatform/v20230901preview:getDeploymentRemoteDebuggingConfig", args ?? new GetDeploymentRemoteDebuggingConfigInvokeArgs(), options.WithDefaults());
     }
 
 

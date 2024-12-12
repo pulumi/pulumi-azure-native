@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Output<GetViewResult> Invoke(GetViewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewResult>("azure-native:customerinsights/v20170426:getView", args ?? new GetViewInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a view in the hub.
+        /// </summary>
+        public static Output<GetViewResult> Invoke(GetViewInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetViewResult>("azure-native:customerinsights/v20170426:getView", args ?? new GetViewInvokeArgs(), options.WithDefaults());
     }
 
 

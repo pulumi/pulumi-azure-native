@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetElasticBeanstalkEnvironmentResult> Invoke(GetElasticBeanstalkEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticBeanstalkEnvironmentResult>("azure-native:awsconnector/v20241201:getElasticBeanstalkEnvironment", args ?? new GetElasticBeanstalkEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ElasticBeanstalkEnvironment
+        /// </summary>
+        public static Output<GetElasticBeanstalkEnvironmentResult> Invoke(GetElasticBeanstalkEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticBeanstalkEnvironmentResult>("azure-native:awsconnector/v20241201:getElasticBeanstalkEnvironment", args ?? new GetElasticBeanstalkEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

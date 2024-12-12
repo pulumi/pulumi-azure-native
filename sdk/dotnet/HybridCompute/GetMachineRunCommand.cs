@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public static Output<GetMachineRunCommandResult> Invoke(GetMachineRunCommandInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineRunCommandResult>("azure-native:hybridcompute:getMachineRunCommand", args ?? new GetMachineRunCommandInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation to get a run command.
+        /// Azure REST API version: 2023-10-03-preview.
+        /// 
+        /// Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        /// </summary>
+        public static Output<GetMachineRunCommandResult> Invoke(GetMachineRunCommandInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineRunCommandResult>("azure-native:hybridcompute:getMachineRunCommand", args ?? new GetMachineRunCommandInvokeArgs(), options.WithDefaults());
     }
 
 

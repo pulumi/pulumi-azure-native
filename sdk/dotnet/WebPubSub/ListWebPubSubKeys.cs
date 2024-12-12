@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public static Output<ListWebPubSubKeysResult> Invoke(ListWebPubSubKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebPubSubKeysResult>("azure-native:webpubsub:listWebPubSubKeys", args ?? new ListWebPubSubKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the access keys of the resource.
+        /// Azure REST API version: 2023-02-01.
+        /// 
+        /// Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// </summary>
+        public static Output<ListWebPubSubKeysResult> Invoke(ListWebPubSubKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebPubSubKeysResult>("azure-native:webpubsub:listWebPubSubKeys", args ?? new ListWebPubSubKeysInvokeArgs(), options.WithDefaults());
     }
 
 

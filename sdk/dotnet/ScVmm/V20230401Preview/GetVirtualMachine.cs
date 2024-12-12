@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ScVmm.V20230401Preview
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:scvmm/v20230401preview:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements VirtualMachine GET method.
+        /// </summary>
+        public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:scvmm/v20230401preview:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

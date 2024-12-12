@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<GetOfficeDataConnectorResult> Invoke(GetOfficeDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfficeDataConnectorResult>("azure-native:securityinsights:getOfficeDataConnector", args ?? new GetOfficeDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// Azure REST API version: 2023-02-01.
+        /// </summary>
+        public static Output<GetOfficeDataConnectorResult> Invoke(GetOfficeDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOfficeDataConnectorResult>("azure-native:securityinsights:getOfficeDataConnector", args ?? new GetOfficeDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

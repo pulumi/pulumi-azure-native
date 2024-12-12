@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20240401
         /// </summary>
         public static Output<GetWebAppSiteContainerSlotResult> Invoke(GetWebAppSiteContainerSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerSlotResult>("azure-native:web/v20240401:getWebAppSiteContainerSlot", args ?? new GetWebAppSiteContainerSlotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Container of a site
+        /// </summary>
+        public static Output<GetWebAppSiteContainerSlotResult> Invoke(GetWebAppSiteContainerSlotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerSlotResult>("azure-native:web/v20240401:getWebAppSiteContainerSlot", args ?? new GetWebAppSiteContainerSlotInvokeArgs(), options.WithDefaults());
     }
 
 

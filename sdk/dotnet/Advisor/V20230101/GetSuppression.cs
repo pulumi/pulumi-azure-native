@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Advisor.V20230101
         /// </summary>
         public static Output<GetSuppressionResult> Invoke(GetSuppressionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionResult>("azure-native:advisor/v20230101:getSuppression", args ?? new GetSuppressionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Obtains the details of a suppression.
+        /// </summary>
+        public static Output<GetSuppressionResult> Invoke(GetSuppressionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionResult>("azure-native:advisor/v20230101:getSuppression", args ?? new GetSuppressionInvokeArgs(), options.WithDefaults());
     }
 
 

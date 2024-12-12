@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:compute:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about the model view or the instance view of a virtual machine.
+        /// Azure REST API version: 2023-03-01.
+        /// 
+        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// </summary>
+        public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:compute:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

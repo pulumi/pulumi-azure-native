@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.V20240627
         /// </summary>
         public static Output<ListProviderActionInUseStorageAccountsResult> Invoke(ListProviderActionInUseStorageAccountsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProviderActionInUseStorageAccountsResult>("azure-native:appcomplianceautomation/v20240627:listProviderActionInUseStorageAccounts", args ?? new ListProviderActionInUseStorageAccountsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List the storage accounts which are in use by related reports
+        /// </summary>
+        public static Output<ListProviderActionInUseStorageAccountsResult> Invoke(ListProviderActionInUseStorageAccountsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListProviderActionInUseStorageAccountsResult>("azure-native:appcomplianceautomation/v20240627:listProviderActionInUseStorageAccounts", args ?? new ListProviderActionInUseStorageAccountsInvokeArgs(), options.WithDefaults());
     }
 
 

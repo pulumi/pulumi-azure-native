@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Output<GetWorkspaceApiOperationResult> Invoke(GetWorkspaceApiOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiOperationResult>("azure-native:apimanagement:getWorkspaceApiOperation", args ?? new GetWorkspaceApiOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the API Operation specified by its identifier.
+        /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// </summary>
+        public static Output<GetWorkspaceApiOperationResult> Invoke(GetWorkspaceApiOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiOperationResult>("azure-native:apimanagement:getWorkspaceApiOperation", args ?? new GetWorkspaceApiOperationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetRdsExportTaskResult> Invoke(GetRdsExportTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRdsExportTaskResult>("azure-native:awsconnector/v20241201:getRdsExportTask", args ?? new GetRdsExportTaskInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a RdsExportTask
+        /// </summary>
+        public static Output<GetRdsExportTaskResult> Invoke(GetRdsExportTaskInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRdsExportTaskResult>("azure-native:awsconnector/v20241201:getRdsExportTask", args ?? new GetRdsExportTaskInvokeArgs(), options.WithDefaults());
     }
 
 

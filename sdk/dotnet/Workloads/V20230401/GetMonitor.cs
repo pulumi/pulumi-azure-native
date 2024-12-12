@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20230401
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:workloads/v20230401:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a SAP monitor for the specified subscription, resource group, and resource name.
+        /// </summary>
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:workloads/v20230401:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

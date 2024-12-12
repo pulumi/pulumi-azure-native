@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240101Preview
         /// </summary>
         public static Output<GetActionResult> Invoke(GetActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionResult>("azure-native:securityinsights/v20240101preview:getAction", args ?? new GetActionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the action of alert rule.
+        /// </summary>
+        public static Output<GetActionResult> Invoke(GetActionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionResult>("azure-native:securityinsights/v20240101preview:getAction", args ?? new GetActionInvokeArgs(), options.WithDefaults());
     }
 
 

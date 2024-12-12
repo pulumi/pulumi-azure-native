@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20190701
         /// </summary>
         public static Output<GetP2sVpnServerConfigurationResult> Invoke(GetP2sVpnServerConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetP2sVpnServerConfigurationResult>("azure-native:network/v20190701:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the details of a P2SVpnServerConfiguration.
+        /// </summary>
+        public static Output<GetP2sVpnServerConfigurationResult> Invoke(GetP2sVpnServerConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetP2sVpnServerConfigurationResult>("azure-native:network/v20190701:getP2sVpnServerConfiguration", args ?? new GetP2sVpnServerConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

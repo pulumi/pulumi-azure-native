@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         /// </summary>
         public static Output<GetResourceManagementPrivateLinkResult> Invoke(GetResourceManagementPrivateLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceManagementPrivateLinkResult>("azure-native:authorization/v20200501:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a resource management private link(resource-level).
+        /// </summary>
+        public static Output<GetResourceManagementPrivateLinkResult> Invoke(GetResourceManagementPrivateLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceManagementPrivateLinkResult>("azure-native:authorization/v20200501:getResourceManagementPrivateLink", args ?? new GetResourceManagementPrivateLinkInvokeArgs(), options.WithDefaults());
     }
 
 

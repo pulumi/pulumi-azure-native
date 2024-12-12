@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public static Output<GetRelationshipLinkResult> Invoke(GetRelationshipLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRelationshipLinkResult>("azure-native:customerinsights:getRelationshipLink", args ?? new GetRelationshipLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified relationship Link.
+        /// Azure REST API version: 2017-04-26.
+        /// </summary>
+        public static Output<GetRelationshipLinkResult> Invoke(GetRelationshipLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRelationshipLinkResult>("azure-native:customerinsights:getRelationshipLink", args ?? new GetRelationshipLinkInvokeArgs(), options.WithDefaults());
     }
 
 

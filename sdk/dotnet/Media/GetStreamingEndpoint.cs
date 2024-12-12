@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Output<GetStreamingEndpointResult> Invoke(GetStreamingEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingEndpointResult>("azure-native:media:getStreamingEndpoint", args ?? new GetStreamingEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a streaming endpoint.
+        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Other available API versions: 2018-06-01-preview.
+        /// </summary>
+        public static Output<GetStreamingEndpointResult> Invoke(GetStreamingEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamingEndpointResult>("azure-native:media:getStreamingEndpoint", args ?? new GetStreamingEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

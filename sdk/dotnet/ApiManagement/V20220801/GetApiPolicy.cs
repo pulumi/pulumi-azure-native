@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
         /// </summary>
         public static Output<GetApiPolicyResult> Invoke(GetApiPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiPolicyResult>("azure-native:apimanagement/v20220801:getApiPolicy", args ?? new GetApiPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the policy configuration at the API level.
+        /// </summary>
+        public static Output<GetApiPolicyResult> Invoke(GetApiPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiPolicyResult>("azure-native:apimanagement/v20220801:getApiPolicy", args ?? new GetApiPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

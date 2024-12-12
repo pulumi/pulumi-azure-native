@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Output<GetFormulaResult> Invoke(GetFormulaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFormulaResult>("azure-native:devtestlab/v20180915:getFormula", args ?? new GetFormulaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get formula.
+        /// </summary>
+        public static Output<GetFormulaResult> Invoke(GetFormulaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFormulaResult>("azure-native:devtestlab/v20180915:getFormula", args ?? new GetFormulaInvokeArgs(), options.WithDefaults());
     }
 
 

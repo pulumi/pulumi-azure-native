@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedCache.V20230501Preview
         /// </summary>
         public static Output<GetIspCacheNodesOperationResult> Invoke(GetIspCacheNodesOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIspCacheNodesOperationResult>("azure-native:connectedcache/v20230501preview:getIspCacheNodesOperation", args ?? new GetIspCacheNodesOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This api gets ispCacheNode resource information
+        /// </summary>
+        public static Output<GetIspCacheNodesOperationResult> Invoke(GetIspCacheNodesOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIspCacheNodesOperationResult>("azure-native:connectedcache/v20230501preview:getIspCacheNodesOperation", args ?? new GetIspCacheNodesOperationInvokeArgs(), options.WithDefaults());
     }
 
 

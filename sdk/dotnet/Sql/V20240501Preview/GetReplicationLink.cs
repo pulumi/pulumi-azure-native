@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
         /// </summary>
         public static Output<GetReplicationLinkResult> Invoke(GetReplicationLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationLinkResult>("azure-native:sql/v20240501preview:getReplicationLink", args ?? new GetReplicationLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a replication link.
+        /// </summary>
+        public static Output<GetReplicationLinkResult> Invoke(GetReplicationLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationLinkResult>("azure-native:sql/v20240501preview:getReplicationLink", args ?? new GetReplicationLinkInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Product serial and status for the service
+        /// Azure REST API version: 2024-02-07-preview.
+        /// </summary>
+        public static Output<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwProductSerialNumberStatus", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

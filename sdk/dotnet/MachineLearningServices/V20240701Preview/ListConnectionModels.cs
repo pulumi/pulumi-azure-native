@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview
 
         public static Output<ListConnectionModelsResult> Invoke(ListConnectionModelsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectionModelsResult>("azure-native:machinelearningservices/v20240701preview:listConnectionModels", args ?? new ListConnectionModelsInvokeArgs(), options.WithDefaults());
+
+        public static Output<ListConnectionModelsResult> Invoke(ListConnectionModelsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListConnectionModelsResult>("azure-native:machinelearningservices/v20240701preview:listConnectionModels", args ?? new ListConnectionModelsInvokeArgs(), options.WithDefaults());
     }
 
 

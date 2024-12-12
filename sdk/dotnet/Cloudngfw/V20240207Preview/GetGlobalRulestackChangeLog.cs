@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240207Preview
         /// </summary>
         public static Output<GetGlobalRulestackChangeLogResult> Invoke(GetGlobalRulestackChangeLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalRulestackChangeLogResult>("azure-native:cloudngfw/v20240207preview:getGlobalRulestackChangeLog", args ?? new GetGlobalRulestackChangeLogInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get changelog
+        /// </summary>
+        public static Output<GetGlobalRulestackChangeLogResult> Invoke(GetGlobalRulestackChangeLogInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalRulestackChangeLogResult>("azure-native:cloudngfw/v20240207preview:getGlobalRulestackChangeLog", args ?? new GetGlobalRulestackChangeLogInvokeArgs(), options.WithDefaults());
     }
 
 

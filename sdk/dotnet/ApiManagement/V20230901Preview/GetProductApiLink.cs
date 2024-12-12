@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
         /// </summary>
         public static Output<GetProductApiLinkResult> Invoke(GetProductApiLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductApiLinkResult>("azure-native:apimanagement/v20230901preview:getProductApiLink", args ?? new GetProductApiLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the API link for the product.
+        /// </summary>
+        public static Output<GetProductApiLinkResult> Invoke(GetProductApiLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProductApiLinkResult>("azure-native:apimanagement/v20230901preview:getProductApiLink", args ?? new GetProductApiLinkInvokeArgs(), options.WithDefaults());
     }
 
 

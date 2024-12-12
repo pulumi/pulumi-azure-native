@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:devhub:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource representation of a workflow
+        /// Azure REST API version: 2022-10-11-preview.
+        /// 
+        /// Other available API versions: 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
+        /// </summary>
+        public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:devhub:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
     }
 
 

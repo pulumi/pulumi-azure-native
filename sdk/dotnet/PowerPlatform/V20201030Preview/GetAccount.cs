@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:powerplatform/v20201030preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about an account.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:powerplatform/v20201030preview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

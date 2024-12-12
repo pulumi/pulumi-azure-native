@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
         /// </summary>
         public static Output<GetIscsiTargetResult> Invoke(GetIscsiTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIscsiTargetResult>("azure-native:storagepool/v20200315preview:getIscsiTarget", args ?? new GetIscsiTargetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an iSCSI target.
+        /// </summary>
+        public static Output<GetIscsiTargetResult> Invoke(GetIscsiTargetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIscsiTargetResult>("azure-native:storagepool/v20200315preview:getIscsiTarget", args ?? new GetIscsiTargetInvokeArgs(), options.WithDefaults());
     }
 
 

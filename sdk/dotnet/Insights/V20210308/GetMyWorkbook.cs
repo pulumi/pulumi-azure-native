@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20210308
         /// </summary>
         public static Output<GetMyWorkbookResult> Invoke(GetMyWorkbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMyWorkbookResult>("azure-native:insights/v20210308:getMyWorkbook", args ?? new GetMyWorkbookInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a single private workbook by its resourceName.
+        /// </summary>
+        public static Output<GetMyWorkbookResult> Invoke(GetMyWorkbookInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMyWorkbookResult>("azure-native:insights/v20210308:getMyWorkbook", args ?? new GetMyWorkbookInvokeArgs(), options.WithDefaults());
     }
 
 

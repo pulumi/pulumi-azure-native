@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231001Preview
         /// </summary>
         public static Output<GetHuntResult> Invoke(GetHuntInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHuntResult>("azure-native:securityinsights/v20231001preview:getHunt", args ?? new GetHuntInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a hunt, without relations and comments.
+        /// </summary>
+        public static Output<GetHuntResult> Invoke(GetHuntInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHuntResult>("azure-native:securityinsights/v20231001preview:getHunt", args ?? new GetHuntInvokeArgs(), options.WithDefaults());
     }
 
 

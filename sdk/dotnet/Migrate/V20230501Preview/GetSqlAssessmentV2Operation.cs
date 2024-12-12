@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230501Preview
         /// </summary>
         public static Output<GetSqlAssessmentV2OperationResult> Invoke(GetSqlAssessmentV2OperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlAssessmentV2OperationResult>("azure-native:migrate/v20230501preview:getSqlAssessmentV2Operation", args ?? new GetSqlAssessmentV2OperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SqlAssessmentV2
+        /// </summary>
+        public static Output<GetSqlAssessmentV2OperationResult> Invoke(GetSqlAssessmentV2OperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlAssessmentV2OperationResult>("azure-native:migrate/v20230501preview:getSqlAssessmentV2Operation", args ?? new GetSqlAssessmentV2OperationInvokeArgs(), options.WithDefaults());
     }
 
 

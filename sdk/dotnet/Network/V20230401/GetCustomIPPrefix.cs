@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230401
         /// </summary>
         public static Output<GetCustomIPPrefixResult> Invoke(GetCustomIPPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomIPPrefixResult>("azure-native:network/v20230401:getCustomIPPrefix", args ?? new GetCustomIPPrefixInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified custom IP prefix in a specified resource group.
+        /// </summary>
+        public static Output<GetCustomIPPrefixResult> Invoke(GetCustomIPPrefixInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomIPPrefixResult>("azure-native:network/v20230401:getCustomIPPrefix", args ?? new GetCustomIPPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

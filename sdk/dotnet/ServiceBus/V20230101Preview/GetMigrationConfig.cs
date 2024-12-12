@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
         /// </summary>
         public static Output<GetMigrationConfigResult> Invoke(GetMigrationConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationConfigResult>("azure-native:servicebus/v20230101preview:getMigrationConfig", args ?? new GetMigrationConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves Migration Config
+        /// </summary>
+        public static Output<GetMigrationConfigResult> Invoke(GetMigrationConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMigrationConfigResult>("azure-native:servicebus/v20230101preview:getMigrationConfig", args ?? new GetMigrationConfigInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20241215Preview
         /// </summary>
         public static Output<GetChannelFullUrlResult> Invoke(GetChannelFullUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelFullUrlResult>("azure-native:eventgrid/v20241215preview:getChannelFullUrl", args ?? new GetChannelFullUrlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the full endpoint URL of a partner destination channel.
+        /// </summary>
+        public static Output<GetChannelFullUrlResult> Invoke(GetChannelFullUrlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelFullUrlResult>("azure-native:eventgrid/v20241215preview:getChannelFullUrl", args ?? new GetChannelFullUrlInvokeArgs(), options.WithDefaults());
     }
 
 

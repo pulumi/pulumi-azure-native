@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public static Output<GetTIDataConnectorResult> Invoke(GetTIDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTIDataConnectorResult>("azure-native:securityinsights/v20210301preview:getTIDataConnector", args ?? new GetTIDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// </summary>
+        public static Output<GetTIDataConnectorResult> Invoke(GetTIDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTIDataConnectorResult>("azure-native:securityinsights/v20210301preview:getTIDataConnector", args ?? new GetTIDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

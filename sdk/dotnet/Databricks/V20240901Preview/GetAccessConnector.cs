@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Databricks.V20240901Preview
         /// </summary>
         public static Output<GetAccessConnectorResult> Invoke(GetAccessConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessConnectorResult>("azure-native:databricks/v20240901preview:getAccessConnector", args ?? new GetAccessConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an Azure Databricks Access Connector.
+        /// </summary>
+        public static Output<GetAccessConnectorResult> Invoke(GetAccessConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessConnectorResult>("azure-native:databricks/v20240901preview:getAccessConnector", args ?? new GetAccessConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

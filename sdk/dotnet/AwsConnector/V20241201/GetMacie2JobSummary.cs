@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetMacie2JobSummaryResult> Invoke(GetMacie2JobSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMacie2JobSummaryResult>("azure-native:awsconnector/v20241201:getMacie2JobSummary", args ?? new GetMacie2JobSummaryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Macie2JobSummary
+        /// </summary>
+        public static Output<GetMacie2JobSummaryResult> Invoke(GetMacie2JobSummaryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMacie2JobSummaryResult>("azure-native:awsconnector/v20241201:getMacie2JobSummary", args ?? new GetMacie2JobSummaryInvokeArgs(), options.WithDefaults());
     }
 
 

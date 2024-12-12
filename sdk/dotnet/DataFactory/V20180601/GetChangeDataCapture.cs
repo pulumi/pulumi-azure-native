@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Output<GetChangeDataCaptureResult> Invoke(GetChangeDataCaptureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChangeDataCaptureResult>("azure-native:datafactory/v20180601:getChangeDataCapture", args ?? new GetChangeDataCaptureInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a change data capture.
+        /// </summary>
+        public static Output<GetChangeDataCaptureResult> Invoke(GetChangeDataCaptureInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChangeDataCaptureResult>("azure-native:datafactory/v20180601:getChangeDataCapture", args ?? new GetChangeDataCaptureInvokeArgs(), options.WithDefaults());
     }
 
 

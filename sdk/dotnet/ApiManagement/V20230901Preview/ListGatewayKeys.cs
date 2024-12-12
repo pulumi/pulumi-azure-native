@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
         /// </summary>
         public static Output<ListGatewayKeysResult> Invoke(ListGatewayKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGatewayKeysResult>("azure-native:apimanagement/v20230901preview:listGatewayKeys", args ?? new ListGatewayKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves gateway keys.
+        /// </summary>
+        public static Output<ListGatewayKeysResult> Invoke(ListGatewayKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGatewayKeysResult>("azure-native:apimanagement/v20230901preview:listGatewayKeys", args ?? new ListGatewayKeysInvokeArgs(), options.WithDefaults());
     }
 
 

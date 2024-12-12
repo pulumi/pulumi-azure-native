@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public static Output<GetStreamingJobResult> Invoke(GetStreamingJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingJobResult>("azure-native:streamanalytics:getStreamingJob", args ?? new GetStreamingJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details about the specified streaming job.
+        /// Azure REST API version: 2020-03-01.
+        /// 
+        /// Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+        /// </summary>
+        public static Output<GetStreamingJobResult> Invoke(GetStreamingJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamingJobResult>("azure-native:streamanalytics:getStreamingJob", args ?? new GetStreamingJobInvokeArgs(), options.WithDefaults());
     }
 
 

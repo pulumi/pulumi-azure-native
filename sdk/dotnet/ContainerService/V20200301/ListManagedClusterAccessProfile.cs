@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20200301
         /// </summary>
         public static Output<ListManagedClusterAccessProfileResult> Invoke(ListManagedClusterAccessProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterAccessProfileResult>("azure-native:containerservice/v20200301:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
+        /// </summary>
+        public static Output<ListManagedClusterAccessProfileResult> Invoke(ListManagedClusterAccessProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterAccessProfileResult>("azure-native:containerservice/v20200301:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileInvokeArgs(), options.WithDefaults());
     }
 
 

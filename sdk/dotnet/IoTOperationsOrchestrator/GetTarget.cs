@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.IoTOperationsOrchestrator
         /// </summary>
         public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:iotoperationsorchestrator:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Target
+        /// Azure REST API version: 2023-10-04-preview.
+        /// </summary>
+        public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:iotoperationsorchestrator:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());
     }
 
 

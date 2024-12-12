@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240501Preview
         /// </summary>
         public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure-native:devcenter/v20240501preview:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Dev Box definition
+        /// </summary>
+        public static Output<GetDevBoxDefinitionResult> Invoke(GetDevBoxDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevBoxDefinitionResult>("azure-native:devcenter/v20240501preview:getDevBoxDefinition", args ?? new GetDevBoxDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

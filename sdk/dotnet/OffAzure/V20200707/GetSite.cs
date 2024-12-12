@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:offazure/v20200707:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Site REST Resource.
+        /// </summary>
+        public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:offazure/v20200707:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

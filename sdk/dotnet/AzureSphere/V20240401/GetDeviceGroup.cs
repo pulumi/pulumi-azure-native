@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureSphere.V20240401
         /// </summary>
         public static Output<GetDeviceGroupResult> Invoke(GetDeviceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceGroupResult>("azure-native:azuresphere/v20240401:getDeviceGroup", args ?? new GetDeviceGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
+        /// </summary>
+        public static Output<GetDeviceGroupResult> Invoke(GetDeviceGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceGroupResult>("azure-native:azuresphere/v20240401:getDeviceGroup", args ?? new GetDeviceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

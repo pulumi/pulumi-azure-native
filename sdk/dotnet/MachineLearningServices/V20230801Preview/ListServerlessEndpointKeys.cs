@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230801Preview
         /// </summary>
         public static Output<ListServerlessEndpointKeysResult> Invoke(ListServerlessEndpointKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListServerlessEndpointKeysResult>("azure-native:machinelearningservices/v20230801preview:listServerlessEndpointKeys", args ?? new ListServerlessEndpointKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Keys for endpoint authentication.
+        /// </summary>
+        public static Output<ListServerlessEndpointKeysResult> Invoke(ListServerlessEndpointKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListServerlessEndpointKeysResult>("azure-native:machinelearningservices/v20230801preview:listServerlessEndpointKeys", args ?? new ListServerlessEndpointKeysInvokeArgs(), options.WithDefaults());
     }
 
 

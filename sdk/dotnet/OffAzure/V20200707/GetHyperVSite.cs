@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20200707
         /// </summary>
         public static Output<GetHyperVSiteResult> Invoke(GetHyperVSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHyperVSiteResult>("azure-native:offazure/v20200707:getHyperVSite", args ?? new GetHyperVSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Site REST Resource.
+        /// </summary>
+        public static Output<GetHyperVSiteResult> Invoke(GetHyperVSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHyperVSiteResult>("azure-native:offazure/v20200707:getHyperVSite", args ?? new GetHyperVSiteInvokeArgs(), options.WithDefaults());
     }
 
 

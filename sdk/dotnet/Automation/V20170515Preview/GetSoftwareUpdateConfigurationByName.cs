@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20170515Preview
         /// </summary>
         public static Output<GetSoftwareUpdateConfigurationByNameResult> Invoke(GetSoftwareUpdateConfigurationByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation/v20170515preview:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a single software update configuration by name.
+        /// </summary>
+        public static Output<GetSoftwareUpdateConfigurationByNameResult> Invoke(GetSoftwareUpdateConfigurationByNameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation/v20170515preview:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameInvokeArgs(), options.WithDefaults());
     }
 
 

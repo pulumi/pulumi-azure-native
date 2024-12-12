@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230401Preview
         /// </summary>
         public static Output<GetVmwareCollectorsOperationResult> Invoke(GetVmwareCollectorsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVmwareCollectorsOperationResult>("azure-native:migrate/v20230401preview:getVmwareCollectorsOperation", args ?? new GetVmwareCollectorsOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a VmwareCollector
+        /// </summary>
+        public static Output<GetVmwareCollectorsOperationResult> Invoke(GetVmwareCollectorsOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVmwareCollectorsOperationResult>("azure-native:migrate/v20230401preview:getVmwareCollectorsOperation", args ?? new GetVmwareCollectorsOperationInvokeArgs(), options.WithDefaults());
     }
 
 

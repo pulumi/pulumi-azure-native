@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
         /// </summary>
         public static Output<GetApiIssueCommentResult> Invoke(GetApiIssueCommentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiIssueCommentResult>("azure-native:apimanagement/v20220801:getApiIssueComment", args ?? new GetApiIssueCommentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the issue Comment for an API specified by its identifier.
+        /// </summary>
+        public static Output<GetApiIssueCommentResult> Invoke(GetApiIssueCommentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiIssueCommentResult>("azure-native:apimanagement/v20220801:getApiIssueComment", args ?? new GetApiIssueCommentInvokeArgs(), options.WithDefaults());
     }
 
 

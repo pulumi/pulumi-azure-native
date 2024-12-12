@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetRdsDbSnapshotResult> Invoke(GetRdsDbSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRdsDbSnapshotResult>("azure-native:awsconnector:getRdsDbSnapshot", args ?? new GetRdsDbSnapshotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a RdsDBSnapshot
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetRdsDbSnapshotResult> Invoke(GetRdsDbSnapshotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRdsDbSnapshotResult>("azure-native:awsconnector:getRdsDbSnapshot", args ?? new GetRdsDbSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

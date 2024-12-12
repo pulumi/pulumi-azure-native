@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20240927
         /// </summary>
         public static Output<GetFlowDestinationEndpointsResult> Invoke(GetFlowDestinationEndpointsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowDestinationEndpointsResult>("azure-native:azuredatatransfer/v20240927:getFlowDestinationEndpoints", args ?? new GetFlowDestinationEndpointsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the destination endpoints for the specified flow and stream ID.
+        /// </summary>
+        public static Output<GetFlowDestinationEndpointsResult> Invoke(GetFlowDestinationEndpointsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowDestinationEndpointsResult>("azure-native:azuredatatransfer/v20240927:getFlowDestinationEndpoints", args ?? new GetFlowDestinationEndpointsInvokeArgs(), options.WithDefaults());
     }
 
 

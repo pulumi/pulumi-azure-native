@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorageMover.V20230301
         /// </summary>
         public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("azure-native:storagemover/v20230301:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an Agent resource.
+        /// </summary>
+        public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("azure-native:storagemover/v20230301:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
         /// </summary>
         public static Output<GetJobStepResult> Invoke(GetJobStepInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobStepResult>("azure-native:sql/v20230201preview:getJobStep", args ?? new GetJobStepInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a job step in a job's current version.
+        /// </summary>
+        public static Output<GetJobStepResult> Invoke(GetJobStepInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobStepResult>("azure-native:sql/v20230201preview:getJobStep", args ?? new GetJobStepInvokeArgs(), options.WithDefaults());
     }
 
 

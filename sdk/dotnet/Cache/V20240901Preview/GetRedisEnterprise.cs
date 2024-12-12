@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cache.V20240901Preview
         /// </summary>
         public static Output<GetRedisEnterpriseResult> Invoke(GetRedisEnterpriseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedisEnterpriseResult>("azure-native:cache/v20240901preview:getRedisEnterprise", args ?? new GetRedisEnterpriseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a Redis Enterprise cluster
+        /// </summary>
+        public static Output<GetRedisEnterpriseResult> Invoke(GetRedisEnterpriseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRedisEnterpriseResult>("azure-native:cache/v20240901preview:getRedisEnterprise", args ?? new GetRedisEnterpriseInvokeArgs(), options.WithDefaults());
     }
 
 

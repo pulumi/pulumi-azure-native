@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:hybridcompute/v20200815preview:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation to get the extension.
+        /// </summary>
+        public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:hybridcompute/v20200815preview:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

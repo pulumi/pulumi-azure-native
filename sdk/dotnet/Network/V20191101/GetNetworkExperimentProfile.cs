@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20191101
         /// </summary>
         public static Output<GetNetworkExperimentProfileResult> Invoke(GetNetworkExperimentProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkExperimentProfileResult>("azure-native:network/v20191101:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Defines an Network Experiment Profile and lists of Experiments
+        /// </summary>
+        public static Output<GetNetworkExperimentProfileResult> Invoke(GetNetworkExperimentProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkExperimentProfileResult>("azure-native:network/v20191101:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileInvokeArgs(), options.WithDefaults());
     }
 
 

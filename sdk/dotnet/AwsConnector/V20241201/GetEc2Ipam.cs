@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEc2IpamResult> Invoke(GetEc2IpamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2IpamResult>("azure-native:awsconnector/v20241201:getEc2Ipam", args ?? new GetEc2IpamInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2Ipam
+        /// </summary>
+        public static Output<GetEc2IpamResult> Invoke(GetEc2IpamInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2IpamResult>("azure-native:awsconnector/v20241201:getEc2Ipam", args ?? new GetEc2IpamInvokeArgs(), options.WithDefaults());
     }
 
 

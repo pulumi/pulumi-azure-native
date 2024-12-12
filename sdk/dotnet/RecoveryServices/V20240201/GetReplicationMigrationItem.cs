@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20240201
         /// </summary>
         public static Output<GetReplicationMigrationItemResult> Invoke(GetReplicationMigrationItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationMigrationItemResult>("azure-native:recoveryservices/v20240201:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Migration item.
+        /// </summary>
+        public static Output<GetReplicationMigrationItemResult> Invoke(GetReplicationMigrationItemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationMigrationItemResult>("azure-native:recoveryservices/v20240201:getReplicationMigrationItem", args ?? new GetReplicationMigrationItemInvokeArgs(), options.WithDefaults());
     }
 
 

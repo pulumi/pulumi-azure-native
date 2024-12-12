@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20241001Preview
         /// </summary>
         public static Output<GetAlertRuleResourceResult> Invoke(GetAlertRuleResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleResourceResult>("azure-native:databasewatcher/v20241001preview:getAlertRuleResource", args ?? new GetAlertRuleResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a AlertRuleResource
+        /// </summary>
+        public static Output<GetAlertRuleResourceResult> Invoke(GetAlertRuleResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleResourceResult>("azure-native:databasewatcher/v20241001preview:getAlertRuleResource", args ?? new GetAlertRuleResourceInvokeArgs(), options.WithDefaults());
     }
 
 

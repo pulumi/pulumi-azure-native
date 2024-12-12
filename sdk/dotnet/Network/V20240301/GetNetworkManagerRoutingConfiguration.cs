@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240301
         /// </summary>
         public static Output<GetNetworkManagerRoutingConfigurationResult> Invoke(GetNetworkManagerRoutingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerRoutingConfigurationResult>("azure-native:network/v20240301:getNetworkManagerRoutingConfiguration", args ?? new GetNetworkManagerRoutingConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a network manager routing configuration.
+        /// </summary>
+        public static Output<GetNetworkManagerRoutingConfigurationResult> Invoke(GetNetworkManagerRoutingConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerRoutingConfigurationResult>("azure-native:network/v20240301:getNetworkManagerRoutingConfiguration", args ?? new GetNetworkManagerRoutingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

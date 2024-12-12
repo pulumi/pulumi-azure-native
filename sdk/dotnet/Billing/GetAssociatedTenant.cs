@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Billing
         /// </summary>
         public static Output<GetAssociatedTenantResult> Invoke(GetAssociatedTenantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssociatedTenantResult>("azure-native:billing:getAssociatedTenant", args ?? new GetAssociatedTenantInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an associated tenant by ID.
+        /// Azure REST API version: 2024-04-01.
+        /// </summary>
+        public static Output<GetAssociatedTenantResult> Invoke(GetAssociatedTenantInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssociatedTenantResult>("azure-native:billing:getAssociatedTenant", args ?? new GetAssociatedTenantInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20230101
         /// </summary>
         public static Output<ListStaticSiteUsersResult> Invoke(ListStaticSiteUsersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteUsersResult>("azure-native:web/v20230101:listStaticSiteUsers", args ?? new ListStaticSiteUsersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Gets the list of users of a static site.
+        /// </summary>
+        public static Output<ListStaticSiteUsersResult> Invoke(ListStaticSiteUsersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteUsersResult>("azure-native:web/v20230101:listStaticSiteUsers", args ?? new ListStaticSiteUsersInvokeArgs(), options.WithDefaults());
     }
 
 

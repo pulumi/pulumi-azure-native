@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230501
         /// </summary>
         public static Output<GetSecurityPartnerProviderResult> Invoke(GetSecurityPartnerProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPartnerProviderResult>("azure-native:network/v20230501:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Security Partner Provider.
+        /// </summary>
+        public static Output<GetSecurityPartnerProviderResult> Invoke(GetSecurityPartnerProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPartnerProviderResult>("azure-native:network/v20230501:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderInvokeArgs(), options.WithDefaults());
     }
 
 

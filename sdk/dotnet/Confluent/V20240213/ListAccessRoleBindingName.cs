@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Confluent.V20240213
         /// </summary>
         public static Output<ListAccessRoleBindingNameResult> Invoke(ListAccessRoleBindingNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessRoleBindingNameResult>("azure-native:confluent/v20240213:listAccessRoleBindingName", args ?? new ListAccessRoleBindingNameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Details of the role binding names returned on successful response
+        /// </summary>
+        public static Output<ListAccessRoleBindingNameResult> Invoke(ListAccessRoleBindingNameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccessRoleBindingNameResult>("azure-native:confluent/v20240213:listAccessRoleBindingName", args ?? new ListAccessRoleBindingNameInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StandbyPool.V20240301Preview
         /// </summary>
         public static Output<GetStandbyVirtualMachinePoolResult> Invoke(GetStandbyVirtualMachinePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandbyVirtualMachinePoolResult>("azure-native:standbypool/v20240301preview:getStandbyVirtualMachinePool", args ?? new GetStandbyVirtualMachinePoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a StandbyVirtualMachinePoolResource
+        /// </summary>
+        public static Output<GetStandbyVirtualMachinePoolResult> Invoke(GetStandbyVirtualMachinePoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStandbyVirtualMachinePoolResult>("azure-native:standbypool/v20240301preview:getStandbyVirtualMachinePool", args ?? new GetStandbyVirtualMachinePoolInvokeArgs(), options.WithDefaults());
     }
 
 

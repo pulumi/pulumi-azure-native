@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<GetEntityAnalyticsResult> Invoke(GetEntityAnalyticsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityAnalyticsResult>("azure-native:securityinsights:getEntityAnalytics", args ?? new GetEntityAnalyticsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a setting.
+        /// Azure REST API version: 2023-06-01-preview.
+        /// </summary>
+        public static Output<GetEntityAnalyticsResult> Invoke(GetEntityAnalyticsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntityAnalyticsResult>("azure-native:securityinsights:getEntityAnalytics", args ?? new GetEntityAnalyticsInvokeArgs(), options.WithDefaults());
     }
 
 

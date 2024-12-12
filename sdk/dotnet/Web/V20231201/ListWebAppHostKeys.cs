@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20231201
         /// </summary>
         public static Output<ListWebAppHostKeysResult> Invoke(ListWebAppHostKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppHostKeysResult>("azure-native:web/v20231201:listWebAppHostKeys", args ?? new ListWebAppHostKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Get host secrets for a function app.
+        /// </summary>
+        public static Output<ListWebAppHostKeysResult> Invoke(ListWebAppHostKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppHostKeysResult>("azure-native:web/v20231201:listWebAppHostKeys", args ?? new ListWebAppHostKeysInvokeArgs(), options.WithDefaults());
     }
 
 

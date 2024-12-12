@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
         /// </summary>
         public static Output<GetWorkspaceApiOperationResult> Invoke(GetWorkspaceApiOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiOperationResult>("azure-native:apimanagement/v20240501:getWorkspaceApiOperation", args ?? new GetWorkspaceApiOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the API Operation specified by its identifier.
+        /// </summary>
+        public static Output<GetWorkspaceApiOperationResult> Invoke(GetWorkspaceApiOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceApiOperationResult>("azure-native:apimanagement/v20240501:getWorkspaceApiOperation", args ?? new GetWorkspaceApiOperationInvokeArgs(), options.WithDefaults());
     }
 
 

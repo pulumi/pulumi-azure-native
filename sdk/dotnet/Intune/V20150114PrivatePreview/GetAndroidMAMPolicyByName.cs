@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Intune.V20150114PrivatePreview
         /// </summary>
         public static Output<GetAndroidMAMPolicyByNameResult> Invoke(GetAndroidMAMPolicyByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAndroidMAMPolicyByNameResult>("azure-native:intune/v20150114privatepreview:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns AndroidMAMPolicy with given name.
+        /// </summary>
+        public static Output<GetAndroidMAMPolicyByNameResult> Invoke(GetAndroidMAMPolicyByNameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAndroidMAMPolicyByNameResult>("azure-native:intune/v20150114privatepreview:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameInvokeArgs(), options.WithDefaults());
     }
 
 

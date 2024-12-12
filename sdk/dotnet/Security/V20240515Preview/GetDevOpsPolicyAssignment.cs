@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20240515Preview
         /// </summary>
         public static Output<GetDevOpsPolicyAssignmentResult> Invoke(GetDevOpsPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevOpsPolicyAssignmentResult>("azure-native:security/v20240515preview:getDevOpsPolicyAssignment", args ?? new GetDevOpsPolicyAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// DevOps Policy assignment resource.
+        /// </summary>
+        public static Output<GetDevOpsPolicyAssignmentResult> Invoke(GetDevOpsPolicyAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevOpsPolicyAssignmentResult>("azure-native:security/v20240515preview:getDevOpsPolicyAssignment", args ?? new GetDevOpsPolicyAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

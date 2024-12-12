@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public static Output<GetEdgeSiteResult> Invoke(GetEdgeSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEdgeSiteResult>("azure-native:orbital:getEdgeSite", args ?? new GetEdgeSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified edge site in a specified resource group.
+        /// Azure REST API version: 2024-03-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01.
+        /// </summary>
+        public static Output<GetEdgeSiteResult> Invoke(GetEdgeSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEdgeSiteResult>("azure-native:orbital:getEdgeSite", args ?? new GetEdgeSiteInvokeArgs(), options.WithDefaults());
     }
 
 

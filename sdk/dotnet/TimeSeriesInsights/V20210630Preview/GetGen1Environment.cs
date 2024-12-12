@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview
         /// </summary>
         public static Output<GetGen1EnvironmentResult> Invoke(GetGen1EnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGen1EnvironmentResult>("azure-native:timeseriesinsights/v20210630preview:getGen1Environment", args ?? new GetGen1EnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the environment with the specified name in the specified subscription and resource group.
+        /// </summary>
+        public static Output<GetGen1EnvironmentResult> Invoke(GetGen1EnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGen1EnvironmentResult>("azure-native:timeseriesinsights/v20210630preview:getGen1Environment", args ?? new GetGen1EnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

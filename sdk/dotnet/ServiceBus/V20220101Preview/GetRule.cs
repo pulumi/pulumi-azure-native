@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:servicebus/v20220101preview:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the description for the specified rule.
+        /// </summary>
+        public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:servicebus/v20220101preview:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
     }
 
 

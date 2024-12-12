@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a server.
+        /// Azure REST API version: 2018-06-01.
+        /// 
+        /// Other available API versions: 2018-06-01-preview.
+        /// </summary>
+        public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbformariadb:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230801Preview
         /// </summary>
         public static Output<GetCredentialSetResult> Invoke(GetCredentialSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialSetResult>("azure-native:containerregistry/v20230801preview:getCredentialSet", args ?? new GetCredentialSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified credential set resource.
+        /// </summary>
+        public static Output<GetCredentialSetResult> Invoke(GetCredentialSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCredentialSetResult>("azure-native:containerregistry/v20230801preview:getCredentialSet", args ?? new GetCredentialSetInvokeArgs(), options.WithDefaults());
     }
 
 

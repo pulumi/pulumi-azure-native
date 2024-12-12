@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20201001
         /// </summary>
         public static Output<ListWebAppFunctionKeysResult> Invoke(ListWebAppFunctionKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionKeysResult>("azure-native:web/v20201001:listWebAppFunctionKeys", args ?? new ListWebAppFunctionKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get function keys for a function in a web site, or a deployment slot.
+        /// </summary>
+        public static Output<ListWebAppFunctionKeysResult> Invoke(ListWebAppFunctionKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionKeysResult>("azure-native:web/v20201001:listWebAppFunctionKeys", args ?? new ListWebAppFunctionKeysInvokeArgs(), options.WithDefaults());
     }
 
 

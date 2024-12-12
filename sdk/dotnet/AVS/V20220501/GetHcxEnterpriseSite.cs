@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20220501
         /// </summary>
         public static Output<GetHcxEnterpriseSiteResult> Invoke(GetHcxEnterpriseSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHcxEnterpriseSiteResult>("azure-native:avs/v20220501:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An HCX Enterprise Site resource
+        /// </summary>
+        public static Output<GetHcxEnterpriseSiteResult> Invoke(GetHcxEnterpriseSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHcxEnterpriseSiteResult>("azure-native:avs/v20220501:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteInvokeArgs(), options.WithDefaults());
     }
 
 

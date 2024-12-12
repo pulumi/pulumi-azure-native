@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20240501Preview
         /// </summary>
         public static Output<ListAllTrafficFilterResult> Invoke(ListAllTrafficFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAllTrafficFilterResult>("azure-native:elastic/v20240501preview:listAllTrafficFilter", args ?? new ListAllTrafficFilterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List of elastic traffic filters in the account
+        /// </summary>
+        public static Output<ListAllTrafficFilterResult> Invoke(ListAllTrafficFilterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAllTrafficFilterResult>("azure-native:elastic/v20240501preview:listAllTrafficFilter", args ?? new ListAllTrafficFilterInvokeArgs(), options.WithDefaults());
     }
 
 

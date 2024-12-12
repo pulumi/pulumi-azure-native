@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:education/v20211201preview:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details for a specific lab associated with the provided billing account name, billing profile name, and invoice section name.
+        /// </summary>
+        public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:education/v20211201preview:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
     }
 
 

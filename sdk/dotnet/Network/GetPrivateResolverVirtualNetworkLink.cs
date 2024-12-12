@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetPrivateResolverVirtualNetworkLinkResult> Invoke(GetPrivateResolverVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateResolverVirtualNetworkLinkResult>("azure-native:network:getPrivateResolverVirtualNetworkLink", args ?? new GetPrivateResolverVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a virtual network link to a DNS forwarding ruleset.
+        /// Azure REST API version: 2022-07-01.
+        /// 
+        /// Other available API versions: 2020-04-01-preview, 2023-07-01-preview.
+        /// </summary>
+        public static Output<GetPrivateResolverVirtualNetworkLinkResult> Invoke(GetPrivateResolverVirtualNetworkLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateResolverVirtualNetworkLinkResult>("azure-native:network:getPrivateResolverVirtualNetworkLink", args ?? new GetPrivateResolverVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
     }
 
 

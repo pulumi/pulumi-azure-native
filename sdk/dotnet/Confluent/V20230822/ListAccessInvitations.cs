@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Confluent.V20230822
         /// </summary>
         public static Output<ListAccessInvitationsResult> Invoke(ListAccessInvitationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessInvitationsResult>("azure-native:confluent/v20230822:listAccessInvitations", args ?? new ListAccessInvitationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List invitations success response
+        /// </summary>
+        public static Output<ListAccessInvitationsResult> Invoke(ListAccessInvitationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccessInvitationsResult>("azure-native:confluent/v20230822:listAccessInvitations", args ?? new ListAccessInvitationsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ExtendedLocation
         /// </summary>
         public static Output<GetCustomLocationResult> Invoke(GetCustomLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure-native:extendedlocation:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the customLocation with a specified resource group and name.
+        /// Azure REST API version: 2021-08-15.
+        /// 
+        /// Other available API versions: 2021-08-31-preview.
+        /// </summary>
+        public static Output<GetCustomLocationResult> Invoke(GetCustomLocationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure-native:extendedlocation:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CostManagement.V20240801
         /// </summary>
         public static Output<GetViewByScopeResult> Invoke(GetViewByScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewByScopeResult>("azure-native:costmanagement/v20240801:getViewByScope", args ?? new GetViewByScopeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the view for the defined scope by view name.
+        /// </summary>
+        public static Output<GetViewByScopeResult> Invoke(GetViewByScopeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetViewByScopeResult>("azure-native:costmanagement/v20240801:getViewByScope", args ?? new GetViewByScopeInvokeArgs(), options.WithDefaults());
     }
 
 

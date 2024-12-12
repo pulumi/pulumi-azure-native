@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240301
         /// </summary>
         public static Output<GetSecurityUserRuleResult> Invoke(GetSecurityUserRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserRuleResult>("azure-native:network/v20240301:getSecurityUserRule", args ?? new GetSecurityUserRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a security user rule.
+        /// </summary>
+        public static Output<GetSecurityUserRuleResult> Invoke(GetSecurityUserRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserRuleResult>("azure-native:network/v20240301:getSecurityUserRule", args ?? new GetSecurityUserRuleInvokeArgs(), options.WithDefaults());
     }
 
 

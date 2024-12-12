@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240501Preview
         /// </summary>
         public static Output<GetCustomizationTaskErrorDetailsResult> Invoke(GetCustomizationTaskErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomizationTaskErrorDetailsResult>("azure-native:devcenter/v20240501preview:getCustomizationTaskErrorDetails", args ?? new GetCustomizationTaskErrorDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets Customization Task error details
+        /// </summary>
+        public static Output<GetCustomizationTaskErrorDetailsResult> Invoke(GetCustomizationTaskErrorDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomizationTaskErrorDetailsResult>("azure-native:devcenter/v20240501preview:getCustomizationTaskErrorDetails", args ?? new GetCustomizationTaskErrorDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

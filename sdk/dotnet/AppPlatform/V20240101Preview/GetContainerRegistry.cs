@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20240101Preview
         /// </summary>
         public static Output<GetContainerRegistryResult> Invoke(GetContainerRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerRegistryResult>("azure-native:appplatform/v20240101preview:getContainerRegistry", args ?? new GetContainerRegistryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the container registries resource.
+        /// </summary>
+        public static Output<GetContainerRegistryResult> Invoke(GetContainerRegistryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerRegistryResult>("azure-native:appplatform/v20240101preview:getContainerRegistry", args ?? new GetContainerRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

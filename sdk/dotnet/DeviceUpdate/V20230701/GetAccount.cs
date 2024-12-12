@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20230701
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:deviceupdate/v20230701:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns account details for the given account name.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:deviceupdate/v20230701:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

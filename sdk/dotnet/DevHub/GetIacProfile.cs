@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         public static Output<GetIacProfileResult> Invoke(GetIacProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIacProfileResult>("azure-native:devhub:getIacProfile", args ?? new GetIacProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource representation of a IacProfile.
+        /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2024-08-01-preview.
+        /// </summary>
+        public static Output<GetIacProfileResult> Invoke(GetIacProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIacProfileResult>("azure-native:devhub:getIacProfile", args ?? new GetIacProfileInvokeArgs(), options.WithDefaults());
     }
 
 

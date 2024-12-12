@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("azure-native:apimanagement:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the Schema specified by its identifier.
+        /// Azure REST API version: 2021-04-01-preview.
+        /// </summary>
+        public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("azure-native:apimanagement:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

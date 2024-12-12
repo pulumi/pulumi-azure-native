@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview
         /// </summary>
         public static Output<GetRaiBlocklistItemResult> Invoke(GetRaiBlocklistItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiBlocklistItemResult>("azure-native:cognitiveservices/v20231001preview:getRaiBlocklistItem", args ?? new GetRaiBlocklistItemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified custom blocklist Item associated with the custom blocklist.
+        /// </summary>
+        public static Output<GetRaiBlocklistItemResult> Invoke(GetRaiBlocklistItemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRaiBlocklistItemResult>("azure-native:cognitiveservices/v20231001preview:getRaiBlocklistItem", args ?? new GetRaiBlocklistItemInvokeArgs(), options.WithDefaults());
     }
 
 

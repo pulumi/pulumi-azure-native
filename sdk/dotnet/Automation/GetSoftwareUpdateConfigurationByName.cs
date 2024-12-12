@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public static Output<GetSoftwareUpdateConfigurationByNameResult> Invoke(GetSoftwareUpdateConfigurationByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a single software update configuration by name.
+        /// Azure REST API version: 2019-06-01.
+        /// 
+        /// Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+        /// </summary>
+        public static Output<GetSoftwareUpdateConfigurationByNameResult> Invoke(GetSoftwareUpdateConfigurationByNameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameInvokeArgs(), options.WithDefaults());
     }
 
 

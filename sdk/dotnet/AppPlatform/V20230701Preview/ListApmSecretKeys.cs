@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230701Preview
         /// </summary>
         public static Output<ListApmSecretKeysResult> Invoke(ListApmSecretKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListApmSecretKeysResult>("azure-native:appplatform/v20230701preview:listApmSecretKeys", args ?? new ListApmSecretKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List keys of APM sensitive properties.
+        /// </summary>
+        public static Output<ListApmSecretKeysResult> Invoke(ListApmSecretKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListApmSecretKeysResult>("azure-native:appplatform/v20230701preview:listApmSecretKeys", args ?? new ListApmSecretKeysInvokeArgs(), options.WithDefaults());
     }
 
 

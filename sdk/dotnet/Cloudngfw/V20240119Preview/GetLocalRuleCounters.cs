@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240119Preview
         /// </summary>
         public static Output<GetLocalRuleCountersResult> Invoke(GetLocalRuleCountersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRuleCountersResult>("azure-native:cloudngfw/v20240119preview:getLocalRuleCounters", args ?? new GetLocalRuleCountersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get counters
+        /// </summary>
+        public static Output<GetLocalRuleCountersResult> Invoke(GetLocalRuleCountersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalRuleCountersResult>("azure-native:cloudngfw/v20240119preview:getLocalRuleCounters", args ?? new GetLocalRuleCountersInvokeArgs(), options.WithDefaults());
     }
 
 

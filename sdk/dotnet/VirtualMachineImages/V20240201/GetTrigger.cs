@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20240201
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:virtualmachineimages/v20240201:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the specified trigger for the specified image template resource
+        /// </summary>
+        public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("azure-native:virtualmachineimages/v20240201:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Quota.V20241015Preview
         /// </summary>
         public static Output<GetGroupQuotaSubscriptionResult> Invoke(GetGroupQuotaSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaSubscriptionResult>("azure-native:quota/v20241015preview:getGroupQuotaSubscription", args ?? new GetGroupQuotaSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
+        /// </summary>
+        public static Output<GetGroupQuotaSubscriptionResult> Invoke(GetGroupQuotaSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaSubscriptionResult>("azure-native:quota/v20241015preview:getGroupQuotaSubscription", args ?? new GetGroupQuotaSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

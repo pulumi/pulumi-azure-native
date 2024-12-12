@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEfsFileSystemResult> Invoke(GetEfsFileSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEfsFileSystemResult>("azure-native:awsconnector/v20241201:getEfsFileSystem", args ?? new GetEfsFileSystemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EfsFileSystem
+        /// </summary>
+        public static Output<GetEfsFileSystemResult> Invoke(GetEfsFileSystemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEfsFileSystemResult>("azure-native:awsconnector/v20241201:getEfsFileSystem", args ?? new GetEfsFileSystemInvokeArgs(), options.WithDefaults());
     }
 
 

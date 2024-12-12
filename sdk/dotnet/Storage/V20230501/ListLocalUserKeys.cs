@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20230501
         /// </summary>
         public static Output<ListLocalUserKeysResult> Invoke(ListLocalUserKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocalUserKeysResult>("azure-native:storage/v20230501:listLocalUserKeys", args ?? new ListLocalUserKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List SSH authorized keys and shared key of the local user.
+        /// </summary>
+        public static Output<ListLocalUserKeysResult> Invoke(ListLocalUserKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListLocalUserKeysResult>("azure-native:storage/v20230501:listLocalUserKeys", args ?? new ListLocalUserKeysInvokeArgs(), options.WithDefaults());
     }
 
 

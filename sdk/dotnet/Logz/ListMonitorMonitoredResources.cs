@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Logz
         /// </summary>
         public static Output<ListMonitorMonitoredResourcesResult> Invoke(ListMonitorMonitoredResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorMonitoredResourcesResult>("azure-native:logz:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response of a list operation.
+        /// Azure REST API version: 2022-01-01-preview.
+        /// </summary>
+        public static Output<ListMonitorMonitoredResourcesResult> Invoke(ListMonitorMonitoredResourcesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitorMonitoredResourcesResult>("azure-native:logz:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

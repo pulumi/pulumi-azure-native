@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataReplication.V20210216Preview
         /// </summary>
         public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:datareplication/v20210216preview:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the protected item.
+        /// </summary>
+        public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:datareplication/v20210216preview:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());
     }
 
 

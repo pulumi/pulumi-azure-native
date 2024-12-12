@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorageCache.V20240301
         /// </summary>
         public static Output<GetAmlFilesystemResult> Invoke(GetAmlFilesystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAmlFilesystemResult>("azure-native:storagecache/v20240301:getAmlFilesystem", args ?? new GetAmlFilesystemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns an AML file system.
+        /// </summary>
+        public static Output<GetAmlFilesystemResult> Invoke(GetAmlFilesystemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAmlFilesystemResult>("azure-native:storagecache/v20240301:getAmlFilesystem", args ?? new GetAmlFilesystemInvokeArgs(), options.WithDefaults());
     }
 
 

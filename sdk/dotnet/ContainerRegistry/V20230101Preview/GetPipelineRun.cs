@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
         /// </summary>
         public static Output<GetPipelineRunResult> Invoke(GetPipelineRunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineRunResult>("azure-native:containerregistry/v20230101preview:getPipelineRun", args ?? new GetPipelineRunInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the detailed information for a given pipeline run.
+        /// </summary>
+        public static Output<GetPipelineRunResult> Invoke(GetPipelineRunInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineRunResult>("azure-native:containerregistry/v20230101preview:getPipelineRun", args ?? new GetPipelineRunInvokeArgs(), options.WithDefaults());
     }
 
 

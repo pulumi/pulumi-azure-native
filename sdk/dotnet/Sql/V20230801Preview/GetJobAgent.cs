@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20230801Preview
         /// </summary>
         public static Output<GetJobAgentResult> Invoke(GetJobAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobAgentResult>("azure-native:sql/v20230801preview:getJobAgent", args ?? new GetJobAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a job agent.
+        /// </summary>
+        public static Output<GetJobAgentResult> Invoke(GetJobAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobAgentResult>("azure-native:sql/v20230801preview:getJobAgent", args ?? new GetJobAgentInvokeArgs(), options.WithDefaults());
     }
 
 

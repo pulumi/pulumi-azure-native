@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230315
         /// </summary>
         public static Output<GetPrivateEndpointConnectionOperationResult> Invoke(GetPrivateEndpointConnectionOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionOperationResult>("azure-native:migrate/v20230315:getPrivateEndpointConnectionOperation", args ?? new GetPrivateEndpointConnectionOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a PrivateEndpointConnection
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionOperationResult> Invoke(GetPrivateEndpointConnectionOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionOperationResult>("azure-native:migrate/v20230315:getPrivateEndpointConnectionOperation", args ?? new GetPrivateEndpointConnectionOperationInvokeArgs(), options.WithDefaults());
     }
 
 

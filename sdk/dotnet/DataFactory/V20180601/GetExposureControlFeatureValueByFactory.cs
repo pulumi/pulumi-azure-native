@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Output<GetExposureControlFeatureValueByFactoryResult> Invoke(GetExposureControlFeatureValueByFactoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExposureControlFeatureValueByFactoryResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", args ?? new GetExposureControlFeatureValueByFactoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get exposure control feature for specific factory.
+        /// </summary>
+        public static Output<GetExposureControlFeatureValueByFactoryResult> Invoke(GetExposureControlFeatureValueByFactoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExposureControlFeatureValueByFactoryResult>("azure-native:datafactory/v20180601:getExposureControlFeatureValueByFactory", args ?? new GetExposureControlFeatureValueByFactoryInvokeArgs(), options.WithDefaults());
     }
 
 

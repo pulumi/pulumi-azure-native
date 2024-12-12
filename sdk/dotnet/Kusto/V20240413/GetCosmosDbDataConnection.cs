@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Kusto.V20240413
         /// </summary>
         public static Output<GetCosmosDbDataConnectionResult> Invoke(GetCosmosDbDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCosmosDbDataConnectionResult>("azure-native:kusto/v20240413:getCosmosDbDataConnection", args ?? new GetCosmosDbDataConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a data connection.
+        /// </summary>
+        public static Output<GetCosmosDbDataConnectionResult> Invoke(GetCosmosDbDataConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCosmosDbDataConnectionResult>("azure-native:kusto/v20240413:getCosmosDbDataConnection", args ?? new GetCosmosDbDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

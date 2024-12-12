@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
         /// </summary>
         public static Output<GetEmailTemplateResult> Invoke(GetEmailTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailTemplateResult>("azure-native:apimanagement/v20240501:getEmailTemplate", args ?? new GetEmailTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the email template specified by its identifier.
+        /// </summary>
+        public static Output<GetEmailTemplateResult> Invoke(GetEmailTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailTemplateResult>("azure-native:apimanagement/v20240501:getEmailTemplate", args ?? new GetEmailTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

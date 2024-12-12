@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
         /// </summary>
         public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssociationResult>("azure-native:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an association.
+        /// </summary>
+        public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssociationResult>("azure-native:customproviders/v20180901preview:getAssociation", args ?? new GetAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

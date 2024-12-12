@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
         /// </summary>
         public static Output<GetInstanceFailoverGroupResult> Invoke(GetInstanceFailoverGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceFailoverGroupResult>("azure-native:sql/v20230201preview:getInstanceFailoverGroup", args ?? new GetInstanceFailoverGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a failover group.
+        /// </summary>
+        public static Output<GetInstanceFailoverGroupResult> Invoke(GetInstanceFailoverGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceFailoverGroupResult>("azure-native:sql/v20230201preview:getInstanceFailoverGroup", args ?? new GetInstanceFailoverGroupInvokeArgs(), options.WithDefaults());
     }
 
 

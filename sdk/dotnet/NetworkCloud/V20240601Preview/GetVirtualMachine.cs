@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20240601Preview
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:networkcloud/v20240601preview:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided virtual machine.
+        /// </summary>
+        public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:networkcloud/v20240601preview:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
     }
 
 

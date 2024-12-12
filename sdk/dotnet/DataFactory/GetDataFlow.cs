@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Output<GetDataFlowResult> Invoke(GetDataFlowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowResult>("azure-native:datafactory:getDataFlow", args ?? new GetDataFlowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data flow.
+        /// Azure REST API version: 2018-06-01.
+        /// </summary>
+        public static Output<GetDataFlowResult> Invoke(GetDataFlowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowResult>("azure-native:datafactory:getDataFlow", args ?? new GetDataFlowInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Kusto.V20230815
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:kusto/v20230815:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Kusto cluster.
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:kusto/v20230815:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20231201
         /// </summary>
         public static Output<GetVCenterResult> Invoke(GetVCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere/v20231201:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements vCenter GET method.
+        /// </summary>
+        public static Output<GetVCenterResult> Invoke(GetVCenterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVCenterResult>("azure-native:connectedvmwarevsphere/v20231201:getVCenter", args ?? new GetVCenterInvokeArgs(), options.WithDefaults());
     }
 
 

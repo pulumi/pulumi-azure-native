@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.V20221101
         /// </summary>
         public static Output<GetLiveEventTrackIngestHeartbeatsResult> Invoke(GetLiveEventTrackIngestHeartbeatsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventTrackIngestHeartbeatsResult>("azure-native:media/v20221101:getLiveEventTrackIngestHeartbeats", args ?? new GetLiveEventTrackIngestHeartbeatsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get track ingest heartbeat events telemetry of a live event.
+        /// </summary>
+        public static Output<GetLiveEventTrackIngestHeartbeatsResult> Invoke(GetLiveEventTrackIngestHeartbeatsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventTrackIngestHeartbeatsResult>("azure-native:media/v20221101:getLiveEventTrackIngestHeartbeats", args ?? new GetLiveEventTrackIngestHeartbeatsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20241023
         /// </summary>
         public static Output<ListAutomationAccountDeletedRunbooksResult> Invoke(ListAutomationAccountDeletedRunbooksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAutomationAccountDeletedRunbooksResult>("azure-native:automation/v20241023:listAutomationAccountDeletedRunbooks", args ?? new ListAutomationAccountDeletedRunbooksInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the deleted runbooks for an automation account.
+        /// </summary>
+        public static Output<ListAutomationAccountDeletedRunbooksResult> Invoke(ListAutomationAccountDeletedRunbooksInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAutomationAccountDeletedRunbooksResult>("azure-native:automation/v20241023:listAutomationAccountDeletedRunbooks", args ?? new ListAutomationAccountDeletedRunbooksInvokeArgs(), options.WithDefaults());
     }
 
 

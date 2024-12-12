@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230501Preview
         /// </summary>
         public static Output<GetWebAppCollectorOperationResult> Invoke(GetWebAppCollectorOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppCollectorOperationResult>("azure-native:migrate/v20230501preview:getWebAppCollectorOperation", args ?? new GetWebAppCollectorOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a WebAppCollector
+        /// </summary>
+        public static Output<GetWebAppCollectorOperationResult> Invoke(GetWebAppCollectorOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppCollectorOperationResult>("azure-native:migrate/v20230501preview:getWebAppCollectorOperation", args ?? new GetWebAppCollectorOperationInvokeArgs(), options.WithDefaults());
     }
 
 

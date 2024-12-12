@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20231102Preview
         /// </summary>
         public static Output<GetDotNetComponentResult> Invoke(GetDotNetComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDotNetComponentResult>("azure-native:app/v20231102preview:getDotNetComponent", args ?? new GetDotNetComponentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// .NET Component.
+        /// </summary>
+        public static Output<GetDotNetComponentResult> Invoke(GetDotNetComponentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDotNetComponentResult>("azure-native:app/v20231102preview:getDotNetComponent", args ?? new GetDotNetComponentInvokeArgs(), options.WithDefaults());
     }
 
 

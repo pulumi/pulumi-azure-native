@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240301
         /// </summary>
         public static Output<GetVpnSiteResult> Invoke(GetVpnSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnSiteResult>("azure-native:network/v20240301:getVpnSite", args ?? new GetVpnSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the details of a VPN site.
+        /// </summary>
+        public static Output<GetVpnSiteResult> Invoke(GetVpnSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpnSiteResult>("azure-native:network/v20240301:getVpnSite", args ?? new GetVpnSiteInvokeArgs(), options.WithDefaults());
     }
 
 

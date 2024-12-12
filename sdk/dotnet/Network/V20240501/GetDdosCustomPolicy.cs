@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240501
         /// </summary>
         public static Output<GetDdosCustomPolicyResult> Invoke(GetDdosCustomPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDdosCustomPolicyResult>("azure-native:network/v20240501:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified DDoS custom policy.
+        /// </summary>
+        public static Output<GetDdosCustomPolicyResult> Invoke(GetDdosCustomPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDdosCustomPolicyResult>("azure-native:network/v20240501:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

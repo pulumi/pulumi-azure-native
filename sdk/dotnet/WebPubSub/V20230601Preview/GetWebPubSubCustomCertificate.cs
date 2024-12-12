@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.WebPubSub.V20230601Preview
         /// </summary>
         public static Output<GetWebPubSubCustomCertificateResult> Invoke(GetWebPubSubCustomCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubCustomCertificateResult>("azure-native:webpubsub/v20230601preview:getWebPubSubCustomCertificate", args ?? new GetWebPubSubCustomCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a custom certificate.
+        /// </summary>
+        public static Output<GetWebPubSubCustomCertificateResult> Invoke(GetWebPubSubCustomCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubCustomCertificateResult>("azure-native:webpubsub/v20230601preview:getWebPubSubCustomCertificate", args ?? new GetWebPubSubCustomCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

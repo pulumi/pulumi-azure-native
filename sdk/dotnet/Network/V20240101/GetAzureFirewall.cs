@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240101
         /// </summary>
         public static Output<GetAzureFirewallResult> Invoke(GetAzureFirewallInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureFirewallResult>("azure-native:network/v20240101:getAzureFirewall", args ?? new GetAzureFirewallInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Azure Firewall.
+        /// </summary>
+        public static Output<GetAzureFirewallResult> Invoke(GetAzureFirewallInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureFirewallResult>("azure-native:network/v20240101:getAzureFirewall", args ?? new GetAzureFirewallInvokeArgs(), options.WithDefaults());
     }
 
 

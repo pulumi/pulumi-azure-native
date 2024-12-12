@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public static Output<GetBareMetalMachineKeySetResult> Invoke(GetBareMetalMachineKeySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineKeySetResult>("azure-native:networkcloud:getBareMetalMachineKeySet", args ?? new GetBareMetalMachineKeySetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get bare metal machine key set of the provided cluster.
+        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
+        /// </summary>
+        public static Output<GetBareMetalMachineKeySetResult> Invoke(GetBareMetalMachineKeySetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineKeySetResult>("azure-native:networkcloud:getBareMetalMachineKeySet", args ?? new GetBareMetalMachineKeySetInvokeArgs(), options.WithDefaults());
     }
 
 

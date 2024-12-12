@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20230901
         /// </summary>
         public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:operationalinsights/v20230901:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a linked service instance.
+        /// </summary>
+        public static Output<GetLinkedServiceResult> Invoke(GetLinkedServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServiceResult>("azure-native:operationalinsights/v20230901:getLinkedService", args ?? new GetLinkedServiceInvokeArgs(), options.WithDefaults());
     }
 
 

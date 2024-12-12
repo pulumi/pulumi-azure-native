@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetDynamoDbContinuousBackupsDescriptionResult> Invoke(GetDynamoDbContinuousBackupsDescriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamoDbContinuousBackupsDescriptionResult>("azure-native:awsconnector:getDynamoDbContinuousBackupsDescription", args ?? new GetDynamoDbContinuousBackupsDescriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DynamoDBContinuousBackupsDescription
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetDynamoDbContinuousBackupsDescriptionResult> Invoke(GetDynamoDbContinuousBackupsDescriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDynamoDbContinuousBackupsDescriptionResult>("azure-native:awsconnector:getDynamoDbContinuousBackupsDescription", args ?? new GetDynamoDbContinuousBackupsDescriptionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
         /// </summary>
         public static Output<ListClusterStreamingJobsResult> Invoke(ListClusterStreamingJobsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListClusterStreamingJobsResult>("azure-native:streamanalytics/v20200301:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists all of the streaming jobs in the given cluster.
+        /// </summary>
+        public static Output<ListClusterStreamingJobsResult> Invoke(ListClusterStreamingJobsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListClusterStreamingJobsResult>("azure-native:streamanalytics/v20200301:listClusterStreamingJobs", args ?? new ListClusterStreamingJobsInvokeArgs(), options.WithDefaults());
     }
 
 

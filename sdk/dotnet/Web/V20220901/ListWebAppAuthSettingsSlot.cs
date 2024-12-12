@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20220901
         /// </summary>
         public static Output<ListWebAppAuthSettingsSlotResult> Invoke(ListWebAppAuthSettingsSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppAuthSettingsSlotResult>("azure-native:web/v20220901:listWebAppAuthSettingsSlot", args ?? new ListWebAppAuthSettingsSlotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Gets the Authentication/Authorization settings of an app.
+        /// </summary>
+        public static Output<ListWebAppAuthSettingsSlotResult> Invoke(ListWebAppAuthSettingsSlotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppAuthSettingsSlotResult>("azure-native:web/v20220901:listWebAppAuthSettingsSlot", args ?? new ListWebAppAuthSettingsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

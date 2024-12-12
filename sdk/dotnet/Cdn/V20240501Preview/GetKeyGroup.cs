@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20240501Preview
         /// </summary>
         public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("azure-native:cdn/v20240501preview:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing KeyGroup within a profile.
+        /// </summary>
+        public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("azure-native:cdn/v20240501preview:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
     }
 
 

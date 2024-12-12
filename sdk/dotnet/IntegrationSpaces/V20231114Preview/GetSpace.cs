@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IntegrationSpaces.V20231114Preview
         /// </summary>
         public static Output<GetSpaceResult> Invoke(GetSpaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpaceResult>("azure-native:integrationspaces/v20231114preview:getSpace", args ?? new GetSpaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Space
+        /// </summary>
+        public static Output<GetSpaceResult> Invoke(GetSpaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpaceResult>("azure-native:integrationspaces/v20231114preview:getSpace", args ?? new GetSpaceInvokeArgs(), options.WithDefaults());
     }
 
 

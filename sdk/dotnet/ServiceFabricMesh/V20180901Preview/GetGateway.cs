@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:servicefabricmesh/v20180901preview:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
+        /// </summary>
+        public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:servicefabricmesh/v20180901preview:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

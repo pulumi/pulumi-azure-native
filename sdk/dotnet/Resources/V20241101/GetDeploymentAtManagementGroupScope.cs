@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Resources.V20241101
         /// </summary>
         public static Output<GetDeploymentAtManagementGroupScopeResult> Invoke(GetDeploymentAtManagementGroupScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtManagementGroupScopeResult>("azure-native:resources/v20241101:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a deployment.
+        /// </summary>
+        public static Output<GetDeploymentAtManagementGroupScopeResult> Invoke(GetDeploymentAtManagementGroupScopeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtManagementGroupScopeResult>("azure-native:resources/v20241101:getDeploymentAtManagementGroupScope", args ?? new GetDeploymentAtManagementGroupScopeInvokeArgs(), options.WithDefaults());
     }
 
 

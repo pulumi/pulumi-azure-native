@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Output<GetImageUploadUrlForEntityTypeResult> Invoke(GetImageUploadUrlForEntityTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageUploadUrlForEntityTypeResult>("azure-native:customerinsights/v20170426:getImageUploadUrlForEntityType", args ?? new GetImageUploadUrlForEntityTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets entity type (profile or interaction) image upload URL.
+        /// </summary>
+        public static Output<GetImageUploadUrlForEntityTypeResult> Invoke(GetImageUploadUrlForEntityTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageUploadUrlForEntityTypeResult>("azure-native:customerinsights/v20170426:getImageUploadUrlForEntityType", args ?? new GetImageUploadUrlForEntityTypeInvokeArgs(), options.WithDefaults());
     }
 
 

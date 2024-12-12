@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         /// </summary>
         public static Output<GetNspAccessRuleResult> Invoke(GetNspAccessRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspAccessRuleResult>("azure-native:network/v20230701preview:getNspAccessRule", args ?? new GetNspAccessRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified NSP access rule by name.
+        /// </summary>
+        public static Output<GetNspAccessRuleResult> Invoke(GetNspAccessRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNspAccessRuleResult>("azure-native:network/v20230701preview:getNspAccessRule", args ?? new GetNspAccessRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public static Output<GetPrivateLinkScopedResourceResult> Invoke(GetPrivateLinkScopedResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopedResourceResult>("azure-native:hybridcompute:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a scoped resource in a private link scope.
+        /// Azure REST API version: 2020-08-15-preview.
+        /// </summary>
+        public static Output<GetPrivateLinkScopedResourceResult> Invoke(GetPrivateLinkScopedResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopedResourceResult>("azure-native:hybridcompute:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceInvokeArgs(), options.WithDefaults());
     }
 
 

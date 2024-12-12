@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20200202
         /// </summary>
         public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentResult>("azure-native:insights/v20200202:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns an Application Insights component.
+        /// </summary>
+        public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentResult>("azure-native:insights/v20200202:getComponent", args ?? new GetComponentInvokeArgs(), options.WithDefaults());
     }
 
 

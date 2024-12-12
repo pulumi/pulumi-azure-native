@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20240802Preview
         /// </summary>
         public static Output<GetManagedEnvironmentAuthTokenResult> Invoke(GetManagedEnvironmentAuthTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentAuthTokenResult>("azure-native:app/v20240802preview:getManagedEnvironmentAuthToken", args ?? new GetManagedEnvironmentAuthTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Checks if resource name is available.
+        /// </summary>
+        public static Output<GetManagedEnvironmentAuthTokenResult> Invoke(GetManagedEnvironmentAuthTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentAuthTokenResult>("azure-native:app/v20240802preview:getManagedEnvironmentAuthToken", args ?? new GetManagedEnvironmentAuthTokenInvokeArgs(), options.WithDefaults());
     }
 
 

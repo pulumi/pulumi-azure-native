@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the peer ASN with the specified name under the given subscription.
+        /// Azure REST API version: 2022-10-01.
+        /// 
+        /// Other available API versions: 2021-01-01.
+        /// </summary>
+        public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithDefaults());
     }
 
 

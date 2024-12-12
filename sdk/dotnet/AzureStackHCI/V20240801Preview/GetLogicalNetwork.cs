@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240801Preview
         /// </summary>
         public static Output<GetLogicalNetworkResult> Invoke(GetLogicalNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogicalNetworkResult>("azure-native:azurestackhci/v20240801preview:getLogicalNetwork", args ?? new GetLogicalNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation to get a logical network.
+        /// </summary>
+        public static Output<GetLogicalNetworkResult> Invoke(GetLogicalNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogicalNetworkResult>("azure-native:azurestackhci/v20240801preview:getLogicalNetwork", args ?? new GetLogicalNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240119Preview
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwSupportInfoResult>("azure-native:cloudngfw/v20240119preview:listPaloAltoNetworksCloudngfwSupportInfo", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Support information for the service
+        /// </summary>
+        public static Output<ListPaloAltoNetworksCloudngfwSupportInfoResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwSupportInfoResult>("azure-native:cloudngfw/v20240119preview:listPaloAltoNetworksCloudngfwSupportInfo", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

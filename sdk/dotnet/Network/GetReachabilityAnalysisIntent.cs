@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetReachabilityAnalysisIntentResult> Invoke(GetReachabilityAnalysisIntentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReachabilityAnalysisIntentResult>("azure-native:network:getReachabilityAnalysisIntent", args ?? new GetReachabilityAnalysisIntentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Configuration information or intent on which to do the analysis on.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
+        /// </summary>
+        public static Output<GetReachabilityAnalysisIntentResult> Invoke(GetReachabilityAnalysisIntentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReachabilityAnalysisIntentResult>("azure-native:network:getReachabilityAnalysisIntent", args ?? new GetReachabilityAnalysisIntentInvokeArgs(), options.WithDefaults());
     }
 
 

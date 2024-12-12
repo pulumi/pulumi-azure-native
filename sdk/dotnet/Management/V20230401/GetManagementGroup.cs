@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Management.V20230401
         /// </summary>
         public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupResult>("azure-native:management/v20230401:getManagementGroup", args ?? new GetManagementGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details of the management group.
+        /// </summary>
+        public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupResult>("azure-native:management/v20230401:getManagementGroup", args ?? new GetManagementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

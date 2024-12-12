@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
         /// </summary>
         public static Output<GetAwsS3DataConnectorResult> Invoke(GetAwsS3DataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAwsS3DataConnectorResult>("azure-native:securityinsights/v20240401preview:getAwsS3DataConnector", args ?? new GetAwsS3DataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// </summary>
+        public static Output<GetAwsS3DataConnectorResult> Invoke(GetAwsS3DataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAwsS3DataConnectorResult>("azure-native:securityinsights/v20240401preview:getAwsS3DataConnector", args ?? new GetAwsS3DataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

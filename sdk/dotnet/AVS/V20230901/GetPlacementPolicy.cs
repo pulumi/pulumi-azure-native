@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230901
         /// </summary>
         public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs/v20230901:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a PlacementPolicy
+        /// </summary>
+        public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs/v20230901:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

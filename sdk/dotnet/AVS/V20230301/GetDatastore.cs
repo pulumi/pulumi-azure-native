@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230301
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:avs/v20230301:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A datastore resource
+        /// </summary>
+        public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:avs/v20230301:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
     }
 
 

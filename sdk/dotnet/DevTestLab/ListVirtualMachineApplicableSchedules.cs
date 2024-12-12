@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public static Output<ListVirtualMachineApplicableSchedulesResult> Invoke(ListVirtualMachineApplicableSchedulesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVirtualMachineApplicableSchedulesResult>("azure-native:devtestlab:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the applicable start/stop schedules, if any.
+        /// Azure REST API version: 2018-09-15.
+        /// </summary>
+        public static Output<ListVirtualMachineApplicableSchedulesResult> Invoke(ListVirtualMachineApplicableSchedulesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListVirtualMachineApplicableSchedulesResult>("azure-native:devtestlab:listVirtualMachineApplicableSchedules", args ?? new ListVirtualMachineApplicableSchedulesInvokeArgs(), options.WithDefaults());
     }
 
 

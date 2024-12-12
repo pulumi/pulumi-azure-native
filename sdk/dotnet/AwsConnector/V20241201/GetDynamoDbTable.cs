@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetDynamoDbTableResult> Invoke(GetDynamoDbTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamoDbTableResult>("azure-native:awsconnector/v20241201:getDynamoDbTable", args ?? new GetDynamoDbTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DynamoDBTable
+        /// </summary>
+        public static Output<GetDynamoDbTableResult> Invoke(GetDynamoDbTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDynamoDbTableResult>("azure-native:awsconnector/v20241201:getDynamoDbTable", args ?? new GetDynamoDbTableInvokeArgs(), options.WithDefaults());
     }
 
 

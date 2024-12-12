@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// </summary>
         public static Output<GetServerAdvisorResult> Invoke(GetServerAdvisorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerAdvisorResult>("azure-native:sql/v20140401:getServerAdvisor", args ?? new GetServerAdvisorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a server advisor.
+        /// </summary>
+        public static Output<GetServerAdvisorResult> Invoke(GetServerAdvisorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerAdvisorResult>("azure-native:sql/v20140401:getServerAdvisor", args ?? new GetServerAdvisorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         public static Output<ListIotHubResourceKeysResult> Invoke(ListIotHubResourceKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIotHubResourceKeysResult>("azure-native:devices:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
+        /// Azure REST API version: 2022-04-30-preview.
+        /// 
+        /// Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+        /// </summary>
+        public static Output<ListIotHubResourceKeysResult> Invoke(ListIotHubResourceKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListIotHubResourceKeysResult>("azure-native:devices:listIotHubResourceKeys", args ?? new ListIotHubResourceKeysInvokeArgs(), options.WithDefaults());
     }
 
 

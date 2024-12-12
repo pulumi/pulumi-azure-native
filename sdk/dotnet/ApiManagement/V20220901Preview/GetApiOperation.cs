@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20220901Preview
         /// </summary>
         public static Output<GetApiOperationResult> Invoke(GetApiOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiOperationResult>("azure-native:apimanagement/v20220901preview:getApiOperation", args ?? new GetApiOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the API Operation specified by its identifier.
+        /// </summary>
+        public static Output<GetApiOperationResult> Invoke(GetApiOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiOperationResult>("azure-native:apimanagement/v20220901preview:getApiOperation", args ?? new GetApiOperationInvokeArgs(), options.WithDefaults());
     }
 
 

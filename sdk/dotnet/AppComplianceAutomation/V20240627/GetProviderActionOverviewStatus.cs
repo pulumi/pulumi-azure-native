@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.V20240627
         /// </summary>
         public static Output<GetProviderActionOverviewStatusResult> Invoke(GetProviderActionOverviewStatusInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderActionOverviewStatusResult>("azure-native:appcomplianceautomation/v20240627:getProviderActionOverviewStatus", args ?? new GetProviderActionOverviewStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the resource overview status.
+        /// </summary>
+        public static Output<GetProviderActionOverviewStatusResult> Invoke(GetProviderActionOverviewStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProviderActionOverviewStatusResult>("azure-native:appcomplianceautomation/v20240627:getProviderActionOverviewStatus", args ?? new GetProviderActionOverviewStatusInvokeArgs(), options.WithDefaults());
     }
 
 

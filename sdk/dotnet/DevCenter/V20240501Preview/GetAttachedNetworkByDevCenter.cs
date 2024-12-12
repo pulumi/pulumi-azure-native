@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240501Preview
         /// </summary>
         public static Output<GetAttachedNetworkByDevCenterResult> Invoke(GetAttachedNetworkByDevCenterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter/v20240501preview:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an attached NetworkConnection.
+        /// </summary>
+        public static Output<GetAttachedNetworkByDevCenterResult> Invoke(GetAttachedNetworkByDevCenterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAttachedNetworkByDevCenterResult>("azure-native:devcenter/v20240501preview:getAttachedNetworkByDevCenter", args ?? new GetAttachedNetworkByDevCenterInvokeArgs(), options.WithDefaults());
     }
 
 

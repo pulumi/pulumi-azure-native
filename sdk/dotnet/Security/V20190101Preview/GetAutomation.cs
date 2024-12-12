@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
         /// </summary>
         public static Output<GetAutomationResult> Invoke(GetAutomationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security/v20190101preview:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about the model of a security automation.
+        /// </summary>
+        public static Output<GetAutomationResult> Invoke(GetAutomationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security/v20190101preview:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithDefaults());
     }
 
 

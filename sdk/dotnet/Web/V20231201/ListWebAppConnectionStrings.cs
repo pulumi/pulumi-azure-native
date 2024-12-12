@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20231201
         /// </summary>
         public static Output<ListWebAppConnectionStringsResult> Invoke(ListWebAppConnectionStringsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppConnectionStringsResult>("azure-native:web/v20231201:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Gets the connection strings of an app.
+        /// </summary>
+        public static Output<ListWebAppConnectionStringsResult> Invoke(ListWebAppConnectionStringsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppConnectionStringsResult>("azure-native:web/v20231201:listWebAppConnectionStrings", args ?? new ListWebAppConnectionStringsInvokeArgs(), options.WithDefaults());
     }
 
 

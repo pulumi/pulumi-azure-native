@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20241023
         /// </summary>
         public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:automation/v20241023:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the watcher identified by watcher name.
+        /// </summary>
+        public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:automation/v20241023:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
     }
 
 

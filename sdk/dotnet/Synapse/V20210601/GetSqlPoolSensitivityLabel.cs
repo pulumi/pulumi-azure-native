@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         /// </summary>
         public static Output<GetSqlPoolSensitivityLabelResult> Invoke(GetSqlPoolSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolSensitivityLabelResult>("azure-native:synapse/v20210601:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the sensitivity label of a given column
+        /// </summary>
+        public static Output<GetSqlPoolSensitivityLabelResult> Invoke(GetSqlPoolSensitivityLabelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolSensitivityLabelResult>("azure-native:synapse/v20210601:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelInvokeArgs(), options.WithDefaults());
     }
 
 

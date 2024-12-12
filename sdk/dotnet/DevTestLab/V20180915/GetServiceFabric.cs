@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Output<GetServiceFabricResult> Invoke(GetServiceFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceFabricResult>("azure-native:devtestlab/v20180915:getServiceFabric", args ?? new GetServiceFabricInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get service fabric.
+        /// </summary>
+        public static Output<GetServiceFabricResult> Invoke(GetServiceFabricInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceFabricResult>("azure-native:devtestlab/v20180915:getServiceFabric", args ?? new GetServiceFabricInvokeArgs(), options.WithDefaults());
     }
 
 

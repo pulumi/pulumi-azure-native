@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230301
         /// </summary>
         public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs/v20230301:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A vSphere Distributed Resource Scheduler (DRS) placement policy
+        /// </summary>
+        public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs/v20230301:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20231001Preview
         /// </summary>
         public static Output<GetSqlDiscoverySiteDataSourceControllerResult> Invoke(GetSqlDiscoverySiteDataSourceControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDiscoverySiteDataSourceControllerResult>("azure-native:offazure/v20231001preview:getSqlDiscoverySiteDataSourceController", args ?? new GetSqlDiscoverySiteDataSourceControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SqlDiscoverySiteDataSource
+        /// </summary>
+        public static Output<GetSqlDiscoverySiteDataSourceControllerResult> Invoke(GetSqlDiscoverySiteDataSourceControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlDiscoverySiteDataSourceControllerResult>("azure-native:offazure/v20231001preview:getSqlDiscoverySiteDataSourceController", args ?? new GetSqlDiscoverySiteDataSourceControllerInvokeArgs(), options.WithDefaults());
     }
 
 

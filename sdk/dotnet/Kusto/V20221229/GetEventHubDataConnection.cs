@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Kusto.V20221229
         /// </summary>
         public static Output<GetEventHubDataConnectionResult> Invoke(GetEventHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubDataConnectionResult>("azure-native:kusto/v20221229:getEventHubDataConnection", args ?? new GetEventHubDataConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a data connection.
+        /// </summary>
+        public static Output<GetEventHubDataConnectionResult> Invoke(GetEventHubDataConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventHubDataConnectionResult>("azure-native:kusto/v20221229:getEventHubDataConnection", args ?? new GetEventHubDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

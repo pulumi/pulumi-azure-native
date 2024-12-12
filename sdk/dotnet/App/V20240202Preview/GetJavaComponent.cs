@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20240202Preview
         /// </summary>
         public static Output<GetJavaComponentResult> Invoke(GetJavaComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJavaComponentResult>("azure-native:app/v20240202preview:getJavaComponent", args ?? new GetJavaComponentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Java Component.
+        /// </summary>
+        public static Output<GetJavaComponentResult> Invoke(GetJavaComponentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJavaComponentResult>("azure-native:app/v20240202preview:getJavaComponent", args ?? new GetJavaComponentInvokeArgs(), options.WithDefaults());
     }
 
 

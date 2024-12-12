@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20231001Preview
         /// </summary>
         public static Output<ListUpgradableVersionDetailsResult> Invoke(ListUpgradableVersionDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListUpgradableVersionDetailsResult>("azure-native:elastic/v20231001preview:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Stack Versions that this version can upgrade to
+        /// </summary>
+        public static Output<ListUpgradableVersionDetailsResult> Invoke(ListUpgradableVersionDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListUpgradableVersionDetailsResult>("azure-native:elastic/v20231001preview:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

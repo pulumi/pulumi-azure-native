@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedCache.V20230501Preview
         /// </summary>
         public static Output<GetEnterpriseCustomerOperationResult> Invoke(GetEnterpriseCustomerOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseCustomerOperationResult>("azure-native:connectedcache/v20230501preview:getEnterpriseCustomerOperation", args ?? new GetEnterpriseCustomerOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the properties of a Enterprise customer
+        /// </summary>
+        public static Output<GetEnterpriseCustomerOperationResult> Invoke(GetEnterpriseCustomerOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseCustomerOperationResult>("azure-native:connectedcache/v20230501preview:getEnterpriseCustomerOperation", args ?? new GetEnterpriseCustomerOperationInvokeArgs(), options.WithDefaults());
     }
 
 

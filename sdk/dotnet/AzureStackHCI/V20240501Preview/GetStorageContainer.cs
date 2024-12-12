@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240501Preview
         /// </summary>
         public static Output<GetStorageContainerResult> Invoke(GetStorageContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure-native:azurestackhci/v20240501preview:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a storage container
+        /// </summary>
+        public static Output<GetStorageContainerResult> Invoke(GetStorageContainerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageContainerResult>("azure-native:azurestackhci/v20240501preview:getStorageContainer", args ?? new GetStorageContainerInvokeArgs(), options.WithDefaults());
     }
 
 

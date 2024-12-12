@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:web:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Container App.
+        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2023-12-01, 2024-04-01.
+        /// </summary>
+        public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:web:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
     }
 
 

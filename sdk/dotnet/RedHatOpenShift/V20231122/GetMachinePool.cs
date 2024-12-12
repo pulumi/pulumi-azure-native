@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20231122
         /// </summary>
         public static Output<GetMachinePoolResult> Invoke(GetMachinePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachinePoolResult>("azure-native:redhatopenshift/v20231122:getMachinePool", args ?? new GetMachinePoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation returns properties of a MachinePool.
+        /// </summary>
+        public static Output<GetMachinePoolResult> Invoke(GetMachinePoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachinePoolResult>("azure-native:redhatopenshift/v20231122:getMachinePool", args ?? new GetMachinePoolInvokeArgs(), options.WithDefaults());
     }
 
 

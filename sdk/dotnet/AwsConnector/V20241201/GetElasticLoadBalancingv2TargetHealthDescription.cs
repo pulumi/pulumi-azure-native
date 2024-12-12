@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetElasticLoadBalancingv2TargetHealthDescriptionResult> Invoke(GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticLoadBalancingv2TargetHealthDescriptionResult>("azure-native:awsconnector/v20241201:getElasticLoadBalancingv2TargetHealthDescription", args ?? new GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ElasticLoadBalancingv2TargetHealthDescription
+        /// </summary>
+        public static Output<GetElasticLoadBalancingv2TargetHealthDescriptionResult> Invoke(GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticLoadBalancingv2TargetHealthDescriptionResult>("azure-native:awsconnector/v20241201:getElasticLoadBalancingv2TargetHealthDescription", args ?? new GetElasticLoadBalancingv2TargetHealthDescriptionInvokeArgs(), options.WithDefaults());
     }
 
 

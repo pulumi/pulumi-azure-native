@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20230901Preview
         /// </summary>
         public static Output<ListGlobalRulestackCountriesResult> Invoke(ListGlobalRulestackCountriesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGlobalRulestackCountriesResult>("azure-native:cloudngfw/v20230901preview:listGlobalRulestackCountries", args ?? new ListGlobalRulestackCountriesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List of countries for Rulestack
+        /// </summary>
+        public static Output<ListGlobalRulestackCountriesResult> Invoke(ListGlobalRulestackCountriesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGlobalRulestackCountriesResult>("azure-native:cloudngfw/v20230901preview:listGlobalRulestackCountries", args ?? new ListGlobalRulestackCountriesInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20170401
         /// </summary>
         public static Output<GetActivityLogAlertResult> Invoke(GetActivityLogAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActivityLogAlertResult>("azure-native:insights/v20170401:getActivityLogAlert", args ?? new GetActivityLogAlertInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an activity log alert.
+        /// </summary>
+        public static Output<GetActivityLogAlertResult> Invoke(GetActivityLogAlertInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActivityLogAlertResult>("azure-native:insights/v20170401:getActivityLogAlert", args ?? new GetActivityLogAlertInvokeArgs(), options.WithDefaults());
     }
 
 

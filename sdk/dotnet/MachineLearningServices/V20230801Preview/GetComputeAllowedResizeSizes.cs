@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230801Preview
         /// </summary>
         public static Output<GetComputeAllowedResizeSizesResult> Invoke(GetComputeAllowedResizeSizesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeAllowedResizeSizesResult>("azure-native:machinelearningservices/v20230801preview:getComputeAllowedResizeSizes", args ?? new GetComputeAllowedResizeSizesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns supported virtual machine sizes for resize
+        /// </summary>
+        public static Output<GetComputeAllowedResizeSizesResult> Invoke(GetComputeAllowedResizeSizesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetComputeAllowedResizeSizesResult>("azure-native:machinelearningservices/v20230801preview:getComputeAllowedResizeSizes", args ?? new GetComputeAllowedResizeSizesInvokeArgs(), options.WithDefaults());
     }
 
 

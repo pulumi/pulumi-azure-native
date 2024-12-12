@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Chaos
         /// </summary>
         public static Output<GetPrivateAccessResult> Invoke(GetPrivateAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAccessResult>("azure-native:chaos:getPrivateAccess", args ?? new GetPrivateAccessInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a private access resource
+        /// Azure REST API version: 2023-10-27-preview.
+        /// 
+        /// Other available API versions: 2024-03-22-preview.
+        /// </summary>
+        public static Output<GetPrivateAccessResult> Invoke(GetPrivateAccessInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAccessResult>("azure-native:chaos:getPrivateAccess", args ?? new GetPrivateAccessInvokeArgs(), options.WithDefaults());
     }
 
 

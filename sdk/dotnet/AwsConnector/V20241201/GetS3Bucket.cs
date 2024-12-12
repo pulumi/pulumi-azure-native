@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetS3BucketResult> Invoke(GetS3BucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3BucketResult>("azure-native:awsconnector/v20241201:getS3Bucket", args ?? new GetS3BucketInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a S3Bucket
+        /// </summary>
+        public static Output<GetS3BucketResult> Invoke(GetS3BucketInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetS3BucketResult>("azure-native:awsconnector/v20241201:getS3Bucket", args ?? new GetS3BucketInvokeArgs(), options.WithDefaults());
     }
 
 

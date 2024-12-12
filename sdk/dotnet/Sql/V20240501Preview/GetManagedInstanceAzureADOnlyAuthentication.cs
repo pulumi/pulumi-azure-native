@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
         /// </summary>
         public static Output<GetManagedInstanceAzureADOnlyAuthenticationResult> Invoke(GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAzureADOnlyAuthenticationResult>("azure-native:sql/v20240501preview:getManagedInstanceAzureADOnlyAuthentication", args ?? new GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific Azure Active Directory only authentication property.
+        /// </summary>
+        public static Output<GetManagedInstanceAzureADOnlyAuthenticationResult> Invoke(GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAzureADOnlyAuthenticationResult>("azure-native:sql/v20240501preview:getManagedInstanceAzureADOnlyAuthentication", args ?? new GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs(), options.WithDefaults());
     }
 
 

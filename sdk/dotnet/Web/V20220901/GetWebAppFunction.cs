@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20220901
         /// </summary>
         public static Output<GetWebAppFunctionResult> Invoke(GetWebAppFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFunctionResult>("azure-native:web/v20220901:getWebAppFunction", args ?? new GetWebAppFunctionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Get function information by its ID for web site, or a deployment slot.
+        /// </summary>
+        public static Output<GetWebAppFunctionResult> Invoke(GetWebAppFunctionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFunctionResult>("azure-native:web/v20220901:getWebAppFunction", args ?? new GetWebAppFunctionInvokeArgs(), options.WithDefaults());
     }
 
 

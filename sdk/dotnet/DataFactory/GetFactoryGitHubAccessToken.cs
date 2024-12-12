@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Output<GetFactoryGitHubAccessTokenResult> Invoke(GetFactoryGitHubAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get GitHub Access Token.
+        /// Azure REST API version: 2018-06-01.
+        /// </summary>
+        public static Output<GetFactoryGitHubAccessTokenResult> Invoke(GetFactoryGitHubAccessTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFactoryGitHubAccessTokenResult>("azure-native:datafactory:getFactoryGitHubAccessToken", args ?? new GetFactoryGitHubAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Billing.V20240401
         /// </summary>
         public static Output<GetBillingProfileResult> Invoke(GetBillingProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingProfileResult>("azure-native:billing/v20240401:getBillingProfile", args ?? new GetBillingProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a billing profile by its ID. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement.
+        /// </summary>
+        public static Output<GetBillingProfileResult> Invoke(GetBillingProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBillingProfileResult>("azure-native:billing/v20240401:getBillingProfile", args ?? new GetBillingProfileInvokeArgs(), options.WithDefaults());
     }
 
 

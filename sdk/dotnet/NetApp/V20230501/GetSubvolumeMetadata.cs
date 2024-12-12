@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20230501
         /// </summary>
         public static Output<GetSubvolumeMetadataResult> Invoke(GetSubvolumeMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubvolumeMetadataResult>("azure-native:netapp/v20230501:getSubvolumeMetadata", args ?? new GetSubvolumeMetadataInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get details of the specified subvolume
+        /// </summary>
+        public static Output<GetSubvolumeMetadataResult> Invoke(GetSubvolumeMetadataInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubvolumeMetadataResult>("azure-native:netapp/v20230501:getSubvolumeMetadata", args ?? new GetSubvolumeMetadataInvokeArgs(), options.WithDefaults());
     }
 
 

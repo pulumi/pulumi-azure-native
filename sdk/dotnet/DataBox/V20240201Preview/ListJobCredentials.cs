@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBox.V20240201Preview
         /// </summary>
         public static Output<ListJobCredentialsResult> Invoke(ListJobCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobCredentialsResult>("azure-native:databox/v20240201preview:listJobCredentials", args ?? new ListJobCredentialsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This method gets the unencrypted secrets related to the job.
+        /// </summary>
+        public static Output<ListJobCredentialsResult> Invoke(ListJobCredentialsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListJobCredentialsResult>("azure-native:databox/v20240201preview:listJobCredentials", args ?? new ListJobCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

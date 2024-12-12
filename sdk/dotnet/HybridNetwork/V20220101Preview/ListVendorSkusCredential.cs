@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20220101Preview
         /// </summary>
         public static Output<ListVendorSkusCredentialResult> Invoke(ListVendorSkusCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVendorSkusCredentialResult>("azure-native:hybridnetwork/v20220101preview:listVendorSkusCredential", args ?? new ListVendorSkusCredentialInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Generate credentials for publishing SKU images.
+        /// </summary>
+        public static Output<ListVendorSkusCredentialResult> Invoke(ListVendorSkusCredentialInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListVendorSkusCredentialResult>("azure-native:hybridnetwork/v20220101preview:listVendorSkusCredential", args ?? new ListVendorSkusCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

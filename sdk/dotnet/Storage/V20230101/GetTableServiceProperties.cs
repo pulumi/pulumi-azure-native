@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20230101
         /// </summary>
         public static Output<GetTableServicePropertiesResult> Invoke(GetTableServicePropertiesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableServicePropertiesResult>("azure-native:storage/v20230101:getTableServiceProperties", args ?? new GetTableServicePropertiesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
+        /// </summary>
+        public static Output<GetTableServicePropertiesResult> Invoke(GetTableServicePropertiesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableServicePropertiesResult>("azure-native:storage/v20230101:getTableServiceProperties", args ?? new GetTableServicePropertiesInvokeArgs(), options.WithDefaults());
     }
 
 

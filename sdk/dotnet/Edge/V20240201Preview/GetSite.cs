@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Edge.V20240201Preview
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:edge/v20240201preview:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Site
+        /// </summary>
+        public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:edge/v20240201preview:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

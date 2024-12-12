@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20140401
         /// </summary>
         public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure-native:sql/v20140401:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an elastic pool.
+        /// </summary>
+        public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure-native:sql/v20140401:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
     }
 
 

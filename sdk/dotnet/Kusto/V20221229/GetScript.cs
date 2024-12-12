@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Kusto.V20221229
         /// </summary>
         public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScriptResult>("azure-native:kusto/v20221229:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Kusto cluster database script.
+        /// </summary>
+        public static Output<GetScriptResult> Invoke(GetScriptInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScriptResult>("azure-native:kusto/v20221229:getScript", args ?? new GetScriptInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         /// </summary>
         public static Output<GetSAPVirtualInstanceResult> Invoke(GetSAPVirtualInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPVirtualInstanceResult>("azure-native:workloads/v20231001preview:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Virtual Instance for SAP solutions resource
+        /// </summary>
+        public static Output<GetSAPVirtualInstanceResult> Invoke(GetSAPVirtualInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPVirtualInstanceResult>("azure-native:workloads/v20231001preview:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

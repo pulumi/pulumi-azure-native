@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetSsmResourceComplianceSummaryItemResult> Invoke(GetSsmResourceComplianceSummaryItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSsmResourceComplianceSummaryItemResult>("azure-native:awsconnector/v20241201:getSsmResourceComplianceSummaryItem", args ?? new GetSsmResourceComplianceSummaryItemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SsmResourceComplianceSummaryItem
+        /// </summary>
+        public static Output<GetSsmResourceComplianceSummaryItemResult> Invoke(GetSsmResourceComplianceSummaryItemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSsmResourceComplianceSummaryItemResult>("azure-native:awsconnector/v20241201:getSsmResourceComplianceSummaryItem", args ?? new GetSsmResourceComplianceSummaryItemInvokeArgs(), options.WithDefaults());
     }
 
 

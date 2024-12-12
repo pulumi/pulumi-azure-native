@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Orbital.V20240301
         /// </summary>
         public static Output<GetL2ConnectionResult> Invoke(GetL2ConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2ConnectionResult>("azure-native:orbital/v20240301:getL2Connection", args ?? new GetL2ConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified L2 connection in a specified resource group.
+        /// </summary>
+        public static Output<GetL2ConnectionResult> Invoke(GetL2ConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetL2ConnectionResult>("azure-native:orbital/v20240301:getL2Connection", args ?? new GetL2ConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

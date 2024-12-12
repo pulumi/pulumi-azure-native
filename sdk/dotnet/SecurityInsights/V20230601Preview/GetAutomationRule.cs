@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230601Preview
         /// </summary>
         public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights/v20230601preview:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the automation rule.
+        /// </summary>
+        public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("azure-native:securityinsights/v20230601preview:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

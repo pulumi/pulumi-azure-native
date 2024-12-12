@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureData.V20190724Preview
         /// </summary>
         public static Output<GetSqlServerRegistrationResult> Invoke(GetSqlServerRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerRegistrationResult>("azure-native:azuredata/v20190724preview:getSqlServerRegistration", args ?? new GetSqlServerRegistrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a SQL Server registration.
+        /// </summary>
+        public static Output<GetSqlServerRegistrationResult> Invoke(GetSqlServerRegistrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerRegistrationResult>("azure-native:azuredata/v20190724preview:getSqlServerRegistration", args ?? new GetSqlServerRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

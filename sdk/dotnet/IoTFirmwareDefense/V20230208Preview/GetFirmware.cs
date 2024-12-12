@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense.V20230208Preview
         /// </summary>
         public static Output<GetFirmwareResult> Invoke(GetFirmwareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirmwareResult>("azure-native:iotfirmwaredefense/v20230208preview:getFirmware", args ?? new GetFirmwareInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get firmware.
+        /// </summary>
+        public static Output<GetFirmwareResult> Invoke(GetFirmwareInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirmwareResult>("azure-native:iotfirmwaredefense/v20230208preview:getFirmware", args ?? new GetFirmwareInvokeArgs(), options.WithDefaults());
     }
 
 

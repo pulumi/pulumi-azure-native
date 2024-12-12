@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240101
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network/v20240101:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified route from a route table.
+        /// </summary>
+        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network/v20240101:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 

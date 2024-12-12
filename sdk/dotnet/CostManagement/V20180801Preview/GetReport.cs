@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
         /// </summary>
         public static Output<GetReportResult> Invoke(GetReportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportResult>("azure-native:costmanagement/v20180801preview:getReport", args ?? new GetReportInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the report for a subscription by report name.
+        /// </summary>
+        public static Output<GetReportResult> Invoke(GetReportInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReportResult>("azure-native:costmanagement/v20180801preview:getReport", args ?? new GetReportInvokeArgs(), options.WithDefaults());
     }
 
 

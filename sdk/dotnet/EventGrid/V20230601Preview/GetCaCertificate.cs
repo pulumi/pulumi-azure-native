@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20230601Preview
         /// </summary>
         public static Output<GetCaCertificateResult> Invoke(GetCaCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCaCertificateResult>("azure-native:eventgrid/v20230601preview:getCaCertificate", args ?? new GetCaCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a CA certificate.
+        /// </summary>
+        public static Output<GetCaCertificateResult> Invoke(GetCaCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCaCertificateResult>("azure-native:eventgrid/v20230601preview:getCaCertificate", args ?? new GetCaCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

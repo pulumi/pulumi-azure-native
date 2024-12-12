@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiCenter.V20230701Preview
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:apicenter/v20230701preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get service
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:apicenter/v20230701preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

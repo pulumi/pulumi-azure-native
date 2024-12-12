@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetApiGatewayStageResult> Invoke(GetApiGatewayStageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayStageResult>("azure-native:awsconnector/v20241201:getApiGatewayStage", args ?? new GetApiGatewayStageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ApiGatewayStage
+        /// </summary>
+        public static Output<GetApiGatewayStageResult> Invoke(GetApiGatewayStageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiGatewayStageResult>("azure-native:awsconnector/v20241201:getApiGatewayStage", args ?? new GetApiGatewayStageInvokeArgs(), options.WithDefaults());
     }
 
 

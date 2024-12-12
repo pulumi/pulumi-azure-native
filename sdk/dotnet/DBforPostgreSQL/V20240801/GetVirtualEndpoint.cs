@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20240801
         /// </summary>
         public static Output<GetVirtualEndpointResult> Invoke(GetVirtualEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualEndpointResult>("azure-native:dbforpostgresql/v20240801:getVirtualEndpoint", args ?? new GetVirtualEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a virtual endpoint.
+        /// </summary>
+        public static Output<GetVirtualEndpointResult> Invoke(GetVirtualEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualEndpointResult>("azure-native:dbforpostgresql/v20240801:getVirtualEndpoint", args ?? new GetVirtualEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20231101
         /// </summary>
         public static Output<GetVirtualNetworkPeeringResult> Invoke(GetVirtualNetworkPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkPeeringResult>("azure-native:network/v20231101:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified virtual network peering.
+        /// </summary>
+        public static Output<GetVirtualNetworkPeeringResult> Invoke(GetVirtualNetworkPeeringInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkPeeringResult>("azure-native:network/v20231101:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringInvokeArgs(), options.WithDefaults());
     }
 
 

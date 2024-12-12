@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Output<GetAdvancedThreatProtectionResult> Invoke(GetAdvancedThreatProtectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Advanced Threat Protection settings for the specified resource.
+        /// Azure REST API version: 2019-01-01.
+        /// </summary>
+        public static Output<GetAdvancedThreatProtectionResult> Invoke(GetAdvancedThreatProtectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithDefaults());
     }
 
 

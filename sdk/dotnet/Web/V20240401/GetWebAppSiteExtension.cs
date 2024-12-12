@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20240401
         /// </summary>
         public static Output<GetWebAppSiteExtensionResult> Invoke(GetWebAppSiteExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteExtensionResult>("azure-native:web/v20240401:getWebAppSiteExtension", args ?? new GetWebAppSiteExtensionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Get site extension information by its ID for a web site, or a deployment slot.
+        /// </summary>
+        public static Output<GetWebAppSiteExtensionResult> Invoke(GetWebAppSiteExtensionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteExtensionResult>("azure-native:web/v20240401:getWebAppSiteExtension", args ?? new GetWebAppSiteExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

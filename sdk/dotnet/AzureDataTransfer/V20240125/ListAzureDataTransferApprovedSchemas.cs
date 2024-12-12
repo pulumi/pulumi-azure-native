@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20240125
         /// </summary>
         public static Output<ListAzureDataTransferApprovedSchemasResult> Invoke(ListAzureDataTransferApprovedSchemasInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAzureDataTransferApprovedSchemasResult>("azure-native:azuredatatransfer/v20240125:listAzureDataTransferApprovedSchemas", args ?? new ListAzureDataTransferApprovedSchemasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists approved schemas for Azure Data Transfer.
+        /// </summary>
+        public static Output<ListAzureDataTransferApprovedSchemasResult> Invoke(ListAzureDataTransferApprovedSchemasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAzureDataTransferApprovedSchemasResult>("azure-native:azuredatatransfer/v20240125:listAzureDataTransferApprovedSchemas", args ?? new ListAzureDataTransferApprovedSchemasInvokeArgs(), options.WithDefaults());
     }
 
 

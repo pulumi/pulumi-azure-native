@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
         /// </summary>
         public static Output<GetOrderResult> Invoke(GetOrderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderResult>("azure-native:databoxedge/v20220301:getOrder", args ?? new GetOrderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The order details.
+        /// </summary>
+        public static Output<GetOrderResult> Invoke(GetOrderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrderResult>("azure-native:databoxedge/v20220301:getOrder", args ?? new GetOrderInvokeArgs(), options.WithDefaults());
     }
 
 

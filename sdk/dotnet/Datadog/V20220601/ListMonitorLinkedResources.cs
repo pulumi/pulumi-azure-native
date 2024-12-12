@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Datadog.V20220601
         /// </summary>
         public static Output<ListMonitorLinkedResourcesResult> Invoke(ListMonitorLinkedResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorLinkedResourcesResult>("azure-native:datadog/v20220601:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response of a list operation.
+        /// </summary>
+        public static Output<ListMonitorLinkedResourcesResult> Invoke(ListMonitorLinkedResourcesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitorLinkedResourcesResult>("azure-native:datadog/v20220601:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesInvokeArgs(), options.WithDefaults());
     }
 
 

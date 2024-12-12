@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230901
         /// </summary>
         public static Output<GetWorkloadNetworkDnsServiceResult> Invoke(GetWorkloadNetworkDnsServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsServiceResult>("azure-native:avs/v20230901:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a WorkloadNetworkDnsService
+        /// </summary>
+        public static Output<GetWorkloadNetworkDnsServiceResult> Invoke(GetWorkloadNetworkDnsServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkDnsServiceResult>("azure-native:avs/v20230901:getWorkloadNetworkDnsService", args ?? new GetWorkloadNetworkDnsServiceInvokeArgs(), options.WithDefaults());
     }
 
 

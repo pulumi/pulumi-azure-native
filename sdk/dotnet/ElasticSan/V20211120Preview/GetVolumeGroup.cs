@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure-native:elasticsan/v20211120preview:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an VolumeGroups.
+        /// </summary>
+        public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure-native:elasticsan/v20211120preview:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());
     }
 
 

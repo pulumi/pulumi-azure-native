@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Fabric.V20231101
         /// </summary>
         public static Output<GetFabricCapacityResult> Invoke(GetFabricCapacityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricCapacityResult>("azure-native:fabric/v20231101:getFabricCapacity", args ?? new GetFabricCapacityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a FabricCapacity
+        /// </summary>
+        public static Output<GetFabricCapacityResult> Invoke(GetFabricCapacityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFabricCapacityResult>("azure-native:fabric/v20231101:getFabricCapacity", args ?? new GetFabricCapacityInvokeArgs(), options.WithDefaults());
     }
 
 

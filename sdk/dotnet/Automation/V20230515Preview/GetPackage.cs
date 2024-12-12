@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20230515Preview
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:automation/v20230515preview:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the Package identified by Package name.
+        /// </summary>
+        public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:automation/v20230515preview:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
     }
 
 

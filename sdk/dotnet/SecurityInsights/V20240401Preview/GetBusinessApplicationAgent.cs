@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
         /// </summary>
         public static Output<GetBusinessApplicationAgentResult> Invoke(GetBusinessApplicationAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessApplicationAgentResult>("azure-native:securityinsights/v20240401preview:getBusinessApplicationAgent", args ?? new GetBusinessApplicationAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets Business Application Agent.
+        /// </summary>
+        public static Output<GetBusinessApplicationAgentResult> Invoke(GetBusinessApplicationAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBusinessApplicationAgentResult>("azure-native:securityinsights/v20240401preview:getBusinessApplicationAgent", args ?? new GetBusinessApplicationAgentInvokeArgs(), options.WithDefaults());
     }
 
 

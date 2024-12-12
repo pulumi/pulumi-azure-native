@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppConfiguration.V20230801Preview
         /// </summary>
         public static Output<ListConfigurationStoreKeysResult> Invoke(ListConfigurationStoreKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeysResult>("azure-native:appconfiguration/v20230801preview:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the access key for the specified configuration store.
+        /// </summary>
+        public static Output<ListConfigurationStoreKeysResult> Invoke(ListConfigurationStoreKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeysResult>("azure-native:appconfiguration/v20230801preview:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysInvokeArgs(), options.WithDefaults());
     }
 
 

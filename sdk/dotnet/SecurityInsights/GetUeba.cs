@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<GetUebaResult> Invoke(GetUebaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUebaResult>("azure-native:securityinsights:getUeba", args ?? new GetUebaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a setting.
+        /// Azure REST API version: 2023-06-01-preview.
+        /// </summary>
+        public static Output<GetUebaResult> Invoke(GetUebaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUebaResult>("azure-native:securityinsights:getUeba", args ?? new GetUebaInvokeArgs(), options.WithDefaults());
     }
 
 

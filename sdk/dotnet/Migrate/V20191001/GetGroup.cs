@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20191001
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:migrate/v20191001:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information related to a specific group in the project. Returns a json object of type 'group' as specified in the models section.
+        /// </summary>
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure-native:migrate/v20191001:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

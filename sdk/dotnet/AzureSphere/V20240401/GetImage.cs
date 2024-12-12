@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureSphere.V20240401
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure-native:azuresphere/v20240401:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Image
+        /// </summary>
+        public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure-native:azuresphere/v20240401:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
 
 

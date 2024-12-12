@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ScVmm.V20230401Preview
         /// </summary>
         public static Output<GetVMInstanceGuestAgentResult> Invoke(GetVMInstanceGuestAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVMInstanceGuestAgentResult>("azure-native:scvmm/v20230401preview:getVMInstanceGuestAgent", args ?? new GetVMInstanceGuestAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements GuestAgent GET method.
+        /// </summary>
+        public static Output<GetVMInstanceGuestAgentResult> Invoke(GetVMInstanceGuestAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVMInstanceGuestAgentResult>("azure-native:scvmm/v20230401preview:getVMInstanceGuestAgent", args ?? new GetVMInstanceGuestAgentInvokeArgs(), options.WithDefaults());
     }
 
 

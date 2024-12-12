@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308PrivatePreview
         /// </summary>
         public static Output<GetGetCachedServerNameExecuteResult> Invoke(GetGetCachedServerNameExecuteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGetCachedServerNameExecuteResult>("azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute", args ?? new GetGetCachedServerNameExecuteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get available cached server name for fast provisioning
+        /// </summary>
+        public static Output<GetGetCachedServerNameExecuteResult> Invoke(GetGetCachedServerNameExecuteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGetCachedServerNameExecuteResult>("azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute", args ?? new GetGetCachedServerNameExecuteInvokeArgs(), options.WithDefaults());
     }
 
 

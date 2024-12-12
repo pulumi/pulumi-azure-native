@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20230901
         /// </summary>
         public static Output<ListGlobalRulestackPredefinedUrlCategoriesResult> Invoke(ListGlobalRulestackPredefinedUrlCategoriesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGlobalRulestackPredefinedUrlCategoriesResult>("azure-native:cloudngfw/v20230901:listGlobalRulestackPredefinedUrlCategories", args ?? new ListGlobalRulestackPredefinedUrlCategoriesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List predefined URL categories for rulestack
+        /// </summary>
+        public static Output<ListGlobalRulestackPredefinedUrlCategoriesResult> Invoke(ListGlobalRulestackPredefinedUrlCategoriesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGlobalRulestackPredefinedUrlCategoriesResult>("azure-native:cloudngfw/v20230901:listGlobalRulestackPredefinedUrlCategories", args ?? new ListGlobalRulestackPredefinedUrlCategoriesInvokeArgs(), options.WithDefaults());
     }
 
 

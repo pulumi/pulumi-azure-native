@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public static Output<GetDataNetworkResult> Invoke(GetDataNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataNetworkResult>("azure-native:mobilenetwork:getDataNetwork", args ?? new GetDataNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified data network.
+        /// Azure REST API version: 2023-06-01.
+        /// 
+        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// </summary>
+        public static Output<GetDataNetworkResult> Invoke(GetDataNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataNetworkResult>("azure-native:mobilenetwork:getDataNetwork", args ?? new GetDataNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20231001Preview
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:networkcloud/v20231001preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided cluster.
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:networkcloud/v20231001preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

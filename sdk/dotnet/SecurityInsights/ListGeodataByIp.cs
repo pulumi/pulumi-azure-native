@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<ListGeodataByIpResult> Invoke(ListGeodataByIpInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGeodataByIpResult>("azure-native:securityinsights:listGeodataByIp", args ?? new ListGeodataByIpInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get geodata for a single IP address
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01-preview.
+        /// </summary>
+        public static Output<ListGeodataByIpResult> Invoke(ListGeodataByIpInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGeodataByIpResult>("azure-native:securityinsights:listGeodataByIp", args ?? new ListGeodataByIpInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetLambdaFunctionCodeLocationResult> Invoke(GetLambdaFunctionCodeLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionCodeLocationResult>("azure-native:awsconnector/v20241201:getLambdaFunctionCodeLocation", args ?? new GetLambdaFunctionCodeLocationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LambdaFunctionCodeLocation
+        /// </summary>
+        public static Output<GetLambdaFunctionCodeLocationResult> Invoke(GetLambdaFunctionCodeLocationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionCodeLocationResult>("azure-native:awsconnector/v20241201:getLambdaFunctionCodeLocation", args ?? new GetLambdaFunctionCodeLocationInvokeArgs(), options.WithDefaults());
     }
 
 

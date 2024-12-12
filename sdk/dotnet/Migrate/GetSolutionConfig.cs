@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetSolutionConfigResult> Invoke(GetSolutionConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionConfigResult>("azure-native:migrate:getSolutionConfig", args ?? new GetSolutionConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Class representing the config for the solution in the migrate project.
+        /// Azure REST API version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<GetSolutionConfigResult> Invoke(GetSolutionConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSolutionConfigResult>("azure-native:migrate:getSolutionConfig", args ?? new GetSolutionConfigInvokeArgs(), options.WithDefaults());
     }
 
 

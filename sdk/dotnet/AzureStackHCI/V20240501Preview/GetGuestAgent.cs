@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240501Preview
         /// </summary>
         public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:azurestackhci/v20240501preview:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements GuestAgent GET method.
+        /// </summary>
+        public static Output<GetGuestAgentResult> Invoke(GetGuestAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuestAgentResult>("azure-native:azurestackhci/v20240501preview:getGuestAgent", args ?? new GetGuestAgentInvokeArgs(), options.WithDefaults());
     }
 
 

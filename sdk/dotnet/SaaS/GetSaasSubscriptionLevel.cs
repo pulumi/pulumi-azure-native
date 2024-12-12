@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SaaS
         /// </summary>
         public static Output<GetSaasSubscriptionLevelResult> Invoke(GetSaasSubscriptionLevelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSaasSubscriptionLevelResult>("azure-native:saas:getSaasSubscriptionLevel", args ?? new GetSaasSubscriptionLevelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified Subscription Level SaaS.
+        /// Azure REST API version: 2018-03-01-beta.
+        /// </summary>
+        public static Output<GetSaasSubscriptionLevelResult> Invoke(GetSaasSubscriptionLevelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSaasSubscriptionLevelResult>("azure-native:saas:getSaasSubscriptionLevel", args ?? new GetSaasSubscriptionLevelInvokeArgs(), options.WithDefaults());
     }
 
 

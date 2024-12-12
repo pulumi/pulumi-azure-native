@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataShare.V20210801
         /// </summary>
         public static Output<ListShareSubscriptionSynchronizationsResult> Invoke(ListShareSubscriptionSynchronizationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSynchronizationsResult>("azure-native:datashare/v20210801:listShareSubscriptionSynchronizations", args ?? new ListShareSubscriptionSynchronizationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List synchronizations of a share subscription
+        /// </summary>
+        public static Output<ListShareSubscriptionSynchronizationsResult> Invoke(ListShareSubscriptionSynchronizationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListShareSubscriptionSynchronizationsResult>("azure-native:datashare/v20210801:listShareSubscriptionSynchronizations", args ?? new ListShareSubscriptionSynchronizationsInvokeArgs(), options.WithDefaults());
     }
 
 

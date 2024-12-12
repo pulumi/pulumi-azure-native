@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public static Output<GetNeighborGroupResult> Invoke(GetNeighborGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNeighborGroupResult>("azure-native:managednetworkfabric:getNeighborGroup", args ?? new GetNeighborGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Neighbor Group.
+        /// Azure REST API version: 2023-06-15.
+        /// </summary>
+        public static Output<GetNeighborGroupResult> Invoke(GetNeighborGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNeighborGroupResult>("azure-native:managednetworkfabric:getNeighborGroup", args ?? new GetNeighborGroupInvokeArgs(), options.WithDefaults());
     }
 
 

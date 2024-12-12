@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ElasticSan.V20240501
         /// </summary>
         public static Output<GetElasticSanResult> Invoke(GetElasticSanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticSanResult>("azure-native:elasticsan/v20240501:getElasticSan", args ?? new GetElasticSanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ElasticSan.
+        /// </summary>
+        public static Output<GetElasticSanResult> Invoke(GetElasticSanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticSanResult>("azure-native:elasticsan/v20240501:getElasticSan", args ?? new GetElasticSanInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the JIT request.
+        /// Azure REST API version: 2021-07-01.
+        /// 
+        /// Other available API versions: 2023-12-01-preview.
+        /// </summary>
+        public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());
     }
 
 

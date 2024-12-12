@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataMigration.V20230715Preview
         /// </summary>
         public static Output<ListSqlMigrationServiceMonitoringDataResult> Invoke(ListSqlMigrationServiceMonitoringDataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration/v20230715preview:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.
+        /// </summary>
+        public static Output<ListSqlMigrationServiceMonitoringDataResult> Invoke(ListSqlMigrationServiceMonitoringDataInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceMonitoringDataResult>("azure-native:datamigration/v20230715preview:listSqlMigrationServiceMonitoringData", args ?? new ListSqlMigrationServiceMonitoringDataInvokeArgs(), options.WithDefaults());
     }
 
 

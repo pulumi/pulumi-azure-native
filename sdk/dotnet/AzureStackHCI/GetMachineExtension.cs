@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:azurestackhci:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation to get the extension.
+        /// Azure REST API version: 2022-12-15-preview.
+        /// </summary>
+        public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:azurestackhci:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

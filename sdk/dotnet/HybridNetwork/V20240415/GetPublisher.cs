@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20240415
         /// </summary>
         public static Output<GetPublisherResult> Invoke(GetPublisherInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublisherResult>("azure-native:hybridnetwork/v20240415:getPublisher", args ?? new GetPublisherInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified publisher.
+        /// </summary>
+        public static Output<GetPublisherResult> Invoke(GetPublisherInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublisherResult>("azure-native:hybridnetwork/v20240415:getPublisher", args ?? new GetPublisherInvokeArgs(), options.WithDefaults());
     }
 
 

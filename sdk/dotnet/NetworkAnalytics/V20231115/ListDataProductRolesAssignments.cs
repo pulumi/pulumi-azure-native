@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkAnalytics.V20231115
         /// </summary>
         public static Output<ListDataProductRolesAssignmentsResult> Invoke(ListDataProductRolesAssignmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDataProductRolesAssignmentsResult>("azure-native:networkanalytics/v20231115:listDataProductRolesAssignments", args ?? new ListDataProductRolesAssignmentsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List user roles associated with the data product.
+        /// </summary>
+        public static Output<ListDataProductRolesAssignmentsResult> Invoke(ListDataProductRolesAssignmentsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDataProductRolesAssignmentsResult>("azure-native:networkanalytics/v20231115:listDataProductRolesAssignments", args ?? new ListDataProductRolesAssignmentsInvokeArgs(), options.WithDefaults());
     }
 
 

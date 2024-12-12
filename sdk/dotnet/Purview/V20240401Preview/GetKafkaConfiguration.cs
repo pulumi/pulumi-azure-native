@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Purview.V20240401Preview
         /// </summary>
         public static Output<GetKafkaConfigurationResult> Invoke(GetKafkaConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaConfigurationResult>("azure-native:purview/v20240401preview:getKafkaConfiguration", args ?? new GetKafkaConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the kafka configuration for the account
+        /// </summary>
+        public static Output<GetKafkaConfigurationResult> Invoke(GetKafkaConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKafkaConfigurationResult>("azure-native:purview/v20240401preview:getKafkaConfiguration", args ?? new GetKafkaConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

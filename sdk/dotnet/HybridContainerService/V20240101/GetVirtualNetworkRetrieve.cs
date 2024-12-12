@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridContainerService.V20240101
         /// </summary>
         public static Output<GetVirtualNetworkRetrieveResult> Invoke(GetVirtualNetworkRetrieveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice/v20240101:getVirtualNetworkRetrieve", args ?? new GetVirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified virtual network resource
+        /// </summary>
+        public static Output<GetVirtualNetworkRetrieveResult> Invoke(GetVirtualNetworkRetrieveInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRetrieveResult>("azure-native:hybridcontainerservice/v20240101:getVirtualNetworkRetrieve", args ?? new GetVirtualNetworkRetrieveInvokeArgs(), options.WithDefaults());
     }
 
 

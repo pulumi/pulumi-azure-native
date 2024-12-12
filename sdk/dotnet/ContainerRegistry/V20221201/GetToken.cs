@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20221201
         /// </summary>
         public static Output<GetTokenResult> Invoke(GetTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTokenResult>("azure-native:containerregistry/v20221201:getToken", args ?? new GetTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified token.
+        /// </summary>
+        public static Output<GetTokenResult> Invoke(GetTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTokenResult>("azure-native:containerregistry/v20221201:getToken", args ?? new GetTokenInvokeArgs(), options.WithDefaults());
     }
 
 

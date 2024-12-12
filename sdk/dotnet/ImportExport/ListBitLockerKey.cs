@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ImportExport
         /// </summary>
         public static Output<ListBitLockerKeyResult> Invoke(ListBitLockerKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBitLockerKeyResult>("azure-native:importexport:listBitLockerKey", args ?? new ListBitLockerKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the BitLocker Keys for all drives in the specified job.
+        /// Azure REST API version: 2021-01-01.
+        /// </summary>
+        public static Output<ListBitLockerKeyResult> Invoke(ListBitLockerKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListBitLockerKeyResult>("azure-native:importexport:listBitLockerKey", args ?? new ListBitLockerKeyInvokeArgs(), options.WithDefaults());
     }
 
 

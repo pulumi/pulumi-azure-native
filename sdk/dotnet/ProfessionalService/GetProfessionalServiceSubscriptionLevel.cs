@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ProfessionalService
         /// </summary>
         public static Output<GetProfessionalServiceSubscriptionLevelResult> Invoke(GetProfessionalServiceSubscriptionLevelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfessionalServiceSubscriptionLevelResult>("azure-native:professionalservice:getProfessionalServiceSubscriptionLevel", args ?? new GetProfessionalServiceSubscriptionLevelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified Subscription Level ProfessionalService.
+        /// Azure REST API version: 2023-07-01-preview.
+        /// </summary>
+        public static Output<GetProfessionalServiceSubscriptionLevelResult> Invoke(GetProfessionalServiceSubscriptionLevelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfessionalServiceSubscriptionLevelResult>("azure-native:professionalservice:getProfessionalServiceSubscriptionLevel", args ?? new GetProfessionalServiceSubscriptionLevelInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
         /// </summary>
         public static Output<GetWorkspaceTagProductLinkResult> Invoke(GetWorkspaceTagProductLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceTagProductLinkResult>("azure-native:apimanagement/v20230901preview:getWorkspaceTagProductLink", args ?? new GetWorkspaceTagProductLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the product link for the tag.
+        /// </summary>
+        public static Output<GetWorkspaceTagProductLinkResult> Invoke(GetWorkspaceTagProductLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceTagProductLinkResult>("azure-native:apimanagement/v20230901preview:getWorkspaceTagProductLink", args ?? new GetWorkspaceTagProductLinkInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20230315
         /// </summary>
         public static Output<ListEndpointIngressGatewayCredentialsResult> Invoke(ListEndpointIngressGatewayCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEndpointIngressGatewayCredentialsResult>("azure-native:hybridconnectivity/v20230315:listEndpointIngressGatewayCredentials", args ?? new ListEndpointIngressGatewayCredentialsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the ingress gateway endpoint credentials 
+        /// </summary>
+        public static Output<ListEndpointIngressGatewayCredentialsResult> Invoke(ListEndpointIngressGatewayCredentialsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListEndpointIngressGatewayCredentialsResult>("azure-native:hybridconnectivity/v20230315:listEndpointIngressGatewayCredentials", args ?? new ListEndpointIngressGatewayCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview
         /// </summary>
         public static Output<GetWebServiceResult> Invoke(GetWebServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebServiceResult>("azure-native:machinelearning/v20160501preview:getWebService", args ?? new GetWebServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
+        /// </summary>
+        public static Output<GetWebServiceResult> Invoke(GetWebServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebServiceResult>("azure-native:machinelearning/v20160501preview:getWebService", args ?? new GetWebServiceInvokeArgs(), options.WithDefaults());
     }
 
 

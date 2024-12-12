@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20240901
         /// </summary>
         public static Output<GetSapDatabaseInstanceResult> Invoke(GetSapDatabaseInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapDatabaseInstanceResult>("azure-native:workloads/v20240901:getSapDatabaseInstance", args ?? new GetSapDatabaseInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the SAP Database Instance resource.
+        /// </summary>
+        public static Output<GetSapDatabaseInstanceResult> Invoke(GetSapDatabaseInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapDatabaseInstanceResult>("azure-native:workloads/v20240901:getSapDatabaseInstance", args ?? new GetSapDatabaseInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

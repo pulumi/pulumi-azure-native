@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20230101
         /// </summary>
         public static Output<GetWebAppFtpAllowedResult> Invoke(GetWebAppFtpAllowedInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFtpAllowedResult>("azure-native:web/v20230101:getWebAppFtpAllowed", args ?? new GetWebAppFtpAllowedInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Returns whether FTP is allowed on the site or not.
+        /// </summary>
+        public static Output<GetWebAppFtpAllowedResult> Invoke(GetWebAppFtpAllowedInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFtpAllowedResult>("azure-native:web/v20230101:getWebAppFtpAllowed", args ?? new GetWebAppFtpAllowedInvokeArgs(), options.WithDefaults());
     }
 
 

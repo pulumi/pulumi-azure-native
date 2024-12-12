@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20240301
         /// </summary>
         public static Output<ListDeploymentInfoResult> Invoke(ListDeploymentInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic/v20240301:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
+        /// </summary>
+        public static Output<ListDeploymentInfoResult> Invoke(ListDeploymentInfoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDeploymentInfoResult>("azure-native:elastic/v20240301:listDeploymentInfo", args ?? new ListDeploymentInfoInvokeArgs(), options.WithDefaults());
     }
 
 

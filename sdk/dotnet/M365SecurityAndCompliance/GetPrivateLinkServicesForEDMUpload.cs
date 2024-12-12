@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         /// </summary>
         public static Output<GetPrivateLinkServicesForEDMUploadResult> Invoke(GetPrivateLinkServicesForEDMUploadInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForEDMUploadResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForEDMUpload", args ?? new GetPrivateLinkServicesForEDMUploadInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the metadata of a privateLinkServicesForEDMUpload resource.
+        /// Azure REST API version: 2021-03-25-preview.
+        /// </summary>
+        public static Output<GetPrivateLinkServicesForEDMUploadResult> Invoke(GetPrivateLinkServicesForEDMUploadInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForEDMUploadResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForEDMUpload", args ?? new GetPrivateLinkServicesForEDMUploadInvokeArgs(), options.WithDefaults());
     }
 
 

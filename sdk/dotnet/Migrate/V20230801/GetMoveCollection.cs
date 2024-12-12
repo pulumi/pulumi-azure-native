@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230801
         /// </summary>
         public static Output<GetMoveCollectionResult> Invoke(GetMoveCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMoveCollectionResult>("azure-native:migrate/v20230801:getMoveCollection", args ?? new GetMoveCollectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the move collection.
+        /// </summary>
+        public static Output<GetMoveCollectionResult> Invoke(GetMoveCollectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMoveCollectionResult>("azure-native:migrate/v20230801:getMoveCollection", args ?? new GetMoveCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

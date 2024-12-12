@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20220501
         /// </summary>
         public static Output<GetScriptExecutionResult> Invoke(GetScriptExecutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScriptExecutionResult>("azure-native:avs/v20220501:getScriptExecution", args ?? new GetScriptExecutionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An instance of a script executed by a user - custom or AVS
+        /// </summary>
+        public static Output<GetScriptExecutionResult> Invoke(GetScriptExecutionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScriptExecutionResult>("azure-native:avs/v20220501:getScriptExecution", args ?? new GetScriptExecutionInvokeArgs(), options.WithDefaults());
     }
 
 

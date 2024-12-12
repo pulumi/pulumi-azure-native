@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Communication.V20230601Preview
         /// </summary>
         public static Output<GetSuppressionListResult> Invoke(GetSuppressionListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionListResult>("azure-native:communication/v20230601preview:getSuppressionList", args ?? new GetSuppressionListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SuppressionList resource.
+        /// </summary>
+        public static Output<GetSuppressionListResult> Invoke(GetSuppressionListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionListResult>("azure-native:communication/v20230601preview:getSuppressionList", args ?? new GetSuppressionListInvokeArgs(), options.WithDefaults());
     }
 
 

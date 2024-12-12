@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Edge
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:edge:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Site
+        /// Azure REST API version: 2024-02-01-preview.
+        /// </summary>
+        public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("azure-native:edge:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

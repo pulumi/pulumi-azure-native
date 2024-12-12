@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20230901
         /// </summary>
         public static Output<GetArtifactManifestResult> Invoke(GetArtifactManifestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArtifactManifestResult>("azure-native:hybridnetwork/v20230901:getArtifactManifest", args ?? new GetArtifactManifestInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a artifact manifest resource.
+        /// </summary>
+        public static Output<GetArtifactManifestResult> Invoke(GetArtifactManifestInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetArtifactManifestResult>("azure-native:hybridnetwork/v20230901:getArtifactManifest", args ?? new GetArtifactManifestInvokeArgs(), options.WithDefaults());
     }
 
 

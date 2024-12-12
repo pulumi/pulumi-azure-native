@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20241023
         /// </summary>
         public static Output<GetHybridRunbookWorkerResult> Invoke(GetHybridRunbookWorkerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridRunbookWorkerResult>("azure-native:automation/v20241023:getHybridRunbookWorker", args ?? new GetHybridRunbookWorkerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve a hybrid runbook worker.
+        /// </summary>
+        public static Output<GetHybridRunbookWorkerResult> Invoke(GetHybridRunbookWorkerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHybridRunbookWorkerResult>("azure-native:automation/v20241023:getHybridRunbookWorker", args ?? new GetHybridRunbookWorkerInvokeArgs(), options.WithDefaults());
     }
 
 

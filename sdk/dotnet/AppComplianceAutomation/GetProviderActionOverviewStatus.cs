@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// </summary>
         public static Output<GetProviderActionOverviewStatusResult> Invoke(GetProviderActionOverviewStatusInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderActionOverviewStatusResult>("azure-native:appcomplianceautomation:getProviderActionOverviewStatus", args ?? new GetProviderActionOverviewStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the resource overview status.
+        /// Azure REST API version: 2024-06-27.
+        /// </summary>
+        public static Output<GetProviderActionOverviewStatusResult> Invoke(GetProviderActionOverviewStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProviderActionOverviewStatusResult>("azure-native:appcomplianceautomation:getProviderActionOverviewStatus", args ?? new GetProviderActionOverviewStatusInvokeArgs(), options.WithDefaults());
     }
 
 

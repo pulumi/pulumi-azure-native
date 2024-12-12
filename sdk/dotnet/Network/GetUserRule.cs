@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetUserRuleResult> Invoke(GetUserRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleResult>("azure-native:network:getUserRule", args ?? new GetUserRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a user rule.
+        /// Azure REST API version: 2022-04-01-preview.
+        /// 
+        /// Other available API versions: 2021-05-01-preview.
+        /// </summary>
+        public static Output<GetUserRuleResult> Invoke(GetUserRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleResult>("azure-native:network:getUserRule", args ?? new GetUserRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20240401
         /// </summary>
         public static Output<GetWebAppSiteContainerResult> Invoke(GetWebAppSiteContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerResult>("azure-native:web/v20240401:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Container of a site
+        /// </summary>
+        public static Output<GetWebAppSiteContainerResult> Invoke(GetWebAppSiteContainerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerResult>("azure-native:web/v20240401:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerInvokeArgs(), options.WithDefaults());
     }
 
 

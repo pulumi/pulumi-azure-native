@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20241023
         /// </summary>
         public static Output<GetRuntimeEnvironmentResult> Invoke(GetRuntimeEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuntimeEnvironmentResult>("azure-native:automation/v20241023:getRuntimeEnvironment", args ?? new GetRuntimeEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about the Runtime Environment
+        /// </summary>
+        public static Output<GetRuntimeEnvironmentResult> Invoke(GetRuntimeEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuntimeEnvironmentResult>("azure-native:automation/v20241023:getRuntimeEnvironment", args ?? new GetRuntimeEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

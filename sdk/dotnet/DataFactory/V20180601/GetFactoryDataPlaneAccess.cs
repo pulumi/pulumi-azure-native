@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Output<GetFactoryDataPlaneAccessResult> Invoke(GetFactoryDataPlaneAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFactoryDataPlaneAccessResult>("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Data Plane access.
+        /// </summary>
+        public static Output<GetFactoryDataPlaneAccessResult> Invoke(GetFactoryDataPlaneAccessInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFactoryDataPlaneAccessResult>("azure-native:datafactory/v20180601:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessInvokeArgs(), options.WithDefaults());
     }
 
 

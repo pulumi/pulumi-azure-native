@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.Datadog.V20220601
 
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:datadog/v20220601:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:datadog/v20220601:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

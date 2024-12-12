@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240501
         /// </summary>
         public static Output<GetWebApplicationFirewallPolicyResult> Invoke(GetWebApplicationFirewallPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebApplicationFirewallPolicyResult>("azure-native:network/v20240501:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve protection policy with specified name within a resource group.
+        /// </summary>
+        public static Output<GetWebApplicationFirewallPolicyResult> Invoke(GetWebApplicationFirewallPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebApplicationFirewallPolicyResult>("azure-native:network/v20240501:getWebApplicationFirewallPolicy", args ?? new GetWebApplicationFirewallPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

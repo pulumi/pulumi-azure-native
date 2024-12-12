@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Output<GetKpiResult> Invoke(GetKpiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKpiResult>("azure-native:customerinsights/v20170426:getKpi", args ?? new GetKpiInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a KPI in the hub.
+        /// </summary>
+        public static Output<GetKpiResult> Invoke(GetKpiInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKpiResult>("azure-native:customerinsights/v20170426:getKpi", args ?? new GetKpiInvokeArgs(), options.WithDefaults());
     }
 
 

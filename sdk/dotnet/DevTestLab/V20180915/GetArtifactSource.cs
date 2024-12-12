@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Output<GetArtifactSourceResult> Invoke(GetArtifactSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResult>("azure-native:devtestlab/v20180915:getArtifactSource", args ?? new GetArtifactSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get artifact source.
+        /// </summary>
+        public static Output<GetArtifactSourceResult> Invoke(GetArtifactSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetArtifactSourceResult>("azure-native:devtestlab/v20180915:getArtifactSource", args ?? new GetArtifactSourceInvokeArgs(), options.WithDefaults());
     }
 
 

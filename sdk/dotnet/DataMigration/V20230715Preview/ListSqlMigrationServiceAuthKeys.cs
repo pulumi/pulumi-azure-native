@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataMigration.V20230715Preview
         /// </summary>
         public static Output<ListSqlMigrationServiceAuthKeysResult> Invoke(ListSqlMigrationServiceAuthKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceAuthKeysResult>("azure-native:datamigration/v20230715preview:listSqlMigrationServiceAuthKeys", args ?? new ListSqlMigrationServiceAuthKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the List of Authentication Keys for Self Hosted Integration Runtime.
+        /// </summary>
+        public static Output<ListSqlMigrationServiceAuthKeysResult> Invoke(ListSqlMigrationServiceAuthKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListSqlMigrationServiceAuthKeysResult>("azure-native:datamigration/v20230715preview:listSqlMigrationServiceAuthKeys", args ?? new ListSqlMigrationServiceAuthKeysInvokeArgs(), options.WithDefaults());
     }
 
 

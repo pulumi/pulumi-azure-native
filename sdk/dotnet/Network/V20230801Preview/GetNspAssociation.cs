@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230801Preview
         /// </summary>
         public static Output<GetNspAssociationResult> Invoke(GetNspAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspAssociationResult>("azure-native:network/v20230801preview:getNspAssociation", args ?? new GetNspAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified NSP association by name.
+        /// </summary>
+        public static Output<GetNspAssociationResult> Invoke(GetNspAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNspAssociationResult>("azure-native:network/v20230801preview:getNspAssociation", args ?? new GetNspAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

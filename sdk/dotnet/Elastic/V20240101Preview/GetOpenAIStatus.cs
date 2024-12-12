@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20240101Preview
         /// </summary>
         public static Output<GetOpenAIStatusResult> Invoke(GetOpenAIStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenAIStatusResult>("azure-native:elastic/v20240101preview:getOpenAIStatus", args ?? new GetOpenAIStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Status of the OpenAI Integration
+        /// </summary>
+        public static Output<GetOpenAIStatusResult> Invoke(GetOpenAIStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOpenAIStatusResult>("azure-native:elastic/v20240101preview:getOpenAIStatus", args ?? new GetOpenAIStatusInvokeArgs(), options.WithDefaults());
     }
 
 

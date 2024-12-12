@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
         /// </summary>
         public static Output<GetMonitoringConfigResult> Invoke(GetMonitoringConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringConfigResult>("azure-native:databoxedge/v20231201:getMonitoringConfig", args ?? new GetMonitoringConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The metric setting details for the role
+        /// </summary>
+        public static Output<GetMonitoringConfigResult> Invoke(GetMonitoringConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringConfigResult>("azure-native:databoxedge/v20231201:getMonitoringConfig", args ?? new GetMonitoringConfigInvokeArgs(), options.WithDefaults());
     }
 
 

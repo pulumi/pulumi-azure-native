@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetNetworkExperimentProfileResult> Invoke(GetNetworkExperimentProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkExperimentProfileResult>("azure-native:network:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Defines an Network Experiment Profile and lists of Experiments
+        /// Azure REST API version: 2019-11-01.
+        /// </summary>
+        public static Output<GetNetworkExperimentProfileResult> Invoke(GetNetworkExperimentProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkExperimentProfileResult>("azure-native:network:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileInvokeArgs(), options.WithDefaults());
     }
 
 

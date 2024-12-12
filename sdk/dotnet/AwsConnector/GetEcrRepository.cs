@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetEcrRepositoryResult> Invoke(GetEcrRepositoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcrRepositoryResult>("azure-native:awsconnector:getEcrRepository", args ?? new GetEcrRepositoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EcrRepository
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetEcrRepositoryResult> Invoke(GetEcrRepositoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEcrRepositoryResult>("azure-native:awsconnector:getEcrRepository", args ?? new GetEcrRepositoryInvokeArgs(), options.WithDefaults());
     }
 
 

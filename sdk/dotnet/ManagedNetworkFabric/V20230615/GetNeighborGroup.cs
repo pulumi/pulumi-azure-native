@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetNeighborGroupResult> Invoke(GetNeighborGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNeighborGroupResult>("azure-native:managednetworkfabric/v20230615:getNeighborGroup", args ?? new GetNeighborGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Neighbor Group.
+        /// </summary>
+        public static Output<GetNeighborGroupResult> Invoke(GetNeighborGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNeighborGroupResult>("azure-native:managednetworkfabric/v20230615:getNeighborGroup", args ?? new GetNeighborGroupInvokeArgs(), options.WithDefaults());
     }
 
 

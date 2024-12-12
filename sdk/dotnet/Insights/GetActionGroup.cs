@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an action group.
+        /// Azure REST API version: 2023-01-01.
+        /// 
+        /// Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
     }
 
 

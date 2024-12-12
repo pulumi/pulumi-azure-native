@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240301
         /// </summary>
         public static Output<GetIpAllocationResult> Invoke(GetIpAllocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpAllocationResult>("azure-native:network/v20240301:getIpAllocation", args ?? new GetIpAllocationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified IpAllocation by resource group.
+        /// </summary>
+        public static Output<GetIpAllocationResult> Invoke(GetIpAllocationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpAllocationResult>("azure-native:network/v20240301:getIpAllocation", args ?? new GetIpAllocationInvokeArgs(), options.WithDefaults());
     }
 
 

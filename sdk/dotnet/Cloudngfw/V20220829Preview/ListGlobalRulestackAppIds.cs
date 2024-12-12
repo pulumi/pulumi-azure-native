@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20220829Preview
         /// </summary>
         public static Output<ListGlobalRulestackAppIdsResult> Invoke(ListGlobalRulestackAppIdsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGlobalRulestackAppIdsResult>("azure-native:cloudngfw/v20220829preview:listGlobalRulestackAppIds", args ?? new ListGlobalRulestackAppIdsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List of AppIds for GlobalRulestack ApiVersion
+        /// </summary>
+        public static Output<ListGlobalRulestackAppIdsResult> Invoke(ListGlobalRulestackAppIdsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGlobalRulestackAppIdsResult>("azure-native:cloudngfw/v20220829preview:listGlobalRulestackAppIds", args ?? new ListGlobalRulestackAppIdsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20220901
         /// </summary>
         public static Output<GetWebAppPrivateEndpointConnectionSlotResult> Invoke(GetWebAppPrivateEndpointConnectionSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPrivateEndpointConnectionSlotResult>("azure-native:web/v20220901:getWebAppPrivateEndpointConnectionSlot", args ?? new GetWebAppPrivateEndpointConnectionSlotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Gets a private endpoint connection
+        /// </summary>
+        public static Output<GetWebAppPrivateEndpointConnectionSlotResult> Invoke(GetWebAppPrivateEndpointConnectionSlotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPrivateEndpointConnectionSlotResult>("azure-native:web/v20220901:getWebAppPrivateEndpointConnectionSlot", args ?? new GetWebAppPrivateEndpointConnectionSlotInvokeArgs(), options.WithDefaults());
     }
 
 

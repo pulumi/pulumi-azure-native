@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         /// </summary>
         public static Output<GetManagementGroupDiagnosticSettingResult> Invoke(GetManagementGroupDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupDiagnosticSettingResult>("azure-native:insights/v20210501preview:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the active management group diagnostic settings for the specified resource.
+        /// </summary>
+        public static Output<GetManagementGroupDiagnosticSettingResult> Invoke(GetManagementGroupDiagnosticSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupDiagnosticSettingResult>("azure-native:insights/v20210501preview:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingInvokeArgs(), options.WithDefaults());
     }
 
 

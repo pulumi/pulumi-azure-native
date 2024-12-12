@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public static Output<ListVendorSkusCredentialResult> Invoke(ListVendorSkusCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVendorSkusCredentialResult>("azure-native:hybridnetwork:listVendorSkusCredential", args ?? new ListVendorSkusCredentialInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Generate credentials for publishing SKU images.
+        /// Azure REST API version: 2022-01-01-preview.
+        /// </summary>
+        public static Output<ListVendorSkusCredentialResult> Invoke(ListVendorSkusCredentialInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListVendorSkusCredentialResult>("azure-native:hybridnetwork:listVendorSkusCredential", args ?? new ListVendorSkusCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

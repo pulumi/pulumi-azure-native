@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20240601Preview
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid/v20240601preview:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a topic.
+        /// </summary>
+        public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid/v20240601preview:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
     }
 
 

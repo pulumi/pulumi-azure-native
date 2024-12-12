@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure-native:notificationhubs:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response for POST requests that return single SharedAccessAuthorizationRule.
+        /// Azure REST API version: 2023-01-01-preview.
+        /// 
+        /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+        /// </summary>
+        public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure-native:notificationhubs:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

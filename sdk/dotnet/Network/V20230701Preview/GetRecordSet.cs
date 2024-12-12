@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         /// </summary>
         public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network/v20230701preview:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a record set.
+        /// </summary>
+        public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network/v20230701preview:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEc2InstanceStatusResult> Invoke(GetEc2InstanceStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2InstanceStatusResult>("azure-native:awsconnector/v20241201:getEc2InstanceStatus", args ?? new GetEc2InstanceStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2InstanceStatus
+        /// </summary>
+        public static Output<GetEc2InstanceStatusResult> Invoke(GetEc2InstanceStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2InstanceStatusResult>("azure-native:awsconnector/v20241201:getEc2InstanceStatus", args ?? new GetEc2InstanceStatusInvokeArgs(), options.WithDefaults());
     }
 
 

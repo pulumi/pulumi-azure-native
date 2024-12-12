@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NotificationHubs.V20230101Preview
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:notificationhubs/v20230101preview:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Notification Hubs Namespace Resource.
+        /// </summary>
+        public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:notificationhubs/v20230101preview:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

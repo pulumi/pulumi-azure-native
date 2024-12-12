@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTOperationsMQ.V20231004Preview
         /// </summary>
         public static Output<GetMqttBridgeTopicMapResult> Invoke(GetMqttBridgeTopicMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMqttBridgeTopicMapResult>("azure-native:iotoperationsmq/v20231004preview:getMqttBridgeTopicMap", args ?? new GetMqttBridgeTopicMapInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a MqttBridgeTopicMapResource
+        /// </summary>
+        public static Output<GetMqttBridgeTopicMapResult> Invoke(GetMqttBridgeTopicMapInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMqttBridgeTopicMapResult>("azure-native:iotoperationsmq/v20231004preview:getMqttBridgeTopicMap", args ?? new GetMqttBridgeTopicMapInvokeArgs(), options.WithDefaults());
     }
 
 

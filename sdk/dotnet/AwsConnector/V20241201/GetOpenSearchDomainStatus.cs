@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetOpenSearchDomainStatusResult> Invoke(GetOpenSearchDomainStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenSearchDomainStatusResult>("azure-native:awsconnector/v20241201:getOpenSearchDomainStatus", args ?? new GetOpenSearchDomainStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a OpenSearchDomainStatus
+        /// </summary>
+        public static Output<GetOpenSearchDomainStatusResult> Invoke(GetOpenSearchDomainStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOpenSearchDomainStatusResult>("azure-native:awsconnector/v20241201:getOpenSearchDomainStatus", args ?? new GetOpenSearchDomainStatusInvokeArgs(), options.WithDefaults());
     }
 
 

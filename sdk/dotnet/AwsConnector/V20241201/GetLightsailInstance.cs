@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetLightsailInstanceResult> Invoke(GetLightsailInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLightsailInstanceResult>("azure-native:awsconnector/v20241201:getLightsailInstance", args ?? new GetLightsailInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LightsailInstance
+        /// </summary>
+        public static Output<GetLightsailInstanceResult> Invoke(GetLightsailInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLightsailInstanceResult>("azure-native:awsconnector/v20241201:getLightsailInstance", args ?? new GetLightsailInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

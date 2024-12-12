@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
         /// </summary>
         public static Output<GetLabelingJobResult> Invoke(GetLabelingJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelingJobResult>("azure-native:machinelearningservices/v20200901preview:getLabelingJob", args ?? new GetLabelingJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a labeling job by id.
+        /// </summary>
+        public static Output<GetLabelingJobResult> Invoke(GetLabelingJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabelingJobResult>("azure-native:machinelearningservices/v20200901preview:getLabelingJob", args ?? new GetLabelingJobInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NotificationHubs.V20231001Preview
         /// </summary>
         public static Output<ListNotificationHubKeysResult> Invoke(ListNotificationHubKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNotificationHubKeysResult>("azure-native:notificationhubs/v20231001preview:listNotificationHubKeys", args ?? new ListNotificationHubKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+        /// </summary>
+        public static Output<ListNotificationHubKeysResult> Invoke(ListNotificationHubKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListNotificationHubKeysResult>("azure-native:notificationhubs/v20231001preview:listNotificationHubKeys", args ?? new ListNotificationHubKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401
         /// </summary>
         public static Output<ListRunLogSasUrlResult> Invoke(ListRunLogSasUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRunLogSasUrlResult>("azure-native:containerregistry/v20190401:listRunLogSasUrl", args ?? new ListRunLogSasUrlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a link to download the run logs.
+        /// </summary>
+        public static Output<ListRunLogSasUrlResult> Invoke(ListRunLogSasUrlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListRunLogSasUrlResult>("azure-native:containerregistry/v20190401:listRunLogSasUrl", args ?? new ListRunLogSasUrlInvokeArgs(), options.WithDefaults());
     }
 
 

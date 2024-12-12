@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<GetMDATPDataConnectorResult> Invoke(GetMDATPDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMDATPDataConnectorResult>("azure-native:securityinsights:getMDATPDataConnector", args ?? new GetMDATPDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// Azure REST API version: 2023-02-01.
+        /// </summary>
+        public static Output<GetMDATPDataConnectorResult> Invoke(GetMDATPDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMDATPDataConnectorResult>("azure-native:securityinsights:getMDATPDataConnector", args ?? new GetMDATPDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public static Output<GetHciEdgeDeviceJobResult> Invoke(GetHciEdgeDeviceJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciEdgeDeviceJobResult>("azure-native:azurestackhci:getHciEdgeDeviceJob", args ?? new GetHciEdgeDeviceJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EdgeDeviceJob
+        /// Azure REST API version: 2024-09-01-preview.
+        /// </summary>
+        public static Output<GetHciEdgeDeviceJobResult> Invoke(GetHciEdgeDeviceJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHciEdgeDeviceJobResult>("azure-native:azurestackhci:getHciEdgeDeviceJob", args ?? new GetHciEdgeDeviceJobInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230315
         /// </summary>
         public static Output<GetGroupsOperationResult> Invoke(GetGroupsOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupsOperationResult>("azure-native:migrate/v20230315:getGroupsOperation", args ?? new GetGroupsOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Group
+        /// </summary>
+        public static Output<GetGroupsOperationResult> Invoke(GetGroupsOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupsOperationResult>("azure-native:migrate/v20230315:getGroupsOperation", args ?? new GetGroupsOperationInvokeArgs(), options.WithDefaults());
     }
 
 

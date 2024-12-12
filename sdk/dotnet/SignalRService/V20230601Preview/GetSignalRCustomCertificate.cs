@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SignalRService.V20230601Preview
         /// </summary>
         public static Output<GetSignalRCustomCertificateResult> Invoke(GetSignalRCustomCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRCustomCertificateResult>("azure-native:signalrservice/v20230601preview:getSignalRCustomCertificate", args ?? new GetSignalRCustomCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a custom certificate.
+        /// </summary>
+        public static Output<GetSignalRCustomCertificateResult> Invoke(GetSignalRCustomCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSignalRCustomCertificateResult>("azure-native:signalrservice/v20230601preview:getSignalRCustomCertificate", args ?? new GetSignalRCustomCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         /// </summary>
         public static Output<GetSpacecraftResult> Invoke(GetSpacecraftInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpacecraftResult>("azure-native:orbital/v20220301:getSpacecraft", args ?? new GetSpacecraftInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified spacecraft in a specified resource group.
+        /// </summary>
+        public static Output<GetSpacecraftResult> Invoke(GetSpacecraftInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpacecraftResult>("azure-native:orbital/v20220301:getSpacecraft", args ?? new GetSpacecraftInvokeArgs(), options.WithDefaults());
     }
 
 

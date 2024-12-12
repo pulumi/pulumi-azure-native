@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20150501
         /// </summary>
         public static Output<GetExportConfigurationResult> Invoke(GetExportConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportConfigurationResult>("azure-native:insights/v20150501:getExportConfiguration", args ?? new GetExportConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Continuous Export configuration for this export id.
+        /// </summary>
+        public static Output<GetExportConfigurationResult> Invoke(GetExportConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExportConfigurationResult>("azure-native:insights/v20150501:getExportConfiguration", args ?? new GetExportConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

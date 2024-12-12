@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Scom.V20230707Preview
         /// </summary>
         public static Output<GetMonitoredResourceResult> Invoke(GetMonitoredResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredResourceResult>("azure-native:scom/v20230707preview:getMonitoredResource", args ?? new GetMonitoredResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the details of the monitored resource.
+        /// </summary>
+        public static Output<GetMonitoredResourceResult> Invoke(GetMonitoredResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredResourceResult>("azure-native:scom/v20230707preview:getMonitoredResource", args ?? new GetMonitoredResourceInvokeArgs(), options.WithDefaults());
     }
 
 

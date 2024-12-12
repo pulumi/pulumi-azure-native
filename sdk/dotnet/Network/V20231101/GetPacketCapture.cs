@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20231101
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network/v20231101:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a packet capture session by name.
+        /// </summary>
+        public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network/v20231101:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
     }
 
 

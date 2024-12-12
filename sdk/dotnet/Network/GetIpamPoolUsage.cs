@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetIpamPoolUsageResult> Invoke(GetIpamPoolUsageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamPoolUsageResult>("azure-native:network:getIpamPoolUsage", args ?? new GetIpamPoolUsageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// IpamPool usage information.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
+        /// </summary>
+        public static Output<GetIpamPoolUsageResult> Invoke(GetIpamPoolUsageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpamPoolUsageResult>("azure-native:network:getIpamPoolUsage", args ?? new GetIpamPoolUsageInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.AzureArcData
         /// </summary>
         public static Output<GetSqlServerDatabaseResult> Invoke(GetSqlServerDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerDatabaseResult>("azure-native:azurearcdata:getSqlServerDatabase", args ?? new GetSqlServerDatabaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves an Arc Sql Server database.
+        /// Azure REST API version: 2023-01-15-preview.
+        /// 
+        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetSqlServerDatabaseResult> Invoke(GetSqlServerDatabaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerDatabaseResult>("azure-native:azurearcdata:getSqlServerDatabase", args ?? new GetSqlServerDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.TestBase.V20231101Preview
         /// </summary>
         public static Output<GetImageDefinitionResult> Invoke(GetImageDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageDefinitionResult>("azure-native:testbase/v20231101preview:getImageDefinition", args ?? new GetImageDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get image properties under the image definition name created by test base custom image which derived from 'VHD' source.
+        /// </summary>
+        public static Output<GetImageDefinitionResult> Invoke(GetImageDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageDefinitionResult>("azure-native:testbase/v20231101preview:getImageDefinition", args ?? new GetImageDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

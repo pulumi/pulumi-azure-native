@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20241023
         /// </summary>
         public static Output<GetAutomationAccountResult> Invoke(GetAutomationAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationAccountResult>("azure-native:automation/v20241023:getAutomationAccount", args ?? new GetAutomationAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about an Automation Account.
+        /// </summary>
+        public static Output<GetAutomationAccountResult> Invoke(GetAutomationAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutomationAccountResult>("azure-native:automation/v20241023:getAutomationAccount", args ?? new GetAutomationAccountInvokeArgs(), options.WithDefaults());
     }
 
 

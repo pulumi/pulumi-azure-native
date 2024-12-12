@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public static Output<GetNetworkFunctionResult> Invoke(GetNetworkFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionResult>("azure-native:hybridnetwork:getNetworkFunction", args ?? new GetNetworkFunctionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified network function resource.
+        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2023-09-01, 2024-04-15.
+        /// </summary>
+        public static Output<GetNetworkFunctionResult> Invoke(GetNetworkFunctionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFunctionResult>("azure-native:hybridnetwork:getNetworkFunction", args ?? new GetNetworkFunctionInvokeArgs(), options.WithDefaults());
     }
 
 

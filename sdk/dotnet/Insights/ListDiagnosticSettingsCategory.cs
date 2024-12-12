@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Output<ListDiagnosticSettingsCategoryResult> Invoke(ListDiagnosticSettingsCategoryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDiagnosticSettingsCategoryResult>("azure-native:insights:listDiagnosticSettingsCategory", args ?? new ListDiagnosticSettingsCategoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the diagnostic settings categories for the specified resource.
+        /// Azure REST API version: 2021-05-01-preview.
+        /// 
+        /// Other available API versions: 2017-05-01-preview.
+        /// </summary>
+        public static Output<ListDiagnosticSettingsCategoryResult> Invoke(ListDiagnosticSettingsCategoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDiagnosticSettingsCategoryResult>("azure-native:insights:listDiagnosticSettingsCategory", args ?? new ListDiagnosticSettingsCategoryInvokeArgs(), options.WithDefaults());
     }
 
 

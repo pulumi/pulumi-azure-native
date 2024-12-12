@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231001Preview
         /// </summary>
         public static Output<GetMicrosoftPurviewInformationProtectionDataConnectorResult> Invoke(GetMicrosoftPurviewInformationProtectionDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMicrosoftPurviewInformationProtectionDataConnectorResult>("azure-native:securityinsights/v20231001preview:getMicrosoftPurviewInformationProtectionDataConnector", args ?? new GetMicrosoftPurviewInformationProtectionDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// </summary>
+        public static Output<GetMicrosoftPurviewInformationProtectionDataConnectorResult> Invoke(GetMicrosoftPurviewInformationProtectionDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMicrosoftPurviewInformationProtectionDataConnectorResult>("azure-native:securityinsights/v20231001preview:getMicrosoftPurviewInformationProtectionDataConnector", args ?? new GetMicrosoftPurviewInformationProtectionDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

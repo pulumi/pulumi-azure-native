@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:kusto:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a managed private endpoint.
+        /// Azure REST API version: 2022-12-29.
+        /// 
+        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// </summary>
+        public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:kusto:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

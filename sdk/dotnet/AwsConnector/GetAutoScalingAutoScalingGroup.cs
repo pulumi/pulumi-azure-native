@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetAutoScalingAutoScalingGroupResult> Invoke(GetAutoScalingAutoScalingGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoScalingAutoScalingGroupResult>("azure-native:awsconnector:getAutoScalingAutoScalingGroup", args ?? new GetAutoScalingAutoScalingGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a AutoScalingAutoScalingGroup
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetAutoScalingAutoScalingGroupResult> Invoke(GetAutoScalingAutoScalingGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutoScalingAutoScalingGroupResult>("azure-native:awsconnector:getAutoScalingAutoScalingGroup", args ?? new GetAutoScalingAutoScalingGroupInvokeArgs(), options.WithDefaults());
     }
 
 

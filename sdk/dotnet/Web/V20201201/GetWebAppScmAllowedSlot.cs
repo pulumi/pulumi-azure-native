@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20201201
         /// </summary>
         public static Output<GetWebAppScmAllowedSlotResult> Invoke(GetWebAppScmAllowedSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppScmAllowedSlotResult>("azure-native:web/v20201201:getWebAppScmAllowedSlot", args ?? new GetWebAppScmAllowedSlotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns whether Scm basic auth is allowed on the site or not.
+        /// </summary>
+        public static Output<GetWebAppScmAllowedSlotResult> Invoke(GetWebAppScmAllowedSlotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppScmAllowedSlotResult>("azure-native:web/v20201201:getWebAppScmAllowedSlot", args ?? new GetWebAppScmAllowedSlotInvokeArgs(), options.WithDefaults());
     }
 
 

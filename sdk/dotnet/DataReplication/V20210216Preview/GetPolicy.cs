@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataReplication.V20210216Preview
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:datareplication/v20210216preview:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the policy.
+        /// </summary>
+        public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:datareplication/v20210216preview:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

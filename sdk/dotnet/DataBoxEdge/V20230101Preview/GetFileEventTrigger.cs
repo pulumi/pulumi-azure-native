@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
         /// </summary>
         public static Output<GetFileEventTriggerResult> Invoke(GetFileEventTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileEventTriggerResult>("azure-native:databoxedge/v20230101preview:getFileEventTrigger", args ?? new GetFileEventTriggerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific trigger by name.
+        /// </summary>
+        public static Output<GetFileEventTriggerResult> Invoke(GetFileEventTriggerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileEventTriggerResult>("azure-native:databoxedge/v20230101preview:getFileEventTrigger", args ?? new GetFileEventTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

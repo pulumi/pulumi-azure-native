@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210831Preview
         /// </summary>
         public static Output<GetCustomLocationResult> Invoke(GetCustomLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure-native:extendedlocation/v20210831preview:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the customLocation with a specified resource group and name.
+        /// </summary>
+        public static Output<GetCustomLocationResult> Invoke(GetCustomLocationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure-native:extendedlocation/v20210831preview:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithDefaults());
     }
 
 

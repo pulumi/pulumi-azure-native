@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
         /// </summary>
         public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantConfigurationResult>("azure-native:portal/v20200901preview:getTenantConfiguration", args ?? new GetTenantConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the tenant configuration.
+        /// </summary>
+        public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTenantConfigurationResult>("azure-native:portal/v20200901preview:getTenantConfiguration", args ?? new GetTenantConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

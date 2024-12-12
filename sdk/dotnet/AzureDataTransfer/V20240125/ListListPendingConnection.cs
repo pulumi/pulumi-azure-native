@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20240125
         /// </summary>
         public static Output<ListListPendingConnectionResult> Invoke(ListListPendingConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListListPendingConnectionResult>("azure-native:azuredatatransfer/v20240125:listListPendingConnection", args ?? new ListListPendingConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists all pending connections for a connection.
+        /// </summary>
+        public static Output<ListListPendingConnectionResult> Invoke(ListListPendingConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListListPendingConnectionResult>("azure-native:azuredatatransfer/v20240125:listListPendingConnection", args ?? new ListListPendingConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20240501Preview
         /// </summary>
         public static Output<GetWebAppDiscoverySiteDataSourcesControllerResult> Invoke(GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiscoverySiteDataSourcesControllerResult>("azure-native:offazure/v20240501preview:getWebAppDiscoverySiteDataSourcesController", args ?? new GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Method to get a Web app data source in site.
+        /// </summary>
+        public static Output<GetWebAppDiscoverySiteDataSourcesControllerResult> Invoke(GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiscoverySiteDataSourcesControllerResult>("azure-native:offazure/v20240501preview:getWebAppDiscoverySiteDataSourcesController", args ?? new GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs(), options.WithDefaults());
     }
 
 

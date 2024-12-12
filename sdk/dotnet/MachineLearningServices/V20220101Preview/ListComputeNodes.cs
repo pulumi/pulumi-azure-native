@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
         /// </summary>
         public static Output<ListComputeNodesResult> Invoke(ListComputeNodesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListComputeNodesResult>("azure-native:machinelearningservices/v20220101preview:listComputeNodes", args ?? new ListComputeNodesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details (e.g IP address, port etc) of all the compute nodes in the compute.
+        /// </summary>
+        public static Output<ListComputeNodesResult> Invoke(ListComputeNodesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListComputeNodesResult>("azure-native:machinelearningservices/v20220101preview:listComputeNodes", args ?? new ListComputeNodesInvokeArgs(), options.WithDefaults());
     }
 
 

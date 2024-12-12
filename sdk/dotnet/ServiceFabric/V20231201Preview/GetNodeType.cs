@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20231201Preview
         /// </summary>
         public static Output<GetNodeTypeResult> Invoke(GetNodeTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric/v20231201preview:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Service Fabric node type of a given managed cluster.
+        /// </summary>
+        public static Output<GetNodeTypeResult> Invoke(GetNodeTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNodeTypeResult>("azure-native:servicefabric/v20231201preview:getNodeType", args ?? new GetNodeTypeInvokeArgs(), options.WithDefaults());
     }
 
 

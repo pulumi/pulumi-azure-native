@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20231215Preview
         /// </summary>
         public static Output<GetSystemTopicEventSubscriptionResult> Invoke(GetSystemTopicEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicEventSubscriptionResult>("azure-native:eventgrid/v20231215preview:getSystemTopicEventSubscription", args ?? new GetSystemTopicEventSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an event subscription.
+        /// </summary>
+        public static Output<GetSystemTopicEventSubscriptionResult> Invoke(GetSystemTopicEventSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicEventSubscriptionResult>("azure-native:eventgrid/v20231215preview:getSystemTopicEventSubscription", args ?? new GetSystemTopicEventSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

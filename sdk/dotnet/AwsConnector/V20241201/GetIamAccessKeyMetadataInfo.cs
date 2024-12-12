@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetIamAccessKeyMetadataInfoResult> Invoke(GetIamAccessKeyMetadataInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamAccessKeyMetadataInfoResult>("azure-native:awsconnector/v20241201:getIamAccessKeyMetadataInfo", args ?? new GetIamAccessKeyMetadataInfoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamAccessKeyMetadata
+        /// </summary>
+        public static Output<GetIamAccessKeyMetadataInfoResult> Invoke(GetIamAccessKeyMetadataInfoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamAccessKeyMetadataInfoResult>("azure-native:awsconnector/v20241201:getIamAccessKeyMetadataInfo", args ?? new GetIamAccessKeyMetadataInfoInvokeArgs(), options.WithDefaults());
     }
 
 

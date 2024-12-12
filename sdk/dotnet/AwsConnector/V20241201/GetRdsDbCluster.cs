@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetRdsDbClusterResult> Invoke(GetRdsDbClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRdsDbClusterResult>("azure-native:awsconnector/v20241201:getRdsDbCluster", args ?? new GetRdsDbClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a RdsDBCluster
+        /// </summary>
+        public static Output<GetRdsDbClusterResult> Invoke(GetRdsDbClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRdsDbClusterResult>("azure-native:awsconnector/v20241201:getRdsDbCluster", args ?? new GetRdsDbClusterInvokeArgs(), options.WithDefaults());
     }
 
 

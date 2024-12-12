@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
         /// </summary>
         public static Output<GetVolumeContainerResult> Invoke(GetVolumeContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeContainerResult>("azure-native:storsimple/v20170601:getVolumeContainer", args ?? new GetVolumeContainerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified volume container name.
+        /// </summary>
+        public static Output<GetVolumeContainerResult> Invoke(GetVolumeContainerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeContainerResult>("azure-native:storsimple/v20170601:getVolumeContainer", args ?? new GetVolumeContainerInvokeArgs(), options.WithDefaults());
     }
 
 

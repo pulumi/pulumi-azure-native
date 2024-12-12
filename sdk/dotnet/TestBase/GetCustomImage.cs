@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public static Output<GetCustomImageResult> Invoke(GetCustomImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomImageResult>("azure-native:testbase:getCustomImage", args ?? new GetCustomImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a test base custom image.
+        /// Azure REST API version: 2023-11-01-preview.
+        /// </summary>
+        public static Output<GetCustomImageResult> Invoke(GetCustomImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomImageResult>("azure-native:testbase:getCustomImage", args ?? new GetCustomImageInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetWebAppCollectorOperationResult> Invoke(GetWebAppCollectorOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppCollectorOperationResult>("azure-native:migrate:getWebAppCollectorOperation", args ?? new GetWebAppCollectorOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a WebAppCollector
+        /// Azure REST API version: 2023-04-01-preview.
+        /// 
+        /// Other available API versions: 2023-05-01-preview, 2023-09-09-preview.
+        /// </summary>
+        public static Output<GetWebAppCollectorOperationResult> Invoke(GetWebAppCollectorOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppCollectorOperationResult>("azure-native:migrate:getWebAppCollectorOperation", args ?? new GetWebAppCollectorOperationInvokeArgs(), options.WithDefaults());
     }
 
 

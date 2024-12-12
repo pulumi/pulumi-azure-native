@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetS3AccessPointResult> Invoke(GetS3AccessPointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3AccessPointResult>("azure-native:awsconnector/v20241201:getS3AccessPoint", args ?? new GetS3AccessPointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a S3AccessPoint
+        /// </summary>
+        public static Output<GetS3AccessPointResult> Invoke(GetS3AccessPointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetS3AccessPointResult>("azure-native:awsconnector/v20241201:getS3AccessPoint", args ?? new GetS3AccessPointInvokeArgs(), options.WithDefaults());
     }
 
 

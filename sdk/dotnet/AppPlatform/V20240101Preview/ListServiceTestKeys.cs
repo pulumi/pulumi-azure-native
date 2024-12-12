@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20240101Preview
         /// </summary>
         public static Output<ListServiceTestKeysResult> Invoke(ListServiceTestKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListServiceTestKeysResult>("azure-native:appplatform/v20240101preview:listServiceTestKeys", args ?? new ListServiceTestKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List test keys for a Service.
+        /// </summary>
+        public static Output<ListServiceTestKeysResult> Invoke(ListServiceTestKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListServiceTestKeysResult>("azure-native:appplatform/v20240101preview:listServiceTestKeys", args ?? new ListServiceTestKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:servicefabricmesh:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the information about the secret resource with the given name. The information include the description and other properties of the secret.
+        /// Azure REST API version: 2018-09-01-preview.
+        /// </summary>
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("azure-native:servicefabricmesh:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
 
 

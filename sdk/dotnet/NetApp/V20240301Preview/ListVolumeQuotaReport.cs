@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20240301Preview
         /// </summary>
         public static Output<ListVolumeQuotaReportResult> Invoke(ListVolumeQuotaReportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVolumeQuotaReportResult>("azure-native:netapp/v20240301preview:listVolumeQuotaReport", args ?? new ListVolumeQuotaReportInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns report of quotas for the volume
+        /// </summary>
+        public static Output<ListVolumeQuotaReportResult> Invoke(ListVolumeQuotaReportInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListVolumeQuotaReportResult>("azure-native:netapp/v20240301preview:listVolumeQuotaReport", args ?? new ListVolumeQuotaReportInvokeArgs(), options.WithDefaults());
     }
 
 

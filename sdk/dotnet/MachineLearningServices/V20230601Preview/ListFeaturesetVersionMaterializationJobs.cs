@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230601Preview
         /// </summary>
         public static Output<ListFeaturesetVersionMaterializationJobsResult> Invoke(ListFeaturesetVersionMaterializationJobsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFeaturesetVersionMaterializationJobsResult>("azure-native:machinelearningservices/v20230601preview:listFeaturesetVersionMaterializationJobs", args ?? new ListFeaturesetVersionMaterializationJobsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A paginated list of FeaturesetJob entities.
+        /// </summary>
+        public static Output<ListFeaturesetVersionMaterializationJobsResult> Invoke(ListFeaturesetVersionMaterializationJobsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListFeaturesetVersionMaterializationJobsResult>("azure-native:machinelearningservices/v20230601preview:listFeaturesetVersionMaterializationJobs", args ?? new ListFeaturesetVersionMaterializationJobsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridCloud.V20230101Preview
         /// </summary>
         public static Output<GetCloudConnectorResult> Invoke(GetCloudConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudConnectorResult>("azure-native:hybridcloud/v20230101preview:getCloudConnector", args ?? new GetCloudConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified cloud connector in a specified resource group.
+        /// </summary>
+        public static Output<GetCloudConnectorResult> Invoke(GetCloudConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudConnectorResult>("azure-native:hybridcloud/v20230101preview:getCloudConnector", args ?? new GetCloudConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

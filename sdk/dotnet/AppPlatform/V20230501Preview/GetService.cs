@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:appplatform/v20230501preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Service and its properties.
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:appplatform/v20230501preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

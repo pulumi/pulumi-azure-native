@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20240202Preview
         /// </summary>
         public static Output<GetBuildResult> Invoke(GetBuildInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildResult>("azure-native:app/v20240202preview:getBuild", args ?? new GetBuildInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a BuildResource
+        /// </summary>
+        public static Output<GetBuildResult> Invoke(GetBuildInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBuildResult>("azure-native:app/v20240202preview:getBuild", args ?? new GetBuildInvokeArgs(), options.WithDefaults());
     }
 
 

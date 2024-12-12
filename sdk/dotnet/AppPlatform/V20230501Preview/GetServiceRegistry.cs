@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
         /// </summary>
         public static Output<GetServiceRegistryResult> Invoke(GetServiceRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceRegistryResult>("azure-native:appplatform/v20230501preview:getServiceRegistry", args ?? new GetServiceRegistryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Service Registry and its properties.
+        /// </summary>
+        public static Output<GetServiceRegistryResult> Invoke(GetServiceRegistryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceRegistryResult>("azure-native:appplatform/v20230501preview:getServiceRegistry", args ?? new GetServiceRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

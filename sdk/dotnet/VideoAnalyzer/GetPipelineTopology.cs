@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public static Output<GetPipelineTopologyResult> Invoke(GetPipelineTopologyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineTopologyResult>("azure-native:videoanalyzer:getPipelineTopology", args ?? new GetPipelineTopologyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a specific pipeline topology by name. If a topology with that name has been previously created, the call will return the JSON representation of that topology.
+        /// Azure REST API version: 2021-11-01-preview.
+        /// </summary>
+        public static Output<GetPipelineTopologyResult> Invoke(GetPipelineTopologyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineTopologyResult>("azure-native:videoanalyzer:getPipelineTopology", args ?? new GetPipelineTopologyInvokeArgs(), options.WithDefaults());
     }
 
 

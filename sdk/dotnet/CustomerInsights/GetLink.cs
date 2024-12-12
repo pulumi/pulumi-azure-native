@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("azure-native:customerinsights:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a link in the hub.
+        /// Azure REST API version: 2017-04-26.
+        /// </summary>
+        public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("azure-native:customerinsights:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
     }
 
 

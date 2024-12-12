@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20240401
         /// </summary>
         public static Output<GetWebAppFtpAllowedSlotResult> Invoke(GetWebAppFtpAllowedSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFtpAllowedSlotResult>("azure-native:web/v20240401:getWebAppFtpAllowedSlot", args ?? new GetWebAppFtpAllowedSlotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Returns whether FTP is allowed on the site or not.
+        /// </summary>
+        public static Output<GetWebAppFtpAllowedSlotResult> Invoke(GetWebAppFtpAllowedSlotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFtpAllowedSlotResult>("azure-native:web/v20240401:getWebAppFtpAllowedSlot", args ?? new GetWebAppFtpAllowedSlotInvokeArgs(), options.WithDefaults());
     }
 
 

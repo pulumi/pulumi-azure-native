@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20231001Preview
         /// </summary>
         public static Output<GetMasterSitesControllerResult> Invoke(GetMasterSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMasterSitesControllerResult>("azure-native:offazure/v20231001preview:getMasterSitesController", args ?? new GetMasterSitesControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a MasterSite
+        /// </summary>
+        public static Output<GetMasterSitesControllerResult> Invoke(GetMasterSitesControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMasterSitesControllerResult>("azure-native:offazure/v20231001preview:getMasterSitesController", args ?? new GetMasterSitesControllerInvokeArgs(), options.WithDefaults());
     }
 
 

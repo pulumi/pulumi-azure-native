@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230701Preview
         /// </summary>
         public static Output<GetApiPortalResult> Invoke(GetApiPortalInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiPortalResult>("azure-native:appplatform/v20230701preview:getApiPortal", args ?? new GetApiPortalInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the API portal and its properties.
+        /// </summary>
+        public static Output<GetApiPortalResult> Invoke(GetApiPortalInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiPortalResult>("azure-native:appplatform/v20230701preview:getApiPortal", args ?? new GetApiPortalInvokeArgs(), options.WithDefaults());
     }
 
 

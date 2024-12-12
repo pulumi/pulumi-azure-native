@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20220829
         /// </summary>
         public static Output<GetLocalRulestackSupportInfoResult> Invoke(GetLocalRulestackSupportInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackSupportInfoResult>("azure-native:cloudngfw/v20220829:getLocalRulestackSupportInfo", args ?? new GetLocalRulestackSupportInfoInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// support info for rulestack.
+        /// </summary>
+        public static Output<GetLocalRulestackSupportInfoResult> Invoke(GetLocalRulestackSupportInfoInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackSupportInfoResult>("azure-native:cloudngfw/v20220829:getLocalRulestackSupportInfo", args ?? new GetLocalRulestackSupportInfoInvokeArgs(), options.WithDefaults());
     }
 
 

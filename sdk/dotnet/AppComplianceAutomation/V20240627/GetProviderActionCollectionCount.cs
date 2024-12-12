@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.V20240627
         /// </summary>
         public static Output<GetProviderActionCollectionCountResult> Invoke(GetProviderActionCollectionCountInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderActionCollectionCountResult>("azure-native:appcomplianceautomation/v20240627:getProviderActionCollectionCount", args ?? new GetProviderActionCollectionCountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the count of reports.
+        /// </summary>
+        public static Output<GetProviderActionCollectionCountResult> Invoke(GetProviderActionCollectionCountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProviderActionCollectionCountResult>("azure-native:appcomplianceautomation/v20240627:getProviderActionCollectionCount", args ?? new GetProviderActionCollectionCountInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:workloads:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a connector resource
+        /// Azure REST API version: 2023-10-01-preview.
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:workloads:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

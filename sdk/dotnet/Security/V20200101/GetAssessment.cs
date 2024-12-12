@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20200101
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security/v20200101:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a security assessment on your scanned resource
+        /// </summary>
+        public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security/v20200101:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
     }
 
 

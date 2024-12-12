@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.V20230101
         /// </summary>
         public static Output<GetAssetEncryptionKeyResult> Invoke(GetAssetEncryptionKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetEncryptionKeyResult>("azure-native:media/v20230101:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Asset storage encryption keys used to decrypt content created by version 2 of the Media Services API
+        /// </summary>
+        public static Output<GetAssetEncryptionKeyResult> Invoke(GetAssetEncryptionKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetEncryptionKeyResult>("azure-native:media/v20230101:getAssetEncryptionKey", args ?? new GetAssetEncryptionKeyInvokeArgs(), options.WithDefaults());
     }
 
 

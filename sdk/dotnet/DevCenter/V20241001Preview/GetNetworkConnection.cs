@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20241001Preview
         /// </summary>
         public static Output<GetNetworkConnectionResult> Invoke(GetNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkConnectionResult>("azure-native:devcenter/v20241001preview:getNetworkConnection", args ?? new GetNetworkConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a network connection resource
+        /// </summary>
+        public static Output<GetNetworkConnectionResult> Invoke(GetNetworkConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkConnectionResult>("azure-native:devcenter/v20241001preview:getNetworkConnection", args ?? new GetNetworkConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

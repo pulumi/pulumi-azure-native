@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20220125
         /// </summary>
         public static Output<GetGuestConfigurationAssignmentsVMSSResult> Invoke(GetGuestConfigurationAssignmentsVMSSInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentsVMSSResult>("azure-native:guestconfiguration/v20220125:getGuestConfigurationAssignmentsVMSS", args ?? new GetGuestConfigurationAssignmentsVMSSInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about a guest configuration assignment for VMSS
+        /// </summary>
+        public static Output<GetGuestConfigurationAssignmentsVMSSResult> Invoke(GetGuestConfigurationAssignmentsVMSSInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentsVMSSResult>("azure-native:guestconfiguration/v20220125:getGuestConfigurationAssignmentsVMSS", args ?? new GetGuestConfigurationAssignmentsVMSSInvokeArgs(), options.WithDefaults());
     }
 
 

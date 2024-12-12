@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Portal
         /// </summary>
         public static Output<GetConsoleWithLocationResult> Invoke(GetConsoleWithLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsoleWithLocationResult>("azure-native:portal:getConsoleWithLocation", args ?? new GetConsoleWithLocationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the console for the user.
+        /// Azure REST API version: 2018-10-01.
+        /// </summary>
+        public static Output<GetConsoleWithLocationResult> Invoke(GetConsoleWithLocationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConsoleWithLocationResult>("azure-native:portal:getConsoleWithLocation", args ?? new GetConsoleWithLocationInvokeArgs(), options.WithDefaults());
     }
 
 

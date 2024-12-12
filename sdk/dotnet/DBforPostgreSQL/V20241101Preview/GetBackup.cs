@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20241101Preview
         /// </summary>
         public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:dbforpostgresql/v20241101preview:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get specific backup for a given server.
+        /// </summary>
+        public static Output<GetBackupResult> Invoke(GetBackupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackupResult>("azure-native:dbforpostgresql/v20241101preview:getBackup", args ?? new GetBackupInvokeArgs(), options.WithDefaults());
     }
 
 

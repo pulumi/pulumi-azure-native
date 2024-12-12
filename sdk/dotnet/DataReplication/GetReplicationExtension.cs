@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataReplication
         /// </summary>
         public static Output<GetReplicationExtensionResult> Invoke(GetReplicationExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationExtensionResult>("azure-native:datareplication:getReplicationExtension", args ?? new GetReplicationExtensionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the replication extension.
+        /// Azure REST API version: 2021-02-16-preview.
+        /// </summary>
+        public static Output<GetReplicationExtensionResult> Invoke(GetReplicationExtensionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationExtensionResult>("azure-native:datareplication:getReplicationExtension", args ?? new GetReplicationExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

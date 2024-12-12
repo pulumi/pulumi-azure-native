@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20240709Preview
         /// </summary>
         public static Output<GetManagedCCFResult> Invoke(GetManagedCCFInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedCCFResult>("azure-native:confidentialledger/v20240709preview:getManagedCCF", args ?? new GetManagedCCFInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the properties of a Managed CCF app.
+        /// </summary>
+        public static Output<GetManagedCCFResult> Invoke(GetManagedCCFInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedCCFResult>("azure-native:confidentialledger/v20240709preview:getManagedCCF", args ?? new GetManagedCCFInvokeArgs(), options.WithDefaults());
     }
 
 

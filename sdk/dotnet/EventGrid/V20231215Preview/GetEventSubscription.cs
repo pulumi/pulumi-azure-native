@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20231215Preview
         /// </summary>
         public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("azure-native:eventgrid/v20231215preview:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of an event subscription.
+        /// </summary>
+        public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("azure-native:eventgrid/v20231215preview:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

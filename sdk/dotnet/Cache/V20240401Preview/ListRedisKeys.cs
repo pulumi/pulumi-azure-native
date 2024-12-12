@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cache.V20240401Preview
         /// </summary>
         public static Output<ListRedisKeysResult> Invoke(ListRedisKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRedisKeysResult>("azure-native:cache/v20240401preview:listRedisKeys", args ?? new ListRedisKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.
+        /// </summary>
+        public static Output<ListRedisKeysResult> Invoke(ListRedisKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListRedisKeysResult>("azure-native:cache/v20240401preview:listRedisKeys", args ?? new ListRedisKeysInvokeArgs(), options.WithDefaults());
     }
 
 

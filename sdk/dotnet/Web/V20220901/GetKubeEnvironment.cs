@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20220901
         /// </summary>
         public static Output<GetKubeEnvironmentResult> Invoke(GetKubeEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubeEnvironmentResult>("azure-native:web/v20220901:getKubeEnvironment", args ?? new GetKubeEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Get the properties of a Kubernetes Environment.
+        /// </summary>
+        public static Output<GetKubeEnvironmentResult> Invoke(GetKubeEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKubeEnvironmentResult>("azure-native:web/v20220901:getKubeEnvironment", args ?? new GetKubeEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

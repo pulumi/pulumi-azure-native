@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetIamServerCertificateResult> Invoke(GetIamServerCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamServerCertificateResult>("azure-native:awsconnector/v20241201:getIamServerCertificate", args ?? new GetIamServerCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamServerCertificate
+        /// </summary>
+        public static Output<GetIamServerCertificateResult> Invoke(GetIamServerCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamServerCertificateResult>("azure-native:awsconnector/v20241201:getIamServerCertificate", args ?? new GetIamServerCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

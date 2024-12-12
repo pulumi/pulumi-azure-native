@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20231101
         /// </summary>
         public static Output<GetSubscriptionNetworkManagerConnectionResult> Invoke(GetSubscriptionNetworkManagerConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network/v20231101:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specified connection created by this subscription.
+        /// </summary>
+        public static Output<GetSubscriptionNetworkManagerConnectionResult> Invoke(GetSubscriptionNetworkManagerConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network/v20231101:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

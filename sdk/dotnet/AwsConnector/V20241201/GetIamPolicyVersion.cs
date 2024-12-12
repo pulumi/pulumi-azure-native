@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetIamPolicyVersionResult> Invoke(GetIamPolicyVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamPolicyVersionResult>("azure-native:awsconnector/v20241201:getIamPolicyVersion", args ?? new GetIamPolicyVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamPolicyVersion
+        /// </summary>
+        public static Output<GetIamPolicyVersionResult> Invoke(GetIamPolicyVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamPolicyVersionResult>("azure-native:awsconnector/v20241201:getIamPolicyVersion", args ?? new GetIamPolicyVersionInvokeArgs(), options.WithDefaults());
     }
 
 

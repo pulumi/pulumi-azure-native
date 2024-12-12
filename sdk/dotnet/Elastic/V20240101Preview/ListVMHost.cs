@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20240101Preview
         /// </summary>
         public static Output<ListVMHostResult> Invoke(ListVMHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVMHostResult>("azure-native:elastic/v20240101preview:listVMHost", args ?? new ListVMHostInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response of a list operation.
+        /// </summary>
+        public static Output<ListVMHostResult> Invoke(ListVMHostInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListVMHostResult>("azure-native:elastic/v20240101preview:listVMHost", args ?? new ListVMHostInvokeArgs(), options.WithDefaults());
     }
 
 

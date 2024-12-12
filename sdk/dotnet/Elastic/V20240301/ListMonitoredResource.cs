@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20240301
         /// </summary>
         public static Output<ListMonitoredResourceResult> Invoke(ListMonitoredResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitoredResourceResult>("azure-native:elastic/v20240301:listMonitoredResource", args ?? new ListMonitoredResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response of a list operation.
+        /// </summary>
+        public static Output<ListMonitoredResourceResult> Invoke(ListMonitoredResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitoredResourceResult>("azure-native:elastic/v20240301:listMonitoredResource", args ?? new ListMonitoredResourceInvokeArgs(), options.WithDefaults());
     }
 
 

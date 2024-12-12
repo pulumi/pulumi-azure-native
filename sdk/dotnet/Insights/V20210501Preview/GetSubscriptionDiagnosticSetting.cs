@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
         /// </summary>
         public static Output<GetSubscriptionDiagnosticSettingResult> Invoke(GetSubscriptionDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionDiagnosticSettingResult>("azure-native:insights/v20210501preview:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the active subscription diagnostic settings for the specified resource.
+        /// </summary>
+        public static Output<GetSubscriptionDiagnosticSettingResult> Invoke(GetSubscriptionDiagnosticSettingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionDiagnosticSettingResult>("azure-native:insights/v20210501preview:getSubscriptionDiagnosticSetting", args ?? new GetSubscriptionDiagnosticSettingInvokeArgs(), options.WithDefaults());
     }
 
 

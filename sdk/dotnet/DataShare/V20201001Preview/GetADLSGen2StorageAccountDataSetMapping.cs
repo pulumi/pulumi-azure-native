@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
         /// </summary>
         public static Output<GetADLSGen2StorageAccountDataSetMappingResult> Invoke(GetADLSGen2StorageAccountDataSetMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2StorageAccountDataSetMappingResult>("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping", args ?? new GetADLSGen2StorageAccountDataSetMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DataSetMapping in a shareSubscription
+        /// </summary>
+        public static Output<GetADLSGen2StorageAccountDataSetMappingResult> Invoke(GetADLSGen2StorageAccountDataSetMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetADLSGen2StorageAccountDataSetMappingResult>("azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping", args ?? new GetADLSGen2StorageAccountDataSetMappingInvokeArgs(), options.WithDefaults());
     }
 
 

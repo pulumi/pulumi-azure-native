@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         public static Output<GetFirewallLogProfileResult> Invoke(GetFirewallLogProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallLogProfileResult>("azure-native:cloudngfw:getFirewallLogProfile", args ?? new GetFirewallLogProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Log Profile for Firewall
+        /// Azure REST API version: 2023-09-01.
+        /// 
+        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// </summary>
+        public static Output<GetFirewallLogProfileResult> Invoke(GetFirewallLogProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallLogProfileResult>("azure-native:cloudngfw:getFirewallLogProfile", args ?? new GetFirewallLogProfileInvokeArgs(), options.WithDefaults());
     }
 
 

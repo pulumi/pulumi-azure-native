@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20240701
         /// </summary>
         public static Output<GetKubernetesClusterFeatureResult> Invoke(GetKubernetesClusterFeatureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterFeatureResult>("azure-native:networkcloud/v20240701:getKubernetesClusterFeature", args ?? new GetKubernetesClusterFeatureInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided the Kubernetes cluster feature.
+        /// </summary>
+        public static Output<GetKubernetesClusterFeatureResult> Invoke(GetKubernetesClusterFeatureInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterFeatureResult>("azure-native:networkcloud/v20240701:getKubernetesClusterFeature", args ?? new GetKubernetesClusterFeatureInvokeArgs(), options.WithDefaults());
     }
 
 

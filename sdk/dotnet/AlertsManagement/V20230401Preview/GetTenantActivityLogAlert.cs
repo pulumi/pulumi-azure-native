@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AlertsManagement.V20230401Preview
         /// </summary>
         public static Output<GetTenantActivityLogAlertResult> Invoke(GetTenantActivityLogAlertInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantActivityLogAlertResult>("azure-native:alertsmanagement/v20230401preview:getTenantActivityLogAlert", args ?? new GetTenantActivityLogAlertInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Tenant Activity Log Alert rule.
+        /// </summary>
+        public static Output<GetTenantActivityLogAlertResult> Invoke(GetTenantActivityLogAlertInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTenantActivityLogAlertResult>("azure-native:alertsmanagement/v20230401preview:getTenantActivityLogAlert", args ?? new GetTenantActivityLogAlertInvokeArgs(), options.WithDefaults());
     }
 
 

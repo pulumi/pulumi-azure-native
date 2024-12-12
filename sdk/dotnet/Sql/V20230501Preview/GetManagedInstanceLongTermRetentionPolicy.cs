@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
         /// </summary>
         public static Output<GetManagedInstanceLongTermRetentionPolicyResult> Invoke(GetManagedInstanceLongTermRetentionPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceLongTermRetentionPolicyResult>("azure-native:sql/v20230501preview:getManagedInstanceLongTermRetentionPolicy", args ?? new GetManagedInstanceLongTermRetentionPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a managed database's long term retention policy.
+        /// </summary>
+        public static Output<GetManagedInstanceLongTermRetentionPolicyResult> Invoke(GetManagedInstanceLongTermRetentionPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceLongTermRetentionPolicyResult>("azure-native:sql/v20230501preview:getManagedInstanceLongTermRetentionPolicy", args ?? new GetManagedInstanceLongTermRetentionPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

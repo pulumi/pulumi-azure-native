@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Maps.V20231201Preview
         /// </summary>
         public static Output<GetCreatorResult> Invoke(GetCreatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCreatorResult>("azure-native:maps/v20231201preview:getCreator", args ?? new GetCreatorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Maps Creator resource.
+        /// </summary>
+        public static Output<GetCreatorResult> Invoke(GetCreatorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCreatorResult>("azure-native:maps/v20231201preview:getCreator", args ?? new GetCreatorInvokeArgs(), options.WithDefaults());
     }
 
 

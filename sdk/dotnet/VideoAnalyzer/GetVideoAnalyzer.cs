@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         /// </summary>
         public static Output<GetVideoAnalyzerResult> Invoke(GetVideoAnalyzerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details of the specified Video Analyzer account
+        /// Azure REST API version: 2021-11-01-preview.
+        /// 
+        /// Other available API versions: 2021-05-01-preview.
+        /// </summary>
+        public static Output<GetVideoAnalyzerResult> Invoke(GetVideoAnalyzerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVideoAnalyzerResult>("azure-native:videoanalyzer:getVideoAnalyzer", args ?? new GetVideoAnalyzerInvokeArgs(), options.WithDefaults());
     }
 
 

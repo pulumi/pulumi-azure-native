@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230701
         /// </summary>
         public static Output<GetBandwidthScheduleResult> Invoke(GetBandwidthScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBandwidthScheduleResult>("azure-native:databoxedge/v20230701:getBandwidthSchedule", args ?? new GetBandwidthScheduleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified bandwidth schedule.
+        /// </summary>
+        public static Output<GetBandwidthScheduleResult> Invoke(GetBandwidthScheduleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBandwidthScheduleResult>("azure-native:databoxedge/v20230701:getBandwidthSchedule", args ?? new GetBandwidthScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

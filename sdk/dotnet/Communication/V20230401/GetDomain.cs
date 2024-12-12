@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Communication.V20230401
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication/v20230401:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Domains resource and its properties.
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication/v20230401:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

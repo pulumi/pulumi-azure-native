@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Communication.V20230401Preview
         /// </summary>
         public static Output<GetEmailServiceResult> Invoke(GetEmailServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailServiceResult>("azure-native:communication/v20230401preview:getEmailService", args ?? new GetEmailServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the EmailService and its properties.
+        /// </summary>
+        public static Output<GetEmailServiceResult> Invoke(GetEmailServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailServiceResult>("azure-native:communication/v20230401preview:getEmailService", args ?? new GetEmailServiceInvokeArgs(), options.WithDefaults());
     }
 
 

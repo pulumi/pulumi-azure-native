@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// </summary>
         public static Output<GetNetworkInterfaceStatusResult> Invoke(GetNetworkInterfaceStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceStatusResult>("azure-native:managednetworkfabric/v20230201preview:getNetworkInterfaceStatus", args ?? new GetNetworkInterfaceStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the running status of the Network Interface.
+        /// </summary>
+        public static Output<GetNetworkInterfaceStatusResult> Invoke(GetNetworkInterfaceStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceStatusResult>("azure-native:managednetworkfabric/v20230201preview:getNetworkInterfaceStatus", args ?? new GetNetworkInterfaceStatusInvokeArgs(), options.WithDefaults());
     }
 
 

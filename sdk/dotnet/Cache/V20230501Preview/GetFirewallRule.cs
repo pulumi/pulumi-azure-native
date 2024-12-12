@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cache.V20230501Preview
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:cache/v20230501preview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a single firewall rule in a specified redis cache.
+        /// </summary>
+        public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:cache/v20230501preview:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
     }
 
 

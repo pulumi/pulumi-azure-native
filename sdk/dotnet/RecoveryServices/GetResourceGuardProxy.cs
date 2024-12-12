@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// </summary>
         public static Output<GetResourceGuardProxyResult> Invoke(GetResourceGuardProxyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGuardProxyResult>("azure-native:recoveryservices:getResourceGuardProxy", args ?? new GetResourceGuardProxyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns ResourceGuardProxy under vault and with the name referenced in request
+        /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        /// </summary>
+        public static Output<GetResourceGuardProxyResult> Invoke(GetResourceGuardProxyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceGuardProxyResult>("azure-native:recoveryservices:getResourceGuardProxy", args ?? new GetResourceGuardProxyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Confluent.V20240213
         /// </summary>
         public static Output<ListAccessClustersResult> Invoke(ListAccessClustersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessClustersResult>("azure-native:confluent/v20240213:listAccessClusters", args ?? new ListAccessClustersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Details of the clusters returned on successful response
+        /// </summary>
+        public static Output<ListAccessClustersResult> Invoke(ListAccessClustersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccessClustersResult>("azure-native:confluent/v20240213:listAccessClusters", args ?? new ListAccessClustersInvokeArgs(), options.WithDefaults());
     }
 
 

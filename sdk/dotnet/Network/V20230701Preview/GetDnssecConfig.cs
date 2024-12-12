@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         /// </summary>
         public static Output<GetDnssecConfigResult> Invoke(GetDnssecConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnssecConfigResult>("azure-native:network/v20230701preview:getDnssecConfig", args ?? new GetDnssecConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the DNSSEC configuration.
+        /// </summary>
+        public static Output<GetDnssecConfigResult> Invoke(GetDnssecConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnssecConfigResult>("azure-native:network/v20230701preview:getDnssecConfig", args ?? new GetDnssecConfigInvokeArgs(), options.WithDefaults());
     }
 
 

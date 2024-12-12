@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
         /// </summary>
         public static Output<ListVideoStreamingTokenResult> Invoke(ListVideoStreamingTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVideoStreamingTokenResult>("azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken", args ?? new ListVideoStreamingTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Generates a streaming token used for authenticating video playback.
+        /// </summary>
+        public static Output<ListVideoStreamingTokenResult> Invoke(ListVideoStreamingTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListVideoStreamingTokenResult>("azure-native:videoanalyzer/v20210501preview:listVideoStreamingToken", args ?? new ListVideoStreamingTokenInvokeArgs(), options.WithDefaults());
     }
 
 

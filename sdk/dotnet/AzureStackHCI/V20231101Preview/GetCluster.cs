@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20231101Preview
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:azurestackhci/v20231101preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get HCI cluster.
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:azurestackhci/v20231101preview:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

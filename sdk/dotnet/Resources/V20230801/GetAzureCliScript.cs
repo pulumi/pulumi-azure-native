@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Resources.V20230801
         /// </summary>
         public static Output<GetAzureCliScriptResult> Invoke(GetAzureCliScriptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources/v20230801:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a deployment script with a given name.
+        /// </summary>
+        public static Output<GetAzureCliScriptResult> Invoke(GetAzureCliScriptInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources/v20230801:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithDefaults());
     }
 
 

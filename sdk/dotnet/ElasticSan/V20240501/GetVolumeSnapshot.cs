@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ElasticSan.V20240501
         /// </summary>
         public static Output<GetVolumeSnapshotResult> Invoke(GetVolumeSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeSnapshotResult>("azure-native:elasticsan/v20240501:getVolumeSnapshot", args ?? new GetVolumeSnapshotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Volume Snapshot.
+        /// </summary>
+        public static Output<GetVolumeSnapshotResult> Invoke(GetVolumeSnapshotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeSnapshotResult>("azure-native:elasticsan/v20240501:getVolumeSnapshot", args ?? new GetVolumeSnapshotInvokeArgs(), options.WithDefaults());
     }
 
 

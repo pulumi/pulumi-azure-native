@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230901
         /// </summary>
         public static Output<GetWorkloadNetworkVMGroupResult> Invoke(GetWorkloadNetworkVMGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkVMGroupResult>("azure-native:avs/v20230901:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a WorkloadNetworkVMGroup
+        /// </summary>
+        public static Output<GetWorkloadNetworkVMGroupResult> Invoke(GetWorkloadNetworkVMGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkVMGroupResult>("azure-native:avs/v20230901:getWorkloadNetworkVMGroup", args ?? new GetWorkloadNetworkVMGroupInvokeArgs(), options.WithDefaults());
     }
 
 

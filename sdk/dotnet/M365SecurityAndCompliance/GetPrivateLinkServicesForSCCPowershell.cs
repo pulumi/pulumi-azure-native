@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
         /// </summary>
         public static Output<GetPrivateLinkServicesForSCCPowershellResult> Invoke(GetPrivateLinkServicesForSCCPowershellInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForSCCPowershellResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForSCCPowershell", args ?? new GetPrivateLinkServicesForSCCPowershellInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the metadata of a privateLinkServicesForSCCPowershell resource.
+        /// Azure REST API version: 2021-03-25-preview.
+        /// </summary>
+        public static Output<GetPrivateLinkServicesForSCCPowershellResult> Invoke(GetPrivateLinkServicesForSCCPowershellInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForSCCPowershellResult>("azure-native:m365securityandcompliance:getPrivateLinkServicesForSCCPowershell", args ?? new GetPrivateLinkServicesForSCCPowershellInvokeArgs(), options.WithDefaults());
     }
 
 

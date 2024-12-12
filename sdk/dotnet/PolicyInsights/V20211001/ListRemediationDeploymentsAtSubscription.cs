@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
         /// </summary>
         public static Output<ListRemediationDeploymentsAtSubscriptionResult> Invoke(ListRemediationDeploymentsAtSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights/v20211001:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets all deployments for a remediation at subscription scope.
+        /// </summary>
+        public static Output<ListRemediationDeploymentsAtSubscriptionResult> Invoke(ListRemediationDeploymentsAtSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtSubscriptionResult>("azure-native:policyinsights/v20211001:listRemediationDeploymentsAtSubscription", args ?? new ListRemediationDeploymentsAtSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

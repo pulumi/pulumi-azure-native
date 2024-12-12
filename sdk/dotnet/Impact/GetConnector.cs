@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Impact
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:impact:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Connector
+        /// Azure REST API version: 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:impact:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

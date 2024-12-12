@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public static Output<GetIntegrationAccountSessionResult> Invoke(GetIntegrationAccountSessionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSessionResult>("azure-native:logic/v20190501:getIntegrationAccountSession", args ?? new GetIntegrationAccountSessionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an integration account session.
+        /// </summary>
+        public static Output<GetIntegrationAccountSessionResult> Invoke(GetIntegrationAccountSessionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSessionResult>("azure-native:logic/v20190501:getIntegrationAccountSession", args ?? new GetIntegrationAccountSessionInvokeArgs(), options.WithDefaults());
     }
 
 

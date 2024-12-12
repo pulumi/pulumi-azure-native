@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Output<GetFactoryDataPlaneAccessResult> Invoke(GetFactoryDataPlaneAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFactoryDataPlaneAccessResult>("azure-native:datafactory:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Data Plane access.
+        /// Azure REST API version: 2018-06-01.
+        /// </summary>
+        public static Output<GetFactoryDataPlaneAccessResult> Invoke(GetFactoryDataPlaneAccessInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFactoryDataPlaneAccessResult>("azure-native:datafactory:getFactoryDataPlaneAccess", args ?? new GetFactoryDataPlaneAccessInvokeArgs(), options.WithDefaults());
     }
 
 

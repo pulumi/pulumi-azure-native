@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         /// </summary>
         public static Output<GetEndpointVariantResult> Invoke(GetEndpointVariantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointVariantResult>("azure-native:machinelearningservices/v20210401:getEndpointVariant", args ?? new GetEndpointVariantInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Service by name.
+        /// </summary>
+        public static Output<GetEndpointVariantResult> Invoke(GetEndpointVariantInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEndpointVariantResult>("azure-native:machinelearningservices/v20210401:getEndpointVariant", args ?? new GetEndpointVariantInvokeArgs(), options.WithDefaults());
     }
 
 

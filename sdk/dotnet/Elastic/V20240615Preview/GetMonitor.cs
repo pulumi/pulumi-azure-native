@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Elastic.V20240615Preview
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:elastic/v20240615preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Monitor resource.
+        /// </summary>
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("azure-native:elastic/v20240615preview:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

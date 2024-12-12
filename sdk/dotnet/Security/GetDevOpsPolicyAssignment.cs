@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Output<GetDevOpsPolicyAssignmentResult> Invoke(GetDevOpsPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevOpsPolicyAssignmentResult>("azure-native:security:getDevOpsPolicyAssignment", args ?? new GetDevOpsPolicyAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// DevOps Policy assignment resource.
+        /// Azure REST API version: 2024-05-15-preview.
+        /// </summary>
+        public static Output<GetDevOpsPolicyAssignmentResult> Invoke(GetDevOpsPolicyAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevOpsPolicyAssignmentResult>("azure-native:security:getDevOpsPolicyAssignment", args ?? new GetDevOpsPolicyAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.KubernetesRuntime.V20231001Preview
         /// </summary>
         public static Output<GetBgpPeerResult> Invoke(GetBgpPeerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBgpPeerResult>("azure-native:kubernetesruntime/v20231001preview:getBgpPeer", args ?? new GetBgpPeerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a BgpPeer
+        /// </summary>
+        public static Output<GetBgpPeerResult> Invoke(GetBgpPeerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBgpPeerResult>("azure-native:kubernetesruntime/v20231001preview:getBgpPeer", args ?? new GetBgpPeerInvokeArgs(), options.WithDefaults());
     }
 
 

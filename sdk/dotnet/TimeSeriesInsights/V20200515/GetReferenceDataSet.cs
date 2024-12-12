@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
         /// </summary>
         public static Output<GetReferenceDataSetResult> Invoke(GetReferenceDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20200515:getReferenceDataSet", args ?? new GetReferenceDataSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the reference data set with the specified name in the specified environment.
+        /// </summary>
+        public static Output<GetReferenceDataSetResult> Invoke(GetReferenceDataSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReferenceDataSetResult>("azure-native:timeseriesinsights/v20200515:getReferenceDataSet", args ?? new GetReferenceDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

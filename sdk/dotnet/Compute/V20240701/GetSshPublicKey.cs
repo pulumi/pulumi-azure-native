@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.V20240701
         /// </summary>
         public static Output<GetSshPublicKeyResult> Invoke(GetSshPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSshPublicKeyResult>("azure-native:compute/v20240701:getSshPublicKey", args ?? new GetSshPublicKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about an SSH public key.
+        /// </summary>
+        public static Output<GetSshPublicKeyResult> Invoke(GetSshPublicKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSshPublicKeyResult>("azure-native:compute/v20240701:getSshPublicKey", args ?? new GetSshPublicKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public static Output<GetTunnelPolicyResult> Invoke(GetTunnelPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTunnelPolicyResult>("azure-native:cdn:getTunnelPolicy", args ?? new GetTunnelPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing tunnel policy within a profile.
+        /// Azure REST API version: 2024-06-01-preview.
+        /// </summary>
+        public static Output<GetTunnelPolicyResult> Invoke(GetTunnelPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTunnelPolicyResult>("azure-native:cdn:getTunnelPolicy", args ?? new GetTunnelPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

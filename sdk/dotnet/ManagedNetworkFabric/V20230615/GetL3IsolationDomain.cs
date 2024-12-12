@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetL3IsolationDomainResult> Invoke(GetL3IsolationDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL3IsolationDomainResult>("azure-native:managednetworkfabric/v20230615:getL3IsolationDomain", args ?? new GetL3IsolationDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves details of this L3 Isolation Domain.
+        /// </summary>
+        public static Output<GetL3IsolationDomainResult> Invoke(GetL3IsolationDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetL3IsolationDomainResult>("azure-native:managednetworkfabric/v20230615:getL3IsolationDomain", args ?? new GetL3IsolationDomainInvokeArgs(), options.WithDefaults());
     }
 
 

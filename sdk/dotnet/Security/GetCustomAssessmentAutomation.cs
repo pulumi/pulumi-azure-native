@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Output<GetCustomAssessmentAutomationResult> Invoke(GetCustomAssessmentAutomationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomAssessmentAutomationResult>("azure-native:security:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a single custom assessment automation by name for the provided subscription and resource group.
+        /// Azure REST API version: 2021-07-01-preview.
+        /// </summary>
+        public static Output<GetCustomAssessmentAutomationResult> Invoke(GetCustomAssessmentAutomationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomAssessmentAutomationResult>("azure-native:security:getCustomAssessmentAutomation", args ?? new GetCustomAssessmentAutomationInvokeArgs(), options.WithDefaults());
     }
 
 

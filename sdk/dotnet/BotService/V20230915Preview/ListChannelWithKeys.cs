@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.BotService.V20230915Preview
         /// </summary>
         public static Output<ListChannelWithKeysResult> Invoke(ListChannelWithKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListChannelWithKeysResult>("azure-native:botservice/v20230915preview:listChannelWithKeys", args ?? new ListChannelWithKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists a Channel registration for a Bot Service including secrets
+        /// </summary>
+        public static Output<ListChannelWithKeysResult> Invoke(ListChannelWithKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListChannelWithKeysResult>("azure-native:botservice/v20230915preview:listChannelWithKeys", args ?? new ListChannelWithKeysInvokeArgs(), options.WithDefaults());
     }
 
 

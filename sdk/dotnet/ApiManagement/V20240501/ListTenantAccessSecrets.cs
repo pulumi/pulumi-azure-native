@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
         /// </summary>
         public static Output<ListTenantAccessSecretsResult> Invoke(ListTenantAccessSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTenantAccessSecretsResult>("azure-native:apimanagement/v20240501:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get tenant access information details.
+        /// </summary>
+        public static Output<ListTenantAccessSecretsResult> Invoke(ListTenantAccessSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListTenantAccessSecretsResult>("azure-native:apimanagement/v20240501:listTenantAccessSecrets", args ?? new ListTenantAccessSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

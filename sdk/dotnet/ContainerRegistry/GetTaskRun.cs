@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public static Output<GetTaskRunResult> Invoke(GetTaskRunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskRunResult>("azure-native:containerregistry:getTaskRun", args ?? new GetTaskRunInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the detailed information for a given task run.
+        /// Azure REST API version: 2019-06-01-preview.
+        /// </summary>
+        public static Output<GetTaskRunResult> Invoke(GetTaskRunInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskRunResult>("azure-native:containerregistry:getTaskRun", args ?? new GetTaskRunInvokeArgs(), options.WithDefaults());
     }
 
 

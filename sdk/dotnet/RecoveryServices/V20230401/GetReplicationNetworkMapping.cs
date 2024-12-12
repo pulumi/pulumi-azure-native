@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230401
         /// </summary>
         public static Output<GetReplicationNetworkMappingResult> Invoke(GetReplicationNetworkMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationNetworkMappingResult>("azure-native:recoveryservices/v20230401:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of an ASR network mapping.
+        /// </summary>
+        public static Output<GetReplicationNetworkMappingResult> Invoke(GetReplicationNetworkMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationNetworkMappingResult>("azure-native:recoveryservices/v20230401:getReplicationNetworkMapping", args ?? new GetReplicationNetworkMappingInvokeArgs(), options.WithDefaults());
     }
 
 

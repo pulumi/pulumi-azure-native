@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.EdgeMarketplace
         /// </summary>
         public static Output<GetOfferAccessTokenResult> Invoke(GetOfferAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOfferAccessTokenResult>("azure-native:edgemarketplace:getOfferAccessToken", args ?? new GetOfferAccessTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// get access token.
+        /// Azure REST API version: 2023-08-01-preview.
+        /// 
+        /// Other available API versions: 2023-08-01.
+        /// </summary>
+        public static Output<GetOfferAccessTokenResult> Invoke(GetOfferAccessTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOfferAccessTokenResult>("azure-native:edgemarketplace:getOfferAccessToken", args ?? new GetOfferAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

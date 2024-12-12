@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// </summary>
         public static Output<GetScopeAssignmentResult> Invoke(GetScopeAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopeAssignmentResult>("azure-native:managednetwork:getScopeAssignment", args ?? new GetScopeAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the specified scope assignment.
+        /// Azure REST API version: 2019-06-01-preview.
+        /// </summary>
+        public static Output<GetScopeAssignmentResult> Invoke(GetScopeAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopeAssignmentResult>("azure-native:managednetwork:getScopeAssignment", args ?? new GetScopeAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

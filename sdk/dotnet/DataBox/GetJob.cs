@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.DataBox
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified job.
+        /// Azure REST API version: 2022-12-01.
+        /// 
+        /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+        /// </summary>
+        public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

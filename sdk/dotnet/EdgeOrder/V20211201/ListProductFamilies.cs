@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         /// </summary>
         public static Output<ListProductFamiliesResult> Invoke(ListProductFamiliesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductFamiliesResult>("azure-native:edgeorder/v20211201:listProductFamilies", args ?? new ListProductFamiliesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This method provides the list of product families for the given subscription.
+        /// </summary>
+        public static Output<ListProductFamiliesResult> Invoke(ListProductFamiliesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListProductFamiliesResult>("azure-native:edgeorder/v20211201:listProductFamilies", args ?? new ListProductFamiliesInvokeArgs(), options.WithDefaults());
     }
 
 

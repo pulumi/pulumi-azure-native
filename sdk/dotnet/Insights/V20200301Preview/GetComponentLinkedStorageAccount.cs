@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20200301Preview
         /// </summary>
         public static Output<GetComponentLinkedStorageAccountResult> Invoke(GetComponentLinkedStorageAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentLinkedStorageAccountResult>("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the current linked storage settings for an Application Insights component.
+        /// </summary>
+        public static Output<GetComponentLinkedStorageAccountResult> Invoke(GetComponentLinkedStorageAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentLinkedStorageAccountResult>("azure-native:insights/v20200301preview:getComponentLinkedStorageAccount", args ?? new GetComponentLinkedStorageAccountInvokeArgs(), options.WithDefaults());
     }
 
 

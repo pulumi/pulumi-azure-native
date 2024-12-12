@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.StorageMover
         /// </summary>
         public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("azure-native:storagemover:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an Agent resource.
+        /// Azure REST API version: 2023-03-01.
+        /// 
+        /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        /// </summary>
+        public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("azure-native:storagemover:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());
     }
 
 

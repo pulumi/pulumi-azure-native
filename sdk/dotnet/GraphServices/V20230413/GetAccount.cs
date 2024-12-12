@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.GraphServices.V20230413
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:graphservices/v20230413:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns account resource for a given name.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:graphservices/v20230413:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

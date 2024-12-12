@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         /// </summary>
         public static Output<GetDataExportResult> Invoke(GetDataExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataExportResult>("azure-native:operationalinsights/v20200801:getDataExport", args ?? new GetDataExportInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data export instance.
+        /// </summary>
+        public static Output<GetDataExportResult> Invoke(GetDataExportInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataExportResult>("azure-native:operationalinsights/v20200801:getDataExport", args ?? new GetDataExportInvokeArgs(), options.WithDefaults());
     }
 
 

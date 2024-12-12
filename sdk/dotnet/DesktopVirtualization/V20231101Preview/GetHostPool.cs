@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20231101Preview
         /// </summary>
         public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure-native:desktopvirtualization/v20231101preview:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a host pool.
+        /// </summary>
+        public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure-native:desktopvirtualization/v20231101preview:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public static Output<GetIntegrationAccountSchemaResult> Invoke(GetIntegrationAccountSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an integration account schema.
+        /// Azure REST API version: 2019-05-01.
+        /// 
+        /// Other available API versions: 2015-08-01-preview.
+        /// </summary>
+        public static Output<GetIntegrationAccountSchemaResult> Invoke(GetIntegrationAccountSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSchemaResult>("azure-native:logic:getIntegrationAccountSchema", args ?? new GetIntegrationAccountSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

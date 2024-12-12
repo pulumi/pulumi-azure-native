@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
         /// </summary>
         public static Output<GetDefaultRolloutResult> Invoke(GetDefaultRolloutInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultRolloutResult>("azure-native:providerhub/v20210901preview:getDefaultRollout", args ?? new GetDefaultRolloutInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the default rollout details.
+        /// </summary>
+        public static Output<GetDefaultRolloutResult> Invoke(GetDefaultRolloutInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDefaultRolloutResult>("azure-native:providerhub/v20210901preview:getDefaultRollout", args ?? new GetDefaultRolloutInvokeArgs(), options.WithDefaults());
     }
 
 

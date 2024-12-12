@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Resources.V20220801Preview
         /// </summary>
         public static Output<GetDeploymentStackAtManagementGroupResult> Invoke(GetDeploymentStackAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtManagementGroupResult>("azure-native:resources/v20220801preview:getDeploymentStackAtManagementGroup", args ?? new GetDeploymentStackAtManagementGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Deployment Stack with a given name.
+        /// </summary>
+        public static Output<GetDeploymentStackAtManagementGroupResult> Invoke(GetDeploymentStackAtManagementGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtManagementGroupResult>("azure-native:resources/v20220801preview:getDeploymentStackAtManagementGroup", args ?? new GetDeploymentStackAtManagementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

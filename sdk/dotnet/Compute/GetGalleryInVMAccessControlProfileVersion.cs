@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Output<GetGalleryInVMAccessControlProfileVersionResult> Invoke(GetGalleryInVMAccessControlProfileVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryInVMAccessControlProfileVersionResult>("azure-native:compute:getGalleryInVMAccessControlProfileVersion", args ?? new GetGalleryInVMAccessControlProfileVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about a gallery inVMAccessControlProfile version.
+        /// Azure REST API version: 2024-03-03.
+        /// </summary>
+        public static Output<GetGalleryInVMAccessControlProfileVersionResult> Invoke(GetGalleryInVMAccessControlProfileVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryInVMAccessControlProfileVersionResult>("azure-native:compute:getGalleryInVMAccessControlProfileVersion", args ?? new GetGalleryInVMAccessControlProfileVersionInvokeArgs(), options.WithDefaults());
     }
 
 

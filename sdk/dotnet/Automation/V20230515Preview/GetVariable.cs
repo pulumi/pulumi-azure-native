@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20230515Preview
         /// </summary>
         public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:automation/v20230515preview:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the variable identified by variable name.
+        /// </summary>
+        public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:automation/v20230515preview:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
     }
 
 

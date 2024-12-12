@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Search.V20240601Preview
         /// </summary>
         public static Output<ListQueryKeyBySearchServiceResult> Invoke(ListQueryKeyBySearchServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListQueryKeyBySearchServiceResult>("azure-native:search/v20240601preview:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the list of query API keys for the given Azure AI Search service.
+        /// </summary>
+        public static Output<ListQueryKeyBySearchServiceResult> Invoke(ListQueryKeyBySearchServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListQueryKeyBySearchServiceResult>("azure-native:search/v20240601preview:listQueryKeyBySearchService", args ?? new ListQueryKeyBySearchServiceInvokeArgs(), options.WithDefaults());
     }
 
 

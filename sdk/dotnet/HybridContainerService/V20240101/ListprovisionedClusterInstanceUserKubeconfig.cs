@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridContainerService.V20240101
         /// </summary>
         public static Output<ListprovisionedClusterInstanceUserKubeconfigResult> Invoke(ListprovisionedClusterInstanceUserKubeconfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListprovisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice/v20240101:listprovisionedClusterInstanceUserKubeconfig", args ?? new ListprovisionedClusterInstanceUserKubeconfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the user credentials of the provisioned cluster (can only be used within private network)
+        /// </summary>
+        public static Output<ListprovisionedClusterInstanceUserKubeconfigResult> Invoke(ListprovisionedClusterInstanceUserKubeconfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListprovisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice/v20240101:listprovisionedClusterInstanceUserKubeconfig", args ?? new ListprovisionedClusterInstanceUserKubeconfigInvokeArgs(), options.WithDefaults());
     }
 
 

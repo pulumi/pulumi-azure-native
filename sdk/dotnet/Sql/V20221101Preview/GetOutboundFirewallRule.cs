@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20221101Preview
         /// </summary>
         public static Output<GetOutboundFirewallRuleResult> Invoke(GetOutboundFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutboundFirewallRuleResult>("azure-native:sql/v20221101preview:getOutboundFirewallRule", args ?? new GetOutboundFirewallRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an outbound firewall rule.
+        /// </summary>
+        public static Output<GetOutboundFirewallRuleResult> Invoke(GetOutboundFirewallRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOutboundFirewallRuleResult>("azure-native:sql/v20221101preview:getOutboundFirewallRule", args ?? new GetOutboundFirewallRuleInvokeArgs(), options.WithDefaults());
     }
 
 

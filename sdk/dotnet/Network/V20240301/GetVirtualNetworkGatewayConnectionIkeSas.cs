@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240301
         /// </summary>
         public static Output<GetVirtualNetworkGatewayConnectionIkeSasResult> Invoke(GetVirtualNetworkGatewayConnectionIkeSasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayConnectionIkeSasResult>("azure-native:network/v20240301:getVirtualNetworkGatewayConnectionIkeSas", args ?? new GetVirtualNetworkGatewayConnectionIkeSasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists IKE Security Associations for the virtual network gateway connection in the specified resource group.
+        /// </summary>
+        public static Output<GetVirtualNetworkGatewayConnectionIkeSasResult> Invoke(GetVirtualNetworkGatewayConnectionIkeSasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayConnectionIkeSasResult>("azure-native:network/v20240301:getVirtualNetworkGatewayConnectionIkeSas", args ?? new GetVirtualNetworkGatewayConnectionIkeSasInvokeArgs(), options.WithDefaults());
     }
 
 

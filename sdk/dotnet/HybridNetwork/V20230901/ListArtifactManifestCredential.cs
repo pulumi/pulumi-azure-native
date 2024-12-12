@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20230901
         /// </summary>
         public static Output<ListArtifactManifestCredentialResult> Invoke(ListArtifactManifestCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListArtifactManifestCredentialResult>("azure-native:hybridnetwork/v20230901:listArtifactManifestCredential", args ?? new ListArtifactManifestCredentialInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List credential for publishing artifacts defined in artifact manifest.
+        /// </summary>
+        public static Output<ListArtifactManifestCredentialResult> Invoke(ListArtifactManifestCredentialInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListArtifactManifestCredentialResult>("azure-native:hybridnetwork/v20230901:listArtifactManifestCredential", args ?? new ListArtifactManifestCredentialInvokeArgs(), options.WithDefaults());
     }
 
 

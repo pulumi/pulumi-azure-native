@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:devtestlab/v20180915:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get disk.
+        /// </summary>
+        public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:devtestlab/v20180915:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
     }
 
 

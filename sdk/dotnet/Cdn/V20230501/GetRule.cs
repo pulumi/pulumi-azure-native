@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20230501
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:cdn/v20230501:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing delivery rule within a rule set.
+        /// </summary>
+        public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("azure-native:cdn/v20230501:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
     }
 
 

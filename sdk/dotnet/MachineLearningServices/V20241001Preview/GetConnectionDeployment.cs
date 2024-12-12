@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview
 
         public static Output<GetConnectionDeploymentResult> Invoke(GetConnectionDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionDeploymentResult>("azure-native:machinelearningservices/v20241001preview:getConnectionDeployment", args ?? new GetConnectionDeploymentInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetConnectionDeploymentResult> Invoke(GetConnectionDeploymentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionDeploymentResult>("azure-native:machinelearningservices/v20241001preview:getConnectionDeployment", args ?? new GetConnectionDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

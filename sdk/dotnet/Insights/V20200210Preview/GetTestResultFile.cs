@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.V20200210Preview
         /// </summary>
         public static Output<GetTestResultFileResult> Invoke(GetTestResultFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestResultFileResult>("azure-native:insights/v20200210preview:getTestResultFile", args ?? new GetTestResultFileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a file test result for the matching test
+        /// </summary>
+        public static Output<GetTestResultFileResult> Invoke(GetTestResultFileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTestResultFileResult>("azure-native:insights/v20200210preview:getTestResultFile", args ?? new GetTestResultFileInvokeArgs(), options.WithDefaults());
     }
 
 

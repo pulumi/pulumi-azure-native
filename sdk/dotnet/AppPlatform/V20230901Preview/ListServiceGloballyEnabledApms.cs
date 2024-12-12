@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
         /// </summary>
         public static Output<ListServiceGloballyEnabledApmsResult> Invoke(ListServiceGloballyEnabledApmsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListServiceGloballyEnabledApmsResult>("azure-native:appplatform/v20230901preview:listServiceGloballyEnabledApms", args ?? new ListServiceGloballyEnabledApmsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List globally enabled APMs for a Service.
+        /// </summary>
+        public static Output<ListServiceGloballyEnabledApmsResult> Invoke(ListServiceGloballyEnabledApmsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListServiceGloballyEnabledApmsResult>("azure-native:appplatform/v20230901preview:listServiceGloballyEnabledApms", args ?? new ListServiceGloballyEnabledApmsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public static Output<GetSyncAgentResult> Invoke(GetSyncAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncAgentResult>("azure-native:sql:getSyncAgent", args ?? new GetSyncAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a sync agent.
+        /// Azure REST API version: 2021-11-01.
+        /// 
+        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetSyncAgentResult> Invoke(GetSyncAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyncAgentResult>("azure-native:sql:getSyncAgent", args ?? new GetSyncAgentInvokeArgs(), options.WithDefaults());
     }
 
 

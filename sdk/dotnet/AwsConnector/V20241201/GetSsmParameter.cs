@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetSsmParameterResult> Invoke(GetSsmParameterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSsmParameterResult>("azure-native:awsconnector/v20241201:getSsmParameter", args ?? new GetSsmParameterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SsmParameter
+        /// </summary>
+        public static Output<GetSsmParameterResult> Invoke(GetSsmParameterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSsmParameterResult>("azure-native:awsconnector/v20241201:getSsmParameter", args ?? new GetSsmParameterInvokeArgs(), options.WithDefaults());
     }
 
 

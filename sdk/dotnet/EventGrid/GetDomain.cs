@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:eventgrid:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a domain.
+        /// Azure REST API version: 2022-06-15.
+        /// 
+        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:eventgrid:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

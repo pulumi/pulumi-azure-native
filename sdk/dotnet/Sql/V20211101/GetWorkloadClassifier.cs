@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20211101
         /// </summary>
         public static Output<GetWorkloadClassifierResult> Invoke(GetWorkloadClassifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadClassifierResult>("azure-native:sql/v20211101:getWorkloadClassifier", args ?? new GetWorkloadClassifierInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a workload classifier
+        /// </summary>
+        public static Output<GetWorkloadClassifierResult> Invoke(GetWorkloadClassifierInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadClassifierResult>("azure-native:sql/v20211101:getWorkloadClassifier", args ?? new GetWorkloadClassifierInvokeArgs(), options.WithDefaults());
     }
 
 

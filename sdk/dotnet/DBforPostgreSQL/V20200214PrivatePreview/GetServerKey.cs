@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214PrivatePreview
         /// </summary>
         public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:dbforpostgresql/v20200214privatepreview:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a PostgreSQL Server key.
+        /// </summary>
+        public static Output<GetServerKeyResult> Invoke(GetServerKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerKeyResult>("azure-native:dbforpostgresql/v20200214privatepreview:getServerKey", args ?? new GetServerKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
         /// </summary>
         public static Output<GetPrivateEndpointConnectionsSecResult> Invoke(GetPrivateEndpointConnectionsSecInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsSecResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified private endpoint connection associated with the service.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionsSecResult> Invoke(GetPrivateEndpointConnectionsSecInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionsSecResult>("azure-native:m365securityandcompliance/v20210325preview:getPrivateEndpointConnectionsSec", args ?? new GetPrivateEndpointConnectionsSecInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
         /// </summary>
         public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security/v20170801preview:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Security contact configurations for the subscription
+        /// </summary>
+        public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security/v20170801preview:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());
     }
 
 

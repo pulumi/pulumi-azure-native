@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20230101
         /// </summary>
         public static Output<GetBlobContainerImmutabilityPolicyResult> Invoke(GetBlobContainerImmutabilityPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage/v20230101:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the existing immutability policy along with the corresponding ETag in response headers and body.
+        /// </summary>
+        public static Output<GetBlobContainerImmutabilityPolicyResult> Invoke(GetBlobContainerImmutabilityPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage/v20230101:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

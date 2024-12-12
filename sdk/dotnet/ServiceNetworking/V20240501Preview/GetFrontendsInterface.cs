@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20240501Preview
         /// </summary>
         public static Output<GetFrontendsInterfaceResult> Invoke(GetFrontendsInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontendsInterfaceResult>("azure-native:servicenetworking/v20240501preview:getFrontendsInterface", args ?? new GetFrontendsInterfaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Frontend
+        /// </summary>
+        public static Output<GetFrontendsInterfaceResult> Invoke(GetFrontendsInterfaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrontendsInterfaceResult>("azure-native:servicenetworking/v20240501preview:getFrontendsInterface", args ?? new GetFrontendsInterfaceInvokeArgs(), options.WithDefaults());
     }
 
 

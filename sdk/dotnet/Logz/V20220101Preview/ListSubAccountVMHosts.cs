@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
         /// </summary>
         public static Output<ListSubAccountVMHostsResult> Invoke(ListSubAccountVMHostsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSubAccountVMHostsResult>("azure-native:logz/v20220101preview:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response of a list VM Host Update Operation.
+        /// </summary>
+        public static Output<ListSubAccountVMHostsResult> Invoke(ListSubAccountVMHostsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListSubAccountVMHostsResult>("azure-native:logz/v20220101preview:listSubAccountVMHosts", args ?? new ListSubAccountVMHostsInvokeArgs(), options.WithDefaults());
     }
 
 

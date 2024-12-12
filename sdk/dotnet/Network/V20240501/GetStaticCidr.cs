@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240501
         /// </summary>
         public static Output<GetStaticCidrResult> Invoke(GetStaticCidrInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticCidrResult>("azure-native:network/v20240501:getStaticCidr", args ?? new GetStaticCidrInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Instance of StaticCidr resource.
+        /// </summary>
+        public static Output<GetStaticCidrResult> Invoke(GetStaticCidrInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticCidrResult>("azure-native:network/v20240501:getStaticCidr", args ?? new GetStaticCidrInvokeArgs(), options.WithDefaults());
     }
 
 

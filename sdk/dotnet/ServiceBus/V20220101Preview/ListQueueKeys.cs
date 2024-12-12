@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
         /// </summary>
         public static Output<ListQueueKeysResult> Invoke(ListQueueKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListQueueKeysResult>("azure-native:servicebus/v20220101preview:listQueueKeys", args ?? new ListQueueKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Primary and secondary connection strings to the queue.
+        /// </summary>
+        public static Output<ListQueueKeysResult> Invoke(ListQueueKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListQueueKeysResult>("azure-native:servicebus/v20220101preview:listQueueKeys", args ?? new ListQueueKeysInvokeArgs(), options.WithDefaults());
     }
 
 

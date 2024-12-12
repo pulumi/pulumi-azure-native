@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTOperationsMQ.V20231004Preview
         /// </summary>
         public static Output<GetDataLakeConnectorResult> Invoke(GetDataLakeConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataLakeConnectorResult>("azure-native:iotoperationsmq/v20231004preview:getDataLakeConnector", args ?? new GetDataLakeConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DataLakeConnectorResource
+        /// </summary>
+        public static Output<GetDataLakeConnectorResult> Invoke(GetDataLakeConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataLakeConnectorResult>("azure-native:iotoperationsmq/v20231004preview:getDataLakeConnector", args ?? new GetDataLakeConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

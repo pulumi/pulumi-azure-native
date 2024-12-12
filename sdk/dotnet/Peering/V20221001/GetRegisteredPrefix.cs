@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Peering.V20221001
         /// </summary>
         public static Output<GetRegisteredPrefixResult> Invoke(GetRegisteredPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredPrefixResult>("azure-native:peering/v20221001:getRegisteredPrefix", args ?? new GetRegisteredPrefixInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing registered prefix with the specified name under the given subscription, resource group and peering.
+        /// </summary>
+        public static Output<GetRegisteredPrefixResult> Invoke(GetRegisteredPrefixInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredPrefixResult>("azure-native:peering/v20221001:getRegisteredPrefix", args ?? new GetRegisteredPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

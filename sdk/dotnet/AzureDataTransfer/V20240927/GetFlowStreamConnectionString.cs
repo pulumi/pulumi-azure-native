@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20240927
         /// </summary>
         public static Output<GetFlowStreamConnectionStringResult> Invoke(GetFlowStreamConnectionStringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowStreamConnectionStringResult>("azure-native:azuredatatransfer/v20240927:getFlowStreamConnectionString", args ?? new GetFlowStreamConnectionStringInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the connection string for the specified flow.
+        /// </summary>
+        public static Output<GetFlowStreamConnectionStringResult> Invoke(GetFlowStreamConnectionStringInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowStreamConnectionStringResult>("azure-native:azuredatatransfer/v20240927:getFlowStreamConnectionString", args ?? new GetFlowStreamConnectionStringInvokeArgs(), options.WithDefaults());
     }
 
 

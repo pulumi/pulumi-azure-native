@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230501Preview
         /// </summary>
         public static Output<GetBackendResult> Invoke(GetBackendInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackendResult>("azure-native:apimanagement/v20230501preview:getBackend", args ?? new GetBackendInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the backend specified by its identifier.
+        /// </summary>
+        public static Output<GetBackendResult> Invoke(GetBackendInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackendResult>("azure-native:apimanagement/v20230501preview:getBackend", args ?? new GetBackendInvokeArgs(), options.WithDefaults());
     }
 
 

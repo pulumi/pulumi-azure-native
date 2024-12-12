@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
         /// </summary>
         public static Output<GetBindingResult> Invoke(GetBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBindingResult>("azure-native:appplatform/v20230501preview:getBinding", args ?? new GetBindingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Binding and its properties.
+        /// </summary>
+        public static Output<GetBindingResult> Invoke(GetBindingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBindingResult>("azure-native:appplatform/v20230501preview:getBinding", args ?? new GetBindingInvokeArgs(), options.WithDefaults());
     }
 
 

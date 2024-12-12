@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20190101
         /// </summary>
         public static Output<GetAdvancedThreatProtectionResult> Invoke(GetAdvancedThreatProtectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security/v20190101:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Advanced Threat Protection settings for the specified resource.
+        /// </summary>
+        public static Output<GetAdvancedThreatProtectionResult> Invoke(GetAdvancedThreatProtectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAdvancedThreatProtectionResult>("azure-native:security/v20190101:getAdvancedThreatProtection", args ?? new GetAdvancedThreatProtectionInvokeArgs(), options.WithDefaults());
     }
 
 

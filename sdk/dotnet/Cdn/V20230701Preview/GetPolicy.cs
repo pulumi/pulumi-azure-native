@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20230701Preview
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:cdn/v20230701preview:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve protection policy with specified name within a resource group.
+        /// </summary>
+        public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:cdn/v20230701preview:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

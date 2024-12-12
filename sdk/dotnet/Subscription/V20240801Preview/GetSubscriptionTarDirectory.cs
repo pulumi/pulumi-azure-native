@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Subscription.V20240801Preview
         /// </summary>
         public static Output<GetSubscriptionTarDirectoryResult> Invoke(GetSubscriptionTarDirectoryInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTarDirectoryResult>("azure-native:subscription/v20240801preview:getSubscriptionTarDirectory", args ?? new GetSubscriptionTarDirectoryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation to view Initiator Subscription Changed Request
+        /// </summary>
+        public static Output<GetSubscriptionTarDirectoryResult> Invoke(GetSubscriptionTarDirectoryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTarDirectoryResult>("azure-native:subscription/v20240801preview:getSubscriptionTarDirectory", args ?? new GetSubscriptionTarDirectoryInvokeArgs(), options.WithDefaults());
     }
 
 

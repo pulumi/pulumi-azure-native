@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a record set.
+        /// Azure REST API version: 2018-05-01.
+        /// 
+        /// Other available API versions: 2023-07-01-preview.
+        /// </summary>
+        public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithDefaults());
     }
 
 

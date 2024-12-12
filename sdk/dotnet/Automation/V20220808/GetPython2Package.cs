@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Automation.V20220808
         /// </summary>
         public static Output<GetPython2PackageResult> Invoke(GetPython2PackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPython2PackageResult>("azure-native:automation/v20220808:getPython2Package", args ?? new GetPython2PackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the python 2 package identified by package name.
+        /// </summary>
+        public static Output<GetPython2PackageResult> Invoke(GetPython2PackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPython2PackageResult>("azure-native:automation/v20220808:getPython2Package", args ?? new GetPython2PackageInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         /// </summary>
         public static Output<ListDnsResolverByVirtualNetworkResult> Invoke(ListDnsResolverByVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDnsResolverByVirtualNetworkResult>("azure-native:network/v20230701preview:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists DNS resolver resource IDs linked to a virtual network.
+        /// </summary>
+        public static Output<ListDnsResolverByVirtualNetworkResult> Invoke(ListDnsResolverByVirtualNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDnsResolverByVirtualNetworkResult>("azure-native:network/v20230701preview:listDnsResolverByVirtualNetwork", args ?? new ListDnsResolverByVirtualNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

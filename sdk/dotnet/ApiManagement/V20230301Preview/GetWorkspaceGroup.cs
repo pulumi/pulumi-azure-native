@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230301Preview
         /// </summary>
         public static Output<GetWorkspaceGroupResult> Invoke(GetWorkspaceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceGroupResult>("azure-native:apimanagement/v20230301preview:getWorkspaceGroup", args ?? new GetWorkspaceGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the group specified by its identifier.
+        /// </summary>
+        public static Output<GetWorkspaceGroupResult> Invoke(GetWorkspaceGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceGroupResult>("azure-native:apimanagement/v20230301preview:getWorkspaceGroup", args ?? new GetWorkspaceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

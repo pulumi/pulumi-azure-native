@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// </summary>
         public static Output<GetFlowStreamConnectionStringResult> Invoke(GetFlowStreamConnectionStringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowStreamConnectionStringResult>("azure-native:azuredatatransfer:getFlowStreamConnectionString", args ?? new GetFlowStreamConnectionStringInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the connection string for the specified flow.
+        /// Azure REST API version: 2024-09-27.
+        /// </summary>
+        public static Output<GetFlowStreamConnectionStringResult> Invoke(GetFlowStreamConnectionStringInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowStreamConnectionStringResult>("azure-native:azuredatatransfer:getFlowStreamConnectionString", args ?? new GetFlowStreamConnectionStringInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20231011Preview
         /// </summary>
         public static Output<ListListSchemaResult> Invoke(ListListSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListListSchemaResult>("azure-native:azuredatatransfer/v20231011preview:listListSchema", args ?? new ListListSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the schemas for the specified connection in a pipeline.
+        /// </summary>
+        public static Output<ListListSchemaResult> Invoke(ListListSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListListSchemaResult>("azure-native:azuredatatransfer/v20231011preview:listListSchema", args ?? new ListListSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

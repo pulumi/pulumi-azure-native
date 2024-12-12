@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
         /// </summary>
         public static Output<GetAppResourceUploadUrlResult> Invoke(GetAppResourceUploadUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResourceUploadUrlResult>("azure-native:appplatform/v20230901preview:getAppResourceUploadUrl", args ?? new GetAppResourceUploadUrlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an resource upload URL for an App, which may be artifacts or source archive.
+        /// </summary>
+        public static Output<GetAppResourceUploadUrlResult> Invoke(GetAppResourceUploadUrlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResourceUploadUrlResult>("azure-native:appplatform/v20230901preview:getAppResourceUploadUrl", args ?? new GetAppResourceUploadUrlInvokeArgs(), options.WithDefaults());
     }
 
 

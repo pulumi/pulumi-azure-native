@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         /// </summary>
         public static Output<GetDnsResolverPolicyVirtualNetworkLinkResult> Invoke(GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverPolicyVirtualNetworkLinkResult>("azure-native:network/v20230701preview:getDnsResolverPolicyVirtualNetworkLink", args ?? new GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a DNS resolver policy virtual network link.
+        /// </summary>
+        public static Output<GetDnsResolverPolicyVirtualNetworkLinkResult> Invoke(GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverPolicyVirtualNetworkLinkResult>("azure-native:network/v20230701preview:getDnsResolverPolicyVirtualNetworkLink", args ?? new GetDnsResolverPolicyVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
     }
 
 

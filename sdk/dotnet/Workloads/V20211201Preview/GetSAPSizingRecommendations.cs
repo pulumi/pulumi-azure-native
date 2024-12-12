@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         /// </summary>
         public static Output<GetSAPSizingRecommendationsResult> Invoke(GetSAPSizingRecommendationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPSizingRecommendationsResult>("azure-native:workloads/v20211201preview:getSAPSizingRecommendations", args ?? new GetSAPSizingRecommendationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
+        /// </summary>
+        public static Output<GetSAPSizingRecommendationsResult> Invoke(GetSAPSizingRecommendationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPSizingRecommendationsResult>("azure-native:workloads/v20211201preview:getSAPSizingRecommendations", args ?? new GetSAPSizingRecommendationsInvokeArgs(), options.WithDefaults());
     }
 
 

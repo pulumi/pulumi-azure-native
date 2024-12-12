@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230315
         /// </summary>
         public static Output<GetSqlCollectorOperationResult> Invoke(GetSqlCollectorOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlCollectorOperationResult>("azure-native:migrate/v20230315:getSqlCollectorOperation", args ?? new GetSqlCollectorOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SqlCollector
+        /// </summary>
+        public static Output<GetSqlCollectorOperationResult> Invoke(GetSqlCollectorOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlCollectorOperationResult>("azure-native:migrate/v20230315:getSqlCollectorOperation", args ?? new GetSqlCollectorOperationInvokeArgs(), options.WithDefaults());
     }
 
 

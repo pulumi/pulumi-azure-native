@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetS3BucketPolicyResult> Invoke(GetS3BucketPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3BucketPolicyResult>("azure-native:awsconnector/v20241201:getS3BucketPolicy", args ?? new GetS3BucketPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a S3BucketPolicy
+        /// </summary>
+        public static Output<GetS3BucketPolicyResult> Invoke(GetS3BucketPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetS3BucketPolicyResult>("azure-native:awsconnector/v20241201:getS3BucketPolicy", args ?? new GetS3BucketPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

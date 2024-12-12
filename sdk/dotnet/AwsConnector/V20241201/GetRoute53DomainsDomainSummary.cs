@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetRoute53DomainsDomainSummaryResult> Invoke(GetRoute53DomainsDomainSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoute53DomainsDomainSummaryResult>("azure-native:awsconnector/v20241201:getRoute53DomainsDomainSummary", args ?? new GetRoute53DomainsDomainSummaryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Route53DomainsDomainSummary
+        /// </summary>
+        public static Output<GetRoute53DomainsDomainSummaryResult> Invoke(GetRoute53DomainsDomainSummaryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoute53DomainsDomainSummaryResult>("azure-native:awsconnector/v20241201:getRoute53DomainsDomainSummary", args ?? new GetRoute53DomainsDomainSummaryInvokeArgs(), options.WithDefaults());
     }
 
 

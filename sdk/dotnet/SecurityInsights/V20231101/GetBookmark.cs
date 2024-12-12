@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231101
         /// </summary>
         public static Output<GetBookmarkResult> Invoke(GetBookmarkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBookmarkResult>("azure-native:securityinsights/v20231101:getBookmark", args ?? new GetBookmarkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a bookmark.
+        /// </summary>
+        public static Output<GetBookmarkResult> Invoke(GetBookmarkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBookmarkResult>("azure-native:securityinsights/v20231101:getBookmark", args ?? new GetBookmarkInvokeArgs(), options.WithDefaults());
     }
 
 

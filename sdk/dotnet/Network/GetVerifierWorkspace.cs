@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public static Output<GetVerifierWorkspaceResult> Invoke(GetVerifierWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVerifierWorkspaceResult>("azure-native:network:getVerifierWorkspace", args ?? new GetVerifierWorkspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Instance of Verifier Workspace.
+        /// Azure REST API version: 2024-01-01-preview.
+        /// 
+        /// Other available API versions: 2024-05-01.
+        /// </summary>
+        public static Output<GetVerifierWorkspaceResult> Invoke(GetVerifierWorkspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVerifierWorkspaceResult>("azure-native:network:getVerifierWorkspace", args ?? new GetVerifierWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

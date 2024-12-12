@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTOperationsMQ.V20231004Preview
         /// </summary>
         public static Output<GetKafkaConnectorResult> Invoke(GetKafkaConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaConnectorResult>("azure-native:iotoperationsmq/v20231004preview:getKafkaConnector", args ?? new GetKafkaConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a KafkaConnectorResource
+        /// </summary>
+        public static Output<GetKafkaConnectorResult> Invoke(GetKafkaConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKafkaConnectorResult>("azure-native:iotoperationsmq/v20231004preview:getKafkaConnector", args ?? new GetKafkaConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

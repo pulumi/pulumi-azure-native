@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240501Preview
         /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("azure-native:devcenter/v20240501preview:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a devcenter plan.
+        /// </summary>
+        public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("azure-native:devcenter/v20240501preview:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
     }
 
 

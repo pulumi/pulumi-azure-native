@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
         /// </summary>
         public static Output<GetAccessControlListResult> Invoke(GetAccessControlListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessControlListResult>("azure-native:managednetworkfabric/v20230201preview:getAccessControlList", args ?? new GetAccessControlListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements Access Control List GET method.
+        /// </summary>
+        public static Output<GetAccessControlListResult> Invoke(GetAccessControlListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessControlListResult>("azure-native:managednetworkfabric/v20230201preview:getAccessControlList", args ?? new GetAccessControlListInvokeArgs(), options.WithDefaults());
     }
 
 

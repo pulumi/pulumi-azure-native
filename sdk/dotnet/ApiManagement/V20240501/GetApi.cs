@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240501
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure-native:apimanagement/v20240501:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the API specified by its identifier.
+        /// </summary>
+        public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure-native:apimanagement/v20240501:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
     }
 
 

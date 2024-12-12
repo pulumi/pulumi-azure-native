@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public static Output<GetIntegrationAccountSessionResult> Invoke(GetIntegrationAccountSessionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSessionResult>("azure-native:logic:getIntegrationAccountSession", args ?? new GetIntegrationAccountSessionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an integration account session.
+        /// Azure REST API version: 2019-05-01.
+        /// </summary>
+        public static Output<GetIntegrationAccountSessionResult> Invoke(GetIntegrationAccountSessionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountSessionResult>("azure-native:logic:getIntegrationAccountSession", args ?? new GetIntegrationAccountSessionInvokeArgs(), options.WithDefaults());
     }
 
 

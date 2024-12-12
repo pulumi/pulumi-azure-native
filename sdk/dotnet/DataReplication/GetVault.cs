@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataReplication
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:datareplication:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the vault.
+        /// Azure REST API version: 2021-02-16-preview.
+        /// </summary>
+        public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:datareplication:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
     }
 
 

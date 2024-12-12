@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
         /// </summary>
         public static Output<GetMECRoleResult> Invoke(GetMECRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMECRoleResult>("azure-native:databoxedge/v20231201:getMECRole", args ?? new GetMECRoleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific role by name.
+        /// </summary>
+        public static Output<GetMECRoleResult> Invoke(GetMECRoleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMECRoleResult>("azure-native:databoxedge/v20231201:getMECRole", args ?? new GetMECRoleInvokeArgs(), options.WithDefaults());
     }
 
 

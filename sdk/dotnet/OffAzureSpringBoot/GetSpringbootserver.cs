@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// </summary>
         public static Output<GetSpringbootserverResult> Invoke(GetSpringbootserverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootserverResult>("azure-native:offazurespringboot:getSpringbootserver", args ?? new GetSpringbootserverInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List springbootservers resource.
+        /// Azure REST API version: 2023-01-01-preview.
+        /// </summary>
+        public static Output<GetSpringbootserverResult> Invoke(GetSpringbootserverInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootserverResult>("azure-native:offazurespringboot:getSpringbootserver", args ?? new GetSpringbootserverInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:costmanagement:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a connector definition
+        /// Azure REST API version: 2018-08-01-preview.
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:costmanagement:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

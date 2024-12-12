@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20230501
         /// </summary>
         public static Output<GetFluxConfigurationResult> Invoke(GetFluxConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration/v20230501:getFluxConfiguration", args ?? new GetFluxConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets details of the Flux Configuration.
+        /// </summary>
+        public static Output<GetFluxConfigurationResult> Invoke(GetFluxConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration/v20230501:getFluxConfiguration", args ?? new GetFluxConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230701Preview
         /// </summary>
         public static Output<GetCustomizedAcceleratorResult> Invoke(GetCustomizedAcceleratorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomizedAcceleratorResult>("azure-native:appplatform/v20230701preview:getCustomizedAccelerator", args ?? new GetCustomizedAcceleratorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the customized accelerator.
+        /// </summary>
+        public static Output<GetCustomizedAcceleratorResult> Invoke(GetCustomizedAcceleratorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomizedAcceleratorResult>("azure-native:appplatform/v20230701preview:getCustomizedAccelerator", args ?? new GetCustomizedAcceleratorInvokeArgs(), options.WithDefaults());
     }
 
 

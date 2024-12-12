@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
         /// </summary>
         public static Output<GetSensitivityLabelResult> Invoke(GetSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSensitivityLabelResult>("azure-native:sql/v20230201preview:getSensitivityLabel", args ?? new GetSensitivityLabelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the sensitivity label of a given column
+        /// </summary>
+        public static Output<GetSensitivityLabelResult> Invoke(GetSensitivityLabelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSensitivityLabelResult>("azure-native:sql/v20230201preview:getSensitivityLabel", args ?? new GetSensitivityLabelInvokeArgs(), options.WithDefaults());
     }
 
 

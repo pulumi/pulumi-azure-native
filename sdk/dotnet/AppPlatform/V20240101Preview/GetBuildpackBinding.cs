@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20240101Preview
         /// </summary>
         public static Output<GetBuildpackBindingResult> Invoke(GetBuildpackBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildpackBindingResult>("azure-native:appplatform/v20240101preview:getBuildpackBinding", args ?? new GetBuildpackBindingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a buildpack binding by name.
+        /// </summary>
+        public static Output<GetBuildpackBindingResult> Invoke(GetBuildpackBindingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBuildpackBindingResult>("azure-native:appplatform/v20240101preview:getBuildpackBinding", args ?? new GetBuildpackBindingInvokeArgs(), options.WithDefaults());
     }
 
 

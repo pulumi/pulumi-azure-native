@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Output<GetCapacityReservationGroupResult> Invoke(GetCapacityReservationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationGroupResult>("azure-native:compute:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation that retrieves information about a capacity reservation group.
+        /// Azure REST API version: 2023-03-01.
+        /// 
+        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// </summary>
+        public static Output<GetCapacityReservationGroupResult> Invoke(GetCapacityReservationGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationGroupResult>("azure-native:compute:getCapacityReservationGroup", args ?? new GetCapacityReservationGroupInvokeArgs(), options.WithDefaults());
     }
 
 

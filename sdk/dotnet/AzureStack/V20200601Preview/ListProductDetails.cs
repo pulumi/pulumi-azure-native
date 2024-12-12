@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         /// </summary>
         public static Output<ListProductDetailsResult> Invoke(ListProductDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProductDetailsResult>("azure-native:azurestack/v20200601preview:listProductDetails", args ?? new ListProductDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the extended properties of a product.
+        /// </summary>
+        public static Output<ListProductDetailsResult> Invoke(ListProductDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListProductDetailsResult>("azure-native:azurestack/v20200601preview:listProductDetails", args ?? new ListProductDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

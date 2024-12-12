@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Contoso
         /// </summary>
         public static Output<GetEmployeeResult> Invoke(GetEmployeeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmployeeResult>("azure-native:contoso:getEmployee", args ?? new GetEmployeeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Employee
+        /// Azure REST API version: 2021-10-01-preview.
+        /// </summary>
+        public static Output<GetEmployeeResult> Invoke(GetEmployeeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmployeeResult>("azure-native:contoso:getEmployee", args ?? new GetEmployeeInvokeArgs(), options.WithDefaults());
     }
 
 

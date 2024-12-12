@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20230101Preview
         /// </summary>
         public static Output<GetSecurityOperatorResult> Invoke(GetSecurityOperatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityOperatorResult>("azure-native:security/v20230101preview:getSecurityOperator", args ?? new GetSecurityOperatorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific security operator for the requested scope.
+        /// </summary>
+        public static Output<GetSecurityOperatorResult> Invoke(GetSecurityOperatorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityOperatorResult>("azure-native:security/v20230101preview:getSecurityOperator", args ?? new GetSecurityOperatorInvokeArgs(), options.WithDefaults());
     }
 
 

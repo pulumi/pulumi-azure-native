@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231001Preview
         /// </summary>
         public static Output<GetCodelessApiPollingDataConnectorResult> Invoke(GetCodelessApiPollingDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodelessApiPollingDataConnectorResult>("azure-native:securityinsights/v20231001preview:getCodelessApiPollingDataConnector", args ?? new GetCodelessApiPollingDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// </summary>
+        public static Output<GetCodelessApiPollingDataConnectorResult> Invoke(GetCodelessApiPollingDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodelessApiPollingDataConnectorResult>("azure-native:securityinsights/v20231001preview:getCodelessApiPollingDataConnector", args ?? new GetCodelessApiPollingDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

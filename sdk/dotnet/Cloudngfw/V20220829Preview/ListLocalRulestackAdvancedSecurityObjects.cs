@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cloudngfw.V20220829Preview
         /// </summary>
         public static Output<ListLocalRulestackAdvancedSecurityObjectsResult> Invoke(ListLocalRulestackAdvancedSecurityObjectsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocalRulestackAdvancedSecurityObjectsResult>("azure-native:cloudngfw/v20220829preview:listLocalRulestackAdvancedSecurityObjects", args ?? new ListLocalRulestackAdvancedSecurityObjectsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the list of advanced security objects
+        /// </summary>
+        public static Output<ListLocalRulestackAdvancedSecurityObjectsResult> Invoke(ListLocalRulestackAdvancedSecurityObjectsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListLocalRulestackAdvancedSecurityObjectsResult>("azure-native:cloudngfw/v20220829preview:listLocalRulestackAdvancedSecurityObjects", args ?? new ListLocalRulestackAdvancedSecurityObjectsInvokeArgs(), options.WithDefaults());
     }
 
 

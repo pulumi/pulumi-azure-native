@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20240501
         /// </summary>
         public static Output<ListPolicySetDefinitionVersionAllAtManagementGroupResult> Invoke(ListPolicySetDefinitionVersionAllAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPolicySetDefinitionVersionAllAtManagementGroupResult>("azure-native:authorization/v20240501:listPolicySetDefinitionVersionAllAtManagementGroup", args ?? new ListPolicySetDefinitionVersionAllAtManagementGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This operation lists all the policy set definition versions for all policy set definitions at the management group scope.
+        /// </summary>
+        public static Output<ListPolicySetDefinitionVersionAllAtManagementGroupResult> Invoke(ListPolicySetDefinitionVersionAllAtManagementGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListPolicySetDefinitionVersionAllAtManagementGroupResult>("azure-native:authorization/v20240501:listPolicySetDefinitionVersionAllAtManagementGroup", args ?? new ListPolicySetDefinitionVersionAllAtManagementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

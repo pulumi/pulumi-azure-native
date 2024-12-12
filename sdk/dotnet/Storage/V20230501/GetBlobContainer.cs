@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20230501
         /// </summary>
         public static Output<GetBlobContainerResult> Invoke(GetBlobContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage/v20230501:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a specified container. 
+        /// </summary>
+        public static Output<GetBlobContainerResult> Invoke(GetBlobContainerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage/v20230501:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithDefaults());
     }
 
 

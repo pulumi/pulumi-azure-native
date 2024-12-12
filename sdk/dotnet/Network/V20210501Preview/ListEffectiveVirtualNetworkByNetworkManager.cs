@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         /// </summary>
         public static Output<ListEffectiveVirtualNetworkByNetworkManagerResult> Invoke(ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListEffectiveVirtualNetworkByNetworkManagerResult>("azure-native:network/v20210501preview:listEffectiveVirtualNetworkByNetworkManager", args ?? new ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List effective virtual networks in a network manager.
+        /// </summary>
+        public static Output<ListEffectiveVirtualNetworkByNetworkManagerResult> Invoke(ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListEffectiveVirtualNetworkByNetworkManagerResult>("azure-native:network/v20210501preview:listEffectiveVirtualNetworkByNetworkManager", args ?? new ListEffectiveVirtualNetworkByNetworkManagerInvokeArgs(), options.WithDefaults());
     }
 
 

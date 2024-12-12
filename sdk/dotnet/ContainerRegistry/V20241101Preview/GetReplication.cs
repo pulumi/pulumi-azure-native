@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20241101Preview
         /// </summary>
         public static Output<GetReplicationResult> Invoke(GetReplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationResult>("azure-native:containerregistry/v20241101preview:getReplication", args ?? new GetReplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified replication.
+        /// </summary>
+        public static Output<GetReplicationResult> Invoke(GetReplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationResult>("azure-native:containerregistry/v20241101preview:getReplication", args ?? new GetReplicationInvokeArgs(), options.WithDefaults());
     }
 
 

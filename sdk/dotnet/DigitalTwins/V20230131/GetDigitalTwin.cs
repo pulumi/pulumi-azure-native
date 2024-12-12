@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DigitalTwins.V20230131
         /// </summary>
         public static Output<GetDigitalTwinResult> Invoke(GetDigitalTwinInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDigitalTwinResult>("azure-native:digitaltwins/v20230131:getDigitalTwin", args ?? new GetDigitalTwinInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get DigitalTwinsInstances resource.
+        /// </summary>
+        public static Output<GetDigitalTwinResult> Invoke(GetDigitalTwinInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDigitalTwinResult>("azure-native:digitaltwins/v20230131:getDigitalTwin", args ?? new GetDigitalTwinInvokeArgs(), options.WithDefaults());
     }
 
 

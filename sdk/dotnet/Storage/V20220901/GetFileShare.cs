@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20220901
         /// </summary>
         public static Output<GetFileShareResult> Invoke(GetFileShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareResult>("azure-native:storage/v20220901:getFileShare", args ?? new GetFileShareInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a specified share.
+        /// </summary>
+        public static Output<GetFileShareResult> Invoke(GetFileShareInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileShareResult>("azure-native:storage/v20220901:getFileShare", args ?? new GetFileShareInvokeArgs(), options.WithDefaults());
     }
 
 

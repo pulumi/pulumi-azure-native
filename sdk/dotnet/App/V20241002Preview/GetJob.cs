@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20241002Preview
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:app/v20241002preview:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Container App Job
+        /// </summary>
+        public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:app/v20241002preview:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

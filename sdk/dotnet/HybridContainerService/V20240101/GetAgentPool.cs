@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridContainerService.V20240101
         /// </summary>
         public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:hybridcontainerservice/v20240101:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified agent pool in the provisioned cluster
+        /// </summary>
+        public static Output<GetAgentPoolResult> Invoke(GetAgentPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentPoolResult>("azure-native:hybridcontainerservice/v20240101:getAgentPool", args ?? new GetAgentPoolInvokeArgs(), options.WithDefaults());
     }
 
 

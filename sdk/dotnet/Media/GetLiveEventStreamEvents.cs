@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public static Output<GetLiveEventStreamEventsResult> Invoke(GetLiveEventStreamEventsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventStreamEventsResult>("azure-native:media:getLiveEventStreamEvents", args ?? new GetLiveEventStreamEventsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get stream events telemetry of a live event.
+        /// Azure REST API version: 2022-11-01.
+        /// </summary>
+        public static Output<GetLiveEventStreamEventsResult> Invoke(GetLiveEventStreamEventsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventStreamEventsResult>("azure-native:media:getLiveEventStreamEvents", args ?? new GetLiveEventStreamEventsInvokeArgs(), options.WithDefaults());
     }
 
 

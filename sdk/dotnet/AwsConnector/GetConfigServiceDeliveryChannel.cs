@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetConfigServiceDeliveryChannelResult> Invoke(GetConfigServiceDeliveryChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigServiceDeliveryChannelResult>("azure-native:awsconnector:getConfigServiceDeliveryChannel", args ?? new GetConfigServiceDeliveryChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ConfigServiceDeliveryChannel
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetConfigServiceDeliveryChannelResult> Invoke(GetConfigServiceDeliveryChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigServiceDeliveryChannelResult>("azure-native:awsconnector:getConfigServiceDeliveryChannel", args ?? new GetConfigServiceDeliveryChannelInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20241101Preview
         /// </summary>
         public static Output<GetConnectedRegistryResult> Invoke(GetConnectedRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry/v20241101preview:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the connected registry.
+        /// </summary>
+        public static Output<GetConnectedRegistryResult> Invoke(GetConnectedRegistryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry/v20241101preview:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

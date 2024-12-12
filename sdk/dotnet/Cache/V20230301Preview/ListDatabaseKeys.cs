@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cache.V20230301Preview
         /// </summary>
         public static Output<ListDatabaseKeysResult> Invoke(ListDatabaseKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatabaseKeysResult>("azure-native:cache/v20230301preview:listDatabaseKeys", args ?? new ListDatabaseKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the access keys for the RedisEnterprise database.
+        /// </summary>
+        public static Output<ListDatabaseKeysResult> Invoke(ListDatabaseKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDatabaseKeysResult>("azure-native:cache/v20230301preview:listDatabaseKeys", args ?? new ListDatabaseKeysInvokeArgs(), options.WithDefaults());
     }
 
 

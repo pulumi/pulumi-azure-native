@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240301
         /// </summary>
         public static Output<GetConfigurationPolicyGroupResult> Invoke(GetConfigurationPolicyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationPolicyGroupResult>("azure-native:network/v20240301:getConfigurationPolicyGroup", args ?? new GetConfigurationPolicyGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the details of a ConfigurationPolicyGroup.
+        /// </summary>
+        public static Output<GetConfigurationPolicyGroupResult> Invoke(GetConfigurationPolicyGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationPolicyGroupResult>("azure-native:network/v20240301:getConfigurationPolicyGroup", args ?? new GetConfigurationPolicyGroupInvokeArgs(), options.WithDefaults());
     }
 
 

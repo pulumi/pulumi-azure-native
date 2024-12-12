@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public static Output<GetExportConfigurationResult> Invoke(GetExportConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportConfigurationResult>("azure-native:insights:getExportConfiguration", args ?? new GetExportConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Continuous Export configuration for this export id.
+        /// Azure REST API version: 2015-05-01.
+        /// </summary>
+        public static Output<GetExportConfigurationResult> Invoke(GetExportConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExportConfigurationResult>("azure-native:insights:getExportConfiguration", args ?? new GetExportConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

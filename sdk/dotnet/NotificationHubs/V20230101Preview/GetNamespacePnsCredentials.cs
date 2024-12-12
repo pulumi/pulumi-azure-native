@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.NotificationHubs.V20230101Preview
         /// </summary>
         public static Output<GetNamespacePnsCredentialsResult> Invoke(GetNamespacePnsCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespacePnsCredentialsResult>("azure-native:notificationhubs/v20230101preview:getNamespacePnsCredentials", args ?? new GetNamespacePnsCredentialsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
+        /// PNS credentials.
+        /// </summary>
+        public static Output<GetNamespacePnsCredentialsResult> Invoke(GetNamespacePnsCredentialsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespacePnsCredentialsResult>("azure-native:notificationhubs/v20230101preview:getNamespacePnsCredentials", args ?? new GetNamespacePnsCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
         /// </summary>
         public static Output<GetSecurityUserConfigurationResult> Invoke(GetSecurityUserConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserConfigurationResult>("azure-native:network/v20220401preview:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves a network manager security user configuration.
+        /// </summary>
+        public static Output<GetSecurityUserConfigurationResult> Invoke(GetSecurityUserConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserConfigurationResult>("azure-native:network/v20220401preview:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

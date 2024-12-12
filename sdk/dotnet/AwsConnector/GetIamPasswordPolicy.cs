@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetIamPasswordPolicyResult> Invoke(GetIamPasswordPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamPasswordPolicyResult>("azure-native:awsconnector:getIamPasswordPolicy", args ?? new GetIamPasswordPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamPasswordPolicy
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetIamPasswordPolicyResult> Invoke(GetIamPasswordPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamPasswordPolicyResult>("azure-native:awsconnector:getIamPasswordPolicy", args ?? new GetIamPasswordPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

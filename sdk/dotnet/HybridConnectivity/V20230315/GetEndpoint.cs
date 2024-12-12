@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20230315
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:hybridconnectivity/v20230315:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the endpoint to the resource.
+        /// </summary>
+        public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:hybridconnectivity/v20230315:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

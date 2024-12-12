@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Elastic
         /// </summary>
         public static Output<GetOpenAIStatusResult> Invoke(GetOpenAIStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenAIStatusResult>("azure-native:elastic:getOpenAIStatus", args ?? new GetOpenAIStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Status of the OpenAI Integration
+        /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetOpenAIStatusResult> Invoke(GetOpenAIStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOpenAIStatusResult>("azure-native:elastic:getOpenAIStatus", args ?? new GetOpenAIStatusInvokeArgs(), options.WithDefaults());
     }
 
 

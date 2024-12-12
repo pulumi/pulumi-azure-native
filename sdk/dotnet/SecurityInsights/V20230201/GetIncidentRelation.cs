@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
         /// </summary>
         public static Output<GetIncidentRelationResult> Invoke(GetIncidentRelationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentRelationResult>("azure-native:securityinsights/v20230201:getIncidentRelation", args ?? new GetIncidentRelationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a relation for a given incident.
+        /// </summary>
+        public static Output<GetIncidentRelationResult> Invoke(GetIncidentRelationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIncidentRelationResult>("azure-native:securityinsights/v20230201:getIncidentRelation", args ?? new GetIncidentRelationInvokeArgs(), options.WithDefaults());
     }
 
 

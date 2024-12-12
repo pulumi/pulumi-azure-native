@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorageSync.V20220901
         /// </summary>
         public static Output<GetRegisteredServerResult> Invoke(GetRegisteredServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync/v20220901:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a given registered server.
+        /// </summary>
+        public static Output<GetRegisteredServerResult> Invoke(GetRegisteredServerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync/v20220901:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithDefaults());
     }
 
 

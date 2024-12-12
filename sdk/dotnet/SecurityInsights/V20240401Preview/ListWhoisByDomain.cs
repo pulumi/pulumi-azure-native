@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
         /// </summary>
         public static Output<ListWhoisByDomainResult> Invoke(ListWhoisByDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWhoisByDomainResult>("azure-native:securityinsights/v20240401preview:listWhoisByDomain", args ?? new ListWhoisByDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get whois information for a single domain name
+        /// </summary>
+        public static Output<ListWhoisByDomainResult> Invoke(ListWhoisByDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWhoisByDomainResult>("azure-native:securityinsights/v20240401preview:listWhoisByDomain", args ?? new ListWhoisByDomainInvokeArgs(), options.WithDefaults());
     }
 
 

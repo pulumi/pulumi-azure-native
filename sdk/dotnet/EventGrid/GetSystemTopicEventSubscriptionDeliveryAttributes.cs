@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public static Output<GetSystemTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetSystemTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getSystemTopicEventSubscriptionDeliveryAttributes", args ?? new GetSystemTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get all delivery attributes for an event subscription.
+        /// Azure REST API version: 2022-06-15.
+        /// 
+        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// </summary>
+        public static Output<GetSystemTopicEventSubscriptionDeliveryAttributesResult> Invoke(GetSystemTopicEventSubscriptionDeliveryAttributesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSystemTopicEventSubscriptionDeliveryAttributesResult>("azure-native:eventgrid:getSystemTopicEventSubscriptionDeliveryAttributes", args ?? new GetSystemTopicEventSubscriptionDeliveryAttributesInvokeArgs(), options.WithDefaults());
     }
 
 

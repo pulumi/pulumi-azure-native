@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
         /// </summary>
         public static Output<GetSavedSearchResult> Invoke(GetSavedSearchInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSavedSearchResult>("azure-native:operationalinsights/v20200801:getSavedSearch", args ?? new GetSavedSearchInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified saved search for a given workspace.
+        /// </summary>
+        public static Output<GetSavedSearchResult> Invoke(GetSavedSearchInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSavedSearchResult>("azure-native:operationalinsights/v20200801:getSavedSearch", args ?? new GetSavedSearchInvokeArgs(), options.WithDefaults());
     }
 
 

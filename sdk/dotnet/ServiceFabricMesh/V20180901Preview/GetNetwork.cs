@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
         /// </summary>
         public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("azure-native:servicefabricmesh/v20180901preview:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the information about the network resource with the given name. The information include the description and other properties of the network.
+        /// </summary>
+        public static Output<GetNetworkResult> Invoke(GetNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkResult>("azure-native:servicefabricmesh/v20180901preview:getNetwork", args ?? new GetNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

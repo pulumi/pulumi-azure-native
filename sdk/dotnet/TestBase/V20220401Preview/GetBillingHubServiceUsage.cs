@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
 
         public static Output<GetBillingHubServiceUsageResult> Invoke(GetBillingHubServiceUsageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceUsageResult>("azure-native:testbase/v20220401preview:getBillingHubServiceUsage", args ?? new GetBillingHubServiceUsageInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetBillingHubServiceUsageResult> Invoke(GetBillingHubServiceUsageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceUsageResult>("azure-native:testbase/v20220401preview:getBillingHubServiceUsage", args ?? new GetBillingHubServiceUsageInvokeArgs(), options.WithDefaults());
     }
 
 

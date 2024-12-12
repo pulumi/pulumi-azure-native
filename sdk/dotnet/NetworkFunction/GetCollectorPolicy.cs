@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// </summary>
         public static Output<GetCollectorPolicyResult> Invoke(GetCollectorPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollectorPolicyResult>("azure-native:networkfunction:getCollectorPolicy", args ?? new GetCollectorPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the collector policy in a specified Traffic Collector
+        /// Azure REST API version: 2022-11-01.
+        /// 
+        /// Other available API versions: 2022-05-01.
+        /// </summary>
+        public static Output<GetCollectorPolicyResult> Invoke(GetCollectorPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCollectorPolicyResult>("azure-native:networkfunction:getCollectorPolicy", args ?? new GetCollectorPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

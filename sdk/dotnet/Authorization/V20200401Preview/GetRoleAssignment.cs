@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20200401Preview
         /// </summary>
         public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:authorization/v20200401preview:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the specified role assignment.
+        /// </summary>
+        public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:authorization/v20200401preview:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

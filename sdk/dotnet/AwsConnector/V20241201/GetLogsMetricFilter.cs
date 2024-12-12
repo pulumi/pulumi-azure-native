@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetLogsMetricFilterResult> Invoke(GetLogsMetricFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogsMetricFilterResult>("azure-native:awsconnector/v20241201:getLogsMetricFilter", args ?? new GetLogsMetricFilterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LogsMetricFilter
+        /// </summary>
+        public static Output<GetLogsMetricFilterResult> Invoke(GetLogsMetricFilterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogsMetricFilterResult>("azure-native:awsconnector/v20241201:getLogsMetricFilter", args ?? new GetLogsMetricFilterInvokeArgs(), options.WithDefaults());
     }
 
 

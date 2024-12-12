@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20231201Preview
         /// </summary>
         public static Output<GetThreatIntelligenceAlertRuleResult> Invoke(GetThreatIntelligenceAlertRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceAlertRuleResult>("azure-native:securityinsights/v20231201preview:getThreatIntelligenceAlertRule", args ?? new GetThreatIntelligenceAlertRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the alert rule.
+        /// </summary>
+        public static Output<GetThreatIntelligenceAlertRuleResult> Invoke(GetThreatIntelligenceAlertRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetThreatIntelligenceAlertRuleResult>("azure-native:securityinsights/v20231201preview:getThreatIntelligenceAlertRule", args ?? new GetThreatIntelligenceAlertRuleInvokeArgs(), options.WithDefaults());
     }
 
 

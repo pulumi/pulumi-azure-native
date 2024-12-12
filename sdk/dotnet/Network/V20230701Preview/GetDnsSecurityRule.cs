@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         /// </summary>
         public static Output<GetDnsSecurityRuleResult> Invoke(GetDnsSecurityRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsSecurityRuleResult>("azure-native:network/v20230701preview:getDnsSecurityRule", args ?? new GetDnsSecurityRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a DNS security rule for a DNS resolver policy.
+        /// </summary>
+        public static Output<GetDnsSecurityRuleResult> Invoke(GetDnsSecurityRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsSecurityRuleResult>("azure-native:network/v20230701preview:getDnsSecurityRule", args ?? new GetDnsSecurityRuleInvokeArgs(), options.WithDefaults());
     }
 
 

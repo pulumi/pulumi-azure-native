@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         public static Output<GetPostRuleCountersResult> Invoke(GetPostRuleCountersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPostRuleCountersResult>("azure-native:cloudngfw:getPostRuleCounters", args ?? new GetPostRuleCountersInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get counters
+        /// Azure REST API version: 2023-09-01.
+        /// 
+        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// </summary>
+        public static Output<GetPostRuleCountersResult> Invoke(GetPostRuleCountersInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPostRuleCountersResult>("azure-native:cloudngfw:getPostRuleCounters", args ?? new GetPostRuleCountersInvokeArgs(), options.WithDefaults());
     }
 
 

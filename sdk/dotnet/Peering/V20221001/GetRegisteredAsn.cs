@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Peering.V20221001
         /// </summary>
         public static Output<GetRegisteredAsnResult> Invoke(GetRegisteredAsnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredAsnResult>("azure-native:peering/v20221001:getRegisteredAsn", args ?? new GetRegisteredAsnInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.
+        /// </summary>
+        public static Output<GetRegisteredAsnResult> Invoke(GetRegisteredAsnInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredAsnResult>("azure-native:peering/v20221001:getRegisteredAsn", args ?? new GetRegisteredAsnInvokeArgs(), options.WithDefaults());
     }
 
 

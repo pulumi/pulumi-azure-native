@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public static Output<ListWebAppHybridConnectionKeysResult> Invoke(ListWebAppHybridConnectionKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppHybridConnectionKeysResult>("azure-native:web:listWebAppHybridConnectionKeys", args ?? new ListWebAppHybridConnectionKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the send key name and value for a Hybrid Connection.
+        /// Azure REST API version: 2018-11-01.
+        /// </summary>
+        public static Output<ListWebAppHybridConnectionKeysResult> Invoke(ListWebAppHybridConnectionKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppHybridConnectionKeysResult>("azure-native:web:listWebAppHybridConnectionKeys", args ?? new ListWebAppHybridConnectionKeysInvokeArgs(), options.WithDefaults());
     }
 
 

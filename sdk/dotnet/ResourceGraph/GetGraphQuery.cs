@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ResourceGraph
         /// </summary>
         public static Output<GetGraphQueryResult> Invoke(GetGraphQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a single graph query by its resourceName.
+        /// Azure REST API version: 2020-04-01-preview.
+        /// 
+        /// Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+        /// </summary>
+        public static Output<GetGraphQueryResult> Invoke(GetGraphQueryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGraphQueryResult>("azure-native:resourcegraph:getGraphQuery", args ?? new GetGraphQueryInvokeArgs(), options.WithDefaults());
     }
 
 

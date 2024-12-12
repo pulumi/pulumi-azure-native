@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240201
         /// </summary>
         public static Output<GetEnvironmentDefinitionErrorDetailsResult> Invoke(GetEnvironmentDefinitionErrorDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentDefinitionErrorDetailsResult>("azure-native:devcenter/v20240201:getEnvironmentDefinitionErrorDetails", args ?? new GetEnvironmentDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets Environment Definition error details
+        /// </summary>
+        public static Output<GetEnvironmentDefinitionErrorDetailsResult> Invoke(GetEnvironmentDefinitionErrorDetailsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentDefinitionErrorDetailsResult>("azure-native:devcenter/v20240201:getEnvironmentDefinitionErrorDetails", args ?? new GetEnvironmentDefinitionErrorDetailsInvokeArgs(), options.WithDefaults());
     }
 
 

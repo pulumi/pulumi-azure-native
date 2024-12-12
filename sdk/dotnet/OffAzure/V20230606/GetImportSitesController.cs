@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20230606
         /// </summary>
         public static Output<GetImportSitesControllerResult> Invoke(GetImportSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportSitesControllerResult>("azure-native:offazure/v20230606:getImportSitesController", args ?? new GetImportSitesControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ImportSite
+        /// </summary>
+        public static Output<GetImportSitesControllerResult> Invoke(GetImportSitesControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImportSitesControllerResult>("azure-native:offazure/v20230606:getImportSitesController", args ?? new GetImportSitesControllerInvokeArgs(), options.WithDefaults());
     }
 
 

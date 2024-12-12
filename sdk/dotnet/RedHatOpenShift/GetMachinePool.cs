@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// </summary>
         public static Output<GetMachinePoolResult> Invoke(GetMachinePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachinePoolResult>("azure-native:redhatopenshift:getMachinePool", args ?? new GetMachinePoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The operation returns properties of a MachinePool.
+        /// Azure REST API version: 2022-09-04.
+        /// 
+        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// </summary>
+        public static Output<GetMachinePoolResult> Invoke(GetMachinePoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachinePoolResult>("azure-native:redhatopenshift:getMachinePool", args ?? new GetMachinePoolInvokeArgs(), options.WithDefaults());
     }
 
 

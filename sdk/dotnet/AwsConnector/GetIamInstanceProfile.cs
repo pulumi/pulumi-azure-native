@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetIamInstanceProfileResult> Invoke(GetIamInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamInstanceProfileResult>("azure-native:awsconnector:getIamInstanceProfile", args ?? new GetIamInstanceProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamInstanceProfile
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetIamInstanceProfileResult> Invoke(GetIamInstanceProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamInstanceProfileResult>("azure-native:awsconnector:getIamInstanceProfile", args ?? new GetIamInstanceProfileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.AzureSphere
         /// </summary>
         public static Output<GetCatalogResult> Invoke(GetCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogResult>("azure-native:azuresphere:getCatalog", args ?? new GetCatalogInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Catalog
+        /// Azure REST API version: 2022-09-01-preview.
+        /// 
+        /// Other available API versions: 2024-04-01.
+        /// </summary>
+        public static Output<GetCatalogResult> Invoke(GetCatalogInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCatalogResult>("azure-native:azuresphere:getCatalog", args ?? new GetCatalogInvokeArgs(), options.WithDefaults());
     }
 
 

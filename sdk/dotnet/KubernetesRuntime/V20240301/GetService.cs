@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.KubernetesRuntime.V20240301
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:kubernetesruntime/v20240301:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ServiceResource
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:kubernetesruntime/v20240301:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

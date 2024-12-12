@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public static Output<GetTriggerEventSubscriptionStatusResult> Invoke(GetTriggerEventSubscriptionStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerEventSubscriptionStatusResult>("azure-native:datafactory:getTriggerEventSubscriptionStatus", args ?? new GetTriggerEventSubscriptionStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a trigger's event subscription status.
+        /// Azure REST API version: 2018-06-01.
+        /// </summary>
+        public static Output<GetTriggerEventSubscriptionStatusResult> Invoke(GetTriggerEventSubscriptionStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTriggerEventSubscriptionStatusResult>("azure-native:datafactory:getTriggerEventSubscriptionStatus", args ?? new GetTriggerEventSubscriptionStatusInvokeArgs(), options.WithDefaults());
     }
 
 

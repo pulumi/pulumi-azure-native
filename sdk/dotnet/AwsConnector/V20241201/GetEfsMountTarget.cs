@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEfsMountTargetResult> Invoke(GetEfsMountTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEfsMountTargetResult>("azure-native:awsconnector/v20241201:getEfsMountTarget", args ?? new GetEfsMountTargetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EfsMountTarget
+        /// </summary>
+        public static Output<GetEfsMountTargetResult> Invoke(GetEfsMountTargetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEfsMountTargetResult>("azure-native:awsconnector/v20241201:getEfsMountTarget", args ?? new GetEfsMountTargetInvokeArgs(), options.WithDefaults());
     }
 
 

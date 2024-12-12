@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20200501
         /// </summary>
         public static Output<GetManagementLockByScopeResult> Invoke(GetManagementLockByScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockByScopeResult>("azure-native:authorization/v20200501:getManagementLockByScope", args ?? new GetManagementLockByScopeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a management lock by scope.
+        /// </summary>
+        public static Output<GetManagementLockByScopeResult> Invoke(GetManagementLockByScopeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockByScopeResult>("azure-native:authorization/v20200501:getManagementLockByScope", args ?? new GetManagementLockByScopeInvokeArgs(), options.WithDefaults());
     }
 
 

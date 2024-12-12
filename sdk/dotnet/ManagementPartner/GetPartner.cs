@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ManagementPartner
         /// </summary>
         public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:managementpartner:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the management partner using the partnerId, objectId and tenantId.
+        /// Azure REST API version: 2018-02-01.
+        /// </summary>
+        public static Output<GetPartnerResult> Invoke(GetPartnerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnerResult>("azure-native:managementpartner:getPartner", args ?? new GetPartnerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20231101Preview
         /// </summary>
         public static Output<GetDeploymentLogFileUrlResult> Invoke(GetDeploymentLogFileUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentLogFileUrlResult>("azure-native:appplatform/v20231101preview:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get deployment log file URL
+        /// </summary>
+        public static Output<GetDeploymentLogFileUrlResult> Invoke(GetDeploymentLogFileUrlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentLogFileUrlResult>("azure-native:appplatform/v20231101preview:getDeploymentLogFileUrl", args ?? new GetDeploymentLogFileUrlInvokeArgs(), options.WithDefaults());
     }
 
 

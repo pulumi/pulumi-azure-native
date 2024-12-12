@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20240201
         /// </summary>
         public static Output<GetEnvironmentTypeResult> Invoke(GetEnvironmentTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentTypeResult>("azure-native:devcenter/v20240201:getEnvironmentType", args ?? new GetEnvironmentTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an environment type.
+        /// </summary>
+        public static Output<GetEnvironmentTypeResult> Invoke(GetEnvironmentTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentTypeResult>("azure-native:devcenter/v20240201:getEnvironmentType", args ?? new GetEnvironmentTypeInvokeArgs(), options.WithDefaults());
     }
 
 

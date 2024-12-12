@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview
 
         public static Output<GetInferencePoolResult> Invoke(GetInferencePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferencePoolResult>("azure-native:machinelearningservices/v20241001preview:getInferencePool", args ?? new GetInferencePoolInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetInferencePoolResult> Invoke(GetInferencePoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInferencePoolResult>("azure-native:machinelearningservices/v20241001preview:getInferencePool", args ?? new GetInferencePoolInvokeArgs(), options.WithDefaults());
     }
 
 

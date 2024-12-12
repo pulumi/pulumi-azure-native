@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridCompute.V20240910Preview
         /// </summary>
         public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute/v20240910preview:getMachine", args ?? new GetMachineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about the model view or the instance view of a hybrid machine.
+        /// </summary>
+        public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute/v20240910preview:getMachine", args ?? new GetMachineInvokeArgs(), options.WithDefaults());
     }
 
 

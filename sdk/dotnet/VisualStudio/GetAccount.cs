@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.VisualStudio
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:visualstudio:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Visual Studio Team Services account resource details.
+        /// Azure REST API version: 2017-11-01-preview.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:visualstudio:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

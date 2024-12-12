@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20240125
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:azuredatatransfer/v20240125:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets connection resource.
+        /// </summary>
+        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:azuredatatransfer/v20240125:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

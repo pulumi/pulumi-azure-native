@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Aad.V20221201
         /// </summary>
         public static Output<GetOuContainerResult> Invoke(GetOuContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOuContainerResult>("azure-native:aad/v20221201:getOuContainer", args ?? new GetOuContainerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get OuContainer in DomainService instance.
+        /// </summary>
+        public static Output<GetOuContainerResult> Invoke(GetOuContainerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOuContainerResult>("azure-native:aad/v20221201:getOuContainer", args ?? new GetOuContainerInvokeArgs(), options.WithDefaults());
     }
 
 

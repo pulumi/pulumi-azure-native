@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Community.V20231101
         /// </summary>
         public static Output<GetCommunityTrainingResult> Invoke(GetCommunityTrainingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommunityTrainingResult>("azure-native:community/v20231101:getCommunityTraining", args ?? new GetCommunityTrainingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CommunityTraining
+        /// </summary>
+        public static Output<GetCommunityTrainingResult> Invoke(GetCommunityTrainingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCommunityTrainingResult>("azure-native:community/v20231101:getCommunityTraining", args ?? new GetCommunityTrainingInvokeArgs(), options.WithDefaults());
     }
 
 

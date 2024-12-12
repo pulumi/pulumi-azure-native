@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230301Preview
         /// </summary>
         public static Output<GetAuthorizationServerResult> Invoke(GetAuthorizationServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationServerResult>("azure-native:apimanagement/v20230301preview:getAuthorizationServer", args ?? new GetAuthorizationServerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the authorization server specified by its identifier.
+        /// </summary>
+        public static Output<GetAuthorizationServerResult> Invoke(GetAuthorizationServerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationServerResult>("azure-native:apimanagement/v20230301preview:getAuthorizationServer", args ?? new GetAuthorizationServerInvokeArgs(), options.WithDefaults());
     }
 
 

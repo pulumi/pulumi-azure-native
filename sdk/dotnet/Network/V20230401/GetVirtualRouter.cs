@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230401
         /// </summary>
         public static Output<GetVirtualRouterResult> Invoke(GetVirtualRouterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualRouterResult>("azure-native:network/v20230401:getVirtualRouter", args ?? new GetVirtualRouterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Virtual Router.
+        /// </summary>
+        public static Output<GetVirtualRouterResult> Invoke(GetVirtualRouterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualRouterResult>("azure-native:network/v20230401:getVirtualRouter", args ?? new GetVirtualRouterInvokeArgs(), options.WithDefaults());
     }
 
 

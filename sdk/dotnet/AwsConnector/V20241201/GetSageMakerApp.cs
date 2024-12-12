@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetSageMakerAppResult> Invoke(GetSageMakerAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSageMakerAppResult>("azure-native:awsconnector/v20241201:getSageMakerApp", args ?? new GetSageMakerAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SageMakerApp
+        /// </summary>
+        public static Output<GetSageMakerAppResult> Invoke(GetSageMakerAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSageMakerAppResult>("azure-native:awsconnector/v20241201:getSageMakerApp", args ?? new GetSageMakerAppInvokeArgs(), options.WithDefaults());
     }
 
 

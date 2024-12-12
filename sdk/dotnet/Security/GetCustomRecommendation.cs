@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Output<GetCustomRecommendationResult> Invoke(GetCustomRecommendationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomRecommendationResult>("azure-native:security:getCustomRecommendation", args ?? new GetCustomRecommendationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific custom recommendation for the requested scope by customRecommendationName
+        /// Azure REST API version: 2024-08-01.
+        /// </summary>
+        public static Output<GetCustomRecommendationResult> Invoke(GetCustomRecommendationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomRecommendationResult>("azure-native:security:getCustomRecommendation", args ?? new GetCustomRecommendationInvokeArgs(), options.WithDefaults());
     }
 
 

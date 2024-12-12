@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.OffAzure
         /// </summary>
         public static Output<GetWebAppDiscoverySiteDataSourcesControllerResult> Invoke(GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiscoverySiteDataSourcesControllerResult>("azure-native:offazure:getWebAppDiscoverySiteDataSourcesController", args ?? new GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Method to get a Web app data source in site.
+        /// Azure REST API version: 2023-06-06.
+        /// 
+        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// </summary>
+        public static Output<GetWebAppDiscoverySiteDataSourcesControllerResult> Invoke(GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDiscoverySiteDataSourcesControllerResult>("azure-native:offazure:getWebAppDiscoverySiteDataSourcesController", args ?? new GetWebAppDiscoverySiteDataSourcesControllerInvokeArgs(), options.WithDefaults());
     }
 
 

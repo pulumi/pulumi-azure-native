@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static Output<GetClientTokenResult> Invoke(GetClientTokenInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientTokenResult>("azure-native:authorization:getClientToken", args ?? new GetClientTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use this function to get an Azure authentication token for the current login context.
+        /// </summary>
+        public static Output<GetClientTokenResult> Invoke(GetClientTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClientTokenResult>("azure-native:authorization:getClientToken", args ?? new GetClientTokenInvokeArgs(), options.WithDefaults());
     }
 
 

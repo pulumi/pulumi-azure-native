@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20231215Preview
         /// </summary>
         public static Output<ListNamespaceTopicSharedAccessKeysResult> Invoke(ListNamespaceTopicSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceTopicSharedAccessKeysResult>("azure-native:eventgrid/v20231215preview:listNamespaceTopicSharedAccessKeys", args ?? new ListNamespaceTopicSharedAccessKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List the two keys used to publish to a namespace topic.
+        /// </summary>
+        public static Output<ListNamespaceTopicSharedAccessKeysResult> Invoke(ListNamespaceTopicSharedAccessKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceTopicSharedAccessKeysResult>("azure-native:eventgrid/v20231215preview:listNamespaceTopicSharedAccessKeys", args ?? new ListNamespaceTopicSharedAccessKeysInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20211101
         /// </summary>
         public static Output<GetExtendedDatabaseBlobAuditingPolicyResult> Invoke(GetExtendedDatabaseBlobAuditingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtendedDatabaseBlobAuditingPolicyResult>("azure-native:sql/v20211101:getExtendedDatabaseBlobAuditingPolicy", args ?? new GetExtendedDatabaseBlobAuditingPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an extended database's blob auditing policy.
+        /// </summary>
+        public static Output<GetExtendedDatabaseBlobAuditingPolicyResult> Invoke(GetExtendedDatabaseBlobAuditingPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExtendedDatabaseBlobAuditingPolicyResult>("azure-native:sql/v20211101:getExtendedDatabaseBlobAuditingPolicy", args ?? new GetExtendedDatabaseBlobAuditingPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

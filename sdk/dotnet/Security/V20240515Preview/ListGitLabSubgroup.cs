@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20240515Preview
         /// </summary>
         public static Output<ListGitLabSubgroupResult> Invoke(ListGitLabSubgroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGitLabSubgroupResult>("azure-native:security/v20240515preview:listGitLabSubgroup", args ?? new ListGitLabSubgroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List of RP resources which supports pagination.
+        /// </summary>
+        public static Output<ListGitLabSubgroupResult> Invoke(ListGitLabSubgroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGitLabSubgroupResult>("azure-native:security/v20240515preview:listGitLabSubgroup", args ?? new ListGitLabSubgroupInvokeArgs(), options.WithDefaults());
     }
 
 

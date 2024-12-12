@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
         /// </summary>
         public static Output<GetScalingPlanResult> Invoke(GetScalingPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("azure-native:desktopvirtualization/v20221014preview:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a scaling plan.
+        /// </summary>
+        public static Output<GetScalingPlanResult> Invoke(GetScalingPlanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("azure-native:desktopvirtualization/v20221014preview:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithDefaults());
     }
 
 

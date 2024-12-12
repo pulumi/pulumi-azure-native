@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Datadog.V20230101
         /// </summary>
         public static Output<GetMonitoredSubscriptionResult> Invoke(GetMonitoredSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredSubscriptionResult>("azure-native:datadog/v20230101:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The request to update subscriptions needed to be monitored by the Datadog monitor resource.
+        /// </summary>
+        public static Output<GetMonitoredSubscriptionResult> Invoke(GetMonitoredSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredSubscriptionResult>("azure-native:datadog/v20230101:getMonitoredSubscription", args ?? new GetMonitoredSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

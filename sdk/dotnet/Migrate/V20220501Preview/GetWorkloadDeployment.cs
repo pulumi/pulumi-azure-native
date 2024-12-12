@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20220501Preview
         /// </summary>
         public static Output<GetWorkloadDeploymentResult> Invoke(GetWorkloadDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadDeploymentResult>("azure-native:migrate/v20220501preview:getWorkloadDeployment", args ?? new GetWorkloadDeploymentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the workload deployment.
+        /// </summary>
+        public static Output<GetWorkloadDeploymentResult> Invoke(GetWorkloadDeploymentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadDeploymentResult>("azure-native:migrate/v20220501preview:getWorkloadDeployment", args ?? new GetWorkloadDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

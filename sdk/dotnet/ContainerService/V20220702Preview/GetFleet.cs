@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20220702Preview
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:containerservice/v20220702preview:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The Fleet resource which contains multiple Kubernetes clusters as its members.
+        /// </summary>
+        public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:containerservice/v20220702preview:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Peering.V20221001
         /// </summary>
         public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering/v20221001:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the peer ASN with the specified name under the given subscription.
+        /// </summary>
+        public static Output<GetPeerAsnResult> Invoke(GetPeerAsnInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPeerAsnResult>("azure-native:peering/v20221001:getPeerAsn", args ?? new GetPeerAsnInvokeArgs(), options.WithDefaults());
     }
 
 

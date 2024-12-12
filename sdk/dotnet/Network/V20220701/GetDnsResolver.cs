@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20220701
         /// </summary>
         public static Output<GetDnsResolverResult> Invoke(GetDnsResolverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverResult>("azure-native:network/v20220701:getDnsResolver", args ?? new GetDnsResolverInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of a DNS resolver.
+        /// </summary>
+        public static Output<GetDnsResolverResult> Invoke(GetDnsResolverInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsResolverResult>("azure-native:network/v20220701:getDnsResolver", args ?? new GetDnsResolverInvokeArgs(), options.WithDefaults());
     }
 
 

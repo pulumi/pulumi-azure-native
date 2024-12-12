@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240501
         /// </summary>
         public static Output<GetVirtualWanResult> Invoke(GetVirtualWanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualWanResult>("azure-native:network/v20240501:getVirtualWan", args ?? new GetVirtualWanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the details of a VirtualWAN.
+        /// </summary>
+        public static Output<GetVirtualWanResult> Invoke(GetVirtualWanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualWanResult>("azure-native:network/v20240501:getVirtualWan", args ?? new GetVirtualWanInvokeArgs(), options.WithDefaults());
     }
 
 

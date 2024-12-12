@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataMigration.V20230715Preview
         /// </summary>
         public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("azure-native:datamigration/v20230715preview:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
+        /// </summary>
+        public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("azure-native:datamigration/v20230715preview:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());
     }
 
 

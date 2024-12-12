@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.V20230101
         /// </summary>
         public static Output<GetTrackResult> Invoke(GetTrackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrackResult>("azure-native:media/v20230101:getTrack", args ?? new GetTrackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details of a Track in the Asset
+        /// </summary>
+        public static Output<GetTrackResult> Invoke(GetTrackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrackResult>("azure-native:media/v20230101:getTrack", args ?? new GetTrackInvokeArgs(), options.WithDefaults());
     }
 
 

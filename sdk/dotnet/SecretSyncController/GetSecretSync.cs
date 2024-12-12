@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SecretSyncController
         /// </summary>
         public static Output<GetSecretSyncResult> Invoke(GetSecretSyncInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretSyncResult>("azure-native:secretsynccontroller:getSecretSync", args ?? new GetSecretSyncInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of a SecretSync instance.
+        /// Azure REST API version: 2024-08-21-preview.
+        /// </summary>
+        public static Output<GetSecretSyncResult> Invoke(GetSecretSyncInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretSyncResult>("azure-native:secretsynccontroller:getSecretSync", args ?? new GetSecretSyncInvokeArgs(), options.WithDefaults());
     }
 
 

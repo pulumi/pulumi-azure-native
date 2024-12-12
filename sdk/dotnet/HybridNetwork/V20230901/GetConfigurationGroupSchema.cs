@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20230901
         /// </summary>
         public static Output<GetConfigurationGroupSchemaResult> Invoke(GetConfigurationGroupSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationGroupSchemaResult>("azure-native:hybridnetwork/v20230901:getConfigurationGroupSchema", args ?? new GetConfigurationGroupSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified configuration group schema.
+        /// </summary>
+        public static Output<GetConfigurationGroupSchemaResult> Invoke(GetConfigurationGroupSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationGroupSchemaResult>("azure-native:hybridnetwork/v20230901:getConfigurationGroupSchema", args ?? new GetConfigurationGroupSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

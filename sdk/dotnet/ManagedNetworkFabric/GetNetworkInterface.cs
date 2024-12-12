@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:managednetworkfabric:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the Network Interface resource details.
+        /// Azure REST API version: 2023-02-01-preview.
+        /// 
+        /// Other available API versions: 2023-06-15.
+        /// </summary>
+        public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:managednetworkfabric:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
     }
 
 

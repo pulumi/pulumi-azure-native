@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MobileNetwork.V20240401
         /// </summary>
         public static Output<ListMobileNetworkSimGroupsResult> Invoke(ListMobileNetworkSimGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMobileNetworkSimGroupsResult>("azure-native:mobilenetwork/v20240401:listMobileNetworkSimGroups", args ?? new ListMobileNetworkSimGroupsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets all the SIM groups assigned to a mobile network.
+        /// </summary>
+        public static Output<ListMobileNetworkSimGroupsResult> Invoke(ListMobileNetworkSimGroupsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListMobileNetworkSimGroupsResult>("azure-native:mobilenetwork/v20240401:listMobileNetworkSimGroups", args ?? new ListMobileNetworkSimGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

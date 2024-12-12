@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
         /// </summary>
         public static Output<GetOrderItemByNameResult> Invoke(GetOrderItemByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderItemByNameResult>("azure-native:edgeorder/v20211201:getOrderItemByName", args ?? new GetOrderItemByNameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an order item.
+        /// </summary>
+        public static Output<GetOrderItemByNameResult> Invoke(GetOrderItemByNameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrderItemByNameResult>("azure-native:edgeorder/v20211201:getOrderItemByName", args ?? new GetOrderItemByNameInvokeArgs(), options.WithDefaults());
     }
 
 

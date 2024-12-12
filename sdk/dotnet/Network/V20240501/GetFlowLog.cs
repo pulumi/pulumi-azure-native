@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240501
         /// </summary>
         public static Output<GetFlowLogResult> Invoke(GetFlowLogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowLogResult>("azure-native:network/v20240501:getFlowLog", args ?? new GetFlowLogInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a flow log resource by name.
+        /// </summary>
+        public static Output<GetFlowLogResult> Invoke(GetFlowLogInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowLogResult>("azure-native:network/v20240501:getFlowLog", args ?? new GetFlowLogInvokeArgs(), options.WithDefaults());
     }
 
 

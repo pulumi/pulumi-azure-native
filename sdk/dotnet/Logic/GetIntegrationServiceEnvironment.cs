@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public static Output<GetIntegrationServiceEnvironmentResult> Invoke(GetIntegrationServiceEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationServiceEnvironmentResult>("azure-native:logic:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an integration service environment.
+        /// Azure REST API version: 2019-05-01.
+        /// </summary>
+        public static Output<GetIntegrationServiceEnvironmentResult> Invoke(GetIntegrationServiceEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationServiceEnvironmentResult>("azure-native:logic:getIntegrationServiceEnvironment", args ?? new GetIntegrationServiceEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

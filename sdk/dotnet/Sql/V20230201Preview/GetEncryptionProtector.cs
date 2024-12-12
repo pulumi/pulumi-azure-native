@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
         /// </summary>
         public static Output<GetEncryptionProtectorResult> Invoke(GetEncryptionProtectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionProtectorResult>("azure-native:sql/v20230201preview:getEncryptionProtector", args ?? new GetEncryptionProtectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a server encryption protector.
+        /// </summary>
+        public static Output<GetEncryptionProtectorResult> Invoke(GetEncryptionProtectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionProtectorResult>("azure-native:sql/v20230201preview:getEncryptionProtector", args ?? new GetEncryptionProtectorInvokeArgs(), options.WithDefaults());
     }
 
 

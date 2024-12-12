@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Datadog.V20220801
         /// </summary>
         public static Output<ListMonitorApiKeysResult> Invoke(ListMonitorApiKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorApiKeysResult>("azure-native:datadog/v20220801:listMonitorApiKeys", args ?? new ListMonitorApiKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Response of a list operation.
+        /// </summary>
+        public static Output<ListMonitorApiKeysResult> Invoke(ListMonitorApiKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitorApiKeysResult>("azure-native:datadog/v20220801:listMonitorApiKeys", args ?? new ListMonitorApiKeysInvokeArgs(), options.WithDefaults());
     }
 
 

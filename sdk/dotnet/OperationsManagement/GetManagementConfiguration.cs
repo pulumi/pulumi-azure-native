@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.OperationsManagement
         /// </summary>
         public static Output<GetManagementConfigurationResult> Invoke(GetManagementConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementConfigurationResult>("azure-native:operationsmanagement:getManagementConfiguration", args ?? new GetManagementConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves the user ManagementConfiguration.
+        /// Azure REST API version: 2015-11-01-preview.
+        /// </summary>
+        public static Output<GetManagementConfigurationResult> Invoke(GetManagementConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagementConfigurationResult>("azure-native:operationsmanagement:getManagementConfiguration", args ?? new GetManagementConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

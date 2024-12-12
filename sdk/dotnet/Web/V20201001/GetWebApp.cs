@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20201001
         /// </summary>
         public static Output<GetWebAppResult> Invoke(GetWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppResult>("azure-native:web/v20201001:getWebApp", args ?? new GetWebAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of a web, mobile, or API app.
+        /// </summary>
+        public static Output<GetWebAppResult> Invoke(GetWebAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAppResult>("azure-native:web/v20201001:getWebApp", args ?? new GetWebAppInvokeArgs(), options.WithDefaults());
     }
 
 

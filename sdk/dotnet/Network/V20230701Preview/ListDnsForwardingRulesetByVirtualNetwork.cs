@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         /// </summary>
         public static Output<ListDnsForwardingRulesetByVirtualNetworkResult> Invoke(ListDnsForwardingRulesetByVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDnsForwardingRulesetByVirtualNetworkResult>("azure-native:network/v20230701preview:listDnsForwardingRulesetByVirtualNetwork", args ?? new ListDnsForwardingRulesetByVirtualNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists DNS forwarding ruleset resource IDs attached to a virtual network.
+        /// </summary>
+        public static Output<ListDnsForwardingRulesetByVirtualNetworkResult> Invoke(ListDnsForwardingRulesetByVirtualNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDnsForwardingRulesetByVirtualNetworkResult>("azure-native:network/v20230701preview:listDnsForwardingRulesetByVirtualNetwork", args ?? new ListDnsForwardingRulesetByVirtualNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

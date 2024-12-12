@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Scheduler.V20160301
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:scheduler/v20160301:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a job.
+        /// </summary>
+        public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:scheduler/v20160301:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

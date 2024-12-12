@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001
         /// </summary>
         public static Output<GetComputeResult> Invoke(GetComputeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputeResult>("azure-native:machinelearningservices/v20241001:getCompute", args ?? new GetComputeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets compute definition by its name. Any secrets (storage keys, service credentials, etc) are not returned - use 'keys' nested resource to get them.
+        /// </summary>
+        public static Output<GetComputeResult> Invoke(GetComputeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetComputeResult>("azure-native:machinelearningservices/v20241001:getCompute", args ?? new GetComputeInvokeArgs(), options.WithDefaults());
     }
 
 

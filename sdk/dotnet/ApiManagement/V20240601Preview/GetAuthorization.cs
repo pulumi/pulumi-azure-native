@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
         /// </summary>
         public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:apimanagement/v20240601preview:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the authorization specified by its identifier.
+        /// </summary>
+        public static Output<GetAuthorizationResult> Invoke(GetAuthorizationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationResult>("azure-native:apimanagement/v20240601preview:getAuthorization", args ?? new GetAuthorizationInvokeArgs(), options.WithDefaults());
     }
 
 

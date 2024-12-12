@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public static Output<GetSuppressionListResult> Invoke(GetSuppressionListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionListResult>("azure-native:communication:getSuppressionList", args ?? new GetSuppressionListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SuppressionList resource.
+        /// Azure REST API version: 2023-06-01-preview.
+        /// </summary>
+        public static Output<GetSuppressionListResult> Invoke(GetSuppressionListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionListResult>("azure-native:communication:getSuppressionList", args ?? new GetSuppressionListInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetCloudFormationStackResult> Invoke(GetCloudFormationStackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationStackResult>("azure-native:awsconnector/v20241201:getCloudFormationStack", args ?? new GetCloudFormationStackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a CloudFormationStack
+        /// </summary>
+        public static Output<GetCloudFormationStackResult> Invoke(GetCloudFormationStackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationStackResult>("azure-native:awsconnector/v20241201:getCloudFormationStack", args ?? new GetCloudFormationStackInvokeArgs(), options.WithDefaults());
     }
 
 

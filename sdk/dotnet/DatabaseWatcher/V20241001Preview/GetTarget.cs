@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20241001Preview
         /// </summary>
         public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:databasewatcher/v20241001preview:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Target
+        /// </summary>
+        public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:databasewatcher/v20241001preview:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());
     }
 
 

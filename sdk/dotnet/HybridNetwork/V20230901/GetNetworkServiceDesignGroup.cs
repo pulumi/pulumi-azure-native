@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20230901
         /// </summary>
         public static Output<GetNetworkServiceDesignGroupResult> Invoke(GetNetworkServiceDesignGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceDesignGroupResult>("azure-native:hybridnetwork/v20230901:getNetworkServiceDesignGroup", args ?? new GetNetworkServiceDesignGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified networkServiceDesign group.
+        /// </summary>
+        public static Output<GetNetworkServiceDesignGroupResult> Invoke(GetNetworkServiceDesignGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceDesignGroupResult>("azure-native:hybridnetwork/v20230901:getNetworkServiceDesignGroup", args ?? new GetNetworkServiceDesignGroupInvokeArgs(), options.WithDefaults());
     }
 
 

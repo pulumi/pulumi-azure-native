@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         public static Output<GetTriggerEventSubscriptionStatusResult> Invoke(GetTriggerEventSubscriptionStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerEventSubscriptionStatusResult>("azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus", args ?? new GetTriggerEventSubscriptionStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a trigger's event subscription status.
+        /// </summary>
+        public static Output<GetTriggerEventSubscriptionStatusResult> Invoke(GetTriggerEventSubscriptionStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTriggerEventSubscriptionStatusResult>("azure-native:datafactory/v20180601:getTriggerEventSubscriptionStatus", args ?? new GetTriggerEventSubscriptionStatusInvokeArgs(), options.WithDefaults());
     }
 
 

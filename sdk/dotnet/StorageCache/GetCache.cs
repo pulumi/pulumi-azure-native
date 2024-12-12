@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.StorageCache
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a cache.
+        /// Azure REST API version: 2023-05-01.
+        /// 
+        /// Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01.
+        /// </summary>
+        public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure-native:storagecache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
     }
 
 

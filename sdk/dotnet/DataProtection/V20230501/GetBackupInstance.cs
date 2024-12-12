@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataProtection.V20230501
         /// </summary>
         public static Output<GetBackupInstanceResult> Invoke(GetBackupInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupInstanceResult>("azure-native:dataprotection/v20230501:getBackupInstance", args ?? new GetBackupInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a backup instance with name in a backup vault
+        /// </summary>
+        public static Output<GetBackupInstanceResult> Invoke(GetBackupInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackupInstanceResult>("azure-native:dataprotection/v20230501:getBackupInstance", args ?? new GetBackupInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

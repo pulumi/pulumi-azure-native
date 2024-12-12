@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public static Output<GetInternetGatewayResult> Invoke(GetInternetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("azure-native:managednetworkfabric:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements Gateway GET method.
+        /// Azure REST API version: 2023-06-15.
+        /// </summary>
+        public static Output<GetInternetGatewayResult> Invoke(GetInternetGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("azure-native:managednetworkfabric:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

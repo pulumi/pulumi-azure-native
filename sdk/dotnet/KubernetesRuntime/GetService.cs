@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:kubernetesruntime:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ServiceResource
+        /// Azure REST API version: 2024-03-01.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:kubernetesruntime:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

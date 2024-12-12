@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.V20220701
         /// </summary>
         public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media/v20220701:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a Transform.
+        /// </summary>
+        public static Output<GetTransformResult> Invoke(GetTransformInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransformResult>("azure-native:media/v20220701:getTransform", args ?? new GetTransformInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public static Output<GetIncidentCommentResult> Invoke(GetIncidentCommentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentCommentResult>("azure-native:securityinsights/v20210301preview:getIncidentComment", args ?? new GetIncidentCommentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an incident comment.
+        /// </summary>
+        public static Output<GetIncidentCommentResult> Invoke(GetIncidentCommentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIncidentCommentResult>("azure-native:securityinsights/v20210301preview:getIncidentComment", args ?? new GetIncidentCommentInvokeArgs(), options.WithDefaults());
     }
 
 

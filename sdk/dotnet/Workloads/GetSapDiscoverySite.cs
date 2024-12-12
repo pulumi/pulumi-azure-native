@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public static Output<GetSapDiscoverySiteResult> Invoke(GetSapDiscoverySiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapDiscoverySiteResult>("azure-native:workloads:getSapDiscoverySite", args ?? new GetSapDiscoverySiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a SAP Migration discovery site resource.
+        /// Azure REST API version: 2023-10-01-preview.
+        /// </summary>
+        public static Output<GetSapDiscoverySiteResult> Invoke(GetSapDiscoverySiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapDiscoverySiteResult>("azure-native:workloads:getSapDiscoverySite", args ?? new GetSapDiscoverySiteInvokeArgs(), options.WithDefaults());
     }
 
 

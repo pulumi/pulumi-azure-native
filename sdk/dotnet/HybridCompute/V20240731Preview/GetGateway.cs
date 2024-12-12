@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridCompute.V20240731Preview
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:hybridcompute/v20240731preview:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about the view of a gateway.
+        /// </summary>
+        public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:hybridcompute/v20240731preview:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

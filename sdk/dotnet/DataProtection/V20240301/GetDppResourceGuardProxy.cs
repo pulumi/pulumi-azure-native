@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataProtection.V20240301
         /// </summary>
         public static Output<GetDppResourceGuardProxyResult> Invoke(GetDppResourceGuardProxyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDppResourceGuardProxyResult>("azure-native:dataprotection/v20240301:getDppResourceGuardProxy", args ?? new GetDppResourceGuardProxyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
+        /// </summary>
+        public static Output<GetDppResourceGuardProxyResult> Invoke(GetDppResourceGuardProxyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDppResourceGuardProxyResult>("azure-native:dataprotection/v20240301:getDppResourceGuardProxy", args ?? new GetDppResourceGuardProxyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Scom.V20230707Preview
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:scom/v20230707preview:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get SCOM managed instance details
+        /// </summary>
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:scom/v20230707preview:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

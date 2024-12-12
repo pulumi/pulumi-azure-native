@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230701Preview
         /// </summary>
         public static Output<GetInboundEndpointResult> Invoke(GetInboundEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInboundEndpointResult>("azure-native:network/v20230701preview:getInboundEndpoint", args ?? new GetInboundEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets properties of an inbound endpoint for a DNS resolver.
+        /// </summary>
+        public static Output<GetInboundEndpointResult> Invoke(GetInboundEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInboundEndpointResult>("azure-native:network/v20230701preview:getInboundEndpoint", args ?? new GetInboundEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

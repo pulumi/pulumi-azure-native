@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20241001Preview
         /// </summary>
         public static Output<GetProjectPolicyResult> Invoke(GetProjectPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectPolicyResult>("azure-native:devcenter/v20241001preview:getProjectPolicy", args ?? new GetProjectPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific project policy.
+        /// </summary>
+        public static Output<GetProjectPolicyResult> Invoke(GetProjectPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectPolicyResult>("azure-native:devcenter/v20241001preview:getProjectPolicy", args ?? new GetProjectPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

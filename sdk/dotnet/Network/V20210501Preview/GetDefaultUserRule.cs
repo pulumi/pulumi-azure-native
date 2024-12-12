@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
         /// </summary>
         public static Output<GetDefaultUserRuleResult> Invoke(GetDefaultUserRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultUserRuleResult>("azure-native:network/v20210501preview:getDefaultUserRule", args ?? new GetDefaultUserRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a user rule.
+        /// </summary>
+        public static Output<GetDefaultUserRuleResult> Invoke(GetDefaultUserRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDefaultUserRuleResult>("azure-native:network/v20210501preview:getDefaultUserRule", args ?? new GetDefaultUserRuleInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public static Output<GetBareMetalMachineResult> Invoke(GetBareMetalMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of the provided bare metal machine.
+        /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
+        /// </summary>
+        public static Output<GetBareMetalMachineResult> Invoke(GetBareMetalMachineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineInvokeArgs(), options.WithDefaults());
     }
 
 

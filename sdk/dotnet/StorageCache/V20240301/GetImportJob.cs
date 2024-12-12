@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StorageCache.V20240301
         /// </summary>
         public static Output<GetImportJobResult> Invoke(GetImportJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportJobResult>("azure-native:storagecache/v20240301:getImportJob", args ?? new GetImportJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns an import job.
+        /// </summary>
+        public static Output<GetImportJobResult> Invoke(GetImportJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImportJobResult>("azure-native:storagecache/v20240301:getImportJob", args ?? new GetImportJobInvokeArgs(), options.WithDefaults());
     }
 
 

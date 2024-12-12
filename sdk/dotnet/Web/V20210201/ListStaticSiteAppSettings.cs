@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20210201
         /// </summary>
         public static Output<ListStaticSiteAppSettingsResult> Invoke(ListStaticSiteAppSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteAppSettingsResult>("azure-native:web/v20210201:listStaticSiteAppSettings", args ?? new ListStaticSiteAppSettingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the application settings of a static site.
+        /// </summary>
+        public static Output<ListStaticSiteAppSettingsResult> Invoke(ListStaticSiteAppSettingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteAppSettingsResult>("azure-native:web/v20210201:listStaticSiteAppSettings", args ?? new ListStaticSiteAppSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

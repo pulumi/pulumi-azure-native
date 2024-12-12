@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.LoadTestService.V20231201Preview
         /// </summary>
         public static Output<GetLoadTestMappingResult> Invoke(GetLoadTestMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestMappingResult>("azure-native:loadtestservice/v20231201preview:getLoadTestMapping", args ?? new GetLoadTestMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LoadTestMappingResource
+        /// </summary>
+        public static Output<GetLoadTestMappingResult> Invoke(GetLoadTestMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestMappingResult>("azure-native:loadtestservice/v20231201preview:getLoadTestMapping", args ?? new GetLoadTestMappingInvokeArgs(), options.WithDefaults());
     }
 
 

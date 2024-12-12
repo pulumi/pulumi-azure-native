@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.Logz.V20220101Preview
 
         public static Output<GetMetricsSourceResult> Invoke(GetMetricsSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricsSourceResult>("azure-native:logz/v20220101preview:getMetricsSource", args ?? new GetMetricsSourceInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetMetricsSourceResult> Invoke(GetMetricsSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetricsSourceResult>("azure-native:logz/v20220101preview:getMetricsSource", args ?? new GetMetricsSourceInvokeArgs(), options.WithDefaults());
     }
 
 

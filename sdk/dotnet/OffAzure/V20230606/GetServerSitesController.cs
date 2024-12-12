@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20230606
         /// </summary>
         public static Output<GetServerSitesControllerResult> Invoke(GetServerSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerSitesControllerResult>("azure-native:offazure/v20230606:getServerSitesController", args ?? new GetServerSitesControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ServerSiteResource
+        /// </summary>
+        public static Output<GetServerSitesControllerResult> Invoke(GetServerSitesControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerSitesControllerResult>("azure-native:offazure/v20230606:getServerSitesController", args ?? new GetServerSitesControllerInvokeArgs(), options.WithDefaults());
     }
 
 

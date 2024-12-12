@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230801Preview
 
         public static Output<ListWorkspaceNotebookKeysResult> Invoke(ListWorkspaceNotebookKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceNotebookKeysResult>("azure-native:machinelearningservices/v20230801preview:listWorkspaceNotebookKeys", args ?? new ListWorkspaceNotebookKeysInvokeArgs(), options.WithDefaults());
+
+        public static Output<ListWorkspaceNotebookKeysResult> Invoke(ListWorkspaceNotebookKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWorkspaceNotebookKeysResult>("azure-native:machinelearningservices/v20230801preview:listWorkspaceNotebookKeys", args ?? new ListWorkspaceNotebookKeysInvokeArgs(), options.WithDefaults());
     }
 
 

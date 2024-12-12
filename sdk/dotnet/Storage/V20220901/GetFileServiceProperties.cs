@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20220901
         /// </summary>
         public static Output<GetFileServicePropertiesResult> Invoke(GetFileServicePropertiesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileServicePropertiesResult>("azure-native:storage/v20220901:getFileServiceProperties", args ?? new GetFileServicePropertiesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
+        /// </summary>
+        public static Output<GetFileServicePropertiesResult> Invoke(GetFileServicePropertiesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileServicePropertiesResult>("azure-native:storage/v20220901:getFileServiceProperties", args ?? new GetFileServicePropertiesInvokeArgs(), options.WithDefaults());
     }
 
 

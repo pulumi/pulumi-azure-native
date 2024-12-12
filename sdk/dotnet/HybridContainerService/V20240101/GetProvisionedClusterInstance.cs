@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridContainerService.V20240101
         /// </summary>
         public static Output<GetProvisionedClusterInstanceResult> Invoke(GetProvisionedClusterInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProvisionedClusterInstanceResult>("azure-native:hybridcontainerservice/v20240101:getProvisionedClusterInstance", args ?? new GetProvisionedClusterInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the provisioned cluster instance
+        /// </summary>
+        public static Output<GetProvisionedClusterInstanceResult> Invoke(GetProvisionedClusterInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProvisionedClusterInstanceResult>("azure-native:hybridcontainerservice/v20240101:getProvisionedClusterInstance", args ?? new GetProvisionedClusterInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

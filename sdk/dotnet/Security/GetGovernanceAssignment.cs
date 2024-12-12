@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public static Output<GetGovernanceAssignmentResult> Invoke(GetGovernanceAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceAssignmentResult>("azure-native:security:getGovernanceAssignment", args ?? new GetGovernanceAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific governanceAssignment for the requested scope by AssignmentKey
+        /// Azure REST API version: 2022-01-01-preview.
+        /// </summary>
+        public static Output<GetGovernanceAssignmentResult> Invoke(GetGovernanceAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceAssignmentResult>("azure-native:security:getGovernanceAssignment", args ?? new GetGovernanceAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240501
         /// </summary>
         public static Output<GetAdminRuleResult> Invoke(GetAdminRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdminRuleResult>("azure-native:network/v20240501:getAdminRule", args ?? new GetAdminRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a network manager security configuration admin rule.
+        /// </summary>
+        public static Output<GetAdminRuleResult> Invoke(GetAdminRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAdminRuleResult>("azure-native:network/v20240501:getAdminRule", args ?? new GetAdminRuleInvokeArgs(), options.WithDefaults());
     }
 
 

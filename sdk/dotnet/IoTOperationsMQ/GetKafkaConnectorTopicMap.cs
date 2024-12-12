@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// </summary>
         public static Output<GetKafkaConnectorTopicMapResult> Invoke(GetKafkaConnectorTopicMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaConnectorTopicMapResult>("azure-native:iotoperationsmq:getKafkaConnectorTopicMap", args ?? new GetKafkaConnectorTopicMapInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a KafkaTopicMapResource
+        /// Azure REST API version: 2023-10-04-preview.
+        /// </summary>
+        public static Output<GetKafkaConnectorTopicMapResult> Invoke(GetKafkaConnectorTopicMapInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKafkaConnectorTopicMapResult>("azure-native:iotoperationsmq:getKafkaConnectorTopicMap", args ?? new GetKafkaConnectorTopicMapInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MobileNetwork.V20230601
         /// </summary>
         public static Output<GetSimResult> Invoke(GetSimInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimResult>("azure-native:mobilenetwork/v20230601:getSim", args ?? new GetSimInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified SIM.
+        /// </summary>
+        public static Output<GetSimResult> Invoke(GetSimInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSimResult>("azure-native:mobilenetwork/v20230601:getSim", args ?? new GetSimInvokeArgs(), options.WithDefaults());
     }
 
 

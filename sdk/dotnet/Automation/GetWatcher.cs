@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:automation:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the watcher identified by watcher name.
+        /// Azure REST API version: 2020-01-13-preview.
+        /// 
+        /// Other available API versions: 2023-05-15-preview, 2024-10-23.
+        /// </summary>
+        public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:automation:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
     }
 
 

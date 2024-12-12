@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified DICOM Service.
+        /// Azure REST API version: 2023-02-28.
+        /// 
+        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// </summary>
+        public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
     }
 
 

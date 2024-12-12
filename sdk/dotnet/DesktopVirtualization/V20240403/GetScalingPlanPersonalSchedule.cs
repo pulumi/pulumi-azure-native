@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20240403
         /// </summary>
         public static Output<GetScalingPlanPersonalScheduleResult> Invoke(GetScalingPlanPersonalScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPersonalScheduleResult>("azure-native:desktopvirtualization/v20240403:getScalingPlanPersonalSchedule", args ?? new GetScalingPlanPersonalScheduleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ScalingPlanPersonalSchedule.
+        /// </summary>
+        public static Output<GetScalingPlanPersonalScheduleResult> Invoke(GetScalingPlanPersonalScheduleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPersonalScheduleResult>("azure-native:desktopvirtualization/v20240403:getScalingPlanPersonalSchedule", args ?? new GetScalingPlanPersonalScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

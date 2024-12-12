@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetConfigServiceDeliveryChannelResult> Invoke(GetConfigServiceDeliveryChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigServiceDeliveryChannelResult>("azure-native:awsconnector/v20241201:getConfigServiceDeliveryChannel", args ?? new GetConfigServiceDeliveryChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ConfigServiceDeliveryChannel
+        /// </summary>
+        public static Output<GetConfigServiceDeliveryChannelResult> Invoke(GetConfigServiceDeliveryChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigServiceDeliveryChannelResult>("azure-native:awsconnector/v20241201:getConfigServiceDeliveryChannel", args ?? new GetConfigServiceDeliveryChannelInvokeArgs(), options.WithDefaults());
     }
 
 

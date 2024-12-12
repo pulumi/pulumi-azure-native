@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20230901
         /// </summary>
         public static Output<GetArtifactStoreResult> Invoke(GetArtifactStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArtifactStoreResult>("azure-native:hybridnetwork/v20230901:getArtifactStore", args ?? new GetArtifactStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified artifact store.
+        /// </summary>
+        public static Output<GetArtifactStoreResult> Invoke(GetArtifactStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetArtifactStoreResult>("azure-native:hybridnetwork/v20230901:getArtifactStore", args ?? new GetArtifactStoreInvokeArgs(), options.WithDefaults());
     }
 
 

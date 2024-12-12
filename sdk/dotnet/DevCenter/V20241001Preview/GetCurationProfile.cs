@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevCenter.V20241001Preview
         /// </summary>
         public static Output<GetCurationProfileResult> Invoke(GetCurationProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCurationProfileResult>("azure-native:devcenter/v20241001preview:getCurationProfile", args ?? new GetCurationProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific curation profile.
+        /// </summary>
+        public static Output<GetCurationProfileResult> Invoke(GetCurationProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCurationProfileResult>("azure-native:devcenter/v20241001preview:getCurationProfile", args ?? new GetCurationProfileInvokeArgs(), options.WithDefaults());
     }
 
 

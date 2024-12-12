@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// </summary>
         public static Output<GetScopingConfigurationResult> Invoke(GetScopingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopingConfigurationResult>("azure-native:appcomplianceautomation:getScopingConfiguration", args ?? new GetScopingConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the AppComplianceAutomation scoping configuration of the specific report.
+        /// Azure REST API version: 2024-06-27.
+        /// </summary>
+        public static Output<GetScopingConfigurationResult> Invoke(GetScopingConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScopingConfigurationResult>("azure-native:appcomplianceautomation:getScopingConfiguration", args ?? new GetScopingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20230701Preview
         /// </summary>
         public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric/v20230701preview:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
+        /// </summary>
+        public static Output<GetManagedClusterResult> Invoke(GetManagedClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedClusterResult>("azure-native:servicefabric/v20230701preview:getManagedCluster", args ?? new GetManagedClusterInvokeArgs(), options.WithDefaults());
     }
 
 

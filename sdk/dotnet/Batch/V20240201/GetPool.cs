@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Batch.V20240201
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch/v20240201:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified pool.
+        /// </summary>
+        public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:batch/v20240201:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

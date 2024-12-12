@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.V20221101
         /// </summary>
         public static Output<GetLiveEventStatusResult> Invoke(GetLiveEventStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventStatusResult>("azure-native:media/v20221101:getLiveEventStatus", args ?? new GetLiveEventStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets status telemetry of a live event.
+        /// </summary>
+        public static Output<GetLiveEventStatusResult> Invoke(GetLiveEventStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventStatusResult>("azure-native:media/v20221101:getLiveEventStatus", args ?? new GetLiveEventStatusInvokeArgs(), options.WithDefaults());
     }
 
 

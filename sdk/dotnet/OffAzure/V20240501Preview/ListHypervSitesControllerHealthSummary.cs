@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20240501Preview
         /// </summary>
         public static Output<ListHypervSitesControllerHealthSummaryResult> Invoke(ListHypervSitesControllerHealthSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListHypervSitesControllerHealthSummaryResult>("azure-native:offazure/v20240501preview:listHypervSitesControllerHealthSummary", args ?? new ListHypervSitesControllerHealthSummaryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Method to get site health summary.
+        /// </summary>
+        public static Output<ListHypervSitesControllerHealthSummaryResult> Invoke(ListHypervSitesControllerHealthSummaryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListHypervSitesControllerHealthSummaryResult>("azure-native:offazure/v20240501preview:listHypervSitesControllerHealthSummary", args ?? new ListHypervSitesControllerHealthSummaryInvokeArgs(), options.WithDefaults());
     }
 
 

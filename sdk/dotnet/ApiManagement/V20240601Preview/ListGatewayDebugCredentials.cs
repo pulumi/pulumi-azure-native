@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
         /// </summary>
         public static Output<ListGatewayDebugCredentialsResult> Invoke(ListGatewayDebugCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGatewayDebugCredentialsResult>("azure-native:apimanagement/v20240601preview:listGatewayDebugCredentials", args ?? new ListGatewayDebugCredentialsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Create new debug credentials for gateway.
+        /// </summary>
+        public static Output<ListGatewayDebugCredentialsResult> Invoke(ListGatewayDebugCredentialsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListGatewayDebugCredentialsResult>("azure-native:apimanagement/v20240601preview:listGatewayDebugCredentials", args ?? new ListGatewayDebugCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

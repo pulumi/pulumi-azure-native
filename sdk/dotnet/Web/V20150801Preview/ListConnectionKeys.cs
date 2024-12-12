@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20150801Preview
         /// </summary>
         public static Output<ListConnectionKeysResult> Invoke(ListConnectionKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectionKeysResult>("azure-native:web/v20150801preview:listConnectionKeys", args ?? new ListConnectionKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists connection keys.
+        /// </summary>
+        public static Output<ListConnectionKeysResult> Invoke(ListConnectionKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListConnectionKeysResult>("azure-native:web/v20150801preview:listConnectionKeys", args ?? new ListConnectionKeysInvokeArgs(), options.WithDefaults());
     }
 
 

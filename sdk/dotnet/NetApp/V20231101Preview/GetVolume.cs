@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20231101Preview
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:netapp/v20231101preview:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details of the specified volume
+        /// </summary>
+        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:netapp/v20231101preview:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 

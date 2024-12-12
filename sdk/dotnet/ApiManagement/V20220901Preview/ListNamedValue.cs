@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20220901Preview
         /// </summary>
         public static Output<ListNamedValueResult> Invoke(ListNamedValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamedValueResult>("azure-native:apimanagement/v20220901preview:listNamedValue", args ?? new ListNamedValueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the secret of the named value specified by its identifier.
+        /// </summary>
+        public static Output<ListNamedValueResult> Invoke(ListNamedValueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListNamedValueResult>("azure-native:apimanagement/v20220901preview:listNamedValue", args ?? new ListNamedValueInvokeArgs(), options.WithDefaults());
     }
 
 

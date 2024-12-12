@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DurableTask
         /// </summary>
         public static Output<GetTaskHubResult> Invoke(GetTaskHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskHubResult>("azure-native:durabletask:getTaskHub", args ?? new GetTaskHubInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Task Hub
+        /// Azure REST API version: 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetTaskHubResult> Invoke(GetTaskHubInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskHubResult>("azure-native:durabletask:getTaskHub", args ?? new GetTaskHubInvokeArgs(), options.WithDefaults());
     }
 
 

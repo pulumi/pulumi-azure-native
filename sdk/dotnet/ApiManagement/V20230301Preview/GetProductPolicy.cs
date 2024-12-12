@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230301Preview
         /// </summary>
         public static Output<GetProductPolicyResult> Invoke(GetProductPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductPolicyResult>("azure-native:apimanagement/v20230301preview:getProductPolicy", args ?? new GetProductPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the policy configuration at the Product level.
+        /// </summary>
+        public static Output<GetProductPolicyResult> Invoke(GetProductPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProductPolicyResult>("azure-native:apimanagement/v20230301preview:getProductPolicy", args ?? new GetProductPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

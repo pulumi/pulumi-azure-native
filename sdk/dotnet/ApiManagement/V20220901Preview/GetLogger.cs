@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20220901Preview
         /// </summary>
         public static Output<GetLoggerResult> Invoke(GetLoggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoggerResult>("azure-native:apimanagement/v20220901preview:getLogger", args ?? new GetLoggerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the logger specified by its identifier.
+        /// </summary>
+        public static Output<GetLoggerResult> Invoke(GetLoggerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoggerResult>("azure-native:apimanagement/v20220901preview:getLogger", args ?? new GetLoggerInvokeArgs(), options.WithDefaults());
     }
 
 

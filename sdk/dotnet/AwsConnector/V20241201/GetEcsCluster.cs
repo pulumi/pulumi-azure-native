@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEcsClusterResult> Invoke(GetEcsClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEcsClusterResult>("azure-native:awsconnector/v20241201:getEcsCluster", args ?? new GetEcsClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EcsCluster
+        /// </summary>
+        public static Output<GetEcsClusterResult> Invoke(GetEcsClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEcsClusterResult>("azure-native:awsconnector/v20241201:getEcsCluster", args ?? new GetEcsClusterInvokeArgs(), options.WithDefaults());
     }
 
 

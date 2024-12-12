@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppConfiguration.V20230901Preview
         /// </summary>
         public static Output<GetConfigurationStoreResult> Invoke(GetConfigurationStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure-native:appconfiguration/v20230901preview:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified configuration store.
+        /// </summary>
+        public static Output<GetConfigurationStoreResult> Invoke(GetConfigurationStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure-native:appconfiguration/v20230901preview:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithDefaults());
     }
 
 

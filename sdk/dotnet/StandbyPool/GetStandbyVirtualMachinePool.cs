@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.StandbyPool
         /// </summary>
         public static Output<GetStandbyVirtualMachinePoolResult> Invoke(GetStandbyVirtualMachinePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandbyVirtualMachinePoolResult>("azure-native:standbypool:getStandbyVirtualMachinePool", args ?? new GetStandbyVirtualMachinePoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a StandbyVirtualMachinePoolResource
+        /// Azure REST API version: 2023-12-01-preview.
+        /// 
+        /// Other available API versions: 2024-03-01, 2024-03-01-preview.
+        /// </summary>
+        public static Output<GetStandbyVirtualMachinePoolResult> Invoke(GetStandbyVirtualMachinePoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStandbyVirtualMachinePoolResult>("azure-native:standbypool:getStandbyVirtualMachinePool", args ?? new GetStandbyVirtualMachinePoolInvokeArgs(), options.WithDefaults());
     }
 
 

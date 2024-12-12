@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230801Preview
         /// </summary>
         public static Output<GetEntityAnalyticsResult> Invoke(GetEntityAnalyticsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityAnalyticsResult>("azure-native:securityinsights/v20230801preview:getEntityAnalytics", args ?? new GetEntityAnalyticsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a setting.
+        /// </summary>
+        public static Output<GetEntityAnalyticsResult> Invoke(GetEntityAnalyticsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntityAnalyticsResult>("azure-native:securityinsights/v20230801preview:getEntityAnalytics", args ?? new GetEntityAnalyticsInvokeArgs(), options.WithDefaults());
     }
 
 

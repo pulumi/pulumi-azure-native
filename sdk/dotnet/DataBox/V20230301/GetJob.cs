@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBox.V20230301
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox/v20230301:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified job.
+        /// </summary>
+        public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox/v20230301:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

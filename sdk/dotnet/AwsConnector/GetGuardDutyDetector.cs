@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetGuardDutyDetectorResult> Invoke(GetGuardDutyDetectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuardDutyDetectorResult>("azure-native:awsconnector:getGuardDutyDetector", args ?? new GetGuardDutyDetectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a GuardDutyDetector
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetGuardDutyDetectorResult> Invoke(GetGuardDutyDetectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuardDutyDetectorResult>("azure-native:awsconnector:getGuardDutyDetector", args ?? new GetGuardDutyDetectorInvokeArgs(), options.WithDefaults());
     }
 
 

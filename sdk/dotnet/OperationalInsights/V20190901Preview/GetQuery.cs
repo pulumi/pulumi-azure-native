@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
         /// </summary>
         public static Output<GetQueryResult> Invoke(GetQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryResult>("azure-native:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
+        /// </summary>
+        public static Output<GetQueryResult> Invoke(GetQueryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueryResult>("azure-native:operationalinsights/v20190901preview:getQuery", args ?? new GetQueryInvokeArgs(), options.WithDefaults());
     }
 
 

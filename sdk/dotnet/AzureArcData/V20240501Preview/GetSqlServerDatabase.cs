@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureArcData.V20240501Preview
         /// </summary>
         public static Output<GetSqlServerDatabaseResult> Invoke(GetSqlServerDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerDatabaseResult>("azure-native:azurearcdata/v20240501preview:getSqlServerDatabase", args ?? new GetSqlServerDatabaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves an Arc Sql Server database.
+        /// </summary>
+        public static Output<GetSqlServerDatabaseResult> Invoke(GetSqlServerDatabaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerDatabaseResult>("azure-native:azurearcdata/v20240501preview:getSqlServerDatabase", args ?? new GetSqlServerDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

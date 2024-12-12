@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Kusto.V20240413
         /// </summary>
         public static Output<GetEventGridDataConnectionResult> Invoke(GetEventGridDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventGridDataConnectionResult>("azure-native:kusto/v20240413:getEventGridDataConnection", args ?? new GetEventGridDataConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a data connection.
+        /// </summary>
+        public static Output<GetEventGridDataConnectionResult> Invoke(GetEventGridDataConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventGridDataConnectionResult>("azure-native:kusto/v20240413:getEventGridDataConnection", args ?? new GetEventGridDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

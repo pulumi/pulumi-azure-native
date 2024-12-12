@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// </summary>
         public static Output<GetFirmwareResult> Invoke(GetFirmwareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirmwareResult>("azure-native:iotfirmwaredefense:getFirmware", args ?? new GetFirmwareInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get firmware.
+        /// Azure REST API version: 2023-02-08-preview.
+        /// 
+        /// Other available API versions: 2024-01-10.
+        /// </summary>
+        public static Output<GetFirmwareResult> Invoke(GetFirmwareInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirmwareResult>("azure-native:iotfirmwaredefense:getFirmware", args ?? new GetFirmwareInvokeArgs(), options.WithDefaults());
     }
 
 

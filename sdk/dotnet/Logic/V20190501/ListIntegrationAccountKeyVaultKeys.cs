@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Logic.V20190501
         /// </summary>
         public static Output<ListIntegrationAccountKeyVaultKeysResult> Invoke(ListIntegrationAccountKeyVaultKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic/v20190501:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the integration account's Key Vault keys.
+        /// </summary>
+        public static Output<ListIntegrationAccountKeyVaultKeysResult> Invoke(ListIntegrationAccountKeyVaultKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListIntegrationAccountKeyVaultKeysResult>("azure-native:logic/v20190501:listIntegrationAccountKeyVaultKeys", args ?? new ListIntegrationAccountKeyVaultKeysInvokeArgs(), options.WithDefaults());
     }
 
 

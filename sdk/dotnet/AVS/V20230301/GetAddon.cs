@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AVS.V20230301
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs/v20230301:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An addon resource
+        /// </summary>
+        public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs/v20230301:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
     }
 
 

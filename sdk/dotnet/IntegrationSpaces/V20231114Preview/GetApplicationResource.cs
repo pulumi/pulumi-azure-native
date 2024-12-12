@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IntegrationSpaces.V20231114Preview
         /// </summary>
         public static Output<GetApplicationResourceResult> Invoke(GetApplicationResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResourceResult>("azure-native:integrationspaces/v20231114preview:getApplicationResource", args ?? new GetApplicationResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a ApplicationResource
+        /// </summary>
+        public static Output<GetApplicationResourceResult> Invoke(GetApplicationResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResourceResult>("azure-native:integrationspaces/v20231114preview:getApplicationResource", args ?? new GetApplicationResourceInvokeArgs(), options.WithDefaults());
     }
 
 

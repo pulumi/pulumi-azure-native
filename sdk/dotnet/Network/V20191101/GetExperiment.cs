@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20191101
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:network/v20191101:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Defines the properties of an Experiment
+        /// </summary>
+        public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:network/v20191101:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230401
         /// </summary>
         public static Output<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> Invoke(GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayVpnclientConnectionHealthResult>("azure-native:network/v20230401:getVirtualNetworkGatewayVpnclientConnectionHealth", args ?? new GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
+        /// </summary>
+        public static Output<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> Invoke(GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayVpnclientConnectionHealthResult>("azure-native:network/v20230401:getVirtualNetworkGatewayVpnclientConnectionHealth", args ?? new GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs(), options.WithDefaults());
     }
 
 

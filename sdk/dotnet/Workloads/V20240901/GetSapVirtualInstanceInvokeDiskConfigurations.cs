@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20240901
         /// </summary>
         public static Output<GetSapVirtualInstanceInvokeDiskConfigurationsResult> Invoke(GetSapVirtualInstanceInvokeDiskConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceInvokeDiskConfigurationsResult>("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeDiskConfigurations", args ?? new GetSapVirtualInstanceInvokeDiskConfigurationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the SAP Disk Configuration Layout prod/non-prod SAP System.
+        /// </summary>
+        public static Output<GetSapVirtualInstanceInvokeDiskConfigurationsResult> Invoke(GetSapVirtualInstanceInvokeDiskConfigurationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceInvokeDiskConfigurationsResult>("azure-native:workloads/v20240901:getSapVirtualInstanceInvokeDiskConfigurations", args ?? new GetSapVirtualInstanceInvokeDiskConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

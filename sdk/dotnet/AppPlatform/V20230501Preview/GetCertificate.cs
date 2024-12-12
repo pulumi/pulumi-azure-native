@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20230501Preview
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:appplatform/v20230501preview:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the certificate resource.
+        /// </summary>
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:appplatform/v20230501preview:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

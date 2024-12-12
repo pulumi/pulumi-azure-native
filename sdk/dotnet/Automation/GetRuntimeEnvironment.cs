@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public static Output<GetRuntimeEnvironmentResult> Invoke(GetRuntimeEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuntimeEnvironmentResult>("azure-native:automation:getRuntimeEnvironment", args ?? new GetRuntimeEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about the Runtime Environment
+        /// Azure REST API version: 2023-05-15-preview.
+        /// 
+        /// Other available API versions: 2024-10-23.
+        /// </summary>
+        public static Output<GetRuntimeEnvironmentResult> Invoke(GetRuntimeEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuntimeEnvironmentResult>("azure-native:automation:getRuntimeEnvironment", args ?? new GetRuntimeEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

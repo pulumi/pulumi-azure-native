@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EdgeOrder.V20240201
         /// </summary>
         public static Output<GetAddressResult> Invoke(GetAddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddressResult>("azure-native:edgeorder/v20240201:getAddress", args ?? new GetAddressInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about the specified address.
+        /// </summary>
+        public static Output<GetAddressResult> Invoke(GetAddressInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAddressResult>("azure-native:edgeorder/v20240201:getAddress", args ?? new GetAddressInvokeArgs(), options.WithDefaults());
     }
 
 

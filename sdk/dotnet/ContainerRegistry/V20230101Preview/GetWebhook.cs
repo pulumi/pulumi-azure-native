@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
         /// </summary>
         public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:containerregistry/v20230101preview:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified webhook.
+        /// </summary>
+        public static Output<GetWebhookResult> Invoke(GetWebhookInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebhookResult>("azure-native:containerregistry/v20230101preview:getWebhook", args ?? new GetWebhookInvokeArgs(), options.WithDefaults());
     }
 
 

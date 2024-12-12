@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20240201
         /// </summary>
         public static Output<GetOriginGroupResult> Invoke(GetOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginGroupResult>("azure-native:cdn/v20240201:getOriginGroup", args ?? new GetOriginGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing origin group within an endpoint.
+        /// </summary>
+        public static Output<GetOriginGroupResult> Invoke(GetOriginGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOriginGroupResult>("azure-native:cdn/v20240201:getOriginGroup", args ?? new GetOriginGroupInvokeArgs(), options.WithDefaults());
     }
 
 

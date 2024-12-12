@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20231115
         /// </summary>
         public static Output<GetSqlResourceSqlTriggerResult> Invoke(GetSqlResourceSqlTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20231115:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the SQL trigger under an existing Azure Cosmos DB database account.
+        /// </summary>
+        public static Output<GetSqlResourceSqlTriggerResult> Invoke(GetSqlResourceSqlTriggerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlResourceSqlTriggerResult>("azure-native:documentdb/v20231115:getSqlResourceSqlTrigger", args ?? new GetSqlResourceSqlTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

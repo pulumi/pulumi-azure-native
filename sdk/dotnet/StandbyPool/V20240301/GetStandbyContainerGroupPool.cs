@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.StandbyPool.V20240301
         /// </summary>
         public static Output<GetStandbyContainerGroupPoolResult> Invoke(GetStandbyContainerGroupPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandbyContainerGroupPoolResult>("azure-native:standbypool/v20240301:getStandbyContainerGroupPool", args ?? new GetStandbyContainerGroupPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a StandbyContainerGroupPoolResource
+        /// </summary>
+        public static Output<GetStandbyContainerGroupPoolResult> Invoke(GetStandbyContainerGroupPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStandbyContainerGroupPoolResult>("azure-native:standbypool/v20240301:getStandbyContainerGroupPool", args ?? new GetStandbyContainerGroupPoolInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230701Preview
         /// </summary>
         public static Output<GetMetadataResult> Invoke(GetMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetadataResult>("azure-native:securityinsights/v20230701preview:getMetadata", args ?? new GetMetadataInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Metadata.
+        /// </summary>
+        public static Output<GetMetadataResult> Invoke(GetMetadataInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetadataResult>("azure-native:securityinsights/v20230701preview:getMetadata", args ?? new GetMetadataInvokeArgs(), options.WithDefaults());
     }
 
 

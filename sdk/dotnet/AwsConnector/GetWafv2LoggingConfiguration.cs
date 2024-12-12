@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetWafv2LoggingConfigurationResult> Invoke(GetWafv2LoggingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafv2LoggingConfigurationResult>("azure-native:awsconnector:getWafv2LoggingConfiguration", args ?? new GetWafv2LoggingConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Wafv2LoggingConfiguration
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetWafv2LoggingConfigurationResult> Invoke(GetWafv2LoggingConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWafv2LoggingConfigurationResult>("azure-native:awsconnector:getWafv2LoggingConfiguration", args ?? new GetWafv2LoggingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

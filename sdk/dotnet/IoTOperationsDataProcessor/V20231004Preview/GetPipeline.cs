@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor.V20231004Preview
         /// </summary>
         public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("azure-native:iotoperationsdataprocessor/v20231004preview:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Pipeline
+        /// </summary>
+        public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("azure-native:iotoperationsdataprocessor/v20231004preview:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

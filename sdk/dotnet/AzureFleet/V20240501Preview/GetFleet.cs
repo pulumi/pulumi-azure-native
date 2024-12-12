@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:azurefleet/v20240501preview:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Fleet
+        /// </summary>
+        public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:azurefleet/v20240501preview:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
 
 

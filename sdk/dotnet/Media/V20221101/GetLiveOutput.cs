@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.V20221101
         /// </summary>
         public static Output<GetLiveOutputResult> Invoke(GetLiveOutputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveOutputResult>("azure-native:media/v20221101:getLiveOutput", args ?? new GetLiveOutputInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a live output.
+        /// </summary>
+        public static Output<GetLiveOutputResult> Invoke(GetLiveOutputInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLiveOutputResult>("azure-native:media/v20221101:getLiveOutput", args ?? new GetLiveOutputInvokeArgs(), options.WithDefaults());
     }
 
 

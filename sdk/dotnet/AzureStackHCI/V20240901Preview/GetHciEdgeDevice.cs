@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240901Preview
         /// </summary>
         public static Output<GetHciEdgeDeviceResult> Invoke(GetHciEdgeDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciEdgeDeviceResult>("azure-native:azurestackhci/v20240901preview:getHciEdgeDevice", args ?? new GetHciEdgeDeviceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EdgeDevice
+        /// </summary>
+        public static Output<GetHciEdgeDeviceResult> Invoke(GetHciEdgeDeviceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHciEdgeDeviceResult>("azure-native:azurestackhci/v20240901preview:getHciEdgeDevice", args ?? new GetHciEdgeDeviceInvokeArgs(), options.WithDefaults());
     }
 
 

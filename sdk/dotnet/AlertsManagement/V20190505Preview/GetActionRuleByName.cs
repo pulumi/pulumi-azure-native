@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview
         /// </summary>
         public static Output<GetActionRuleByNameResult> Invoke(GetActionRuleByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionRuleByNameResult>("azure-native:alertsmanagement/v20190505preview:getActionRuleByName", args ?? new GetActionRuleByNameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific action rule
+        /// </summary>
+        public static Output<GetActionRuleByNameResult> Invoke(GetActionRuleByNameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionRuleByNameResult>("azure-native:alertsmanagement/v20190505preview:getActionRuleByName", args ?? new GetActionRuleByNameInvokeArgs(), options.WithDefaults());
     }
 
 

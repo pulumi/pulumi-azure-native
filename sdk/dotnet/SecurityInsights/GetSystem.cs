@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<GetSystemResult> Invoke(GetSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemResult>("azure-native:securityinsights:getSystem", args ?? new GetSystemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the system.
+        /// Azure REST API version: 2024-04-01-preview.
+        /// </summary>
+        public static Output<GetSystemResult> Invoke(GetSystemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSystemResult>("azure-native:securityinsights:getSystem", args ?? new GetSystemInvokeArgs(), options.WithDefaults());
     }
 
 

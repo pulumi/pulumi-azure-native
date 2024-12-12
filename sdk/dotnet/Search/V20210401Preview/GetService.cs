@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Search.V20210401Preview
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:search/v20210401preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the search service with the given name in the given resource group.
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:search/v20210401preview:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

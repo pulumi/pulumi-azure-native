@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20221001Preview
         /// </summary>
         public static Output<GetAssociationsInterfaceResult> Invoke(GetAssociationsInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssociationsInterfaceResult>("azure-native:servicenetworking/v20221001preview:getAssociationsInterface", args ?? new GetAssociationsInterfaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Traffic Controller Association
+        /// </summary>
+        public static Output<GetAssociationsInterfaceResult> Invoke(GetAssociationsInterfaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssociationsInterfaceResult>("azure-native:servicenetworking/v20221001preview:getAssociationsInterface", args ?? new GetAssociationsInterfaceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:authorization:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a role assignment by scope and name.
+        /// Azure REST API version: 2022-04-01.
+        /// 
+        /// Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
+        /// </summary>
+        public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:authorization:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

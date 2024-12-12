@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Resources.V20241101
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources/v20241101:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a resource.
+        /// </summary>
+        public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("azure-native:resources/v20241101:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
     }
 
 

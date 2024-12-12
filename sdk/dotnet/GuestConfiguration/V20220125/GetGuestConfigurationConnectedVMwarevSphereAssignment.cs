@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20220125
         /// </summary>
         public static Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> Invoke(GetGuestConfigurationConnectedVMwarevSphereAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult>("azure-native:guestconfiguration/v20220125:getGuestConfigurationConnectedVMwarevSphereAssignment", args ?? new GetGuestConfigurationConnectedVMwarevSphereAssignmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get information about a guest configuration assignment
+        /// </summary>
+        public static Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> Invoke(GetGuestConfigurationConnectedVMwarevSphereAssignmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult>("azure-native:guestconfiguration/v20220125:getGuestConfigurationConnectedVMwarevSphereAssignment", args ?? new GetGuestConfigurationConnectedVMwarevSphereAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

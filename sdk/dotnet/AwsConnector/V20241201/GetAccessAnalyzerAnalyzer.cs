@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetAccessAnalyzerAnalyzerResult> Invoke(GetAccessAnalyzerAnalyzerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessAnalyzerAnalyzerResult>("azure-native:awsconnector/v20241201:getAccessAnalyzerAnalyzer", args ?? new GetAccessAnalyzerAnalyzerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a AccessAnalyzerAnalyzer
+        /// </summary>
+        public static Output<GetAccessAnalyzerAnalyzerResult> Invoke(GetAccessAnalyzerAnalyzerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessAnalyzerAnalyzerResult>("azure-native:awsconnector/v20241201:getAccessAnalyzerAnalyzer", args ?? new GetAccessAnalyzerAnalyzerInvokeArgs(), options.WithDefaults());
     }
 
 

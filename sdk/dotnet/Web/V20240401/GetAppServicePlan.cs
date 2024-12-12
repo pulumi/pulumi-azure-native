@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20240401
         /// </summary>
         public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure-native:web/v20240401:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Get an App Service plan.
+        /// </summary>
+        public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure-native:web/v20240401:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());
     }
 
 

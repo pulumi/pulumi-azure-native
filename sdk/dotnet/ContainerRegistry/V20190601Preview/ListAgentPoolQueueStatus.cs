@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         /// </summary>
         public static Output<ListAgentPoolQueueStatusResult> Invoke(ListAgentPoolQueueStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAgentPoolQueueStatusResult>("azure-native:containerregistry/v20190601preview:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the count of queued runs for a given agent pool.
+        /// </summary>
+        public static Output<ListAgentPoolQueueStatusResult> Invoke(ListAgentPoolQueueStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAgentPoolQueueStatusResult>("azure-native:containerregistry/v20190601preview:listAgentPoolQueueStatus", args ?? new ListAgentPoolQueueStatusInvokeArgs(), options.WithDefaults());
     }
 
 

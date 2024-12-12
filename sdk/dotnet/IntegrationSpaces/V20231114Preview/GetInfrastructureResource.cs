@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.IntegrationSpaces.V20231114Preview
         /// </summary>
         public static Output<GetInfrastructureResourceResult> Invoke(GetInfrastructureResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureResourceResult>("azure-native:integrationspaces/v20231114preview:getInfrastructureResource", args ?? new GetInfrastructureResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a InfrastructureResource
+        /// </summary>
+        public static Output<GetInfrastructureResourceResult> Invoke(GetInfrastructureResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureResourceResult>("azure-native:integrationspaces/v20231114preview:getInfrastructureResource", args ?? new GetInfrastructureResourceInvokeArgs(), options.WithDefaults());
     }
 
 

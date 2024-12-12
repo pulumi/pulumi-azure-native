@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.OpenEnergyPlatform
         /// </summary>
         public static Output<GetEnergyServiceResult> Invoke(GetEnergyServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnergyServiceResult>("azure-native:openenergyplatform:getEnergyService", args ?? new GetEnergyServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns oep resource for a given name.
+        /// Azure REST API version: 2022-04-04-preview.
+        /// </summary>
+        public static Output<GetEnergyServiceResult> Invoke(GetEnergyServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnergyServiceResult>("azure-native:openenergyplatform:getEnergyService", args ?? new GetEnergyServiceInvokeArgs(), options.WithDefaults());
     }
 
 

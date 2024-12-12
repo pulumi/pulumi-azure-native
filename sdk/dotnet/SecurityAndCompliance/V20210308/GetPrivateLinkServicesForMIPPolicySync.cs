@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         /// </summary>
         public static Output<GetPrivateLinkServicesForMIPPolicySyncResult> Invoke(GetPrivateLinkServicesForMIPPolicySyncInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForMIPPolicySyncResult>("azure-native:securityandcompliance/v20210308:getPrivateLinkServicesForMIPPolicySync", args ?? new GetPrivateLinkServicesForMIPPolicySyncInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the metadata of a privateLinkServicesForMIPPolicySync resource.
+        /// </summary>
+        public static Output<GetPrivateLinkServicesForMIPPolicySyncResult> Invoke(GetPrivateLinkServicesForMIPPolicySyncInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicesForMIPPolicySyncResult>("azure-native:securityandcompliance/v20210308:getPrivateLinkServicesForMIPPolicySync", args ?? new GetPrivateLinkServicesForMIPPolicySyncInvokeArgs(), options.WithDefaults());
     }
 
 

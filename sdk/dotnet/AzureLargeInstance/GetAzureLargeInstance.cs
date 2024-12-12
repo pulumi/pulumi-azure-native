@@ -26,6 +26,14 @@ namespace Pulumi.AzureNative.AzureLargeInstance
         /// </summary>
         public static Output<GetAzureLargeInstanceResult> Invoke(GetAzureLargeInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureLargeInstanceResult>("azure-native:azurelargeinstance:getAzureLargeInstance", args ?? new GetAzureLargeInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an Azure Large Instance for the specified subscription, resource group,
+        /// and instance name.
+        /// Azure REST API version: 2024-08-01-preview.
+        /// </summary>
+        public static Output<GetAzureLargeInstanceResult> Invoke(GetAzureLargeInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureLargeInstanceResult>("azure-native:azurelargeinstance:getAzureLargeInstance", args ?? new GetAzureLargeInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

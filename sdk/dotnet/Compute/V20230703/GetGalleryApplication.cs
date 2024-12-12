@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.V20230703
         /// </summary>
         public static Output<GetGalleryApplicationResult> Invoke(GetGalleryApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationResult>("azure-native:compute/v20230703:getGalleryApplication", args ?? new GetGalleryApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about a gallery Application Definition.
+        /// </summary>
+        public static Output<GetGalleryApplicationResult> Invoke(GetGalleryApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationResult>("azure-native:compute/v20230703:getGalleryApplication", args ?? new GetGalleryApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

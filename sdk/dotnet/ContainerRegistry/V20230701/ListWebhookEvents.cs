@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230701
         /// </summary>
         public static Output<ListWebhookEventsResult> Invoke(ListWebhookEventsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebhookEventsResult>("azure-native:containerregistry/v20230701:listWebhookEvents", args ?? new ListWebhookEventsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists recent events for the specified webhook.
+        /// </summary>
+        public static Output<ListWebhookEventsResult> Invoke(ListWebhookEventsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebhookEventsResult>("azure-native:containerregistry/v20230701:listWebhookEvents", args ?? new ListWebhookEventsInvokeArgs(), options.WithDefaults());
     }
 
 

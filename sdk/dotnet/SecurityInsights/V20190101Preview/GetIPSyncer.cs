@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         /// </summary>
         public static Output<GetIPSyncerResult> Invoke(GetIPSyncerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a setting.
+        /// </summary>
+        public static Output<GetIPSyncerResult> Invoke(GetIPSyncerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIPSyncerResult>("azure-native:securityinsights/v20190101preview:getIPSyncer", args ?? new GetIPSyncerInvokeArgs(), options.WithDefaults());
     }
 
 

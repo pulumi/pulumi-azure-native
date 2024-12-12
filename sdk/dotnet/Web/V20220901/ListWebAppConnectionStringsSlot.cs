@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20220901
         /// </summary>
         public static Output<ListWebAppConnectionStringsSlotResult> Invoke(ListWebAppConnectionStringsSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppConnectionStringsSlotResult>("azure-native:web/v20220901:listWebAppConnectionStringsSlot", args ?? new ListWebAppConnectionStringsSlotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Gets the connection strings of an app.
+        /// </summary>
+        public static Output<ListWebAppConnectionStringsSlotResult> Invoke(ListWebAppConnectionStringsSlotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppConnectionStringsSlotResult>("azure-native:web/v20220901:listWebAppConnectionStringsSlot", args ?? new ListWebAppConnectionStringsSlotInvokeArgs(), options.WithDefaults());
     }
 
 

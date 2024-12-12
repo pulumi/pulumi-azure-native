@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20230301Preview
         /// </summary>
         public static Output<GetmanagedAzResiliencyStatusResult> Invoke(GetmanagedAzResiliencyStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetmanagedAzResiliencyStatusResult>("azure-native:servicefabric/v20230301preview:getmanagedAzResiliencyStatus", args ?? new GetmanagedAzResiliencyStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
+        /// </summary>
+        public static Output<GetmanagedAzResiliencyStatusResult> Invoke(GetmanagedAzResiliencyStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetmanagedAzResiliencyStatusResult>("azure-native:servicefabric/v20230301preview:getmanagedAzResiliencyStatus", args ?? new GetmanagedAzResiliencyStatusInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
         /// </summary>
         public static Output<GetACIServiceResult> Invoke(GetACIServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetACIServiceResult>("azure-native:machinelearningservices/v20210401:getACIService", args ?? new GetACIServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Service by name.
+        /// </summary>
+        public static Output<GetACIServiceResult> Invoke(GetACIServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetACIServiceResult>("azure-native:machinelearningservices/v20210401:getACIService", args ?? new GetACIServiceInvokeArgs(), options.WithDefaults());
     }
 
 

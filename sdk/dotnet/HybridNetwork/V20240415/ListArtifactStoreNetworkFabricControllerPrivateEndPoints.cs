@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HybridNetwork.V20240415
         /// </summary>
         public static Output<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> Invoke(ListArtifactStoreNetworkFabricControllerPrivateEndPointsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult>("azure-native:hybridnetwork/v20240415:listArtifactStoreNetworkFabricControllerPrivateEndPoints", args ?? new ListArtifactStoreNetworkFabricControllerPrivateEndPointsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List network fabric controllers to artifact stores
+        /// </summary>
+        public static Output<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult> Invoke(ListArtifactStoreNetworkFabricControllerPrivateEndPointsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListArtifactStoreNetworkFabricControllerPrivateEndPointsResult>("azure-native:hybridnetwork/v20240415:listArtifactStoreNetworkFabricControllerPrivateEndPoints", args ?? new ListArtifactStoreNetworkFabricControllerPrivateEndPointsInvokeArgs(), options.WithDefaults());
     }
 
 

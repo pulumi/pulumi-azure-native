@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public static Output<GetSAPDatabaseInstanceResult> Invoke(GetSAPDatabaseInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPDatabaseInstanceResult>("azure-native:workloads:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the SAP Database Instance resource.
+        /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2023-10-01-preview.
+        /// </summary>
+        public static Output<GetSAPDatabaseInstanceResult> Invoke(GetSAPDatabaseInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPDatabaseInstanceResult>("azure-native:workloads:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

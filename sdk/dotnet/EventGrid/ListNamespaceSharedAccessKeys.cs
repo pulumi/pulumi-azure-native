@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public static Output<ListNamespaceSharedAccessKeysResult> Invoke(ListNamespaceSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceSharedAccessKeysResult>("azure-native:eventgrid:listNamespaceSharedAccessKeys", args ?? new ListNamespaceSharedAccessKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List the two keys used to publish to a namespace.
+        /// Azure REST API version: 2023-06-01-preview.
+        /// 
+        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// </summary>
+        public static Output<ListNamespaceSharedAccessKeysResult> Invoke(ListNamespaceSharedAccessKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListNamespaceSharedAccessKeysResult>("azure-native:eventgrid:listNamespaceSharedAccessKeys", args ?? new ListNamespaceSharedAccessKeysInvokeArgs(), options.WithDefaults());
     }
 
 

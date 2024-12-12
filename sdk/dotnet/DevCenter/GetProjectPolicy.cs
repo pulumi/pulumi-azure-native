@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public static Output<GetProjectPolicyResult> Invoke(GetProjectPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectPolicyResult>("azure-native:devcenter:getProjectPolicy", args ?? new GetProjectPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a specific project policy.
+        /// Azure REST API version: 2024-10-01-preview.
+        /// </summary>
+        public static Output<GetProjectPolicyResult> Invoke(GetProjectPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectPolicyResult>("azure-native:devcenter:getProjectPolicy", args ?? new GetProjectPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

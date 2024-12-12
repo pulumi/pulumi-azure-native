@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20230501Preview
         /// </summary>
         public static Output<GetBusinessCaseOperationResult> Invoke(GetBusinessCaseOperationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessCaseOperationResult>("azure-native:migrate/v20230501preview:getBusinessCaseOperation", args ?? new GetBusinessCaseOperationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a BusinessCase
+        /// </summary>
+        public static Output<GetBusinessCaseOperationResult> Invoke(GetBusinessCaseOperationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBusinessCaseOperationResult>("azure-native:migrate/v20230501preview:getBusinessCaseOperation", args ?? new GetBusinessCaseOperationInvokeArgs(), options.WithDefaults());
     }
 
 

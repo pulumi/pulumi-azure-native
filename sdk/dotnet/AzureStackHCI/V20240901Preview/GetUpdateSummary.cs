@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240901Preview
         /// </summary>
         public static Output<GetUpdateSummaryResult> Invoke(GetUpdateSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateSummaryResult>("azure-native:azurestackhci/v20240901preview:getUpdateSummary", args ?? new GetUpdateSummaryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get all Update summaries under the HCI cluster
+        /// </summary>
+        public static Output<GetUpdateSummaryResult> Invoke(GetUpdateSummaryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUpdateSummaryResult>("azure-native:azurestackhci/v20240901preview:getUpdateSummary", args ?? new GetUpdateSummaryInvokeArgs(), options.WithDefaults());
     }
 
 

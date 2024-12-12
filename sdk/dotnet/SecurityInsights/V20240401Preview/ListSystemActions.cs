@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
         /// </summary>
         public static Output<ListSystemActionsResult> Invoke(ListSystemActionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSystemActionsResult>("azure-native:securityinsights/v20240401preview:listSystemActions", args ?? new ListSystemActionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List of actions for a business application system.
+        /// </summary>
+        public static Output<ListSystemActionsResult> Invoke(ListSystemActionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListSystemActionsResult>("azure-native:securityinsights/v20240401preview:listSystemActions", args ?? new ListSystemActionsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20240301
         /// </summary>
         public static Output<GetCustomDomainVerificationIdResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomDomainVerificationIdResult>("azure-native:app/v20240301:getCustomDomainVerificationId", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Get the verification id of a subscription used for verifying custom domains
+        /// </summary>
+        public static Output<GetCustomDomainVerificationIdResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomDomainVerificationIdResult>("azure-native:app/v20240301:getCustomDomainVerificationId", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

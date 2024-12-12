@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
         /// </summary>
         public static Output<GetDiagnosticResult> Invoke(GetDiagnosticInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticResult>("azure-native:apimanagement/v20180101:getDiagnostic", args ?? new GetDiagnosticInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the Diagnostic specified by its identifier.
+        /// </summary>
+        public static Output<GetDiagnosticResult> Invoke(GetDiagnosticInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticResult>("azure-native:apimanagement/v20180101:getDiagnostic", args ?? new GetDiagnosticInvokeArgs(), options.WithDefaults());
     }
 
 

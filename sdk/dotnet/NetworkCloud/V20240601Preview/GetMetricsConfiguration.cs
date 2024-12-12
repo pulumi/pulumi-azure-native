@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetworkCloud.V20240601Preview
         /// </summary>
         public static Output<GetMetricsConfigurationResult> Invoke(GetMetricsConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricsConfigurationResult>("azure-native:networkcloud/v20240601preview:getMetricsConfiguration", args ?? new GetMetricsConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get metrics configuration of the provided cluster.
+        /// </summary>
+        public static Output<GetMetricsConfigurationResult> Invoke(GetMetricsConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetricsConfigurationResult>("azure-native:networkcloud/v20240601preview:getMetricsConfiguration", args ?? new GetMetricsConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

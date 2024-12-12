@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Media.V20230101
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:media/v20230101:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the details of an Asset in the Media Services account
+        /// </summary>
+        public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("azure-native:media/v20230101:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
 
 

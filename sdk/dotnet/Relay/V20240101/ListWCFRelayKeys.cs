@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Relay.V20240101
         /// </summary>
         public static Output<ListWCFRelayKeysResult> Invoke(ListWCFRelayKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWCFRelayKeysResult>("azure-native:relay/v20240101:listWCFRelayKeys", args ?? new ListWCFRelayKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Primary and secondary connection strings to the WCF relay.
+        /// </summary>
+        public static Output<ListWCFRelayKeysResult> Invoke(ListWCFRelayKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWCFRelayKeysResult>("azure-native:relay/v20240101:listWCFRelayKeys", args ?? new ListWCFRelayKeysInvokeArgs(), options.WithDefaults());
     }
 
 

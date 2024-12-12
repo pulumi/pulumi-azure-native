@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Migrate.V20180202
         /// </summary>
         public static Output<GetProjectKeysResult> Invoke(GetProjectKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectKeysResult>("azure-native:migrate/v20180202:getProjectKeys", args ?? new GetProjectKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Log Analytics Workspace ID and Primary Key for the specified project.
+        /// </summary>
+        public static Output<GetProjectKeysResult> Invoke(GetProjectKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectKeysResult>("azure-native:migrate/v20180202:getProjectKeys", args ?? new GetProjectKeysInvokeArgs(), options.WithDefaults());
     }
 
 

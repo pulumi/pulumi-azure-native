@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ProfessionalService.V20230701Preview
         /// </summary>
         public static Output<GetProfessionalServiceSubscriptionLevelResult> Invoke(GetProfessionalServiceSubscriptionLevelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfessionalServiceSubscriptionLevelResult>("azure-native:professionalservice/v20230701preview:getProfessionalServiceSubscriptionLevel", args ?? new GetProfessionalServiceSubscriptionLevelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about the specified Subscription Level ProfessionalService.
+        /// </summary>
+        public static Output<GetProfessionalServiceSubscriptionLevelResult> Invoke(GetProfessionalServiceSubscriptionLevelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfessionalServiceSubscriptionLevelResult>("azure-native:professionalservice/v20230701preview:getProfessionalServiceSubscriptionLevel", args ?? new GetProfessionalServiceSubscriptionLevelInvokeArgs(), options.WithDefaults());
     }
 
 

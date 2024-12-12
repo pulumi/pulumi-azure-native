@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CognitiveServices.V20231001Preview
         /// </summary>
         public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:cognitiveservices/v20231001preview:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists the account keys for the specified Cognitive Services account.
+        /// </summary>
+        public static Output<ListAccountKeysResult> Invoke(ListAccountKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListAccountKeysResult>("azure-native:cognitiveservices/v20231001preview:listAccountKeys", args ?? new ListAccountKeysInvokeArgs(), options.WithDefaults());
     }
 
 

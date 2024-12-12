@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Marketplace.V20211201
         /// </summary>
         public static Output<ListPrivateStoreSubscriptionsContextResult> Invoke(ListPrivateStoreSubscriptionsContextInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreSubscriptionsContextResult>("azure-native:marketplace/v20211201:listPrivateStoreSubscriptionsContext", args ?? new ListPrivateStoreSubscriptionsContextInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List all the subscriptions in the private store context
+        /// </summary>
+        public static Output<ListPrivateStoreSubscriptionsContextResult> Invoke(ListPrivateStoreSubscriptionsContextInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreSubscriptionsContextResult>("azure-native:marketplace/v20211201:listPrivateStoreSubscriptionsContext", args ?? new ListPrivateStoreSubscriptionsContextInvokeArgs(), options.WithDefaults());
     }
 
 

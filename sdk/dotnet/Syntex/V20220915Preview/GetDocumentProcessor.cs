@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Syntex.V20220915Preview
         /// </summary>
         public static Output<GetDocumentProcessorResult> Invoke(GetDocumentProcessorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentProcessorResult>("azure-native:syntex/v20220915preview:getDocumentProcessor", args ?? new GetDocumentProcessorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a document processor for a given name.
+        /// </summary>
+        public static Output<GetDocumentProcessorResult> Invoke(GetDocumentProcessorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentProcessorResult>("azure-native:syntex/v20220915preview:getDocumentProcessor", args ?? new GetDocumentProcessorInvokeArgs(), options.WithDefaults());
     }
 
 

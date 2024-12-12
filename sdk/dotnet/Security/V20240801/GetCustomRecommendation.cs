@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20240801
         /// </summary>
         public static Output<GetCustomRecommendationResult> Invoke(GetCustomRecommendationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomRecommendationResult>("azure-native:security/v20240801:getCustomRecommendation", args ?? new GetCustomRecommendationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific custom recommendation for the requested scope by customRecommendationName
+        /// </summary>
+        public static Output<GetCustomRecommendationResult> Invoke(GetCustomRecommendationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomRecommendationResult>("azure-native:security/v20240801:getCustomRecommendation", args ?? new GetCustomRecommendationInvokeArgs(), options.WithDefaults());
     }
 
 

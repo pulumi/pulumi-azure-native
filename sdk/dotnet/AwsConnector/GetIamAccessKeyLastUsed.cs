@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetIamAccessKeyLastUsedResult> Invoke(GetIamAccessKeyLastUsedInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamAccessKeyLastUsedResult>("azure-native:awsconnector:getIamAccessKeyLastUsed", args ?? new GetIamAccessKeyLastUsedInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamAccessKeyLastUsed
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetIamAccessKeyLastUsedResult> Invoke(GetIamAccessKeyLastUsedInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamAccessKeyLastUsedResult>("azure-native:awsconnector:getIamAccessKeyLastUsed", args ?? new GetIamAccessKeyLastUsedInvokeArgs(), options.WithDefaults());
     }
 
 

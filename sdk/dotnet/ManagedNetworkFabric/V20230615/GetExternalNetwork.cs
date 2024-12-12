@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230615
         /// </summary>
         public static Output<GetExternalNetworkResult> Invoke(GetExternalNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExternalNetworkResult>("azure-native:managednetworkfabric/v20230615:getExternalNetwork", args ?? new GetExternalNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements ExternalNetworks GET method.
+        /// </summary>
+        public static Output<GetExternalNetworkResult> Invoke(GetExternalNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExternalNetworkResult>("azure-native:managednetworkfabric/v20230615:getExternalNetwork", args ?? new GetExternalNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

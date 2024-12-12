@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Datadog.V20220801
         /// </summary>
         public static Output<ListMonitorHostsResult> Invoke(ListMonitorHostsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorHostsResult>("azure-native:datadog/v20220801:listMonitorHosts", args ?? new ListMonitorHostsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// List operation response containing list of Datadog Hosts.
+        /// </summary>
+        public static Output<ListMonitorHostsResult> Invoke(ListMonitorHostsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListMonitorHostsResult>("azure-native:datadog/v20220801:listMonitorHosts", args ?? new ListMonitorHostsInvokeArgs(), options.WithDefaults());
     }
 
 

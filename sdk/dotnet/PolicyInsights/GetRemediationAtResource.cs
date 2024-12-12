@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         public static Output<GetRemediationAtResourceResult> Invoke(GetRemediationAtResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceResult>("azure-native:policyinsights:getRemediationAtResource", args ?? new GetRemediationAtResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing remediation at resource scope.
+        /// Azure REST API version: 2021-10-01.
+        /// 
+        /// Other available API versions: 2024-10-01.
+        /// </summary>
+        public static Output<GetRemediationAtResourceResult> Invoke(GetRemediationAtResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRemediationAtResourceResult>("azure-native:policyinsights:getRemediationAtResource", args ?? new GetRemediationAtResourceInvokeArgs(), options.WithDefaults());
     }
 
 

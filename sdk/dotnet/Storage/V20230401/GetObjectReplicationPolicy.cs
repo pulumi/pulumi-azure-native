@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Storage.V20230401
         /// </summary>
         public static Output<GetObjectReplicationPolicyResult> Invoke(GetObjectReplicationPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectReplicationPolicyResult>("azure-native:storage/v20230401:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the object replication policy of the storage account by policy ID.
+        /// </summary>
+        public static Output<GetObjectReplicationPolicyResult> Invoke(GetObjectReplicationPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetObjectReplicationPolicyResult>("azure-native:storage/v20230401:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

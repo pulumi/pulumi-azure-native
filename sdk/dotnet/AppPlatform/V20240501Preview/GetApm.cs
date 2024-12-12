@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20240501Preview
         /// </summary>
         public static Output<GetApmResult> Invoke(GetApmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApmResult>("azure-native:appplatform/v20240501preview:getApm", args ?? new GetApmInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the APM by name.
+        /// </summary>
+        public static Output<GetApmResult> Invoke(GetApmInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApmResult>("azure-native:appplatform/v20240501preview:getApm", args ?? new GetApmInvokeArgs(), options.WithDefaults());
     }
 
 

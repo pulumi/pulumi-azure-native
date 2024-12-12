@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
         /// </summary>
         public static Output<GetServiceTaskResult> Invoke(GetServiceTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceTaskResult>("azure-native:datamigration/v20210630:getServiceTask", args ?? new GetServiceTaskInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
+        /// </summary>
+        public static Output<GetServiceTaskResult> Invoke(GetServiceTaskInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceTaskResult>("azure-native:datamigration/v20210630:getServiceTask", args ?? new GetServiceTaskInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.V20230703
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:compute/v20230703:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about a Shared Image Gallery.
+        /// </summary>
+        public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:compute/v20230703:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
     }
 
 

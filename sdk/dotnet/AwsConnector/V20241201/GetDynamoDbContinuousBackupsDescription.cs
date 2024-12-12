@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetDynamoDbContinuousBackupsDescriptionResult> Invoke(GetDynamoDbContinuousBackupsDescriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamoDbContinuousBackupsDescriptionResult>("azure-native:awsconnector/v20241201:getDynamoDbContinuousBackupsDescription", args ?? new GetDynamoDbContinuousBackupsDescriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a DynamoDBContinuousBackupsDescription
+        /// </summary>
+        public static Output<GetDynamoDbContinuousBackupsDescriptionResult> Invoke(GetDynamoDbContinuousBackupsDescriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDynamoDbContinuousBackupsDescriptionResult>("azure-native:awsconnector/v20241201:getDynamoDbContinuousBackupsDescription", args ?? new GetDynamoDbContinuousBackupsDescriptionInvokeArgs(), options.WithDefaults());
     }
 
 

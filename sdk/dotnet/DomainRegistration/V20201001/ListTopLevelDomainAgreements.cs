@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DomainRegistration.V20201001
         /// </summary>
         public static Output<ListTopLevelDomainAgreementsResult> Invoke(ListTopLevelDomainAgreementsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration/v20201001:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets all legal agreements that user needs to accept before purchasing a domain.
+        /// </summary>
+        public static Output<ListTopLevelDomainAgreementsResult> Invoke(ListTopLevelDomainAgreementsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration/v20201001:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsInvokeArgs(), options.WithDefaults());
     }
 
 

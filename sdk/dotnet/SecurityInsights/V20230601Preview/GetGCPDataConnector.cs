@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230601Preview
         /// </summary>
         public static Output<GetGCPDataConnectorResult> Invoke(GetGCPDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGCPDataConnectorResult>("azure-native:securityinsights/v20230601preview:getGCPDataConnector", args ?? new GetGCPDataConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a data connector.
+        /// </summary>
+        public static Output<GetGCPDataConnectorResult> Invoke(GetGCPDataConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGCPDataConnectorResult>("azure-native:securityinsights/v20230601preview:getGCPDataConnector", args ?? new GetGCPDataConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20200901
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn/v20200901:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a CDN profile with the specified profile name under the specified subscription and resource group.
+        /// </summary>
+        public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure-native:cdn/v20200901:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
     }
 
 

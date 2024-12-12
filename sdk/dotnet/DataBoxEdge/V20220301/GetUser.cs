@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220301
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:databoxedge/v20220301:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the specified user.
+        /// </summary>
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:databoxedge/v20220301:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
     }
 
 

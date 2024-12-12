@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.V20240601Preview
         /// </summary>
         public static Output<GetPermissionBindingResult> Invoke(GetPermissionBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionBindingResult>("azure-native:eventgrid/v20240601preview:getPermissionBinding", args ?? new GetPermissionBindingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get properties of a permission binding.
+        /// </summary>
+        public static Output<GetPermissionBindingResult> Invoke(GetPermissionBindingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPermissionBindingResult>("azure-native:eventgrid/v20240601preview:getPermissionBinding", args ?? new GetPermissionBindingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20231210Preview
         /// </summary>
         public static Output<GetCloudHsmClusterPrivateEndpointConnectionResult> Invoke(GetCloudHsmClusterPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudHsmClusterPrivateEndpointConnectionResult>("azure-native:hardwaresecuritymodules/v20231210preview:getCloudHsmClusterPrivateEndpointConnection", args ?? new GetCloudHsmClusterPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the private endpoint connection for the Cloud Hsm Cluster.
+        /// </summary>
+        public static Output<GetCloudHsmClusterPrivateEndpointConnectionResult> Invoke(GetCloudHsmClusterPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudHsmClusterPrivateEndpointConnectionResult>("azure-native:hardwaresecuritymodules/v20231210preview:getCloudHsmClusterPrivateEndpointConnection", args ?? new GetCloudHsmClusterPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

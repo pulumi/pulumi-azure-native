@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceLinker.V20240401
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:servicelinker/v20240401:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns Connector resource for a given name.
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("azure-native:servicelinker/v20240401:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

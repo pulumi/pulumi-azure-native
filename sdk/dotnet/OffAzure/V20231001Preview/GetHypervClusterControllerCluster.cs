@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.OffAzure.V20231001Preview
         /// </summary>
         public static Output<GetHypervClusterControllerClusterResult> Invoke(GetHypervClusterControllerClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervClusterControllerClusterResult>("azure-native:offazure/v20231001preview:getHypervClusterControllerCluster", args ?? new GetHypervClusterControllerClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Method to get a Hyper-V cluster.
+        /// </summary>
+        public static Output<GetHypervClusterControllerClusterResult> Invoke(GetHypervClusterControllerClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHypervClusterControllerClusterResult>("azure-native:offazure/v20231001preview:getHypervClusterControllerCluster", args ?? new GetHypervClusterControllerClusterInvokeArgs(), options.WithDefaults());
     }
 
 

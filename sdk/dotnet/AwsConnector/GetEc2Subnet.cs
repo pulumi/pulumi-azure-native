@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetEc2SubnetResult> Invoke(GetEc2SubnetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2SubnetResult>("azure-native:awsconnector:getEc2Subnet", args ?? new GetEc2SubnetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2Subnet
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetEc2SubnetResult> Invoke(GetEc2SubnetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2SubnetResult>("azure-native:awsconnector:getEc2Subnet", args ?? new GetEc2SubnetInvokeArgs(), options.WithDefaults());
     }
 
 

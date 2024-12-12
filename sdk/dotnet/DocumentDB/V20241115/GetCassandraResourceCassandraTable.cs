@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.V20241115
         /// </summary>
         public static Output<GetCassandraResourceCassandraTableResult> Invoke(GetCassandraResourceCassandraTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraTableResult>("azure-native:documentdb/v20241115:getCassandraResourceCassandraTable", args ?? new GetCassandraResourceCassandraTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Cassandra table under an existing Azure Cosmos DB database account.
+        /// </summary>
+        public static Output<GetCassandraResourceCassandraTableResult> Invoke(GetCassandraResourceCassandraTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCassandraResourceCassandraTableResult>("azure-native:documentdb/v20241115:getCassandraResourceCassandraTable", args ?? new GetCassandraResourceCassandraTableInvokeArgs(), options.WithDefaults());
     }
 
 

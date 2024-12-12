@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20240601Preview
         /// </summary>
         public static Output<GetAFDTargetGroupResult> Invoke(GetAFDTargetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDTargetGroupResult>("azure-native:cdn/v20240601preview:getAFDTargetGroup", args ?? new GetAFDTargetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing target group within a profile.
+        /// </summary>
+        public static Output<GetAFDTargetGroupResult> Invoke(GetAFDTargetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAFDTargetGroupResult>("azure-native:cdn/v20240601preview:getAFDTargetGroup", args ?? new GetAFDTargetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

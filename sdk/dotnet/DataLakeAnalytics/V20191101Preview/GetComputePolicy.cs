@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
         /// </summary>
         public static Output<GetComputePolicyResult> Invoke(GetComputePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComputePolicyResult>("azure-native:datalakeanalytics/v20191101preview:getComputePolicy", args ?? new GetComputePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Data Lake Analytics compute policy.
+        /// </summary>
+        public static Output<GetComputePolicyResult> Invoke(GetComputePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetComputePolicyResult>("azure-native:datalakeanalytics/v20191101preview:getComputePolicy", args ?? new GetComputePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

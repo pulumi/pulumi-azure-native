@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetEksNodegroupResult> Invoke(GetEksNodegroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEksNodegroupResult>("azure-native:awsconnector:getEksNodegroup", args ?? new GetEksNodegroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a EksNodegroup
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetEksNodegroupResult> Invoke(GetEksNodegroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEksNodegroupResult>("azure-native:awsconnector:getEksNodegroup", args ?? new GetEksNodegroupInvokeArgs(), options.WithDefaults());
     }
 
 

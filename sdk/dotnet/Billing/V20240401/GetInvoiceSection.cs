@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Billing.V20240401
         /// </summary>
         public static Output<GetInvoiceSectionResult> Invoke(GetInvoiceSectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInvoiceSectionResult>("azure-native:billing/v20240401:getInvoiceSection", args ?? new GetInvoiceSectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an invoice section by its ID. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
+        /// </summary>
+        public static Output<GetInvoiceSectionResult> Invoke(GetInvoiceSectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInvoiceSectionResult>("azure-native:billing/v20240401:getInvoiceSection", args ?? new GetInvoiceSectionInvokeArgs(), options.WithDefaults());
     }
 
 

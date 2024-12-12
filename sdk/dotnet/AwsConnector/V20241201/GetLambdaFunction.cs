@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetLambdaFunctionResult> Invoke(GetLambdaFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionResult>("azure-native:awsconnector/v20241201:getLambdaFunction", args ?? new GetLambdaFunctionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LambdaFunction
+        /// </summary>
+        public static Output<GetLambdaFunctionResult> Invoke(GetLambdaFunctionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionResult>("azure-native:awsconnector/v20241201:getLambdaFunction", args ?? new GetLambdaFunctionInvokeArgs(), options.WithDefaults());
     }
 
 

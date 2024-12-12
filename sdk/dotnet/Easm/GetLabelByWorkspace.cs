@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Easm
         /// </summary>
         public static Output<GetLabelByWorkspaceResult> Invoke(GetLabelByWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelByWorkspaceResult>("azure-native:easm:getLabelByWorkspace", args ?? new GetLabelByWorkspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a label in the given workspace.
+        /// Azure REST API version: 2023-04-01-preview.
+        /// </summary>
+        public static Output<GetLabelByWorkspaceResult> Invoke(GetLabelByWorkspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabelByWorkspaceResult>("azure-native:easm:getLabelByWorkspace", args ?? new GetLabelByWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

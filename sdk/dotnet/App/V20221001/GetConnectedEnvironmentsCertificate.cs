@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20221001
         /// </summary>
         public static Output<GetConnectedEnvironmentsCertificateResult> Invoke(GetConnectedEnvironmentsCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsCertificateResult>("azure-native:app/v20221001:getConnectedEnvironmentsCertificate", args ?? new GetConnectedEnvironmentsCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
+        /// </summary>
+        public static Output<GetConnectedEnvironmentsCertificateResult> Invoke(GetConnectedEnvironmentsCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsCertificateResult>("azure-native:app/v20221001:getConnectedEnvironmentsCertificate", args ?? new GetConnectedEnvironmentsCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

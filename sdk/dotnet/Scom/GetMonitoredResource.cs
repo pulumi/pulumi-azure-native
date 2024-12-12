@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Scom
         /// </summary>
         public static Output<GetMonitoredResourceResult> Invoke(GetMonitoredResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredResourceResult>("azure-native:scom:getMonitoredResource", args ?? new GetMonitoredResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieve the details of the monitored resource.
+        /// Azure REST API version: 2023-07-07-preview.
+        /// </summary>
+        public static Output<GetMonitoredResourceResult> Invoke(GetMonitoredResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoredResourceResult>("azure-native:scom:getMonitoredResource", args ?? new GetMonitoredResourceInvokeArgs(), options.WithDefaults());
     }
 
 

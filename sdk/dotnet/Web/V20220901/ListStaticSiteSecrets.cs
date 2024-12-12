@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20220901
         /// </summary>
         public static Output<ListStaticSiteSecretsResult> Invoke(ListStaticSiteSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteSecretsResult>("azure-native:web/v20220901:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Lists the secrets for an existing static site.
+        /// </summary>
+        public static Output<ListStaticSiteSecretsResult> Invoke(ListStaticSiteSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListStaticSiteSecretsResult>("azure-native:web/v20220901:listStaticSiteSecrets", args ?? new ListStaticSiteSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

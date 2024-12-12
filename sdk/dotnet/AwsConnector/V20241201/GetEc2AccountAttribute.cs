@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetEc2AccountAttributeResult> Invoke(GetEc2AccountAttributeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEc2AccountAttributeResult>("azure-native:awsconnector/v20241201:getEc2AccountAttribute", args ?? new GetEc2AccountAttributeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Ec2AccountAttribute
+        /// </summary>
+        public static Output<GetEc2AccountAttributeResult> Invoke(GetEc2AccountAttributeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEc2AccountAttributeResult>("azure-native:awsconnector/v20241201:getEc2AccountAttribute", args ?? new GetEc2AccountAttributeInvokeArgs(), options.WithDefaults());
     }
 
 

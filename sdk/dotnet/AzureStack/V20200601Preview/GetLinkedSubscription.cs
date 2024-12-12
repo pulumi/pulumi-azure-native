@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
         /// </summary>
         public static Output<GetLinkedSubscriptionResult> Invoke(GetLinkedSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedSubscriptionResult>("azure-native:azurestack/v20200601preview:getLinkedSubscription", args ?? new GetLinkedSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the properties of a Linked Subscription resource.
+        /// </summary>
+        public static Output<GetLinkedSubscriptionResult> Invoke(GetLinkedSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkedSubscriptionResult>("azure-native:azurestack/v20200601preview:getLinkedSubscription", args ?? new GetLinkedSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

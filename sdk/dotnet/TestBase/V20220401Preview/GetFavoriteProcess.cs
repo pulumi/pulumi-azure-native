@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
         /// </summary>
         public static Output<GetFavoriteProcessResult> Invoke(GetFavoriteProcessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFavoriteProcessResult>("azure-native:testbase/v20220401preview:getFavoriteProcess", args ?? new GetFavoriteProcessInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a favorite process for a Test Base Package.
+        /// </summary>
+        public static Output<GetFavoriteProcessResult> Invoke(GetFavoriteProcessInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFavoriteProcessResult>("azure-native:testbase/v20220401preview:getFavoriteProcess", args ?? new GetFavoriteProcessInvokeArgs(), options.WithDefaults());
     }
 
 

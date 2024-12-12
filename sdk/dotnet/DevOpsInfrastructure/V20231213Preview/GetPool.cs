@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.V20231213Preview
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:devopsinfrastructure/v20231213preview:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a Pool
+        /// </summary>
+        public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:devopsinfrastructure/v20231213preview:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

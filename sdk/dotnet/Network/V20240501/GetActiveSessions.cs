@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20240501
         /// </summary>
         public static Output<GetActiveSessionsResult> Invoke(GetActiveSessionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActiveSessionsResult>("azure-native:network/v20240501:getActiveSessions", args ?? new GetActiveSessionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the list of currently active sessions on the Bastion.
+        /// </summary>
+        public static Output<GetActiveSessionsResult> Invoke(GetActiveSessionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActiveSessionsResult>("azure-native:network/v20240501:getActiveSessions", args ?? new GetActiveSessionsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetS3ControlMultiRegionAccessPointPolicyDocumentResult> Invoke(GetS3ControlMultiRegionAccessPointPolicyDocumentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetS3ControlMultiRegionAccessPointPolicyDocumentResult>("azure-native:awsconnector/v20241201:getS3ControlMultiRegionAccessPointPolicyDocument", args ?? new GetS3ControlMultiRegionAccessPointPolicyDocumentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a S3ControlMultiRegionAccessPointPolicyDocument
+        /// </summary>
+        public static Output<GetS3ControlMultiRegionAccessPointPolicyDocumentResult> Invoke(GetS3ControlMultiRegionAccessPointPolicyDocumentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetS3ControlMultiRegionAccessPointPolicyDocumentResult>("azure-native:awsconnector/v20241201:getS3ControlMultiRegionAccessPointPolicyDocument", args ?? new GetS3ControlMultiRegionAccessPointPolicyDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

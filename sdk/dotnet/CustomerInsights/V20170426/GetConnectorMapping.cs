@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
         /// </summary>
         public static Output<GetConnectorMappingResult> Invoke(GetConnectorMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorMappingResult>("azure-native:customerinsights/v20170426:getConnectorMapping", args ?? new GetConnectorMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a connector mapping in the connector.
+        /// </summary>
+        public static Output<GetConnectorMappingResult> Invoke(GetConnectorMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorMappingResult>("azure-native:customerinsights/v20170426:getConnectorMapping", args ?? new GetConnectorMappingInvokeArgs(), options.WithDefaults());
     }
 
 

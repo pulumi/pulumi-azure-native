@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// </summary>
         public static Output<GetEnvironmentSpecificationVersionResult> Invoke(GetEnvironmentSpecificationVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices/v20210301preview:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Azure Resource Manager resource envelope.
+        /// </summary>
+        public static Output<GetEnvironmentSpecificationVersionResult> Invoke(GetEnvironmentSpecificationVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentSpecificationVersionResult>("azure-native:machinelearningservices/v20210301preview:getEnvironmentSpecificationVersion", args ?? new GetEnvironmentSpecificationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

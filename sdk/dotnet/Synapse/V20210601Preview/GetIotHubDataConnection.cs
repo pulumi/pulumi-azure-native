@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:synapse/v20210601preview:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a data connection.
+        /// </summary>
+        public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:synapse/v20210601preview:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

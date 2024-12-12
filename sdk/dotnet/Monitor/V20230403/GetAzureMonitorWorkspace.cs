@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Monitor.V20230403
         /// </summary>
         public static Output<GetAzureMonitorWorkspaceResult> Invoke(GetAzureMonitorWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureMonitorWorkspaceResult>("azure-native:monitor/v20230403:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns the specified Azure Monitor Workspace
+        /// </summary>
+        public static Output<GetAzureMonitorWorkspaceResult> Invoke(GetAzureMonitorWorkspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzureMonitorWorkspaceResult>("azure-native:monitor/v20230403:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

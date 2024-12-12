@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20230601Preview
         /// </summary>
         public static Output<GetDataManagerForAgricultureResourceResult> Invoke(GetDataManagerForAgricultureResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataManagerForAgricultureResourceResult>("azure-native:agfoodplatform/v20230601preview:getDataManagerForAgricultureResource", args ?? new GetDataManagerForAgricultureResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get DataManagerForAgriculture resource.
+        /// </summary>
+        public static Output<GetDataManagerForAgricultureResourceResult> Invoke(GetDataManagerForAgricultureResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataManagerForAgricultureResourceResult>("azure-native:agfoodplatform/v20230601preview:getDataManagerForAgricultureResource", args ?? new GetDataManagerForAgricultureResourceInvokeArgs(), options.WithDefaults());
     }
 
 

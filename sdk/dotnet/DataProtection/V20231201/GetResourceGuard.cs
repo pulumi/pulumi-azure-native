@@ -16,6 +16,9 @@ namespace Pulumi.AzureNative.DataProtection.V20231201
 
         public static Output<GetResourceGuardResult> Invoke(GetResourceGuardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGuardResult>("azure-native:dataprotection/v20231201:getResourceGuard", args ?? new GetResourceGuardInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetResourceGuardResult> Invoke(GetResourceGuardInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceGuardResult>("azure-native:dataprotection/v20231201:getResourceGuard", args ?? new GetResourceGuardInvokeArgs(), options.WithDefaults());
     }
 
 

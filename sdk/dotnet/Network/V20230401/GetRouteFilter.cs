@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20230401
         /// </summary>
         public static Output<GetRouteFilterResult> Invoke(GetRouteFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteFilterResult>("azure-native:network/v20230401:getRouteFilter", args ?? new GetRouteFilterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified route filter.
+        /// </summary>
+        public static Output<GetRouteFilterResult> Invoke(GetRouteFilterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteFilterResult>("azure-native:network/v20230401:getRouteFilter", args ?? new GetRouteFilterInvokeArgs(), options.WithDefaults());
     }
 
 

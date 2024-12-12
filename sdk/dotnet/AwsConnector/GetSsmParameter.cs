@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.AwsConnector
         /// </summary>
         public static Output<GetSsmParameterResult> Invoke(GetSsmParameterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSsmParameterResult>("azure-native:awsconnector:getSsmParameter", args ?? new GetSsmParameterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a SsmParameter
+        /// Azure REST API version: 2024-12-01.
+        /// </summary>
+        public static Output<GetSsmParameterResult> Invoke(GetSsmParameterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSsmParameterResult>("azure-native:awsconnector:getSsmParameter", args ?? new GetSsmParameterInvokeArgs(), options.WithDefaults());
     }
 
 

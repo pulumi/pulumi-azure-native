@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Resources.V20240701
         /// </summary>
         public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure-native:resources/v20240701:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a resource group.
+        /// </summary>
+        public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure-native:resources/v20240701:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

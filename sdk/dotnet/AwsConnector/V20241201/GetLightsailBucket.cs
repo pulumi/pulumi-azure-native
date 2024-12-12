@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetLightsailBucketResult> Invoke(GetLightsailBucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLightsailBucketResult>("azure-native:awsconnector/v20241201:getLightsailBucket", args ?? new GetLightsailBucketInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LightsailBucket
+        /// </summary>
+        public static Output<GetLightsailBucketResult> Invoke(GetLightsailBucketInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLightsailBucketResult>("azure-native:awsconnector/v20241201:getLightsailBucket", args ?? new GetLightsailBucketInvokeArgs(), options.WithDefaults());
     }
 
 

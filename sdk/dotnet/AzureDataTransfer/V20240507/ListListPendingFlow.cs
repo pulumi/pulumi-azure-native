@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.V20240507
         /// </summary>
         public static Output<ListListPendingFlowResult> Invoke(ListListPendingFlowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListListPendingFlowResult>("azure-native:azuredatatransfer/v20240507:listListPendingFlow", args ?? new ListListPendingFlowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Lists all pending flows for a connection.
+        /// </summary>
+        public static Output<ListListPendingFlowResult> Invoke(ListListPendingFlowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListListPendingFlowResult>("azure-native:azuredatatransfer/v20240507:listListPendingFlow", args ?? new ListListPendingFlowInvokeArgs(), options.WithDefaults());
     }
 
 

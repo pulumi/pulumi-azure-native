@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public static Output<GetSAPDiskConfigurationsResult> Invoke(GetSAPDiskConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPDiskConfigurationsResult>("azure-native:workloads:getSAPDiskConfigurations", args ?? new GetSAPDiskConfigurationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the SAP Disk Configuration Layout prod/non-prod SAP System.
+        /// Azure REST API version: 2023-04-01.
+        /// 
+        /// Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+        /// </summary>
+        public static Output<GetSAPDiskConfigurationsResult> Invoke(GetSAPDiskConfigurationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSAPDiskConfigurationsResult>("azure-native:workloads:getSAPDiskConfigurations", args ?? new GetSAPDiskConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

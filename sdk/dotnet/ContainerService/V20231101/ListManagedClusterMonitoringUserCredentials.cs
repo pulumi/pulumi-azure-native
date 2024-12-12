@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerService.V20231101
         /// </summary>
         public static Output<ListManagedClusterMonitoringUserCredentialsResult> Invoke(ListManagedClusterMonitoringUserCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterMonitoringUserCredentialsResult>("azure-native:containerservice/v20231101:listManagedClusterMonitoringUserCredentials", args ?? new ListManagedClusterMonitoringUserCredentialsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The list credential result response.
+        /// </summary>
+        public static Output<ListManagedClusterMonitoringUserCredentialsResult> Invoke(ListManagedClusterMonitoringUserCredentialsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterMonitoringUserCredentialsResult>("azure-native:containerservice/v20231101:listManagedClusterMonitoringUserCredentials", args ?? new ListManagedClusterMonitoringUserCredentialsInvokeArgs(), options.WithDefaults());
     }
 
 

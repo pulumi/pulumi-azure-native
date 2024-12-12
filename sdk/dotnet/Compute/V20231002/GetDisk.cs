@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Compute.V20231002
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:compute/v20231002:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets information about a disk.
+        /// </summary>
+        public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("azure-native:compute/v20231002:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public static Output<GetUserRuleCollectionResult> Invoke(GetUserRuleCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleCollectionResult>("azure-native:network/v20210201preview:getUserRuleCollection", args ?? new GetUserRuleCollectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a network manager security user configuration rule collection.
+        /// </summary>
+        public static Output<GetUserRuleCollectionResult> Invoke(GetUserRuleCollectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleCollectionResult>("azure-native:network/v20210201preview:getUserRuleCollection", args ?? new GetUserRuleCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

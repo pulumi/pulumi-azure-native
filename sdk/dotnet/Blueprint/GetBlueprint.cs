@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Blueprint
         /// </summary>
         public static Output<GetBlueprintResult> Invoke(GetBlueprintInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlueprintResult>("azure-native:blueprint:getBlueprint", args ?? new GetBlueprintInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a blueprint definition.
+        /// Azure REST API version: 2018-11-01-preview.
+        /// </summary>
+        public static Output<GetBlueprintResult> Invoke(GetBlueprintInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBlueprintResult>("azure-native:blueprint:getBlueprint", args ?? new GetBlueprintInvokeArgs(), options.WithDefaults());
     }
 
 

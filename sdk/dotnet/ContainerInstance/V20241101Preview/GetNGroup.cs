@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ContainerInstance.V20241101Preview
         /// </summary>
         public static Output<GetNGroupResult> Invoke(GetNGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNGroupResult>("azure-native:containerinstance/v20241101preview:getNGroup", args ?? new GetNGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the properties of the specified NGroups resource.
+        /// </summary>
+        public static Output<GetNGroupResult> Invoke(GetNGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNGroupResult>("azure-native:containerinstance/v20241101preview:getNGroup", args ?? new GetNGroupInvokeArgs(), options.WithDefaults());
     }
 
 

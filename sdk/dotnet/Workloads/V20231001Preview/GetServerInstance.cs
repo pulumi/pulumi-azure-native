@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
         /// </summary>
         public static Output<GetServerInstanceResult> Invoke(GetServerInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerInstanceResult>("azure-native:workloads/v20231001preview:getServerInstance", args ?? new GetServerInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the Server Instance resource.
+        /// </summary>
+        public static Output<GetServerInstanceResult> Invoke(GetServerInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerInstanceResult>("azure-native:workloads/v20231001preview:getServerInstance", args ?? new GetServerInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

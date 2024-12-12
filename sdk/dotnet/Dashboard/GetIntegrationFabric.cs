@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Dashboard
         /// </summary>
         public static Output<GetIntegrationFabricResult> Invoke(GetIntegrationFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationFabricResult>("azure-native:dashboard:getIntegrationFabric", args ?? new GetIntegrationFabricInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The integration fabric resource type.
+        /// Azure REST API version: 2023-10-01-preview.
+        /// </summary>
+        public static Output<GetIntegrationFabricResult> Invoke(GetIntegrationFabricInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationFabricResult>("azure-native:dashboard:getIntegrationFabric", args ?? new GetIntegrationFabricInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public static Output<ListQueueKeysResult> Invoke(ListQueueKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListQueueKeysResult>("azure-native:servicebus:listQueueKeys", args ?? new ListQueueKeysInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Primary and secondary connection strings to the queue.
+        /// Azure REST API version: 2022-01-01-preview.
+        /// 
+        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// </summary>
+        public static Output<ListQueueKeysResult> Invoke(ListQueueKeysInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListQueueKeysResult>("azure-native:servicebus:listQueueKeys", args ?? new ListQueueKeysInvokeArgs(), options.WithDefaults());
     }
 
 

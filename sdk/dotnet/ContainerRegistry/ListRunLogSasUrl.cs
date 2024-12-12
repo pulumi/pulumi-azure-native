@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public static Output<ListRunLogSasUrlResult> Invoke(ListRunLogSasUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRunLogSasUrlResult>("azure-native:containerregistry:listRunLogSasUrl", args ?? new ListRunLogSasUrlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets a link to download the run logs.
+        /// Azure REST API version: 2019-06-01-preview.
+        /// 
+        /// Other available API versions: 2018-09-01, 2019-04-01.
+        /// </summary>
+        public static Output<ListRunLogSasUrlResult> Invoke(ListRunLogSasUrlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListRunLogSasUrlResult>("azure-native:containerregistry:listRunLogSasUrl", args ?? new ListRunLogSasUrlInvokeArgs(), options.WithDefaults());
     }
 
 

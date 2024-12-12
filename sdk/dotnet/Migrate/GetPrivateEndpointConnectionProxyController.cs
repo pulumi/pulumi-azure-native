@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetPrivateEndpointConnectionProxyControllerResult> Invoke(GetPrivateEndpointConnectionProxyControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionProxyControllerResult>("azure-native:migrate:getPrivateEndpointConnectionProxyController", args ?? new GetPrivateEndpointConnectionProxyControllerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the of private link proxy resources from a migrate project and private link proxy resource.
+        /// Azure REST API version: 2023-01-01.
+        /// </summary>
+        public static Output<GetPrivateEndpointConnectionProxyControllerResult> Invoke(GetPrivateEndpointConnectionProxyControllerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionProxyControllerResult>("azure-native:migrate:getPrivateEndpointConnectionProxyController", args ?? new GetPrivateEndpointConnectionProxyControllerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public static Output<GetTagAtScopeResult> Invoke(GetTagAtScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagAtScopeResult>("azure-native:resources:getTagAtScope", args ?? new GetTagAtScopeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Wrapper resource for tags API requests and responses.
+        /// Azure REST API version: 2022-09-01.
+        /// 
+        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// </summary>
+        public static Output<GetTagAtScopeResult> Invoke(GetTagAtScopeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagAtScopeResult>("azure-native:resources:getTagAtScope", args ?? new GetTagAtScopeInvokeArgs(), options.WithDefaults());
     }
 
 

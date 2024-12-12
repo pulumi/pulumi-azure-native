@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
         /// </summary>
         public static Output<GetGovernanceRuleResult> Invoke(GetGovernanceRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceRuleResult>("azure-native:security/v20220101preview:getGovernanceRule", args ?? new GetGovernanceRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a specific governance rule for the requested scope by ruleId
+        /// </summary>
+        public static Output<GetGovernanceRuleResult> Invoke(GetGovernanceRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGovernanceRuleResult>("azure-native:security/v20220101preview:getGovernanceRule", args ?? new GetGovernanceRuleInvokeArgs(), options.WithDefaults());
     }
 
 

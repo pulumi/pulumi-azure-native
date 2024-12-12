@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
         /// </summary>
         public static Output<GetWorkspaceLoggerResult> Invoke(GetWorkspaceLoggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceLoggerResult>("azure-native:apimanagement/v20230901preview:getWorkspaceLogger", args ?? new GetWorkspaceLoggerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the details of the logger specified by its identifier.
+        /// </summary>
+        public static Output<GetWorkspaceLoggerResult> Invoke(GetWorkspaceLoggerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceLoggerResult>("azure-native:apimanagement/v20230901preview:getWorkspaceLogger", args ?? new GetWorkspaceLoggerInvokeArgs(), options.WithDefaults());
     }
 
 

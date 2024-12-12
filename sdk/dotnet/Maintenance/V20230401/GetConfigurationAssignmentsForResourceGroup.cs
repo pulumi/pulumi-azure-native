@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Maintenance.V20230401
         /// </summary>
         public static Output<GetConfigurationAssignmentsForResourceGroupResult> Invoke(GetConfigurationAssignmentsForResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentsForResourceGroupResult>("azure-native:maintenance/v20230401:getConfigurationAssignmentsForResourceGroup", args ?? new GetConfigurationAssignmentsForResourceGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get configuration assignment for resource..
+        /// </summary>
+        public static Output<GetConfigurationAssignmentsForResourceGroupResult> Invoke(GetConfigurationAssignmentsForResourceGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAssignmentsForResourceGroupResult>("azure-native:maintenance/v20230401:getConfigurationAssignmentsForResourceGroup", args ?? new GetConfigurationAssignmentsForResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

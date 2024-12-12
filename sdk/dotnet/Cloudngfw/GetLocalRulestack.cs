@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         public static Output<GetLocalRulestackResult> Invoke(GetLocalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackResult>("azure-native:cloudngfw:getLocalRulestack", args ?? new GetLocalRulestackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a LocalRulestackResource
+        /// Azure REST API version: 2023-09-01.
+        /// 
+        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview.
+        /// </summary>
+        public static Output<GetLocalRulestackResult> Invoke(GetLocalRulestackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackResult>("azure-native:cloudngfw:getLocalRulestack", args ?? new GetLocalRulestackInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AwsConnector.V20241201
         /// </summary>
         public static Output<GetIamVirtualMfaDeviceResult> Invoke(GetIamVirtualMfaDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIamVirtualMfaDeviceResult>("azure-native:awsconnector/v20241201:getIamVirtualMfaDevice", args ?? new GetIamVirtualMfaDeviceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a IamVirtualMFADevice
+        /// </summary>
+        public static Output<GetIamVirtualMfaDeviceResult> Invoke(GetIamVirtualMfaDeviceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIamVirtualMfaDeviceResult>("azure-native:awsconnector/v20241201:getIamVirtualMfaDevice", args ?? new GetIamVirtualMfaDeviceInvokeArgs(), options.WithDefaults());
     }
 
 

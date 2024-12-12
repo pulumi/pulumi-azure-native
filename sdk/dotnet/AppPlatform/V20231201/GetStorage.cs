@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.V20231201
         /// </summary>
         public static Output<GetStorageResult> Invoke(GetStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageResult>("azure-native:appplatform/v20231201:getStorage", args ?? new GetStorageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the storage resource.
+        /// </summary>
+        public static Output<GetStorageResult> Invoke(GetStorageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageResult>("azure-native:appplatform/v20231201:getStorage", args ?? new GetStorageInvokeArgs(), options.WithDefaults());
     }
 
 

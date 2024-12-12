@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public static Output<GetLabAccountResult> Invoke(GetLabAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabAccountResult>("azure-native:labservices:getLabAccount", args ?? new GetLabAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get lab account
+        /// Azure REST API version: 2018-10-15.
+        /// </summary>
+        public static Output<GetLabAccountResult> Invoke(GetLabAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabAccountResult>("azure-native:labservices:getLabAccount", args ?? new GetLabAccountInvokeArgs(), options.WithDefaults());
     }
 
 

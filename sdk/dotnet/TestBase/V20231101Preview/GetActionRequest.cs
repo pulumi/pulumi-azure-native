@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.TestBase.V20231101Preview
         /// </summary>
         public static Output<GetActionRequestResult> Invoke(GetActionRequestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionRequestResult>("azure-native:testbase/v20231101preview:getActionRequest", args ?? new GetActionRequestInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the action request under the specified test base account.
+        /// </summary>
+        public static Output<GetActionRequestResult> Invoke(GetActionRequestInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActionRequestResult>("azure-native:testbase/v20231101preview:getActionRequest", args ?? new GetActionRequestInvokeArgs(), options.WithDefaults());
     }
 
 

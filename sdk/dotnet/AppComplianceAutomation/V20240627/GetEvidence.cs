@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppComplianceAutomation.V20240627
         /// </summary>
         public static Output<GetEvidenceResult> Invoke(GetEvidenceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEvidenceResult>("azure-native:appcomplianceautomation/v20240627:getEvidence", args ?? new GetEvidenceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the evidence metadata
+        /// </summary>
+        public static Output<GetEvidenceResult> Invoke(GetEvidenceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEvidenceResult>("azure-native:appcomplianceautomation/v20240627:getEvidence", args ?? new GetEvidenceInvokeArgs(), options.WithDefaults());
     }
 
 

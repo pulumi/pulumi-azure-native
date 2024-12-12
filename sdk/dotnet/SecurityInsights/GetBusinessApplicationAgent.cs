@@ -24,6 +24,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public static Output<GetBusinessApplicationAgentResult> Invoke(GetBusinessApplicationAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBusinessApplicationAgentResult>("azure-native:securityinsights:getBusinessApplicationAgent", args ?? new GetBusinessApplicationAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets Business Application Agent.
+        /// Azure REST API version: 2024-04-01-preview.
+        /// </summary>
+        public static Output<GetBusinessApplicationAgentResult> Invoke(GetBusinessApplicationAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBusinessApplicationAgentResult>("azure-native:securityinsights:getBusinessApplicationAgent", args ?? new GetBusinessApplicationAgentInvokeArgs(), options.WithDefaults());
     }
 
 

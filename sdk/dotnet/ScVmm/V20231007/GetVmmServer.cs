@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ScVmm.V20231007
         /// </summary>
         public static Output<GetVmmServerResult> Invoke(GetVmmServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVmmServerResult>("azure-native:scvmm/v20231007:getVmmServer", args ?? new GetVmmServerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Implements VmmServer GET method.
+        /// </summary>
+        public static Output<GetVmmServerResult> Invoke(GetVmmServerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVmmServerResult>("azure-native:scvmm/v20231007:getVmmServer", args ?? new GetVmmServerInvokeArgs(), options.WithDefaults());
     }
 
 

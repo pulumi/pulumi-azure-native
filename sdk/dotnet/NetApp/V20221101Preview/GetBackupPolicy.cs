@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20221101Preview
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:netapp/v20221101preview:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a particular backup Policy
+        /// </summary>
+        public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:netapp/v20221101preview:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

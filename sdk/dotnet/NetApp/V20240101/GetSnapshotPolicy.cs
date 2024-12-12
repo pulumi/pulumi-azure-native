@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.NetApp.V20240101
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure-native:netapp/v20240101:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get a snapshot Policy
+        /// </summary>
+        public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure-native:netapp/v20240101:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

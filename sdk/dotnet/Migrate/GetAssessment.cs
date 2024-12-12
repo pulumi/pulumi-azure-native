@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get an existing assessment with the specified name. Returns a json object of type 'assessment' as specified in Models section.
+        /// Azure REST API version: 2019-10-01.
+        /// 
+        /// Other available API versions: 2018-02-02.
+        /// </summary>
+        public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:migrate:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Web.V20220901
         /// </summary>
         public static Output<ListWebAppFunctionSecretsResult> Invoke(ListWebAppFunctionSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionSecretsResult>("azure-native:web/v20220901:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Description for Get function secrets for a function in a web site, or a deployment slot.
+        /// </summary>
+        public static Output<ListWebAppFunctionSecretsResult> Invoke(ListWebAppFunctionSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListWebAppFunctionSecretsResult>("azure-native:web/v20220901:listWebAppFunctionSecrets", args ?? new ListWebAppFunctionSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
         /// </summary>
         public static Output<GetFeaturesetVersionFeatureResult> Invoke(GetFeaturesetVersionFeatureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFeaturesetVersionFeatureResult>("azure-native:machinelearningservices/v20230201preview:getFeaturesetVersionFeature", args ?? new GetFeaturesetVersionFeatureInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Dto object representing feature
+        /// </summary>
+        public static Output<GetFeaturesetVersionFeatureResult> Invoke(GetFeaturesetVersionFeatureInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFeaturesetVersionFeatureResult>("azure-native:machinelearningservices/v20230201preview:getFeaturesetVersionFeature", args ?? new GetFeaturesetVersionFeatureInvokeArgs(), options.WithDefaults());
     }
 
 

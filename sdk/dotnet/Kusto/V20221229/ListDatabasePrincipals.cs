@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Kusto.V20221229
         /// </summary>
         public static Output<ListDatabasePrincipalsResult> Invoke(ListDatabasePrincipalsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDatabasePrincipalsResult>("azure-native:kusto/v20221229:listDatabasePrincipals", args ?? new ListDatabasePrincipalsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Returns a list of database principals of the given Kusto cluster and database.
+        /// </summary>
+        public static Output<ListDatabasePrincipalsResult> Invoke(ListDatabasePrincipalsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDatabasePrincipalsResult>("azure-native:kusto/v20221229:listDatabasePrincipals", args ?? new ListDatabasePrincipalsInvokeArgs(), options.WithDefaults());
     }
 
 

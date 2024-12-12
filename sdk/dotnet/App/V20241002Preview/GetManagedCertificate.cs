@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.App.V20241002Preview
         /// </summary>
         public static Output<GetManagedCertificateResult> Invoke(GetManagedCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedCertificateResult>("azure-native:app/v20241002preview:getManagedCertificate", args ?? new GetManagedCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
+        /// </summary>
+        public static Output<GetManagedCertificateResult> Invoke(GetManagedCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedCertificateResult>("azure-native:app/v20241002preview:getManagedCertificate", args ?? new GetManagedCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

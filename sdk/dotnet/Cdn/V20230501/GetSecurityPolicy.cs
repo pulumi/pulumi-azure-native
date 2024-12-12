@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Cdn.V20230501
         /// </summary>
         public static Output<GetSecurityPolicyResult> Invoke(GetSecurityPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPolicyResult>("azure-native:cdn/v20230501:getSecurityPolicy", args ?? new GetSecurityPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets an existing security policy within a profile.
+        /// </summary>
+        public static Output<GetSecurityPolicyResult> Invoke(GetSecurityPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPolicyResult>("azure-native:cdn/v20230501:getSecurityPolicy", args ?? new GetSecurityPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
         /// </summary>
         public static Output<GetTrustedIdProviderResult> Invoke(GetTrustedIdProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustedIdProviderResult>("azure-native:datalakestore/v20161101:getTrustedIdProvider", args ?? new GetTrustedIdProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the specified Data Lake Store trusted identity provider.
+        /// </summary>
+        public static Output<GetTrustedIdProviderResult> Invoke(GetTrustedIdProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrustedIdProviderResult>("azure-native:datalakestore/v20161101:getTrustedIdProvider", args ?? new GetTrustedIdProviderInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ServiceLinker.V20240401
         /// </summary>
         public static Output<GetLinkerDryrunResult> Invoke(GetLinkerDryrunInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkerDryrunResult>("azure-native:servicelinker/v20240401:getLinkerDryrun", args ?? new GetLinkerDryrunInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// get a dryrun job
+        /// </summary>
+        public static Output<GetLinkerDryrunResult> Invoke(GetLinkerDryrunInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkerDryrunResult>("azure-native:servicelinker/v20240401:getLinkerDryrun", args ?? new GetLinkerDryrunInvokeArgs(), options.WithDefaults());
     }
 
 

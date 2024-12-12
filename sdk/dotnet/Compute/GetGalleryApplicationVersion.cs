@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public static Output<GetGalleryApplicationVersionResult> Invoke(GetGalleryApplicationVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationVersionResult>("azure-native:compute:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Retrieves information about a gallery Application Version.
+        /// Azure REST API version: 2022-03-03.
+        /// 
+        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// </summary>
+        public static Output<GetGalleryApplicationVersionResult> Invoke(GetGalleryApplicationVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationVersionResult>("azure-native:compute:getGalleryApplicationVersion", args ?? new GetGalleryApplicationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

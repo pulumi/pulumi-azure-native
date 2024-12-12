@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ApiManagement.V20210801
         /// </summary>
         public static Output<ListDelegationSettingSecretsResult> Invoke(ListDelegationSettingSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDelegationSettingSecretsResult>("azure-native:apimanagement/v20210801:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the secret validation key of the DelegationSettings.
+        /// </summary>
+        public static Output<ListDelegationSettingSecretsResult> Invoke(ListDelegationSettingSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListDelegationSettingSecretsResult>("azure-native:apimanagement/v20210801:listDelegationSettingSecrets", args ?? new ListDelegationSettingSecretsInvokeArgs(), options.WithDefaults());
     }
 
 

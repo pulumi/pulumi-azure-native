@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:databoxedge/v20220401preview:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets the properties of the Data Box Edge/Data Box Gateway device.
+        /// </summary>
+        public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:databoxedge/v20220401preview:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
     }
 
 
