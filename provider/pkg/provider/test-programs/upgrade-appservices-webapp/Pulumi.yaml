@@ -1,0 +1,89 @@
+name: upgrade-appservices-webapp
+runtime: yaml
+description: Upgrade test for websites (AppServicePlan, WebApp)
+variables:
+  repoURL: https://github.com/Azure-Samples/app-service-web-html-get-started.git
+  branch: master
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+  
+  servicePlan:
+    type: azure-native:web:AppServicePlan
+    properties:
+      kind: app
+      resourceGroupName: ${rg.name}
+      sku:
+        name: S1
+
+  app:
+    type: azure-native:web:WebApp
+    options:
+      aliases:
+        - "urn:pulumi:dev::upgrade-appservices::azure-native:web:WebApp::webApp"
+    properties:
+      kind: app
+      resourceGroupName: ${rg.name}
+      serverFarmId: ${servicePlan.id}
+
+  appContent:
+    type: azure-native:web:WebAppSourceControl
+    properties:
+      name: ${app.name}
+      branch: ${branch}
+      repoUrl: ${repoURL}
+      resourceGroupName: ${rg.name}
+      isManualIntegration: true
+  
+  appSettings:
+    type: azure-native:web:WebAppApplicationSettings
+    properties:
+      name: ${app.name}
+      resourceGroupName: ${rg.name}
+      properties:
+        sticky1: production
+        setting1: v1
+
+  appStickies:
+    type: azure-native:web:WebAppSlotConfigurationNames
+    properties:
+      name: ${app.name}
+      resourceGroupName: ${rg.name}
+      appSettingNames:
+        - sticky1
+
+  staging:
+    type: azure-native:web:WebAppSlot
+    properties:
+      name: ${app.name}
+      slot: staging
+      resourceGroupName: ${rg.name}
+      serverFarmId: ${servicePlan.id}
+
+  stagingSettings:
+    type: azure-native:web:WebAppApplicationSettingsSlot
+    options:
+      dependsOn:
+       - ${staging}
+    properties:
+      resourceGroupName: ${rg.name}
+      name: ${app.name}
+      slot: staging
+      properties:
+        sticky1: staging
+        setting1: v2
+
+  ## see: https://github.com/pulumi/pulumi-azure-native/issues/3787
+  # stagingContent:
+  #   type: azure-native:web:WebAppSourceControlSlot
+  #   properties:
+  #     name: ${app.name}
+  #     slot: staging
+  #     branch: ${branch}
+  #     repoUrl: ${repoURL}
+  #     resourceGroupName: ${rg.name}
+  #     isManualIntegration: true
+  
+outputs:
+  siteURL: https://${app.defaultHostName}/
