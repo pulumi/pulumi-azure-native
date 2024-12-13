@@ -14,6 +14,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
+	"github.com/stretchr/testify/assert"
 
 	"github.com/pulumi/providertest/providers"
 	"github.com/pulumi/providertest/pulumitest"
@@ -58,7 +59,20 @@ func TestParallelSubnetCreation(t *testing.T) {
 	assertrefresh.HasNoChanges(t, pt.Refresh(t))
 }
 
-func newPulumiTest(t *testing.T, testProgramDir string) *pulumitest.PulumiTest {
+func TestAutonaming(t *testing.T) {
+	t.Parallel()
+	pt := newPulumiTest(t, "autonaming", opttest.Env("PULUMI_EXPERIMENTAL", "1"))
+	pt.Preview(t)
+	up := pt.Up(t)
+	rgname, ok := up.Outputs["rgname"].Value.(string)
+	assert.True(t, ok)
+	assert.Contains(t, rgname, "autonaming-rg-") // project + name + random suffix
+	saname, ok := up.Outputs["saname"].Value.(string)
+	assert.True(t, ok)
+	assert.Contains(t, saname, "autonamingsa") // project + name + random suffix, no dashes
+}
+
+func newPulumiTest(t *testing.T, testProgramDir string, opts ...opttest.Option) *pulumitest.PulumiTest {
 	t.Helper()
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without cloud credentials")
@@ -68,7 +82,7 @@ func newPulumiTest(t *testing.T, testProgramDir string) *pulumitest.PulumiTest {
 	azureLocation := getLocation()
 	rpFactory := providers.ResourceProviderFactory(providerServer)
 	attachOpt := opttest.AttachProvider("azure-native", rpFactory)
-	pt := pulumitest.NewPulumiTest(t, dir, attachOpt)
+	pt := pulumitest.NewPulumiTest(t, dir, append(opts, attachOpt)...)
 	pt.SetConfig(t, "azure-native:location", azureLocation)
 	return pt
 }

@@ -1,4 +1,4 @@
-// Copyright 2016-2020, Pulumi Corporation.
+// Copyright 2016-2024, Pulumi Corporation.
 
 package provider
 
@@ -248,7 +248,8 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
 
 	return &rpc.ConfigureResponse{
-		SupportsPreview: true,
+		SupportsPreview:                 true,
+		SupportsAutonamingConfiguration: true,
 	}, nil
 }
 
@@ -454,7 +455,7 @@ func (k *azureNativeProvider) Check(ctx context.Context, req *rpc.CheckRequest) 
 		return nil, err
 	}
 
-	k.applyDefaults(ctx, req.Urn, req.RandomSeed, *res, olds, news)
+	k.applyDefaults(ctx, req.Urn, req.RandomSeed, req.Autonaming, *res, olds, news)
 	inputMap := news.Mappable()
 
 	// Validate inputs against PUT parameters.
@@ -550,13 +551,37 @@ func (k *azureNativeProvider) getDefaultLocation(ctx context.Context, olds, news
 	return result(v)
 }
 
-func (k *azureNativeProvider) getDefaultName(urn string, randomSeed []byte, strategy resources.AutoNameKind,
-	key resource.PropertyKey, olds resource.PropertyMap) (resource.PropertyValue, bool) {
+func (k *azureNativeProvider) getDefaultName(urn string, randomSeed []byte,
+	autonaming *rpc.CheckRequest_AutonamingOptions, strategy resources.AutoNameKind, key resource.PropertyKey,
+	olds resource.PropertyMap) (nameValue *resource.PropertyValue, randomlyNamed bool, ok bool) {
 	if v, ok := olds[key]; ok {
 		if vf, ok := olds[createBeforeDeleteFlag]; ok && vf.IsBool() {
-			return v, vf.BoolValue()
+			return &v, vf.BoolValue(), true
 		}
-		return v, false
+		return &v, false, true
+	}
+
+	result := func(s string) *resource.PropertyValue {
+		p := resource.NewStringProperty(s)
+		return &p
+	}
+
+	if autonaming != nil {
+		switch autonaming.Mode {
+		case rpc.CheckRequest_AutonamingOptions_DISABLE:
+			// Do not return any value. If the property is required, Check will fail
+			// with a missing required property error.
+			return nil, false, false
+		case rpc.CheckRequest_AutonamingOptions_ENFORCE:
+			return result(autonaming.ProposedName), true, true
+		case rpc.CheckRequest_AutonamingOptions_PROPOSE:
+			switch strategy {
+			case resources.AutoNameRandom, resources.AutoNameCopy:
+				return result(autonaming.ProposedName), true, true
+			case resources.AutoNameUuid:
+				// Do nothing for UUIDs in proposed mode, fall back to the normal logic below.
+			}
+		}
 	}
 
 	urnParts := strings.Split(urn, "::")
@@ -566,16 +591,16 @@ func (k *azureNativeProvider) getDefaultName(urn string, randomSeed []byte, stra
 		// Resource name is URN name + random suffix.
 		random, err := resource.NewUniqueName(randomSeed, name, 8, 0, nil)
 		contract.AssertNoError(err)
-		return resource.NewStringProperty(random), true
+		return result(random), true, true
 	case resources.AutoNameUuid:
 		// Resource name is a random UUID. We need to do a similar trick as NewUniqueName so that this is
 		// deterministic by randomSeed. We simply ask NewUniqueName for a 32 byte random hex name.
 		hexID, err := resource.NewUniqueName(randomSeed, "", 32, 0, nil)
 		contract.AssertNoError(err)
-		return resource.NewStringProperty(uuid.MustParse(hexID).String()), true
+		return result(uuid.MustParse(hexID).String()), true, true
 	case resources.AutoNameCopy:
 		// Resource name is just a copy of the URN name.
-		return resource.NewStringProperty(name), false
+		return result(name), false, true
 	default:
 		panic(fmt.Sprintf("unknown auto-naming strategy %q", strategy))
 	}
@@ -583,7 +608,7 @@ func (k *azureNativeProvider) getDefaultName(urn string, randomSeed []byte, stra
 
 // Apply default values (e.g., location) to user's inputs.
 func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, randomSeed []byte,
-	res resources.AzureAPIResource, olds, news resource.PropertyMap) {
+	autonaming *rpc.CheckRequest_AutonamingOptions, res resources.AzureAPIResource, olds, news resource.PropertyMap) {
 	for _, par := range res.PutParameters {
 		sdkName := par.Name
 		if par.Value != nil && par.Value.SdkName != "" {
@@ -593,10 +618,12 @@ func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, ran
 		// Auto-naming.
 		key := resource.PropertyKey(sdkName)
 		if !news.HasValue(key) && par.Value != nil && par.Value.AutoName != "" {
-			name, randomlyNamed := k.getDefaultName(urn, randomSeed, par.Value.AutoName, key, olds)
-			news[key] = name
-			if randomlyNamed {
-				news[createBeforeDeleteFlag] = resource.NewBoolProperty(true)
+			name, randomlyNamed, ok := k.getDefaultName(urn, randomSeed, autonaming, par.Value.AutoName, key, olds)
+			if ok {
+				news[key] = *name
+				if randomlyNamed {
+					news[createBeforeDeleteFlag] = resource.NewBoolProperty(true)
+				}
 			}
 		}
 
