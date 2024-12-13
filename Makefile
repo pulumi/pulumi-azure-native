@@ -41,6 +41,12 @@ MAJOR_VERSION   = $(shell echo $(PROVIDER_VERSION) | cut -d. -f1)
 PREVIOUS_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)-1 | bc)
 NEXT_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)+1 | bc)
 
+# Set these variables to enable signing of the windows binary
+AZURE_SIGNING_CLIENT_ID ?=
+AZURE_SIGNING_CLIENT_SECRET ?=
+AZURE_SIGNING_TENANT_ID ?=
+AZURE_SIGNING_KEY_VAULT_URI ?=
+
 # Ensure make directory exists
 # For targets which either don't generate a single file output, or the file is committed, we use a "sentinel"
 # file within `.make/` to track the staleness of the target and only rebuild when needed. At the end of each
@@ -249,6 +255,32 @@ bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: .make/provider_mod_download .make/prebu
 		export GOOS=$$(echo "$(TARGET)" | cut -d "-" -f 1) && \
 		export GOARCH=$$(echo "$(TARGET)" | cut -d "-" -f 2) && \
 		CGO_ENABLED=0 go build -o ${WORKING_DIR}/$@ $(VERSION_FLAGS) $(PROJECT)/v2/provider/cmd/$(PROVIDER)
+	@# Only sign if configured. Test variables set by joining with | between and looking for || showing at least one variable is empty
+	@# Move the binary to a temporary location and sign it there to avoid the target being up-to-date if signing fails
+	set -e; \
+	if [[ "${TARGET}" = "windows-amd64" ]]; then \
+		if [[ "|${AZURE_SIGNING_CLIENT_ID}|${AZURE_SIGNING_CLIENT_SECRET}|${AZURE_SIGNING_TENANT_ID}|${AZURE_SIGNING_KEY_VAULT_URI}|" == *"||"* ]]; then \
+			echo "Skipping signing as required configuration not set: AZURE_SIGNING_CLIENT_ID, AZURE_SIGNING_CLIENT_SECRET, AZURE_SIGNING_TENANT_ID, AZURE_SIGNING_KEY_VAULT_URI"; \
+			echo "To rebuild with signing delete the unsigned $@ and re-run with the fixed configuration"; \
+		else \
+			mv $@ $@.unsigned; \
+			az login --service-principal \
+				--username "${AZURE_SIGNING_CLIENT_ID}" \
+				--password "${AZURE_SIGNING_CLIENT_SECRET}" \
+				--tenant "${AZURE_SIGNING_TENANT_ID}" \
+				--output none; \
+			ACCESS_TOKEN=$$(az account get-access-token --resource "https://vault.azure.net" | jq -r .accessToken); \
+			wget https://github.com/ebourg/jsign/releases/download/6.0/jsign-6.0.jar --output-document=bin/jsign-6.0.jar; \
+			java -jar bin/jsign-6.0.jar \
+				--storetype AZUREKEYVAULT \
+				--keystore "PulumiCodeSigning" \
+				--url "${AZURE_SIGNING_KEY_VAULT_URI}" \
+				--storepass "$${ACCESS_TOKEN}" \
+				$@.unsigned; \
+			mv $@.unsigned $@; \
+			az logout; \
+		fi; \
+	fi
 
 dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-amd64.tar.gz: bin/linux-amd64/$(PROVIDER)
 dist/$(PROVIDER)-v$(PROVIDER_VERSION)-linux-arm64.tar.gz: bin/linux-arm64/$(PROVIDER)
