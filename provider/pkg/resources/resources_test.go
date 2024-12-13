@@ -201,19 +201,19 @@ func TestTraverseProperties(t *testing.T) {
 
 func TestResourceProviderNaming(t *testing.T) {
 	t.Run("Standard case", func(t *testing.T) {
-		actual := ResourceProvider("specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.EnterpriseKnowledgeGraph/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json", "/providers/Microsoft.EnterpriseKnowledgeGraph/operations")
+		actual := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.EnterpriseKnowledgeGraph/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json", "/providers/Microsoft.EnterpriseKnowledgeGraph/operations")
 		assert.Equal(t, "EnterpriseKnowledgeGraph", actual)
 	})
 	t.Run("PaloAltoNetworks namespace", func(t *testing.T) {
-		actual := ResourceProvider("specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json", "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks")
+		actual := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json", "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks")
 		assert.Equal(t, "Cloudngfw", actual)
 	})
 	t.Run("When the provider names of file path and URI don't match, return empty", func(t *testing.T) {
-		actual := ResourceProvider("specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.One/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json", "/providers/Microsoft.Two/operations")
+		actual := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.One/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json", "/providers/Microsoft.Two/operations")
 		assert.Equal(t, "", actual)
 	})
 	t.Run("Change lower case to title case", func(t *testing.T) {
-		actual := ResourceProvider("specification/EnterpriseKnowledgeGraph/resource-manager/microsoft.fooBar/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json", "/providers/microsoft.fooBar/operations")
+		actual := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/microsoft.fooBar/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json", "/providers/microsoft.fooBar/operations")
 		assert.Equal(t, "FooBar", actual)
 	})
 }
