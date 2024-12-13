@@ -46,6 +46,8 @@ type AzureProviders map[ProviderName]ProviderVersions
 // ProviderVersions maps API Versions (e.g. v20200801) to resources and invokes in that version.
 type ProviderVersions = map[SdkVersion]VersionResources
 
+// Represents a failed attempt to determine the provider name for a given path within a spec.
+// This results in the path being skipped and not considered for resource or invoke generation.
 type ProviderNameError struct {
 	FilePath string
 	Path     string
