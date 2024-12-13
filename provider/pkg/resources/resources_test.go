@@ -216,4 +216,8 @@ func TestResourceProviderNaming(t *testing.T) {
 		actual := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/microsoft.fooBar/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json", "/providers/microsoft.fooBar/operations")
 		assert.Equal(t, "FooBar", actual)
 	})
+	t.Run("Folder named resource", func(t *testing.T) {
+		actual := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/PipelineTopologies.json", "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/edgeModules/{edgeModuleName}")
+		assert.Equal(t, "VideoAnalyzer", actual)
+	})
 }
