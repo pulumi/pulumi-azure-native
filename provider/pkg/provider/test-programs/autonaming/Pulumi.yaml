@@ -1,0 +1,25 @@
+name: autonaming
+description: Autonaming configuration example
+runtime: yaml
+config:
+  pulumi:autonaming:
+    value:
+      providers:
+        azure-native:
+          pattern: ${project}-${name}-${alphanum(6)}
+          resources:
+            azure-native:storage:StorageAccount:
+              pattern: ${project}${name}${alphanum(6)}
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+  sa:
+    type: azure-native:storage:StorageAccount
+    properties:
+      resourceGroupName: ${rg.name}
+      sku:
+        name: Standard_LRS
+      kind: StorageV2
+outputs:
+  rgname: ${rg.name}
+  saname: ${sa.name}
