@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/gedex/inflector"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 )
 
 // SingleValueProperty is the name of the property that we insert into the schema for non-object type responses of invokes.
@@ -259,7 +260,7 @@ var wellKnownProviderNames = map[string]string{
 }
 
 // ResourceProvider returns a provider name given Open API spec file and resource's API URI.
-func ResourceProvider(filePath, apiUri string) (string, error) {
+func ResourceProvider(filePath, apiUri string) (string, *string, error) {
 	// We extract the provider name from two sources:
 	// - from the folder name of the Open API spec
 	// - from the URI of the API endpoint (we take the last provider in the URI)
@@ -269,15 +270,15 @@ func ResourceProvider(filePath, apiUri string) (string, error) {
 	// Start with extracting the provider from the folder path. If the folder name is explicitly listed,
 	// use it as the provider name. This is the new style we use for newer resources after 1.0. Older
 	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
-	if override, hasOverride := getNameOverride(specFolderName, fileProvider, apiProvider); hasOverride {
-		return override, nil
+	if override, oldModule, hasOverride := getNameOverride(specFolderName, fileProvider, apiProvider); hasOverride {
+		return override, oldModule, nil
 	}
 	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
 	// declarations outside of the current API provider.
 	if strings.ToLower(fileProvider) != strings.ToLower(apiProvider) {
-		return "", fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", fileProvider, apiProvider)
+		return "", nil, fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", fileProvider, apiProvider)
 	}
-	return fileProvider, nil
+	return fileProvider, nil, nil
 }
 
 // For the cases below, we use folder (SDK) name for module names instead of the ARM name.
@@ -287,12 +288,20 @@ var folderModuleNames = map[string]string{
 	"webpubsub":     "WebPubSub",
 }
 
-func getNameOverride(specFolderName, fileProvider, apiProvider string) (string, bool) {
+// getNameOverride returns a name override for a given spec folder name, file provider, and API provider.
+// The second return value is true if an override is found.
+func getNameOverride(specFolderName, fileProvider, apiProvider string) (string, *string, bool) {
 	// Check if it's named after the top-level folder.
 	if name, ok := folderModuleNames[specFolderName]; ok {
-		return name, true
+		return name, nil, true
 	}
-	return "", false
+	// Disable additional rules for v2 and below.
+	// TODO: Remove after v3 release.
+	if version.GetVersion().Major < 3 {
+		return "", nil, false
+	}
+	// TODO: Add new rules for v3 and above
+	return "", nil, false
 }
 
 func resourceProvider(path, defaultValue string) string {
