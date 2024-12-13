@@ -258,6 +258,28 @@ var wellKnownProviderNames = map[string]string{
 	"visualstudio":                 "VisualStudio",
 }
 
+// ResourceProvider returns a provider name given Open API spec file and resource's API URI.
+func ResourceProvider(filePath, apiUri string) (string, error) {
+	// We extract the provider name from two sources:
+	// - from the folder name of the Open API spec
+	// - from the URI of the API endpoint (we take the last provider in the URI)
+	specFolderName := getSpecFolderName(filePath)
+	fileProvider := resourceProvider(filePath, "")
+	apiProvider := resourceProvider(apiUri, "Resources")
+	// Start with extracting the provider from the folder path. If the folder name is explicitly listed,
+	// use it as the provider name. This is the new style we use for newer resources after 1.0. Older
+	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
+	if override, hasOverride := getNameOverride(specFolderName, fileProvider, apiProvider); hasOverride {
+		return override, nil
+	}
+	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
+	// declarations outside of the current API provider.
+	if strings.ToLower(fileProvider) != strings.ToLower(apiProvider) {
+		return "", fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", fileProvider, apiProvider)
+	}
+	return fileProvider, nil
+}
+
 // For the cases below, we use folder (SDK) name for module names instead of the ARM name.
 var folderModulePattern = regexp.MustCompile(`.*/specification/([a-z]+)/resource-manager/.*`)
 var folderModuleNames = map[string]string{
@@ -265,29 +287,12 @@ var folderModuleNames = map[string]string{
 	"webpubsub":     "WebPubSub",
 }
 
-// ResourceProvider returns a provider name given Open API spec file and resource's API URI.
-func ResourceProvider(filePath, apiUri string) (string, error) {
-	// Start with extracting the provider from the folder path. If the folder name is explicitly listed,
-	// use it as the provider name. This is the new style we use for newer resources after 1.0. Older
-	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
-	subMatches := folderModulePattern.FindStringSubmatch(filePath)
-	if len(subMatches) > 1 {
-		moduleAlias := subMatches[1]
-		if name, ok := folderModuleNames[moduleAlias]; ok {
-			return name, nil
-		}
+func getNameOverride(specFolderName, fileProvider, apiProvider string) (string, bool) {
+	// Check if it's named after the top-level folder.
+	if name, ok := folderModuleNames[specFolderName]; ok {
+		return name, true
 	}
-	// We extract the provider name from two sources:
-	// - from the folder name of the Open API spec
-	// - from the URI of the API endpoint (we take the last provider in the URI)
-	fileProvider := resourceProvider(filePath, "")
-	apiProvider := resourceProvider(apiUri, "Resources")
-	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
-	// declarations outside of the current API provider.
-	if strings.ToLower(fileProvider) != strings.ToLower(apiProvider) {
-		return "", fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", fileProvider, apiProvider)
-	}
-	return fileProvider, nil
+	return "", false
 }
 
 func resourceProvider(path, defaultValue string) string {
@@ -310,6 +315,15 @@ func resourceProvider(path, defaultValue string) string {
 	}
 
 	return defaultValue
+}
+
+func getSpecFolderName(path string) string {
+	subMatches := folderModulePattern.FindStringSubmatch(path)
+	if len(subMatches) > 1 {
+		moduleAlias := subMatches[1]
+		return moduleAlias
+	}
+	return ""
 }
 
 var verbReplacer = strings.NewReplacer(
