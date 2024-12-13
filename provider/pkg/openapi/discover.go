@@ -507,7 +507,7 @@ func exclude(filePath string) bool {
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
 func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
-	prov, err := resources.ResourceProvider(filepath.Join(specsDir, fileLocation), path)
+	prov, _, err := resources.ResourceProvider(filepath.Join(specsDir, fileLocation), path)
 	if err != nil {
 		return DiscoveryDiagnostics{
 			ProviderNameErrors: []ProviderNameError{
