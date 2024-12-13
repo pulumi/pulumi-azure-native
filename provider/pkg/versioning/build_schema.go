@@ -39,6 +39,7 @@ type BuildSchemaReports struct {
 	CurationViolations            []CurationViolation
 	NamingDisambiguations         []resources.NameDisambiguation
 	SkippedPOSTEndpoints          map[string]map[string]string
+	ProviderNameErrors            []openapi.ProviderNameError
 	ForceNewTypes                 []gen.ForceNewType
 	TypeCaseConflicts             gen.CaseConflicts
 	FlattenedPropertyConflicts    map[openapi.ProviderName]map[string]struct{}
@@ -55,6 +56,7 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 		"curationViolations.json":            r.CurationViolations,
 		"namingDisambiguations.json":         r.NamingDisambiguations,
 		"skippedPOSTEndpoints.json":          r.SkippedPOSTEndpoints,
+		"providerNameErrors.json":            r.ProviderNameErrors,
 		"forceNewTypes.json":                 r.ForceNewTypes,
 		"typeCaseConflicts.json":             r.TypeCaseConflicts,
 		"flattenedPropertyConflicts.json":    r.FlattenedPropertyConflicts,
@@ -109,6 +111,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	buildSchemaReports := BuildSchemaReports{
 		NamingDisambiguations:         diagnostics.NamingDisambiguations,
 		SkippedPOSTEndpoints:          diagnostics.SkippedPOSTEndpoints,
+		ProviderNameErrors:            diagnostics.ProviderNameErrors,
 		PathChangesResult:             pathChanges,
 		AllResourcesByVersion:         versionMetadata.AllResourcesByVersion,
 		AllResourceVersionsByResource: versionMetadata.AllResourceVersionsByResource,

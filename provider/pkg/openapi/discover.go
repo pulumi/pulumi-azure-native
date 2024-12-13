@@ -46,6 +46,12 @@ type AzureProviders map[ProviderName]ProviderVersions
 // ProviderVersions maps API Versions (e.g. v20200801) to resources and invokes in that version.
 type ProviderVersions = map[SdkVersion]VersionResources
 
+type ProviderNameError struct {
+	FilePath string
+	Path     string
+	Error    string
+}
+
 type DiscoveryDiagnostics struct {
 	NamingDisambiguations []resources.NameDisambiguation
 	// POST endpoints defined in the Azure spec that we don't include because they don't belong to a resource.
@@ -53,6 +59,8 @@ type DiscoveryDiagnostics struct {
 	SkippedPOSTEndpoints map[string]map[string]string
 	// provider -> resource/type name -> path -> Endpoints
 	Endpoints Endpoints
+	// Errors where we can't determine the provider name for a given path within a spec.
+	ProviderNameErrors []ProviderNameError
 }
 
 // provider -> resource/type name -> path -> Endpoint
@@ -342,6 +350,7 @@ func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders
 				}
 			}
 			diagnostics.Endpoints.merge(providerDiagnostics.Endpoints)
+			diagnostics.ProviderNameErrors = append(diagnostics.ProviderNameErrors, providerDiagnostics.ProviderNameErrors...)
 		}
 	}
 	return providers, diagnostics, nil
@@ -496,9 +505,17 @@ func exclude(filePath string) bool {
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
 func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
-	prov := resources.ResourceProvider(filepath.Join(specsDir, fileLocation), path)
-	if prov == "" {
-		return DiscoveryDiagnostics{}
+	prov, err := resources.ResourceProvider(filepath.Join(specsDir, fileLocation), path)
+	if err != nil {
+		return DiscoveryDiagnostics{
+			ProviderNameErrors: []ProviderNameError{
+				{
+					FilePath: fileLocation,
+					Path:     path,
+					Error:    err.Error(),
+				},
+			},
+		}
 	}
 
 	// Find (or create) the version map with this name.
