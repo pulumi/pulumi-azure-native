@@ -200,30 +200,29 @@ func TestTraverseProperties(t *testing.T) {
 }
 
 func TestResourceProviderNaming(t *testing.T) {
-	for name, tc := range map[string]struct{ filePath, apiUri, expected string }{
-		"Standard case": {
-			"specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.EnterpriseKnowledgeGraph/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
-			"/providers/Microsoft.EnterpriseKnowledgeGraph/operations",
-			"EnterpriseKnowledgeGraph",
-		},
-		"PaloAltoNetworks namespace": {
-			"specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json",
-			"/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks",
-			"Cloudngfw",
-		},
-		"When the provider names of file path and URI don't match, return empty": {
-			"specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.One/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
-			"/providers/Microsoft.Two/operations",
-			"",
-		},
-		"Change lower case to title case": {
-			"specification/EnterpriseKnowledgeGraph/resource-manager/microsoft.fooBar/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
-			"/providers/microsoft.fooBar/operations",
-			"FooBar",
-		},
-	} {
-		t.Run(name, func(t *testing.T) {
-			assert.Equal(t, tc.expected, ResourceProvider(tc.filePath, tc.apiUri))
-		})
-	}
+	t.Run("Standard case", func(t *testing.T) {
+		actual, err := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.EnterpriseKnowledgeGraph/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json", "/providers/Microsoft.EnterpriseKnowledgeGraph/operations")
+		assert.Nil(t, err)
+		assert.Equal(t, "EnterpriseKnowledgeGraph", actual)
+	})
+	t.Run("PaloAltoNetworks namespace", func(t *testing.T) {
+		actual, err := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json", "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks")
+		assert.Nil(t, err)
+		assert.Equal(t, "Cloudngfw", actual)
+	})
+	t.Run("When the provider names of file path and URI don't match, return empty", func(t *testing.T) {
+		actual, err := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.One/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json", "/providers/Microsoft.Two/operations")
+		assert.ErrorContains(t, err, "resolved provider name mismatch: file: One, uri: Two")
+		assert.Equal(t, "", actual)
+	})
+	t.Run("Change lower case to title case", func(t *testing.T) {
+		actual, err := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/microsoft.fooBar/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json", "/providers/microsoft.fooBar/operations")
+		assert.Nil(t, err)
+		assert.Equal(t, "FooBar", actual)
+	})
+	t.Run("Folder named resource", func(t *testing.T) {
+		actual, err := ResourceProvider("/go/pulumi-azure-native/azure-rest-api-specs/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/PipelineTopologies.json", "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/edgeModules/{edgeModuleName}")
+		assert.Nil(t, err)
+		assert.Equal(t, "VideoAnalyzer", actual)
+	})
 }

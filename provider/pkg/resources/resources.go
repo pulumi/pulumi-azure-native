@@ -266,7 +266,7 @@ var folderModuleNames = map[string]string{
 }
 
 // ResourceProvider returns a provider name given Open API spec file and resource's API URI.
-func ResourceProvider(filePath, apiUri string) string {
+func ResourceProvider(filePath, apiUri string) (string, error) {
 	// Start with extracting the provider from the folder path. If the folder name is explicitly listed,
 	// use it as the provider name. This is the new style we use for newer resources after 1.0. Older
 	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
@@ -274,7 +274,7 @@ func ResourceProvider(filePath, apiUri string) string {
 	if len(subMatches) > 1 {
 		moduleAlias := subMatches[1]
 		if name, ok := folderModuleNames[moduleAlias]; ok {
-			return name
+			return name, nil
 		}
 	}
 	// We extract the provider name from two sources:
@@ -285,9 +285,9 @@ func ResourceProvider(filePath, apiUri string) string {
 	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
 	// declarations outside of the current API provider.
 	if strings.ToLower(fileProvider) != strings.ToLower(apiProvider) {
-		return ""
+		return "", fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", fileProvider, apiProvider)
 	}
-	return fileProvider
+	return fileProvider, nil
 }
 
 func resourceProvider(path, defaultValue string) string {
