@@ -916,22 +916,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "alertsmanagement/v20230501preview",
-  "fqn": "pulumi_azure_native.alertsmanagement.v20230501preview",
-  "classes": {
-   "azure-native:alertsmanagement/v20230501preview:AlertProcessingRuleByName": "AlertProcessingRuleByName"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "alertsmanagement/v20240301preview",
-  "fqn": "pulumi_azure_native.alertsmanagement.v20240301preview",
-  "classes": {
-   "azure-native:alertsmanagement/v20240301preview:AlertProcessingRuleByName": "AlertProcessingRuleByName"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "analysisservices",
   "fqn": "pulumi_azure_native.analysisservices",
   "classes": {

@@ -129,8 +129,6 @@ def get_alert_processing_rule_by_name(alert_processing_rule_name: Optional[str] 
     Get an alert processing rule by name.
     Azure REST API version: 2021-08-08.
 
-    Other available API versions: 2023-05-01-preview, 2024-03-01-preview.
-
 
     :param str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.
     :param str resource_group_name: Resource group name where the resource is created.
@@ -155,8 +153,6 @@ def get_alert_processing_rule_by_name_output(alert_processing_rule_name: Optiona
     """
     Get an alert processing rule by name.
     Azure REST API version: 2021-08-08.
-
-    Other available API versions: 2023-05-01-preview, 2024-03-01-preview.
 
 
     :param str alert_processing_rule_name: The name of the alert processing rule that needs to be fetched.

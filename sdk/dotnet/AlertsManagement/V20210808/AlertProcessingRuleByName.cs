@@ -80,8 +80,6 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName" },
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName" },
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName" },
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20230501preview:AlertProcessingRuleByName" },
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20240301preview:AlertProcessingRuleByName" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
