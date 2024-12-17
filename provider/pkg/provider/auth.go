@@ -47,7 +47,7 @@ func (a *authConfig) autorestEnvironment() (azureEnv.Environment, error) {
 func (a *authConfig) cloud() azcloud.Configuration {
 	cloudName := "public"
 	if a.Config != nil && a.Config.Environment != "" {
-		cloudName = a.Environment
+		cloudName = a.Config.Environment
 	}
 	return azure.GetCloudByName(cloudName)
 }
