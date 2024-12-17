@@ -49,7 +49,11 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 	})
 
 	if opts == nil {
-		opts = &arm.ClientOptions{}
+		opts = &arm.ClientOptions{
+			ClientOptions: policy.ClientOptions{
+				Cloud: azureCloud,
+			},
+		}
 	}
 	// azcore logging will only happen at log level 9.
 	opts.Logging.IncludeBody = true
