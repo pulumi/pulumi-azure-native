@@ -6,6 +6,8 @@ import (
 	"os"
 	"testing"
 
+	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/hashicorp/go-azure-helpers/authentication"
 	goversion "github.com/hashicorp/go-version"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -258,4 +260,114 @@ func TestAuthConfigs(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestGetAuthConfigCloud(t *testing.T) {
+	t.Run("Default is public", func(t *testing.T) {
+		p := azureNativeProvider{
+			config: map[string]string{
+				"useMsi": "true",
+			},
+		}
+		conf, err := p.getAuthConfig()
+		require.NoError(t, err)
+		assert.Equal(t, azcloud.AzurePublic, conf.cloud())
+	})
+
+	t.Run("Public", func(t *testing.T) {
+		p := azureNativeProvider{
+			config: map[string]string{
+				"environment": "public",
+				"useMsi":      "true",
+			},
+		}
+		conf, err := p.getAuthConfig()
+		require.NoError(t, err)
+		assert.Equal(t, azcloud.AzurePublic, conf.cloud())
+	})
+
+	t.Run("China", func(t *testing.T) {
+		p := azureNativeProvider{
+			config: map[string]string{
+				"environment": "china",
+				"useMsi":      "true",
+			},
+		}
+		conf, err := p.getAuthConfig()
+		require.NoError(t, err)
+		assert.Equal(t, azcloud.AzureChina, conf.cloud())
+	})
+
+	t.Run("US Government", func(t *testing.T) {
+		p := azureNativeProvider{
+			config: map[string]string{
+				"environment": "usgovernment",
+				"useMsi":      "true",
+			},
+		}
+		conf, err := p.getAuthConfig()
+		require.NoError(t, err)
+		assert.Equal(t, azcloud.AzureGovernment, conf.cloud())
+	})
+
+	t.Run("Public from environment variable", func(t *testing.T) {
+		p := azureNativeProvider{}
+		t.Setenv("ARM_ENVIRONMENT", "public")
+		t.Setenv("ARM_USE_MSI", "true")
+		conf, err := p.getAuthConfig()
+		require.NoError(t, err)
+		assert.Equal(t, azcloud.AzurePublic, conf.cloud())
+	})
+
+	t.Run("China from environment variable", func(t *testing.T) {
+		p := azureNativeProvider{}
+		t.Setenv("ARM_ENVIRONMENT", "china")
+		t.Setenv("ARM_USE_MSI", "true")
+		conf, err := p.getAuthConfig()
+		require.NoError(t, err)
+		assert.Equal(t, azcloud.AzureChina, conf.cloud())
+	})
+
+	t.Run("US Government from environment variable", func(t *testing.T) {
+		p := azureNativeProvider{}
+		t.Setenv("ARM_ENVIRONMENT", "usgovernment")
+		t.Setenv("ARM_USE_MSI", "true")
+		conf, err := p.getAuthConfig()
+		require.NoError(t, err)
+		assert.Equal(t, azcloud.AzureGovernment, conf.cloud())
+	})
+}
+
+func TestGetCloud(t *testing.T) {
+	t.Run("Public", func(t *testing.T) {
+		a := authConfig{
+			Config: &authentication.Config{
+				Environment: "public",
+			},
+		}
+		assert.Equal(t, azcloud.AzurePublic, a.cloud())
+	})
+
+	t.Run("China", func(t *testing.T) {
+		a := authConfig{
+			Config: &authentication.Config{
+				Environment: "china",
+			},
+		}
+		assert.Equal(t, azcloud.AzureChina, a.cloud())
+	})
+
+	t.Run("US Government", func(t *testing.T) {
+		a := authConfig{
+			Config: &authentication.Config{
+				Environment: "usgov",
+			},
+		}
+		assert.Equal(t, azcloud.AzureGovernment, a.cloud())
+	})
+
+	t.Run("Unknown", func(t *testing.T) {
+		a := authConfig{}
+		assert.Equal(t, azcloud.AzurePublic, a.cloud())
+	})
 }

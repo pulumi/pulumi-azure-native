@@ -17,7 +17,6 @@ import (
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
@@ -263,17 +262,11 @@ func (k *azureNativeProvider) readAuthConfig() (*authConfiguration, error) {
 		}
 	}
 
-	cloudName := k.getConfig("environment", "ARM_ENVIRONMENT")
-	if cloudName == "" {
-		cloudName = "public"
-	}
-	cloud := azure.GetCloudByName(cloudName)
-
 	return &authConfiguration{
 		clientId:   k.getConfig("clientId", "ARM_CLIENT_ID"),
 		tenantId:   k.getConfig("tenantId", "ARM_TENANT_ID"),
 		auxTenants: auxTenants,
-		cloud:      cloud,
+		cloud:      k.cloud,
 
 		clientSecret:       k.getConfig("clientSecret", "ARM_CLIENT_SECRET"),
 		clientCertPath:     k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),

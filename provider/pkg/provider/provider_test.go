@@ -6,6 +6,7 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
@@ -420,6 +421,55 @@ func TestUsesCorrectAzureClient(t *testing.T) {
 		require.NoError(t, err)
 		assert.Equal(t, "azCoreClient", reflect.TypeOf(client).Elem().Name())
 	})
+}
+
+func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
+	for expectedHost, cloudInstance := range map[string]cloud.Configuration{
+		"https://management.azure.com":         cloud.AzurePublic,
+		"https://management.chinacloudapi.cn":  cloud.AzureChina,
+		"https://management.usgovcloudapi.net": cloud.AzureGovernment,
+	} {
+		p := azureNativeProvider{
+			cloud: cloudInstance,
+		}
+
+		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
+		require.NoError(t, err)
+		require.NotNil(t, client)
+
+		// Use reflection to get the value of the private 'host' field
+		clientValue := reflect.ValueOf(client).Elem()
+		hostField := clientValue.FieldByName("host")
+		require.True(t, hostField.IsValid(), "host field should be valid", expectedHost)
+
+		assert.Equal(t, expectedHost, hostField.String())
+	}
+}
+
+func TestAutorestAzureClientUsesCorrectCloud(t *testing.T) {
+	for expectedEnv, environment := range map[string]azure.Environment{
+		azure.PublicCloud.Name:       azure.PublicCloud,
+		azure.ChinaCloud.Name:        azure.ChinaCloud,
+		azure.USGovernmentCloud.Name: azure.USGovernmentCloud,
+	} {
+		p := azureNativeProvider{
+			environment: environment,
+		}
+		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "false")
+
+		client, err := p.newAzureClient(nil, nil, "pulumi")
+		require.NoError(t, err)
+		require.NotNil(t, client)
+
+		// Use reflection to get the value of the private 'environment' field
+		clientValue := reflect.ValueOf(client).Elem()
+		environmentField := clientValue.FieldByName("environment")
+		require.True(t, environmentField.IsValid(), "environment field should be valid")
+		nameField := environmentField.FieldByName("Name")
+		require.True(t, nameField.IsValid(), "environment.name field should be valid")
+
+		assert.Equal(t, expectedEnv, nameField.String())
+	}
 }
 
 type mockAzureClient struct {

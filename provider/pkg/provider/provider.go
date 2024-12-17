@@ -21,6 +21,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
@@ -61,6 +62,7 @@ type azureNativeProvider struct {
 	version          string
 	subscriptionID   string
 	environment      azureEnv.Environment
+	cloud            azcloud.Configuration
 	resourceMap      *resources.PartialAzureAPIMetadata
 	config           map[string]string
 	schemaBytes      []byte
@@ -183,15 +185,12 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, err
 	}
 
-	envName := authConfig.Environment
-	env, err := azureEnv.EnvironmentFromName(envName)
+	k.environment, err = authConfig.autorestEnvironment()
 	if err != nil {
-		env, err = azureEnv.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", envName))
-		if err != nil {
-			return nil, errors.Wrapf(err, "environment %q was not found", envName)
-		}
+		return nil, err
 	}
-	k.environment = env
+
+	k.cloud = authConfig.cloud()
 
 	hamiltonEnv := k.autorestEnvToHamiltonEnv()
 
@@ -239,7 +238,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
 
-	k.customResources, err = customresources.BuildCustomResources(&env, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
+	k.customResources, err = customresources.BuildCustomResources(&k.environment, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
 		resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, credential)
 	if err != nil {
 		return nil, fmt.Errorf("initializing custom resources: %w", err)
@@ -256,7 +255,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
 	if util.EnableAzcoreBackend() {
 		logging.V(9).Infof("AzureClient: using azcore and azidentity")
-		return azure.NewAzCoreClient(tokenCred, userAgent, azure.GetCloudByName(k.environment.Name), nil)
+		return azure.NewAzCoreClient(tokenCred, userAgent, k.cloud, nil)
 	}
 	logging.V(9).Infof("AzureClient: using autorest")
 	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil

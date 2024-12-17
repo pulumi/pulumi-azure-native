@@ -12,12 +12,15 @@ import (
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/go-autorest/autorest"
+	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/manicminer/hamilton/environments"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 
 	goversion "github.com/hashicorp/go-version"
@@ -27,6 +30,26 @@ import (
 type authConfig struct {
 	*authentication.Config
 	useCli bool
+}
+
+func (a *authConfig) autorestEnvironment() (azureEnv.Environment, error) {
+	envName := a.Environment
+	env, err := azureEnv.EnvironmentFromName(envName)
+	if err != nil {
+		env, err = azureEnv.EnvironmentFromName(fmt.Sprintf("AZURE%sCLOUD", envName))
+		if err != nil {
+			return azureEnv.Environment{}, errors.Wrapf(err, "environment %q was not found", envName)
+		}
+	}
+	return env, nil
+}
+
+func (a *authConfig) cloud() azcloud.Configuration {
+	cloudName := "public"
+	if a.Config != nil && a.Config.Environment != "" {
+		cloudName = a.Config.Environment
+	}
+	return azure.GetCloudByName(cloudName)
 }
 
 type oidcConfig struct {
