@@ -261,9 +261,7 @@
     ],
     "AlertProcessingRuleByName": [
       "2021-08-08",
-      "2021-08-08-preview",
-      "2023-05-01-preview",
-      "2024-03-01-preview"
+      "2021-08-08-preview"
     ],
     "PrometheusRuleGroup": [
       "2021-07-22-preview",

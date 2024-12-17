@@ -280,12 +280,6 @@
     ],
     "2023-04-01-preview": [
       "TenantActivityLogAlert"
-    ],
-    "2023-05-01-preview": [
-      "AlertProcessingRuleByName"
-    ],
-    "2024-03-01-preview": [
-      "AlertProcessingRuleByName"
     ]
   },
   "AnalysisServices": {
