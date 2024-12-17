@@ -6,6 +6,8 @@ import (
 	"os"
 	"testing"
 
+	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/hashicorp/go-azure-helpers/authentication"
 	goversion "github.com/hashicorp/go-version"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -258,4 +260,38 @@ func TestAuthConfigs(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestGetCloud(t *testing.T) {
+	t.Run("Public", func(t *testing.T) {
+		a := authConfig{
+			Config: &authentication.Config{
+				Environment: "public",
+			},
+		}
+		assert.Equal(t, azcloud.AzurePublic, a.cloud())
+	})
+
+	t.Run("China", func(t *testing.T) {
+		a := authConfig{
+			Config: &authentication.Config{
+				Environment: "china",
+			},
+		}
+		assert.Equal(t, azcloud.AzureChina, a.cloud())
+	})
+
+	t.Run("US Government", func(t *testing.T) {
+		a := authConfig{
+			Config: &authentication.Config{
+				Environment: "usgov",
+			},
+		}
+		assert.Equal(t, azcloud.AzureGovernment, a.cloud())
+	})
+
+	t.Run("Unknown", func(t *testing.T) {
+		a := authConfig{}
+		assert.Equal(t, azcloud.AzurePublic, a.cloud())
+	})
 }
