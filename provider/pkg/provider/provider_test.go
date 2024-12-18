@@ -13,6 +13,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -424,6 +425,10 @@ func TestUsesCorrectAzureClient(t *testing.T) {
 }
 
 func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
+	if !util.EnableAzcoreBackend() {
+		t.Skip()
+	}
+
 	for expectedHost, cloudInstance := range map[string]cloud.Configuration{
 		"https://management.azure.com":         cloud.AzurePublic,
 		"https://management.chinacloudapi.cn":  cloud.AzureChina,
@@ -440,7 +445,7 @@ func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
 		// Use reflection to get the value of the private 'host' field
 		clientValue := reflect.ValueOf(client).Elem()
 		hostField := clientValue.FieldByName("host")
-		require.True(t, hostField.IsValid(), "host field should be valid", expectedHost)
+		require.True(t, hostField.IsValid(), "host field should be valid (%s)", expectedHost)
 
 		assert.Equal(t, expectedHost, hostField.String())
 	}
