@@ -20,7 +20,6 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/blang/semver"
 	"github.com/go-openapi/spec"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
@@ -116,25 +115,30 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 			property.Ref.String() == "#/definitions/DelegatedSubnetProperties" ||
 			property.Ref.String() == "#/definitions/DelegatedControllerProperties"
 
-		// Prevent a property collision due to flatterning. From v3, we detect and avoid this case automatically.
-		if version.GetVersion().Major < 3 && m.resourceName == "DefenderForStorage" && (name == "malwareScanning" || name == "sensitiveDataDiscovery") {
-			flatten = false
-		}
 		// See #3556 and https://github.com/Azure/azure-rest-api-specs/issues/30443
 		// It's ok if a new API version is fixed, this is a no-op then.
 		if m.resourceName == "CIAMTenant" && name == "tier" && strings.HasPrefix(m.module, "azureactivedirectory") {
 			flatten = false
 		}
 
-		if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
-			bag, err := m.genProperties(resolvedProperty, variants.noResponse())
-			if err != nil {
-				return nil, err
+		// Prevent a property collision due to flatterning. From v3, we detect and avoid this case automatically.
+		if version.GetVersion().Major < 3 {
+			if m.resourceName == "DefenderForStorage" && (name == "malwareScanning" || name == "sensitiveDataDiscovery") {
+				flatten = false
 			}
 
-			// Check that none of the inner properties already exists on the outer type.
-			hasConflict := m.hasConflictingPropertiesForFlattening(result, bag, name, version.GetVersion())
-			if !hasConflict {
+			if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
+				bag, err := m.genProperties(resolvedProperty, variants.noResponse())
+				if err != nil {
+					return nil, err
+				}
+
+				// Check that none of the inner properties already exists on the outer type. This
+				// causes a conflict when flattening, and will be handled in v3.
+				for _, propName := range propertyUnion(result, bag) {
+					m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
+				}
+
 				// Adjust every property to mark them as flattened.
 				newProperties := map[string]resources.AzureAPIProperty{}
 				for n, value := range bag.properties {
@@ -157,6 +161,44 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 
 				result.merge(bag)
 				continue
+			}
+		} else {
+			if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
+				bag, err := m.genProperties(resolvedProperty, variants.noResponse())
+				if err != nil {
+					return nil, err
+				}
+
+				// Check that none of the inner properties already exists on the outer type.
+				conflictingProperties := propertyUnion(result, bag)
+				if len(conflictingProperties) == 0 {
+					// Adjust every property to mark them as flattened.
+					newProperties := map[string]resources.AzureAPIProperty{}
+					for n, value := range bag.properties {
+						// The order of containers is important, so we prepend the outermost name.
+						value.Containers = append([]string{name}, value.Containers...)
+						newProperties[n] = value
+					}
+					bag.properties = newProperties
+
+					newRequiredContainers := make(RequiredContainers, len(bag.requiredContainers))
+					for i, containers := range bag.requiredContainers {
+						newRequiredContainers[i] = append([]string{name}, containers...)
+					}
+					for _, requiredName := range resolvedSchema.Required {
+						if requiredName == name {
+							newRequiredContainers = append(newRequiredContainers, []string{name})
+						}
+					}
+					bag.requiredContainers = newRequiredContainers
+
+					result.merge(bag)
+					continue
+				} else {
+					for _, propName := range conflictingProperties {
+						m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
+					}
+				}
 			}
 		}
 
@@ -260,15 +302,15 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 	return result, nil
 }
 
-func (m *moduleGenerator) hasConflictingPropertiesForFlattening(outerBag, innerBag *propertyBag, propertyName string, providerVersion semver.Version) bool {
-	hasConflict := false
+// propertyUnion returns the property names that are present in both bags.
+func propertyUnion(outerBag, innerBag *propertyBag) []string {
+	result := []string{}
 	for propName := range innerBag.properties {
 		if _, ok := outerBag.properties[propName]; ok {
-			m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", propertyName, propName)] = struct{}{}
-			hasConflict = true
+			result = append(result, propName)
 		}
 	}
-	return hasConflict && providerVersion.Major >= 3
+	return result
 }
 
 func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, resolvedProperty *openapi.Schema, variants genPropertiesVariant) (*pschema.PropertySpec, *resources.AzureAPIProperty, error) {

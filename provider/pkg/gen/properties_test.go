@@ -3,7 +3,6 @@ package gen
 import (
 	"testing"
 
-	"github.com/blang/semver"
 	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -196,55 +195,28 @@ func TestNonObjectInvokeResponses(t *testing.T) {
 	})
 }
 
-func TestHasConflictingPropertiesForFlattening(t *testing.T) {
-	hasConflict := func(providerVersion string, outer, inner map[string]resources.AzureAPIProperty) bool {
-		m := moduleGenerator{
-			flattenedPropertyConflicts: map[string]struct{}{},
-		}
-
-		outerBag := &propertyBag{properties: outer}
-		innerBag := &propertyBag{properties: inner}
-
-		return m.hasConflictingPropertiesForFlattening(outerBag, innerBag, "foo", semver.MustParse(providerVersion))
-	}
-
-	t.Run("no conflict v2", func(t *testing.T) {
+func TestPropertyUnion(t *testing.T) {
+	t.Run("no conflict", func(t *testing.T) {
 		outer := map[string]resources.AzureAPIProperty{
 			"foo": {},
 		}
 		inner := map[string]resources.AzureAPIProperty{
+			"bar":  {},
+			"foo2": {},
+		}
+		assert.Empty(t, propertyUnion(&propertyBag{properties: outer}, &propertyBag{properties: inner}))
+	})
+
+	t.Run("conflict", func(t *testing.T) {
+		outer := map[string]resources.AzureAPIProperty{
+			"foo":  {},
+			"foo2": {},
+			"bla":  {},
+		}
+		inner := map[string]resources.AzureAPIProperty{
+			"foo": {},
 			"bar": {},
 		}
-		assert.False(t, hasConflict("2.0.0", outer, inner))
-	})
-
-	t.Run("no conflict v3", func(t *testing.T) {
-		outer := map[string]resources.AzureAPIProperty{
-			"foo": {},
-		}
-		inner := map[string]resources.AzureAPIProperty{
-			"bar": {},
-		}
-		assert.False(t, hasConflict("3.0.0", outer, inner))
-	})
-
-	t.Run("conflict v2", func(t *testing.T) {
-		outer := map[string]resources.AzureAPIProperty{
-			"foo": {},
-			"bla": {}}
-		inner := map[string]resources.AzureAPIProperty{
-			"foo": {},
-			"bar": {}}
-		assert.False(t, hasConflict("2.0.0", outer, inner))
-	})
-
-	t.Run("conflict v3", func(t *testing.T) {
-		outer := map[string]resources.AzureAPIProperty{
-			"foo": {},
-			"bla": {}}
-		inner := map[string]resources.AzureAPIProperty{
-			"foo": {},
-			"bar": {}}
-		assert.True(t, hasConflict("3.0.0", outer, inner))
+		assert.Equal(t, []string{"foo"}, propertyUnion(&propertyBag{properties: outer}, &propertyBag{properties: inner}))
 	})
 }
