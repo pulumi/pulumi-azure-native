@@ -37,17 +37,7 @@ type azCoreClient struct {
 	updatePollingIntervalSeconds int64
 }
 
-func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, azureCloud cloud.Configuration, opts *arm.ClientOptions,
-) (AzureClient, error) {
-	// Hook our logging up to the azcore logger.
-	log.SetListener(func(event log.Event, msg string) {
-		// Retry logging is very verbose and the number of the retry attempt is already contained
-		// in the response event.
-		if event != log.EventRetryPolicy {
-			logging.V(9).Infof("[azcore] %v: %s", event, msg)
-		}
-	})
-
+func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *arm.ClientOptions {
 	if opts == nil {
 		opts = &arm.ClientOptions{
 			ClientOptions: policy.ClientOptions{
@@ -55,6 +45,7 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 			},
 		}
 	}
+
 	// azcore logging will only happen at log level 9.
 	opts.Logging.IncludeBody = true
 
@@ -76,7 +67,6 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 		http.StatusServiceUnavailable,  // 503
 		http.StatusGatewayTimeout,      // 504
 	}
-
 	opts.Retry.ShouldRetry = func(resp *http.Response, err error) bool {
 		if err != nil {
 			return true
@@ -85,14 +75,29 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 		if runtime.HasStatusCode(resp, retryableStatusCodes...) {
 			return true
 		}
-
 		if shouldRetryConflict(resp) {
 			return true
 		}
-
 		return false
 	}
 
+	return opts
+}
+
+// NewAzCoreClient creates a new AzureClient using the azcore SDK. For general use, leave userOpts
+// nil to use the default options. If you do set it, make sure to set its ClientOptions.Cloud field.
+func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, azureCloud cloud.Configuration, userOpts *arm.ClientOptions,
+) (AzureClient, error) {
+	// Hook our logging up to the azcore logger.
+	log.SetListener(func(event log.Event, msg string) {
+		// Retry logging is very verbose and the number of the retry attempt is already contained
+		// in the response event.
+		if event != log.EventRetryPolicy {
+			logging.V(9).Infof("[azcore] %v: %s", event, msg)
+		}
+	})
+
+	opts := initPipelineOpts(azureCloud, userOpts)
 	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", version.Version, tokenCredential,
 		runtime.PipelineOptions{}, opts)
 	if err != nil {

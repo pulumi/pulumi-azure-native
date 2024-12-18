@@ -10,6 +10,7 @@ import (
 	"net/url"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
@@ -19,6 +20,79 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+func TestInitPipelineOpts(t *testing.T) {
+	t.Run("retry delays", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		assert.InDelta(t, 20*time.Second, opts.Retry.RetryDelay, 10.0)
+		assert.InDelta(t, 120*time.Second, opts.Retry.MaxRetryDelay, 30.0)
+	})
+
+	t.Run("cloud is public", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		assert.Equal(t, cloud.AzurePublic, opts.ClientOptions.Cloud)
+	})
+
+	t.Run("cloud is usgov", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzureGovernment, nil)
+		assert.Equal(t, cloud.AzureGovernment, opts.ClientOptions.Cloud)
+	})
+
+	t.Run("cloud is china", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzureChina, nil)
+		assert.Equal(t, cloud.AzureChina, opts.ClientOptions.Cloud)
+	})
+
+	t.Run("should retry", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		assert.NotNil(t, opts.Retry.ShouldRetry)
+	})
+
+	t.Run("retries on 408 timeout", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		assert.True(t, opts.Retry.ShouldRetry(&http.Response{StatusCode: http.StatusRequestTimeout}, nil))
+	})
+
+	t.Run("retries on 409 conflict when another operation is in progress", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		header := http.Header{}
+		header.Add("x-ms-error-code", "AnotherOperationInProgress")
+		assert.True(t, opts.Retry.ShouldRetry(&http.Response{
+			StatusCode: http.StatusConflict,
+			Header:     header,
+		}, nil))
+	})
+
+	t.Run("doesn't retry on 409 conflict when no other operation is in progress", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		assert.False(t, opts.Retry.ShouldRetry(&http.Response{StatusCode: http.StatusConflict}, nil))
+	})
+
+	t.Run("retries on 429 too many requests", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		assert.True(t, opts.Retry.ShouldRetry(&http.Response{StatusCode: http.StatusTooManyRequests}, nil))
+	})
+
+	t.Run("retries on 500 internal server error", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		assert.True(t, opts.Retry.ShouldRetry(&http.Response{StatusCode: http.StatusInternalServerError}, nil))
+	})
+
+	t.Run("retries on 502 bad gateway", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		assert.True(t, opts.Retry.ShouldRetry(&http.Response{StatusCode: http.StatusBadGateway}, nil))
+	})
+
+	t.Run("retries on 503 service unavailable", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		assert.True(t, opts.Retry.ShouldRetry(&http.Response{StatusCode: http.StatusServiceUnavailable}, nil))
+	})
+
+	t.Run("retries on 504 gateway timeout", func(t *testing.T) {
+		opts := initPipelineOpts(cloud.AzurePublic, nil)
+		assert.True(t, opts.Retry.ShouldRetry(&http.Response{StatusCode: http.StatusGatewayTimeout}, nil))
+	})
+}
 
 func TestNormalizeLocationHeader(t *testing.T) {
 	const host = "https://management.azure.com"
