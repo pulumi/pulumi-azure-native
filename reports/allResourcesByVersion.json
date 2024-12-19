@@ -8726,6 +8726,25 @@
       "listMonitorHosts",
       "listMonitorLinkedResources",
       "listMonitorMonitoredResources"
+    ],
+    "2023-07-07": [
+      "Monitor",
+      "MonitoredSubscription",
+      "getMonitorDefaultKey",
+      "listMonitorApiKeys",
+      "listMonitorHosts",
+      "listMonitorLinkedResources",
+      "listMonitorMonitoredResources"
+    ],
+    "2023-10-20": [
+      "Monitor",
+      "MonitoredSubscription",
+      "getBillingInfo",
+      "getMonitorDefaultKey",
+      "listMonitorApiKeys",
+      "listMonitorHosts",
+      "listMonitorLinkedResources",
+      "listMonitorMonitoredResources"
     ]
   },
   "DelegatedNetwork": {
