@@ -44,44 +44,62 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 		return nil, err
 	}
 
-	protectableItemsClient := clientFactory.NewBackupProtectableItemsClient()
+	reader := &systemNameReaderImpl{
+		protectableItemsClient: clientFactory.NewBackupProtectableItemsClient(),
+	}
 
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}",
 		tok:  "azure-native:recoveryservices:ProtectedItem",
 		PreCreate: func(ctx context.Context, input resource.PropertyMap) (resource.PropertyMap, error) {
-			item, err := extractProtectedItemProperties(input)
+			err := updateInputWithFileShareSystemName(ctx, input, reader)
 			if err != nil {
 				return nil, err
-			}
-
-			if item.protectedItemType != "AzureFileShareProtectedItem" {
-				logging.V(9).Infof("not modifying protected item of type %s", item.protectedItemType)
-				return input, nil
-			}
-
-			logging.V(9).Infof("looking up system name for %s", item.itemName)
-			systemName, err := readSystemNameFromProtectableItem(ctx, item, protectableItemsClient)
-			if err != nil {
-				return nil, err
-			}
-
-			if systemName != "" {
-				input["__friendlyProtectedItemName"] = input["protectedItemName"]
-				input["protectedItemName"] = resource.NewStringProperty(systemName)
-			} else {
-				logging.V(5).Infof("no system name found for %s", input["protectedItemName"])
 			}
 			return input, nil
 		},
 	}, nil
 }
 
-func readSystemNameFromProtectableItem(ctx context.Context, input *protectedItemProperties, protectableItemsClient *recovery.BackupProtectableItemsClient) (string, error) {
+func updateInputWithFileShareSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader) error {
+	item, err := extractProtectedItemProperties(input)
+	if err != nil {
+		return err
+	}
+
+	if item.protectedItemType != "AzureFileShareProtectedItem" {
+		logging.V(9).Infof("not modifying protected item of type %s", item.protectedItemType)
+		return nil
+	}
+
+	logging.V(9).Infof("looking up system name for %s", item.itemName)
+	systemName, err := reader.readSystemNameFromProtectableItem(ctx, item)
+	if err != nil {
+		return err
+	}
+
+	if systemName != "" {
+		input["__friendlyProtectedItemName"] = input["protectedItemName"]
+		input["protectedItemName"] = resource.NewStringProperty(systemName)
+	} else {
+		logging.V(5).Infof("no system name found for %s", input["protectedItemName"])
+	}
+	return nil
+}
+
+type systemNameReader interface {
+	readSystemNameFromProtectableItem(ctx context.Context, input *protectedItemProperties) (string, error)
+}
+
+type systemNameReaderImpl struct {
+	protectableItemsClient *recovery.BackupProtectableItemsClient
+}
+
+func (s *systemNameReaderImpl) readSystemNameFromProtectableItem(ctx context.Context, input *protectedItemProperties) (string, error) {
 	segments := strings.Split(input.sourceResourceId, "/")
 	storageAccountName := segments[len(segments)-1]
 
-	protectablePager := protectableItemsClient.NewListPager(input.recoveryVaultName, input.resourceGroupName, &recovery.BackupProtectableItemsClientListOptions{
+	protectablePager := s.protectableItemsClient.NewListPager(input.recoveryVaultName, input.resourceGroupName, &recovery.BackupProtectableItemsClientListOptions{
 		Filter: to.Ptr("backupManagementType eq 'AzureStorage'"),
 	})
 	for protectablePager.More() {
