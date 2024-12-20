@@ -12,6 +12,7 @@ import (
 	recovery "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup/v4"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 type protectedItem struct {
@@ -49,20 +50,28 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}",
 		tok:  "azure-native:recoveryservices:ProtectedItem",
 		PreCreate: func(ctx context.Context, input resource.PropertyMap) (resource.PropertyMap, error) {
-			// TODO do nothing if not a file share
-
 			item, err := extractProtectedItemProperties(input)
 			if err != nil {
 				return nil, err
 			}
+
+			if item.protectedItemType != "AzureFileShareProtectedItem" {
+				logging.V(9).Infof("not modifying protected item of type %s", item.protectedItemType)
+				return input, nil
+			}
+
+			logging.V(9).Infof("looking up system name for %s", item.itemName)
 			systemName, err := readSystemNameFromProtectableItem(ctx, item, protectableItemsClient)
 			if err != nil {
 				return nil, err
 			}
 
-			input["__friendlyProtectedItemName"] = input["protectedItemName"]
-			input["protectedItemName"] = resource.NewStringProperty(systemName)
-
+			if systemName != "" {
+				input["__friendlyProtectedItemName"] = input["protectedItemName"]
+				input["protectedItemName"] = resource.NewStringProperty(systemName)
+			} else {
+				logging.V(5).Infof("no system name found for %s", input["protectedItemName"])
+			}
 			return input, nil
 		},
 	}, nil
@@ -93,17 +102,6 @@ func readSystemNameFromProtectableItem(ctx context.Context, input *protectedItem
 		}
 	}
 	return "", nil
-}
-
-func getRequiredStringProperty(properties resource.PropertyMap, key resource.PropertyKey) (string, error) {
-	prop, ok := properties[key]
-	if !ok {
-		return "", fmt.Errorf("%s not found", key)
-	}
-	if !prop.IsString() {
-		return "", fmt.Errorf("%s is not a string", key)
-	}
-	return prop.StringValue(), nil
 }
 
 func extractProtectedItemProperties(properties resource.PropertyMap) (*protectedItemProperties, error) {
@@ -168,4 +166,15 @@ func extractProtectedItemProperties(properties resource.PropertyMap) (*protected
 		itemName:          itemName,
 		fabricName:        fabricName,
 	}, nil
+}
+
+func getRequiredStringProperty(properties resource.PropertyMap, key resource.PropertyKey) (string, error) {
+	prop, ok := properties[key]
+	if !ok {
+		return "", fmt.Errorf("%s not found", key)
+	}
+	if !prop.IsString() {
+		return "", fmt.Errorf("%s is not a string", key)
+	}
+	return prop.StringValue(), nil
 }
