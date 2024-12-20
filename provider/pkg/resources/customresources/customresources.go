@@ -58,6 +58,9 @@ type CustomResource struct {
 	// to our custom shape and behavior. Optional.
 	// Deprecated: Use Schema instead.
 	MetaTypeOverrides map[string]AzureAPIType
+	// PreCreate is a function that is called to modify the input before the resource is created. Don't use in
+	// combination with Create; just modify the input inside Create in that scenario.
+	PreCreate func(ctx context.Context, input resource.PropertyMap) (resource.PropertyMap, error)
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
 	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
@@ -186,6 +189,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 		return nil, err
 	}
 
+	protectedItem, err := recoveryServicesProtectedItem(subscriptionID, tokenCred)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		keyVaultAccessPolicy(armKVClient),
 
@@ -195,6 +203,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		customWebApp,
 		customWebAppSlot,
 		postgresConf,
+		protectedItem,
 	}
 
 	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
