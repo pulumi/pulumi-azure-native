@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Display information about a cloud service.
  * Azure REST API version: 2022-09-04.
+ *
+ * Other available API versions: 2024-11-04.
  */
 export function getCloudService(args: GetCloudServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,6 +72,8 @@ export interface GetCloudServiceResult {
 /**
  * Display information about a cloud service.
  * Azure REST API version: 2022-09-04.
+ *
+ * Other available API versions: 2024-11-04.
  */
 export function getCloudServiceOutput(args: GetCloudServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

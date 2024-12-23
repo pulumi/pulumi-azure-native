@@ -814,6 +814,7 @@ Datadog:
     tracking: "2022-06-01"
     additions:
         MonitoredSubscription: "2023-01-01"
+        getBillingInfo: "2023-10-20"
 DelegatedNetwork:
     tracking: "2021-03-15"
 DesktopVirtualization:

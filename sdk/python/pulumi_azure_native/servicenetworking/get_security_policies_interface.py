@@ -154,6 +154,8 @@ def get_security_policies_interface(resource_group_name: Optional[str] = None,
     Get a SecurityPolicy
     Azure REST API version: 2024-05-01-preview.
 
+    Other available API versions: 2025-01-01.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str security_policy_name: SecurityPolicy
@@ -183,6 +185,8 @@ def get_security_policies_interface_output(resource_group_name: Optional[pulumi.
     """
     Get a SecurityPolicy
     Azure REST API version: 2024-05-01-preview.
+
+    Other available API versions: 2025-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Display information about a cloud service.
         /// Azure REST API version: 2022-09-04.
+        /// 
+        /// Other available API versions: 2024-11-04.
         /// </summary>
         public static Task<GetCloudServiceResult> InvokeAsync(GetCloudServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Display information about a cloud service.
         /// Azure REST API version: 2022-09-04.
+        /// 
+        /// Other available API versions: 2024-11-04.
         /// </summary>
         public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Display information about a cloud service.
         /// Azure REST API version: 2022-09-04.
+        /// 
+        /// Other available API versions: 2024-11-04.
         /// </summary>
         public static Output<GetCloudServiceResult> Invoke(GetCloudServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudServiceResult>("azure-native:compute:getCloudService", args ?? new GetCloudServiceInvokeArgs(), options.WithDefaults());

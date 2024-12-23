@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
  *
- * Other available API versions: 2022-08-01, 2023-01-01.
+ * Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datadog/v20200201preview:Monitor" }, { type: "azure-native:datadog/v20210301:Monitor" }, { type: "azure-native:datadog/v20220601:Monitor" }, { type: "azure-native:datadog/v20220801:Monitor" }, { type: "azure-native:datadog/v20230101:Monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datadog/v20200201preview:Monitor" }, { type: "azure-native:datadog/v20210301:Monitor" }, { type: "azure-native:datadog/v20220601:Monitor" }, { type: "azure-native:datadog/v20220801:Monitor" }, { type: "azure-native:datadog/v20230101:Monitor" }, { type: "azure-native:datadog/v20230707:Monitor" }, { type: "azure-native:datadog/v20231020:Monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }

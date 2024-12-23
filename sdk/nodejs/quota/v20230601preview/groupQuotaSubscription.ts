@@ -81,7 +81,7 @@ export class GroupQuotaSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:quota:GroupQuotaSubscription" }, { type: "azure-native:quota/v20241015preview:GroupQuotaSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:quota:GroupQuotaSubscription" }, { type: "azure-native:quota/v20241015preview:GroupQuotaSubscription" }, { type: "azure-native:quota/v20241218preview:GroupQuotaSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GroupQuotaSubscription.__pulumiType, name, resourceInputs, opts);
     }

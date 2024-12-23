@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetBillingInfoArgs, GetBillingInfoResult, GetBillingInfoOutputArgs } from "./getBillingInfo";
+export const getBillingInfo: typeof import("./getBillingInfo").getBillingInfo = null as any;
+export const getBillingInfoOutput: typeof import("./getBillingInfo").getBillingInfoOutput = null as any;
+utilities.lazyLoad(exports, ["getBillingInfo","getBillingInfoOutput"], () => require("./getBillingInfo"));
+
 export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
 export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
 export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
@@ -58,11 +63,15 @@ export * from "../types/enums/datadog";
 import * as v20220601 from "./v20220601";
 import * as v20220801 from "./v20220801";
 import * as v20230101 from "./v20230101";
+import * as v20230707 from "./v20230707";
+import * as v20231020 from "./v20231020";
 
 export {
     v20220601,
     v20220801,
     v20230101,
+    v20230707,
+    v20231020,
 };
 
 const _module = {

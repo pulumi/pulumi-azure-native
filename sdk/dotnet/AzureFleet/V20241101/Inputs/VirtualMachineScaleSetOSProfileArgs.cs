@@ -26,10 +26,10 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
         /// "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1",
         /// "Password22", "iloveyou!" &lt;br&gt;&lt;br&gt; For resetting the password, see [How to
         /// reset the Remote Desktop service or its login password in a Windows
-        /// VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp)
+        /// VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp)
         /// &lt;br&gt;&lt;br&gt; For resetting root password, see [Manage users, SSH, and check or
         /// repair disks on Azure Linux VMs using the VMAccess
-        /// Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        /// Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         /// </summary>
         [Input("adminPassword")]
         public Input<string>? AdminPassword { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
         /// is decoded to a binary array that is saved as a file on the Virtual Machine.
         /// The maximum length of the binary array is 65535 bytes. For using cloud-init for
         /// your VM, see [Using cloud-init to customize a Linux VM during
-        /// creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+        /// creation](https://learn.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
         /// </summary>
         [Input("customData")]
         public Input<string>? CustomData { get; set; }
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
         /// <summary>
         /// Specifies the Linux operating system settings on the virtual machine. For a
         /// list of supported Linux distributions, see [Linux on Azure-Endorsed
-        /// Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        /// Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         /// </summary>
         [Input("linuxConfiguration")]
         public Input<Inputs.LinuxConfigurationArgs>? LinuxConfiguration { get; set; }
@@ -93,9 +93,9 @@ namespace Pulumi.AzureNative.AzureFleet.V20241101.Inputs
         /// Specifies set of certificates that should be installed onto the virtual
         /// machines in the scale set. To install certificates on a virtual machine it is
         /// recommended to use the [Azure Key Vault virtual machine extension for
-        /// Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
+        /// Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
         /// or the [Azure Key Vault virtual machine extension for
-        /// Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        /// Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         /// </summary>
         public InputList<Inputs.VaultSecretGroupArgs> Secrets
         {

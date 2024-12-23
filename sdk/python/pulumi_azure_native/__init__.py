@@ -5434,6 +5434,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "compute/v20241104",
+  "fqn": "pulumi_azure_native.compute.v20241104",
+  "classes": {
+   "azure-native:compute/v20241104:CloudService": "CloudService"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "confidentialledger",
   "fqn": "pulumi_azure_native.confidentialledger",
   "classes": {
@@ -7180,6 +7188,24 @@ _utilities.register(
   "classes": {
    "azure-native:datadog/v20230101:Monitor": "Monitor",
    "azure-native:datadog/v20230101:MonitoredSubscription": "MonitoredSubscription"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "datadog/v20230707",
+  "fqn": "pulumi_azure_native.datadog.v20230707",
+  "classes": {
+   "azure-native:datadog/v20230707:Monitor": "Monitor",
+   "azure-native:datadog/v20230707:MonitoredSubscription": "MonitoredSubscription"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "datadog/v20231020",
+  "fqn": "pulumi_azure_native.datadog.v20231020",
+  "classes": {
+   "azure-native:datadog/v20231020:Monitor": "Monitor",
+   "azure-native:datadog/v20231020:MonitoredSubscription": "MonitoredSubscription"
   }
  },
  {
@@ -16464,6 +16490,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "quota/v20241218preview",
+  "fqn": "pulumi_azure_native.quota.v20241218preview",
+  "classes": {
+   "azure-native:quota/v20241218preview:GroupQuota": "GroupQuota",
+   "azure-native:quota/v20241218preview:GroupQuotaSubscription": "GroupQuotaSubscription"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "recommendationsservice",
   "fqn": "pulumi_azure_native.recommendationsservice",
   "classes": {
@@ -18891,6 +18926,17 @@ _utilities.register(
    "azure-native:servicenetworking/v20240501preview:FrontendsInterface": "FrontendsInterface",
    "azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface": "SecurityPoliciesInterface",
    "azure-native:servicenetworking/v20240501preview:TrafficControllerInterface": "TrafficControllerInterface"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicenetworking/v20250101",
+  "fqn": "pulumi_azure_native.servicenetworking.v20250101",
+  "classes": {
+   "azure-native:servicenetworking/v20250101:AssociationsInterface": "AssociationsInterface",
+   "azure-native:servicenetworking/v20250101:FrontendsInterface": "FrontendsInterface",
+   "azure-native:servicenetworking/v20250101:SecurityPoliciesInterface": "SecurityPoliciesInterface",
+   "azure-native:servicenetworking/v20250101:TrafficControllerInterface": "TrafficControllerInterface"
   }
  },
  {

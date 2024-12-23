@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2022-08-01, 2023-01-01.
+ * Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,7 +60,7 @@ export interface GetMonitorResult {
 /**
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2022-08-01, 2023-01-01.
+ * Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

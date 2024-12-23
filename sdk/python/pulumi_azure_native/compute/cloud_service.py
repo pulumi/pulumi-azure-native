@@ -138,6 +138,8 @@ class CloudService(pulumi.CustomResource):
         Describes the cloud service.
         Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2021-03-01.
 
+        Other available API versions: 2024-11-04.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_service_name: Name of the cloud service.
@@ -156,6 +158,8 @@ class CloudService(pulumi.CustomResource):
         """
         Describes the cloud service.
         Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2021-03-01.
+
+        Other available API versions: 2024-11-04.
 
         :param str resource_name: The name of the resource.
         :param CloudServiceArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +202,7 @@ class CloudService(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20201001preview:CloudService"), pulumi.Alias(type_="azure-native:compute/v20210301:CloudService"), pulumi.Alias(type_="azure-native:compute/v20220404:CloudService"), pulumi.Alias(type_="azure-native:compute/v20220904:CloudService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20201001preview:CloudService"), pulumi.Alias(type_="azure-native:compute/v20210301:CloudService"), pulumi.Alias(type_="azure-native:compute/v20220404:CloudService"), pulumi.Alias(type_="azure-native:compute/v20220904:CloudService"), pulumi.Alias(type_="azure-native:compute/v20241104:CloudService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudService, __self__).__init__(
             'azure-native:compute:CloudService',

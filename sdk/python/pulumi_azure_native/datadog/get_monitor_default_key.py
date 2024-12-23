@@ -88,7 +88,7 @@ def get_monitor_default_key(monitor_name: Optional[str] = None,
     """
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2022-08-01, 2023-01-01.
+    Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
 
 
     :param str monitor_name: Monitor resource name
@@ -111,7 +111,7 @@ def get_monitor_default_key_output(monitor_name: Optional[pulumi.Input[str]] = N
     """
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2022-08-01, 2023-01-01.
+    Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
 
 
     :param str monitor_name: Monitor resource name

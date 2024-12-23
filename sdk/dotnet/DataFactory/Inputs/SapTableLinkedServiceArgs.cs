@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? SncLibraryPath { get; set; }
 
         /// <summary>
-        /// SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+        /// SNC activation flag (Boolean) to access the SAP server where the table is located. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         [Input("sncMode")]
         public Input<object>? SncMode { get; set; }

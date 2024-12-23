@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
     /// Frontend Subresource of Traffic Controller.
     /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
     /// 
-    /// Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview.
+    /// Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:FrontendsInterface")]
     public partial class FrontendsInterface : global::Pulumi.CustomResource
@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20230501preview:FrontendsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20231101:FrontendsInterface" },
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20240501preview:FrontendsInterface" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20250101:FrontendsInterface" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

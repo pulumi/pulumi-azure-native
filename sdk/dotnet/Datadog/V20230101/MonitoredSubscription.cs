@@ -59,6 +59,8 @@ namespace Pulumi.AzureNative.Datadog.V20230101
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:datadog:MonitoredSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20230707:MonitoredSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20231020:MonitoredSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

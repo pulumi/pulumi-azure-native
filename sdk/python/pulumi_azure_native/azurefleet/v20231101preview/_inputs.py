@@ -371,9 +371,9 @@ if not MYPY:
         Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS
         (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for
         Windows
-        Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
+        Server](https://learn.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
         <br><br> [Azure Hybrid Use Benefit for Linux
-        Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux)
+        Server](https://learn.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux)
         <br><br> Minimum api-version: 2015-06-15
         """
         network_profile: NotRequired[pulumi.Input['VirtualMachineScaleSetNetworkProfileArgsDict']]
@@ -452,9 +452,9 @@ class BaseVirtualMachineProfileArgs:
                Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS
                (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for
                Windows
-               Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
+               Server](https://learn.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
                <br><br> [Azure Hybrid Use Benefit for Linux
-               Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux)
+               Server](https://learn.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux)
                <br><br> Minimum api-version: 2015-06-15
         :param pulumi.Input['VirtualMachineScaleSetNetworkProfileArgs'] network_profile: Specifies properties of the network interfaces of the virtual machines in the
                scale set.
@@ -575,9 +575,9 @@ class BaseVirtualMachineProfileArgs:
         Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS
         (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for
         Windows
-        Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
+        Server](https://learn.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)
         <br><br> [Azure Hybrid Use Benefit for Linux
-        Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux)
+        Server](https://learn.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux)
         <br><br> Minimum api-version: 2015-06-15
         """
         return pulumi.get(self, "license_type")
@@ -927,8 +927,8 @@ if not MYPY:
         values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is:
         **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk**
         is used. Refer to the VM size documentation for Windows VM at
-        https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at
-        https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM
+        https://learn.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at
+        https://learn.microsoft.com/azure/virtual-machines/linux/sizes to check which VM
         sizes exposes a cache disk.
         """
 elif False:
@@ -948,8 +948,8 @@ class DiffDiskSettingsArgs:
                values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is:
                **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk**
                is used. Refer to the VM size documentation for Windows VM at
-               https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at
-               https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM
+               https://learn.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at
+               https://learn.microsoft.com/azure/virtual-machines/linux/sizes to check which VM
                sizes exposes a cache disk.
         """
         if option is not None:
@@ -977,8 +977,8 @@ class DiffDiskSettingsArgs:
         values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is:
         **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk**
         is used. Refer to the VM size documentation for Windows VM at
-        https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at
-        https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM
+        https://learn.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at
+        https://learn.microsoft.com/azure/virtual-machines/linux/sizes to check which VM
         sizes exposes a cache disk.
         """
         return pulumi.get(self, "placement")
@@ -1327,7 +1327,7 @@ if not MYPY:
         """
         Specifies the Linux operating system settings on the virtual machine. For a
         list of supported Linux distributions, see [Linux on Azure-Endorsed
-        Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         """
         disable_password_authentication: NotRequired[pulumi.Input[bool]]
         """
@@ -1367,7 +1367,7 @@ class LinuxConfigurationArgs:
         """
         Specifies the Linux operating system settings on the virtual machine. For a
         list of supported Linux distributions, see [Linux on Azure-Endorsed
-        Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         :param pulumi.Input[bool] disable_password_authentication: Specifies whether password authentication should be disabled.
         :param pulumi.Input[bool] enable_vm_agent_platform_updates: Indicates whether VMAgent Platform Updates is enabled for the Linux virtual
                machine. Default value is false.
@@ -2719,7 +2719,7 @@ if not MYPY:
         SSH public key certificate used to authenticate with the VM through ssh. The
         key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys,
         see [Create SSH keys on Linux and Mac for Linux VMs in
-        Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        Azure]https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
         path: NotRequired[pulumi.Input[str]]
         """
@@ -2741,7 +2741,7 @@ class SshPublicKeyArgs:
         :param pulumi.Input[str] key_data: SSH public key certificate used to authenticate with the VM through ssh. The
                key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys,
                see [Create SSH keys on Linux and Mac for Linux VMs in
-               Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+               Azure]https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         :param pulumi.Input[str] path: Specifies the full path on the created VM where ssh public key is stored. If
                the file already exists, the specified key is appended to the file. Example:
                /home/user/.ssh/authorized_keys
@@ -2758,7 +2758,7 @@ class SshPublicKeyArgs:
         SSH public key certificate used to authenticate with the VM through ssh. The
         key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys,
         see [Create SSH keys on Linux and Mac for Linux VMs in
-        Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        Azure]https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
         return pulumi.get(self, "key_data")
 
@@ -3191,7 +3191,7 @@ if not MYPY:
         specified in the request body the default behavior is to set it to the value of
         vCPUs available for that VM size exposed in api response of [List all available
         virtual machine sizes in a
-        region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list).
+        region](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list).
         """
         v_cpus_per_core: NotRequired[pulumi.Input[int]]
         """
@@ -3199,7 +3199,7 @@ if not MYPY:
         in the request body the default behavior is set to the value of vCPUsPerCore
         for the VM Size exposed in api response of [List all available virtual machine
         sizes in a
-        region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list).
+        region](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list).
         **Setting this property to 1 also means that hyper-threading is disabled.**
         """
 elif False:
@@ -3216,12 +3216,12 @@ class VMSizePropertiesArgs:
                specified in the request body the default behavior is to set it to the value of
                vCPUs available for that VM size exposed in api response of [List all available
                virtual machine sizes in a
-               region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list).
+               region](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list).
         :param pulumi.Input[int] v_cpus_per_core: Specifies the vCPU to physical core ratio. When this property is not specified
                in the request body the default behavior is set to the value of vCPUsPerCore
                for the VM Size exposed in api response of [List all available virtual machine
                sizes in a
-               region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list).
+               region](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list).
                **Setting this property to 1 also means that hyper-threading is disabled.**
         """
         if v_cpus_available is not None:
@@ -3237,7 +3237,7 @@ class VMSizePropertiesArgs:
         specified in the request body the default behavior is to set it to the value of
         vCPUs available for that VM size exposed in api response of [List all available
         virtual machine sizes in a
-        region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list).
+        region](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list).
         """
         return pulumi.get(self, "v_cpus_available")
 
@@ -3253,7 +3253,7 @@ class VMSizePropertiesArgs:
         in the request body the default behavior is set to the value of vCPUsPerCore
         for the VM Size exposed in api response of [List all available virtual machine
         sizes in a
-        region](https://docs.microsoft.com/en-us/rest/api/compute/resource-skus/list).
+        region](https://learn.microsoft.com/en-us/rest/api/compute/resource-skus/list).
         **Setting this property to 1 also means that hyper-threading is disabled.**
         """
         return pulumi.get(self, "v_cpus_per_core")
@@ -3284,16 +3284,16 @@ if not MYPY:
         This is the URL of a certificate that has been uploaded to Key Vault as a
         secret. For adding a secret to the Key Vault, see [Add a key or secret to the
         key
-        vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add).
+        vault](https://learn.microsoft.com/azure/key-vault/key-vault-get-started/#add).
         In this case, your certificate needs to be It is the Base64 encoding of the
         following JSON Object which is encoded in UTF-8: <br><br> {<br>
         "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>
         "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual
         machine it is recommended to use the [Azure Key Vault virtual machine extension
         for
-        Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
+        Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
         or the [Azure Key Vault virtual machine extension for
-        Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         """
 elif False:
     VaultCertificateArgsDict: TypeAlias = Mapping[str, Any]
@@ -3316,16 +3316,16 @@ class VaultCertificateArgs:
         :param pulumi.Input[str] certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a
                secret. For adding a secret to the Key Vault, see [Add a key or secret to the
                key
-               vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add).
+               vault](https://learn.microsoft.com/azure/key-vault/key-vault-get-started/#add).
                In this case, your certificate needs to be It is the Base64 encoding of the
                following JSON Object which is encoded in UTF-8: <br><br> {<br>
                "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>
                "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual
                machine it is recommended to use the [Azure Key Vault virtual machine extension
                for
-               Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
+               Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
                or the [Azure Key Vault virtual machine extension for
-               Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+               Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         """
         if certificate_store is not None:
             pulumi.set(__self__, "certificate_store", certificate_store)
@@ -3357,16 +3357,16 @@ class VaultCertificateArgs:
         This is the URL of a certificate that has been uploaded to Key Vault as a
         secret. For adding a secret to the Key Vault, see [Add a key or secret to the
         key
-        vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add).
+        vault](https://learn.microsoft.com/azure/key-vault/key-vault-get-started/#add).
         In this case, your certificate needs to be It is the Base64 encoding of the
         following JSON Object which is encoded in UTF-8: <br><br> {<br>
         "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>
         "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual
         machine it is recommended to use the [Azure Key Vault virtual machine extension
         for
-        Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
+        Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
         or the [Azure Key Vault virtual machine extension for
-        Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         """
         return pulumi.get(self, "certificate_url")
 
@@ -5300,10 +5300,10 @@ if not MYPY:
         "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1",
         "Password22", "iloveyou!" <br><br> For resetting the password, see [How to
         reset the Remote Desktop service or its login password in a Windows
-        VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp)
+        VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp)
         <br><br> For resetting root password, see [Manage users, SSH, and check or
         repair disks on Azure Linux VMs using the VMAccess
-        Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         """
         admin_username: NotRequired[pulumi.Input[str]]
         """
@@ -5333,13 +5333,13 @@ if not MYPY:
         is decoded to a binary array that is saved as a file on the Virtual Machine.
         The maximum length of the binary array is 65535 bytes. For using cloud-init for
         your VM, see [Using cloud-init to customize a Linux VM during
-        creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+        creation](https://learn.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
         """
         linux_configuration: NotRequired[pulumi.Input['LinuxConfigurationArgsDict']]
         """
         Specifies the Linux operating system settings on the virtual machine. For a
         list of supported Linux distributions, see [Linux on Azure-Endorsed
-        Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         """
         require_guest_provision_signal: NotRequired[pulumi.Input[bool]]
         """
@@ -5350,9 +5350,9 @@ if not MYPY:
         Specifies set of certificates that should be installed onto the virtual
         machines in the scale set. To install certificates on a virtual machine it is
         recommended to use the [Azure Key Vault virtual machine extension for
-        Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
+        Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
         or the [Azure Key Vault virtual machine extension for
-        Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         """
         windows_configuration: NotRequired[pulumi.Input['WindowsConfigurationArgsDict']]
         """
@@ -5385,10 +5385,10 @@ class VirtualMachineScaleSetOSProfileArgs:
                "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1",
                "Password22", "iloveyou!" <br><br> For resetting the password, see [How to
                reset the Remote Desktop service or its login password in a Windows
-               VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp)
+               VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp)
                <br><br> For resetting root password, see [Manage users, SSH, and check or
                repair disks on Azure Linux VMs using the VMAccess
-               Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+               Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         :param pulumi.Input[str] admin_username: Specifies the name of the administrator account. <br><br> **Windows-only
                restriction:** Cannot end in "." <br><br> **Disallowed values:**
                "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3",
@@ -5406,17 +5406,17 @@ class VirtualMachineScaleSetOSProfileArgs:
                is decoded to a binary array that is saved as a file on the Virtual Machine.
                The maximum length of the binary array is 65535 bytes. For using cloud-init for
                your VM, see [Using cloud-init to customize a Linux VM during
-               creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+               creation](https://learn.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
         :param pulumi.Input['LinuxConfigurationArgs'] linux_configuration: Specifies the Linux operating system settings on the virtual machine. For a
                list of supported Linux distributions, see [Linux on Azure-Endorsed
-               Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+               Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         :param pulumi.Input[bool] require_guest_provision_signal: Optional property which must either be set to True or omitted.
         :param pulumi.Input[Sequence[pulumi.Input['VaultSecretGroupArgs']]] secrets: Specifies set of certificates that should be installed onto the virtual
                machines in the scale set. To install certificates on a virtual machine it is
                recommended to use the [Azure Key Vault virtual machine extension for
-               Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
+               Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
                or the [Azure Key Vault virtual machine extension for
-               Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+               Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         :param pulumi.Input['WindowsConfigurationArgs'] windows_configuration: Specifies Windows operating system settings on the virtual machine.
         """
         if admin_password is not None:
@@ -5452,10 +5452,10 @@ class VirtualMachineScaleSetOSProfileArgs:
         "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1",
         "Password22", "iloveyou!" <br><br> For resetting the password, see [How to
         reset the Remote Desktop service or its login password in a Windows
-        VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp)
+        VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp)
         <br><br> For resetting root password, see [Manage users, SSH, and check or
         repair disks on Azure Linux VMs using the VMAccess
-        Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         """
         return pulumi.get(self, "admin_password")
 
@@ -5517,7 +5517,7 @@ class VirtualMachineScaleSetOSProfileArgs:
         is decoded to a binary array that is saved as a file on the Virtual Machine.
         The maximum length of the binary array is 65535 bytes. For using cloud-init for
         your VM, see [Using cloud-init to customize a Linux VM during
-        creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+        creation](https://learn.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
         """
         return pulumi.get(self, "custom_data")
 
@@ -5531,7 +5531,7 @@ class VirtualMachineScaleSetOSProfileArgs:
         """
         Specifies the Linux operating system settings on the virtual machine. For a
         list of supported Linux distributions, see [Linux on Azure-Endorsed
-        Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         """
         return pulumi.get(self, "linux_configuration")
 
@@ -5558,9 +5558,9 @@ class VirtualMachineScaleSetOSProfileArgs:
         Specifies set of certificates that should be installed onto the virtual
         machines in the scale set. To install certificates on a virtual machine it is
         recommended to use the [Azure Key Vault virtual machine extension for
-        Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
+        Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
         or the [Azure Key Vault virtual machine extension for
-        Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         """
         return pulumi.get(self, "secrets")
 
@@ -5888,7 +5888,7 @@ if not MYPY:
         Specifies the parameters that are used to add data disks to the virtual
         machines in the scale set. For more information about disks, see [About disks
         and VHDs for Azure virtual
-        machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        machines](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
         disk_controller_type: NotRequired[pulumi.Input[Union[str, 'DiskControllerTypes']]]
         """
@@ -5906,7 +5906,7 @@ if not MYPY:
         Specifies information about the operating system disk used by the virtual
         machines in the scale set. For more information about disks, see [About disks
         and VHDs for Azure virtual
-        machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        machines](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
 elif False:
     VirtualMachineScaleSetStorageProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -5923,7 +5923,7 @@ class VirtualMachineScaleSetStorageProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetDataDiskArgs']]] data_disks: Specifies the parameters that are used to add data disks to the virtual
                machines in the scale set. For more information about disks, see [About disks
                and VHDs for Azure virtual
-               machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+               machines](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview).
         :param pulumi.Input[Union[str, 'DiskControllerTypes']] disk_controller_type: Specifies the disk controller type configured for the virtual machines in the scale set. Minimum api-version: 2022-08-01
         :param pulumi.Input['ImageReferenceArgs'] image_reference: Specifies information about the image to use. You can specify information about
                platform images, marketplace images, or virtual machine images. This element is
@@ -5932,7 +5932,7 @@ class VirtualMachineScaleSetStorageProfileArgs:
         :param pulumi.Input['VirtualMachineScaleSetOSDiskArgs'] os_disk: Specifies information about the operating system disk used by the virtual
                machines in the scale set. For more information about disks, see [About disks
                and VHDs for Azure virtual
-               machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+               machines](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
         if data_disks is not None:
             pulumi.set(__self__, "data_disks", data_disks)
@@ -5950,7 +5950,7 @@ class VirtualMachineScaleSetStorageProfileArgs:
         Specifies the parameters that are used to add data disks to the virtual
         machines in the scale set. For more information about disks, see [About disks
         and VHDs for Azure virtual
-        machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        machines](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
         return pulumi.get(self, "data_disks")
 
@@ -5992,7 +5992,7 @@ class VirtualMachineScaleSetStorageProfileArgs:
         Specifies information about the operating system disk used by the virtual
         machines in the scale set. For more information about disks, see [About disks
         and VHDs for Azure virtual
-        machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        machines](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview).
         """
         return pulumi.get(self, "os_disk")
 
@@ -6082,16 +6082,16 @@ if not MYPY:
         This is the URL of a certificate that has been uploaded to Key Vault as a
         secret. For adding a secret to the Key Vault, see [Add a key or secret to the
         key
-        vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add).
+        vault](https://learn.microsoft.com/azure/key-vault/key-vault-get-started/#add).
         In this case, your certificate needs to be the Base64 encoding of the following
         JSON Object which is encoded in UTF-8: <br><br> {<br>
         "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>
         "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual
         machine it is recommended to use the [Azure Key Vault virtual machine extension
         for
-        Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
+        Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
         or the [Azure Key Vault virtual machine extension for
-        Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         """
         protocol: NotRequired[pulumi.Input[Union[str, 'ProtocolTypes']]]
         """
@@ -6111,16 +6111,16 @@ class WinRMListenerArgs:
         :param pulumi.Input[str] certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a
                secret. For adding a secret to the Key Vault, see [Add a key or secret to the
                key
-               vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add).
+               vault](https://learn.microsoft.com/azure/key-vault/key-vault-get-started/#add).
                In this case, your certificate needs to be the Base64 encoding of the following
                JSON Object which is encoded in UTF-8: <br><br> {<br>
                "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>
                "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual
                machine it is recommended to use the [Azure Key Vault virtual machine extension
                for
-               Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
+               Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
                or the [Azure Key Vault virtual machine extension for
-               Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+               Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         :param pulumi.Input[Union[str, 'ProtocolTypes']] protocol: Specifies the protocol of WinRM listener. Possible values are: **http,**
                **https.**
         """
@@ -6136,16 +6136,16 @@ class WinRMListenerArgs:
         This is the URL of a certificate that has been uploaded to Key Vault as a
         secret. For adding a secret to the Key Vault, see [Add a key or secret to the
         key
-        vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add).
+        vault](https://learn.microsoft.com/azure/key-vault/key-vault-get-started/#add).
         In this case, your certificate needs to be the Base64 encoding of the following
         JSON Object which is encoded in UTF-8: <br><br> {<br>
         "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>
         "password":"<pfx-file-password>"<br>} <br> To install certificates on a virtual
         machine it is recommended to use the [Azure Key Vault virtual machine extension
         for
-        Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
+        Linux](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)
         or the [Azure Key Vault virtual machine extension for
-        Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+        Windows](https://learn.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         """
         return pulumi.get(self, "certificate_url")
 
@@ -6203,9 +6203,9 @@ if not MYPY:
         """
         Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time".
         Possible values can be
-        [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id)
+        [TimeZoneInfo.Id](https://learn.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id)
         value from time zones returned by
-        [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
+        [TimeZoneInfo.GetSystemTimeZones](https://learn.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
         """
         win_rm: NotRequired[pulumi.Input['WinRMConfigurationArgsDict']]
         """
@@ -6241,9 +6241,9 @@ class WindowsConfigurationArgs:
                extensions can be added to the VM later.
         :param pulumi.Input[str] time_zone: Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time".
                Possible values can be
-               [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id)
+               [TimeZoneInfo.Id](https://learn.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id)
                value from time zones returned by
-               [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
+               [TimeZoneInfo.GetSystemTimeZones](https://learn.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
         :param pulumi.Input['WinRMConfigurationArgs'] win_rm: Specifies the Windows Remote Management listeners. This enables remote Windows
                PowerShell.
         """
@@ -6335,9 +6335,9 @@ class WindowsConfigurationArgs:
         """
         Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time".
         Possible values can be
-        [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id)
+        [TimeZoneInfo.Id](https://learn.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id)
         value from time zones returned by
-        [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
+        [TimeZoneInfo.GetSystemTimeZones](https://learn.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
         """
         return pulumi.get(self, "time_zone")
 

@@ -880,7 +880,7 @@ class ResourceSkuResponse(dict):
     def __init__(__self__, *,
                  name: str):
         """
-        :param str name: Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'linking'.
+        :param str name: Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         """
         pulumi.set(__self__, "name", name)
 
@@ -888,7 +888,7 @@ class ResourceSkuResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'linking'.
+        Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         """
         return pulumi.get(self, "name")
 

@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.Compute
     /// <summary>
     /// Describes the cloud service.
     /// Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2021-03-01.
+    /// 
+    /// Other available API versions: 2024-11-04.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CloudService")]
     public partial class CloudService : global::Pulumi.CustomResource
@@ -87,6 +89,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210301:CloudService" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220404:CloudService" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220904:CloudService" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20241104:CloudService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -4228,6 +4228,118 @@
     "Property": "redirectUri"
   },
   {
+    "Module": "datadog/v20230707",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "apiKey"
+  },
+  {
+    "Module": "datadog/v20230707",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "applicationKey"
+  },
+  {
+    "Module": "datadog/v20230707",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "enterpriseAppId"
+  },
+  {
+    "Module": "datadog/v20230707",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "id"
+  },
+  {
+    "Module": "datadog/v20230707",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "linkingAuthCode"
+  },
+  {
+    "Module": "datadog/v20230707",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "linkingClientId"
+  },
+  {
+    "Module": "datadog/v20230707",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "name"
+  },
+  {
+    "Module": "datadog/v20230707",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "redirectUri"
+  },
+  {
+    "Module": "datadog/v20231020",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "apiKey"
+  },
+  {
+    "Module": "datadog/v20231020",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "applicationKey"
+  },
+  {
+    "Module": "datadog/v20231020",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "enterpriseAppId"
+  },
+  {
+    "Module": "datadog/v20231020",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "id"
+  },
+  {
+    "Module": "datadog/v20231020",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "linkingAuthCode"
+  },
+  {
+    "Module": "datadog/v20231020",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "linkingClientId"
+  },
+  {
+    "Module": "datadog/v20231020",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "name"
+  },
+  {
+    "Module": "datadog/v20231020",
+    "Provider": "Datadog",
+    "ResourceName": "Monitor",
+    "ReferenceName": "DatadogOrganizationProperties",
+    "Property": "redirectUri"
+  },
+  {
     "Module": "documentdb",
     "Provider": "DocumentDB",
     "ResourceName": "CassandraCluster",

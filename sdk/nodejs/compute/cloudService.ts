@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Describes the cloud service.
  * Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2021-03-01.
+ *
+ * Other available API versions: 2024-11-04.
  */
 export class CloudService extends pulumi.CustomResource {
     /**
@@ -100,7 +102,7 @@ export class CloudService extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201001preview:CloudService" }, { type: "azure-native:compute/v20210301:CloudService" }, { type: "azure-native:compute/v20220404:CloudService" }, { type: "azure-native:compute/v20220904:CloudService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20201001preview:CloudService" }, { type: "azure-native:compute/v20210301:CloudService" }, { type: "azure-native:compute/v20220404:CloudService" }, { type: "azure-native:compute/v20220904:CloudService" }, { type: "azure-native:compute/v20241104:CloudService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudService.__pulumiType, name, resourceInputs, opts);
     }

@@ -27,11 +27,13 @@ __all__ = [
     'IdentityPropertiesResponse',
     'LinkedResourceResponse',
     'LogRulesResponse',
+    'MarketplaceSaaSInfoResponse',
     'MetricRulesResponse',
     'MonitorPropertiesResponse',
     'MonitoredResourceResponse',
     'MonitoredSubscriptionResponse',
     'MonitoringTagRulesPropertiesResponse',
+    'PartnerBillingEntityResponse',
     'ResourceSkuResponse',
     'SubscriptionListResponse',
     'SystemDataResponse',
@@ -488,6 +490,77 @@ class LogRulesResponse(dict):
 
 
 @pulumi.output_type
+class MarketplaceSaaSInfoResponse(dict):
+    """
+    Marketplace SAAS Info of the resource.
+    """
+    def __init__(__self__, *,
+                 billed_azure_subscription_id: Optional[str] = None,
+                 marketplace_name: Optional[str] = None,
+                 marketplace_status: Optional[str] = None,
+                 marketplace_subscription_id: Optional[str] = None,
+                 subscribed: Optional[bool] = None):
+        """
+        Marketplace SAAS Info of the resource.
+        :param str billed_azure_subscription_id: The Azure Subscription ID to which the Marketplace Subscription belongs and gets billed into.
+        :param str marketplace_name: Marketplace Subscription Details: SAAS Name
+        :param str marketplace_status: Marketplace Subscription Details: SaaS Subscription Status
+        :param str marketplace_subscription_id: Marketplace Subscription Id. This is a GUID-formatted string.
+        :param bool subscribed: Flag specifying if the Marketplace status is subscribed or not.
+        """
+        if billed_azure_subscription_id is not None:
+            pulumi.set(__self__, "billed_azure_subscription_id", billed_azure_subscription_id)
+        if marketplace_name is not None:
+            pulumi.set(__self__, "marketplace_name", marketplace_name)
+        if marketplace_status is not None:
+            pulumi.set(__self__, "marketplace_status", marketplace_status)
+        if marketplace_subscription_id is not None:
+            pulumi.set(__self__, "marketplace_subscription_id", marketplace_subscription_id)
+        if subscribed is not None:
+            pulumi.set(__self__, "subscribed", subscribed)
+
+    @property
+    @pulumi.getter(name="billedAzureSubscriptionId")
+    def billed_azure_subscription_id(self) -> Optional[str]:
+        """
+        The Azure Subscription ID to which the Marketplace Subscription belongs and gets billed into.
+        """
+        return pulumi.get(self, "billed_azure_subscription_id")
+
+    @property
+    @pulumi.getter(name="marketplaceName")
+    def marketplace_name(self) -> Optional[str]:
+        """
+        Marketplace Subscription Details: SAAS Name
+        """
+        return pulumi.get(self, "marketplace_name")
+
+    @property
+    @pulumi.getter(name="marketplaceStatus")
+    def marketplace_status(self) -> Optional[str]:
+        """
+        Marketplace Subscription Details: SaaS Subscription Status
+        """
+        return pulumi.get(self, "marketplace_status")
+
+    @property
+    @pulumi.getter(name="marketplaceSubscriptionId")
+    def marketplace_subscription_id(self) -> Optional[str]:
+        """
+        Marketplace Subscription Id. This is a GUID-formatted string.
+        """
+        return pulumi.get(self, "marketplace_subscription_id")
+
+    @property
+    @pulumi.getter
+    def subscribed(self) -> Optional[bool]:
+        """
+        Flag specifying if the Marketplace status is subscribed or not.
+        """
+        return pulumi.get(self, "subscribed")
+
+
+@pulumi.output_type
 class MetricRulesResponse(dict):
     """
     Set of rules for sending metrics for the Monitor resource.
@@ -861,6 +934,53 @@ class MonitoringTagRulesPropertiesResponse(dict):
         Set of rules for sending metrics for the Monitor resource.
         """
         return pulumi.get(self, "metric_rules")
+
+
+@pulumi.output_type
+class PartnerBillingEntityResponse(dict):
+    """
+    Partner Billing details associated with the resource.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 partner_entity_uri: Optional[str] = None):
+        """
+        Partner Billing details associated with the resource.
+        :param str id: The Datadog Organization Id.
+        :param str name: The Datadog Organization Name.
+        :param str partner_entity_uri: Link to the datadog organization page
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if partner_entity_uri is not None:
+            pulumi.set(__self__, "partner_entity_uri", partner_entity_uri)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The Datadog Organization Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The Datadog Organization Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partnerEntityUri")
+    def partner_entity_uri(self) -> Optional[str]:
+        """
+        Link to the datadog organization page
+        """
+        return pulumi.get(self, "partner_entity_uri")
 
 
 @pulumi.output_type

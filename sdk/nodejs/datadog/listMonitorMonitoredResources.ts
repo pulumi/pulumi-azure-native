@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Response of a list operation.
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2022-08-01, 2023-01-01.
+ * Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
  */
 export function listMonitorMonitoredResources(args: ListMonitorMonitoredResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorMonitoredResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,7 +49,7 @@ export interface ListMonitorMonitoredResourcesResult {
  * Response of a list operation.
  * Azure REST API version: 2022-06-01.
  *
- * Other available API versions: 2022-08-01, 2023-01-01.
+ * Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
  */
 export function listMonitorMonitoredResourcesOutput(args: ListMonitorMonitoredResourcesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListMonitorMonitoredResourcesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

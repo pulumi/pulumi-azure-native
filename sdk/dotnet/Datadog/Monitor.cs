@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Datadog
     /// <summary>
     /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
     /// 
-    /// Other available API versions: 2022-08-01, 2023-01-01.
+    /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
     /// </summary>
     [AzureNativeResourceType("azure-native:datadog:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
@@ -83,6 +83,8 @@ namespace Pulumi.AzureNative.Datadog
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20220601:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20220801:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20230101:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20230707:Monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20231020:Monitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

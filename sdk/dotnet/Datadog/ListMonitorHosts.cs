@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Datadog
         /// Response of a list operation.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01.
+        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
         /// </summary>
         public static Task<ListMonitorHostsResult> InvokeAsync(ListMonitorHostsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorHostsResult>("azure-native:datadog:listMonitorHosts", args ?? new ListMonitorHostsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Datadog
         /// Response of a list operation.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01.
+        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
         /// </summary>
         public static Output<ListMonitorHostsResult> Invoke(ListMonitorHostsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorHostsResult>("azure-native:datadog:listMonitorHosts", args ?? new ListMonitorHostsInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Datadog
         /// Response of a list operation.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01.
+        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
         /// </summary>
         public static Output<ListMonitorHostsResult> Invoke(ListMonitorHostsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorHostsResult>("azure-native:datadog:listMonitorHosts", args ?? new ListMonitorHostsInvokeArgs(), options.WithDefaults());

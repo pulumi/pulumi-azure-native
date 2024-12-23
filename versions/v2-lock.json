@@ -1059,6 +1059,7 @@
   "Datadog": {
     "Monitor": "2022-06-01",
     "MonitoredSubscription": "2023-01-01",
+    "getBillingInfo": "2023-10-20",
     "getMonitorDefaultKey": "2022-06-01",
     "listMonitorApiKeys": "2022-06-01",
     "listMonitorHosts": "2022-06-01",

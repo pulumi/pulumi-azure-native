@@ -71167,7 +71167,7 @@ class SapOdpLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP server where the table is located.
         :param Any server: Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
         :param Any snc_library_path: External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
-        :param Any snc_mode: SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+        :param Any snc_mode: SNC activation flag (Boolean) to access the SAP server where the table is located. Type: boolean (or Expression with resultType boolean).
         :param Any snc_my_name: Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         :param Any snc_partner_name: Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         :param Any snc_qop: SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string).
@@ -71343,7 +71343,7 @@ class SapOdpLinkedServiceResponse(dict):
     @pulumi.getter(name="sncMode")
     def snc_mode(self) -> Optional[Any]:
         """
-        SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+        SNC activation flag (Boolean) to access the SAP server where the table is located. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "snc_mode")
 
@@ -72424,7 +72424,7 @@ class SapTableLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP server where the table is located.
         :param Any server: Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
         :param Any snc_library_path: External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
-        :param Any snc_mode: SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+        :param Any snc_mode: SNC activation flag (Boolean) to access the SAP server where the table is located. Type: boolean (or Expression with resultType boolean).
         :param Any snc_my_name: Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         :param Any snc_partner_name: Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
         :param Any snc_qop: SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string).
@@ -72594,7 +72594,7 @@ class SapTableLinkedServiceResponse(dict):
     @pulumi.getter(name="sncMode")
     def snc_mode(self) -> Optional[Any]:
         """
-        SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+        SNC activation flag (Boolean) to access the SAP server where the table is located. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "snc_mode")
 

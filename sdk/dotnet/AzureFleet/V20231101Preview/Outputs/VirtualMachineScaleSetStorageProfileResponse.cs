@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Outputs
         /// Specifies the parameters that are used to add data disks to the virtual
         /// machines in the scale set. For more information about disks, see [About disks
         /// and VHDs for Azure virtual
-        /// machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        /// machines](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview).
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineScaleSetDataDiskResponse> DataDisks;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20231101Preview.Outputs
         /// Specifies information about the operating system disk used by the virtual
         /// machines in the scale set. For more information about disks, see [About disks
         /// and VHDs for Azure virtual
-        /// machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        /// machines](https://learn.microsoft.com/azure/virtual-machines/managed-disks-overview).
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetOSDiskResponse? OsDisk;
 

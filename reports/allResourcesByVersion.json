@@ -5829,6 +5829,9 @@
       "VirtualMachineScaleSetVMRunCommand",
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
+    ],
+    "2024-11-04": [
+      "CloudService"
     ]
   },
   "ComputeSchedule": {
@@ -8721,6 +8724,25 @@
     "2023-01-01": [
       "Monitor",
       "MonitoredSubscription",
+      "getMonitorDefaultKey",
+      "listMonitorApiKeys",
+      "listMonitorHosts",
+      "listMonitorLinkedResources",
+      "listMonitorMonitoredResources"
+    ],
+    "2023-07-07": [
+      "Monitor",
+      "MonitoredSubscription",
+      "getMonitorDefaultKey",
+      "listMonitorApiKeys",
+      "listMonitorHosts",
+      "listMonitorLinkedResources",
+      "listMonitorMonitoredResources"
+    ],
+    "2023-10-20": [
+      "Monitor",
+      "MonitoredSubscription",
+      "getBillingInfo",
       "getMonitorDefaultKey",
       "listMonitorApiKeys",
       "listMonitorHosts",
@@ -20702,6 +20724,10 @@
     "2024-10-15-preview": [
       "GroupQuota",
       "GroupQuotaSubscription"
+    ],
+    "2024-12-18-preview": [
+      "GroupQuota",
+      "GroupQuotaSubscription"
     ]
   },
   "RecommendationsService": {
@@ -23415,6 +23441,12 @@
       "TrafficControllerInterface"
     ],
     "2024-05-01-preview": [
+      "AssociationsInterface",
+      "FrontendsInterface",
+      "SecurityPoliciesInterface",
+      "TrafficControllerInterface"
+    ],
+    "2025-01-01": [
       "AssociationsInterface",
       "FrontendsInterface",
       "SecurityPoliciesInterface",

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Outputs
     /// <summary>
     /// Specifies the Linux operating system settings on the virtual machine. For a
     /// list of supported Linux distributions, see [Linux on Azure-Endorsed
-    /// Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+    /// Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
     /// </summary>
     [OutputType]
     public sealed class LinuxConfigurationResponse

@@ -730,7 +730,7 @@ if not MYPY:
     class ResourceSkuArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
-        Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'linking'.
+        Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         """
 elif False:
     ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
@@ -740,7 +740,7 @@ class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'linking'.
+        :param pulumi.Input[str] name: Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         """
         pulumi.set(__self__, "name", name)
 
@@ -748,7 +748,7 @@ class ResourceSkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'linking'.
+        Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         """
         return pulumi.get(self, "name")
 

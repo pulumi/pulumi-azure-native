@@ -94,6 +94,8 @@ def get_monitored_subscription(configuration_name: Optional[str] = None,
     The request to update subscriptions needed to be monitored by the Datadog monitor resource.
     Azure REST API version: 2023-01-01.
 
+    Other available API versions: 2023-07-07, 2023-10-20.
+
 
     :param str configuration_name: The configuration name. Only 'default' value is supported.
     :param str monitor_name: Monitor resource name
@@ -118,6 +120,8 @@ def get_monitored_subscription_output(configuration_name: Optional[pulumi.Input[
     """
     The request to update subscriptions needed to be monitored by the Datadog monitor resource.
     Azure REST API version: 2023-01-01.
+
+    Other available API versions: 2023-07-07, 2023-10-20.
 
 
     :param str configuration_name: The configuration name. Only 'default' value is supported.

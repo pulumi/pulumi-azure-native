@@ -103,7 +103,7 @@ export class FrontendsInterface extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20221001preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20230501preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20240501preview:FrontendsInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20221001preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20230501preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20240501preview:FrontendsInterface" }, { type: "azure-native:servicenetworking/v20250101:FrontendsInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FrontendsInterface.__pulumiType, name, resourceInputs, opts);
     }

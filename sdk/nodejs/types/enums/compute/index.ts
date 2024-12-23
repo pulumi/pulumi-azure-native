@@ -25,6 +25,7 @@ import * as v20240301 from "./v20240301";
 import * as v20240302 from "./v20240302";
 import * as v20240303 from "./v20240303";
 import * as v20240701 from "./v20240701";
+import * as v20241104 from "./v20241104";
 
 export {
     v20201201,
@@ -50,6 +51,7 @@ export {
     v20240302,
     v20240303,
     v20240701,
+    v20241104,
 };
 
 export const AccessControlRulesMode = {

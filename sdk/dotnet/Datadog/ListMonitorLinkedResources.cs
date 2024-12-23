@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Datadog
         /// Response of a list operation.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01.
+        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
         /// </summary>
         public static Task<ListMonitorLinkedResourcesResult> InvokeAsync(ListMonitorLinkedResourcesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Datadog
         /// Response of a list operation.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01.
+        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
         /// </summary>
         public static Output<ListMonitorLinkedResourcesResult> Invoke(ListMonitorLinkedResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Datadog
         /// Response of a list operation.
         /// Azure REST API version: 2022-06-01.
         /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01.
+        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
         /// </summary>
         public static Output<ListMonitorLinkedResourcesResult> Invoke(ListMonitorLinkedResourcesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorLinkedResourcesResult>("azure-native:datadog:listMonitorLinkedResources", args ?? new ListMonitorLinkedResourcesInvokeArgs(), options.WithDefaults());

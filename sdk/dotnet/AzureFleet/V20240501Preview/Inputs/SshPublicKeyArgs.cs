@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.AzureFleet.V20240501Preview.Inputs
         /// SSH public key certificate used to authenticate with the VM through ssh. The
         /// key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys,
         /// see [Create SSH keys on Linux and Mac for Linux VMs in
-        /// Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        /// Azure]https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         /// </summary>
         [Input("keyData")]
         public Input<string>? KeyData { get; set; }

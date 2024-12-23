@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Get a SecurityPolicy
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01.
         /// </summary>
         public static Task<GetSecurityPoliciesInterfaceResult> InvokeAsync(GetSecurityPoliciesInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Get a SecurityPolicy
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01.
         /// </summary>
         public static Output<GetSecurityPoliciesInterfaceResult> Invoke(GetSecurityPoliciesInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Get a SecurityPolicy
         /// Azure REST API version: 2024-05-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01.
         /// </summary>
         public static Output<GetSecurityPoliciesInterfaceResult> Invoke(GetSecurityPoliciesInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPoliciesInterfaceResult>("azure-native:servicenetworking:getSecurityPoliciesInterface", args ?? new GetSecurityPoliciesInterfaceInvokeArgs(), options.WithDefaults());
