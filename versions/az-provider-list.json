@@ -62739,6 +62739,7 @@
       },
       {
         "apiVersions": [
+          "2024-09-15-preview",
           "2021-08-31-preview",
           "2021-08-15",
           "2021-03-15-preview",
@@ -110258,7 +110259,6 @@
       },
       {
         "apiVersions": [
-          "2024-11-01-preview",
           "2023-12-01-preview"
         ],
         "defaultApiVersion": "2023-12-01-preview",
@@ -147981,6 +147981,7 @@
         "defaultApiVersion": "2024-06-01",
         "locations": [
           "East US",
+          "East US 2",
           "Germany West Central",
           "UK South",
           "West US",
