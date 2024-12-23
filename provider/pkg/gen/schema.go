@@ -275,7 +275,6 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	sort.Strings(providers)
 
 	// Track some global data
-	warnings := []string{}
 	var forceNewTypes []ForceNewType
 	caseSensitiveTypes := newCaseSensitiveTokens()
 	flattenedPropertyConflicts := map[string]map[string]struct{}{}
@@ -345,7 +344,6 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 
 			// Populate invokes.
 			gen.genInvokes(items.Invokes)
-			warnings = append(warnings, gen.warnings...)
 			forceNewTypes = append(forceNewTypes, gen.forceNewTypes...)
 		}
 	}
@@ -637,7 +635,6 @@ type packageGenerator struct {
 	allSdkVersions     []openapi.SdkVersion
 	versioning         Versioning
 	caseSensitiveTypes caseSensitiveTokens
-	warnings           []string
 	// rootDir is used to resolve relative paths in the examples.
 	rootDir                    string
 	forceNewTypes              []ForceNewType
