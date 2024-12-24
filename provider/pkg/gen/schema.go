@@ -32,6 +32,7 @@ import (
 	"github.com/pkg/errors"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -291,6 +292,8 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 		}
 		slices.Sort(versions)
 
+		pathConflicts := map[string]map[string]struct{}{}
+
 		for _, sdkVersion := range versions {
 			// Attempt to convert back to an API version for use elsewhere
 			var apiVersion *openapi.ApiVersion
@@ -301,6 +304,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				}
 				apiVersion = &apiVersionConverted
 			}
+
 			gen := packageGenerator{
 				pkg:                        &pkg,
 				metadata:                   &metadata,
@@ -314,6 +318,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				rootDir:                    rootDir,
 				flattenedPropertyConflicts: flattenedPropertyConflicts,
 				majorVersion:               majorVersion,
+				pathConflicts:              pathConflicts,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -643,6 +648,8 @@ type packageGenerator struct {
 	forceNewTypes              []ForceNewType
 	flattenedPropertyConflicts map[string]map[string]struct{}
 	majorVersion               int
+	// A tok -> path map to detect when the same resource tok is mapped to different API paths.
+	pathConflicts map[string]map[string]struct{}
 }
 
 func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
@@ -775,14 +782,123 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 	return result, nil
 }
 
+// dedupResourceNameByPath returns a modified resource name (`typeName`) if the resource is mapped to multiple API
+// paths. For instance, the deprecated "single server" resources in `dbformysql` and `dbforpostgresql` are renamed
+// to `SingleServerResource`.
+// TODO,tkappler check each one if we can just get rid of an old API version instead of doing this.
+func dedupResourceNameByPath(provider, typeName, canonPath string) string {
+	result := typeName
+
+	prefix := func(prefix string) string {
+		if !strings.HasPrefix(typeName, prefix) {
+			return prefix + typeName
+		}
+		return typeName
+	}
+
+	switch strings.ToLower(provider) {
+	case "cache":
+		if strings.Contains(canonPath, "/redis/") {
+			result = prefix("Redis")
+		} else if strings.Contains(canonPath, "/redisenterprise/") {
+			result = prefix("RedisEnterprise")
+		}
+	// $ rg --only-matching --no-filename --glob '!examples' 'providers/Microsoft.DBforMySQL/.+?/' azure-rest-api-specs/specification/ | sort | uniq
+	// providers/Microsoft.DBforMySQL/flexibleServers/
+	// providers/Microsoft.DBforMySQL/servers/
+	case "dbformysql":
+		if strings.Contains(canonPath, "/servers/") {
+			result = prefix("SingleServer")
+		}
+	// $ rg --only-matching --no-filename --glob '!examples' 'providers/Microsoft.DBforPostgreSQL/.+?/' azure-rest-api-specs/specification/ | sort | uniq
+	// providers/Microsoft.DBforPostgreSQL/flexibleServers/
+	// providers/Microsoft.DBforPostgreSQL/serverGroupsv2/
+	// providers/Microsoft.DBforPostgreSQL/servers/
+	case "dbforpostgresql":
+		if strings.Contains(canonPath, "/servers/") {
+			result = prefix("SingleServer")
+		} else if strings.Contains(canonPath, "/servergroupsv2/") {
+			result = prefix("ServerGroup")
+		}
+	case "documentdb":
+		if strings.Contains(canonPath, "/mongoclusters/") {
+			prefix("MongoCluster")
+		}
+	case "hdinsight":
+		if strings.Contains(canonPath, "/clusterpools/") {
+			result = prefix("ClusterPool")
+		}
+	case "hybridcontainerservice":
+		if strings.Contains(canonPath, "/provisionedclusterinstances/") {
+			result = prefix("ClusterInstance")
+		}
+	case "labservices":
+		// /labaccounts is an old API that only occurs in 2018 but we support it in v2
+		if strings.Contains(canonPath, "/labaccounts/") {
+			result = prefix("LabAccount")
+		}
+	case "migrate":
+		if strings.Contains(canonPath, "/assessmentprojects/") {
+			result = prefix("AssessmentProjects")
+		}
+	case "mobilenetwork":
+		if strings.Contains(canonPath, "/simgroups/") {
+			result = prefix("SimGroup")
+		}
+	case "netapp":
+		if strings.Contains(canonPath, "/backupvaults/") {
+			result = prefix("BackupVault")
+		} else if strings.Contains(canonPath, "/capacitypools/") {
+			result = prefix("CapacityPool")
+		}
+	}
+
+	return result
+}
+
+// checkForPathConflicts detects when the same resource type token is mapped to different API paths.
+func (g *packageGenerator) checkForPathConflicts(typeName, canonPath string) error {
+	// Some resources have a /default path, e.g., azure-native:azurestackhci:GuestAgent has conflicting paths
+	// /subscriptions/{}/resourcegroups/{}/providers/microsoft.azurestackhci/virtualmachines/{}/guestagents/{},
+	// /{}/providers/microsoft.azurestackhci/virtualmachineinstances/default/guestagents/default,
+	// also azure-native:hybridcontainerservice:HybridIdentityMetadatum
+	if strings.HasSuffix(canonPath, "/default") {
+		return nil
+	}
+
+	tokWithoutVersion := generateTok(g.provider, typeName, "")
+	if paths, ok := g.pathConflicts[tokWithoutVersion]; ok {
+		paths[canonPath] = struct{}{}
+		if len(paths) > 1 {
+			// TODO,tkappler return error instead once we have all conflicts addressed.
+			log.Printf("Warning: resource %s has conflicting paths %s\n", tokWithoutVersion, strings.Join(codegen.SortedKeys(paths), ", "))
+		}
+	} else {
+		g.pathConflicts[tokWithoutVersion] = map[string]struct{}{canonPath: {}}
+	}
+
+	return nil
+}
+
 func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {
 	module := g.moduleName()
 	swagger := resource.Swagger
 	path := resource.PathItem
+	canonPath := paths.NormalizePath(resource.Path)
 
-	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, resource.typeName)
-	if !g.versioning.ShouldInclude(g.provider, g.apiVersion, resource.typeName, resourceTok) {
+	typeName := resource.typeName
+	if g.majorVersion > 3 {
+		typeName = dedupResourceNameByPath(g.provider, resource.typeName, canonPath)
+	}
+
+	resourceTok := generateTok(g.provider, typeName, g.sdkVersion)
+	if !g.versioning.ShouldInclude(g.provider, g.apiVersion, typeName, resourceTok) {
 		return nil
+	}
+
+	err := g.checkForPathConflicts(typeName, canonPath)
+	if err != nil {
+		return err
 	}
 
 	// Generate the resource.
