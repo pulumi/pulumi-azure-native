@@ -5899,6 +5899,21 @@
       "listAccessServiceAccounts",
       "listAccessUsers",
       "listOrganizationRegions"
+    ],
+    "2024-07-01": [
+      "Connector",
+      "Organization",
+      "OrganizationClusterById",
+      "OrganizationEnvironmentById",
+      "Topic",
+      "listAccessClusters",
+      "listAccessEnvironments",
+      "listAccessInvitations",
+      "listAccessRoleBindingName",
+      "listAccessRoleBindings",
+      "listAccessServiceAccounts",
+      "listAccessUsers",
+      "listOrganizationRegions"
     ]
   },
   "ConnectedCache": {
