@@ -12878,13 +12878,15 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
           "2023-06-28",
           "2022-12-13-preview"
         ],
-        "defaultApiVersion": "2024-05-07",
+        "defaultApiVersion": "2024-09-27",
         "locations": [
           "East US",
           "East US 2",
@@ -12895,13 +12897,15 @@
       },
       {
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
           "2023-06-28",
           "2022-12-13-preview"
         ],
-        "defaultApiVersion": "2024-05-07",
+        "defaultApiVersion": "2024-09-27",
         "locations": [
           "East US",
           "East US 2",
@@ -12912,35 +12916,41 @@
       },
       {
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview"
         ],
-        "defaultApiVersion": "2024-05-07",
+        "defaultApiVersion": "2024-09-27",
         "locations": [],
         "resourceType": "listApprovedSchemas"
       },
       {
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
           "2023-06-28",
           "2022-12-13-preview"
         ],
-        "defaultApiVersion": "2024-05-07",
+        "defaultApiVersion": "2024-09-27",
         "locations": [],
         "resourceType": "locations"
       },
       {
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
           "2023-06-28",
           "2022-12-13-preview"
         ],
-        "defaultApiVersion": "2024-05-07",
+        "defaultApiVersion": "2024-09-27",
         "locations": [
           "East US",
           "East US 2",
@@ -12951,25 +12961,29 @@
       },
       {
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
           "2023-06-28",
           "2022-12-13-preview"
         ],
-        "defaultApiVersion": "2024-05-07",
+        "defaultApiVersion": "2024-09-27",
         "locations": [],
         "resourceType": "operations"
       },
       {
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview",
           "2023-06-28",
           "2022-12-13-preview"
         ],
-        "defaultApiVersion": "2024-05-07",
+        "defaultApiVersion": "2024-09-27",
         "locations": [
           "East US",
           "East US 2",
@@ -12980,11 +12994,13 @@
       },
       {
         "apiVersions": [
+          "2024-09-27",
+          "2024-09-11",
           "2024-05-07",
           "2024-01-25",
           "2023-10-11-preview"
         ],
-        "defaultApiVersion": "2024-05-07",
+        "defaultApiVersion": "2024-09-27",
         "locations": [],
         "resourceType": "validateSchema"
       }
@@ -50684,6 +50700,7 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50720,6 +50737,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50732,6 +50750,18 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview"
+        ],
+        "defaultApiVersion": null,
+        "locations": [
+          "Central US EUAP",
+          "East US 2 EUAP"
+        ],
+        "resourceType": "fleets/fleetspaces/authorizedPrincipals"
+      },
+      {
+        "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50744,6 +50774,18 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview"
+        ],
+        "defaultApiVersion": null,
+        "locations": [
+          "Central US EUAP",
+          "East US 2 EUAP"
+        ],
+        "resourceType": "fleets/fleetspaces/firewallRules"
+      },
+      {
+        "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50756,6 +50798,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50768,6 +50811,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50780,6 +50824,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50792,6 +50837,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50804,6 +50850,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -146959,6 +147006,7 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2024-12-01-preview",
           "2024-10-01-preview",
           "2024-09-01",
           "2024-06-01-preview",
@@ -147054,6 +147102,7 @@
       },
       {
         "apiVersions": [
+          "2024-12-01-preview",
           "2024-10-01-preview",
           "2024-09-01",
           "2024-06-01-preview",
