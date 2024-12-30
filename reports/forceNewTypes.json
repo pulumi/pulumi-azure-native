@@ -2982,6 +2982,13 @@
     "Property": "token"
   },
   {
+    "Module": "confluent/v20240701",
+    "Provider": "Confluent",
+    "ResourceName": "Organization",
+    "ReferenceName": "LinkOrganization",
+    "Property": "token"
+  },
+  {
     "Module": "containerservice",
     "Provider": "ContainerService",
     "ResourceName": "AutoUpgradeProfile",

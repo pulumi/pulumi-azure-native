@@ -50684,6 +50684,7 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50720,6 +50721,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50732,6 +50734,18 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview"
+        ],
+        "defaultApiVersion": null,
+        "locations": [
+          "Central US EUAP",
+          "East US 2 EUAP"
+        ],
+        "resourceType": "fleets/fleetspaces/authorizedPrincipals"
+      },
+      {
+        "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50744,6 +50758,18 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview"
+        ],
+        "defaultApiVersion": null,
+        "locations": [
+          "Central US EUAP",
+          "East US 2 EUAP"
+        ],
+        "resourceType": "fleets/fleetspaces/firewallRules"
+      },
+      {
+        "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50756,6 +50782,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50768,6 +50795,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50780,6 +50808,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50792,6 +50821,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -50804,6 +50834,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2023-08-01-preview",
           "2021-05-01-preview"
         ],
@@ -87602,6 +87633,202 @@
       },
       {
         "apiVersions": [
+          "2023-07-01-preview"
+        ],
+        "defaultApiVersion": "2023-07-01-preview",
+        "locations": [
+          "West Central US",
+          "East US",
+          "UK South",
+          "East US 2",
+          "West Europe",
+          "North Europe",
+          "Australia East",
+          "South Central US",
+          "North Central US",
+          "West US 2",
+          "West US 3",
+          "Southeast Asia",
+          "Central India",
+          "Canada Central",
+          "Central US",
+          "France Central",
+          "Japan East",
+          "Germany West Central",
+          "South Africa North",
+          "Korea Central",
+          "Sweden Central",
+          "East Asia",
+          "Switzerland North",
+          "Brazil South",
+          "West US",
+          "Norway East",
+          "UAE North",
+          "Australia Southeast",
+          "Canada East",
+          "Japan West",
+          "Italy North",
+          "Israel Central",
+          "Uk West",
+          "South India",
+          "Spain Central",
+          "Mexico Central",
+          "Qatar Central",
+          "Poland Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
+        ],
+        "resourceType": "dnsResolverDomainLists"
+      },
+      {
+        "apiVersions": [
+          "2023-07-01-preview"
+        ],
+        "defaultApiVersion": "2023-07-01-preview",
+        "locations": [
+          "West Central US",
+          "East US",
+          "UK South",
+          "East US 2",
+          "West Europe",
+          "North Europe",
+          "Australia East",
+          "South Central US",
+          "North Central US",
+          "West US 2",
+          "West US 3",
+          "Southeast Asia",
+          "Central India",
+          "Canada Central",
+          "Central US",
+          "France Central",
+          "Japan East",
+          "Germany West Central",
+          "South Africa North",
+          "Korea Central",
+          "Sweden Central",
+          "East Asia",
+          "Switzerland North",
+          "Brazil South",
+          "West US",
+          "Norway East",
+          "UAE North",
+          "Australia Southeast",
+          "Canada East",
+          "Japan West",
+          "Italy North",
+          "Israel Central",
+          "Uk West",
+          "South India",
+          "Spain Central",
+          "Mexico Central",
+          "Qatar Central",
+          "Poland Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
+        ],
+        "resourceType": "dnsResolverPolicies"
+      },
+      {
+        "apiVersions": [
+          "2023-07-01-preview"
+        ],
+        "defaultApiVersion": "2023-07-01-preview",
+        "locations": [
+          "West Central US",
+          "East US",
+          "UK South",
+          "East US 2",
+          "West Europe",
+          "North Europe",
+          "Australia East",
+          "South Central US",
+          "North Central US",
+          "West US 2",
+          "West US 3",
+          "Southeast Asia",
+          "Central India",
+          "Canada Central",
+          "Central US",
+          "France Central",
+          "Japan East",
+          "Germany West Central",
+          "South Africa North",
+          "Korea Central",
+          "Sweden Central",
+          "East Asia",
+          "Switzerland North",
+          "Brazil South",
+          "West US",
+          "Norway East",
+          "UAE North",
+          "Australia Southeast",
+          "Canada East",
+          "Japan West",
+          "Italy North",
+          "Israel Central",
+          "Uk West",
+          "South India",
+          "Spain Central",
+          "Mexico Central",
+          "Qatar Central",
+          "Poland Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
+        ],
+        "resourceType": "dnsResolverPolicies/dnsSecurityRules"
+      },
+      {
+        "apiVersions": [
+          "2023-07-01-preview"
+        ],
+        "defaultApiVersion": "2023-07-01-preview",
+        "locations": [
+          "West Central US",
+          "East US",
+          "UK South",
+          "East US 2",
+          "West Europe",
+          "North Europe",
+          "Australia East",
+          "South Central US",
+          "North Central US",
+          "West US 2",
+          "West US 3",
+          "Southeast Asia",
+          "Central India",
+          "Canada Central",
+          "Central US",
+          "France Central",
+          "Japan East",
+          "Germany West Central",
+          "South Africa North",
+          "Korea Central",
+          "Sweden Central",
+          "East Asia",
+          "Switzerland North",
+          "Brazil South",
+          "West US",
+          "Norway East",
+          "UAE North",
+          "Australia Southeast",
+          "Canada East",
+          "Japan West",
+          "Italy North",
+          "Israel Central",
+          "Uk West",
+          "South India",
+          "Spain Central",
+          "Mexico Central",
+          "Qatar Central",
+          "Poland Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
+        ],
+        "resourceType": "dnsResolverPolicies/virtualNetworkLinks"
+      },
+      {
+        "apiVersions": [
           "2023-07-01-preview",
           "2023-07-01",
           "2022-07-01",
@@ -96475,6 +96702,55 @@
           "East US 2 EUAP"
         ],
         "resourceType": "virtualNetworks/listDnsForwardingRulesets"
+      },
+      {
+        "apiVersions": [
+          "2023-07-01-preview"
+        ],
+        "defaultApiVersion": "2023-07-01-preview",
+        "locations": [
+          "West Central US",
+          "East US",
+          "UK South",
+          "East US 2",
+          "West Europe",
+          "North Europe",
+          "Australia East",
+          "South Central US",
+          "North Central US",
+          "West US 2",
+          "West US 3",
+          "Southeast Asia",
+          "Central India",
+          "Canada Central",
+          "Central US",
+          "France Central",
+          "Japan East",
+          "Germany West Central",
+          "South Africa North",
+          "Korea Central",
+          "Sweden Central",
+          "East Asia",
+          "Switzerland North",
+          "Brazil South",
+          "West US",
+          "Norway East",
+          "UAE North",
+          "Australia Southeast",
+          "Canada East",
+          "Japan West",
+          "Italy North",
+          "Israel Central",
+          "Uk West",
+          "South India",
+          "Spain Central",
+          "Mexico Central",
+          "Qatar Central",
+          "Poland Central",
+          "Central US EUAP",
+          "East US 2 EUAP"
+        ],
+        "resourceType": "virtualNetworks/listDnsResolverPolicies"
       },
       {
         "apiVersions": [
@@ -146959,6 +147235,7 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2024-12-01-preview",
           "2024-10-01-preview",
           "2024-09-01",
           "2024-06-01-preview",
@@ -147054,6 +147331,7 @@
       },
       {
         "apiVersions": [
+          "2024-12-01-preview",
           "2024-10-01-preview",
           "2024-09-01",
           "2024-06-01-preview",
