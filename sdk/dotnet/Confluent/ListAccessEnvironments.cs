@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Confluent
         /// List environments success response
         /// Azure REST API version: 2023-08-22.
         /// 
-        /// Other available API versions: 2024-02-13.
+        /// Other available API versions: 2024-02-13, 2024-07-01.
         /// </summary>
         public static Task<ListAccessEnvironmentsResult> InvokeAsync(ListAccessEnvironmentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessEnvironmentsResult>("azure-native:confluent:listAccessEnvironments", args ?? new ListAccessEnvironmentsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Confluent
         /// List environments success response
         /// Azure REST API version: 2023-08-22.
         /// 
-        /// Other available API versions: 2024-02-13.
+        /// Other available API versions: 2024-02-13, 2024-07-01.
         /// </summary>
         public static Output<ListAccessEnvironmentsResult> Invoke(ListAccessEnvironmentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessEnvironmentsResult>("azure-native:confluent:listAccessEnvironments", args ?? new ListAccessEnvironmentsInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Confluent
         /// List environments success response
         /// Azure REST API version: 2023-08-22.
         /// 
-        /// Other available API versions: 2024-02-13.
+        /// Other available API versions: 2024-02-13, 2024-07-01.
         /// </summary>
         public static Output<ListAccessEnvironmentsResult> Invoke(ListAccessEnvironmentsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessEnvironmentsResult>("azure-native:confluent:listAccessEnvironments", args ?? new ListAccessEnvironmentsInvokeArgs(), options.WithDefaults());

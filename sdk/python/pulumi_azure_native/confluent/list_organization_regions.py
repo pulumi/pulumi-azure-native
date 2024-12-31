@@ -58,6 +58,8 @@ def list_organization_regions(organization_name: Optional[str] = None,
     Result of POST request to list regions supported by confluent
     Azure REST API version: 2024-02-13.
 
+    Other available API versions: 2024-07-01.
+
 
     :param str organization_name: Organization resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -79,6 +81,8 @@ def list_organization_regions_output(organization_name: Optional[pulumi.Input[st
     """
     Result of POST request to list regions supported by confluent
     Azure REST API version: 2024-02-13.
+
+    Other available API versions: 2024-07-01.
 
 
     :param str organization_name: Organization resource name

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * List users success response
  * Azure REST API version: 2023-08-22.
  *
- * Other available API versions: 2024-02-13.
+ * Other available API versions: 2024-02-13, 2024-07-01.
  */
 export function listAccessUsers(args: ListAccessUsersArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,7 +58,7 @@ export interface ListAccessUsersResult {
  * List users success response
  * Azure REST API version: 2023-08-22.
  *
- * Other available API versions: 2024-02-13.
+ * Other available API versions: 2024-02-13, 2024-07-01.
  */
 export function listAccessUsersOutput(args: ListAccessUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

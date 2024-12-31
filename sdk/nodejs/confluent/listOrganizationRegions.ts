@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Result of POST request to list regions supported by confluent
  * Azure REST API version: 2024-02-13.
+ *
+ * Other available API versions: 2024-07-01.
  */
 export function listOrganizationRegions(args: ListOrganizationRegionsArgs, opts?: pulumi.InvokeOptions): Promise<ListOrganizationRegionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +49,8 @@ export interface ListOrganizationRegionsResult {
 /**
  * Result of POST request to list regions supported by confluent
  * Azure REST API version: 2024-02-13.
+ *
+ * Other available API versions: 2024-07-01.
  */
 export function listOrganizationRegionsOutput(args: ListOrganizationRegionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListOrganizationRegionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

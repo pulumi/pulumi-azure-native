@@ -82,7 +82,7 @@ def list_access_environments(organization_name: Optional[str] = None,
     List environments success response
     Azure REST API version: 2023-08-22.
 
-    Other available API versions: 2024-02-13.
+    Other available API versions: 2024-02-13, 2024-07-01.
 
 
     :param str organization_name: Organization resource name
@@ -108,7 +108,7 @@ def list_access_environments_output(organization_name: Optional[pulumi.Input[str
     List environments success response
     Azure REST API version: 2023-08-22.
 
-    Other available API versions: 2024-02-13.
+    Other available API versions: 2024-02-13, 2024-07-01.
 
 
     :param str organization_name: Organization resource name

@@ -82,6 +82,8 @@ def list_access_role_binding_name(organization_name: Optional[str] = None,
     Details of the role binding names returned on successful response
     Azure REST API version: 2024-02-13.
 
+    Other available API versions: 2024-07-01.
+
 
     :param str organization_name: Organization resource name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -105,6 +107,8 @@ def list_access_role_binding_name_output(organization_name: Optional[pulumi.Inpu
     """
     Details of the role binding names returned on successful response
     Azure REST API version: 2024-02-13.
+
+    Other available API versions: 2024-07-01.
 
 
     :param str organization_name: Organization resource name

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Confluent
         /// List users success response
         /// Azure REST API version: 2023-08-22.
         /// 
-        /// Other available API versions: 2024-02-13.
+        /// Other available API versions: 2024-02-13, 2024-07-01.
         /// </summary>
         public static Task<ListAccessUsersResult> InvokeAsync(ListAccessUsersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessUsersResult>("azure-native:confluent:listAccessUsers", args ?? new ListAccessUsersArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Confluent
         /// List users success response
         /// Azure REST API version: 2023-08-22.
         /// 
-        /// Other available API versions: 2024-02-13.
+        /// Other available API versions: 2024-02-13, 2024-07-01.
         /// </summary>
         public static Output<ListAccessUsersResult> Invoke(ListAccessUsersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessUsersResult>("azure-native:confluent:listAccessUsers", args ?? new ListAccessUsersInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Confluent
         /// List users success response
         /// Azure REST API version: 2023-08-22.
         /// 
-        /// Other available API versions: 2024-02-13.
+        /// Other available API versions: 2024-02-13, 2024-07-01.
         /// </summary>
         public static Output<ListAccessUsersResult> Invoke(ListAccessUsersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessUsersResult>("azure-native:confluent:listAccessUsers", args ?? new ListAccessUsersInvokeArgs(), options.WithDefaults());

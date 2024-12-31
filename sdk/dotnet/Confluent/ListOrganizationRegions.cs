@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Result of POST request to list regions supported by confluent
         /// Azure REST API version: 2024-02-13.
+        /// 
+        /// Other available API versions: 2024-07-01.
         /// </summary>
         public static Task<ListOrganizationRegionsResult> InvokeAsync(ListOrganizationRegionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListOrganizationRegionsResult>("azure-native:confluent:listOrganizationRegions", args ?? new ListOrganizationRegionsArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Result of POST request to list regions supported by confluent
         /// Azure REST API version: 2024-02-13.
+        /// 
+        /// Other available API versions: 2024-07-01.
         /// </summary>
         public static Output<ListOrganizationRegionsResult> Invoke(ListOrganizationRegionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListOrganizationRegionsResult>("azure-native:confluent:listOrganizationRegions", args ?? new ListOrganizationRegionsInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Result of POST request to list regions supported by confluent
         /// Azure REST API version: 2024-02-13.
+        /// 
+        /// Other available API versions: 2024-07-01.
         /// </summary>
         public static Output<ListOrganizationRegionsResult> Invoke(ListOrganizationRegionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListOrganizationRegionsResult>("azure-native:confluent:listOrganizationRegions", args ?? new ListOrganizationRegionsInvokeArgs(), options.WithDefaults());

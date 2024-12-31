@@ -28,9 +28,12 @@ if typing.TYPE_CHECKING:
     v20230822 = __v20230822
     import pulumi_azure_native.confluent.v20240213 as __v20240213
     v20240213 = __v20240213
+    import pulumi_azure_native.confluent.v20240701 as __v20240701
+    v20240701 = __v20240701
 else:
     v20200301preview = _utilities.lazy_import('pulumi_azure_native.confluent.v20200301preview')
     v20211201 = _utilities.lazy_import('pulumi_azure_native.confluent.v20211201')
     v20230822 = _utilities.lazy_import('pulumi_azure_native.confluent.v20230822')
     v20240213 = _utilities.lazy_import('pulumi_azure_native.confluent.v20240213')
+    v20240701 = _utilities.lazy_import('pulumi_azure_native.confluent.v20240701')
 

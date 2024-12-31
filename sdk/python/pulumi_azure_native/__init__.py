@@ -5526,6 +5526,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "confluent/v20240701",
+  "fqn": "pulumi_azure_native.confluent.v20240701",
+  "classes": {
+   "azure-native:confluent/v20240701:Connector": "Connector",
+   "azure-native:confluent/v20240701:Organization": "Organization",
+   "azure-native:confluent/v20240701:OrganizationClusterById": "OrganizationClusterById",
+   "azure-native:confluent/v20240701:OrganizationEnvironmentById": "OrganizationEnvironmentById",
+   "azure-native:confluent/v20240701:Topic": "Topic"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "connectedcache",
   "fqn": "pulumi_azure_native.connectedcache",
   "classes": {
