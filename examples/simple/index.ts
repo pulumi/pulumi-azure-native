@@ -120,8 +120,8 @@ const appService = new web.WebApp("app", {
             value: "this is a slot setting",
         }],
     },
-// Subnet is associated by WebAppSwiftVirtualNetworkConnection below, so it should be ignored here to avoid
-// overrides on refresh-update cycles.
+// The virtual network is associated with WebAppSwiftVirtualNetworkConnection below, so it should be ignored here to
+// avoid overrides on refresh-update cycles.
 }, { ignoreChanges: ["siteConfig.vnetName", "virtualNetworkSubnetId"] });
 
 new web.WebAppAuthSettings("auth", {
