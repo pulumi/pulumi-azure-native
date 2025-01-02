@@ -120,10 +120,9 @@ const appService = new web.WebApp("app", {
             value: "this is a slot setting",
         }],
     },
-// Subnet is associated by WebAppSwiftVirtualNetworkConnection below, so it should be ignored here to avoid
-// overrides on refresh-update cycles.
-// SiteConfig is modified outside of this resource via the WebApp* resources.
-}, { ignoreChanges: ["virtualNetworkSubnetId", "siteConfig", "siteConfig.*"] });
+// The virtual network is associated with WebAppSwiftVirtualNetworkConnection below, so it should be ignored here to
+// avoid overrides on refresh-update cycles.
+}, { ignoreChanges: ["siteConfig.vnetName", "virtualNetworkSubnetId"] });
 
 new web.WebAppAuthSettings("auth", {
     resourceGroupName: resourceGroup.name,
@@ -149,7 +148,8 @@ const slot = new web.WebAppSlot("slot", {
     name: appService.name,
 // Subnet is associated by WebAppSwiftVirtualNetworkConnection, so it should be ignored here to avoid
 // overrides on refresh-update cycles.
-}, { ignoreChanges: ["virtualNetworkSubnetId"] });
+// SiteConfig is owned by the WebApp resources.
+}, { ignoreChanges: ["siteConfig", "siteConfig.*", "virtualNetworkSubnetId"] });
 
 new web.WebAppSwiftVirtualNetworkConnectionSlot("swiftconnslot", {
     subnetResourceId: subnet.id,

@@ -43,7 +43,8 @@ func TestAccSimpleTs(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "simple"),
 			// due to WebApp.SiteConfig that's modified by other WebApp* resources
-			ExpectRefreshChanges: true,
+			ExpectRefreshChanges:    true,
+			PreviewCommandlineFlags: []string{"--diff"},
 		})
 
 	integration.ProgramTest(t, &test)
