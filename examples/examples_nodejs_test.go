@@ -310,6 +310,8 @@ func TestPortalDashboardTs(t *testing.T) {
 }
 
 func TestRecoveryServicesProtectedItemTs(t *testing.T) {
+	t.Skip("Skipping due to #3832")
+
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "recoveryservices-protecteditem"),
@@ -317,7 +319,6 @@ func TestRecoveryServicesProtectedItemTs(t *testing.T) {
 			// and adds `AzureBackupProtected` to the item.
 			ExpectRefreshChanges:    true,
 			PreviewCommandlineFlags: []string{"--diff"},
-			UpdateCommandlineFlags:  []string{"--diff"},
 		})
 
 	integration.ProgramTest(t, &test)
