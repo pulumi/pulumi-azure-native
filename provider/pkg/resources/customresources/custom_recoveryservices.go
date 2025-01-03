@@ -61,6 +61,8 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 	}, nil
 }
 
+// updateInputWithFileShareSystemName updates the "protectedItemName" from the input with the system name of the file
+// share protected item, looked up via `reader`
 func updateInputWithFileShareSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader) error {
 	item, err := extractProtectedItemProperties(input)
 	if err != nil {
@@ -87,6 +89,10 @@ func updateInputWithFileShareSystemName(ctx context.Context, input resource.Prop
 	return nil
 }
 
+// systemNameReader is an interface for getting the Azure system name of a protected item.
+// The system name looks like "azurefileshare;339f98592ed6329dc5f83bdbb8675bd3528bf58d2246d5e172615186febdc45c" and
+// needs to be determined by iterating overthe protected items in scope and matching by the human-readable name.
+// Abstracted into an interface to allow for testing.
 type systemNameReader interface {
 	readSystemNameFromProtectableItem(ctx context.Context, input *protectedItemProperties) (string, error)
 }
