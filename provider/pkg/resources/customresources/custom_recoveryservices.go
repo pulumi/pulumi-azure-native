@@ -51,7 +51,7 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}",
 		tok:  "azure-native:recoveryservices:ProtectedItem",
-		PreCreate: func(ctx context.Context, input resource.PropertyMap) (resource.PropertyMap, error) {
+		PreProcessInputs: func(ctx context.Context, input resource.PropertyMap) (resource.PropertyMap, error) {
 			err := updateInputWithFileShareSystemName(ctx, input, reader)
 			if err != nil {
 				return nil, err

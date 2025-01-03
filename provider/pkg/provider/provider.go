@@ -934,8 +934,8 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 	customRes, isCustom := k.customResources[res.Path]
 
-	if isCustom && customRes.PreCreate != nil {
-		inputs, err = customRes.PreCreate(ctx, inputs)
+	if isCustom && customRes.PreProcessInputs != nil {
+		inputs, err = customRes.PreProcessInputs(ctx, inputs)
 		if err != nil {
 			return nil, err
 		}
