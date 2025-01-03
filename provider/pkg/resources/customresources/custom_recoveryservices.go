@@ -6,6 +6,7 @@ import (
 	"context"
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
@@ -79,6 +80,14 @@ func updateInputWithFileShareSystemName(ctx context.Context, input resource.Prop
 	if err != nil {
 		return err
 	}
+	// Based on observations during testing, the system name is usually, but not always immediately available.
+	if systemName == "" {
+		time.Sleep(30 * time.Second)
+		systemName, err = reader.readSystemNameFromProtectableItem(ctx, item)
+		if err != nil {
+			return err
+		}
+	}
 
 	if systemName != "" {
 		input["__friendlyProtectedItemName"] = input["protectedItemName"]
@@ -91,7 +100,7 @@ func updateInputWithFileShareSystemName(ctx context.Context, input resource.Prop
 
 // systemNameReader is an interface for getting the Azure system name of a protected item.
 // The system name looks like "azurefileshare;339f98592ed6329dc5f83bdbb8675bd3528bf58d2246d5e172615186febdc45c" and
-// needs to be determined by iterating overthe protected items in scope and matching by the human-readable name.
+// needs to be determined by iterating over the protected items in scope and matching by the human-readable name.
 // Abstracted into an interface to allow for testing.
 type systemNameReader interface {
 	readSystemNameFromProtectableItem(ctx context.Context, input *protectedItemProperties) (string, error)
