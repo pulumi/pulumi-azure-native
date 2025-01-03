@@ -122,16 +122,33 @@ func (s *systemNameReaderImpl) readSystemNameFromProtectableItem(ctx context.Con
 		if err != nil {
 			return "", err
 		}
-		for _, item := range page.Value {
-			protectableFileShare, ok := item.Properties.(*recovery.AzureFileShareProtectableItem)
-			if !ok {
-				return "", fmt.Errorf("protectable item of type '%s' is not a file share", *item.Type)
+		systemName, err := findSystemName(page.Value, input.itemName, storageAccountName)
+		if err != nil {
+			return "", err
+		}
+		if systemName != "" {
+			return systemName, nil
+		}
+	}
+	return "", nil
+}
+
+// findSystemName finds the system name of the file share protected item by looking through the given protectable items
+// for one that matches the target friendly name and storage account name.
+func findSystemName(protectableItems []*recovery.WorkloadProtectableItemResource, targetFriendlyName, storageAccountName string) (string, error) {
+	for _, item := range protectableItems {
+		protectableFileShare, ok := item.Properties.(*recovery.AzureFileShareProtectableItem)
+		if !ok {
+			itemType := "unknown"
+			if item.Type != nil {
+				itemType = *item.Type
 			}
-			friendlyName := *protectableFileShare.FriendlyName
-			containerName := *protectableFileShare.ParentContainerFriendlyName
-			if friendlyName == input.itemName && containerName == storageAccountName {
-				return *item.Name, nil
-			}
+			return "", fmt.Errorf("protectable item of type %s is not a file share", itemType)
+		}
+		friendlyName := *protectableFileShare.FriendlyName
+		containerName := *protectableFileShare.ParentContainerFriendlyName
+		if friendlyName == targetFriendlyName && containerName == storageAccountName {
+			return *item.Name, nil
 		}
 	}
 	return "", nil
