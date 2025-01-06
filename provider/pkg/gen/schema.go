@@ -61,7 +61,6 @@ type GenerationResult struct {
 	ForceNewTypes              []ForceNewType
 	TypeCaseConflicts          CaseConflicts
 	FlattenedPropertyConflicts map[string]map[string]struct{}
-	Endpoints                  openapi.Endpoints
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
@@ -276,13 +275,11 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	sort.Strings(providers)
 
 	// Track some global data
-	warnings := []string{}
 	var forceNewTypes []ForceNewType
 	caseSensitiveTypes := newCaseSensitiveTokens()
 	flattenedPropertyConflicts := map[string]map[string]struct{}{}
-	endpoints := openapi.Endpoints{}
-
 	exampleMap := make(map[string][]resources.AzureAPIExample)
+
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
 		var versions []openapi.SdkVersion
@@ -313,7 +310,6 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				caseSensitiveTypes:         caseSensitiveTypes,
 				rootDir:                    rootDir,
 				flattenedPropertyConflicts: flattenedPropertyConflicts,
-				allEndpoints:               endpoints,
 				majorVersion:               majorVersion,
 			}
 
@@ -348,7 +344,6 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 
 			// Populate invokes.
 			gen.genInvokes(items.Invokes)
-			warnings = append(warnings, gen.warnings...)
 			forceNewTypes = append(forceNewTypes, gen.forceNewTypes...)
 		}
 	}
@@ -412,7 +407,6 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		ForceNewTypes:              forceNewTypes,
 		TypeCaseConflicts:          caseSensitiveTypes.findCaseConflicts(),
 		FlattenedPropertyConflicts: flattenedPropertyConflicts,
-		Endpoints:                  endpoints,
 	}, nil
 }
 
@@ -641,12 +635,10 @@ type packageGenerator struct {
 	allSdkVersions     []openapi.SdkVersion
 	versioning         Versioning
 	caseSensitiveTypes caseSensitiveTokens
-	warnings           []string
 	// rootDir is used to resolve relative paths in the examples.
 	rootDir                    string
 	forceNewTypes              []ForceNewType
 	flattenedPropertyConflicts map[string]map[string]struct{}
-	allEndpoints               openapi.Endpoints
 	majorVersion               int
 }
 
@@ -781,7 +773,7 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 }
 
 func (g *packageGenerator) makeTypeAlias(alias string, apiVersion openapi.SdkVersion) pschema.AliasSpec {
-	fqAlias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, g.providerApiToModule(apiVersion), alias)
+	fqAlias := g.generateTok(alias, apiVersion)
 	return pschema.AliasSpec{Type: &fqAlias}
 }
 
@@ -808,7 +800,6 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		inlineTypes:                map[*openapi.ReferenceContext]codegen.StringSet{},
 		nestedResourceBodyRefs:     nestedResourceBodyRefs,
 		flattenedPropertyConflicts: map[string]struct{}{},
-		allEndpoints:               g.allEndpoints,
 	}
 
 	updateOp := path.Put
@@ -1126,6 +1117,7 @@ func (g *packageGenerator) versionedModuleName() string {
 	return fmt.Sprintf("%s/%s", versionedModule, g.sdkVersion)
 }
 
+// providerApiToModule produces the module name from the provider name (g.provider), and the version if not empty, e.g. `compute/v20200701`.
 func (g *packageGenerator) providerApiToModule(apiVersion openapi.SdkVersion) string {
 	if apiVersion == "" {
 		return strings.ToLower(g.provider)
@@ -1326,7 +1318,6 @@ type moduleGenerator struct {
 	nestedResourceBodyRefs     []string
 	forceNewTypes              []ForceNewType
 	flattenedPropertyConflicts map[string]struct{}
-	allEndpoints               openapi.Endpoints
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {
