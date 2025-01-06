@@ -122,7 +122,7 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization:RoleManagementPolicy" }, { type: "azure-native:authorization/v20201001:RoleManagementPolicy" }, { type: "azure-native:authorization/v20201001preview:RoleManagementPolicy" }, { type: "azure-native:authorization/v20240901preview:RoleManagementPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20201001:RoleManagementPolicy" }, { type: "azure-native:authorization/v20201001preview:RoleManagementPolicy" }, { type: "azure-native:authorization/v20240901preview:RoleManagementPolicy" }, { type: "azure-native:authorization:RoleManagementPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleManagementPolicy.__pulumiType, name, resourceInputs, opts);
     }

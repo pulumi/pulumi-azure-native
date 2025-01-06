@@ -106,10 +106,10 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:authorization:RoleManagementPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20201001:RoleManagementPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20240201preview:RoleManagementPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20240901preview:RoleManagementPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization:RoleManagementPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
