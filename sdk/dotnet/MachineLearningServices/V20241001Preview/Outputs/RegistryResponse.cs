@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Outputs
         /// Private endpoint connections info used for pending connections in private link portal
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> RegistryPrivateEndpointConnections;
+        /// <summary>
+        /// List of tuples containing Guid and SyndicatedRegistry
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RegistryResponseSyndicatedRegistries> SyndicatedRegistries;
 
         [OutputConstructor]
         private RegistryResponse(
@@ -66,7 +70,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Outputs
 
             ImmutableArray<Outputs.RegistryRegionArmDetailsResponse> regionDetails,
 
-            ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> registryPrivateEndpointConnections)
+            ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> registryPrivateEndpointConnections,
+
+            ImmutableArray<Outputs.RegistryResponseSyndicatedRegistries> syndicatedRegistries)
         {
             DiscoveryUrl = discoveryUrl;
             IntellectualPropertyPublisher = intellectualPropertyPublisher;
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview.Outputs
             PublicNetworkAccess = publicNetworkAccess;
             RegionDetails = regionDetails;
             RegistryPrivateEndpointConnections = registryPrivateEndpointConnections;
+            SyndicatedRegistries = syndicatedRegistries;
         }
     }
 }
