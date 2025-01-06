@@ -28,6 +28,15 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static Output<GetRoleManagementPolicyResult> Invoke(GetRoleManagementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyResult>("azure-native:authorization:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the specified role management policy for a resource scope
+        /// Azure REST API version: 2024-09-01-preview.
+        /// 
+        /// Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
+        /// </summary>
+        public static Output<GetRoleManagementPolicyResult> Invoke(GetRoleManagementPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyResult>("azure-native:authorization:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

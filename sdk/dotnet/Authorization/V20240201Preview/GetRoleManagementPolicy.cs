@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Authorization.V20240201Preview
         /// </summary>
         public static Output<GetRoleManagementPolicyResult> Invoke(GetRoleManagementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyResult>("azure-native:authorization/v20240201preview:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get the specified role management policy for a resource scope
+        /// </summary>
+        public static Output<GetRoleManagementPolicyResult> Invoke(GetRoleManagementPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleManagementPolicyResult>("azure-native:authorization/v20240201preview:getRoleManagementPolicy", args ?? new GetRoleManagementPolicyInvokeArgs(), options.WithDefaults());
     }
 
 
