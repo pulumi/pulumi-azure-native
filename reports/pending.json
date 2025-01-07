@@ -161,7 +161,8 @@
     "2024-05-01-preview",
     "2024-07-15-preview",
     "2024-08-01-preview",
-    "2024-09-01-preview"
+    "2024-09-01-preview",
+    "2024-12-01-preview"
   ],
   "AzureTerraform": [],
   "BareMetalInfrastructure": [
@@ -1024,7 +1025,8 @@
   "NetworkAnalytics": [],
   "NetworkCloud": [
     "2024-06-01-preview",
-    "2024-07-01"
+    "2024-07-01",
+    "2024-10-01-preview"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [
