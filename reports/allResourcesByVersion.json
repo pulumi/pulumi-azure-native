@@ -3874,6 +3874,18 @@
       "Update",
       "UpdateRun",
       "UpdateSummary"
+    ],
+    "2024-12-01-preview": [
+      "ArcSetting",
+      "Cluster",
+      "DeploymentSetting",
+      "EdgeDevice",
+      "EdgeDeviceJob",
+      "Extension",
+      "SecuritySetting",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary"
     ]
   },
   "AzureTerraform": {
@@ -20124,6 +20136,26 @@
       "Volume"
     ],
     "2024-07-01": [
+      "AgentPool",
+      "BareMetalMachine",
+      "BareMetalMachineKeySet",
+      "BmcKeySet",
+      "CloudServicesNetwork",
+      "Cluster",
+      "ClusterManager",
+      "Console",
+      "KubernetesCluster",
+      "KubernetesClusterFeature",
+      "L2Network",
+      "L3Network",
+      "MetricsConfiguration",
+      "Rack",
+      "StorageAppliance",
+      "TrunkedNetwork",
+      "VirtualMachine",
+      "Volume"
+    ],
+    "2024-10-01-preview": [
       "AgentPool",
       "BareMetalMachine",
       "BareMetalMachineKeySet",

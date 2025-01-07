@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Details of an Update run
  * Azure REST API version: 2023-03-01.
  *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
  */
 export class UpdateRun extends pulumi.CustomResource {
     /**
@@ -164,7 +164,7 @@ export class UpdateRun extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20221201:UpdateRun" }, { type: "azure-native:azurestackhci/v20221215preview:UpdateRun" }, { type: "azure-native:azurestackhci/v20230201:UpdateRun" }, { type: "azure-native:azurestackhci/v20230301:UpdateRun" }, { type: "azure-native:azurestackhci/v20230601:UpdateRun" }, { type: "azure-native:azurestackhci/v20230801:UpdateRun" }, { type: "azure-native:azurestackhci/v20230801preview:UpdateRun" }, { type: "azure-native:azurestackhci/v20231101preview:UpdateRun" }, { type: "azure-native:azurestackhci/v20240101:UpdateRun" }, { type: "azure-native:azurestackhci/v20240215preview:UpdateRun" }, { type: "azure-native:azurestackhci/v20240401:UpdateRun" }, { type: "azure-native:azurestackhci/v20240901preview:UpdateRun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20221201:UpdateRun" }, { type: "azure-native:azurestackhci/v20221215preview:UpdateRun" }, { type: "azure-native:azurestackhci/v20230201:UpdateRun" }, { type: "azure-native:azurestackhci/v20230301:UpdateRun" }, { type: "azure-native:azurestackhci/v20230601:UpdateRun" }, { type: "azure-native:azurestackhci/v20230801:UpdateRun" }, { type: "azure-native:azurestackhci/v20230801preview:UpdateRun" }, { type: "azure-native:azurestackhci/v20231101preview:UpdateRun" }, { type: "azure-native:azurestackhci/v20240101:UpdateRun" }, { type: "azure-native:azurestackhci/v20240215preview:UpdateRun" }, { type: "azure-native:azurestackhci/v20240401:UpdateRun" }, { type: "azure-native:azurestackhci/v20240901preview:UpdateRun" }, { type: "azure-native:azurestackhci/v20241201preview:UpdateRun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UpdateRun.__pulumiType, name, resourceInputs, opts);
     }

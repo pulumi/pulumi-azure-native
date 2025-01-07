@@ -171,7 +171,7 @@ class L2Network(pulumi.CustomResource):
         """
         Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
+        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,7 +193,7 @@ class L2Network(pulumi.CustomResource):
         """
         Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
 
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
+        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param L2NetworkArgs args: The arguments to use to populate this resource's properties.
@@ -253,7 +253,7 @@ class L2Network(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:L2Network")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:L2Network"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:L2Network")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(L2Network, __self__).__init__(
             'azure-native:networkcloud:L2Network',

@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20240701
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:ClusterManager" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:ClusterManager" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:ClusterManager" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:ClusterManager" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

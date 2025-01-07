@@ -132,7 +132,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:Volume" }, { type: "azure-native:networkcloud/v20230701:Volume" }, { type: "azure-native:networkcloud/v20231001preview:Volume" }, { type: "azure-native:networkcloud/v20240601preview:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:Volume" }, { type: "azure-native:networkcloud/v20230701:Volume" }, { type: "azure-native:networkcloud/v20231001preview:Volume" }, { type: "azure-native:networkcloud/v20240601preview:Volume" }, { type: "azure-native:networkcloud/v20241001preview:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }

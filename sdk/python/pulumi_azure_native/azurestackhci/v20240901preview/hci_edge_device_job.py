@@ -182,7 +182,7 @@ class HciEdgeDeviceJob(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:HciEdgeDeviceJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:HciEdgeDeviceJob"), pulumi.Alias(type_="azure-native:azurestackhci/v20241201preview:HciEdgeDeviceJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HciEdgeDeviceJob, __self__).__init__(
             'azure-native:azurestackhci/v20240901preview:HciEdgeDeviceJob',

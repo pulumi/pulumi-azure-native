@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:TrunkedNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:TrunkedNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:TrunkedNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:TrunkedNetwork" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

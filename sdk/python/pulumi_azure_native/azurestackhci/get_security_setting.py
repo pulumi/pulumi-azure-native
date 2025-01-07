@@ -130,7 +130,7 @@ def get_security_setting(cluster_name: Optional[str] = None,
     Get a SecuritySetting
     Azure REST API version: 2023-11-01-preview.
 
-    Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
+    Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
 
 
     :param str cluster_name: The name of the cluster.
@@ -160,7 +160,7 @@ def get_security_setting_output(cluster_name: Optional[pulumi.Input[str]] = None
     Get a SecuritySetting
     Azure REST API version: 2023-11-01-preview.
 
-    Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview.
+    Other available API versions: 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
 
 
     :param str cluster_name: The name of the cluster.

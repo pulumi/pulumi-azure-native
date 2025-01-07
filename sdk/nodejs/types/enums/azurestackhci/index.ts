@@ -21,6 +21,7 @@ import * as v20240501preview from "./v20240501preview";
 import * as v20240715preview from "./v20240715preview";
 import * as v20240801preview from "./v20240801preview";
 import * as v20240901preview from "./v20240901preview";
+import * as v20241201preview from "./v20241201preview";
 
 export {
     v20210901preview,
@@ -42,6 +43,7 @@ export {
     v20240715preview,
     v20240801preview,
     v20240901preview,
+    v20241201preview,
 };
 
 export const AvailabilityType = {

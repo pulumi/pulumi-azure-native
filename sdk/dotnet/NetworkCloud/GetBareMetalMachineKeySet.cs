@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get bare metal machine key set of the provided cluster.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetBareMetalMachineKeySetResult> InvokeAsync(GetBareMetalMachineKeySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBareMetalMachineKeySetResult>("azure-native:networkcloud:getBareMetalMachineKeySet", args ?? new GetBareMetalMachineKeySetArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get bare metal machine key set of the provided cluster.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetBareMetalMachineKeySetResult> Invoke(GetBareMetalMachineKeySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineKeySetResult>("azure-native:networkcloud:getBareMetalMachineKeySet", args ?? new GetBareMetalMachineKeySetInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Get bare metal machine key set of the provided cluster.
         /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01.
+        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetBareMetalMachineKeySetResult> Invoke(GetBareMetalMachineKeySetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineKeySetResult>("azure-native:networkcloud:getBareMetalMachineKeySet", args ?? new GetBareMetalMachineKeySetInvokeArgs(), options.WithDefaults());

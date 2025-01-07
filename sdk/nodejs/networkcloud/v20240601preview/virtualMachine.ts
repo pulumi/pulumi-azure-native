@@ -255,7 +255,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:VirtualMachine" }, { type: "azure-native:networkcloud/v20230701:VirtualMachine" }, { type: "azure-native:networkcloud/v20231001preview:VirtualMachine" }, { type: "azure-native:networkcloud/v20240701:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud:VirtualMachine" }, { type: "azure-native:networkcloud/v20230701:VirtualMachine" }, { type: "azure-native:networkcloud/v20231001preview:VirtualMachine" }, { type: "azure-native:networkcloud/v20240701:VirtualMachine" }, { type: "azure-native:networkcloud/v20241001preview:VirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

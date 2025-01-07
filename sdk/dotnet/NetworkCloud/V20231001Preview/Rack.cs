@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.NetworkCloud.V20231001Preview
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:Rack" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:Rack" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:Rack" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:Rack" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

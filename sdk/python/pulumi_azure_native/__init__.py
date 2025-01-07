@@ -4018,6 +4018,23 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurestackhci/v20241201preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20241201preview",
+  "classes": {
+   "azure-native:azurestackhci/v20241201preview:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20241201preview:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20241201preview:DeploymentSetting": "DeploymentSetting",
+   "azure-native:azurestackhci/v20241201preview:Extension": "Extension",
+   "azure-native:azurestackhci/v20241201preview:HciEdgeDevice": "HciEdgeDevice",
+   "azure-native:azurestackhci/v20241201preview:HciEdgeDeviceJob": "HciEdgeDeviceJob",
+   "azure-native:azurestackhci/v20241201preview:SecuritySetting": "SecuritySetting",
+   "azure-native:azurestackhci/v20241201preview:Update": "Update",
+   "azure-native:azurestackhci/v20241201preview:UpdateRun": "UpdateRun",
+   "azure-native:azurestackhci/v20241201preview:UpdateSummary": "UpdateSummary"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "baremetalinfrastructure",
   "fqn": "pulumi_azure_native.baremetalinfrastructure",
   "classes": {
@@ -15680,6 +15697,31 @@ _utilities.register(
    "azure-native:networkcloud/v20240701:TrunkedNetwork": "TrunkedNetwork",
    "azure-native:networkcloud/v20240701:VirtualMachine": "VirtualMachine",
    "azure-native:networkcloud/v20240701:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "networkcloud/v20241001preview",
+  "fqn": "pulumi_azure_native.networkcloud.v20241001preview",
+  "classes": {
+   "azure-native:networkcloud/v20241001preview:AgentPool": "AgentPool",
+   "azure-native:networkcloud/v20241001preview:BareMetalMachine": "BareMetalMachine",
+   "azure-native:networkcloud/v20241001preview:BareMetalMachineKeySet": "BareMetalMachineKeySet",
+   "azure-native:networkcloud/v20241001preview:BmcKeySet": "BmcKeySet",
+   "azure-native:networkcloud/v20241001preview:CloudServicesNetwork": "CloudServicesNetwork",
+   "azure-native:networkcloud/v20241001preview:Cluster": "Cluster",
+   "azure-native:networkcloud/v20241001preview:ClusterManager": "ClusterManager",
+   "azure-native:networkcloud/v20241001preview:Console": "Console",
+   "azure-native:networkcloud/v20241001preview:KubernetesCluster": "KubernetesCluster",
+   "azure-native:networkcloud/v20241001preview:KubernetesClusterFeature": "KubernetesClusterFeature",
+   "azure-native:networkcloud/v20241001preview:L2Network": "L2Network",
+   "azure-native:networkcloud/v20241001preview:L3Network": "L3Network",
+   "azure-native:networkcloud/v20241001preview:MetricsConfiguration": "MetricsConfiguration",
+   "azure-native:networkcloud/v20241001preview:Rack": "Rack",
+   "azure-native:networkcloud/v20241001preview:StorageAppliance": "StorageAppliance",
+   "azure-native:networkcloud/v20241001preview:TrunkedNetwork": "TrunkedNetwork",
+   "azure-native:networkcloud/v20241001preview:VirtualMachine": "VirtualMachine",
+   "azure-native:networkcloud/v20241001preview:Volume": "Volume"
   }
  },
  {

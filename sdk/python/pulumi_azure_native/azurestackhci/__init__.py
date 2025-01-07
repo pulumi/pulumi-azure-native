@@ -97,6 +97,8 @@ if typing.TYPE_CHECKING:
     v20240801preview = __v20240801preview
     import pulumi_azure_native.azurestackhci.v20240901preview as __v20240901preview
     v20240901preview = __v20240901preview
+    import pulumi_azure_native.azurestackhci.v20241201preview as __v20241201preview
+    v20241201preview = __v20241201preview
 else:
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210901preview')
     v20220101 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20220101')
@@ -117,4 +119,5 @@ else:
     v20240715preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20240715preview')
     v20240801preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20240801preview')
     v20240901preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20240901preview')
+    v20241201preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20241201preview')
 
