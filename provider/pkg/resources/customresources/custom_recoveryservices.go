@@ -57,13 +57,6 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 	return &CustomResource{
 		path: protectedItemPath,
 		tok:  "azure-native:recoveryservices:ProtectedItem",
-		PreProcessInputs: func(ctx context.Context, input resource.PropertyMap) (resource.PropertyMap, error) {
-			err := updateInputWithFileShareSystemName(ctx, input, reader)
-			if err != nil {
-				return nil, err
-			}
-			return input, nil
-		},
 		GetIdAndQuery: func(ctx context.Context, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient) (string, map[string]any, error) {
 			return getIdAndQuery(ctx, inputs, crudClient, reader)
 		},
@@ -119,23 +112,6 @@ func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader 
 		}
 	}
 	return systemName, nil
-}
-
-// updateInputWithFileShareSystemName updates the "protectedItemName" from the input with the system name of the file
-// share protected item, looked up via `reader`
-func updateInputWithFileShareSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader) error {
-	systemName, err := retrieveSystemName(ctx, input, reader)
-	if err != nil {
-		return err
-	}
-
-	if systemName != "" {
-		input["__friendlyProtectedItemName"] = input["protectedItemName"]
-		input["protectedItemName"] = resource.NewStringProperty(systemName)
-	} else {
-		logging.V(5).Infof("no system name found for %s", input["protectedItemName"])
-	}
-	return nil
 }
 
 // systemNameReader is an interface for getting the Azure system name of a protected item.

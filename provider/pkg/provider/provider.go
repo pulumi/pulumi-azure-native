@@ -934,13 +934,6 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 	customRes, isCustom := k.customResources[res.Path]
 
-	if isCustom && customRes.PreProcessInputs != nil {
-		inputs, err = customRes.PreProcessInputs(ctx, inputs)
-		if err != nil {
-			return nil, err
-		}
-	}
-
 	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
 	var id string
