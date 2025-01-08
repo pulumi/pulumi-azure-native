@@ -12,8 +12,13 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
 	recovery "github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/recoveryservices/armrecoveryservicesbackup/v4"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
+)
+
+const (
+	protectedItemPath = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}"
 )
 
 type protectedItem struct {
@@ -50,7 +55,7 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 	}
 
 	return &CustomResource{
-		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}",
+		path: protectedItemPath,
 		tok:  "azure-native:recoveryservices:ProtectedItem",
 		PreProcessInputs: func(ctx context.Context, input resource.PropertyMap) (resource.PropertyMap, error) {
 			err := updateInputWithFileShareSystemName(ctx, input, reader)
@@ -59,34 +64,69 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 			}
 			return input, nil
 		},
+		GetIdAndQuery: func(ctx context.Context, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient) (string, map[string]any, error) {
+			return getIdAndQuery(ctx, inputs, crudClient, reader)
+		},
 	}, nil
 }
 
-// updateInputWithFileShareSystemName updates the "protectedItemName" from the input with the system name of the file
-// share protected item, looked up via `reader`
-func updateInputWithFileShareSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader) error {
+// getIdAndQuery replaces the default implementation of crud.ResourceCrudClient.PrepareAzureRESTIdAndQuery. It doesn't
+// change queryParams, only the id, to replace the file share's friendly name with the system name.
+func getIdAndQuery(ctx context.Context, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient, reader systemNameReader) (string, map[string]any, error) {
+	origId, queryParams, err := crudClient.PrepareAzureRESTIdAndQuery(inputs)
+	if err != nil {
+		return "", nil, err
+	}
+
+	systemName, err := retrieveSystemName(ctx, inputs, reader)
+	if err != nil {
+		return "", nil, err
+	}
+
+	if systemName != "" {
+		lastSlashIndex := strings.LastIndex(origId, "/")
+		if lastSlashIndex != -1 {
+			origId = origId[:lastSlashIndex+1] + systemName
+		}
+	}
+
+	return origId, queryParams, nil
+}
+
+// retrieveSystemName looks up the system name of a file share protected item in Azure.
+func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader) (string, error) {
 	item, err := extractProtectedItemProperties(input)
 	if err != nil {
-		return err
+		return "", err
 	}
 
 	if item.protectedItemType != "AzureFileShareProtectedItem" {
 		logging.V(9).Infof("not modifying protected item of type %s", item.protectedItemType)
-		return nil
+		return "", nil
 	}
 
 	logging.V(9).Infof("looking up system name for %s", item.itemName)
 	systemName, err := reader.readSystemNameFromProtectableItem(ctx, item)
 	if err != nil {
-		return err
+		return "", err
 	}
 	// Based on observations during testing, the system name is usually, but not always immediately available.
 	if systemName == "" {
 		time.Sleep(30 * time.Second)
 		systemName, err = reader.readSystemNameFromProtectableItem(ctx, item)
 		if err != nil {
-			return err
+			return "", err
 		}
+	}
+	return systemName, nil
+}
+
+// updateInputWithFileShareSystemName updates the "protectedItemName" from the input with the system name of the file
+// share protected item, looked up via `reader`
+func updateInputWithFileShareSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader) error {
+	systemName, err := retrieveSystemName(ctx, input, reader)
+	if err != nil {
+		return err
 	}
 
 	if systemName != "" {
