@@ -9,6 +9,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	"github.com/Azure/go-autorest/autorest/azure"
+	az "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -356,14 +357,14 @@ func TestReader(t *testing.T) {
 			},
 		}
 
-		azureClient := &mockAzureClient{}
+		azureClient := &az.MockAzureClient{}
 		crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", nil)
 
 		r := reader(customRes, crudClient)
 		_, err := r(context.Background(), "id1", nil)
 		require.NoError(t, err)
 		assert.Equal(t, []string{"id1"}, customReads)
-		assert.Empty(t, azureClient.getIds)
+		assert.Empty(t, azureClient.GetIds)
 	})
 
 	t.Run("no custom Read", func(t *testing.T) {
@@ -372,13 +373,13 @@ func TestReader(t *testing.T) {
 		}
 
 		for _, otherCustomRes := range []*customresources.CustomResource{nil, {} /* custom resource that doesn't implement Read */} {
-			azureClient := &mockAzureClient{}
+			azureClient := &az.MockAzureClient{}
 			crudClient := crud.NewResourceCrudClient(azureClient, nil, nil, "123", resource)
 
 			r := reader(otherCustomRes, crudClient)
 			_, err := r(context.Background(), "id2", nil)
 			require.NoError(t, err)
-			assert.Contains(t, azureClient.getIds, "id2")
+			assert.Contains(t, azureClient.GetIds, "id2")
 		}
 	})
 }
@@ -475,36 +476,6 @@ func TestAutorestAzureClientUsesCorrectCloud(t *testing.T) {
 
 		assert.Equal(t, expectedEnv, nameField.String())
 	}
-}
-
-type mockAzureClient struct {
-	getIds []string
-}
-
-func (m *mockAzureClient) Delete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error {
-	return nil
-}
-func (m *mockAzureClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error {
-	return nil
-}
-func (m *mockAzureClient) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (any, error) {
-	m.getIds = append(m.getIds, id)
-	return map[string]any{}, nil
-}
-func (m *mockAzureClient) Head(ctx context.Context, id string, apiVersion string) error {
-	return nil
-}
-func (m *mockAzureClient) Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
-	return nil, false, nil
-}
-func (m *mockAzureClient) Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (any, error) {
-	return nil, nil
-}
-func (m *mockAzureClient) Put(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
-	return nil, false, nil
-}
-func (m *mockAzureClient) IsNotFound(err error) bool {
-	return false
 }
 
 func TestGetTokenEndpoint(t *testing.T) {
