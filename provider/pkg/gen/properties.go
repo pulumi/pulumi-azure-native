@@ -41,6 +41,17 @@ type propertyBag struct {
 	requiredContainers RequiredContainers
 }
 
+// propertyIntersection returns the property names that are present in both bags.
+func (p *propertyBag) propertyIntersection(other *propertyBag) []string {
+	result := []string{}
+	for propName := range p.properties {
+		if _, ok := other.properties[propName]; ok {
+			result = append(result, propName)
+		}
+	}
+	return result
+}
+
 type RequiredContainers [][]string
 
 // genPropertiesVariant is a set of flags that control the behavior of property generation
@@ -130,10 +141,8 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 
 			// Check that none of the inner properties already exists on the outer type. This
 			// causes a conflict when flattening, and will probably need to be handled in v3.
-			for propName := range bag.properties {
-				if _, has := result.properties[propName]; has {
-					m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
-				}
+			for _, propName := range result.propertyIntersection(bag) {
+				m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
 			}
 
 			// Adjust every property to mark them as flattened.
