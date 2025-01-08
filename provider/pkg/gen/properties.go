@@ -25,6 +25,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -123,50 +124,53 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 			property.Ref.String() == "#/definitions/DelegatedSubnetProperties" ||
 			property.Ref.String() == "#/definitions/DelegatedControllerProperties"
 
-		// TODO: can be removed when https://github.com/pulumi/pulumi-azure-native/pull/3016 is merged
-		if m.resourceName == "DefenderForStorage" && (name == "malwareScanning" || name == "sensitiveDataDiscovery") {
-			flatten = false
-		}
 		// See #3556 and https://github.com/Azure/azure-rest-api-specs/issues/30443
 		// It's ok if a new API version is fixed, this is a no-op then.
 		if m.resourceName == "CIAMTenant" && name == "tier" && strings.HasPrefix(m.module, "azureactivedirectory") {
 			flatten = false
 		}
 
-		if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
-			bag, err := m.genProperties(resolvedProperty, variants.noResponse())
-			if err != nil {
-				return nil, err
+		if version.GetVersion().Major < 3 {
+			// Prevent a property collision due to flattening. From v3, we detect and avoid this case automatically.
+			if m.resourceName == "DefenderForStorage" && (name == "malwareScanning" || name == "sensitiveDataDiscovery") {
+				flatten = false
 			}
 
-			// Check that none of the inner properties already exists on the outer type. This
-			// causes a conflict when flattening, and will probably need to be handled in v3.
-			for _, propName := range result.propertyIntersection(bag) {
-				m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
-			}
-
-			// Adjust every property to mark them as flattened.
-			newProperties := map[string]resources.AzureAPIProperty{}
-			for n, value := range bag.properties {
-				// The order of containers is important, so we prepend the outermost name.
-				value.Containers = append([]string{name}, value.Containers...)
-				newProperties[n] = value
-			}
-			bag.properties = newProperties
-
-			newRequiredContainers := make(RequiredContainers, len(bag.requiredContainers))
-			for i, containers := range bag.requiredContainers {
-				newRequiredContainers[i] = append([]string{name}, containers...)
-			}
-			for _, requiredName := range resolvedSchema.Required {
-				if requiredName == name {
-					newRequiredContainers = append(newRequiredContainers, []string{name})
+			if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
+				bag, err := m.genProperties(resolvedProperty, variants.noResponse())
+				if err != nil {
+					return nil, err
 				}
-			}
-			bag.requiredContainers = newRequiredContainers
 
-			result.merge(bag)
-			continue
+				// Check that none of the inner properties already exists on the outer type. This
+				// causes a conflict when flattening, and will probably need to be handled in v3.
+				for _, propName := range result.propertyIntersection(bag) {
+					m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
+				}
+
+				// Adjust every property to mark them as flattened.
+				newProperties := map[string]resources.AzureAPIProperty{}
+				for n, value := range bag.properties {
+					// The order of containers is important, so we prepend the outermost name.
+					value.Containers = append([]string{name}, value.Containers...)
+					newProperties[n] = value
+				}
+				bag.properties = newProperties
+
+				newRequiredContainers := make(RequiredContainers, len(bag.requiredContainers))
+				for i, containers := range bag.requiredContainers {
+					newRequiredContainers[i] = append([]string{name}, containers...)
+				}
+				for _, requiredName := range resolvedSchema.Required {
+					if requiredName == name {
+						newRequiredContainers = append(newRequiredContainers, []string{name})
+					}
+				}
+				bag.requiredContainers = newRequiredContainers
+
+				result.merge(bag)
+				continue
+			}
 		}
 
 		// Skip read-only properties for input types and write-only properties for output types.
