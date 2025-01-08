@@ -152,6 +152,26 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 				result.merge(bag)
 				continue
 			}
+		} else { // v3+: don't flatten when there are conflicts
+			if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
+				bag, err := m.genProperties(resolvedProperty, variants.noResponse())
+				if err != nil {
+					return nil, err
+				}
+
+				// Check that none of the inner properties already exists on the outer type.
+				conflictingProperties := result.propertyIntersection(bag)
+				if len(conflictingProperties) == 0 {
+					flattenProperties(bag, name, resolvedSchema)
+
+					result.merge(bag)
+					continue
+				} else {
+					for _, propName := range conflictingProperties {
+						m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
+					}
+				}
+			}
 		}
 
 		// Skip read-only properties for input types and write-only properties for output types.
