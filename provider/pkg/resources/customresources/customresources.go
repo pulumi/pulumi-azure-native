@@ -61,6 +61,9 @@ type CustomResource struct {
 	// PreProcessInputs is a function that is called to modify the input before the resource is created. Don't use it
 	// in combination with Create; just modify the input inside Create in that scenario.
 	PreProcessInputs func(ctx context.Context, input resource.PropertyMap) (resource.PropertyMap, error)
+	// GetIdAndQuery returns the resource id and query parameters for the custom resource. Optional, by default the provider gets the
+	// resource ID and query parameters from crud.ResourceCrudClient.PrepareAzureRESTIdAndQuery.
+	GetIdAndQuery func(ctx context.Context, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient) (string, map[string]any, error)
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
 	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of

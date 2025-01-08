@@ -943,7 +943,13 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 
 	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
-	id, queryParams, err := crudClient.PrepareAzureRESTIdAndQuery(inputs)
+	var id string
+	var queryParams map[string]any
+	if isCustom && customRes.GetIdAndQuery != nil {
+		id, queryParams, err = customRes.GetIdAndQuery(ctx, inputs, crudClient)
+	} else {
+		id, queryParams, err = crudClient.PrepareAzureRESTIdAndQuery(inputs)
+	}
 	if err != nil {
 		return nil, err
 	}
