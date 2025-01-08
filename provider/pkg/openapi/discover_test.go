@@ -72,7 +72,7 @@ func TestAddInvokes(t *testing.T) {
 		version := NewVersionResources()
 		spec := createTestSwaggerForInvoke(tc.path, tc.operationId, tc.httpMethod)
 
-		addResourcesAndInvokes(version, "/file/path", tc.path, "foo", &spec)
+		addResourcesAndInvokes(version, "/file/path", tc.path, "foo", nil, &spec)
 
 		assert.Empty(t, version.Resources, tcName)
 		assert.NotEmpty(t, version.Invokes, tcName)
@@ -126,7 +126,7 @@ func TestDefaultState(t *testing.T) {
 		swagger := makeSwagger(path)
 		version := NewVersionResources()
 
-		addResourcesAndInvokes(version, "/file/path", path, "insights", &swagger)
+		addResourcesAndInvokes(version, "/file/path", path, "insights", nil, &swagger)
 
 		require.NotEmpty(t, version.Resources)
 		res, ok := version.Resources["DiagnosticSettingsCategory"]
