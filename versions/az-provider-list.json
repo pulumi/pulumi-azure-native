@@ -32296,6 +32296,7 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
@@ -32313,13 +32314,14 @@
           "2020-03-01-preview",
           "2020-03-01"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [],
         "resourceType": "agreements"
       },
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
@@ -32337,13 +32339,14 @@
           "2020-03-01-preview",
           "2020-03-01"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [],
         "resourceType": "checkNameAvailability"
       },
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
@@ -32361,13 +32364,14 @@
           "2020-03-01-preview",
           "2020-03-01"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [],
         "resourceType": "locations"
       },
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
@@ -32385,7 +32389,7 @@
           "2020-03-01-preview",
           "2020-03-01"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "West US 3",
@@ -32422,6 +32426,7 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
@@ -32439,13 +32444,14 @@
           "2020-03-01-preview",
           "2020-03-01"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [],
         "resourceType": "operations"
       },
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
@@ -32463,7 +32469,7 @@
           "2020-03-01-preview",
           "2020-03-01"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "Italy North",
@@ -32500,13 +32506,14 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
           "2024-01-12-preview",
           "2023-10-03-preview"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "West US 3",
@@ -32543,13 +32550,14 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
           "2024-01-12-preview",
           "2023-10-03-preview"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "West US 3",
@@ -32586,12 +32594,13 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
           "2024-01-12-preview"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "West US 3",
@@ -32628,12 +32637,13 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
           "2024-01-12-preview"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "West US 3",
@@ -32670,12 +32680,13 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
           "2024-01-12-preview"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "West US 3",
@@ -32712,9 +32723,10 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview"
         ],
-        "defaultApiVersion": "2024-03-20-preview",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "Italy North",
@@ -32751,12 +32763,13 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
           "2024-01-12-preview"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "West US 3",
@@ -32832,12 +32845,13 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
           "2024-01-12-preview"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "West US 3",
@@ -32874,12 +32888,13 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
           "2024-01-12-preview"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [
           "West US 2",
           "West US 3",
@@ -32916,6 +32931,7 @@
       {
         "apiVersions": [
           "2024-07-01-preview",
+          "2024-07-01",
           "2024-03-20-preview",
           "2024-02-13",
           "2024-02-05-preview",
@@ -32931,7 +32947,7 @@
           "2021-09-01-preview",
           "2021-03-01-preview"
         ],
-        "defaultApiVersion": "2024-02-13",
+        "defaultApiVersion": "2024-07-01",
         "locations": [],
         "resourceType": "validations"
       }
