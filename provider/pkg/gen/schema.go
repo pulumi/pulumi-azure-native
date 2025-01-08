@@ -44,6 +44,9 @@ const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk/v2"
 const goModuleRepoPath = "github.com/pulumi/pulumi-azure-native-sdk"
 const goModuleVersion = "/v2"
 
+// pulumiProviderName is the name of the provider as used in all tokens.
+const pulumiProviderName = "azure-native"
+
 type ResourceDeprecation struct {
 	ReplacementToken string
 }
@@ -323,7 +326,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				javaPackages[module] = fmt.Sprintf("%s.%s", strings.ToLower(providerName), sdkVersion)
 			}
 			pythonModuleNames[module] = module
-			golangImportAliases[filepath.Join(goModuleRepoPath, gen.versionedModuleName())] = strings.ToLower(providerName)
+			golangImportAliases[goModuleName(gen.provider, gen.sdkVersion)] = strings.ToLower(providerName)
 
 			// Populate resources and get invokes.
 			items := versionMap[sdkVersion]
@@ -773,7 +776,7 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 }
 
 func (g *packageGenerator) makeTypeAlias(alias string, apiVersion openapi.SdkVersion) pschema.AliasSpec {
-	fqAlias := g.generateTok(alias, apiVersion)
+	fqAlias := generateTok(g.provider, alias, apiVersion)
 	return pschema.AliasSpec{Type: &fqAlias}
 }
 
@@ -1056,7 +1059,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 	}
 
 	// Generate the function to get this resource.
-	functionTok := g.generateTok(typeName, g.sdkVersion)
+	functionTok := generateTok(g.provider, typeName, g.sdkVersion)
 	if !g.shouldInclude(typeName, functionTok, g.apiVersion) {
 		return
 	}
@@ -1106,27 +1109,25 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 
 // moduleName produces the module name from the provider name and the version e.g. `compute/v20200701`.
 func (g *packageGenerator) moduleName() string {
-	return g.providerApiToModule(g.sdkVersion)
+	return providerApiToModule(g.provider, g.sdkVersion)
 }
 
-func (g *packageGenerator) versionedModuleName() string {
-	versionedModule := strings.ToLower(g.provider) + goModuleVersion
-	if g.sdkVersion == "" {
-		return versionedModule
-	}
-	return fmt.Sprintf("%s/%s", versionedModule, g.sdkVersion)
+// goModuleName produces the *Go* module name from the provider name and the version e.g. `compute/v20200701`.
+// or just the provider name if the version is empty (default version) e.g. `compute`.
+func goModuleName(provider openapi.ProviderName, sdkVersion openapi.SdkVersion) string {
+	return filepath.Join(goModuleRepoPath, strings.ToLower(provider), goModuleVersion, string(sdkVersion))
 }
 
 // providerApiToModule produces the module name from the provider name (g.provider), and the version if not empty, e.g. `compute/v20200701`.
-func (g *packageGenerator) providerApiToModule(apiVersion openapi.SdkVersion) string {
-	if apiVersion == "" {
-		return strings.ToLower(g.provider)
+func providerApiToModule(provider openapi.ProviderName, sdkVersion openapi.SdkVersion) string {
+	if sdkVersion == "" {
+		return strings.ToLower(provider)
 	}
-	return fmt.Sprintf("%s/%s", strings.ToLower(g.provider), apiVersion)
+	return fmt.Sprintf("%s/%s", strings.ToLower(provider), sdkVersion)
 }
 
-func (g *packageGenerator) generateTok(typeName string, apiVersion openapi.SdkVersion) string {
-	return fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, g.providerApiToModule(apiVersion), typeName)
+func generateTok(provider openapi.ProviderName, typeName string, apiVersion openapi.SdkVersion) string {
+	return fmt.Sprintf(`%s:%s:%s`, pulumiProviderName, providerApiToModule(provider, apiVersion), typeName)
 }
 
 func (g *packageGenerator) shouldInclude(typeName, tok string, version *openapi.ApiVersion) bool {
@@ -1159,7 +1160,7 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 			if v == defaultVersion {
 				continue
 			}
-			tok := g.generateTok(typeName, openapi.ApiToSdkVersion(v))
+			tok := generateTok(g.provider, typeName, openapi.ApiToSdkVersion(v))
 			if g.shouldInclude(typeName, tok, &v) {
 				includedVersions = append(includedVersions, string(v))
 			}
