@@ -299,7 +299,22 @@ func getNameOverride(specFolderName, fileProvider, apiProvider string) (string, 
 	if version.GetVersion().Major < 3 {
 		return "", nil, false
 	}
-	// TODO: Add new rules for v3 and above
+	// New rules for v3 and above
+	if fileProvider == "Network" && specFolderName == "dns" {
+		return "Dns", &fileProvider, true
+	}
+	if fileProvider == "Network" && specFolderName == "dnsresolver" {
+		return "DnsResolver", &fileProvider, true
+	}
+	if fileProvider == "Network" && specFolderName == "frontdoor" {
+		return "FrontDoor", &fileProvider, true
+	}
+	if fileProvider == "Network" && specFolderName == "privatedns" {
+		return "PrivateDns", &fileProvider, true
+	}
+	if fileProvider == "Network" && specFolderName == "trafficmanager" {
+		return "TrafficManager", &fileProvider, true
+	}
 	return "", nil, false
 }
 
