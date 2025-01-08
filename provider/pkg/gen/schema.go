@@ -65,6 +65,7 @@ type GenerationResult struct {
 	ForceNewTypes              []ForceNewType
 	TypeCaseConflicts          CaseConflicts
 	FlattenedPropertyConflicts map[string]map[string]struct{}
+	PathConflicts              map[string]map[string]struct{}
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
@@ -283,6 +284,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	caseSensitiveTypes := newCaseSensitiveTokens()
 	flattenedPropertyConflicts := map[string]map[string]struct{}{}
 	exampleMap := make(map[string][]resources.AzureAPIExample)
+	resourcePaths := map[string]map[string]struct{}{}
 
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
@@ -291,8 +293,6 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			versions = append(versions, version)
 		}
 		slices.Sort(versions)
-
-		pathConflicts := map[string]map[string]struct{}{}
 
 		for _, sdkVersion := range versions {
 			// Attempt to convert back to an API version for use elsewhere
@@ -318,7 +318,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				rootDir:                    rootDir,
 				flattenedPropertyConflicts: flattenedPropertyConflicts,
 				majorVersion:               majorVersion,
-				pathConflicts:              pathConflicts,
+				resourcePaths:              resourcePaths,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -408,6 +408,17 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		"packages": javaPackages,
 	})
 
+	// When a resource maps to more than one API path, it's a conflict and we need to detect and report it. #2495
+	pathConflicts := map[string]map[string]struct{}{}
+	for tok, paths := range resourcePaths {
+		if len(paths) > 1 {
+			pathConflicts[tok] = paths
+		}
+	}
+	if majorVersion >= 3 && len(pathConflicts) > 0 {
+		return nil, fmt.Errorf("path conflicts detected: %v", pathConflicts)
+	}
+
 	return &GenerationResult{
 		Schema:                     &pkg,
 		Metadata:                   &metadata,
@@ -415,6 +426,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		ForceNewTypes:              forceNewTypes,
 		TypeCaseConflicts:          caseSensitiveTypes.findCaseConflicts(),
 		FlattenedPropertyConflicts: flattenedPropertyConflicts,
+		PathConflicts:              pathConflicts,
 	}, nil
 }
 
@@ -648,8 +660,8 @@ type packageGenerator struct {
 	forceNewTypes              []ForceNewType
 	flattenedPropertyConflicts map[string]map[string]struct{}
 	majorVersion               int
-	// A tok -> path map to detect when the same resource tok is mapped to different API paths.
-	pathConflicts map[string]map[string]struct{}
+	// A tok -> paths map to record API paths per resource and later detect conflicts.
+	resourcePaths map[string]map[string]struct{}
 }
 
 func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
@@ -856,28 +868,22 @@ func dedupResourceNameByPath(provider, typeName, canonPath string) string {
 	return result
 }
 
-// checkForPathConflicts detects when the same resource type token is mapped to different API paths.
-func (g *packageGenerator) checkForPathConflicts(typeName, canonPath string) error {
+// recordPath keeps track of all API paths a resource is mapped to.
+func (g *packageGenerator) recordPath(typeName, canonPath string) {
 	// Some resources have a /default path, e.g., azure-native:azurestackhci:GuestAgent has conflicting paths
 	// /subscriptions/{}/resourcegroups/{}/providers/microsoft.azurestackhci/virtualmachines/{}/guestagents/{},
 	// /{}/providers/microsoft.azurestackhci/virtualmachineinstances/default/guestagents/default,
 	// also azure-native:hybridcontainerservice:HybridIdentityMetadatum
 	if strings.HasSuffix(canonPath, "/default") {
-		return nil
+		return
 	}
 
 	tokWithoutVersion := generateTok(g.provider, typeName, "")
-	if paths, ok := g.pathConflicts[tokWithoutVersion]; ok {
-		paths[canonPath] = struct{}{}
-		if len(paths) > 1 {
-			// TODO,tkappler return error instead once we have all conflicts addressed.
-			log.Printf("Warning: resource %s has conflicting paths %s\n", tokWithoutVersion, strings.Join(codegen.SortedKeys(paths), ", "))
-		}
-	} else {
-		g.pathConflicts[tokWithoutVersion] = map[string]struct{}{canonPath: {}}
-	}
 
-	return nil
+	if _, ok := g.resourcePaths[tokWithoutVersion]; !ok {
+		g.resourcePaths[tokWithoutVersion] = map[string]struct{}{}
+	}
+	g.resourcePaths[tokWithoutVersion][canonPath] = struct{}{}
 }
 
 func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {
@@ -896,10 +902,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		return nil
 	}
 
-	err := g.checkForPathConflicts(typeName, canonPath)
-	if err != nil {
-		return err
-	}
+	g.recordPath(typeName, canonPath)
 
 	// Generate the resource.
 	gen := moduleGenerator{

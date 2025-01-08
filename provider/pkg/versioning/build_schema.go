@@ -33,6 +33,8 @@ type BuildSchemaArgs struct {
 
 type BuildSchemaReports struct {
 	PathChangesResult
+	// A tok -> paths map to record types that have conflicting paths.
+	PathConflicts                 map[string]map[string]struct{}
 	AllResourcesByVersion         ProvidersVersionResources
 	AllResourceVersionsByResource ProviderResourceVersions
 	Pending                       openapi.ProviderVersionList
@@ -49,19 +51,20 @@ type BuildSchemaReports struct {
 
 func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 	return gen.EmitFiles(outputDir, gen.FileMap{
-		"pathChanges.json":                   r.PathChangesResult,
+		"allEndpoints.json":                  r.AllEndpoints,
 		"allResourcesByVersion.json":         r.AllResourcesByVersion,
 		"allResourceVersionsByResource.json": r.AllResourceVersionsByResource,
-		"pending.json":                       r.Pending,
 		"curationViolations.json":            r.CurationViolations,
-		"namingDisambiguations.json":         r.NamingDisambiguations,
-		"skippedPOSTEndpoints.json":          r.SkippedPOSTEndpoints,
-		"providerNameErrors.json":            r.ProviderNameErrors,
-		"forceNewTypes.json":                 r.ForceNewTypes,
-		"typeCaseConflicts.json":             r.TypeCaseConflicts,
 		"flattenedPropertyConflicts.json":    r.FlattenedPropertyConflicts,
-		"allEndpoints.json":                  r.AllEndpoints,
+		"forceNewTypes.json":                 r.ForceNewTypes,
 		"inactiveDefaultVersions.json":       r.InactiveDefaultVersions,
+		"namingDisambiguations.json":         r.NamingDisambiguations,
+		"pathChanges.json":                   r.PathChangesResult,
+		"pathConflicts.json":                 r.PathConflicts,
+		"pending.json":                       r.Pending,
+		"providerNameErrors.json":            r.ProviderNameErrors,
+		"skippedPOSTEndpoints.json":          r.SkippedPOSTEndpoints,
+		"typeCaseConflicts.json":             r.TypeCaseConflicts,
 	})
 }
 
@@ -135,6 +138,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	buildSchemaReports.ForceNewTypes = generationResult.ForceNewTypes
 	buildSchemaReports.TypeCaseConflicts = generationResult.TypeCaseConflicts
 	buildSchemaReports.FlattenedPropertyConflicts = generationResult.FlattenedPropertyConflicts
+	buildSchemaReports.PathConflicts = generationResult.PathConflicts
 
 	pkgSpec := generationResult.Schema
 	metadata := generationResult.Metadata

@@ -1,0 +1,104 @@
+{
+  "azure-native:apimanagement:ApiPolicy": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.apimanagement/service/{}/apis/{}/policies/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.apimanagement/service/{}/apis/{}/policy": {}
+  },
+  "azure-native:apimanagement:ProductPolicy": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.apimanagement/service/{}/products/{}/policies/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.apimanagement/service/{}/products/{}/policy": {}
+  },
+  "azure-native:cache:AccessPolicyAssignment": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.cache/redis/{}/accesspolicyassignments/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.cache/redisenterprise/{}/databases/{}/accesspolicyassignments/{}": {}
+  },
+  "azure-native:dbformysql:Configuration": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/flexibleservers/{}/configurations/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/servers/{}/configurations/{}": {}
+  },
+  "azure-native:dbformysql:Database": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/flexibleservers/{}/databases/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/servers/{}/databases/{}": {}
+  },
+  "azure-native:dbformysql:FirewallRule": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/flexibleservers/{}/firewallrules/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/servers/{}/firewallrules/{}": {}
+  },
+  "azure-native:dbformysql:PrivateEndpointConnection": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/flexibleservers/{}/privateendpointconnections/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/servers/{}/privateendpointconnections/{}": {}
+  },
+  "azure-native:dbformysql:Server": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/flexibleservers/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/servers/{}": {}
+  },
+  "azure-native:dbforpostgresql:Configuration": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/flexibleservers/{}/configurations/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servers/{}/configurations/{}": {}
+  },
+  "azure-native:dbforpostgresql:Database": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/flexibleservers/{}/databases/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servers/{}/databases/{}": {}
+  },
+  "azure-native:dbforpostgresql:FirewallRule": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/flexibleservers/{}/firewallrules/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servergroupsv2/{}/firewallrules/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servers/{}/firewallrules/{}": {}
+  },
+  "azure-native:dbforpostgresql:PrivateEndpointConnection": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/flexibleservers/{}/privateendpointconnections/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servergroupsv2/{}/privateendpointconnections/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servers/{}/privateendpointconnections/{}": {}
+  },
+  "azure-native:dbforpostgresql:Server": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/flexibleservers/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servers/{}": {}
+  },
+  "azure-native:documentdb:PrivateEndpointConnection": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.documentdb/databaseaccounts/{}/privateendpointconnections/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.documentdb/mongoclusters/{}/privateendpointconnections/{}": {}
+  },
+  "azure-native:hdinsight:Cluster": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.hdinsight/clusterpools/{}/clusters/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.hdinsight/clusters/{}": {}
+  },
+  "azure-native:hybridcontainerservice:AgentPool": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.hybridcontainerservice/provisionedclusters/{}/agentpools/{}": {},
+    "/{}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/agentpools/{}": {}
+  },
+  "azure-native:labservices:Lab": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.labservices/labaccounts/{}/labs/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.labservices/labs/{}": {}
+  },
+  "azure-native:labservices:User": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.labservices/labaccounts/{}/labs/{}/users/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.labservices/labs/{}/users/{}": {}
+  },
+  "azure-native:machinelearningservices:ConnectionRaiBlocklist": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}/raiblocklistitems/{}": {}
+  },
+  "azure-native:machinelearningservices:ConnectionRaiBlocklistItem": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}/raiblocklistitems/{}": {}
+  },
+  "azure-native:migrate:Assessment": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/assessmentprojects/{}/groups/{}/assessments/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/projects/{}/groups/{}/assessments/{}": {}
+  },
+  "azure-native:migrate:Group": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/assessmentprojects/{}/groups/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/projects/{}/groups/{}": {}
+  },
+  "azure-native:migrate:Project": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/assessmentprojects/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/projects/{}": {}
+  },
+  "azure-native:mobilenetwork:Sim": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.mobilenetwork/simgroups/{}/sims/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.mobilenetwork/sims/{}": {}
+  },
+  "azure-native:netapp:Backup": {
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.netapp/netappaccounts/{}/backupvaults/{}/backups/{}": {},
+    "/subscriptions/{}/resourcegroups/{}/providers/microsoft.netapp/netappaccounts/{}/capacitypools/{}/volumes/{}/backups/{}": {}
+  }
+}
