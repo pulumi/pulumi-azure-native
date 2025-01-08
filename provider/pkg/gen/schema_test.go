@@ -288,3 +288,13 @@ func TestResourceIsSingleton(t *testing.T) {
 		assert.False(t, isSingleton(res))
 	})
 }
+
+func TestGoModuleName(t *testing.T) {
+	t.Run("explicit version", func(t *testing.T) {
+		assert.Equal(t, "github.com/pulumi/pulumi-azure-native-sdk/network/v2/v20220222", goModuleName("Network", "v20220222"))
+	})
+
+	t.Run("default version", func(t *testing.T) {
+		assert.Equal(t, "github.com/pulumi/pulumi-azure-native-sdk/network/v2", goModuleName("Network", ""))
+	})
+}
