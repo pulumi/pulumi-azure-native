@@ -148,26 +148,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 					m.flattenedPropertyConflicts[fmt.Sprintf("%s.%s", name, propName)] = struct{}{}
 				}
 
-				// Adjust every property to mark them as flattened.
-				newProperties := map[string]resources.AzureAPIProperty{}
-				for n, value := range bag.properties {
-					// The order of containers is important, so we prepend the outermost name.
-					value.Containers = append([]string{name}, value.Containers...)
-					newProperties[n] = value
-				}
-				bag.properties = newProperties
-
-				newRequiredContainers := make(RequiredContainers, len(bag.requiredContainers))
-				for i, containers := range bag.requiredContainers {
-					newRequiredContainers[i] = append([]string{name}, containers...)
-				}
-				for _, requiredName := range resolvedSchema.Required {
-					if requiredName == name {
-						newRequiredContainers = append(newRequiredContainers, []string{name})
-					}
-				}
-				bag.requiredContainers = newRequiredContainers
-
+				flattenProperties(bag, name, resolvedSchema)
 				result.merge(bag)
 				continue
 			}
@@ -271,6 +252,29 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 	}
 
 	return result, nil
+}
+
+// flattenProperties marks every property as flattened and updates the requiredContainers. Modifies `bag` in place.
+func flattenProperties(bag *propertyBag, name string, resolvedSchema *openapi.Schema) {
+	// Adjust every property to mark them as flattened.
+	newProperties := map[string]resources.AzureAPIProperty{}
+	for n, value := range bag.properties {
+		// The order of containers is important, so we prepend the outermost name.
+		value.Containers = append([]string{name}, value.Containers...)
+		newProperties[n] = value
+	}
+	bag.properties = newProperties
+
+	newRequiredContainers := make(RequiredContainers, len(bag.requiredContainers))
+	for i, containers := range bag.requiredContainers {
+		newRequiredContainers[i] = append([]string{name}, containers...)
+	}
+	for _, requiredName := range resolvedSchema.Required {
+		if requiredName == name {
+			newRequiredContainers = append(newRequiredContainers, []string{name})
+		}
+	}
+	bag.requiredContainers = newRequiredContainers
 }
 
 func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, resolvedProperty *openapi.Schema, variants genPropertiesVariant) (*pschema.PropertySpec, *resources.AzureAPIProperty, error) {
