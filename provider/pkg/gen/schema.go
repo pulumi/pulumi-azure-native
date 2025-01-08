@@ -775,11 +775,6 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 	return result, nil
 }
 
-func (g *packageGenerator) makeTypeAlias(alias string, apiVersion openapi.SdkVersion) pschema.AliasSpec {
-	fqAlias := generateTok(g.provider, alias, apiVersion)
-	return pschema.AliasSpec{Type: &fqAlias}
-}
-
 func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {
 	module := g.moduleName()
 	swagger := resource.Swagger
@@ -970,16 +965,41 @@ func isSingleton(resource *resourceVariant) bool {
 func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
 	var aliases []pschema.AliasSpec
 
+	addAlias := func(module, typeName string, version openapi.SdkVersion) {
+		alias := generateTok(module, typeName, version)
+		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
+	}
+
+	// Add an alias for the same version of the resource, but in its old module.
+	if resource.PreviousProviderName != nil {
+		addAlias(*resource.PreviousProviderName, resource.typeName, g.sdkVersion)
+	}
+
 	for _, alias := range typeNameAliases {
-		aliases = append(aliases, g.makeTypeAlias(alias, g.sdkVersion))
+		addAlias(g.provider, alias, g.sdkVersion)
+		// Add an alias for the same alias, but in its old module.
+		if resource.PreviousProviderName != nil {
+			addAlias(*resource.PreviousProviderName, alias, g.sdkVersion)
+		}
 	}
 
 	// Add an alias for each API version that has the same path in it.
 	for _, version := range resource.CompatibleVersions {
-		aliases = append(aliases, g.makeTypeAlias(resource.typeName, version))
+		addAlias(g.provider, resource.typeName, version)
 
+		// Add an alias for the other versions, but from its old module.
+		if resource.PreviousProviderName != nil {
+			addAlias(*resource.PreviousProviderName, resource.typeName, version)
+		}
+
+		// Add type name aliases for each compatible version.
 		for _, alias := range typeNameAliases {
-			aliases = append(aliases, g.makeTypeAlias(alias, version))
+			addAlias(g.provider, alias, version)
+
+			// Add an alias for the other version, with alias, from its old module.
+			if resource.PreviousProviderName != nil {
+				addAlias(*resource.PreviousProviderName, alias, version)
+			}
 		}
 	}
 
