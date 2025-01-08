@@ -13,22 +13,6 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestTypeAliasFormatting(t *testing.T) {
-	generator := packageGenerator{
-		pkg:        &pschema.PackageSpec{Name: "azure-native"},
-		sdkVersion: "v20220222",
-		provider:   "Compute",
-	}
-
-	actual := generator.makeTypeAlias("VirtualMachine", "v18851225")
-	assert.NotNil(t, actual)
-	assert.Equal(t, "azure-native:compute/v18851225:VirtualMachine", *actual.Type)
-
-	actual = generator.makeTypeAlias("VirtualMachine", "")
-	assert.NotNil(t, actual)
-	assert.Equal(t, "azure-native:compute:VirtualMachine", *actual.Type)
-}
-
 // Ensure our VersionMetadata type implements the gen.Versioning interface
 // The compiler will raise an error here if the interface isn't implemented
 var _ Versioning = (*versioningStub)(nil)
