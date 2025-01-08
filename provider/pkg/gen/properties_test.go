@@ -197,26 +197,26 @@ func TestNonObjectInvokeResponses(t *testing.T) {
 
 func TestPropertyUnion(t *testing.T) {
 	t.Run("no conflict", func(t *testing.T) {
-		outer := map[string]resources.AzureAPIProperty{
+		outer := propertyBag{properties: map[string]resources.AzureAPIProperty{
 			"foo": {},
-		}
-		inner := map[string]resources.AzureAPIProperty{
+		}}
+		inner := propertyBag{properties: map[string]resources.AzureAPIProperty{
 			"bar":  {},
 			"foo2": {},
-		}
-		assert.Empty(t, propertyUnion(&propertyBag{properties: outer}, &propertyBag{properties: inner}))
+		}}
+		assert.Empty(t, outer.propertyIntersection(&inner))
 	})
 
 	t.Run("conflict", func(t *testing.T) {
-		outer := map[string]resources.AzureAPIProperty{
+		outer := propertyBag{properties: map[string]resources.AzureAPIProperty{
 			"foo":  {},
 			"foo2": {},
 			"bla":  {},
-		}
-		inner := map[string]resources.AzureAPIProperty{
+		}}
+		inner := propertyBag{properties: map[string]resources.AzureAPIProperty{
 			"foo": {},
 			"bar": {},
-		}
-		assert.Equal(t, []string{"foo"}, propertyUnion(&propertyBag{properties: outer}, &propertyBag{properties: inner}))
+		}}
+		assert.Equal(t, []string{"foo"}, outer.propertyIntersection(&inner))
 	})
 }
