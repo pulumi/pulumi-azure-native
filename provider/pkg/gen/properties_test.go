@@ -194,3 +194,30 @@ func TestNonObjectInvokeResponses(t *testing.T) {
 		assert.NotContains(t, props.properties, resources.SingleValueProperty)
 	})
 }
+
+func TestPropertyIntersection(t *testing.T) {
+	t.Run("no conflict", func(t *testing.T) {
+		outer := propertyBag{properties: map[string]resources.AzureAPIProperty{
+			"foo": {},
+		}}
+		inner := propertyBag{properties: map[string]resources.AzureAPIProperty{
+			"bar":  {},
+			"foo2": {},
+		}}
+		assert.Empty(t, outer.propertyIntersection(&inner))
+	})
+
+	t.Run("conflict", func(t *testing.T) {
+		outer := propertyBag{properties: map[string]resources.AzureAPIProperty{
+			"foo":  {},
+			"foo2": {},
+			"bla":  {},
+		}}
+		inner := propertyBag{properties: map[string]resources.AzureAPIProperty{
+			"foo": {},
+			"bar": {},
+		}}
+		assert.Equal(t, []string{"foo"}, outer.propertyIntersection(&inner))
+	})
+
+}
