@@ -275,7 +275,7 @@ func ResourceProvider(filePath, apiUri string) (string, *string, error) {
 	}
 	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
 	// declarations outside of the current API provider.
-	if strings.ToLower(fileProvider) != strings.ToLower(apiProvider) {
+	if !strings.EqualFold(fileProvider, apiProvider) {
 		return "", nil, fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", fileProvider, apiProvider)
 	}
 	return fileProvider, nil, nil
