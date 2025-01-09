@@ -99,6 +99,8 @@ import * as devopsinfrastructure from "./devopsinfrastructure";
 import * as devspaces from "./devspaces";
 import * as devtestlab from "./devtestlab";
 import * as digitaltwins from "./digitaltwins";
+import * as dns from "./dns";
+import * as dnsresolver from "./dnsresolver";
 import * as documentdb from "./documentdb";
 import * as domainregistration from "./domainregistration";
 import * as durabletask from "./durabletask";
@@ -118,6 +120,7 @@ import * as extendedlocation from "./extendedlocation";
 import * as fabric from "./fabric";
 import * as features from "./features";
 import * as fluidrelay from "./fluidrelay";
+import * as frontdoor from "./frontdoor";
 import * as graphservices from "./graphservices";
 import * as guestconfiguration from "./guestconfiguration";
 import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
@@ -187,6 +190,7 @@ import * as portalservices from "./portalservices";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
+import * as privatedns from "./privatedns";
 import * as professionalservice from "./professionalservice";
 import * as programmableconnectivity from "./programmableconnectivity";
 import * as providerhub from "./providerhub";
@@ -235,6 +239,7 @@ import * as synapse from "./synapse";
 import * as syntex from "./syntex";
 import * as testbase from "./testbase";
 import * as timeseriesinsights from "./timeseriesinsights";
+import * as trafficmanager from "./trafficmanager";
 import * as types from "./types";
 import * as verifiedid from "./verifiedid";
 import * as videoanalyzer from "./videoanalyzer";
@@ -337,6 +342,8 @@ export {
     devspaces,
     devtestlab,
     digitaltwins,
+    dns,
+    dnsresolver,
     documentdb,
     domainregistration,
     durabletask,
@@ -356,6 +363,7 @@ export {
     fabric,
     features,
     fluidrelay,
+    frontdoor,
     graphservices,
     guestconfiguration,
     hardwaresecuritymodules,
@@ -425,6 +433,7 @@ export {
     powerbi,
     powerbidedicated,
     powerplatform,
+    privatedns,
     professionalservice,
     programmableconnectivity,
     providerhub,
@@ -473,6 +482,7 @@ export {
     syntex,
     testbase,
     timeseriesinsights,
+    trafficmanager,
     types,
     verifiedid,
     videoanalyzer,

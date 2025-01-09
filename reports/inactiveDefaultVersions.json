@@ -42,6 +42,12 @@
   "DevSpaces": [
     "2019-04-01"
   ],
+  "Dns": [
+    "2023-07-01-preview"
+  ],
+  "DnsResolver": [
+    "2023-07-01-preview"
+  ],
   "Dynamics365Fraudprotection": [
     "2021-02-01-preview"
   ],
@@ -53,6 +59,9 @@
   ],
   "EnterpriseKnowledgeGraph": [
     "2018-12-03"
+  ],
+  "FrontDoor": [
+    "2024-02-01"
   ],
   "HybridData": [
     "2019-06-01"
@@ -101,6 +110,9 @@
   "PortalServices": [
     "2024-04-01-preview"
   ],
+  "PrivateDns": [
+    "2024-06-01"
+  ],
   "Scheduler": [
     "2016-03-01"
   ],
@@ -126,6 +138,9 @@
   "TimeSeriesInsights": [
     "2020-05-15",
     "2021-03-31-preview"
+  ],
+  "TrafficManager": [
+    "2022-04-01"
   ],
   "VMwareCloudSimple": [
     "2019-04-01"

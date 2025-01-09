@@ -168,6 +168,14 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "Dns",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "DnsResolver",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "DurableTask",
     "Detail": "expected tracking stable but found preview"
   },

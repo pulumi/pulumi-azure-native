@@ -183,6 +183,10 @@ if typing.TYPE_CHECKING:
     devtestlab = __devtestlab
     import pulumi_azure_native.digitaltwins as __digitaltwins
     digitaltwins = __digitaltwins
+    import pulumi_azure_native.dns as __dns
+    dns = __dns
+    import pulumi_azure_native.dnsresolver as __dnsresolver
+    dnsresolver = __dnsresolver
     import pulumi_azure_native.documentdb as __documentdb
     documentdb = __documentdb
     import pulumi_azure_native.domainregistration as __domainregistration
@@ -221,6 +225,8 @@ if typing.TYPE_CHECKING:
     features = __features
     import pulumi_azure_native.fluidrelay as __fluidrelay
     fluidrelay = __fluidrelay
+    import pulumi_azure_native.frontdoor as __frontdoor
+    frontdoor = __frontdoor
     import pulumi_azure_native.graphservices as __graphservices
     graphservices = __graphservices
     import pulumi_azure_native.guestconfiguration as __guestconfiguration
@@ -359,6 +365,8 @@ if typing.TYPE_CHECKING:
     powerbidedicated = __powerbidedicated
     import pulumi_azure_native.powerplatform as __powerplatform
     powerplatform = __powerplatform
+    import pulumi_azure_native.privatedns as __privatedns
+    privatedns = __privatedns
     import pulumi_azure_native.professionalservice as __professionalservice
     professionalservice = __professionalservice
     import pulumi_azure_native.programmableconnectivity as __programmableconnectivity
@@ -455,6 +463,8 @@ if typing.TYPE_CHECKING:
     testbase = __testbase
     import pulumi_azure_native.timeseriesinsights as __timeseriesinsights
     timeseriesinsights = __timeseriesinsights
+    import pulumi_azure_native.trafficmanager as __trafficmanager
+    trafficmanager = __trafficmanager
     import pulumi_azure_native.verifiedid as __verifiedid
     verifiedid = __verifiedid
     import pulumi_azure_native.videoanalyzer as __videoanalyzer
@@ -567,6 +577,8 @@ else:
     devspaces = _utilities.lazy_import('pulumi_azure_native.devspaces')
     devtestlab = _utilities.lazy_import('pulumi_azure_native.devtestlab')
     digitaltwins = _utilities.lazy_import('pulumi_azure_native.digitaltwins')
+    dns = _utilities.lazy_import('pulumi_azure_native.dns')
+    dnsresolver = _utilities.lazy_import('pulumi_azure_native.dnsresolver')
     documentdb = _utilities.lazy_import('pulumi_azure_native.documentdb')
     domainregistration = _utilities.lazy_import('pulumi_azure_native.domainregistration')
     durabletask = _utilities.lazy_import('pulumi_azure_native.durabletask')
@@ -586,6 +598,7 @@ else:
     fabric = _utilities.lazy_import('pulumi_azure_native.fabric')
     features = _utilities.lazy_import('pulumi_azure_native.features')
     fluidrelay = _utilities.lazy_import('pulumi_azure_native.fluidrelay')
+    frontdoor = _utilities.lazy_import('pulumi_azure_native.frontdoor')
     graphservices = _utilities.lazy_import('pulumi_azure_native.graphservices')
     guestconfiguration = _utilities.lazy_import('pulumi_azure_native.guestconfiguration')
     hardwaresecuritymodules = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules')
@@ -655,6 +668,7 @@ else:
     powerbi = _utilities.lazy_import('pulumi_azure_native.powerbi')
     powerbidedicated = _utilities.lazy_import('pulumi_azure_native.powerbidedicated')
     powerplatform = _utilities.lazy_import('pulumi_azure_native.powerplatform')
+    privatedns = _utilities.lazy_import('pulumi_azure_native.privatedns')
     professionalservice = _utilities.lazy_import('pulumi_azure_native.professionalservice')
     programmableconnectivity = _utilities.lazy_import('pulumi_azure_native.programmableconnectivity')
     providerhub = _utilities.lazy_import('pulumi_azure_native.providerhub')
@@ -703,6 +717,7 @@ else:
     syntex = _utilities.lazy_import('pulumi_azure_native.syntex')
     testbase = _utilities.lazy_import('pulumi_azure_native.testbase')
     timeseriesinsights = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights')
+    trafficmanager = _utilities.lazy_import('pulumi_azure_native.trafficmanager')
     verifiedid = _utilities.lazy_import('pulumi_azure_native.verifiedid')
     videoanalyzer = _utilities.lazy_import('pulumi_azure_native.videoanalyzer')
     videoindexer = _utilities.lazy_import('pulumi_azure_native.videoindexer')
@@ -8949,6 +8964,140 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dns",
+  "fqn": "pulumi_azure_native.dns",
+  "classes": {
+   "azure-native:dns:DnssecConfig": "DnssecConfig",
+   "azure-native:dns:RecordSet": "RecordSet",
+   "azure-native:dns:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dns/v20150504preview",
+  "fqn": "pulumi_azure_native.dns.v20150504preview",
+  "classes": {
+   "azure-native:dns/v20150504preview:RecordSet": "RecordSet",
+   "azure-native:dns/v20150504preview:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dns/v20160401",
+  "fqn": "pulumi_azure_native.dns.v20160401",
+  "classes": {
+   "azure-native:dns/v20160401:RecordSet": "RecordSet",
+   "azure-native:dns/v20160401:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dns/v20170901",
+  "fqn": "pulumi_azure_native.dns.v20170901",
+  "classes": {
+   "azure-native:dns/v20170901:RecordSet": "RecordSet",
+   "azure-native:dns/v20170901:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dns/v20171001",
+  "fqn": "pulumi_azure_native.dns.v20171001",
+  "classes": {
+   "azure-native:dns/v20171001:RecordSet": "RecordSet",
+   "azure-native:dns/v20171001:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dns/v20180301preview",
+  "fqn": "pulumi_azure_native.dns.v20180301preview",
+  "classes": {
+   "azure-native:dns/v20180301preview:RecordSet": "RecordSet",
+   "azure-native:dns/v20180301preview:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dns/v20180501",
+  "fqn": "pulumi_azure_native.dns.v20180501",
+  "classes": {
+   "azure-native:dns/v20180501:RecordSet": "RecordSet",
+   "azure-native:dns/v20180501:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dns/v20230701preview",
+  "fqn": "pulumi_azure_native.dns.v20230701preview",
+  "classes": {
+   "azure-native:dns/v20230701preview:DnssecConfig": "DnssecConfig",
+   "azure-native:dns/v20230701preview:RecordSet": "RecordSet",
+   "azure-native:dns/v20230701preview:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dnsresolver",
+  "fqn": "pulumi_azure_native.dnsresolver",
+  "classes": {
+   "azure-native:dnsresolver:DnsForwardingRuleset": "DnsForwardingRuleset",
+   "azure-native:dnsresolver:DnsResolver": "DnsResolver",
+   "azure-native:dnsresolver:DnsResolverDomainList": "DnsResolverDomainList",
+   "azure-native:dnsresolver:DnsResolverPolicy": "DnsResolverPolicy",
+   "azure-native:dnsresolver:DnsResolverPolicyVirtualNetworkLink": "DnsResolverPolicyVirtualNetworkLink",
+   "azure-native:dnsresolver:DnsSecurityRule": "DnsSecurityRule",
+   "azure-native:dnsresolver:ForwardingRule": "ForwardingRule",
+   "azure-native:dnsresolver:InboundEndpoint": "InboundEndpoint",
+   "azure-native:dnsresolver:OutboundEndpoint": "OutboundEndpoint",
+   "azure-native:dnsresolver:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dnsresolver/v20200401preview",
+  "fqn": "pulumi_azure_native.dnsresolver.v20200401preview",
+  "classes": {
+   "azure-native:dnsresolver/v20200401preview:DnsForwardingRuleset": "DnsForwardingRuleset",
+   "azure-native:dnsresolver/v20200401preview:DnsResolver": "DnsResolver",
+   "azure-native:dnsresolver/v20200401preview:ForwardingRule": "ForwardingRule",
+   "azure-native:dnsresolver/v20200401preview:InboundEndpoint": "InboundEndpoint",
+   "azure-native:dnsresolver/v20200401preview:OutboundEndpoint": "OutboundEndpoint",
+   "azure-native:dnsresolver/v20200401preview:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dnsresolver/v20220701",
+  "fqn": "pulumi_azure_native.dnsresolver.v20220701",
+  "classes": {
+   "azure-native:dnsresolver/v20220701:DnsForwardingRuleset": "DnsForwardingRuleset",
+   "azure-native:dnsresolver/v20220701:DnsResolver": "DnsResolver",
+   "azure-native:dnsresolver/v20220701:ForwardingRule": "ForwardingRule",
+   "azure-native:dnsresolver/v20220701:InboundEndpoint": "InboundEndpoint",
+   "azure-native:dnsresolver/v20220701:OutboundEndpoint": "OutboundEndpoint",
+   "azure-native:dnsresolver/v20220701:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dnsresolver/v20230701preview",
+  "fqn": "pulumi_azure_native.dnsresolver.v20230701preview",
+  "classes": {
+   "azure-native:dnsresolver/v20230701preview:DnsForwardingRuleset": "DnsForwardingRuleset",
+   "azure-native:dnsresolver/v20230701preview:DnsResolver": "DnsResolver",
+   "azure-native:dnsresolver/v20230701preview:DnsResolverDomainList": "DnsResolverDomainList",
+   "azure-native:dnsresolver/v20230701preview:DnsResolverPolicy": "DnsResolverPolicy",
+   "azure-native:dnsresolver/v20230701preview:DnsResolverPolicyVirtualNetworkLink": "DnsResolverPolicyVirtualNetworkLink",
+   "azure-native:dnsresolver/v20230701preview:DnsSecurityRule": "DnsSecurityRule",
+   "azure-native:dnsresolver/v20230701preview:ForwardingRule": "ForwardingRule",
+   "azure-native:dnsresolver/v20230701preview:InboundEndpoint": "InboundEndpoint",
+   "azure-native:dnsresolver/v20230701preview:OutboundEndpoint": "OutboundEndpoint",
+   "azure-native:dnsresolver/v20230701preview:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "documentdb",
   "fqn": "pulumi_azure_native.documentdb",
   "classes": {
@@ -10226,6 +10375,117 @@ _utilities.register(
   "fqn": "pulumi_azure_native.fluidrelay.v20220601",
   "classes": {
    "azure-native:fluidrelay/v20220601:FluidRelayServer": "FluidRelayServer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor",
+  "fqn": "pulumi_azure_native.frontdoor",
+  "classes": {
+   "azure-native:frontdoor:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20190301",
+  "fqn": "pulumi_azure_native.frontdoor.v20190301",
+  "classes": {
+   "azure-native:frontdoor/v20190301:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20190401",
+  "fqn": "pulumi_azure_native.frontdoor.v20190401",
+  "classes": {
+   "azure-native:frontdoor/v20190401:FrontDoor": "FrontDoor"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20190501",
+  "fqn": "pulumi_azure_native.frontdoor.v20190501",
+  "classes": {
+   "azure-native:frontdoor/v20190501:FrontDoor": "FrontDoor"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20191001",
+  "fqn": "pulumi_azure_native.frontdoor.v20191001",
+  "classes": {
+   "azure-native:frontdoor/v20191001:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20191101",
+  "fqn": "pulumi_azure_native.frontdoor.v20191101",
+  "classes": {
+   "azure-native:frontdoor/v20191101:Experiment": "Experiment",
+   "azure-native:frontdoor/v20191101:NetworkExperimentProfile": "NetworkExperimentProfile"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20200101",
+  "fqn": "pulumi_azure_native.frontdoor.v20200101",
+  "classes": {
+   "azure-native:frontdoor/v20200101:FrontDoor": "FrontDoor",
+   "azure-native:frontdoor/v20200101:RulesEngine": "RulesEngine"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20200401",
+  "fqn": "pulumi_azure_native.frontdoor.v20200401",
+  "classes": {
+   "azure-native:frontdoor/v20200401:FrontDoor": "FrontDoor",
+   "azure-native:frontdoor/v20200401:Policy": "Policy",
+   "azure-native:frontdoor/v20200401:RulesEngine": "RulesEngine"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20200501",
+  "fqn": "pulumi_azure_native.frontdoor.v20200501",
+  "classes": {
+   "azure-native:frontdoor/v20200501:FrontDoor": "FrontDoor",
+   "azure-native:frontdoor/v20200501:RulesEngine": "RulesEngine"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20201101",
+  "fqn": "pulumi_azure_native.frontdoor.v20201101",
+  "classes": {
+   "azure-native:frontdoor/v20201101:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20210601",
+  "fqn": "pulumi_azure_native.frontdoor.v20210601",
+  "classes": {
+   "azure-native:frontdoor/v20210601:FrontDoor": "FrontDoor",
+   "azure-native:frontdoor/v20210601:Policy": "Policy",
+   "azure-native:frontdoor/v20210601:RulesEngine": "RulesEngine"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20220501",
+  "fqn": "pulumi_azure_native.frontdoor.v20220501",
+  "classes": {
+   "azure-native:frontdoor/v20220501:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "frontdoor/v20240201",
+  "fqn": "pulumi_azure_native.frontdoor.v20240201",
+  "classes": {
+   "azure-native:frontdoor/v20240201:Policy": "Policy"
   }
  },
  {
@@ -14175,15 +14435,7 @@ _utilities.register(
    "azure-native:network:DdosProtectionPlan": "DdosProtectionPlan",
    "azure-native:network:DefaultAdminRule": "DefaultAdminRule",
    "azure-native:network:DefaultUserRule": "DefaultUserRule",
-   "azure-native:network:DnsForwardingRuleset": "DnsForwardingRuleset",
-   "azure-native:network:DnsResolver": "DnsResolver",
-   "azure-native:network:DnsResolverDomainList": "DnsResolverDomainList",
-   "azure-native:network:DnsResolverPolicy": "DnsResolverPolicy",
-   "azure-native:network:DnsResolverPolicyVirtualNetworkLink": "DnsResolverPolicyVirtualNetworkLink",
-   "azure-native:network:DnsSecurityRule": "DnsSecurityRule",
    "azure-native:network:DscpConfiguration": "DscpConfiguration",
-   "azure-native:network:Endpoint": "Endpoint",
-   "azure-native:network:Experiment": "Experiment",
    "azure-native:network:ExpressRouteCircuit": "ExpressRouteCircuit",
    "azure-native:network:ExpressRouteCircuitAuthorization": "ExpressRouteCircuitAuthorization",
    "azure-native:network:ExpressRouteCircuitConnection": "ExpressRouteCircuitConnection",
@@ -14199,11 +14451,8 @@ _utilities.register(
    "azure-native:network:FirewallPolicyRuleCollectionGroupDraft": "FirewallPolicyRuleCollectionGroupDraft",
    "azure-native:network:FirewallPolicyRuleGroup": "FirewallPolicyRuleGroup",
    "azure-native:network:FlowLog": "FlowLog",
-   "azure-native:network:ForwardingRule": "ForwardingRule",
-   "azure-native:network:FrontDoor": "FrontDoor",
    "azure-native:network:HubRouteTable": "HubRouteTable",
    "azure-native:network:HubVirtualNetworkConnection": "HubVirtualNetworkConnection",
-   "azure-native:network:InboundEndpoint": "InboundEndpoint",
    "azure-native:network:InboundNatRule": "InboundNatRule",
    "azure-native:network:InterfaceEndpoint": "InterfaceEndpoint",
    "azure-native:network:IpAllocation": "IpAllocation",
@@ -14215,7 +14464,6 @@ _utilities.register(
    "azure-native:network:ManagementGroupNetworkManagerConnection": "ManagementGroupNetworkManagerConnection",
    "azure-native:network:NatGateway": "NatGateway",
    "azure-native:network:NatRule": "NatRule",
-   "azure-native:network:NetworkExperimentProfile": "NetworkExperimentProfile",
    "azure-native:network:NetworkGroup": "NetworkGroup",
    "azure-native:network:NetworkInterface": "NetworkInterface",
    "azure-native:network:NetworkInterfaceTapConfiguration": "NetworkInterfaceTapConfiguration",
@@ -14230,24 +14478,17 @@ _utilities.register(
    "azure-native:network:NspAssociation": "NspAssociation",
    "azure-native:network:NspLink": "NspLink",
    "azure-native:network:NspProfile": "NspProfile",
-   "azure-native:network:OutboundEndpoint": "OutboundEndpoint",
    "azure-native:network:P2sVpnGateway": "P2sVpnGateway",
    "azure-native:network:P2sVpnServerConfiguration": "P2sVpnServerConfiguration",
    "azure-native:network:PacketCapture": "PacketCapture",
-   "azure-native:network:Policy": "Policy",
    "azure-native:network:PrivateDnsZoneGroup": "PrivateDnsZoneGroup",
    "azure-native:network:PrivateEndpoint": "PrivateEndpoint",
    "azure-native:network:PrivateLinkService": "PrivateLinkService",
    "azure-native:network:PrivateLinkServicePrivateEndpointConnection": "PrivateLinkServicePrivateEndpointConnection",
-   "azure-native:network:PrivateRecordSet": "PrivateRecordSet",
-   "azure-native:network:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink",
-   "azure-native:network:PrivateZone": "PrivateZone",
-   "azure-native:network:Profile": "Profile",
    "azure-native:network:PublicIPAddress": "PublicIPAddress",
    "azure-native:network:PublicIPPrefix": "PublicIPPrefix",
    "azure-native:network:ReachabilityAnalysisIntent": "ReachabilityAnalysisIntent",
    "azure-native:network:ReachabilityAnalysisRun": "ReachabilityAnalysisRun",
-   "azure-native:network:RecordSet": "RecordSet",
    "azure-native:network:Route": "Route",
    "azure-native:network:RouteFilter": "RouteFilter",
    "azure-native:network:RouteFilterRule": "RouteFilterRule",
@@ -14256,7 +14497,6 @@ _utilities.register(
    "azure-native:network:RoutingIntent": "RoutingIntent",
    "azure-native:network:RoutingRule": "RoutingRule",
    "azure-native:network:RoutingRuleCollection": "RoutingRuleCollection",
-   "azure-native:network:RulesEngine": "RulesEngine",
    "azure-native:network:ScopeConnection": "ScopeConnection",
    "azure-native:network:SecurityAdminConfiguration": "SecurityAdminConfiguration",
    "azure-native:network:SecurityPartnerProvider": "SecurityPartnerProvider",
@@ -14270,7 +14510,6 @@ _utilities.register(
    "azure-native:network:StaticMember": "StaticMember",
    "azure-native:network:Subnet": "Subnet",
    "azure-native:network:SubscriptionNetworkManagerConnection": "SubscriptionNetworkManagerConnection",
-   "azure-native:network:TrafficManagerUserMetricsKey": "TrafficManagerUserMetricsKey",
    "azure-native:network:UserRule": "UserRule",
    "azure-native:network:UserRuleCollection": "UserRuleCollection",
    "azure-native:network:VerifierWorkspace": "VerifierWorkspace",
@@ -14283,7 +14522,6 @@ _utilities.register(
    "azure-native:network:VirtualNetworkGateway": "VirtualNetworkGateway",
    "azure-native:network:VirtualNetworkGatewayConnection": "VirtualNetworkGatewayConnection",
    "azure-native:network:VirtualNetworkGatewayNatRule": "VirtualNetworkGatewayNatRule",
-   "azure-native:network:VirtualNetworkLink": "VirtualNetworkLink",
    "azure-native:network:VirtualNetworkPeering": "VirtualNetworkPeering",
    "azure-native:network:VirtualNetworkTap": "VirtualNetworkTap",
    "azure-native:network:VirtualRouter": "VirtualRouter",
@@ -14293,17 +14531,7 @@ _utilities.register(
    "azure-native:network:VpnGateway": "VpnGateway",
    "azure-native:network:VpnServerConfiguration": "VpnServerConfiguration",
    "azure-native:network:VpnSite": "VpnSite",
-   "azure-native:network:WebApplicationFirewallPolicy": "WebApplicationFirewallPolicy",
-   "azure-native:network:Zone": "Zone"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20180501",
-  "fqn": "pulumi_azure_native.network.v20180501",
-  "classes": {
-   "azure-native:network/v20180501:RecordSet": "RecordSet",
-   "azure-native:network/v20180501:Zone": "Zone"
+   "azure-native:network:WebApplicationFirewallPolicy": "WebApplicationFirewallPolicy"
   }
  },
  {
@@ -14418,15 +14646,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "network/v20191101",
-  "fqn": "pulumi_azure_native.network.v20191101",
-  "classes": {
-   "azure-native:network/v20191101:Experiment": "Experiment",
-   "azure-native:network/v20191101:NetworkExperimentProfile": "NetworkExperimentProfile"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "network/v20200401",
   "fqn": "pulumi_azure_native.network.v20200401",
   "classes": {
@@ -14439,26 +14658,12 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "network/v20200401preview",
-  "fqn": "pulumi_azure_native.network.v20200401preview",
-  "classes": {
-   "azure-native:network/v20200401preview:DnsForwardingRuleset": "DnsForwardingRuleset",
-   "azure-native:network/v20200401preview:InboundEndpoint": "InboundEndpoint",
-   "azure-native:network/v20200401preview:OutboundEndpoint": "OutboundEndpoint",
-   "azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "network/v20200601",
   "fqn": "pulumi_azure_native.network.v20200601",
   "classes": {
    "azure-native:network/v20200601:PacketCapture": "PacketCapture",
-   "azure-native:network/v20200601:PrivateRecordSet": "PrivateRecordSet",
-   "azure-native:network/v20200601:PrivateZone": "PrivateZone",
    "azure-native:network/v20200601:Subnet": "Subnet",
-   "azure-native:network/v20200601:VirtualHub": "VirtualHub",
-   "azure-native:network/v20200601:VirtualNetworkLink": "VirtualNetworkLink"
+   "azure-native:network/v20200601:VirtualHub": "VirtualHub"
   }
  },
  {
@@ -14526,16 +14731,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "network/v20210601",
-  "fqn": "pulumi_azure_native.network.v20210601",
-  "classes": {
-   "azure-native:network/v20210601:FrontDoor": "FrontDoor",
-   "azure-native:network/v20210601:Policy": "Policy",
-   "azure-native:network/v20210601:RulesEngine": "RulesEngine"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "network/v20210801",
   "fqn": "pulumi_azure_native.network.v20210801",
   "classes": {
@@ -14552,25 +14747,12 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "network/v20220401",
-  "fqn": "pulumi_azure_native.network.v20220401",
-  "classes": {
-   "azure-native:network/v20220401:Endpoint": "Endpoint",
-   "azure-native:network/v20220401:Profile": "Profile",
-   "azure-native:network/v20220401:TrafficManagerUserMetricsKey": "TrafficManagerUserMetricsKey"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "network/v20220401preview",
   "fqn": "pulumi_azure_native.network.v20220401preview",
   "classes": {
    "azure-native:network/v20220401preview:DefaultUserRule": "DefaultUserRule",
-   "azure-native:network/v20220401preview:Endpoint": "Endpoint",
    "azure-native:network/v20220401preview:NetworkGroup": "NetworkGroup",
-   "azure-native:network/v20220401preview:Profile": "Profile",
    "azure-native:network/v20220401preview:SecurityUserConfiguration": "SecurityUserConfiguration",
-   "azure-native:network/v20220401preview:TrafficManagerUserMetricsKey": "TrafficManagerUserMetricsKey",
    "azure-native:network/v20220401preview:UserRule": "UserRule",
    "azure-native:network/v20220401preview:UserRuleCollection": "UserRuleCollection"
   }
@@ -14581,8 +14763,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.network.v20220501",
   "classes": {
    "azure-native:network/v20220501:DdosProtectionPlan": "DdosProtectionPlan",
-   "azure-native:network/v20220501:NetworkWatcher": "NetworkWatcher",
-   "azure-native:network/v20220501:Policy": "Policy"
+   "azure-native:network/v20220501:NetworkWatcher": "NetworkWatcher"
   }
  },
  {
@@ -14590,12 +14771,6 @@ _utilities.register(
   "mod": "network/v20220701",
   "fqn": "pulumi_azure_native.network.v20220701",
   "classes": {
-   "azure-native:network/v20220701:DnsForwardingRuleset": "DnsForwardingRuleset",
-   "azure-native:network/v20220701:DnsResolver": "DnsResolver",
-   "azure-native:network/v20220701:ForwardingRule": "ForwardingRule",
-   "azure-native:network/v20220701:InboundEndpoint": "InboundEndpoint",
-   "azure-native:network/v20220701:OutboundEndpoint": "OutboundEndpoint",
-   "azure-native:network/v20220701:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink",
    "azure-native:network/v20220701:SecurityRule": "SecurityRule",
    "azure-native:network/v20220701:Subnet": "Subnet"
   }
@@ -14986,24 +15161,11 @@ _utilities.register(
   "mod": "network/v20230701preview",
   "fqn": "pulumi_azure_native.network.v20230701preview",
   "classes": {
-   "azure-native:network/v20230701preview:DnsForwardingRuleset": "DnsForwardingRuleset",
-   "azure-native:network/v20230701preview:DnsResolver": "DnsResolver",
-   "azure-native:network/v20230701preview:DnsResolverDomainList": "DnsResolverDomainList",
-   "azure-native:network/v20230701preview:DnsResolverPolicy": "DnsResolverPolicy",
-   "azure-native:network/v20230701preview:DnsResolverPolicyVirtualNetworkLink": "DnsResolverPolicyVirtualNetworkLink",
-   "azure-native:network/v20230701preview:DnsSecurityRule": "DnsSecurityRule",
-   "azure-native:network/v20230701preview:DnssecConfig": "DnssecConfig",
-   "azure-native:network/v20230701preview:ForwardingRule": "ForwardingRule",
-   "azure-native:network/v20230701preview:InboundEndpoint": "InboundEndpoint",
    "azure-native:network/v20230701preview:NetworkSecurityPerimeter": "NetworkSecurityPerimeter",
    "azure-native:network/v20230701preview:NspAccessRule": "NspAccessRule",
    "azure-native:network/v20230701preview:NspAssociation": "NspAssociation",
    "azure-native:network/v20230701preview:NspLink": "NspLink",
-   "azure-native:network/v20230701preview:NspProfile": "NspProfile",
-   "azure-native:network/v20230701preview:OutboundEndpoint": "OutboundEndpoint",
-   "azure-native:network/v20230701preview:PrivateResolverVirtualNetworkLink": "PrivateResolverVirtualNetworkLink",
-   "azure-native:network/v20230701preview:RecordSet": "RecordSet",
-   "azure-native:network/v20230701preview:Zone": "Zone"
+   "azure-native:network/v20230701preview:NspProfile": "NspProfile"
   }
  },
  {
@@ -15329,14 +15491,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "network/v20240201",
-  "fqn": "pulumi_azure_native.network.v20240201",
-  "classes": {
-   "azure-native:network/v20240201:Policy": "Policy"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "network/v20240301",
   "fqn": "pulumi_azure_native.network.v20240301",
   "classes": {
@@ -15546,16 +15700,6 @@ _utilities.register(
    "azure-native:network/v20240501:VpnServerConfiguration": "VpnServerConfiguration",
    "azure-native:network/v20240501:VpnSite": "VpnSite",
    "azure-native:network/v20240501:WebApplicationFirewallPolicy": "WebApplicationFirewallPolicy"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "network/v20240601",
-  "fqn": "pulumi_azure_native.network.v20240601",
-  "classes": {
-   "azure-native:network/v20240601:PrivateRecordSet": "PrivateRecordSet",
-   "azure-native:network/v20240601:PrivateZone": "PrivateZone",
-   "azure-native:network/v20240601:VirtualNetworkLink": "VirtualNetworkLink"
   }
  },
  {
@@ -16358,6 +16502,56 @@ _utilities.register(
    "azure-native:powerplatform/v20201030preview:Account": "Account",
    "azure-native:powerplatform/v20201030preview:EnterprisePolicy": "EnterprisePolicy",
    "azure-native:powerplatform/v20201030preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "privatedns",
+  "fqn": "pulumi_azure_native.privatedns",
+  "classes": {
+   "azure-native:privatedns:PrivateRecordSet": "PrivateRecordSet",
+   "azure-native:privatedns:PrivateZone": "PrivateZone",
+   "azure-native:privatedns:VirtualNetworkLink": "VirtualNetworkLink"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "privatedns/v20180901",
+  "fqn": "pulumi_azure_native.privatedns.v20180901",
+  "classes": {
+   "azure-native:privatedns/v20180901:PrivateRecordSet": "PrivateRecordSet",
+   "azure-native:privatedns/v20180901:PrivateZone": "PrivateZone",
+   "azure-native:privatedns/v20180901:VirtualNetworkLink": "VirtualNetworkLink"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "privatedns/v20200101",
+  "fqn": "pulumi_azure_native.privatedns.v20200101",
+  "classes": {
+   "azure-native:privatedns/v20200101:PrivateRecordSet": "PrivateRecordSet",
+   "azure-native:privatedns/v20200101:PrivateZone": "PrivateZone",
+   "azure-native:privatedns/v20200101:VirtualNetworkLink": "VirtualNetworkLink"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "privatedns/v20200601",
+  "fqn": "pulumi_azure_native.privatedns.v20200601",
+  "classes": {
+   "azure-native:privatedns/v20200601:PrivateRecordSet": "PrivateRecordSet",
+   "azure-native:privatedns/v20200601:PrivateZone": "PrivateZone",
+   "azure-native:privatedns/v20200601:VirtualNetworkLink": "VirtualNetworkLink"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "privatedns/v20240601",
+  "fqn": "pulumi_azure_native.privatedns.v20240601",
+  "classes": {
+   "azure-native:privatedns/v20240601:PrivateRecordSet": "PrivateRecordSet",
+   "azure-native:privatedns/v20240601:PrivateZone": "PrivateZone",
+   "azure-native:privatedns/v20240601:VirtualNetworkLink": "VirtualNetworkLink"
   }
  },
  {
@@ -20471,6 +20665,109 @@ _utilities.register(
    "azure-native:timeseriesinsights/v20210630preview:Gen2Environment": "Gen2Environment",
    "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource": "IoTHubEventSource",
    "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet": "ReferenceDataSet"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager",
+  "fqn": "pulumi_azure_native.trafficmanager",
+  "classes": {
+   "azure-native:trafficmanager:Endpoint": "Endpoint",
+   "azure-native:trafficmanager:Profile": "Profile",
+   "azure-native:trafficmanager:TrafficManagerUserMetricsKey": "TrafficManagerUserMetricsKey"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager/v20151101",
+  "fqn": "pulumi_azure_native.trafficmanager.v20151101",
+  "classes": {
+   "azure-native:trafficmanager/v20151101:Endpoint": "Endpoint",
+   "azure-native:trafficmanager/v20151101:Profile": "Profile"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager/v20170301",
+  "fqn": "pulumi_azure_native.trafficmanager.v20170301",
+  "classes": {
+   "azure-native:trafficmanager/v20170301:Endpoint": "Endpoint",
+   "azure-native:trafficmanager/v20170301:Profile": "Profile"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager/v20170501",
+  "fqn": "pulumi_azure_native.trafficmanager.v20170501",
+  "classes": {
+   "azure-native:trafficmanager/v20170501:Endpoint": "Endpoint",
+   "azure-native:trafficmanager/v20170501:Profile": "Profile"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager/v20170901preview",
+  "fqn": "pulumi_azure_native.trafficmanager.v20170901preview",
+  "classes": {
+   "azure-native:trafficmanager/v20170901preview:TrafficManagerUserMetricsKey": "TrafficManagerUserMetricsKey"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager/v20180201",
+  "fqn": "pulumi_azure_native.trafficmanager.v20180201",
+  "classes": {
+   "azure-native:trafficmanager/v20180201:Endpoint": "Endpoint",
+   "azure-native:trafficmanager/v20180201:Profile": "Profile"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager/v20180301",
+  "fqn": "pulumi_azure_native.trafficmanager.v20180301",
+  "classes": {
+   "azure-native:trafficmanager/v20180301:Endpoint": "Endpoint",
+   "azure-native:trafficmanager/v20180301:Profile": "Profile"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager/v20180401",
+  "fqn": "pulumi_azure_native.trafficmanager.v20180401",
+  "classes": {
+   "azure-native:trafficmanager/v20180401:Endpoint": "Endpoint",
+   "azure-native:trafficmanager/v20180401:Profile": "Profile",
+   "azure-native:trafficmanager/v20180401:TrafficManagerUserMetricsKey": "TrafficManagerUserMetricsKey"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager/v20180801",
+  "fqn": "pulumi_azure_native.trafficmanager.v20180801",
+  "classes": {
+   "azure-native:trafficmanager/v20180801:Endpoint": "Endpoint",
+   "azure-native:trafficmanager/v20180801:Profile": "Profile",
+   "azure-native:trafficmanager/v20180801:TrafficManagerUserMetricsKey": "TrafficManagerUserMetricsKey"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager/v20220401",
+  "fqn": "pulumi_azure_native.trafficmanager.v20220401",
+  "classes": {
+   "azure-native:trafficmanager/v20220401:Endpoint": "Endpoint",
+   "azure-native:trafficmanager/v20220401:Profile": "Profile",
+   "azure-native:trafficmanager/v20220401:TrafficManagerUserMetricsKey": "TrafficManagerUserMetricsKey"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "trafficmanager/v20220401preview",
+  "fqn": "pulumi_azure_native.trafficmanager.v20220401preview",
+  "classes": {
+   "azure-native:trafficmanager/v20220401preview:Endpoint": "Endpoint",
+   "azure-native:trafficmanager/v20220401preview:Profile": "Profile",
+   "azure-native:trafficmanager/v20220401preview:TrafficManagerUserMetricsKey": "TrafficManagerUserMetricsKey"
   }
  },
  {

@@ -4361,6 +4361,34 @@
     "Property": "redirectUri"
   },
   {
+    "Module": "dnsresolver",
+    "Provider": "DnsResolver",
+    "ResourceName": "InboundEndpoint",
+    "ReferenceName": "SubResource",
+    "Property": "subnet"
+  },
+  {
+    "Module": "dnsresolver/v20200401preview",
+    "Provider": "DnsResolver",
+    "ResourceName": "InboundEndpoint",
+    "ReferenceName": "SubResource",
+    "Property": "subnet"
+  },
+  {
+    "Module": "dnsresolver/v20220701",
+    "Provider": "DnsResolver",
+    "ResourceName": "InboundEndpoint",
+    "ReferenceName": "SubResource",
+    "Property": "subnet"
+  },
+  {
+    "Module": "dnsresolver/v20230701preview",
+    "Provider": "DnsResolver",
+    "ResourceName": "InboundEndpoint",
+    "ReferenceName": "SubResource",
+    "Property": "subnet"
+  },
+  {
     "Module": "documentdb",
     "Provider": "DocumentDB",
     "ResourceName": "CassandraCluster",
@@ -59169,27 +59197,6 @@
     "ResourceName": "VolumeGroup",
     "ReferenceName": "volumeGroupVolumeProperties",
     "Property": "zones"
-  },
-  {
-    "Module": "network",
-    "Provider": "Network",
-    "ResourceName": "InboundEndpoint",
-    "ReferenceName": "SubResource",
-    "Property": "subnet"
-  },
-  {
-    "Module": "network/v20220701",
-    "Provider": "Network",
-    "ResourceName": "InboundEndpoint",
-    "ReferenceName": "SubResource",
-    "Property": "subnet"
-  },
-  {
-    "Module": "network/v20230701preview",
-    "Provider": "Network",
-    "ResourceName": "InboundEndpoint",
-    "ReferenceName": "SubResource",
-    "Property": "subnet"
   },
   {
     "Module": "networkcloud",

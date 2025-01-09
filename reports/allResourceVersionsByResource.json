@@ -10062,6 +10062,90 @@
       "2023-01-31"
     ]
   },
+  "Dns": {
+    "DnssecConfig": [
+      "2023-07-01-preview"
+    ],
+    "RecordSet": [
+      "2015-05-04-preview",
+      "2016-04-01",
+      "2017-09-01",
+      "2017-10-01",
+      "2018-03-01-preview",
+      "2018-05-01",
+      "2023-07-01-preview"
+    ],
+    "Zone": [
+      "2015-05-04-preview",
+      "2016-04-01",
+      "2017-09-01",
+      "2017-10-01",
+      "2018-03-01-preview",
+      "2018-05-01",
+      "2023-07-01-preview"
+    ],
+    "getDnsResourceReferenceByTarResources": [
+      "2018-05-01",
+      "2023-07-01-preview"
+    ]
+  },
+  "DnsResolver": {
+    "DnsForwardingRuleset": [
+      "2020-04-01-preview",
+      "2022-07-01",
+      "2023-07-01-preview"
+    ],
+    "DnsResolver": [
+      "2020-04-01-preview",
+      "2022-07-01",
+      "2023-07-01-preview"
+    ],
+    "DnsResolverDomainList": [
+      "2023-07-01-preview"
+    ],
+    "DnsResolverPolicy": [
+      "2023-07-01-preview"
+    ],
+    "DnsResolverPolicyVirtualNetworkLink": [
+      "2023-07-01-preview"
+    ],
+    "DnsSecurityRule": [
+      "2023-07-01-preview"
+    ],
+    "ForwardingRule": [
+      "2020-04-01-preview",
+      "2022-07-01",
+      "2023-07-01-preview"
+    ],
+    "InboundEndpoint": [
+      "2020-04-01-preview",
+      "2022-07-01",
+      "2023-07-01-preview"
+    ],
+    "OutboundEndpoint": [
+      "2020-04-01-preview",
+      "2022-07-01",
+      "2023-07-01-preview"
+    ],
+    "PrivateResolverVirtualNetworkLink": [
+      "2020-04-01-preview",
+      "2022-07-01",
+      "2023-07-01-preview"
+    ],
+    "listDnsForwardingRulesetByVirtualNetwork": [
+      "2020-04-01-preview",
+      "2022-07-01",
+      "2023-07-01-preview"
+    ],
+    "listDnsResolverByVirtualNetwork": [
+      "2020-04-01-preview",
+      "2022-07-01",
+      "2023-07-01-preview"
+    ],
+    "listDnsResolverPolicyByVirtualNetwork": [
+      "2023-07-01-preview"
+    ]
+  },
   "DocumentDB": {
     "CassandraCluster": [
       "2021-03-01-preview",
@@ -12291,6 +12375,37 @@
       "2022-05-11",
       "2022-05-26",
       "2022-06-01"
+    ]
+  },
+  "FrontDoor": {
+    "Experiment": [
+      "2019-11-01"
+    ],
+    "FrontDoor": [
+      "2019-04-01",
+      "2019-05-01",
+      "2020-01-01",
+      "2020-04-01",
+      "2020-05-01",
+      "2021-06-01"
+    ],
+    "NetworkExperimentProfile": [
+      "2019-11-01"
+    ],
+    "Policy": [
+      "2019-03-01",
+      "2019-10-01",
+      "2020-04-01",
+      "2020-11-01",
+      "2021-06-01",
+      "2022-05-01",
+      "2024-02-01"
+    ],
+    "RulesEngine": [
+      "2020-01-01",
+      "2020-04-01",
+      "2020-05-01",
+      "2021-06-01"
     ]
   },
   "GraphServices": {
@@ -16983,31 +17098,6 @@
       "2024-03-01",
       "2024-05-01"
     ],
-    "DnsForwardingRuleset": [
-      "2020-04-01-preview",
-      "2022-07-01",
-      "2023-07-01-preview"
-    ],
-    "DnsResolver": [
-      "2020-04-01-preview",
-      "2022-07-01",
-      "2023-07-01-preview"
-    ],
-    "DnsResolverDomainList": [
-      "2023-07-01-preview"
-    ],
-    "DnsResolverPolicy": [
-      "2023-07-01-preview"
-    ],
-    "DnsResolverPolicyVirtualNetworkLink": [
-      "2023-07-01-preview"
-    ],
-    "DnsSecurityRule": [
-      "2023-07-01-preview"
-    ],
-    "DnssecConfig": [
-      "2023-07-01-preview"
-    ],
     "DscpConfiguration": [
       "2020-06-01",
       "2020-07-01",
@@ -17031,20 +17121,6 @@
       "2024-01-01",
       "2024-03-01",
       "2024-05-01"
-    ],
-    "Endpoint": [
-      "2015-11-01",
-      "2017-03-01",
-      "2017-05-01",
-      "2018-02-01",
-      "2018-03-01",
-      "2018-04-01",
-      "2018-08-01",
-      "2022-04-01",
-      "2022-04-01-preview"
-    ],
-    "Experiment": [
-      "2019-11-01"
     ],
     "ExpressRouteCircuit": [
       "2015-05-01-preview",
@@ -17543,19 +17619,6 @@
       "2024-03-01",
       "2024-05-01"
     ],
-    "ForwardingRule": [
-      "2020-04-01-preview",
-      "2022-07-01",
-      "2023-07-01-preview"
-    ],
-    "FrontDoor": [
-      "2019-04-01",
-      "2019-05-01",
-      "2020-01-01",
-      "2020-04-01",
-      "2020-05-01",
-      "2021-06-01"
-    ],
     "HubRouteTable": [
       "2020-04-01",
       "2020-05-01",
@@ -17606,11 +17669,6 @@
       "2024-01-01",
       "2024-03-01",
       "2024-05-01"
-    ],
-    "InboundEndpoint": [
-      "2020-04-01-preview",
-      "2022-07-01",
-      "2023-07-01-preview"
     ],
     "InboundNatRule": [
       "2017-06-01",
@@ -17941,9 +17999,6 @@
       "2024-01-01",
       "2024-03-01",
       "2024-05-01"
-    ],
-    "NetworkExperimentProfile": [
-      "2019-11-01"
     ],
     "NetworkGroup": [
       "2021-02-01-preview",
@@ -18294,11 +18349,6 @@
       "2023-07-01-preview",
       "2023-08-01-preview"
     ],
-    "OutboundEndpoint": [
-      "2020-04-01-preview",
-      "2022-07-01",
-      "2023-07-01-preview"
-    ],
     "P2sVpnGateway": [
       "2018-08-01",
       "2018-10-01",
@@ -18399,15 +18449,6 @@
       "2024-01-01",
       "2024-03-01",
       "2024-05-01"
-    ],
-    "Policy": [
-      "2019-03-01",
-      "2019-10-01",
-      "2020-04-01",
-      "2020-11-01",
-      "2021-06-01",
-      "2022-05-01",
-      "2024-02-01"
     ],
     "PrivateDnsZoneGroup": [
       "2020-03-01",
@@ -18534,34 +18575,6 @@
       "2024-03-01",
       "2024-05-01"
     ],
-    "PrivateRecordSet": [
-      "2018-09-01",
-      "2020-01-01",
-      "2020-06-01",
-      "2024-06-01"
-    ],
-    "PrivateResolverVirtualNetworkLink": [
-      "2020-04-01-preview",
-      "2022-07-01",
-      "2023-07-01-preview"
-    ],
-    "PrivateZone": [
-      "2018-09-01",
-      "2020-01-01",
-      "2020-06-01",
-      "2024-06-01"
-    ],
-    "Profile": [
-      "2015-11-01",
-      "2017-03-01",
-      "2017-05-01",
-      "2018-02-01",
-      "2018-03-01",
-      "2018-04-01",
-      "2018-08-01",
-      "2022-04-01",
-      "2022-04-01-preview"
-    ],
     "PublicIPAddress": [
       "2015-06-15",
       "2016-03-30",
@@ -18667,15 +18680,6 @@
     "ReachabilityAnalysisRun": [
       "2024-01-01-preview",
       "2024-05-01"
-    ],
-    "RecordSet": [
-      "2015-05-04-preview",
-      "2016-04-01",
-      "2017-09-01",
-      "2017-10-01",
-      "2018-03-01-preview",
-      "2018-05-01",
-      "2023-07-01-preview"
     ],
     "Route": [
       "2015-05-01-preview",
@@ -18931,12 +18935,6 @@
     "RoutingRuleCollection": [
       "2024-03-01",
       "2024-05-01"
-    ],
-    "RulesEngine": [
-      "2020-01-01",
-      "2020-04-01",
-      "2020-05-01",
-      "2021-06-01"
     ],
     "ScopeConnection": [
       "2021-05-01-preview",
@@ -19254,13 +19252,6 @@
       "2024-01-01",
       "2024-03-01",
       "2024-05-01"
-    ],
-    "TrafficManagerUserMetricsKey": [
-      "2017-09-01-preview",
-      "2018-04-01",
-      "2018-08-01",
-      "2022-04-01",
-      "2022-04-01-preview"
     ],
     "UserRule": [
       "2021-02-01-preview",
@@ -19610,12 +19601,6 @@
       "2024-01-01",
       "2024-03-01",
       "2024-05-01"
-    ],
-    "VirtualNetworkLink": [
-      "2018-09-01",
-      "2020-01-01",
-      "2020-06-01",
-      "2024-06-01"
     ],
     "VirtualNetworkPeering": [
       "2016-06-01",
@@ -20010,15 +19995,6 @@
       "2024-03-01",
       "2024-05-01"
     ],
-    "Zone": [
-      "2015-05-04-preview",
-      "2016-04-01",
-      "2017-09-01",
-      "2017-10-01",
-      "2018-03-01-preview",
-      "2018-05-01",
-      "2023-07-01-preview"
-    ],
     "getActiveSessions": [
       "2019-09-01",
       "2019-11-01",
@@ -20113,10 +20089,6 @@
       "2024-01-01",
       "2024-03-01",
       "2024-05-01"
-    ],
-    "getDnsResourceReferenceByTarResources": [
-      "2018-05-01",
-      "2023-07-01-preview"
     ],
     "getIpamPoolUsage": [
       "2024-01-01-preview",
@@ -20568,19 +20540,6 @@
       "2021-05-01-preview",
       "2022-02-01-preview",
       "2022-04-01-preview"
-    ],
-    "listDnsForwardingRulesetByVirtualNetwork": [
-      "2020-04-01-preview",
-      "2022-07-01",
-      "2023-07-01-preview"
-    ],
-    "listDnsResolverByVirtualNetwork": [
-      "2020-04-01-preview",
-      "2022-07-01",
-      "2023-07-01-preview"
-    ],
-    "listDnsResolverPolicyByVirtualNetwork": [
-      "2023-07-01-preview"
     ],
     "listEffectiveConnectivityConfiguration": [
       "2021-02-01-preview"
@@ -21393,6 +21352,26 @@
     ],
     "PrivateEndpointConnection": [
       "2020-10-30-preview"
+    ]
+  },
+  "PrivateDns": {
+    "PrivateRecordSet": [
+      "2018-09-01",
+      "2020-01-01",
+      "2020-06-01",
+      "2024-06-01"
+    ],
+    "PrivateZone": [
+      "2018-09-01",
+      "2020-01-01",
+      "2020-06-01",
+      "2024-06-01"
+    ],
+    "VirtualNetworkLink": [
+      "2018-09-01",
+      "2020-01-01",
+      "2020-06-01",
+      "2024-06-01"
     ]
   },
   "ProfessionalService": {
@@ -26532,6 +26511,37 @@
       "2020-05-15",
       "2021-03-31-preview",
       "2021-06-30-preview"
+    ]
+  },
+  "TrafficManager": {
+    "Endpoint": [
+      "2015-11-01",
+      "2017-03-01",
+      "2017-05-01",
+      "2018-02-01",
+      "2018-03-01",
+      "2018-04-01",
+      "2018-08-01",
+      "2022-04-01",
+      "2022-04-01-preview"
+    ],
+    "Profile": [
+      "2015-11-01",
+      "2017-03-01",
+      "2017-05-01",
+      "2018-02-01",
+      "2018-03-01",
+      "2018-04-01",
+      "2018-08-01",
+      "2022-04-01",
+      "2022-04-01-preview"
+    ],
+    "TrafficManagerUserMetricsKey": [
+      "2017-09-01-preview",
+      "2018-04-01",
+      "2018-08-01",
+      "2022-04-01",
+      "2022-04-01-preview"
     ]
   },
   "VMwareCloudSimple": {

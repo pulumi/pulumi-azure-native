@@ -1180,6 +1180,16 @@
   "FluidRelay": {
     "FluidRelayServers_RegenerateKey": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.FluidRelay/fluidRelayServers/{fluidRelayServerName}/regenerateKey"
   },
+  "FrontDoor": {
+    "CheckFrontDoorNameAvailability": "/providers/Microsoft.Network/checkFrontDoorNameAvailability",
+    "CheckFrontDoorNameAvailabilityWithSubscription": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/checkFrontDoorNameAvailability",
+    "Endpoints_PurgeContent": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/purge",
+    "FrontDoorNameAvailabilityWithSubscription_Check": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/checkFrontDoorNameAvailability",
+    "FrontDoorNameAvailability_Check": "/providers/Microsoft.Network/checkFrontDoorNameAvailability",
+    "FrontDoors_ValidateCustomDomain": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/validateCustomDomain",
+    "FrontendEndpoints_DisableHttps": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/frontendEndpoints/{frontendEndpointName}/disableHttps",
+    "FrontendEndpoints_EnableHttps": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/frontendEndpoints/{frontendEndpointName}/enableHttps"
+  },
   "HDInsight": {
     "ClusterJobs_RunJob": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterPoolName}/clusters/{clusterName}/runJob",
     "ClusterLibraries_ManageLibraries": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterPoolName}/clusters/{clusterName}/manageLibraries",
@@ -1676,15 +1686,12 @@
     "ApplicationGateways_Stop": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/stop",
     "AzureFirewalls_ListLearnedPrefixes": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls/{azureFirewallName}/learnedIPPrefixes",
     "AzureFirewalls_PacketCapture": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls/{azureFirewallName}/packetCapture",
-    "CheckFrontDoorNameAvailability": "/providers/Microsoft.Network/checkFrontDoorNameAvailability",
-    "CheckFrontDoorNameAvailabilityWithSubscription": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/checkFrontDoorNameAvailability",
     "ConnectionMonitors_Query": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/connectionMonitors/{connectionMonitorName}/query",
     "ConnectionMonitors_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/connectionMonitors/{connectionMonitorName}/start",
     "ConnectionMonitors_Stop": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/connectionMonitors/{connectionMonitorName}/stop",
     "DeleteBastionShareableLink": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}/deleteShareableLinks",
     "DeleteBastionShareableLinkByToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}/deleteShareableLinksByToken",
     "DisconnectActiveSessions": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}/disconnectActiveSessions",
-    "Endpoints_PurgeContent": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/purge",
     "ExpressRouteCircuits_ListArpTable": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}/arpTables/{devicePath}",
     "ExpressRouteCircuits_ListRoutesTable": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}/routeTables/{devicePath}",
     "ExpressRouteCircuits_ListRoutesTableSummary": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}/routeTablesSummary/{devicePath}",
@@ -1693,11 +1700,6 @@
     "ExpressRouteCrossConnections_ListRoutesTableSummary": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}/peerings/{peeringName}/routeTablesSummary/{devicePath}",
     "ExpressRoutePorts_GenerateLOA": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRoutePorts/{expressRoutePortName}/generateLoa",
     "FirewallPolicyDeployments_Deploy": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/deploy",
-    "FrontDoorNameAvailabilityWithSubscription_Check": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/checkFrontDoorNameAvailability",
-    "FrontDoorNameAvailability_Check": "/providers/Microsoft.Network/checkFrontDoorNameAvailability",
-    "FrontDoors_ValidateCustomDomain": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/validateCustomDomain",
-    "FrontendEndpoints_DisableHttps": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/frontendEndpoints/{frontendEndpointName}/disableHttps",
-    "FrontendEndpoints_EnableHttps": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/frontendEndpoints/{frontendEndpointName}/enableHttps",
     "LoadBalancerLoadBalancingRules_Health": "/subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/loadBalancingRules/{loadBalancingRuleName}/health",
     "LoadBalancers_ListInboundNatRulePortMappings": "/subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendPoolName}/queryInboundNatRulePortMapping",
     "LoadBalancers_MigrateToIpBased": "/subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/migrateToIpBased",
@@ -1727,8 +1729,6 @@
     "PacketCaptures_Stop": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures/{packetCaptureName}/stop",
     "PrivateLinkServices_CheckPrivateLinkServiceVisibility": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/locations/{location}/checkPrivateLinkServiceVisibility",
     "PrivateLinkServices_CheckPrivateLinkServiceVisibilityByResourceGroup": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/locations/{location}/checkPrivateLinkServiceVisibility",
-    "Profiles_CheckTrafficManagerRelativeDnsNameAvailability": "/providers/Microsoft.Network/checkTrafficManagerNameAvailability",
-    "Profiles_checkTrafficManagerNameAvailabilityV2": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/checkTrafficManagerNameAvailabilityV2",
     "PublicIPAddresses_DdosProtectionStatus": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses/{publicIpAddressName}/ddosProtectionStatus",
     "PutBastionShareableLink": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}/createShareableLinks",
     "Subnets_PrepareNetworkPolicies": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}/PrepareNetworkPolicies",
@@ -2532,6 +2532,10 @@
     "Packages_RunTest": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/packages/{packageName}/runTest",
     "TestBaseAccounts_CheckPackageNameAvailability": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/checkPackageNameAvailability",
     "TestBaseAccounts_Offboard": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TestBase/testBaseAccounts/{testBaseAccountName}/offboard"
+  },
+  "TrafficManager": {
+    "Profiles_CheckTrafficManagerRelativeDnsNameAvailability": "/providers/Microsoft.Network/checkTrafficManagerNameAvailability",
+    "Profiles_checkTrafficManagerNameAvailabilityV2": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/checkTrafficManagerNameAvailabilityV2"
   },
   "VMwareCloudSimple": {
     "VirtualMachines_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VMwareCloudSimple/virtualMachines/{virtualMachineName}/start",

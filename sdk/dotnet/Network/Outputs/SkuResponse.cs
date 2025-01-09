@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Network.Outputs
 {
 
     /// <summary>
-    /// The pricing tier of the web application firewall policy.
+    /// The sku of this Bastion Host.
     /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {
         /// <summary>
-        /// Name of the pricing tier.
+        /// The name of this Bastion Host.
         /// </summary>
         public readonly string? Name;
 

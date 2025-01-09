@@ -9818,6 +9818,76 @@
       "TimeSeriesDatabaseConnection"
     ]
   },
+  "Dns": {
+    "2015-05-04-preview": [
+      "RecordSet",
+      "Zone"
+    ],
+    "2016-04-01": [
+      "RecordSet",
+      "Zone"
+    ],
+    "2017-09-01": [
+      "RecordSet",
+      "Zone"
+    ],
+    "2017-10-01": [
+      "RecordSet",
+      "Zone"
+    ],
+    "2018-03-01-preview": [
+      "RecordSet",
+      "Zone"
+    ],
+    "2018-05-01": [
+      "RecordSet",
+      "Zone",
+      "getDnsResourceReferenceByTarResources"
+    ],
+    "2023-07-01-preview": [
+      "DnssecConfig",
+      "RecordSet",
+      "Zone",
+      "getDnsResourceReferenceByTarResources"
+    ]
+  },
+  "DnsResolver": {
+    "2020-04-01-preview": [
+      "DnsForwardingRuleset",
+      "DnsResolver",
+      "ForwardingRule",
+      "InboundEndpoint",
+      "OutboundEndpoint",
+      "PrivateResolverVirtualNetworkLink",
+      "listDnsForwardingRulesetByVirtualNetwork",
+      "listDnsResolverByVirtualNetwork"
+    ],
+    "2022-07-01": [
+      "DnsForwardingRuleset",
+      "DnsResolver",
+      "ForwardingRule",
+      "InboundEndpoint",
+      "OutboundEndpoint",
+      "PrivateResolverVirtualNetworkLink",
+      "listDnsForwardingRulesetByVirtualNetwork",
+      "listDnsResolverByVirtualNetwork"
+    ],
+    "2023-07-01-preview": [
+      "DnsForwardingRuleset",
+      "DnsResolver",
+      "DnsResolverDomainList",
+      "DnsResolverPolicy",
+      "DnsResolverPolicyVirtualNetworkLink",
+      "DnsSecurityRule",
+      "ForwardingRule",
+      "InboundEndpoint",
+      "OutboundEndpoint",
+      "PrivateResolverVirtualNetworkLink",
+      "listDnsForwardingRulesetByVirtualNetwork",
+      "listDnsResolverByVirtualNetwork",
+      "listDnsResolverPolicyByVirtualNetwork"
+    ]
+  },
   "DocumentDB": {
     "2015-04-01": [
       "DatabaseAccount",
@@ -12032,6 +12102,51 @@
     "2022-06-01": [
       "FluidRelayServer",
       "listFluidRelayServerKeys"
+    ]
+  },
+  "FrontDoor": {
+    "2019-03-01": [
+      "Policy"
+    ],
+    "2019-04-01": [
+      "FrontDoor"
+    ],
+    "2019-05-01": [
+      "FrontDoor"
+    ],
+    "2019-10-01": [
+      "Policy"
+    ],
+    "2019-11-01": [
+      "Experiment",
+      "NetworkExperimentProfile"
+    ],
+    "2020-01-01": [
+      "FrontDoor",
+      "RulesEngine"
+    ],
+    "2020-04-01": [
+      "FrontDoor",
+      "Policy",
+      "RulesEngine"
+    ],
+    "2020-05-01": [
+      "FrontDoor",
+      "RulesEngine"
+    ],
+    "2020-11-01": [
+      "Policy"
+    ],
+    "2021-06-01": [
+      "FrontDoor",
+      "Policy",
+      "RulesEngine"
+    ],
+    "2022-05-01": [
+      "Policy"
+    ],
+    "2024-02-01": [
+      "Policy"
     ]
   },
   "GraphServices": {
@@ -16118,10 +16233,6 @@
       "Subnet",
       "VirtualNetwork"
     ],
-    "2015-05-04-preview": [
-      "RecordSet",
-      "Zone"
-    ],
     "2015-06-15": [
       "ApplicationGateway",
       "ExpressRouteCircuit",
@@ -16140,10 +16251,6 @@
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection"
     ],
-    "2015-11-01": [
-      "Endpoint",
-      "Profile"
-    ],
     "2016-03-30": [
       "ApplicationGateway",
       "ExpressRouteCircuit",
@@ -16161,10 +16268,6 @@
       "VirtualNetwork",
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection"
-    ],
-    "2016-04-01": [
-      "RecordSet",
-      "Zone"
     ],
     "2016-06-01": [
       "ApplicationGateway",
@@ -16237,7 +16340,6 @@
     ],
     "2017-03-01": [
       "ApplicationGateway",
-      "Endpoint",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
       "ExpressRouteCircuitPeering",
@@ -16247,7 +16349,6 @@
       "NetworkSecurityGroup",
       "NetworkWatcher",
       "PacketCapture",
-      "Profile",
       "PublicIPAddress",
       "Route",
       "RouteFilter",
@@ -16262,10 +16363,6 @@
       "getVirtualNetworkGatewayAdvertisedRoutes",
       "getVirtualNetworkGatewayBgpPeerStatus",
       "getVirtualNetworkGatewayLearnedRoutes"
-    ],
-    "2017-05-01": [
-      "Endpoint",
-      "Profile"
     ],
     "2017-06-01": [
       "ApplicationGateway",
@@ -16336,7 +16433,6 @@
       "NetworkWatcher",
       "PacketCapture",
       "PublicIPAddress",
-      "RecordSet",
       "Route",
       "RouteFilter",
       "RouteFilterRule",
@@ -16347,14 +16443,10 @@
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection",
       "VirtualNetworkPeering",
-      "Zone",
       "getVirtualNetworkGatewayAdvertisedRoutes",
       "getVirtualNetworkGatewayBgpPeerStatus",
       "getVirtualNetworkGatewayLearnedRoutes",
       "getVirtualNetworkGatewayVpnProfilePackageUrl"
-    ],
-    "2017-09-01-preview": [
-      "TrafficManagerUserMetricsKey"
     ],
     "2017-10-01": [
       "ApplicationGateway",
@@ -16371,7 +16463,6 @@
       "NetworkWatcher",
       "PacketCapture",
       "PublicIPAddress",
-      "RecordSet",
       "Route",
       "RouteFilter",
       "RouteFilterRule",
@@ -16382,7 +16473,6 @@
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection",
       "VirtualNetworkPeering",
-      "Zone",
       "getVirtualNetworkGatewayAdvertisedRoutes",
       "getVirtualNetworkGatewayBgpPeerStatus",
       "getVirtualNetworkGatewayLearnedRoutes",
@@ -16453,7 +16543,6 @@
       "ApplicationSecurityGroup",
       "ConnectionMonitor",
       "DdosProtectionPlan",
-      "Endpoint",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
       "ExpressRouteCircuitConnection",
@@ -16466,7 +16555,6 @@
       "NetworkSecurityGroup",
       "NetworkWatcher",
       "PacketCapture",
-      "Profile",
       "PublicIPAddress",
       "Route",
       "RouteFilter",
@@ -16484,21 +16572,12 @@
       "getVirtualNetworkGatewayVpnProfilePackageUrl",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
     ],
-    "2018-03-01": [
-      "Endpoint",
-      "Profile"
-    ],
-    "2018-03-01-preview": [
-      "RecordSet",
-      "Zone"
-    ],
     "2018-04-01": [
       "ApplicationGateway",
       "ApplicationSecurityGroup",
       "AzureFirewall",
       "ConnectionMonitor",
       "DdosProtectionPlan",
-      "Endpoint",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
       "ExpressRouteCircuitConnection",
@@ -16511,7 +16590,6 @@
       "NetworkSecurityGroup",
       "NetworkWatcher",
       "PacketCapture",
-      "Profile",
       "PublicIPAddress",
       "Route",
       "RouteFilter",
@@ -16519,7 +16597,6 @@
       "RouteTable",
       "SecurityRule",
       "Subnet",
-      "TrafficManagerUserMetricsKey",
       "VirtualHub",
       "VirtualNetwork",
       "VirtualNetworkGateway",
@@ -16534,11 +16611,6 @@
       "getVirtualNetworkGatewayLearnedRoutes",
       "getVirtualNetworkGatewayVpnProfilePackageUrl",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
-    ],
-    "2018-05-01": [
-      "RecordSet",
-      "Zone",
-      "getDnsResourceReferenceByTarResources"
     ],
     "2018-06-01": [
       "ApplicationGateway",
@@ -16629,7 +16701,6 @@
       "AzureFirewall",
       "ConnectionMonitor",
       "DdosProtectionPlan",
-      "Endpoint",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
       "ExpressRouteCircuitConnection",
@@ -16650,7 +16721,6 @@
       "P2sVpnGateway",
       "P2sVpnServerConfiguration",
       "PacketCapture",
-      "Profile",
       "PublicIPAddress",
       "PublicIPPrefix",
       "Route",
@@ -16661,7 +16731,6 @@
       "ServiceEndpointPolicy",
       "ServiceEndpointPolicyDefinition",
       "Subnet",
-      "TrafficManagerUserMetricsKey",
       "VirtualHub",
       "VirtualNetwork",
       "VirtualNetworkGateway",
@@ -16677,11 +16746,6 @@
       "getVirtualNetworkGatewayLearnedRoutes",
       "getVirtualNetworkGatewayVpnProfilePackageUrl",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
-    ],
-    "2018-09-01": [
-      "PrivateRecordSet",
-      "PrivateZone",
-      "VirtualNetworkLink"
     ],
     "2018-10-01": [
       "ApplicationGateway",
@@ -16898,9 +16962,6 @@
       "getVirtualNetworkGatewayVpnProfilePackageUrl",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
     ],
-    "2019-03-01": [
-      "Policy"
-    ],
     "2019-04-01": [
       "ApplicationGateway",
       "ApplicationSecurityGroup",
@@ -16917,7 +16978,6 @@
       "ExpressRouteCrossConnectionPeering",
       "ExpressRouteGateway",
       "ExpressRoutePort",
-      "FrontDoor",
       "InboundNatRule",
       "LoadBalancer",
       "LocalNetworkGateway",
@@ -16961,9 +17021,6 @@
       "getVirtualNetworkGatewayVpnProfilePackageUrl",
       "getVirtualNetworkGatewayVpnclientConnectionHealth",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
-    ],
-    "2019-05-01": [
-      "FrontDoor"
     ],
     "2019-06-01": [
       "ApplicationGateway",
@@ -17226,9 +17283,6 @@
       "getVirtualNetworkGatewayVpnclientConnectionHealth",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
     ],
-    "2019-10-01": [
-      "Policy"
-    ],
     "2019-11-01": [
       "ApplicationGateway",
       "ApplicationSecurityGroup",
@@ -17237,7 +17291,6 @@
       "ConnectionMonitor",
       "DdosCustomPolicy",
       "DdosProtectionPlan",
-      "Experiment",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
       "ExpressRouteCircuitConnection",
@@ -17254,7 +17307,6 @@
       "LoadBalancer",
       "LocalNetworkGateway",
       "NatGateway",
-      "NetworkExperimentProfile",
       "NetworkInterface",
       "NetworkInterfaceTapConfiguration",
       "NetworkProfile",
@@ -17374,13 +17426,6 @@
       "getVirtualNetworkGatewayVpnclientConnectionHealth",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
     ],
-    "2020-01-01": [
-      "FrontDoor",
-      "PrivateRecordSet",
-      "PrivateZone",
-      "RulesEngine",
-      "VirtualNetworkLink"
-    ],
     "2020-03-01": [
       "ApplicationGateway",
       "ApplicationSecurityGroup",
@@ -17475,7 +17520,6 @@
       "FirewallPolicy",
       "FirewallPolicyRuleGroup",
       "FlowLog",
-      "FrontDoor",
       "HubRouteTable",
       "InboundNatRule",
       "IpAllocation",
@@ -17492,7 +17536,6 @@
       "NetworkWatcher",
       "P2sVpnGateway",
       "PacketCapture",
-      "Policy",
       "PrivateDnsZoneGroup",
       "PrivateEndpoint",
       "PrivateLinkService",
@@ -17503,7 +17546,6 @@
       "RouteFilter",
       "RouteFilterRule",
       "RouteTable",
-      "RulesEngine",
       "SecurityPartnerProvider",
       "SecurityRule",
       "ServiceEndpointPolicy",
@@ -17536,16 +17578,6 @@
       "getVirtualNetworkGatewayVpnclientConnectionHealth",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
     ],
-    "2020-04-01-preview": [
-      "DnsForwardingRuleset",
-      "DnsResolver",
-      "ForwardingRule",
-      "InboundEndpoint",
-      "OutboundEndpoint",
-      "PrivateResolverVirtualNetworkLink",
-      "listDnsForwardingRulesetByVirtualNetwork",
-      "listDnsResolverByVirtualNetwork"
-    ],
     "2020-05-01": [
       "ApplicationGateway",
       "ApplicationGatewayPrivateEndpointConnection",
@@ -17566,7 +17598,6 @@
       "FirewallPolicy",
       "FirewallPolicyRuleCollectionGroup",
       "FlowLog",
-      "FrontDoor",
       "HubRouteTable",
       "HubVirtualNetworkConnection",
       "InboundNatRule",
@@ -17594,7 +17625,6 @@
       "RouteFilter",
       "RouteFilterRule",
       "RouteTable",
-      "RulesEngine",
       "SecurityPartnerProvider",
       "SecurityRule",
       "ServiceEndpointPolicy",
@@ -17673,8 +17703,6 @@
       "PrivateEndpoint",
       "PrivateLinkService",
       "PrivateLinkServicePrivateEndpointConnection",
-      "PrivateRecordSet",
-      "PrivateZone",
       "PublicIPAddress",
       "PublicIPPrefix",
       "Route",
@@ -17694,7 +17722,6 @@
       "VirtualNetwork",
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection",
-      "VirtualNetworkLink",
       "VirtualNetworkPeering",
       "VirtualNetworkTap",
       "VirtualRouter",
@@ -17927,7 +17954,6 @@
       "NetworkWatcher",
       "P2sVpnGateway",
       "PacketCapture",
-      "Policy",
       "PrivateDnsZoneGroup",
       "PrivateEndpoint",
       "PrivateLinkService",
@@ -18292,11 +18318,6 @@
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
-    "2021-06-01": [
-      "FrontDoor",
-      "Policy",
-      "RulesEngine"
-    ],
     "2021-08-01": [
       "ApplicationGateway",
       "ApplicationGatewayPrivateEndpointConnection",
@@ -18521,26 +18542,18 @@
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
-    "2022-04-01": [
-      "Endpoint",
-      "Profile",
-      "TrafficManagerUserMetricsKey"
-    ],
     "2022-04-01-preview": [
       "AdminRule",
       "AdminRuleCollection",
       "ConnectivityConfiguration",
-      "Endpoint",
       "ManagementGroupNetworkManagerConnection",
       "NetworkGroup",
       "NetworkManager",
-      "Profile",
       "ScopeConnection",
       "SecurityAdminConfiguration",
       "SecurityUserConfiguration",
       "StaticMember",
       "SubscriptionNetworkManagerConnection",
-      "TrafficManagerUserMetricsKey",
       "UserRule",
       "UserRuleCollection",
       "listActiveConnectivityConfigurations",
@@ -18600,7 +18613,6 @@
       "NetworkWatcher",
       "P2sVpnGateway",
       "PacketCapture",
-      "Policy",
       "PrivateDnsZoneGroup",
       "PrivateEndpoint",
       "PrivateLinkService",
@@ -18676,8 +18688,6 @@
       "CustomIPPrefix",
       "DdosCustomPolicy",
       "DdosProtectionPlan",
-      "DnsForwardingRuleset",
-      "DnsResolver",
       "DscpConfiguration",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
@@ -18691,10 +18701,8 @@
       "FirewallPolicy",
       "FirewallPolicyRuleCollectionGroup",
       "FlowLog",
-      "ForwardingRule",
       "HubRouteTable",
       "HubVirtualNetworkConnection",
-      "InboundEndpoint",
       "InboundNatRule",
       "IpAllocation",
       "IpGroup",
@@ -18712,14 +18720,12 @@
       "NetworkSecurityGroup",
       "NetworkVirtualAppliance",
       "NetworkWatcher",
-      "OutboundEndpoint",
       "P2sVpnGateway",
       "PacketCapture",
       "PrivateDnsZoneGroup",
       "PrivateEndpoint",
       "PrivateLinkService",
       "PrivateLinkServicePrivateEndpointConnection",
-      "PrivateResolverVirtualNetworkLink",
       "PublicIPAddress",
       "PublicIPPrefix",
       "Route",
@@ -18771,8 +18777,6 @@
       "getVpnLinkConnectionIkeSas",
       "listActiveConnectivityConfigurations",
       "listActiveSecurityAdminRules",
-      "listDnsForwardingRulesetByVirtualNetwork",
-      "listDnsResolverByVirtualNetwork",
       "listFirewallPolicyIdpsSignature",
       "listFirewallPolicyIdpsSignaturesFilterValue",
       "listNetworkManagerDeploymentStatus",
@@ -19435,28 +19439,11 @@
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
     "2023-07-01-preview": [
-      "DnsForwardingRuleset",
-      "DnsResolver",
-      "DnsResolverDomainList",
-      "DnsResolverPolicy",
-      "DnsResolverPolicyVirtualNetworkLink",
-      "DnsSecurityRule",
-      "DnssecConfig",
-      "ForwardingRule",
-      "InboundEndpoint",
       "NetworkSecurityPerimeter",
       "NspAccessRule",
       "NspAssociation",
       "NspLink",
-      "NspProfile",
-      "OutboundEndpoint",
-      "PrivateResolverVirtualNetworkLink",
-      "RecordSet",
-      "Zone",
-      "getDnsResourceReferenceByTarResources",
-      "listDnsForwardingRulesetByVirtualNetwork",
-      "listDnsResolverByVirtualNetwork",
-      "listDnsResolverPolicyByVirtualNetwork"
+      "NspProfile"
     ],
     "2023-08-01-preview": [
       "NetworkSecurityPerimeter",
@@ -19813,9 +19800,6 @@
       "listIpamPoolAssociatedResources",
       "listNetworkManagerDeploymentStatus"
     ],
-    "2024-02-01": [
-      "Policy"
-    ],
     "2024-03-01": [
       "AdminRule",
       "AdminRuleCollection",
@@ -20062,11 +20046,6 @@
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules",
       "listVpnLinkConnectionDefaultSharedKey"
-    ],
-    "2024-06-01": [
-      "PrivateRecordSet",
-      "PrivateZone",
-      "VirtualNetworkLink"
     ]
   },
   "NetworkAnalytics": {
@@ -20654,6 +20633,28 @@
       "Account",
       "EnterprisePolicy",
       "PrivateEndpointConnection"
+    ]
+  },
+  "PrivateDns": {
+    "2018-09-01": [
+      "PrivateRecordSet",
+      "PrivateZone",
+      "VirtualNetworkLink"
+    ],
+    "2020-01-01": [
+      "PrivateRecordSet",
+      "PrivateZone",
+      "VirtualNetworkLink"
+    ],
+    "2020-06-01": [
+      "PrivateRecordSet",
+      "PrivateZone",
+      "VirtualNetworkLink"
+    ],
+    "2024-06-01": [
+      "PrivateRecordSet",
+      "PrivateZone",
+      "VirtualNetworkLink"
     ]
   },
   "ProfessionalService": {
@@ -25735,6 +25736,51 @@
       "Environment",
       "EventSource",
       "ReferenceDataSet"
+    ]
+  },
+  "TrafficManager": {
+    "2015-11-01": [
+      "Endpoint",
+      "Profile"
+    ],
+    "2017-03-01": [
+      "Endpoint",
+      "Profile"
+    ],
+    "2017-05-01": [
+      "Endpoint",
+      "Profile"
+    ],
+    "2017-09-01-preview": [
+      "TrafficManagerUserMetricsKey"
+    ],
+    "2018-02-01": [
+      "Endpoint",
+      "Profile"
+    ],
+    "2018-03-01": [
+      "Endpoint",
+      "Profile"
+    ],
+    "2018-04-01": [
+      "Endpoint",
+      "Profile",
+      "TrafficManagerUserMetricsKey"
+    ],
+    "2018-08-01": [
+      "Endpoint",
+      "Profile",
+      "TrafficManagerUserMetricsKey"
+    ],
+    "2022-04-01": [
+      "Endpoint",
+      "Profile",
+      "TrafficManagerUserMetricsKey"
+    ],
+    "2022-04-01-preview": [
+      "Endpoint",
+      "Profile",
+      "TrafficManagerUserMetricsKey"
     ]
   },
   "VMwareCloudSimple": {

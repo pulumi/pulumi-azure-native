@@ -1187,6 +1187,27 @@
     "PrivateEndpointConnection": "2023-01-31",
     "TimeSeriesDatabaseConnection": "2023-01-31"
   },
+  "Dns": {
+    "DnssecConfig": "2023-07-01-preview",
+    "RecordSet": "2023-07-01-preview",
+    "Zone": "2023-07-01-preview",
+    "getDnsResourceReferenceByTarResources": "2023-07-01-preview"
+  },
+  "DnsResolver": {
+    "DnsForwardingRuleset": "2023-07-01-preview",
+    "DnsResolver": "2023-07-01-preview",
+    "DnsResolverDomainList": "2023-07-01-preview",
+    "DnsResolverPolicy": "2023-07-01-preview",
+    "DnsResolverPolicyVirtualNetworkLink": "2023-07-01-preview",
+    "DnsSecurityRule": "2023-07-01-preview",
+    "ForwardingRule": "2023-07-01-preview",
+    "InboundEndpoint": "2023-07-01-preview",
+    "OutboundEndpoint": "2023-07-01-preview",
+    "PrivateResolverVirtualNetworkLink": "2023-07-01-preview",
+    "listDnsForwardingRulesetByVirtualNetwork": "2023-07-01-preview",
+    "listDnsResolverByVirtualNetwork": "2023-07-01-preview",
+    "listDnsResolverPolicyByVirtualNetwork": "2023-07-01-preview"
+  },
   "DocumentDB": {
     "CassandraCluster": "2023-04-15",
     "CassandraDataCenter": "2023-04-15",
@@ -1376,6 +1397,9 @@
   "FluidRelay": {
     "FluidRelayServer": "2022-06-01",
     "listFluidRelayServerKeys": "2022-06-01"
+  },
+  "FrontDoor": {
+    "Policy": "2024-02-01"
   },
   "GraphServices": {
     "Account": "2023-04-13"
@@ -2006,16 +2030,7 @@
     "CustomIPPrefix": "2023-02-01",
     "DdosCustomPolicy": "2023-02-01",
     "DdosProtectionPlan": "2023-02-01",
-    "DnsForwardingRuleset": "2022-07-01",
-    "DnsResolver": "2022-07-01",
-    "DnsResolverDomainList": "2023-07-01-preview",
-    "DnsResolverPolicy": "2023-07-01-preview",
-    "DnsResolverPolicyVirtualNetworkLink": "2023-07-01-preview",
-    "DnsSecurityRule": "2023-07-01-preview",
-    "DnssecConfig": "2018-05-01",
     "DscpConfiguration": "2023-02-01",
-    "Endpoint": "2022-04-01",
-    "Experiment": "2019-11-01",
     "ExpressRouteCircuit": "2023-02-01",
     "ExpressRouteCircuitAuthorization": "2023-02-01",
     "ExpressRouteCircuitConnection": "2023-02-01",
@@ -2031,11 +2046,8 @@
     "FirewallPolicyRuleCollectionGroupDraft": "2023-11-01",
     "FirewallPolicyRuleGroup": "2020-04-01",
     "FlowLog": "2023-02-01",
-    "ForwardingRule": "2022-07-01",
-    "FrontDoor": "2021-06-01",
     "HubRouteTable": "2023-02-01",
     "HubVirtualNetworkConnection": "2023-02-01",
-    "InboundEndpoint": "2022-07-01",
     "InboundNatRule": "2023-02-01",
     "InterfaceEndpoint": "2019-02-01",
     "IpAllocation": "2023-02-01",
@@ -2047,7 +2059,6 @@
     "ManagementGroupNetworkManagerConnection": "2023-02-01",
     "NatGateway": "2023-02-01",
     "NatRule": "2023-02-01",
-    "NetworkExperimentProfile": "2019-11-01",
     "NetworkGroup": "2023-02-01",
     "NetworkInterface": "2023-02-01",
     "NetworkInterfaceTapConfiguration": "2023-02-01",
@@ -2063,24 +2074,17 @@
     "NspAssociation": "2021-02-01-preview",
     "NspLink": "2021-02-01-preview",
     "NspProfile": "2021-02-01-preview",
-    "OutboundEndpoint": "2022-07-01",
     "P2sVpnGateway": "2023-02-01",
     "P2sVpnServerConfiguration": "2019-07-01",
     "PacketCapture": "2023-02-01",
-    "Policy": "2022-05-01",
     "PrivateDnsZoneGroup": "2023-02-01",
     "PrivateEndpoint": "2023-02-01",
     "PrivateLinkService": "2023-02-01",
     "PrivateLinkServicePrivateEndpointConnection": "2023-02-01",
-    "PrivateRecordSet": "2020-06-01",
-    "PrivateResolverVirtualNetworkLink": "2022-07-01",
-    "PrivateZone": "2020-06-01",
-    "Profile": "2022-04-01",
     "PublicIPAddress": "2023-02-01",
     "PublicIPPrefix": "2023-02-01",
     "ReachabilityAnalysisIntent": "2024-01-01-preview",
     "ReachabilityAnalysisRun": "2024-01-01-preview",
-    "RecordSet": "2018-05-01",
     "Route": "2023-02-01",
     "RouteFilter": "2023-02-01",
     "RouteFilterRule": "2023-02-01",
@@ -2089,7 +2093,6 @@
     "RoutingIntent": "2023-02-01",
     "RoutingRule": "2024-03-01",
     "RoutingRuleCollection": "2024-03-01",
-    "RulesEngine": "2021-06-01",
     "ScopeConnection": "2023-02-01",
     "SecurityAdminConfiguration": "2023-02-01",
     "SecurityPartnerProvider": "2023-02-01",
@@ -2103,7 +2106,6 @@
     "StaticMember": "2023-02-01",
     "Subnet": "2023-02-01",
     "SubscriptionNetworkManagerConnection": "2023-02-01",
-    "TrafficManagerUserMetricsKey": "2022-04-01",
     "UserRule": "2022-04-01-preview",
     "UserRuleCollection": "2022-04-01-preview",
     "VerifierWorkspace": "2024-01-01-preview",
@@ -2116,7 +2118,6 @@
     "VirtualNetworkGateway": "2023-02-01",
     "VirtualNetworkGatewayConnection": "2023-02-01",
     "VirtualNetworkGatewayNatRule": "2023-02-01",
-    "VirtualNetworkLink": "2020-06-01",
     "VirtualNetworkPeering": "2023-02-01",
     "VirtualNetworkTap": "2023-02-01",
     "VirtualRouter": "2023-02-01",
@@ -2127,11 +2128,9 @@
     "VpnServerConfiguration": "2023-02-01",
     "VpnSite": "2023-02-01",
     "WebApplicationFirewallPolicy": "2023-02-01",
-    "Zone": "2018-05-01",
     "getActiveSessions": "2023-02-01",
     "getApplicationGatewayBackendHealthOnDemand": "2023-02-01",
     "getBastionShareableLink": "2023-02-01",
-    "getDnsResourceReferenceByTarResources": "2018-05-01",
     "getIpamPoolUsage": "2024-01-01-preview",
     "getP2sVpnGatewayP2sVpnConnectionHealth": "2023-02-01",
     "getP2sVpnGatewayP2sVpnConnectionHealthDetailed": "2023-02-01",
@@ -2151,9 +2150,6 @@
     "listActiveSecurityAdminRules": "2023-02-01",
     "listActiveSecurityUserRule": "2021-02-01-preview",
     "listActiveSecurityUserRules": "2022-04-01-preview",
-    "listDnsForwardingRulesetByVirtualNetwork": "2022-07-01",
-    "listDnsResolverByVirtualNetwork": "2022-07-01",
-    "listDnsResolverPolicyByVirtualNetwork": "2023-07-01-preview",
     "listEffectiveConnectivityConfiguration": "2021-02-01-preview",
     "listEffectiveVirtualNetworkByNetworkGroup": "2021-02-01-preview",
     "listEffectiveVirtualNetworkByNetworkManager": "2022-04-01-preview",
@@ -2319,6 +2315,11 @@
     "Account": "2020-10-30-preview",
     "EnterprisePolicy": "2020-10-30-preview",
     "PrivateEndpointConnection": "2020-10-30-preview"
+  },
+  "PrivateDns": {
+    "PrivateRecordSet": "2024-06-01",
+    "PrivateZone": "2024-06-01",
+    "VirtualNetworkLink": "2024-06-01"
   },
   "ProfessionalService": {
     "ProfessionalServiceSubscriptionLevel": "2023-07-01-preview"
@@ -2860,6 +2861,11 @@
     "EventSource": "2020-05-15",
     "PrivateEndpointConnection": "2021-03-31-preview",
     "ReferenceDataSet": "2020-05-15"
+  },
+  "TrafficManager": {
+    "Endpoint": "2022-04-01",
+    "Profile": "2022-04-01",
+    "TrafficManagerUserMetricsKey": "2022-04-01"
   },
   "VMwareCloudSimple": {
     "DedicatedCloudNode": "2019-04-01",

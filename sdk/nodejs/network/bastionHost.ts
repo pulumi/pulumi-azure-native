@@ -132,7 +132,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.network.skuArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
