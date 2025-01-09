@@ -1182,6 +1182,12 @@ func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {
 		return ""
 	}
 
+	// These operations from Microsoft.RecoveryServices/stable/2023-04-01/bms.json are incorrectly not marked as
+	// long-running. https://github.com/Azure/azure-rest-api-specs/issues/31943
+	if op.ID == "ProtectedItems_CreateOrUpdate" || op.ID == "ProtectedItems_Delete" {
+		return extensionLongRunningDefault
+	}
+
 	enabled, ok := op.Extensions.GetBool(extensionLongRunning)
 	if !ok || !enabled {
 		return ""

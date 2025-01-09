@@ -58,6 +58,9 @@ type CustomResource struct {
 	// to our custom shape and behavior. Optional.
 	// Deprecated: Use Schema instead.
 	MetaTypeOverrides map[string]AzureAPIType
+	// GetIdAndQuery returns the resource id and query parameters for the custom resource. Optional, by default the provider gets the
+	// resource ID and query parameters from crud.ResourceCrudClient.PrepareAzureRESTIdAndQuery.
+	GetIdAndQuery func(ctx context.Context, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient) (string, map[string]any, error)
 	// Create a new resource from a map of input values. Returns a map of resource outputs that match the schema shape.
 	Create func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]interface{}, error)
 	// Read the state of an existing resource. Constructs the resource ID based on input values. Returns a map of
@@ -186,6 +189,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 		return nil, err
 	}
 
+	protectedItem, err := recoveryServicesProtectedItem(subscriptionID, tokenCred)
+	if err != nil {
+		return nil, err
+	}
+
 	resources := []*CustomResource{
 		keyVaultAccessPolicy(armKVClient),
 
@@ -195,6 +203,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 		customWebApp,
 		customWebAppSlot,
 		postgresConf,
+		protectedItem,
 	}
 
 	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The

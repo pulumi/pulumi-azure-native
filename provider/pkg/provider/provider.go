@@ -932,9 +932,17 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		}, nil
 	}
 
+	customRes, isCustom := k.customResources[res.Path]
+
 	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
-	id, queryParams, err := crudClient.PrepareAzureRESTIdAndQuery(inputs)
+	var id string
+	var queryParams map[string]any
+	if isCustom && customRes.GetIdAndQuery != nil {
+		id, queryParams, err = customRes.GetIdAndQuery(ctx, inputs, crudClient)
+	} else {
+		id, queryParams, err = crudClient.PrepareAzureRESTIdAndQuery(inputs)
+	}
 	if err != nil {
 		return nil, err
 	}
@@ -943,7 +951,6 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 	defer cancel()
 
 	var outputs map[string]interface{}
-	customRes, isCustom := k.customResources[res.Path]
 	switch {
 	case isCustom && customRes.Create != nil:
 		// First check if the resource already exists - we want to try our best to avoid updating instead of creating here.

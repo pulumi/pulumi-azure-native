@@ -4,6 +4,7 @@ import (
 	"context"
 	"testing"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
@@ -16,51 +17,19 @@ var mockResourceLookup resources.ResourceLookupFunc = func(resourceType string) 
 	return resources.AzureAPIResource{}, true, nil
 }
 
-type WebAppMockAzureClient struct {
-	queryParamsOfLastDelete map[string]any
-	getIds                  []string
-}
-
-func (m *WebAppMockAzureClient) Delete(ctx context.Context, id, apiVersion, asyncStyle string, queryParams map[string]any) error {
-	m.queryParamsOfLastDelete = queryParams
-	return nil
-}
-func (m *WebAppMockAzureClient) CanCreate(ctx context.Context, id, path, apiVersion, readMethod string, isSingletonResource, hasDefaultBody bool, isDefaultResponse func(map[string]any) bool) error {
-	return nil
-}
-func (m *WebAppMockAzureClient) Get(ctx context.Context, id string, apiVersion string, queryParams map[string]any) (any, error) {
-	m.getIds = append(m.getIds, id)
-	return map[string]any{}, nil
-}
-func (m *WebAppMockAzureClient) Head(ctx context.Context, id string, apiVersion string) error {
-	return nil
-}
-func (m *WebAppMockAzureClient) Patch(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
-	return nil, false, nil
-}
-func (m *WebAppMockAzureClient) Post(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}) (any, error) {
-	return nil, nil
-}
-func (m *WebAppMockAzureClient) Put(ctx context.Context, id string, bodyProps map[string]interface{}, queryParameters map[string]interface{}, asyncStyle string) (map[string]interface{}, bool, error) {
-	return nil, false, nil
-}
-func (m *WebAppMockAzureClient) IsNotFound(err error) bool {
-	return false
-}
-
 func TestSetsDeleteParam(t *testing.T) {
-	azureClient := &WebAppMockAzureClient{}
+	azureClient := &azure.MockAzureClient{}
 
 	custom, err := webApp(nil, azureClient, mockResourceLookup)
 	require.NoError(t, err)
 	custom.Delete(context.Background(), "id", resource.PropertyMap{})
-	assert.Len(t, azureClient.queryParamsOfLastDelete, 1)
-	assert.Contains(t, azureClient.queryParamsOfLastDelete, "deleteEmptyServerFarm")
+	assert.Len(t, azureClient.QueryParamsOfLastDelete, 1)
+	assert.Contains(t, azureClient.QueryParamsOfLastDelete, "deleteEmptyServerFarm")
 }
 
 func TestReadsSiteConfig(t *testing.T) {
 	appId := "/subscriptions/123/resourceGroups/rg123/providers/Microsoft.Web/sites/app123"
-	azureClient := &WebAppMockAzureClient{}
+	azureClient := &azure.MockAzureClient{}
 
 	var f crud.ResourceCrudClientFactory = func(res *resources.AzureAPIResource) crud.ResourceCrudClient {
 		return crud.NewResourceCrudClient(azureClient, nil, nil, "123", res)
@@ -71,8 +40,8 @@ func TestReadsSiteConfig(t *testing.T) {
 
 	// Returns an error because the responses for both GETs are empty, but we only care about the requests.
 	_, _, _ = custom.Read(context.Background(), appId, resource.PropertyMap{})
-	require.Contains(t, azureClient.getIds, appId)
-	require.Contains(t, azureClient.getIds, appId+"/config/web")
+	require.Contains(t, azureClient.GetIds, appId)
+	require.Contains(t, azureClient.GetIds, appId+"/config/web")
 }
 
 func TestMergeWebAppSiteConfig(t *testing.T) {

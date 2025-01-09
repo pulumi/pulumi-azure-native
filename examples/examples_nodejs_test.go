@@ -309,6 +309,21 @@ func TestPortalDashboardTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestRecoveryServicesProtectedItemTs(t *testing.T) {
+	t.Skip("Skipping due to #3832")
+
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "recoveryservices-protecteditem"),
+			// Backing up protected items increases `protectedItemsCount` in policy and container,
+			// and adds `AzureBackupProtected` to the item.
+			ExpectRefreshChanges:    true,
+			PreviewCommandlineFlags: []string{"--diff"},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
 	baseJS := base.With(integration.ProgramTestOptions{
