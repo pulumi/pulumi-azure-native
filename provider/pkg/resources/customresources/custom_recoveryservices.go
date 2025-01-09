@@ -47,7 +47,7 @@ type protectedItemProperties struct {
 func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredential) (*CustomResource, error) {
 	clientFactory, err := recovery.NewClientFactory(subscription, cred, nil)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to create recovery services client factory: %w", err)
 	}
 
 	reader := &systemNameReaderImpl{
@@ -68,7 +68,7 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 func getIdAndQuery(ctx context.Context, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient, reader systemNameReader) (string, map[string]any, error) {
 	systemName, err := retrieveSystemName(ctx, inputs, reader)
 	if err != nil {
-		return "", nil, err
+		return "", nil, fmt.Errorf("failed to retrieve system name: %w", err)
 	}
 
 	inputsCopy := resource.NewPropertyMapFromMap(inputs.Mappable()) // deep copy
@@ -78,7 +78,7 @@ func getIdAndQuery(ctx context.Context, inputs resource.PropertyMap, crudClient 
 
 	origId, queryParams, err := crudClient.PrepareAzureRESTIdAndQuery(inputsCopy)
 	if err != nil {
-		return "", nil, err
+		return "", nil, fmt.Errorf("failed to prepare Azure REST ID and query: %w", err)
 	}
 
 	return origId, queryParams, nil
@@ -88,7 +88,7 @@ func getIdAndQuery(ctx context.Context, inputs resource.PropertyMap, crudClient 
 func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader) (string, error) {
 	item, err := extractProtectedItemProperties(input)
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("failed to extract protected item properties from input: %w", err)
 	}
 
 	if item.protectedItemType != "AzureFileShareProtectedItem" {
@@ -99,14 +99,14 @@ func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader 
 	logging.V(9).Infof("looking up system name for %s", item.itemName)
 	systemName, err := reader.readSystemNameFromProtectableItem(ctx, item)
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("failed to read system name for protectable item: %w", err)
 	}
 	// Based on observations during testing, the system name is usually, but not always immediately available.
 	if systemName == "" {
 		time.Sleep(30 * time.Second)
 		systemName, err = reader.readSystemNameFromProtectableItem(ctx, item)
 		if err != nil {
-			return "", err
+			return "", fmt.Errorf("failed to read system name for protectable item in second attempt: %w", err)
 		}
 	}
 	return systemName, nil
@@ -134,11 +134,11 @@ func (s *systemNameReaderImpl) readSystemNameFromProtectableItem(ctx context.Con
 	for protectablePager.More() {
 		page, err := protectablePager.NextPage(ctx)
 		if err != nil {
-			return "", err
+			return "", fmt.Errorf("failed to get next page of protectable items: %w", err)
 		}
 		systemName, err := findSystemName(page.Value, input.itemName, storageAccountName)
 		if err != nil {
-			return "", err
+			return "", fmt.Errorf("failed to find system name for protectable item: %w", err)
 		}
 		if systemName != "" {
 			return systemName, nil
@@ -201,7 +201,7 @@ func extractProtectedItemProperties(properties resource.PropertyMap) (*protected
 	}
 
 	if !properties.HasValue("properties") {
-		return nil, fmt.Errorf("properties not found")
+		return nil, fmt.Errorf("'properties' not found in input")
 	}
 	itemProperties := properties["properties"].ObjectValue()
 	itemType, err := getRequiredStringProperty(itemProperties, "protectedItemType")
