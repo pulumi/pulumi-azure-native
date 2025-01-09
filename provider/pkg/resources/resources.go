@@ -282,7 +282,6 @@ func ResourceProvider(filePath, apiUri string) (string, *string, error) {
 }
 
 // For the cases below, we use folder (SDK) name for module names instead of the ARM name.
-var folderModulePattern = regexp.MustCompile(`.*/specification/([a-z]+)/resource-manager/.*`)
 var folderModuleNames = map[string]string{
 	"videoanalyzer": "VideoAnalyzer",
 	"webpubsub":     "WebPubSub",
@@ -325,6 +324,8 @@ func resourceProvider(path, defaultValue string) string {
 
 	return defaultValue
 }
+
+var folderModulePattern = regexp.MustCompile(`.*/specification/([a-z]+)/resource-manager/.*`)
 
 func getSpecFolderName(path string) string {
 	subMatches := folderModulePattern.FindStringSubmatch(path)
