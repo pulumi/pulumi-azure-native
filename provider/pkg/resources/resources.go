@@ -9,7 +9,6 @@ import (
 	"strings"
 
 	"github.com/gedex/inflector"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 )
 
 // SingleValueProperty is the name of the property that we insert into the schema for non-object type responses of invokes.
@@ -260,65 +259,65 @@ var wellKnownProviderNames = map[string]string{
 }
 
 // ResourceProvider returns a provider name given Open API spec file and resource's API URI.
-func ResourceProvider(filePath, apiUri string) (string, *string, error) {
+// Returns the module name, optional old module name, or error.
+func ResourceProvider(majorVersion uint64, filePath, apiUri string) (string, *string, error) {
 	// We extract the provider name from two sources:
 	// - from the folder name of the Open API spec
 	// - from the URI of the API endpoint (we take the last provider in the URI)
 	specFolderName := getSpecFolderName(filePath)
-	fileProvider := resourceProvider(filePath, "")
-	apiProvider := resourceProvider(apiUri, "Resources")
+	namespaceWithoutPrefixFromSpecFilePath := findNamespaceWithoutPrefixFromPath(filePath, "")
+	namespaceWithoutPrefixFromResourceUrl := findNamespaceWithoutPrefixFromPath(apiUri, "Resources")
 	// Start with extracting the provider from the folder path. If the folder name is explicitly listed,
 	// use it as the provider name. This is the new style we use for newer resources after 1.0. Older
 	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
-	if override, oldModule, hasOverride := getNameOverride(specFolderName, fileProvider, apiProvider); hasOverride {
+	if override, oldModule, hasOverride := getNameOverride(majorVersion, specFolderName, namespaceWithoutPrefixFromSpecFilePath); hasOverride {
 		return override, oldModule, nil
 	}
 	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
 	// declarations outside of the current API provider.
-	if !strings.EqualFold(fileProvider, apiProvider) {
-		return "", nil, fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", fileProvider, apiProvider)
+	if !strings.EqualFold(namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl) {
+		return "", nil, fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl)
 	}
-	return fileProvider, nil, nil
+	return namespaceWithoutPrefixFromSpecFilePath, nil, nil
 }
 
-// For the cases below, we use folder (SDK) name for module names instead of the ARM name.
-var folderModuleNames = map[string]string{
+var modulesNamedByFolder = map[string]string{
 	"videoanalyzer": "VideoAnalyzer",
 	"webpubsub":     "WebPubSub",
 }
 
-// getNameOverride returns a name override for a given spec folder name, file provider, and API provider.
+var moduleNameOverridesWithAliases = map[string]map[string]string{
+	"Network": {
+		"dns":            "Dns",
+		"dnsresolver":    "DnsResolver",
+		"frontdoor":      "FrontDoor",
+		"privatedns":     "PrivateDns",
+		"trafficmanager": "TrafficManager",
+	},
+}
+
+// getNameOverride returns a name override for a given folder name, and non-prefixed namespace.
 // The second return value is true if an override is found.
-func getNameOverride(specFolderName, fileProvider, apiProvider string) (string, *string, bool) {
-	// Check if it's named after the top-level folder.
-	if name, ok := folderModuleNames[specFolderName]; ok {
+func getNameOverride(majorVersion uint64, specFolderName, namespaceWithoutPrefix string) (string, *string, bool) {
+	// For the cases below, we use folder (SDK) name for module names instead of the ARM name.
+	if name, ok := modulesNamedByFolder[specFolderName]; ok {
 		return name, nil, true
 	}
 	// Disable additional rules for v2 and below.
 	// TODO: Remove after v3 release.
-	if version.GetVersion().Major < 3 {
+	if majorVersion < 3 {
 		return "", nil, false
 	}
-	// New rules for v3 and above
-	if fileProvider == "Network" && specFolderName == "dns" {
-		return "Dns", &fileProvider, true
-	}
-	if fileProvider == "Network" && specFolderName == "dnsresolver" {
-		return "DnsResolver", &fileProvider, true
-	}
-	if fileProvider == "Network" && specFolderName == "frontdoor" {
-		return "FrontDoor", &fileProvider, true
-	}
-	if fileProvider == "Network" && specFolderName == "privatedns" {
-		return "PrivateDns", &fileProvider, true
-	}
-	if fileProvider == "Network" && specFolderName == "trafficmanager" {
-		return "TrafficManager", &fileProvider, true
+	// New rules for v3 and above which include aliases back to the original namespace.
+	if namespaceOverrides, ok := moduleNameOverridesWithAliases[namespaceWithoutPrefix]; ok {
+		if folderName, ok := namespaceOverrides[specFolderName]; ok {
+			return folderName, &namespaceWithoutPrefix, true
+		}
 	}
 	return "", nil, false
 }
 
-func resourceProvider(path, defaultValue string) string {
+func findNamespaceWithoutPrefixFromPath(path, defaultValue string) string {
 	parts := strings.Split(path, "/")
 	if len(parts) < 3 {
 		return ""
