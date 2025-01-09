@@ -529,6 +529,7 @@ func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, err
 	return nil, nil
 }
 
+// newResponseError replaces an azcore.ResponseError, created from the given response, with a more concise error type (#3778).
 func newResponseError(resp *http.Response) error {
 	err := runtime.NewResponseError(resp)
 	azcoreErr, ok := err.(*azcore.ResponseError)
@@ -553,12 +554,23 @@ func newResponseError(resp *http.Response) error {
 		}
 	}
 
-	errCode := azcoreErr.ErrorCode
-	if errCode == "" {
-		errCode = fmt.Sprintf("%d", resp.StatusCode)
+	return &PulumiAzcoreResponseError{
+		StatusCode: resp.StatusCode,
+		ErrorCode:  azcoreErr.ErrorCode,
+		Message:    errMsg,
 	}
+}
 
-	// The capitalized message replicates the error message format of the previous autorest client.
-	//nolint:ST1005
-	return fmt.Errorf(`Code="%s" Message="%s"`, errCode, errMsg)
+// We use this error type instead of azcore.ResponseError because the latter has a very verbose error message (#3778).
+type PulumiAzcoreResponseError struct {
+	StatusCode int
+	ErrorCode  string
+	Message    string
+}
+
+func (e *PulumiAzcoreResponseError) Error() string {
+	if e.ErrorCode == "" {
+		return fmt.Sprintf(`Status=%d Message="%s"`, e.StatusCode, e.Message)
+	}
+	return fmt.Sprintf(`Status=%d Code="%s" Message="%s"`, e.StatusCode, e.ErrorCode, e.Message)
 }

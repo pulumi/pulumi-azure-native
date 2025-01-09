@@ -781,7 +781,7 @@ func TestNewResponseError(t *testing.T) {
 		}
 		err := newResponseError(resp)
 		require.Error(t, err)
-		assert.Equal(t, "Code=\"Conflict\" Message=\"Foo already exists\"", err.Error())
+		assert.Equal(t, "Status=409 Code=\"Conflict\" Message=\"Foo already exists\"", err.Error())
 	})
 
 	t.Run("no message", func(t *testing.T) {
@@ -792,7 +792,7 @@ func TestNewResponseError(t *testing.T) {
 		}
 		err := newResponseError(resp)
 		require.Error(t, err)
-		assert.Equal(t, `Code="Conflict" Message="{"error": {"code": "Conflict"}}"`, err.Error())
+		assert.Equal(t, `Status=409 Code="Conflict" Message="{"error": {"code": "Conflict"}}"`, err.Error())
 	})
 
 	t.Run("unknown error", func(t *testing.T) {
@@ -802,6 +802,14 @@ func TestNewResponseError(t *testing.T) {
 		}
 		err := newResponseError(resp)
 		require.Error(t, err)
-		assert.Equal(t, `Code="409" Message="{"foo": "bar"}"`, err.Error())
+		assert.Equal(t, `Status=409 Message="{"foo": "bar"}"`, err.Error())
+	})
+
+	t.Run("404 is recognized by IsNotFound", func(t *testing.T) {
+		resp := &http.Response{
+			StatusCode: 404,
+			Body:       io.NopCloser(strings.NewReader(`not found`)),
+		}
+		assert.True(t, IsNotFound(newResponseError(resp)))
 	})
 }
