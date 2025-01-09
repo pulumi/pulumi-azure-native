@@ -65,7 +65,9 @@ type GenerationResult struct {
 	ForceNewTypes              []ForceNewType
 	TypeCaseConflicts          CaseConflicts
 	FlattenedPropertyConflicts map[string]map[string]struct{}
-	PathConflicts              map[string]map[string]struct{}
+	// A map of provider -> resource -> set of paths, to record resources that have conflicts where the same resource
+	// maps to more than one API path.
+	PathConflicts map[openapi.ProviderName]map[openapi.ResourceName]map[string]struct{}
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
@@ -284,7 +286,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	caseSensitiveTypes := newCaseSensitiveTokens()
 	flattenedPropertyConflicts := map[string]map[string]struct{}{}
 	exampleMap := make(map[string][]resources.AzureAPIExample)
-	resourcePaths := map[string]map[string]struct{}{}
+	resourcesPathTracker := newResourcesPathTracker()
 
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
@@ -293,6 +295,8 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			versions = append(versions, version)
 		}
 		slices.Sort(versions)
+
+		resourcePaths := map[openapi.ResourceName]map[string]struct{}{}
 
 		for _, sdkVersion := range versions {
 			// Attempt to convert back to an API version for use elsewhere
@@ -318,7 +322,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				rootDir:                    rootDir,
 				flattenedPropertyConflicts: flattenedPropertyConflicts,
 				majorVersion:               majorVersion,
-				resourcePaths:              resourcePaths,
+				resourcePaths:              map[openapi.ResourceName]string{},
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -352,8 +356,17 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 
 			// Populate invokes.
 			gen.genInvokes(items.Invokes)
+
 			forceNewTypes = append(forceNewTypes, gen.forceNewTypes...)
+			gen.mergeResourcePathsInto(resourcePaths)
 		}
+
+		resourcesPathTracker.addPathConflictsForProvider(providerName, resourcePaths)
+	}
+
+	// When a resource maps to more than one API path, it's a conflict and we need to detect and report it. #2495
+	if majorVersion >= 3 && resourcesPathTracker.hasConflicts() {
+		return nil, fmt.Errorf("path conflicts detected: %v", resourcesPathTracker.pathConflicts)
 	}
 
 	err := genMixins(&pkg, &metadata)
@@ -408,17 +421,6 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		"packages": javaPackages,
 	})
 
-	// When a resource maps to more than one API path, it's a conflict and we need to detect and report it. #2495
-	pathConflicts := map[string]map[string]struct{}{}
-	for tok, paths := range resourcePaths {
-		if len(paths) > 1 {
-			pathConflicts[tok] = paths
-		}
-	}
-	if majorVersion >= 3 && len(pathConflicts) > 0 {
-		return nil, fmt.Errorf("path conflicts detected: %v", pathConflicts)
-	}
-
 	return &GenerationResult{
 		Schema:                     &pkg,
 		Metadata:                   &metadata,
@@ -426,8 +428,33 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		ForceNewTypes:              forceNewTypes,
 		TypeCaseConflicts:          caseSensitiveTypes.findCaseConflicts(),
 		FlattenedPropertyConflicts: flattenedPropertyConflicts,
-		PathConflicts:              pathConflicts,
+		PathConflicts:              resourcesPathTracker.pathConflicts,
 	}, nil
+}
+
+// resourcesPathConflicts tracks resource path conflicts by provider/module. Use newResourcesPathTracker to instantiate
+type resourcesPathConflicts struct {
+	pathConflicts map[openapi.ProviderName]map[openapi.ResourceName]map[string]struct{}
+}
+
+func newResourcesPathTracker() *resourcesPathConflicts {
+	return &resourcesPathConflicts{pathConflicts: map[openapi.ProviderName]map[openapi.ResourceName]map[string]struct{}{}}
+}
+
+func (rpt *resourcesPathConflicts) addPathConflictsForProvider(providerName openapi.ProviderName, resourcePaths map[openapi.ResourceName]map[string]struct{}) {
+	providerPathConflicts := map[openapi.ResourceName]map[string]struct{}{}
+	for resource, paths := range resourcePaths {
+		if len(paths) > 1 {
+			providerPathConflicts[resource] = paths
+		}
+	}
+	if len(providerPathConflicts) > 0 {
+		rpt.pathConflicts[providerName] = providerPathConflicts
+	}
+}
+
+func (rpt *resourcesPathConflicts) hasConflicts() bool {
+	return len(rpt.pathConflicts) > 0
 }
 
 func (g *packageGenerator) genInvokes(invokes map[string]*openapi.ResourceSpec) {
@@ -660,8 +687,9 @@ type packageGenerator struct {
 	forceNewTypes              []ForceNewType
 	flattenedPropertyConflicts map[string]map[string]struct{}
 	majorVersion               int
-	// A tok -> paths map to record API paths per resource and later detect conflicts.
-	resourcePaths map[string]map[string]struct{}
+	// A resource -> path map to record API paths per resource and later detect conflicts.
+	// packageGenerator is used for a single API version, so there won't be conflicting paths here.
+	resourcePaths map[openapi.ResourceName]string
 }
 
 func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
@@ -868,8 +896,8 @@ func dedupResourceNameByPath(provider, typeName, canonPath string) string {
 	return result
 }
 
-// recordPath keeps track of all API paths a resource is mapped to.
-func (g *packageGenerator) recordPath(typeName, canonPath string) {
+// recordPath adds path to keep track of all API paths a resource is mapped to.
+func (g *packageGenerator) recordPath(typeName openapi.ResourceName, canonPath string) {
 	// Some resources have a /default path, e.g., azure-native:azurestackhci:GuestAgent has conflicting paths
 	// /subscriptions/{}/resourcegroups/{}/providers/microsoft.azurestackhci/virtualmachines/{}/guestagents/{},
 	// /{}/providers/microsoft.azurestackhci/virtualmachineinstances/default/guestagents/default,
@@ -878,12 +906,17 @@ func (g *packageGenerator) recordPath(typeName, canonPath string) {
 		return
 	}
 
-	tokWithoutVersion := generateTok(g.provider, typeName, "")
+	g.resourcePaths[typeName] = canonPath
+}
 
-	if _, ok := g.resourcePaths[tokWithoutVersion]; !ok {
-		g.resourcePaths[tokWithoutVersion] = map[string]struct{}{}
+// mergeResourcePathsInto merges this packageGenerator's resource paths into the given map.
+func (g *packageGenerator) mergeResourcePathsInto(resourcePaths map[openapi.ResourceName]map[string]struct{}) {
+	for resource, path := range g.resourcePaths {
+		if _, ok := resourcePaths[resource]; !ok {
+			resourcePaths[resource] = map[string]struct{}{}
+		}
+		resourcePaths[resource][path] = struct{}{}
 	}
-	g.resourcePaths[tokWithoutVersion][canonPath] = struct{}{}
 }
 
 func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {

@@ -381,3 +381,52 @@ func TestDedupResourceNameByPath(t *testing.T) {
 		assert.Equal(t, "Resource", dedupResourceNameByPath("dbforpostgresql", "Resource", "/subscriptions/{}/resourcegroups/{}/providers/Microsoft.DBforPostgreSQL/flexibleservers/{}"))
 	})
 }
+
+func TestResourcePathTracker(t *testing.T) {
+	t.Run("no conflicts, one provider", func(t *testing.T) {
+		tracker := newResourcesPathTracker()
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string]struct{}{
+			"VirtualMachine": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}": struct{}{}},
+		})
+		assert.False(t, tracker.hasConflicts())
+	})
+
+	t.Run("conflicts, one provider", func(t *testing.T) {
+		tracker := newResourcesPathTracker()
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string]struct{}{
+			"VirtualMachine": {
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}":    struct{}{},
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachinesFoo/{}": struct{}{},
+			},
+		})
+		assert.True(t, tracker.hasConflicts())
+	})
+
+	t.Run("no conflicts, multiple providers", func(t *testing.T) {
+		tracker := newResourcesPathTracker()
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string]struct{}{
+			"VirtualMachine": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}": struct{}{}},
+		})
+		tracker.addPathConflictsForProvider("storage", map[openapi.ResourceName]map[string]struct{}{
+			"StorageAccount": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}": struct{}{}},
+		})
+		assert.False(t, tracker.hasConflicts())
+	})
+
+	t.Run("conflicts, multiple providers", func(t *testing.T) {
+		tracker := newResourcesPathTracker()
+		tracker.addPathConflictsForProvider("storage", map[openapi.ResourceName]map[string]struct{}{
+			"StorageAccount": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}": struct{}{}},
+		})
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string]struct{}{
+			"VirtualMachine": {
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}":    struct{}{},
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachinesFoo/{}": struct{}{},
+			},
+		})
+		tracker.addPathConflictsForProvider("migrate", map[openapi.ResourceName]map[string]struct{}{
+			"AssessmentProject": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Migrate/assessmentProjects/{}": struct{}{}},
+		})
+		assert.True(t, tracker.hasConflicts())
+	})
+}

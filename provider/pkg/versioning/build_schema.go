@@ -33,8 +33,8 @@ type BuildSchemaArgs struct {
 
 type BuildSchemaReports struct {
 	PathChangesResult
-	// A tok -> paths map to record types that have conflicting paths.
-	PathConflicts                 map[string]map[string]struct{}
+	// providerName -> resourceName -> set of paths, to record resources that have conflicting paths.
+	PathConflicts                 map[openapi.ProviderName]map[openapi.ResourceName]map[string]struct{}
 	AllResourcesByVersion         ProvidersVersionResources
 	AllResourceVersionsByResource ProviderResourceVersions
 	Pending                       openapi.ProviderVersionList
