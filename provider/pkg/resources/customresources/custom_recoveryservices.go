@@ -66,21 +66,19 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 // getIdAndQuery replaces the default implementation of crud.ResourceCrudClient.PrepareAzureRESTIdAndQuery. It doesn't
 // change queryParams, only the id, to replace the file share's friendly name with the system name.
 func getIdAndQuery(ctx context.Context, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient, reader systemNameReader) (string, map[string]any, error) {
-	origId, queryParams, err := crudClient.PrepareAzureRESTIdAndQuery(inputs)
-	if err != nil {
-		return "", nil, err
-	}
-
 	systemName, err := retrieveSystemName(ctx, inputs, reader)
 	if err != nil {
 		return "", nil, err
 	}
 
+	inputsCopy := resource.NewPropertyMapFromMap(inputs.Mappable()) // deep copy
 	if systemName != "" {
-		lastSlashIndex := strings.LastIndex(origId, "/")
-		if lastSlashIndex != -1 {
-			origId = origId[:lastSlashIndex+1] + systemName
-		}
+		inputsCopy["protectedItemName"] = resource.NewStringProperty(systemName)
+	}
+
+	origId, queryParams, err := crudClient.PrepareAzureRESTIdAndQuery(inputsCopy)
+	if err != nil {
+		return "", nil, err
 	}
 
 	return origId, queryParams, nil

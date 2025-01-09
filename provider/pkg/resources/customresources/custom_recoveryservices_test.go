@@ -91,7 +91,7 @@ func TestGetIdAndQuery(t *testing.T) {
 
 	id, queryParams, err := getIdAndQuery(context.Background(), standardAzureFileshareProtectedItemInput(), crudClient, reader)
 	require.NoError(t, err)
-	assert.Equal(t, "/subscriptions/123/resourceGroups/rg/providers/Microsoft.RecoveryServices/vaults/vault/backupFabrics/Azure/protectionContainers/container/protectedItems/azurefileshare;339f9859", id)
+	assert.Equal(t, "/subscriptions/123/resourceGroups/rg/providers/Microsoft.RecoveryServices/vaults/vault/backupFabrics/Azure/protectionContainers/container/protectedItems/azurefileshare%3B339f9859", id)
 
 	// Query params should be identical to non-custom ones.
 	_, regularQueryParams, err := crudClient.PrepareAzureRESTIdAndQuery(resource.PropertyMap{})
