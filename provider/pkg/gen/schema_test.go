@@ -7,7 +7,6 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -45,32 +44,110 @@ func (v versioningStub) GetAllVersions(provider, resource string) []openapi.ApiV
 }
 
 func TestAliases(t *testing.T) {
-	generator := packageGenerator{
-		pkg:          &pschema.PackageSpec{Name: "azure-native"},
-		sdkVersion:   "v20220222",
-		versioning:   versioningStub{},
-		provider:     "Insights",
-		majorVersion: 2,
+	// Wrap the generation of type aliases in a function to make it easier to test
+	generateTypeAliases := func(provider, typeName string, sdkVersion openapi.SdkVersion, previousProviderName string, typeNameAliases []string, versions []openapi.SdkVersion) []string {
+		generator := packageGenerator{
+			pkg:          &pschema.PackageSpec{Name: "azure-native"},
+			sdkVersion:   sdkVersion,
+			versioning:   versioningStub{},
+			provider:     provider,
+			majorVersion: 2,
+		}
+
+		resource := &resourceVariant{
+			ResourceSpec: &openapi.ResourceSpec{
+				CompatibleVersions: versions,
+			},
+			typeName: typeName,
+		}
+		if previousProviderName != "" {
+			resource.PreviousProviderName = &previousProviderName
+		}
+
+		aliasSpecs := generator.generateAliases(resource, typeNameAliases...)
+		typeAliases := []string{}
+		for _, alias := range aliasSpecs {
+			typeAliases = append(typeAliases, *alias.Type)
+		}
+		return typeAliases
 	}
 
-	resource := &resourceVariant{
-		ResourceSpec: &openapi.ResourceSpec{
-			CompatibleVersions: []openapi.SdkVersion{"v20210111"},
-		},
-		typeName: "PrivateLinkForAzureAd",
-	}
+	t.Run("compatible version", func(t *testing.T) {
+		actual := generateTypeAliases("Insights", "PrivateLinkForAzureAd", "v20220222", "", nil, []openapi.SdkVersion{"v20200110", "v20210111"})
+		expected := []string{
+			"azure-native:insights/v20200110:PrivateLinkForAzureAd",
+			"azure-native:insights/v20210111:PrivateLinkForAzureAd",
+		}
+		assert.ElementsMatch(t, expected, actual)
+	})
 
-	aliases := generator.generateAliases(resource, "privateLinkForAzureAd")
-	actual := codegen.NewStringSet()
-	for _, alias := range aliases {
-		actual.Add(*alias.Type)
-	}
-	expected := codegen.NewStringSet(
-		"azure-native:insights/v20210111:privateLinkForAzureAd",
-		"azure-native:insights/v20210111:PrivateLinkForAzureAd",
-		"azure-native:insights/v20220222:privateLinkForAzureAd",
-	)
-	assert.Equal(t, expected, actual)
+	t.Run("type alias", func(t *testing.T) {
+		actual := generateTypeAliases("Insights", "PrivateLinkForAzureAd", "v20220222", "", []string{"privateLinkForAzureAd"}, []openapi.SdkVersion{})
+		expected := []string{
+			"azure-native:insights/v20220222:privateLinkForAzureAd",
+		}
+		assert.ElementsMatch(t, expected, actual)
+	})
+
+	t.Run("compatible version & type alias", func(t *testing.T) {
+		actual := generateTypeAliases("Insights", "PrivateLinkForAzureAd", "v20220222", "", []string{"privateLinkForAzureAd"}, []openapi.SdkVersion{"v20200110", "v20210111"})
+		expected := []string{
+			"azure-native:insights/v20200110:privateLinkForAzureAd",
+			"azure-native:insights/v20200110:PrivateLinkForAzureAd",
+			"azure-native:insights/v20210111:privateLinkForAzureAd",
+			"azure-native:insights/v20210111:PrivateLinkForAzureAd",
+			"azure-native:insights/v20220222:privateLinkForAzureAd",
+		}
+		assert.ElementsMatch(t, expected, actual)
+	})
+
+	t.Run("previous provider", func(t *testing.T) {
+		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", nil, []openapi.SdkVersion{})
+		expected := []string{
+			"azure-native:insights/v20220222:PrivateLinkForAzureAd",
+		}
+		assert.ElementsMatch(t, expected, actual)
+	})
+
+	t.Run("previous provider & type alias", func(t *testing.T) {
+		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", []string{"privateLinkForAzureAd"}, []openapi.SdkVersion{})
+		expected := []string{
+			"azure-native:monitor/v20220222:privateLinkForAzureAd",  // change case
+			"azure-native:insights/v20220222:PrivateLinkForAzureAd", // change module
+			"azure-native:insights/v20220222:privateLinkForAzureAd", // change module and case
+		}
+		assert.ElementsMatch(t, expected, actual)
+	})
+
+	t.Run("previous provider & compatible version", func(t *testing.T) {
+		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", nil, []openapi.SdkVersion{"v20200110", "v20210111"})
+		expected := []string{
+			"azure-native:monitor/v20200110:PrivateLinkForAzureAd",  // change version
+			"azure-native:insights/v20200110:PrivateLinkForAzureAd", // change version & module
+			"azure-native:monitor/v20210111:PrivateLinkForAzureAd",  // change version
+			"azure-native:insights/v20210111:PrivateLinkForAzureAd", // change version & module
+			"azure-native:insights/v20220222:PrivateLinkForAzureAd", // change module
+		}
+		assert.ElementsMatch(t, expected, actual)
+	})
+
+	t.Run("previous provider, compatible version & type alias", func(t *testing.T) {
+		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", []string{"privateLinkForAzureAd"}, []openapi.SdkVersion{"v20200110", "v20210111"})
+		expected := []string{
+			"azure-native:monitor/v20200110:PrivateLinkForAzureAd",  // change version
+			"azure-native:monitor/v20200110:privateLinkForAzureAd",  // change version & case
+			"azure-native:insights/v20200110:PrivateLinkForAzureAd", // change version & module
+			"azure-native:insights/v20200110:privateLinkForAzureAd", // change version & module & case
+			"azure-native:monitor/v20210111:PrivateLinkForAzureAd",  // change version
+			"azure-native:monitor/v20210111:privateLinkForAzureAd",  // change version & case
+			"azure-native:insights/v20210111:PrivateLinkForAzureAd", // change version & module
+			"azure-native:insights/v20210111:privateLinkForAzureAd", // change version & module & case
+			"azure-native:insights/v20220222:PrivateLinkForAzureAd", // change module
+			"azure-native:insights/v20220222:privateLinkForAzureAd", // change module & case
+			"azure-native:monitor/v20220222:privateLinkForAzureAd",  // change case
+		}
+		assert.ElementsMatch(t, expected, actual)
+	})
 }
 
 func TestFindNestedResources(t *testing.T) {
