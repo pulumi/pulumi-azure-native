@@ -4790,6 +4790,13 @@
       "PrivateAccess",
       "Target",
       "getExperimentExecutionDetails"
+    ],
+    "2024-11-01-preview": [
+      "Capability",
+      "Experiment",
+      "PrivateAccess",
+      "Target",
+      "getExperimentExecutionDetails"
     ]
   },
   "Cloudngfw": {
@@ -5872,6 +5879,10 @@
       "ManagedCCF"
     ],
     "2024-07-09-preview": [
+      "Ledger",
+      "ManagedCCF"
+    ],
+    "2024-09-19-preview": [
       "Ledger",
       "ManagedCCF"
     ]
@@ -21385,6 +21396,9 @@
       "ProtectionPolicy",
       "ResourceGuardProxy"
     ],
+    "2024-09-30-preview": [
+      "Vault"
+    ],
     "2024-10-01": [
       "PrivateEndpointConnection",
       "ProtectedItem",
@@ -22967,6 +22981,45 @@
       "Watchlist",
       "WatchlistItem",
       "listSourceControlRepositories"
+    ],
+    "2024-10-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "BusinessApplicationAgent",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "DataConnectorDefinition",
+      "EntityQuery",
+      "FileImport",
+      "Hunt",
+      "HuntComment",
+      "HuntRelation",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "System",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "WorkspaceManagerAssignment",
+      "WorkspaceManagerConfiguration",
+      "WorkspaceManagerGroup",
+      "WorkspaceManagerMember",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listGeodataByIp",
+      "listSourceControlRepositories",
+      "listSystemActions",
+      "listWhoisByDomain"
     ]
   },
   "SerialConsole": {
