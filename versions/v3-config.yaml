@@ -611,7 +611,9 @@ SaaS:
   notes: Only single *beta* version
 ScVmm:
   expectTracking: preview
-  notes: Only single preview version
+  notes: |
+    Needs manual tracking version picked as latest stable is missing resources.
+    The latest preview is deployed for all resources (see az-provider-list)
 Scheduler:
 Search:
 Security:

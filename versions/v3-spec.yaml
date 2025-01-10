@@ -10,3 +10,5 @@ ContainerRegistry:
         TaskRun: 2019-06-01-preview
 HybridContainerService:
     tracking: 2022-09-01-preview
+ScVmm:
+    tracking: 2023-04-01-preview
