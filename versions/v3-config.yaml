@@ -178,6 +178,10 @@ ContainerStorage:
   expectTracking: preview
 CostManagement:
   expectAdditions: true
+  exclusions:
+    # Conflicts with View in the type ReportConfigGrouping (dataSet.grouping)
+    "ReportConfig": "*"
+    "ReportConfigByResourceGroupName": "*"
   notes: |
     Used to have overlapping resources between 2020-06-01 and 2019-11-01, seemingly resolved in 2022-10-01
     API versions appear to be partial sometimes
