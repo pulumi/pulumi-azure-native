@@ -41,6 +41,7 @@ AgFoodPlatform:
 # TODO: Why are we missing PrometheusRuleGroup?
 AlertsManagement:
   expectAdditions: true
+  preview: exclude # Don't track previews for this module
   exclusions:
     # This currently causes unmergeable types
     TenantActivityLogAlert: "2023-04-01-preview"
