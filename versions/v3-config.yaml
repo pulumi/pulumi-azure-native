@@ -156,6 +156,7 @@ ConnectedVMwarevSphere:
   expectTracking: preview
   notes: Only preview versions
 ContainerRegistry:
+  preview: exclude # Don't track previews for this module
   expectAdditions: true
   exclusions:
     # All these resources only exist in a single preview version and cause type merge conflicts
