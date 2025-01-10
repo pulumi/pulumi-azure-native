@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 )
 
-//go:embed v2-lock.json
+//go:embed version-lock.json
 var rawVersionLock []byte
 
 // versionLock is a map from Azure provider name to resource name to API version.
