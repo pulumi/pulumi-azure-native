@@ -85,7 +85,7 @@ class GetAccountResult:
     @pulumi.getter(name="localAuth")
     def local_auth(self) -> Optional[str]:
         """
-        When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+        When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         """
         return pulumi.get(self, "local_auth")
 

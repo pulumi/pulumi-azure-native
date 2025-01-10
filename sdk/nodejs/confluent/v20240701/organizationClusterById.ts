@@ -102,6 +102,8 @@ export class OrganizationClusterById extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:confluent:OrganizationClusterById" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OrganizationClusterById.__pulumiType, name, resourceInputs, opts);
     }
 }

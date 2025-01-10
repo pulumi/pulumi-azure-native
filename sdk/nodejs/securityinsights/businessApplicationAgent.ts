@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Describes the configuration of a Business Application Agent.
  * Azure REST API version: 2024-04-01-preview.
+ *
+ * Other available API versions: 2024-10-01-preview.
  */
 export class BusinessApplicationAgent extends pulumi.CustomResource {
     /**
@@ -107,7 +109,7 @@ export class BusinessApplicationAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20240401preview:BusinessApplicationAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20240401preview:BusinessApplicationAgent" }, { type: "azure-native:securityinsights/v20241001preview:BusinessApplicationAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BusinessApplicationAgent.__pulumiType, name, resourceInputs, opts);
     }

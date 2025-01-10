@@ -32,6 +32,8 @@ if typing.TYPE_CHECKING:
     v20240101 = __v20240101
     import pulumi_azure_native.chaos.v20240322preview as __v20240322preview
     v20240322preview = __v20240322preview
+    import pulumi_azure_native.chaos.v20241101preview as __v20241101preview
+    v20241101preview = __v20241101preview
 else:
     v20230415preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20230415preview')
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20230901preview')
@@ -39,4 +41,5 @@ else:
     v20231101 = _utilities.lazy_import('pulumi_azure_native.chaos.v20231101')
     v20240101 = _utilities.lazy_import('pulumi_azure_native.chaos.v20240101')
     v20240322preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20240322preview')
+    v20241101preview = _utilities.lazy_import('pulumi_azure_native.chaos.v20241101preview')
 

@@ -22,6 +22,7 @@ __all__ = [
     'AzureSkuResponse',
     'CmdkeySetupResponse',
     'ComponentSetupResponse',
+    'CopyComputeScalePropertiesResponse',
     'CspWorkspaceAdminPropertiesResponse',
     'CustomerManagedKeyDetailsResponse',
     'DataLakeStorageAccountDetailsResponse',
@@ -54,6 +55,7 @@ __all__ = [
     'ManagedIntegrationRuntimeStatusResponse',
     'ManagedVirtualNetworkSettingsResponse',
     'OptimizedAutoscaleResponse',
+    'PipelineExternalComputeScalePropertiesResponse',
     'PrivateEndpointConnectionForPrivateLinkHubBasicResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -385,6 +387,60 @@ class ComponentSetupResponse(dict):
         The license key to activate the component.
         """
         return pulumi.get(self, "license_key")
+
+
+@pulumi.output_type
+class CopyComputeScalePropertiesResponse(dict):
+    """
+    CopyComputeScale properties for managed integration runtime.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataIntegrationUnit":
+            suggest = "data_integration_unit"
+        elif key == "timeToLive":
+            suggest = "time_to_live"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CopyComputeScalePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CopyComputeScalePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CopyComputeScalePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_integration_unit: Optional[int] = None,
+                 time_to_live: Optional[int] = None):
+        """
+        CopyComputeScale properties for managed integration runtime.
+        :param int data_integration_unit: DIU number setting reserved for copy activity execution. Supported values are multiples of 4 in range 4-256.
+        :param int time_to_live: Time to live (in minutes) setting of integration runtime which will execute copy activity.
+        """
+        if data_integration_unit is not None:
+            pulumi.set(__self__, "data_integration_unit", data_integration_unit)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="dataIntegrationUnit")
+    def data_integration_unit(self) -> Optional[int]:
+        """
+        DIU number setting reserved for copy activity execution. Supported values are multiples of 4 in range 4-256.
+        """
+        return pulumi.get(self, "data_integration_unit")
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[int]:
+        """
+        Time to live (in minutes) setting of integration runtime which will execute copy activity.
+        """
+        return pulumi.get(self, "time_to_live")
 
 
 @pulumi.output_type
@@ -879,7 +935,9 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataFlowProperties":
+        if key == "copyComputeScaleProperties":
+            suggest = "copy_compute_scale_properties"
+        elif key == "dataFlowProperties":
             suggest = "data_flow_properties"
         elif key == "maxParallelExecutionsPerNode":
             suggest = "max_parallel_executions_per_node"
@@ -887,6 +945,8 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
             suggest = "node_size"
         elif key == "numberOfNodes":
             suggest = "number_of_nodes"
+        elif key == "pipelineExternalComputeScaleProperties":
+            suggest = "pipeline_external_compute_scale_properties"
         elif key == "vNetProperties":
             suggest = "v_net_properties"
 
@@ -902,21 +962,27 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 copy_compute_scale_properties: Optional['outputs.CopyComputeScalePropertiesResponse'] = None,
                  data_flow_properties: Optional['outputs.IntegrationRuntimeDataFlowPropertiesResponse'] = None,
                  location: Optional[str] = None,
                  max_parallel_executions_per_node: Optional[int] = None,
                  node_size: Optional[str] = None,
                  number_of_nodes: Optional[int] = None,
+                 pipeline_external_compute_scale_properties: Optional['outputs.PipelineExternalComputeScalePropertiesResponse'] = None,
                  v_net_properties: Optional['outputs.IntegrationRuntimeVNetPropertiesResponse'] = None):
         """
         The compute resource properties for managed integration runtime.
+        :param 'CopyComputeScalePropertiesResponse' copy_compute_scale_properties: CopyComputeScale properties for managed integration runtime.
         :param 'IntegrationRuntimeDataFlowPropertiesResponse' data_flow_properties: Data flow properties for managed integration runtime.
         :param str location: The location for managed integration runtime. The supported regions could be found on https://docs.microsoft.com/en-us/azure/data-factory/data-factory-data-movement-activities
         :param int max_parallel_executions_per_node: Maximum parallel executions count per node for managed integration runtime.
         :param str node_size: The node size requirement to managed integration runtime.
         :param int number_of_nodes: The required number of nodes for managed integration runtime.
+        :param 'PipelineExternalComputeScalePropertiesResponse' pipeline_external_compute_scale_properties: PipelineExternalComputeScale properties for managed integration runtime.
         :param 'IntegrationRuntimeVNetPropertiesResponse' v_net_properties: VNet properties for managed integration runtime.
         """
+        if copy_compute_scale_properties is not None:
+            pulumi.set(__self__, "copy_compute_scale_properties", copy_compute_scale_properties)
         if data_flow_properties is not None:
             pulumi.set(__self__, "data_flow_properties", data_flow_properties)
         if location is not None:
@@ -927,8 +993,18 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
             pulumi.set(__self__, "node_size", node_size)
         if number_of_nodes is not None:
             pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+        if pipeline_external_compute_scale_properties is not None:
+            pulumi.set(__self__, "pipeline_external_compute_scale_properties", pipeline_external_compute_scale_properties)
         if v_net_properties is not None:
             pulumi.set(__self__, "v_net_properties", v_net_properties)
+
+    @property
+    @pulumi.getter(name="copyComputeScaleProperties")
+    def copy_compute_scale_properties(self) -> Optional['outputs.CopyComputeScalePropertiesResponse']:
+        """
+        CopyComputeScale properties for managed integration runtime.
+        """
+        return pulumi.get(self, "copy_compute_scale_properties")
 
     @property
     @pulumi.getter(name="dataFlowProperties")
@@ -969,6 +1045,14 @@ class IntegrationRuntimeComputePropertiesResponse(dict):
         The required number of nodes for managed integration runtime.
         """
         return pulumi.get(self, "number_of_nodes")
+
+    @property
+    @pulumi.getter(name="pipelineExternalComputeScaleProperties")
+    def pipeline_external_compute_scale_properties(self) -> Optional['outputs.PipelineExternalComputeScalePropertiesResponse']:
+        """
+        PipelineExternalComputeScale properties for managed integration runtime.
+        """
+        return pulumi.get(self, "pipeline_external_compute_scale_properties")
 
     @property
     @pulumi.getter(name="vNetProperties")
@@ -2501,6 +2585,74 @@ class OptimizedAutoscaleResponse(dict):
 
 
 @pulumi.output_type
+class PipelineExternalComputeScalePropertiesResponse(dict):
+    """
+    PipelineExternalComputeScale properties for managed integration runtime.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfExternalNodes":
+            suggest = "number_of_external_nodes"
+        elif key == "numberOfPipelineNodes":
+            suggest = "number_of_pipeline_nodes"
+        elif key == "timeToLive":
+            suggest = "time_to_live"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineExternalComputeScalePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineExternalComputeScalePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineExternalComputeScalePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_of_external_nodes: Optional[int] = None,
+                 number_of_pipeline_nodes: Optional[int] = None,
+                 time_to_live: Optional[int] = None):
+        """
+        PipelineExternalComputeScale properties for managed integration runtime.
+        :param int number_of_external_nodes: Number of the the external nodes, which should be greater than 0 and less than 11.
+        :param int number_of_pipeline_nodes: Number of the pipeline nodes, which should be greater than 0 and less than 11.
+        :param int time_to_live: Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity.
+        """
+        if number_of_external_nodes is not None:
+            pulumi.set(__self__, "number_of_external_nodes", number_of_external_nodes)
+        if number_of_pipeline_nodes is not None:
+            pulumi.set(__self__, "number_of_pipeline_nodes", number_of_pipeline_nodes)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="numberOfExternalNodes")
+    def number_of_external_nodes(self) -> Optional[int]:
+        """
+        Number of the the external nodes, which should be greater than 0 and less than 11.
+        """
+        return pulumi.get(self, "number_of_external_nodes")
+
+    @property
+    @pulumi.getter(name="numberOfPipelineNodes")
+    def number_of_pipeline_nodes(self) -> Optional[int]:
+        """
+        Number of the pipeline nodes, which should be greater than 0 and less than 11.
+        """
+        return pulumi.get(self, "number_of_pipeline_nodes")
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[int]:
+        """
+        Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity.
+        """
+        return pulumi.get(self, "time_to_live")
+
+
+@pulumi.output_type
 class PrivateEndpointConnectionForPrivateLinkHubBasicResponse(dict):
     """
     Private Endpoint Connection For Private Link Hub - Basic
@@ -3057,6 +3209,8 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         suggest = None
         if key == "linkedInfo":
             suggest = "linked_info"
+        elif key == "selfContainedInteractiveAuthoringEnabled":
+            suggest = "self_contained_interactive_authoring_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SelfHostedIntegrationRuntimeResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3072,19 +3226,23 @@ class SelfHostedIntegrationRuntimeResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  description: Optional[str] = None,
-                 linked_info: Optional[Any] = None):
+                 linked_info: Optional[Any] = None,
+                 self_contained_interactive_authoring_enabled: Optional[bool] = None):
         """
         Self-hosted integration runtime.
         :param str type: The type of integration runtime.
                Expected value is 'SelfHosted'.
         :param str description: Integration runtime description.
         :param Union['LinkedIntegrationRuntimeKeyAuthorizationResponse', 'LinkedIntegrationRuntimeRbacAuthorizationResponse'] linked_info: Linked integration runtime type from data factory
+        :param bool self_contained_interactive_authoring_enabled: An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
         """
         pulumi.set(__self__, "type", 'SelfHosted')
         if description is not None:
             pulumi.set(__self__, "description", description)
         if linked_info is not None:
             pulumi.set(__self__, "linked_info", linked_info)
+        if self_contained_interactive_authoring_enabled is not None:
+            pulumi.set(__self__, "self_contained_interactive_authoring_enabled", self_contained_interactive_authoring_enabled)
 
     @property
     @pulumi.getter
@@ -3111,6 +3269,14 @@ class SelfHostedIntegrationRuntimeResponse(dict):
         """
         return pulumi.get(self, "linked_info")
 
+    @property
+    @pulumi.getter(name="selfContainedInteractiveAuthoringEnabled")
+    def self_contained_interactive_authoring_enabled(self) -> Optional[bool]:
+        """
+        An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+        """
+        return pulumi.get(self, "self_contained_interactive_authoring_enabled")
+
 
 @pulumi.output_type
 class SelfHostedIntegrationRuntimeStatusResponse(dict):
@@ -3130,6 +3296,7 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
                  os_type: int,
                  pushed_version: str,
                  scheduled_update_date: str,
+                 self_contained_interactive_authoring_enabled: bool,
                  service_urls: Sequence[str],
                  state: str,
                  target_framework: int,
@@ -3155,6 +3322,7 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         :param str node_communication_channel_encryption_mode: The node communication Channel encryption mode
         :param str pushed_version: The version that the integration runtime is going to update to.
         :param str scheduled_update_date: The date at which the integration runtime will be scheduled to update, in ISO8601 format.
+        :param bool self_contained_interactive_authoring_enabled: An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
         :param Sequence[str] service_urls: The URLs for the services used in integration runtime backend service.
         :param str state: The state of integration runtime.
         :param str task_queue_id: The task queue id of the integration runtime.
@@ -3180,6 +3348,7 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "pushed_version", pushed_version)
         pulumi.set(__self__, "scheduled_update_date", scheduled_update_date)
+        pulumi.set(__self__, "self_contained_interactive_authoring_enabled", self_contained_interactive_authoring_enabled)
         pulumi.set(__self__, "service_urls", service_urls)
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "target_framework", target_framework)
@@ -3289,6 +3458,14 @@ class SelfHostedIntegrationRuntimeStatusResponse(dict):
         The date at which the integration runtime will be scheduled to update, in ISO8601 format.
         """
         return pulumi.get(self, "scheduled_update_date")
+
+    @property
+    @pulumi.getter(name="selfContainedInteractiveAuthoringEnabled")
+    def self_contained_interactive_authoring_enabled(self) -> bool:
+        """
+        An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+        """
+        return pulumi.get(self, "self_contained_interactive_authoring_enabled")
 
     @property
     @pulumi.getter(name="serviceUrls")

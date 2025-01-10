@@ -71,6 +71,8 @@ def list_system_actions(agent_resource_name: Optional[str] = None,
     List of actions for a business application system.
     Azure REST API version: 2024-04-01-preview.
 
+    Other available API versions: 2024-10-01-preview.
+
 
     :param str agent_resource_name: Business Application Agent Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -96,6 +98,8 @@ def list_system_actions_output(agent_resource_name: Optional[pulumi.Input[str]] 
     """
     List of actions for a business application system.
     Azure REST API version: 2024-04-01-preview.
+
+    Other available API versions: 2024-10-01-preview.
 
 
     :param str agent_resource_name: Business Application Agent Name

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Maintenance.V20230901Preview.Inputs
         private InputList<string>? _classificationsToInclude;
 
         /// <summary>
-        /// Classification category of patches to be patched
+        /// Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
         /// </summary>
         public InputList<string> ClassificationsToInclude
         {

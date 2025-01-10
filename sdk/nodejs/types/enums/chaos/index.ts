@@ -8,6 +8,7 @@ import * as v20231027preview from "./v20231027preview";
 import * as v20231101 from "./v20231101";
 import * as v20240101 from "./v20240101";
 import * as v20240322preview from "./v20240322preview";
+import * as v20241101preview from "./v20241101preview";
 
 export {
     v20230415preview,
@@ -16,6 +17,7 @@ export {
     v20231101,
     v20240101,
     v20240322preview,
+    v20241101preview,
 };
 
 export const FilterType = {

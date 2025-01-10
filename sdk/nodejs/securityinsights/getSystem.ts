@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Gets the system.
  * Azure REST API version: 2024-04-01-preview.
+ *
+ * Other available API versions: 2024-10-01-preview.
  */
 export function getSystem(args: GetSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,6 +80,8 @@ export interface GetSystemResult {
 /**
  * Gets the system.
  * Azure REST API version: 2024-04-01-preview.
+ *
+ * Other available API versions: 2024-10-01-preview.
  */
 export function getSystemOutput(args: GetSystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -14,8 +14,14 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
+    'AzureBlobStorageSinkConnectorServiceInfoResponse',
+    'AzureBlobStorageSourceConnectorServiceInfoResponse',
+    'AzureCosmosDBSinkConnectorServiceInfoResponse',
+    'AzureCosmosDBSourceConnectorServiceInfoResponse',
+    'AzureSynapseAnalyticsSinkConnectorServiceInfoResponse',
     'ClusterByokEntityResponse',
     'ClusterConfigEntityResponse',
     'ClusterEnvironmentEntityResponse',
@@ -24,19 +30,531 @@ __all__ = [
     'ClusterSpecEntityResponse',
     'ClusterStatusEntityResponse',
     'ConfluentListMetadataResponse',
+    'ConnectorInfoBaseResponse',
     'EnvironmentRecordResponse',
     'InvitationRecordResponse',
+    'KafkaAzureBlobStorageSinkConnectorInfoResponse',
+    'KafkaAzureBlobStorageSourceConnectorInfoResponse',
+    'KafkaAzureCosmosDBSinkConnectorInfoResponse',
+    'KafkaAzureCosmosDBSourceConnectorInfoResponse',
+    'KafkaAzureSynapseAnalyticsSinkConnectorInfoResponse',
     'MetadataEntityResponse',
     'OfferDetailResponse',
     'RegionRecordResponse',
     'RegionSpecEntityResponse',
     'RoleBindingRecordResponse',
+    'SCClusterByokEntityResponse',
+    'SCClusterNetworkEnvironmentEntityResponse',
+    'SCClusterSpecEntityResponse',
     'SCMetadataEntityResponse',
     'ServiceAccountRecordResponse',
+    'StreamGovernanceConfigResponse',
     'SystemDataResponse',
+    'TopicMetadataEntityResponse',
+    'TopicsInputConfigResponse',
+    'TopicsRelatedLinkResponse',
     'UserDetailResponse',
     'UserRecordResponse',
 ]
+
+@pulumi.output_type
+class AzureBlobStorageSinkConnectorServiceInfoResponse(dict):
+    """
+    The authentication info when auth_type is azureBlobStorageSinkConnector
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorServiceType":
+            suggest = "connector_service_type"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "storageContainerName":
+            suggest = "storage_container_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureBlobStorageSinkConnectorServiceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureBlobStorageSinkConnectorServiceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureBlobStorageSinkConnectorServiceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_service_type: str,
+                 storage_account_key: Optional[str] = None,
+                 storage_account_name: Optional[str] = None,
+                 storage_container_name: Optional[str] = None):
+        """
+        The authentication info when auth_type is azureBlobStorageSinkConnector
+        :param str connector_service_type: The connector service type.
+               Expected value is 'AzureBlobStorageSinkConnector'.
+        :param str storage_account_key: Azure Blob Storage Account Key
+        :param str storage_account_name: Azure Blob Storage Account Name
+        :param str storage_container_name: Azure Blob Storage Account Container Name
+        """
+        pulumi.set(__self__, "connector_service_type", 'AzureBlobStorageSinkConnector')
+        if storage_account_key is not None:
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_container_name is not None:
+            pulumi.set(__self__, "storage_container_name", storage_container_name)
+
+    @property
+    @pulumi.getter(name="connectorServiceType")
+    def connector_service_type(self) -> str:
+        """
+        The connector service type.
+        Expected value is 'AzureBlobStorageSinkConnector'.
+        """
+        return pulumi.get(self, "connector_service_type")
+
+    @property
+    @pulumi.getter(name="storageAccountKey")
+    def storage_account_key(self) -> Optional[str]:
+        """
+        Azure Blob Storage Account Key
+        """
+        return pulumi.get(self, "storage_account_key")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[str]:
+        """
+        Azure Blob Storage Account Name
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="storageContainerName")
+    def storage_container_name(self) -> Optional[str]:
+        """
+        Azure Blob Storage Account Container Name
+        """
+        return pulumi.get(self, "storage_container_name")
+
+
+@pulumi.output_type
+class AzureBlobStorageSourceConnectorServiceInfoResponse(dict):
+    """
+    The connector service type is AzureBlobStorageSourceConnector
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorServiceType":
+            suggest = "connector_service_type"
+        elif key == "storageAccountKey":
+            suggest = "storage_account_key"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+        elif key == "storageContainerName":
+            suggest = "storage_container_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureBlobStorageSourceConnectorServiceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureBlobStorageSourceConnectorServiceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureBlobStorageSourceConnectorServiceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_service_type: str,
+                 storage_account_key: Optional[str] = None,
+                 storage_account_name: Optional[str] = None,
+                 storage_container_name: Optional[str] = None):
+        """
+        The connector service type is AzureBlobStorageSourceConnector
+        :param str connector_service_type: The connector service type.
+               Expected value is 'AzureBlobStorageSourceConnector'.
+        :param str storage_account_key: Azure Blob Storage Account Key
+        :param str storage_account_name: Azure Blob Storage Account Name
+        :param str storage_container_name: Azure Blob Storage Account Container Name
+        """
+        pulumi.set(__self__, "connector_service_type", 'AzureBlobStorageSourceConnector')
+        if storage_account_key is not None:
+            pulumi.set(__self__, "storage_account_key", storage_account_key)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_container_name is not None:
+            pulumi.set(__self__, "storage_container_name", storage_container_name)
+
+    @property
+    @pulumi.getter(name="connectorServiceType")
+    def connector_service_type(self) -> str:
+        """
+        The connector service type.
+        Expected value is 'AzureBlobStorageSourceConnector'.
+        """
+        return pulumi.get(self, "connector_service_type")
+
+    @property
+    @pulumi.getter(name="storageAccountKey")
+    def storage_account_key(self) -> Optional[str]:
+        """
+        Azure Blob Storage Account Key
+        """
+        return pulumi.get(self, "storage_account_key")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[str]:
+        """
+        Azure Blob Storage Account Name
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @property
+    @pulumi.getter(name="storageContainerName")
+    def storage_container_name(self) -> Optional[str]:
+        """
+        Azure Blob Storage Account Container Name
+        """
+        return pulumi.get(self, "storage_container_name")
+
+
+@pulumi.output_type
+class AzureCosmosDBSinkConnectorServiceInfoResponse(dict):
+    """
+    The authentication info when auth_type is AzureCosmosDBSinkConnector
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorServiceType":
+            suggest = "connector_service_type"
+        elif key == "cosmosConnectionEndpoint":
+            suggest = "cosmos_connection_endpoint"
+        elif key == "cosmosContainersTopicMapping":
+            suggest = "cosmos_containers_topic_mapping"
+        elif key == "cosmosDatabaseName":
+            suggest = "cosmos_database_name"
+        elif key == "cosmosIdStrategy":
+            suggest = "cosmos_id_strategy"
+        elif key == "cosmosMasterKey":
+            suggest = "cosmos_master_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureCosmosDBSinkConnectorServiceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureCosmosDBSinkConnectorServiceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureCosmosDBSinkConnectorServiceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_service_type: str,
+                 cosmos_connection_endpoint: Optional[str] = None,
+                 cosmos_containers_topic_mapping: Optional[str] = None,
+                 cosmos_database_name: Optional[str] = None,
+                 cosmos_id_strategy: Optional[str] = None,
+                 cosmos_master_key: Optional[str] = None):
+        """
+        The authentication info when auth_type is AzureCosmosDBSinkConnector
+        :param str connector_service_type: The connector service type.
+               Expected value is 'AzureCosmosDBSinkConnector'.
+        :param str cosmos_connection_endpoint: Azure Cosmos Database Connection Endpoint
+        :param str cosmos_containers_topic_mapping: Azure Cosmos Database Containers Topic Mapping
+        :param str cosmos_database_name: Azure Cosmos Database Name
+        :param str cosmos_id_strategy: Azure Cosmos Database Id Strategy
+        :param str cosmos_master_key: Azure Cosmos Database Master Key
+        """
+        pulumi.set(__self__, "connector_service_type", 'AzureCosmosDBSinkConnector')
+        if cosmos_connection_endpoint is not None:
+            pulumi.set(__self__, "cosmos_connection_endpoint", cosmos_connection_endpoint)
+        if cosmos_containers_topic_mapping is not None:
+            pulumi.set(__self__, "cosmos_containers_topic_mapping", cosmos_containers_topic_mapping)
+        if cosmos_database_name is not None:
+            pulumi.set(__self__, "cosmos_database_name", cosmos_database_name)
+        if cosmos_id_strategy is not None:
+            pulumi.set(__self__, "cosmos_id_strategy", cosmos_id_strategy)
+        if cosmos_master_key is not None:
+            pulumi.set(__self__, "cosmos_master_key", cosmos_master_key)
+
+    @property
+    @pulumi.getter(name="connectorServiceType")
+    def connector_service_type(self) -> str:
+        """
+        The connector service type.
+        Expected value is 'AzureCosmosDBSinkConnector'.
+        """
+        return pulumi.get(self, "connector_service_type")
+
+    @property
+    @pulumi.getter(name="cosmosConnectionEndpoint")
+    def cosmos_connection_endpoint(self) -> Optional[str]:
+        """
+        Azure Cosmos Database Connection Endpoint
+        """
+        return pulumi.get(self, "cosmos_connection_endpoint")
+
+    @property
+    @pulumi.getter(name="cosmosContainersTopicMapping")
+    def cosmos_containers_topic_mapping(self) -> Optional[str]:
+        """
+        Azure Cosmos Database Containers Topic Mapping
+        """
+        return pulumi.get(self, "cosmos_containers_topic_mapping")
+
+    @property
+    @pulumi.getter(name="cosmosDatabaseName")
+    def cosmos_database_name(self) -> Optional[str]:
+        """
+        Azure Cosmos Database Name
+        """
+        return pulumi.get(self, "cosmos_database_name")
+
+    @property
+    @pulumi.getter(name="cosmosIdStrategy")
+    def cosmos_id_strategy(self) -> Optional[str]:
+        """
+        Azure Cosmos Database Id Strategy
+        """
+        return pulumi.get(self, "cosmos_id_strategy")
+
+    @property
+    @pulumi.getter(name="cosmosMasterKey")
+    def cosmos_master_key(self) -> Optional[str]:
+        """
+        Azure Cosmos Database Master Key
+        """
+        return pulumi.get(self, "cosmos_master_key")
+
+
+@pulumi.output_type
+class AzureCosmosDBSourceConnectorServiceInfoResponse(dict):
+    """
+    The authentication info when auth_type is AzureCosmosDBSourceConnector
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorServiceType":
+            suggest = "connector_service_type"
+        elif key == "cosmosConnectionEndpoint":
+            suggest = "cosmos_connection_endpoint"
+        elif key == "cosmosContainersTopicMapping":
+            suggest = "cosmos_containers_topic_mapping"
+        elif key == "cosmosDatabaseName":
+            suggest = "cosmos_database_name"
+        elif key == "cosmosMasterKey":
+            suggest = "cosmos_master_key"
+        elif key == "cosmosMessageKeyEnabled":
+            suggest = "cosmos_message_key_enabled"
+        elif key == "cosmosMessageKeyField":
+            suggest = "cosmos_message_key_field"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureCosmosDBSourceConnectorServiceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureCosmosDBSourceConnectorServiceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureCosmosDBSourceConnectorServiceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_service_type: str,
+                 cosmos_connection_endpoint: Optional[str] = None,
+                 cosmos_containers_topic_mapping: Optional[str] = None,
+                 cosmos_database_name: Optional[str] = None,
+                 cosmos_master_key: Optional[str] = None,
+                 cosmos_message_key_enabled: Optional[bool] = None,
+                 cosmos_message_key_field: Optional[str] = None):
+        """
+        The authentication info when auth_type is AzureCosmosDBSourceConnector
+        :param str connector_service_type: The connector service type.
+               Expected value is 'AzureCosmosDBSourceConnector'.
+        :param str cosmos_connection_endpoint: Azure Cosmos Database Connection Endpoint
+        :param str cosmos_containers_topic_mapping: Azure Cosmos Database Containers Topic Mapping
+        :param str cosmos_database_name: Azure Cosmos Database Name
+        :param str cosmos_master_key: Azure Cosmos Database Master Key
+        :param bool cosmos_message_key_enabled: Azure Cosmos Database Message Key Enabled
+        :param str cosmos_message_key_field: Azure Cosmos Database Message Key Field
+        """
+        pulumi.set(__self__, "connector_service_type", 'AzureCosmosDBSourceConnector')
+        if cosmos_connection_endpoint is not None:
+            pulumi.set(__self__, "cosmos_connection_endpoint", cosmos_connection_endpoint)
+        if cosmos_containers_topic_mapping is not None:
+            pulumi.set(__self__, "cosmos_containers_topic_mapping", cosmos_containers_topic_mapping)
+        if cosmos_database_name is not None:
+            pulumi.set(__self__, "cosmos_database_name", cosmos_database_name)
+        if cosmos_master_key is not None:
+            pulumi.set(__self__, "cosmos_master_key", cosmos_master_key)
+        if cosmos_message_key_enabled is not None:
+            pulumi.set(__self__, "cosmos_message_key_enabled", cosmos_message_key_enabled)
+        if cosmos_message_key_field is not None:
+            pulumi.set(__self__, "cosmos_message_key_field", cosmos_message_key_field)
+
+    @property
+    @pulumi.getter(name="connectorServiceType")
+    def connector_service_type(self) -> str:
+        """
+        The connector service type.
+        Expected value is 'AzureCosmosDBSourceConnector'.
+        """
+        return pulumi.get(self, "connector_service_type")
+
+    @property
+    @pulumi.getter(name="cosmosConnectionEndpoint")
+    def cosmos_connection_endpoint(self) -> Optional[str]:
+        """
+        Azure Cosmos Database Connection Endpoint
+        """
+        return pulumi.get(self, "cosmos_connection_endpoint")
+
+    @property
+    @pulumi.getter(name="cosmosContainersTopicMapping")
+    def cosmos_containers_topic_mapping(self) -> Optional[str]:
+        """
+        Azure Cosmos Database Containers Topic Mapping
+        """
+        return pulumi.get(self, "cosmos_containers_topic_mapping")
+
+    @property
+    @pulumi.getter(name="cosmosDatabaseName")
+    def cosmos_database_name(self) -> Optional[str]:
+        """
+        Azure Cosmos Database Name
+        """
+        return pulumi.get(self, "cosmos_database_name")
+
+    @property
+    @pulumi.getter(name="cosmosMasterKey")
+    def cosmos_master_key(self) -> Optional[str]:
+        """
+        Azure Cosmos Database Master Key
+        """
+        return pulumi.get(self, "cosmos_master_key")
+
+    @property
+    @pulumi.getter(name="cosmosMessageKeyEnabled")
+    def cosmos_message_key_enabled(self) -> Optional[bool]:
+        """
+        Azure Cosmos Database Message Key Enabled
+        """
+        return pulumi.get(self, "cosmos_message_key_enabled")
+
+    @property
+    @pulumi.getter(name="cosmosMessageKeyField")
+    def cosmos_message_key_field(self) -> Optional[str]:
+        """
+        Azure Cosmos Database Message Key Field
+        """
+        return pulumi.get(self, "cosmos_message_key_field")
+
+
+@pulumi.output_type
+class AzureSynapseAnalyticsSinkConnectorServiceInfoResponse(dict):
+    """
+    The authentication info when auth_type is AzureSynapseAnalyticsSinkConnector
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorServiceType":
+            suggest = "connector_service_type"
+        elif key == "synapseSqlDatabaseName":
+            suggest = "synapse_sql_database_name"
+        elif key == "synapseSqlPassword":
+            suggest = "synapse_sql_password"
+        elif key == "synapseSqlServerName":
+            suggest = "synapse_sql_server_name"
+        elif key == "synapseSqlUser":
+            suggest = "synapse_sql_user"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureSynapseAnalyticsSinkConnectorServiceInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureSynapseAnalyticsSinkConnectorServiceInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureSynapseAnalyticsSinkConnectorServiceInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_service_type: str,
+                 synapse_sql_database_name: Optional[str] = None,
+                 synapse_sql_password: Optional[str] = None,
+                 synapse_sql_server_name: Optional[str] = None,
+                 synapse_sql_user: Optional[str] = None):
+        """
+        The authentication info when auth_type is AzureSynapseAnalyticsSinkConnector
+        :param str connector_service_type: The connector service type.
+               Expected value is 'AzureSynapseAnalyticsSinkConnector'.
+        :param str synapse_sql_database_name: Azure Synapse Dedicated SQL Pool Database Name
+        :param str synapse_sql_password: Azure Synapse SQL login details
+        :param str synapse_sql_server_name: Azure Synapse Analytics SQL Server Name
+        :param str synapse_sql_user: Azure Synapse SQL login details
+        """
+        pulumi.set(__self__, "connector_service_type", 'AzureSynapseAnalyticsSinkConnector')
+        if synapse_sql_database_name is not None:
+            pulumi.set(__self__, "synapse_sql_database_name", synapse_sql_database_name)
+        if synapse_sql_password is not None:
+            pulumi.set(__self__, "synapse_sql_password", synapse_sql_password)
+        if synapse_sql_server_name is not None:
+            pulumi.set(__self__, "synapse_sql_server_name", synapse_sql_server_name)
+        if synapse_sql_user is not None:
+            pulumi.set(__self__, "synapse_sql_user", synapse_sql_user)
+
+    @property
+    @pulumi.getter(name="connectorServiceType")
+    def connector_service_type(self) -> str:
+        """
+        The connector service type.
+        Expected value is 'AzureSynapseAnalyticsSinkConnector'.
+        """
+        return pulumi.get(self, "connector_service_type")
+
+    @property
+    @pulumi.getter(name="synapseSqlDatabaseName")
+    def synapse_sql_database_name(self) -> Optional[str]:
+        """
+        Azure Synapse Dedicated SQL Pool Database Name
+        """
+        return pulumi.get(self, "synapse_sql_database_name")
+
+    @property
+    @pulumi.getter(name="synapseSqlPassword")
+    def synapse_sql_password(self) -> Optional[str]:
+        """
+        Azure Synapse SQL login details
+        """
+        return pulumi.get(self, "synapse_sql_password")
+
+    @property
+    @pulumi.getter(name="synapseSqlServerName")
+    def synapse_sql_server_name(self) -> Optional[str]:
+        """
+        Azure Synapse Analytics SQL Server Name
+        """
+        return pulumi.get(self, "synapse_sql_server_name")
+
+    @property
+    @pulumi.getter(name="synapseSqlUser")
+    def synapse_sql_user(self) -> Optional[str]:
+        """
+        Azure Synapse SQL login details
+        """
+        return pulumi.get(self, "synapse_sql_user")
+
 
 @pulumi.output_type
 class ClusterByokEntityResponse(dict):
@@ -571,6 +1089,102 @@ class ConfluentListMetadataResponse(dict):
 
 
 @pulumi.output_type
+class ConnectorInfoBaseResponse(dict):
+    """
+    Connector Info Base properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorClass":
+            suggest = "connector_class"
+        elif key == "connectorId":
+            suggest = "connector_id"
+        elif key == "connectorName":
+            suggest = "connector_name"
+        elif key == "connectorState":
+            suggest = "connector_state"
+        elif key == "connectorType":
+            suggest = "connector_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectorInfoBaseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectorInfoBaseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectorInfoBaseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_class: Optional[str] = None,
+                 connector_id: Optional[str] = None,
+                 connector_name: Optional[str] = None,
+                 connector_state: Optional[str] = None,
+                 connector_type: Optional[str] = None):
+        """
+        Connector Info Base properties
+        :param str connector_class: Connector Class
+        :param str connector_id: Connector Id
+        :param str connector_name: Connector Name
+        :param str connector_state: Connector Status
+        :param str connector_type: Connector Type
+        """
+        if connector_class is not None:
+            pulumi.set(__self__, "connector_class", connector_class)
+        if connector_id is not None:
+            pulumi.set(__self__, "connector_id", connector_id)
+        if connector_name is not None:
+            pulumi.set(__self__, "connector_name", connector_name)
+        if connector_state is not None:
+            pulumi.set(__self__, "connector_state", connector_state)
+        if connector_type is not None:
+            pulumi.set(__self__, "connector_type", connector_type)
+
+    @property
+    @pulumi.getter(name="connectorClass")
+    def connector_class(self) -> Optional[str]:
+        """
+        Connector Class
+        """
+        return pulumi.get(self, "connector_class")
+
+    @property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> Optional[str]:
+        """
+        Connector Id
+        """
+        return pulumi.get(self, "connector_id")
+
+    @property
+    @pulumi.getter(name="connectorName")
+    def connector_name(self) -> Optional[str]:
+        """
+        Connector Name
+        """
+        return pulumi.get(self, "connector_name")
+
+    @property
+    @pulumi.getter(name="connectorState")
+    def connector_state(self) -> Optional[str]:
+        """
+        Connector Status
+        """
+        return pulumi.get(self, "connector_state")
+
+    @property
+    @pulumi.getter(name="connectorType")
+    def connector_type(self) -> Optional[str]:
+        """
+        Connector Type
+        """
+        return pulumi.get(self, "connector_type")
+
+
+@pulumi.output_type
 class EnvironmentRecordResponse(dict):
     """
     Record of the environment
@@ -734,6 +1348,919 @@ class InvitationRecordResponse(dict):
         Status of the invitation
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class KafkaAzureBlobStorageSinkConnectorInfoResponse(dict):
+    """
+    The partner connector type is KafkaAzureBlobStorageSink
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partnerConnectorType":
+            suggest = "partner_connector_type"
+        elif key == "apiKey":
+            suggest = "api_key"
+        elif key == "apiSecret":
+            suggest = "api_secret"
+        elif key == "authType":
+            suggest = "auth_type"
+        elif key == "flushSize":
+            suggest = "flush_size"
+        elif key == "inputFormat":
+            suggest = "input_format"
+        elif key == "maxTasks":
+            suggest = "max_tasks"
+        elif key == "outputFormat":
+            suggest = "output_format"
+        elif key == "serviceAccountId":
+            suggest = "service_account_id"
+        elif key == "timeInterval":
+            suggest = "time_interval"
+        elif key == "topicsDir":
+            suggest = "topics_dir"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaAzureBlobStorageSinkConnectorInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaAzureBlobStorageSinkConnectorInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaAzureBlobStorageSinkConnectorInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partner_connector_type: str,
+                 api_key: Optional[str] = None,
+                 api_secret: Optional[str] = None,
+                 auth_type: Optional[str] = None,
+                 flush_size: Optional[str] = None,
+                 input_format: Optional[str] = None,
+                 max_tasks: Optional[str] = None,
+                 output_format: Optional[str] = None,
+                 service_account_id: Optional[str] = None,
+                 time_interval: Optional[str] = None,
+                 topics: Optional[Sequence[str]] = None,
+                 topics_dir: Optional[str] = None):
+        """
+        The partner connector type is KafkaAzureBlobStorageSink
+        :param str partner_connector_type: Partner Connector type.
+               Expected value is 'KafkaAzureBlobStorageSink'.
+        :param str api_key: Kafka API Key
+        :param str api_secret: Kafka API Key Secret
+        :param str auth_type: Kafka Auth Type
+        :param str flush_size: Flush size
+        :param str input_format: Kafka Input Data Format Type
+        :param str max_tasks: Maximum Tasks
+        :param str output_format: Kafka Output Data Format Type
+        :param str service_account_id: Kafka Service Account Id
+        :param str time_interval: Time Interval
+        :param Sequence[str] topics: Kafka topics list
+        :param str topics_dir: Kafka topics directory
+        """
+        pulumi.set(__self__, "partner_connector_type", 'KafkaAzureBlobStorageSink')
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if api_secret is not None:
+            pulumi.set(__self__, "api_secret", api_secret)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if flush_size is not None:
+            pulumi.set(__self__, "flush_size", flush_size)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if max_tasks is not None:
+            pulumi.set(__self__, "max_tasks", max_tasks)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if service_account_id is not None:
+            pulumi.set(__self__, "service_account_id", service_account_id)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+        if topics is not None:
+            pulumi.set(__self__, "topics", topics)
+        if topics_dir is not None:
+            pulumi.set(__self__, "topics_dir", topics_dir)
+
+    @property
+    @pulumi.getter(name="partnerConnectorType")
+    def partner_connector_type(self) -> str:
+        """
+        Partner Connector type.
+        Expected value is 'KafkaAzureBlobStorageSink'.
+        """
+        return pulumi.get(self, "partner_connector_type")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[str]:
+        """
+        Kafka API Key
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="apiSecret")
+    def api_secret(self) -> Optional[str]:
+        """
+        Kafka API Key Secret
+        """
+        return pulumi.get(self, "api_secret")
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[str]:
+        """
+        Kafka Auth Type
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="flushSize")
+    def flush_size(self) -> Optional[str]:
+        """
+        Flush size
+        """
+        return pulumi.get(self, "flush_size")
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> Optional[str]:
+        """
+        Kafka Input Data Format Type
+        """
+        return pulumi.get(self, "input_format")
+
+    @property
+    @pulumi.getter(name="maxTasks")
+    def max_tasks(self) -> Optional[str]:
+        """
+        Maximum Tasks
+        """
+        return pulumi.get(self, "max_tasks")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[str]:
+        """
+        Kafka Output Data Format Type
+        """
+        return pulumi.get(self, "output_format")
+
+    @property
+    @pulumi.getter(name="serviceAccountId")
+    def service_account_id(self) -> Optional[str]:
+        """
+        Kafka Service Account Id
+        """
+        return pulumi.get(self, "service_account_id")
+
+    @property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[str]:
+        """
+        Time Interval
+        """
+        return pulumi.get(self, "time_interval")
+
+    @property
+    @pulumi.getter
+    def topics(self) -> Optional[Sequence[str]]:
+        """
+        Kafka topics list
+        """
+        return pulumi.get(self, "topics")
+
+    @property
+    @pulumi.getter(name="topicsDir")
+    def topics_dir(self) -> Optional[str]:
+        """
+        Kafka topics directory
+        """
+        return pulumi.get(self, "topics_dir")
+
+
+@pulumi.output_type
+class KafkaAzureBlobStorageSourceConnectorInfoResponse(dict):
+    """
+    The partner connector type is KafkaAzureBlobStorageSource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partnerConnectorType":
+            suggest = "partner_connector_type"
+        elif key == "apiKey":
+            suggest = "api_key"
+        elif key == "apiSecret":
+            suggest = "api_secret"
+        elif key == "authType":
+            suggest = "auth_type"
+        elif key == "inputFormat":
+            suggest = "input_format"
+        elif key == "maxTasks":
+            suggest = "max_tasks"
+        elif key == "outputFormat":
+            suggest = "output_format"
+        elif key == "serviceAccountId":
+            suggest = "service_account_id"
+        elif key == "topicRegex":
+            suggest = "topic_regex"
+        elif key == "topicsDir":
+            suggest = "topics_dir"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaAzureBlobStorageSourceConnectorInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaAzureBlobStorageSourceConnectorInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaAzureBlobStorageSourceConnectorInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partner_connector_type: str,
+                 api_key: Optional[str] = None,
+                 api_secret: Optional[str] = None,
+                 auth_type: Optional[str] = None,
+                 input_format: Optional[str] = None,
+                 max_tasks: Optional[str] = None,
+                 output_format: Optional[str] = None,
+                 service_account_id: Optional[str] = None,
+                 topic_regex: Optional[str] = None,
+                 topics_dir: Optional[str] = None):
+        """
+        The partner connector type is KafkaAzureBlobStorageSource
+        :param str partner_connector_type: Partner Connector type.
+               Expected value is 'KafkaAzureBlobStorageSource'.
+        :param str api_key: Kafka API Key
+        :param str api_secret: Kafka API Secret
+        :param str auth_type: Kafka Auth Type
+        :param str input_format: Kafka Input Data Format Type
+        :param str max_tasks: Maximum Tasks
+        :param str output_format: Kafka Output Data Format Type
+        :param str service_account_id: Kafka Service Account Id
+        :param str topic_regex: Kafka topics Regex pattern
+        :param str topics_dir: Kafka topics directory
+        """
+        pulumi.set(__self__, "partner_connector_type", 'KafkaAzureBlobStorageSource')
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if api_secret is not None:
+            pulumi.set(__self__, "api_secret", api_secret)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if max_tasks is not None:
+            pulumi.set(__self__, "max_tasks", max_tasks)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if service_account_id is not None:
+            pulumi.set(__self__, "service_account_id", service_account_id)
+        if topic_regex is not None:
+            pulumi.set(__self__, "topic_regex", topic_regex)
+        if topics_dir is not None:
+            pulumi.set(__self__, "topics_dir", topics_dir)
+
+    @property
+    @pulumi.getter(name="partnerConnectorType")
+    def partner_connector_type(self) -> str:
+        """
+        Partner Connector type.
+        Expected value is 'KafkaAzureBlobStorageSource'.
+        """
+        return pulumi.get(self, "partner_connector_type")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[str]:
+        """
+        Kafka API Key
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="apiSecret")
+    def api_secret(self) -> Optional[str]:
+        """
+        Kafka API Secret
+        """
+        return pulumi.get(self, "api_secret")
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[str]:
+        """
+        Kafka Auth Type
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> Optional[str]:
+        """
+        Kafka Input Data Format Type
+        """
+        return pulumi.get(self, "input_format")
+
+    @property
+    @pulumi.getter(name="maxTasks")
+    def max_tasks(self) -> Optional[str]:
+        """
+        Maximum Tasks
+        """
+        return pulumi.get(self, "max_tasks")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[str]:
+        """
+        Kafka Output Data Format Type
+        """
+        return pulumi.get(self, "output_format")
+
+    @property
+    @pulumi.getter(name="serviceAccountId")
+    def service_account_id(self) -> Optional[str]:
+        """
+        Kafka Service Account Id
+        """
+        return pulumi.get(self, "service_account_id")
+
+    @property
+    @pulumi.getter(name="topicRegex")
+    def topic_regex(self) -> Optional[str]:
+        """
+        Kafka topics Regex pattern
+        """
+        return pulumi.get(self, "topic_regex")
+
+    @property
+    @pulumi.getter(name="topicsDir")
+    def topics_dir(self) -> Optional[str]:
+        """
+        Kafka topics directory
+        """
+        return pulumi.get(self, "topics_dir")
+
+
+@pulumi.output_type
+class KafkaAzureCosmosDBSinkConnectorInfoResponse(dict):
+    """
+    The partner connector type is KafkaAzureCosmosDBSink
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partnerConnectorType":
+            suggest = "partner_connector_type"
+        elif key == "apiKey":
+            suggest = "api_key"
+        elif key == "apiSecret":
+            suggest = "api_secret"
+        elif key == "authType":
+            suggest = "auth_type"
+        elif key == "flushSize":
+            suggest = "flush_size"
+        elif key == "inputFormat":
+            suggest = "input_format"
+        elif key == "maxTasks":
+            suggest = "max_tasks"
+        elif key == "outputFormat":
+            suggest = "output_format"
+        elif key == "serviceAccountId":
+            suggest = "service_account_id"
+        elif key == "timeInterval":
+            suggest = "time_interval"
+        elif key == "topicsDir":
+            suggest = "topics_dir"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaAzureCosmosDBSinkConnectorInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaAzureCosmosDBSinkConnectorInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaAzureCosmosDBSinkConnectorInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partner_connector_type: str,
+                 api_key: Optional[str] = None,
+                 api_secret: Optional[str] = None,
+                 auth_type: Optional[str] = None,
+                 flush_size: Optional[str] = None,
+                 input_format: Optional[str] = None,
+                 max_tasks: Optional[str] = None,
+                 output_format: Optional[str] = None,
+                 service_account_id: Optional[str] = None,
+                 time_interval: Optional[str] = None,
+                 topics: Optional[Sequence[str]] = None,
+                 topics_dir: Optional[str] = None):
+        """
+        The partner connector type is KafkaAzureCosmosDBSink
+        :param str partner_connector_type: Partner Connector type.
+               Expected value is 'KafkaAzureCosmosDBSink'.
+        :param str api_key: Kafka API Key
+        :param str api_secret: Kafka API Key Secret
+        :param str auth_type: Kafka Auth Type
+        :param str flush_size: Flush size
+        :param str input_format: Kafka Input Data Format Type
+        :param str max_tasks: Maximum Tasks
+        :param str output_format: Kafka Output Data Format Type
+        :param str service_account_id: Kafka Service Account Id
+        :param str time_interval: Time Interval
+        :param Sequence[str] topics: Kafka topics list
+        :param str topics_dir: Kafka topics directory
+        """
+        pulumi.set(__self__, "partner_connector_type", 'KafkaAzureCosmosDBSink')
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if api_secret is not None:
+            pulumi.set(__self__, "api_secret", api_secret)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if flush_size is not None:
+            pulumi.set(__self__, "flush_size", flush_size)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if max_tasks is not None:
+            pulumi.set(__self__, "max_tasks", max_tasks)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if service_account_id is not None:
+            pulumi.set(__self__, "service_account_id", service_account_id)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+        if topics is not None:
+            pulumi.set(__self__, "topics", topics)
+        if topics_dir is not None:
+            pulumi.set(__self__, "topics_dir", topics_dir)
+
+    @property
+    @pulumi.getter(name="partnerConnectorType")
+    def partner_connector_type(self) -> str:
+        """
+        Partner Connector type.
+        Expected value is 'KafkaAzureCosmosDBSink'.
+        """
+        return pulumi.get(self, "partner_connector_type")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[str]:
+        """
+        Kafka API Key
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="apiSecret")
+    def api_secret(self) -> Optional[str]:
+        """
+        Kafka API Key Secret
+        """
+        return pulumi.get(self, "api_secret")
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[str]:
+        """
+        Kafka Auth Type
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="flushSize")
+    def flush_size(self) -> Optional[str]:
+        """
+        Flush size
+        """
+        return pulumi.get(self, "flush_size")
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> Optional[str]:
+        """
+        Kafka Input Data Format Type
+        """
+        return pulumi.get(self, "input_format")
+
+    @property
+    @pulumi.getter(name="maxTasks")
+    def max_tasks(self) -> Optional[str]:
+        """
+        Maximum Tasks
+        """
+        return pulumi.get(self, "max_tasks")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[str]:
+        """
+        Kafka Output Data Format Type
+        """
+        return pulumi.get(self, "output_format")
+
+    @property
+    @pulumi.getter(name="serviceAccountId")
+    def service_account_id(self) -> Optional[str]:
+        """
+        Kafka Service Account Id
+        """
+        return pulumi.get(self, "service_account_id")
+
+    @property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[str]:
+        """
+        Time Interval
+        """
+        return pulumi.get(self, "time_interval")
+
+    @property
+    @pulumi.getter
+    def topics(self) -> Optional[Sequence[str]]:
+        """
+        Kafka topics list
+        """
+        return pulumi.get(self, "topics")
+
+    @property
+    @pulumi.getter(name="topicsDir")
+    def topics_dir(self) -> Optional[str]:
+        """
+        Kafka topics directory
+        """
+        return pulumi.get(self, "topics_dir")
+
+
+@pulumi.output_type
+class KafkaAzureCosmosDBSourceConnectorInfoResponse(dict):
+    """
+    The partner connector type is KafkaAzureCosmosDBSource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partnerConnectorType":
+            suggest = "partner_connector_type"
+        elif key == "apiKey":
+            suggest = "api_key"
+        elif key == "apiSecret":
+            suggest = "api_secret"
+        elif key == "authType":
+            suggest = "auth_type"
+        elif key == "inputFormat":
+            suggest = "input_format"
+        elif key == "maxTasks":
+            suggest = "max_tasks"
+        elif key == "outputFormat":
+            suggest = "output_format"
+        elif key == "serviceAccountId":
+            suggest = "service_account_id"
+        elif key == "topicRegex":
+            suggest = "topic_regex"
+        elif key == "topicsDir":
+            suggest = "topics_dir"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaAzureCosmosDBSourceConnectorInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaAzureCosmosDBSourceConnectorInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaAzureCosmosDBSourceConnectorInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partner_connector_type: str,
+                 api_key: Optional[str] = None,
+                 api_secret: Optional[str] = None,
+                 auth_type: Optional[str] = None,
+                 input_format: Optional[str] = None,
+                 max_tasks: Optional[str] = None,
+                 output_format: Optional[str] = None,
+                 service_account_id: Optional[str] = None,
+                 topic_regex: Optional[str] = None,
+                 topics_dir: Optional[str] = None):
+        """
+        The partner connector type is KafkaAzureCosmosDBSource
+        :param str partner_connector_type: Partner Connector type.
+               Expected value is 'KafkaAzureCosmosDBSource'.
+        :param str api_key: Kafka API Key
+        :param str api_secret: Kafka API Secret
+        :param str auth_type: Kafka Auth Type
+        :param str input_format: Kafka Input Data Format Type
+        :param str max_tasks: Maximum Tasks
+        :param str output_format: Kafka Output Data Format Type
+        :param str service_account_id: Kafka Service Account Id
+        :param str topic_regex: Kafka topics Regex pattern
+        :param str topics_dir: Kafka topics directory
+        """
+        pulumi.set(__self__, "partner_connector_type", 'KafkaAzureCosmosDBSource')
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if api_secret is not None:
+            pulumi.set(__self__, "api_secret", api_secret)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if max_tasks is not None:
+            pulumi.set(__self__, "max_tasks", max_tasks)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if service_account_id is not None:
+            pulumi.set(__self__, "service_account_id", service_account_id)
+        if topic_regex is not None:
+            pulumi.set(__self__, "topic_regex", topic_regex)
+        if topics_dir is not None:
+            pulumi.set(__self__, "topics_dir", topics_dir)
+
+    @property
+    @pulumi.getter(name="partnerConnectorType")
+    def partner_connector_type(self) -> str:
+        """
+        Partner Connector type.
+        Expected value is 'KafkaAzureCosmosDBSource'.
+        """
+        return pulumi.get(self, "partner_connector_type")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[str]:
+        """
+        Kafka API Key
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="apiSecret")
+    def api_secret(self) -> Optional[str]:
+        """
+        Kafka API Secret
+        """
+        return pulumi.get(self, "api_secret")
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[str]:
+        """
+        Kafka Auth Type
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> Optional[str]:
+        """
+        Kafka Input Data Format Type
+        """
+        return pulumi.get(self, "input_format")
+
+    @property
+    @pulumi.getter(name="maxTasks")
+    def max_tasks(self) -> Optional[str]:
+        """
+        Maximum Tasks
+        """
+        return pulumi.get(self, "max_tasks")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[str]:
+        """
+        Kafka Output Data Format Type
+        """
+        return pulumi.get(self, "output_format")
+
+    @property
+    @pulumi.getter(name="serviceAccountId")
+    def service_account_id(self) -> Optional[str]:
+        """
+        Kafka Service Account Id
+        """
+        return pulumi.get(self, "service_account_id")
+
+    @property
+    @pulumi.getter(name="topicRegex")
+    def topic_regex(self) -> Optional[str]:
+        """
+        Kafka topics Regex pattern
+        """
+        return pulumi.get(self, "topic_regex")
+
+    @property
+    @pulumi.getter(name="topicsDir")
+    def topics_dir(self) -> Optional[str]:
+        """
+        Kafka topics directory
+        """
+        return pulumi.get(self, "topics_dir")
+
+
+@pulumi.output_type
+class KafkaAzureSynapseAnalyticsSinkConnectorInfoResponse(dict):
+    """
+    The partner connector type is KafkaAzureSynapseAnalyticsSink
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partnerConnectorType":
+            suggest = "partner_connector_type"
+        elif key == "apiKey":
+            suggest = "api_key"
+        elif key == "apiSecret":
+            suggest = "api_secret"
+        elif key == "authType":
+            suggest = "auth_type"
+        elif key == "flushSize":
+            suggest = "flush_size"
+        elif key == "inputFormat":
+            suggest = "input_format"
+        elif key == "maxTasks":
+            suggest = "max_tasks"
+        elif key == "outputFormat":
+            suggest = "output_format"
+        elif key == "serviceAccountId":
+            suggest = "service_account_id"
+        elif key == "timeInterval":
+            suggest = "time_interval"
+        elif key == "topicsDir":
+            suggest = "topics_dir"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaAzureSynapseAnalyticsSinkConnectorInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaAzureSynapseAnalyticsSinkConnectorInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaAzureSynapseAnalyticsSinkConnectorInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partner_connector_type: str,
+                 api_key: Optional[str] = None,
+                 api_secret: Optional[str] = None,
+                 auth_type: Optional[str] = None,
+                 flush_size: Optional[str] = None,
+                 input_format: Optional[str] = None,
+                 max_tasks: Optional[str] = None,
+                 output_format: Optional[str] = None,
+                 service_account_id: Optional[str] = None,
+                 time_interval: Optional[str] = None,
+                 topics: Optional[Sequence[str]] = None,
+                 topics_dir: Optional[str] = None):
+        """
+        The partner connector type is KafkaAzureSynapseAnalyticsSink
+        :param str partner_connector_type: Partner Connector type.
+               Expected value is 'KafkaAzureSynapseAnalyticsSink'.
+        :param str api_key: Kafka API Key
+        :param str api_secret: Kafka API Key Secret
+        :param str auth_type: Kafka Auth Type
+        :param str flush_size: Flush size
+        :param str input_format: Kafka Input Data Format Type
+        :param str max_tasks: Maximum Tasks
+        :param str output_format: Kafka Output Data Format Type
+        :param str service_account_id: Kafka Service Account Id
+        :param str time_interval: Time Interval
+        :param Sequence[str] topics: Kafka topics list
+        :param str topics_dir: Kafka topics directory
+        """
+        pulumi.set(__self__, "partner_connector_type", 'KafkaAzureSynapseAnalyticsSink')
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if api_secret is not None:
+            pulumi.set(__self__, "api_secret", api_secret)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if flush_size is not None:
+            pulumi.set(__self__, "flush_size", flush_size)
+        if input_format is not None:
+            pulumi.set(__self__, "input_format", input_format)
+        if max_tasks is not None:
+            pulumi.set(__self__, "max_tasks", max_tasks)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if service_account_id is not None:
+            pulumi.set(__self__, "service_account_id", service_account_id)
+        if time_interval is not None:
+            pulumi.set(__self__, "time_interval", time_interval)
+        if topics is not None:
+            pulumi.set(__self__, "topics", topics)
+        if topics_dir is not None:
+            pulumi.set(__self__, "topics_dir", topics_dir)
+
+    @property
+    @pulumi.getter(name="partnerConnectorType")
+    def partner_connector_type(self) -> str:
+        """
+        Partner Connector type.
+        Expected value is 'KafkaAzureSynapseAnalyticsSink'.
+        """
+        return pulumi.get(self, "partner_connector_type")
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[str]:
+        """
+        Kafka API Key
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="apiSecret")
+    def api_secret(self) -> Optional[str]:
+        """
+        Kafka API Key Secret
+        """
+        return pulumi.get(self, "api_secret")
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[str]:
+        """
+        Kafka Auth Type
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="flushSize")
+    def flush_size(self) -> Optional[str]:
+        """
+        Flush size
+        """
+        return pulumi.get(self, "flush_size")
+
+    @property
+    @pulumi.getter(name="inputFormat")
+    def input_format(self) -> Optional[str]:
+        """
+        Kafka Input Data Format Type
+        """
+        return pulumi.get(self, "input_format")
+
+    @property
+    @pulumi.getter(name="maxTasks")
+    def max_tasks(self) -> Optional[str]:
+        """
+        Maximum Tasks
+        """
+        return pulumi.get(self, "max_tasks")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[str]:
+        """
+        Kafka Output Data Format Type
+        """
+        return pulumi.get(self, "output_format")
+
+    @property
+    @pulumi.getter(name="serviceAccountId")
+    def service_account_id(self) -> Optional[str]:
+        """
+        Kafka Service Account Id
+        """
+        return pulumi.get(self, "service_account_id")
+
+    @property
+    @pulumi.getter(name="timeInterval")
+    def time_interval(self) -> Optional[str]:
+        """
+        Time Interval
+        """
+        return pulumi.get(self, "time_interval")
+
+    @property
+    @pulumi.getter
+    def topics(self) -> Optional[Sequence[str]]:
+        """
+        Kafka topics list
+        """
+        return pulumi.get(self, "topics")
+
+    @property
+    @pulumi.getter(name="topicsDir")
+    def topics_dir(self) -> Optional[str]:
+        """
+        Kafka topics directory
+        """
+        return pulumi.get(self, "topics_dir")
 
 
 @pulumi.output_type
@@ -1105,10 +2632,361 @@ class RoleBindingRecordResponse(dict):
 
 
 @pulumi.output_type
+class SCClusterByokEntityResponse(dict):
+    """
+    The network associated with this object
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceName":
+            suggest = "resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SCClusterByokEntityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SCClusterByokEntityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SCClusterByokEntityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 related: Optional[str] = None,
+                 resource_name: Optional[str] = None):
+        """
+        The network associated with this object
+        :param str id: ID of the referred resource
+        :param str related: API URL for accessing or modifying the referred object
+        :param str resource_name: CRN reference to the referred resource
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if related is not None:
+            pulumi.set(__self__, "related", related)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the referred resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def related(self) -> Optional[str]:
+        """
+        API URL for accessing or modifying the referred object
+        """
+        return pulumi.get(self, "related")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        """
+        CRN reference to the referred resource
+        """
+        return pulumi.get(self, "resource_name")
+
+
+@pulumi.output_type
+class SCClusterNetworkEnvironmentEntityResponse(dict):
+    """
+    The environment or the network to which cluster belongs
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceName":
+            suggest = "resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SCClusterNetworkEnvironmentEntityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SCClusterNetworkEnvironmentEntityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SCClusterNetworkEnvironmentEntityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment: Optional[str] = None,
+                 id: Optional[str] = None,
+                 related: Optional[str] = None,
+                 resource_name: Optional[str] = None):
+        """
+        The environment or the network to which cluster belongs
+        :param str environment: Environment of the referred resource
+        :param str id: ID of the referred resource
+        :param str related: API URL for accessing or modifying the referred object
+        :param str resource_name: CRN reference to the referred resource
+        """
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if related is not None:
+            pulumi.set(__self__, "related", related)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[str]:
+        """
+        Environment of the referred resource
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        ID of the referred resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def related(self) -> Optional[str]:
+        """
+        API URL for accessing or modifying the referred object
+        """
+        return pulumi.get(self, "related")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        """
+        CRN reference to the referred resource
+        """
+        return pulumi.get(self, "resource_name")
+
+
+@pulumi.output_type
+class SCClusterSpecEntityResponse(dict):
+    """
+    Spec of the cluster record
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiEndpoint":
+            suggest = "api_endpoint"
+        elif key == "httpEndpoint":
+            suggest = "http_endpoint"
+        elif key == "kafkaBootstrapEndpoint":
+            suggest = "kafka_bootstrap_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SCClusterSpecEntityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SCClusterSpecEntityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SCClusterSpecEntityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_endpoint: Optional[str] = None,
+                 availability: Optional[str] = None,
+                 byok: Optional['outputs.SCClusterByokEntityResponse'] = None,
+                 cloud: Optional[str] = None,
+                 config: Optional['outputs.ClusterConfigEntityResponse'] = None,
+                 environment: Optional['outputs.SCClusterNetworkEnvironmentEntityResponse'] = None,
+                 http_endpoint: Optional[str] = None,
+                 kafka_bootstrap_endpoint: Optional[str] = None,
+                 name: Optional[str] = None,
+                 network: Optional['outputs.SCClusterNetworkEnvironmentEntityResponse'] = None,
+                 package: Optional[str] = None,
+                 region: Optional[str] = None,
+                 zone: Optional[str] = None):
+        """
+        Spec of the cluster record
+        :param str api_endpoint: The Kafka API cluster endpoint
+        :param str availability: The availability zone configuration of the cluster
+        :param 'SCClusterByokEntityResponse' byok: Specification of the cluster byok
+        :param str cloud: The cloud service provider 
+        :param 'ClusterConfigEntityResponse' config: Specification of the cluster configuration
+        :param 'SCClusterNetworkEnvironmentEntityResponse' environment: Specification of the cluster environment
+        :param str http_endpoint: The cluster HTTP request URL.
+        :param str kafka_bootstrap_endpoint: The bootstrap endpoint used by Kafka clients to connect to the cluster
+        :param str name: The name of the cluster
+        :param 'SCClusterNetworkEnvironmentEntityResponse' network: Specification of the cluster network
+        :param str package: Stream governance configuration
+        :param str region: The cloud service provider region
+        :param str zone: type of zone availability
+        """
+        if api_endpoint is not None:
+            pulumi.set(__self__, "api_endpoint", api_endpoint)
+        if availability is not None:
+            pulumi.set(__self__, "availability", availability)
+        if byok is not None:
+            pulumi.set(__self__, "byok", byok)
+        if cloud is not None:
+            pulumi.set(__self__, "cloud", cloud)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if http_endpoint is not None:
+            pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if kafka_bootstrap_endpoint is not None:
+            pulumi.set(__self__, "kafka_bootstrap_endpoint", kafka_bootstrap_endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+        if package is not None:
+            pulumi.set(__self__, "package", package)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if zone is not None:
+            pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="apiEndpoint")
+    def api_endpoint(self) -> Optional[str]:
+        """
+        The Kafka API cluster endpoint
+        """
+        return pulumi.get(self, "api_endpoint")
+
+    @property
+    @pulumi.getter
+    def availability(self) -> Optional[str]:
+        """
+        The availability zone configuration of the cluster
+        """
+        return pulumi.get(self, "availability")
+
+    @property
+    @pulumi.getter
+    def byok(self) -> Optional['outputs.SCClusterByokEntityResponse']:
+        """
+        Specification of the cluster byok
+        """
+        return pulumi.get(self, "byok")
+
+    @property
+    @pulumi.getter
+    def cloud(self) -> Optional[str]:
+        """
+        The cloud service provider 
+        """
+        return pulumi.get(self, "cloud")
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional['outputs.ClusterConfigEntityResponse']:
+        """
+        Specification of the cluster configuration
+        """
+        return pulumi.get(self, "config")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional['outputs.SCClusterNetworkEnvironmentEntityResponse']:
+        """
+        Specification of the cluster environment
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="httpEndpoint")
+    def http_endpoint(self) -> Optional[str]:
+        """
+        The cluster HTTP request URL.
+        """
+        return pulumi.get(self, "http_endpoint")
+
+    @property
+    @pulumi.getter(name="kafkaBootstrapEndpoint")
+    def kafka_bootstrap_endpoint(self) -> Optional[str]:
+        """
+        The bootstrap endpoint used by Kafka clients to connect to the cluster
+        """
+        return pulumi.get(self, "kafka_bootstrap_endpoint")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the cluster
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def network(self) -> Optional['outputs.SCClusterNetworkEnvironmentEntityResponse']:
+        """
+        Specification of the cluster network
+        """
+        return pulumi.get(self, "network")
+
+    @property
+    @pulumi.getter
+    def package(self) -> Optional[str]:
+        """
+        Stream governance configuration
+        """
+        return pulumi.get(self, "package")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        The cloud service provider region
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> Optional[str]:
+        """
+        type of zone availability
+        """
+        return pulumi.get(self, "zone")
+
+
+@pulumi.output_type
 class SCMetadataEntityResponse(dict):
     """
     Metadata of the data record
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTimestamp":
+            suggest = "created_timestamp"
+        elif key == "deletedTimestamp":
+            suggest = "deleted_timestamp"
+        elif key == "resourceName":
+            suggest = "resource_name"
+        elif key == "updatedTimestamp":
+            suggest = "updated_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SCMetadataEntityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SCMetadataEntityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SCMetadataEntityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  created_timestamp: Optional[str] = None,
                  deleted_timestamp: Optional[str] = None,
@@ -1247,6 +3125,29 @@ class ServiceAccountRecordResponse(dict):
 
 
 @pulumi.output_type
+class StreamGovernanceConfigResponse(dict):
+    """
+    Stream governance configuration
+    """
+    def __init__(__self__, *,
+                 package: Optional[str] = None):
+        """
+        Stream governance configuration
+        :param str package: Stream governance configuration
+        """
+        if package is not None:
+            pulumi.set(__self__, "package", package)
+
+    @property
+    @pulumi.getter
+    def package(self) -> Optional[str]:
+        """
+        Stream governance configuration
+        """
+        return pulumi.get(self, "package")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -1354,6 +3255,116 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TopicMetadataEntityResponse(dict):
+    """
+    Metadata of the data record
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceName":
+            suggest = "resource_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicMetadataEntityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicMetadataEntityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicMetadataEntityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_name: Optional[str] = None,
+                 self: Optional[str] = None):
+        """
+        Metadata of the data record
+        :param str resource_name: Resource name of the record
+        :param str self: Self lookup url
+        """
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
+        if self is not None:
+            pulumi.set(__self__, "self", self)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[str]:
+        """
+        Resource name of the record
+        """
+        return pulumi.get(self, "resource_name")
+
+    @property
+    @pulumi.getter
+    def self(self) -> Optional[str]:
+        """
+        Self lookup url
+        """
+        return pulumi.get(self, "self")
+
+
+@pulumi.output_type
+class TopicsInputConfigResponse(dict):
+    """
+    Topics input config
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Topics input config
+        :param str name: Name of the topic input config
+        :param str value: Value of the topic input config
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the topic input config
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of the topic input config
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TopicsRelatedLinkResponse(dict):
+    """
+    Partition Config spec of the topic record
+    """
+    def __init__(__self__, *,
+                 related: Optional[str] = None):
+        """
+        Partition Config spec of the topic record
+        :param str related: Relationship of the topic
+        """
+        if related is not None:
+            pulumi.set(__self__, "related", related)
+
+    @property
+    @pulumi.getter
+    def related(self) -> Optional[str]:
+        """
+        Relationship of the topic
+        """
+        return pulumi.get(self, "related")
 
 
 @pulumi.output_type

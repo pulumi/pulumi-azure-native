@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// Retrieves the properties of a Confidential Ledger.
         /// Azure REST API version: 2022-05-13.
         /// 
-        /// Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview.
+        /// Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
         /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("azure-native:confidentialledger:getLedger", args ?? new GetLedgerArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// Retrieves the properties of a Confidential Ledger.
         /// Azure REST API version: 2022-05-13.
         /// 
-        /// Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview.
+        /// Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
         /// </summary>
         public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("azure-native:confidentialledger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         /// Retrieves the properties of a Confidential Ledger.
         /// Azure REST API version: 2022-05-13.
         /// 
-        /// Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview.
+        /// Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
         /// </summary>
         public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("azure-native:confidentialledger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithDefaults());

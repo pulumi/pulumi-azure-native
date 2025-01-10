@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Maintenance.V20221101Preview.Outputs
     public sealed class InputLinuxParametersResponse
     {
         /// <summary>
-        /// Classification category of patches to be patched
+        /// Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
         /// </summary>
         public readonly ImmutableArray<string> ClassificationsToInclude;
         /// <summary>

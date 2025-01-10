@@ -37,7 +37,7 @@ if not MYPY:
         """
         classifications_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Classification category of patches to be patched
+        Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
         """
         package_name_masks_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -58,7 +58,7 @@ class InputLinuxParametersArgs:
                  package_name_masks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties for patching a Linux machine.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifications_to_include: Classification category of patches to be patched
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifications_to_include: Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] package_name_masks_to_exclude: Package names to be excluded for patching.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] package_name_masks_to_include: Package names to be included for patching.
         """
@@ -73,7 +73,7 @@ class InputLinuxParametersArgs:
     @pulumi.getter(name="classificationsToInclude")
     def classifications_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Classification category of patches to be patched
+        Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
         """
         return pulumi.get(self, "classifications_to_include")
 
@@ -231,7 +231,7 @@ if not MYPY:
         """
         classifications_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Classification category of patches to be patched
+        Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
         """
         exclude_kbs_requiring_reboot: NotRequired[pulumi.Input[bool]]
         """
@@ -257,7 +257,7 @@ class InputWindowsParametersArgs:
                  kb_numbers_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties for patching a Windows machine.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifications_to_include: Classification category of patches to be patched
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifications_to_include: Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
         :param pulumi.Input[bool] exclude_kbs_requiring_reboot: Exclude patches which need reboot
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kb_numbers_to_exclude: Windows KBID to be excluded for patching.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kb_numbers_to_include: Windows KBID to be included for patching.
@@ -275,7 +275,7 @@ class InputWindowsParametersArgs:
     @pulumi.getter(name="classificationsToInclude")
     def classifications_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Classification category of patches to be patched
+        Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
         """
         return pulumi.get(self, "classifications_to_include")
 

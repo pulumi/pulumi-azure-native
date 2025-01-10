@@ -42,7 +42,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly dashboardUri!: pulumi.Output<string>;
     /**
-     * When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+     * When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
      */
     public readonly localAuth!: pulumi.Output<string | undefined>;
     /**
@@ -138,7 +138,7 @@ export interface AccountArgs {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+     * When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
      */
     localAuth?: pulumi.Input<string | enums.azureplaywrightservice.v20241201.EnablementStatus>;
     /**

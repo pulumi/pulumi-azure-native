@@ -121,7 +121,7 @@ class Ledger(pulumi.CustomResource):
         Confidential Ledger. Contains the properties of Confidential Ledger Resource.
         Azure REST API version: 2022-05-13. Prior API version in Azure Native 1.x: 2020-12-01-preview.
 
-        Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview.
+        Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +141,7 @@ class Ledger(pulumi.CustomResource):
         Confidential Ledger. Contains the properties of Confidential Ledger Resource.
         Azure REST API version: 2022-05-13. Prior API version in Azure Native 1.x: 2020-12-01-preview.
 
-        Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview.
+        Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
 
         :param str resource_name: The name of the resource.
         :param LedgerArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +182,7 @@ class Ledger(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confidentialledger/v20201201preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20210513preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20220513:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20220908preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20230126preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20230628preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20240709preview:Ledger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:confidentialledger/v20201201preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20210513preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20220513:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20220908preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20230126preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20230628preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20240709preview:Ledger"), pulumi.Alias(type_="azure-native:confidentialledger/v20240919preview:Ledger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Ledger, __self__).__init__(
             'azure-native:confidentialledger:Ledger',

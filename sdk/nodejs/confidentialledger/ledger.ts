@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Confidential Ledger. Contains the properties of Confidential Ledger Resource.
  * Azure REST API version: 2022-05-13. Prior API version in Azure Native 1.x: 2020-12-01-preview.
  *
- * Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview.
+ * Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
  */
 export class Ledger extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class Ledger extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger/v20201201preview:Ledger" }, { type: "azure-native:confidentialledger/v20210513preview:Ledger" }, { type: "azure-native:confidentialledger/v20220513:Ledger" }, { type: "azure-native:confidentialledger/v20220908preview:Ledger" }, { type: "azure-native:confidentialledger/v20230126preview:Ledger" }, { type: "azure-native:confidentialledger/v20230628preview:Ledger" }, { type: "azure-native:confidentialledger/v20240709preview:Ledger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger/v20201201preview:Ledger" }, { type: "azure-native:confidentialledger/v20210513preview:Ledger" }, { type: "azure-native:confidentialledger/v20220513:Ledger" }, { type: "azure-native:confidentialledger/v20220908preview:Ledger" }, { type: "azure-native:confidentialledger/v20230126preview:Ledger" }, { type: "azure-native:confidentialledger/v20230628preview:Ledger" }, { type: "azure-native:confidentialledger/v20240709preview:Ledger" }, { type: "azure-native:confidentialledger/v20240919preview:Ledger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ledger.__pulumiType, name, resourceInputs, opts);
     }

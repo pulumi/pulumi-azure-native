@@ -33,7 +33,7 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] account_name: Name of account.
-        :param pulumi.Input[Union[str, 'EnablementStatus']] local_auth: When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+        :param pulumi.Input[Union[str, 'EnablementStatus']] local_auth: When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'EnablementStatus']] regional_affinity: This property sets the connection region for Playwright client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
         :param pulumi.Input[Union[str, 'EnablementStatus']] reporting: When enabled, this feature allows the workspace to upload and display test results, including artifacts like traces and screenshots, in the Playwright portal. This enables faster and more efficient troubleshooting.
@@ -92,7 +92,7 @@ class AccountArgs:
     @pulumi.getter(name="localAuth")
     def local_auth(self) -> Optional[pulumi.Input[Union[str, 'EnablementStatus']]]:
         """
-        When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+        When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         """
         return pulumi.get(self, "local_auth")
 
@@ -181,7 +181,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of account.
-        :param pulumi.Input[Union[str, 'EnablementStatus']] local_auth: When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+        :param pulumi.Input[Union[str, 'EnablementStatus']] local_auth: When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'EnablementStatus']] regional_affinity: This property sets the connection region for Playwright client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
         :param pulumi.Input[Union[str, 'EnablementStatus']] reporting: When enabled, this feature allows the workspace to upload and display test results, including artifacts like traces and screenshots, in the Playwright portal. This enables faster and more efficient troubleshooting.
@@ -302,7 +302,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="localAuth")
     def local_auth(self) -> pulumi.Output[Optional[str]]:
         """
-        When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+        When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         """
         return pulumi.get(self, "local_auth")
 

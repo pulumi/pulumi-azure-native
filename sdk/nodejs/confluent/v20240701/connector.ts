@@ -105,6 +105,8 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:confluent:Connector" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }
 }

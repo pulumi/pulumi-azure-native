@@ -129,7 +129,7 @@ def get_private_access(private_access_name: Optional[str] = None,
     Get a private access resource
     Azure REST API version: 2023-10-27-preview.
 
-    Other available API versions: 2024-03-22-preview.
+    Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
 
 
     :param str private_access_name: The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -156,7 +156,7 @@ def get_private_access_output(private_access_name: Optional[pulumi.Input[str]] =
     Get a private access resource
     Azure REST API version: 2023-10-27-preview.
 
-    Other available API versions: 2024-03-22-preview.
+    Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
 
 
     :param str private_access_name: The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.

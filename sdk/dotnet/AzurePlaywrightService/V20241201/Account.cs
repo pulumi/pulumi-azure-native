@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.AzurePlaywrightService.V20241201
         public Output<string> DashboardUri { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+        /// When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         /// </summary>
         [Output("localAuth")]
         public Output<string?> LocalAuth { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.AzurePlaywrightService.V20241201
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+        /// When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         /// </summary>
         [Input("localAuth")]
         public InputUnion<string, Pulumi.AzureNative.AzurePlaywrightService.V20241201.EnablementStatus>? LocalAuth { get; set; }

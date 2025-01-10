@@ -42,7 +42,7 @@ export interface GetAccountResult {
      */
     readonly id: string;
     /**
-     * When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+     * When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
      */
     readonly localAuth?: string;
     /**

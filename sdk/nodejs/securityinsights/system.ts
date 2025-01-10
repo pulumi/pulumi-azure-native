@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Describes the system within the agent.
  * Azure REST API version: 2024-04-01-preview.
+ *
+ * Other available API versions: 2024-10-01-preview.
  */
 export class System extends pulumi.CustomResource {
     /**
@@ -114,7 +116,7 @@ export class System extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20240401preview:System" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20240401preview:System" }, { type: "azure-native:securityinsights/v20241001preview:System" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(System.__pulumiType, name, resourceInputs, opts);
     }

@@ -346,6 +346,10 @@ ConfidentialLedger:
 Confluent:
     tracking: "2021-12-01"
     additions:
+        Connector: "2024-07-01"
+        OrganizationClusterById: "2024-07-01"
+        OrganizationEnvironmentById: "2024-07-01"
+        Topic: "2024-07-01"
         listAccessClusters: "2023-08-22"
         listAccessEnvironments: "2023-08-22"
         listAccessInvitations: "2023-08-22"

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get whois information for a single domain name
  * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-04-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-10-01-preview.
  */
 export function listWhoisByDomain(args: ListWhoisByDomainArgs, opts?: pulumi.InvokeOptions): Promise<ListWhoisByDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,7 +75,7 @@ export interface ListWhoisByDomainResult {
  * Get whois information for a single domain name
  * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-04-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-10-01-preview.
  */
 export function listWhoisByDomainOutput(args: ListWhoisByDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWhoisByDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

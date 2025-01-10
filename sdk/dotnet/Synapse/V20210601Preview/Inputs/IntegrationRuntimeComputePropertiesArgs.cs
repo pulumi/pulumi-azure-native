@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
     public sealed class IntegrationRuntimeComputePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// CopyComputeScale properties for managed integration runtime.
+        /// </summary>
+        [Input("copyComputeScaleProperties")]
+        public Input<Inputs.CopyComputeScalePropertiesArgs>? CopyComputeScaleProperties { get; set; }
+
+        /// <summary>
         /// Data flow properties for managed integration runtime.
         /// </summary>
         [Input("dataFlowProperties")]
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
         /// </summary>
         [Input("numberOfNodes")]
         public Input<int>? NumberOfNodes { get; set; }
+
+        /// <summary>
+        /// PipelineExternalComputeScale properties for managed integration runtime.
+        /// </summary>
+        [Input("pipelineExternalComputeScaleProperties")]
+        public Input<Inputs.PipelineExternalComputeScalePropertiesArgs>? PipelineExternalComputeScaleProperties { get; set; }
 
         /// <summary>
         /// VNet properties for managed integration runtime.

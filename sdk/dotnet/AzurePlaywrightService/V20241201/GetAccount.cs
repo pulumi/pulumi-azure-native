@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.AzurePlaywrightService.V20241201
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// When enabled, this feature allows the workspace to use local auth(through access key) for authentication of test runs.
+        /// When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
         /// </summary>
         public readonly string? LocalAuth;
         /// <summary>

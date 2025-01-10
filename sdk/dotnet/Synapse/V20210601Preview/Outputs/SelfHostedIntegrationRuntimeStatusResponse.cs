@@ -74,6 +74,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
         /// </summary>
         public readonly string ScheduledUpdateDate;
         /// <summary>
+        /// An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+        /// </summary>
+        public readonly bool SelfContainedInteractiveAuthoringEnabled;
+        /// <summary>
         /// The service region of the integration runtime
         /// </summary>
         public readonly string? ServiceRegion;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
 
             string scheduledUpdateDate,
 
+            bool selfContainedInteractiveAuthoringEnabled,
+
             string? serviceRegion,
 
             ImmutableArray<string> serviceUrls,
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
             OsType = osType;
             PushedVersion = pushedVersion;
             ScheduledUpdateDate = scheduledUpdateDate;
+            SelfContainedInteractiveAuthoringEnabled = selfContainedInteractiveAuthoringEnabled;
             ServiceRegion = serviceRegion;
             ServiceUrls = serviceUrls;
             State = state;

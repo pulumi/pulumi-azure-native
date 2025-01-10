@@ -57,7 +57,7 @@ class InputLinuxParametersResponse(dict):
                  package_name_masks_to_include: Optional[Sequence[str]] = None):
         """
         Input properties for patching a Linux machine.
-        :param Sequence[str] classifications_to_include: Classification category of patches to be patched
+        :param Sequence[str] classifications_to_include: Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
         :param Sequence[str] package_name_masks_to_exclude: Package names to be excluded for patching.
         :param Sequence[str] package_name_masks_to_include: Package names to be included for patching.
         """
@@ -72,7 +72,7 @@ class InputLinuxParametersResponse(dict):
     @pulumi.getter(name="classificationsToInclude")
     def classifications_to_include(self) -> Optional[Sequence[str]]:
         """
-        Classification category of patches to be patched
+        Classification category of patches to be patched. Allowed values are 'Critical', 'Security', and 'Other'.
         """
         return pulumi.get(self, "classifications_to_include")
 
@@ -226,7 +226,7 @@ class InputWindowsParametersResponse(dict):
                  kb_numbers_to_include: Optional[Sequence[str]] = None):
         """
         Input properties for patching a Windows machine.
-        :param Sequence[str] classifications_to_include: Classification category of patches to be patched
+        :param Sequence[str] classifications_to_include: Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
         :param bool exclude_kbs_requiring_reboot: Exclude patches which need reboot
         :param Sequence[str] kb_numbers_to_exclude: Windows KBID to be excluded for patching.
         :param Sequence[str] kb_numbers_to_include: Windows KBID to be included for patching.
@@ -244,7 +244,7 @@ class InputWindowsParametersResponse(dict):
     @pulumi.getter(name="classificationsToInclude")
     def classifications_to_include(self) -> Optional[Sequence[str]]:
         """
-        Classification category of patches to be patched
+        Classification category of patches to be patched. Allowed values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools', and 'Updates'.
         """
         return pulumi.get(self, "classifications_to_include")
 

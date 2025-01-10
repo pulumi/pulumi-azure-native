@@ -155,7 +155,7 @@ class PrivateAccess(pulumi.CustomResource):
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:chaos:PrivateAccess"), pulumi.Alias(type_="azure-native:chaos/v20240322preview:PrivateAccess")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:chaos:PrivateAccess"), pulumi.Alias(type_="azure-native:chaos/v20240322preview:PrivateAccess"), pulumi.Alias(type_="azure-native:chaos/v20241101preview:PrivateAccess")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateAccess, __self__).__init__(
             'azure-native:chaos/v20231027preview:PrivateAccess',

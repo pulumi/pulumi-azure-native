@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20240401Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:BusinessApplicationAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:BusinessApplicationAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

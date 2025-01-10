@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
         /// </summary>
         public readonly Union<Outputs.LinkedIntegrationRuntimeKeyAuthorizationResponse, Outputs.LinkedIntegrationRuntimeRbacAuthorizationResponse>? LinkedInfo;
         /// <summary>
+        /// An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+        /// </summary>
+        public readonly bool? SelfContainedInteractiveAuthoringEnabled;
+        /// <summary>
         /// The type of integration runtime.
         /// Expected value is 'SelfHosted'.
         /// </summary>
@@ -36,10 +40,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
 
             Union<Outputs.LinkedIntegrationRuntimeKeyAuthorizationResponse, Outputs.LinkedIntegrationRuntimeRbacAuthorizationResponse>? linkedInfo,
 
+            bool? selfContainedInteractiveAuthoringEnabled,
+
             string type)
         {
             Description = description;
             LinkedInfo = linkedInfo;
+            SelfContainedInteractiveAuthoringEnabled = selfContainedInteractiveAuthoringEnabled;
             Type = type;
         }
     }

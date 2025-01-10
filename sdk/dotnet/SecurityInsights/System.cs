@@ -12,6 +12,8 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// <summary>
     /// Describes the system within the agent.
     /// Azure REST API version: 2024-04-01-preview.
+    /// 
+    /// Other available API versions: 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:System")]
     public partial class System : global::Pulumi.CustomResource
@@ -84,6 +86,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:System" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:System" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

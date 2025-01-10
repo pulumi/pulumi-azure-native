@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a Hunt Relation in Azure Security Insights.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
  */
 export class HuntRelation extends pulumi.CustomResource {
     /**
@@ -125,7 +125,7 @@ export class HuntRelation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:HuntRelation" }, { type: "azure-native:securityinsights/v20230501preview:HuntRelation" }, { type: "azure-native:securityinsights/v20230601preview:HuntRelation" }, { type: "azure-native:securityinsights/v20230701preview:HuntRelation" }, { type: "azure-native:securityinsights/v20230801preview:HuntRelation" }, { type: "azure-native:securityinsights/v20230901preview:HuntRelation" }, { type: "azure-native:securityinsights/v20231001preview:HuntRelation" }, { type: "azure-native:securityinsights/v20231201preview:HuntRelation" }, { type: "azure-native:securityinsights/v20240101preview:HuntRelation" }, { type: "azure-native:securityinsights/v20240401preview:HuntRelation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:HuntRelation" }, { type: "azure-native:securityinsights/v20230501preview:HuntRelation" }, { type: "azure-native:securityinsights/v20230601preview:HuntRelation" }, { type: "azure-native:securityinsights/v20230701preview:HuntRelation" }, { type: "azure-native:securityinsights/v20230801preview:HuntRelation" }, { type: "azure-native:securityinsights/v20230901preview:HuntRelation" }, { type: "azure-native:securityinsights/v20231001preview:HuntRelation" }, { type: "azure-native:securityinsights/v20231201preview:HuntRelation" }, { type: "azure-native:securityinsights/v20240101preview:HuntRelation" }, { type: "azure-native:securityinsights/v20240401preview:HuntRelation" }, { type: "azure-native:securityinsights/v20241001preview:HuntRelation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HuntRelation.__pulumiType, name, resourceInputs, opts);
     }
