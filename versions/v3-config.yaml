@@ -304,7 +304,13 @@ Easm:
   expectTracking: preview
   notes: Only single preview version
 EdgeOrder:
-  expectTracking: preview
+  expectTracking: stable
+  exclusions:
+    # Renamed between 2021-12-01 and 2024-02-01
+    AddressByName: "2021-12-01"
+    OrderItemByName: "2021-12-01"
+    listConfigurations: "2021-12-01"
+    listProductFamilies: "2021-12-01"
 EdgeOrderPartner:
   notes: POST based APIs
 Education:
