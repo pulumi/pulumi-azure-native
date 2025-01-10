@@ -384,48 +384,48 @@ func TestDedupResourceNameByPath(t *testing.T) {
 
 func TestResourcePathTracker(t *testing.T) {
 	t.Run("no conflicts, one provider", func(t *testing.T) {
-		tracker := newResourcesPathTracker()
-		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string]struct{}{
-			"VirtualMachine": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}": struct{}{}},
+		tracker := newResourcesPathConflictsTracker()
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"VirtualMachine": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}": {openapi.ApiVersion("2022-02-22")}},
 		})
 		assert.False(t, tracker.hasConflicts())
 	})
 
 	t.Run("conflicts, one provider", func(t *testing.T) {
-		tracker := newResourcesPathTracker()
-		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string]struct{}{
+		tracker := newResourcesPathConflictsTracker()
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
 			"VirtualMachine": {
-				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}":    struct{}{},
-				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachinesFoo/{}": struct{}{},
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}":    {openapi.ApiVersion("2022-02-22")},
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachinesFoo/{}": {openapi.ApiVersion("2024-04-22")},
 			},
 		})
 		assert.True(t, tracker.hasConflicts())
 	})
 
 	t.Run("no conflicts, multiple providers", func(t *testing.T) {
-		tracker := newResourcesPathTracker()
-		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string]struct{}{
-			"VirtualMachine": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}": struct{}{}},
+		tracker := newResourcesPathConflictsTracker()
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"VirtualMachine": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}": {openapi.ApiVersion("2022-02-22")}},
 		})
-		tracker.addPathConflictsForProvider("storage", map[openapi.ResourceName]map[string]struct{}{
-			"StorageAccount": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}": struct{}{}},
+		tracker.addPathConflictsForProvider("storage", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"StorageAccount": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}": {openapi.ApiVersion("2022-02-22")}},
 		})
 		assert.False(t, tracker.hasConflicts())
 	})
 
 	t.Run("conflicts, multiple providers", func(t *testing.T) {
-		tracker := newResourcesPathTracker()
-		tracker.addPathConflictsForProvider("storage", map[openapi.ResourceName]map[string]struct{}{
-			"StorageAccount": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}": struct{}{}},
+		tracker := newResourcesPathConflictsTracker()
+		tracker.addPathConflictsForProvider("storage", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"StorageAccount": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}": {openapi.ApiVersion("2022-02-22")}},
 		})
-		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string]struct{}{
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
 			"VirtualMachine": {
-				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}":    struct{}{},
-				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachinesFoo/{}": struct{}{},
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}":    {openapi.ApiVersion("2022-02-22")},
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachinesFoo/{}": {openapi.ApiVersion("2024-04-22")},
 			},
 		})
-		tracker.addPathConflictsForProvider("migrate", map[openapi.ResourceName]map[string]struct{}{
-			"AssessmentProject": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Migrate/assessmentProjects/{}": struct{}{}},
+		tracker.addPathConflictsForProvider("migrate", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"AssessmentProject": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Migrate/assessmentProjects/{}": {openapi.ApiVersion("2022-02-22")}},
 		})
 		assert.True(t, tracker.hasConflicts())
 	})

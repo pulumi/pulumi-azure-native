@@ -34,7 +34,7 @@ type BuildSchemaArgs struct {
 type BuildSchemaReports struct {
 	PathChangesResult
 	// providerName -> resourceName -> set of paths, to record resources that have conflicting paths.
-	PathConflicts                 map[openapi.ProviderName]map[openapi.ResourceName]map[string]struct{}
+	PathConflicts                 map[openapi.ProviderName]map[openapi.ResourceName]map[string][]openapi.ApiVersion
 	AllResourcesByVersion         ProvidersVersionResources
 	AllResourceVersionsByResource ProviderResourceVersions
 	Pending                       openapi.ProviderVersionList
