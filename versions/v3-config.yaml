@@ -737,15 +737,16 @@ VoiceServices:
     Contact might be deprecated as not covered in the docs.
 Web:
   preview: exclude
-  explicit: true
   exclusions:
-    ContainerApp: "2022-09-01"
-    listContainerAppSecrets: "2022-09-01"
+    # ContainerApp migrated to its own module
+    ContainerApp: "2023-12-01"
+    listContainerAppSecrets: "2023-12-01"
   notes: |
     Documented within "App Service"
     https://learn.microsoft.com/en-us/rest/api/appservice/
     Templates still list Connection, ConnectionGateway and CustomApis:
     https://learn.microsoft.com/en-us/azure/templates/microsoft.web/connections?pivots=deployment-language-bicep
+    Version 2015-08-01 must be ignored entirely via `v3-removed.json`
 WebPubSub:
   expectAdditions: true
 WindowsESU:
