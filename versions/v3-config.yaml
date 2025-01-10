@@ -156,12 +156,18 @@ ConnectedVMwarevSphere:
   expectTracking: preview
   notes: Only preview versions
 ContainerRegistry:
-  preview: exclude # Don't track previews for this module
+  explicit: true
   expectAdditions: true
-  exclusions:
-    # All these resources only exist in a single preview version and cause type merge conflicts
-    BuildTask: 2018-02-01-preview
-  notes: API versions only include updated resources
+  notes: |
+    API versions only include updated resources.
+    The IdentityProperties type has changed between versions and is used by the resources:
+    - CredentialSet
+    - ExportPipeline
+    - ImportPipeline
+    - Registry
+    - Task
+    - TaskRun
+    Therefore we have to manually pick these in the spec.
 ContainerService:
   expectAdditions: true
   notes: |
