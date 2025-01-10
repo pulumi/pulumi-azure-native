@@ -258,39 +258,66 @@ var wellKnownProviderNames = map[string]string{
 	"visualstudio":                 "VisualStudio",
 }
 
-// For the cases below, we use folder (SDK) name for module names instead of the ARM name.
-var folderModulePattern = regexp.MustCompile(`.*/specification/([a-z]+)/resource-manager/.*`)
-var folderModuleNames = map[string]string{
+// ResourceProvider returns a provider name given Open API spec file and resource's API URI.
+// Returns the module name, optional old module name, or error.
+func ResourceProvider(majorVersion uint64, filePath, apiUri string) (string, *string, error) {
+	// We extract the provider name from two sources:
+	// - from the folder name of the Open API spec
+	// - from the URI of the API endpoint (we take the last provider in the URI)
+	specFolderName := getSpecFolderName(filePath)
+	namespaceWithoutPrefixFromSpecFilePath := findNamespaceWithoutPrefixFromPath(filePath, "")
+	namespaceWithoutPrefixFromResourceUrl := findNamespaceWithoutPrefixFromPath(apiUri, "Resources")
+	// Start with extracting the provider from the folder path. If the folder name is explicitly listed,
+	// use it as the provider name. This is the new style we use for newer resources after 1.0. Older
+	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
+	if override, oldModule, hasOverride := getNameOverride(majorVersion, specFolderName, namespaceWithoutPrefixFromSpecFilePath); hasOverride {
+		return override, oldModule, nil
+	}
+	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
+	// declarations outside of the current API provider.
+	if !strings.EqualFold(namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl) {
+		return "", nil, fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl)
+	}
+	return namespaceWithoutPrefixFromSpecFilePath, nil, nil
+}
+
+var modulesNamedByFolder = map[string]string{
 	"videoanalyzer": "VideoAnalyzer",
 	"webpubsub":     "WebPubSub",
 }
 
-// ResourceProvider returns a provider name given Open API spec file and resource's API URI.
-func ResourceProvider(filePath, apiUri string) (string, error) {
-	// Start with extracting the provider from the folder path. If the folder name is explicitly listed,
-	// use it as the provider name. This is the new style we use for newer resources after 1.0. Older
-	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
-	subMatches := folderModulePattern.FindStringSubmatch(filePath)
-	if len(subMatches) > 1 {
-		moduleAlias := subMatches[1]
-		if name, ok := folderModuleNames[moduleAlias]; ok {
-			return name, nil
-		}
-	}
-	// We extract the provider name from two sources:
-	// - from the folder name of the Open API spec
-	// - from the URI of the API endpoint (we take the last provider in the URI)
-	fileProvider := resourceProvider(filePath, "")
-	apiProvider := resourceProvider(apiUri, "Resources")
-	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
-	// declarations outside of the current API provider.
-	if strings.ToLower(fileProvider) != strings.ToLower(apiProvider) {
-		return "", fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", fileProvider, apiProvider)
-	}
-	return fileProvider, nil
+var moduleNameOverridesWithAliases = map[string]map[string]string{
+	"Network": {
+		"dns":            "Dns",
+		"dnsresolver":    "DnsResolver",
+		"frontdoor":      "FrontDoor",
+		"privatedns":     "PrivateDns",
+		"trafficmanager": "TrafficManager",
+	},
 }
 
-func resourceProvider(path, defaultValue string) string {
+// getNameOverride returns a name override for a given folder name, and non-prefixed namespace.
+// The second return value is true if an override is found.
+func getNameOverride(majorVersion uint64, specFolderName, namespaceWithoutPrefix string) (string, *string, bool) {
+	// For the cases below, we use folder (SDK) name for module names instead of the ARM name.
+	if name, ok := modulesNamedByFolder[specFolderName]; ok {
+		return name, nil, true
+	}
+	// Disable additional rules for v2 and below.
+	// TODO: Remove after v3 release.
+	if majorVersion < 3 {
+		return "", nil, false
+	}
+	// New rules for v3 and above which include aliases back to the original namespace.
+	if namespaceOverrides, ok := moduleNameOverridesWithAliases[namespaceWithoutPrefix]; ok {
+		if folderName, ok := namespaceOverrides[specFolderName]; ok {
+			return folderName, &namespaceWithoutPrefix, true
+		}
+	}
+	return "", nil, false
+}
+
+func findNamespaceWithoutPrefixFromPath(path, defaultValue string) string {
 	parts := strings.Split(path, "/")
 	if len(parts) < 3 {
 		return ""
@@ -310,6 +337,17 @@ func resourceProvider(path, defaultValue string) string {
 	}
 
 	return defaultValue
+}
+
+var folderModulePattern = regexp.MustCompile(`.*/specification/([a-z]+)/resource-manager/.*`)
+
+func getSpecFolderName(path string) string {
+	subMatches := folderModulePattern.FindStringSubmatch(path)
+	if len(subMatches) > 1 {
+		moduleAlias := subMatches[1]
+		return moduleAlias
+	}
+	return ""
 }
 
 var verbReplacer = strings.NewReplacer(

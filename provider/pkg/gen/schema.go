@@ -44,6 +44,9 @@ const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk/v2"
 const goModuleRepoPath = "github.com/pulumi/pulumi-azure-native-sdk"
 const goModuleVersion = "/v2"
 
+// pulumiProviderName is the name of the provider as used in all tokens.
+const pulumiProviderName = "azure-native"
+
 type ResourceDeprecation struct {
 	ReplacementToken string
 }
@@ -323,7 +326,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				javaPackages[module] = fmt.Sprintf("%s.%s", strings.ToLower(providerName), sdkVersion)
 			}
 			pythonModuleNames[module] = module
-			golangImportAliases[filepath.Join(goModuleRepoPath, gen.versionedModuleName())] = strings.ToLower(providerName)
+			golangImportAliases[goModuleName(gen.provider, gen.sdkVersion)] = strings.ToLower(providerName)
 
 			// Populate resources and get invokes.
 			items := versionMap[sdkVersion]
@@ -772,11 +775,6 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 	return result, nil
 }
 
-func (g *packageGenerator) makeTypeAlias(alias string, apiVersion openapi.SdkVersion) pschema.AliasSpec {
-	fqAlias := g.generateTok(alias, apiVersion)
-	return pschema.AliasSpec{Type: &fqAlias}
-}
-
 func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {
 	module := g.moduleName()
 	swagger := resource.Swagger
@@ -967,16 +965,41 @@ func isSingleton(resource *resourceVariant) bool {
 func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
 	var aliases []pschema.AliasSpec
 
+	addAlias := func(module, typeName string, version openapi.SdkVersion) {
+		alias := generateTok(module, typeName, version)
+		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
+	}
+
+	// Add an alias for the same version of the resource, but in its old module.
+	if resource.PreviousProviderName != nil {
+		addAlias(*resource.PreviousProviderName, resource.typeName, g.sdkVersion)
+	}
+
 	for _, alias := range typeNameAliases {
-		aliases = append(aliases, g.makeTypeAlias(alias, g.sdkVersion))
+		addAlias(g.provider, alias, g.sdkVersion)
+		// Add an alias for the same alias, but in its old module.
+		if resource.PreviousProviderName != nil {
+			addAlias(*resource.PreviousProviderName, alias, g.sdkVersion)
+		}
 	}
 
 	// Add an alias for each API version that has the same path in it.
 	for _, version := range resource.CompatibleVersions {
-		aliases = append(aliases, g.makeTypeAlias(resource.typeName, version))
+		addAlias(g.provider, resource.typeName, version)
 
+		// Add an alias for the other versions, but from its old module.
+		if resource.PreviousProviderName != nil {
+			addAlias(*resource.PreviousProviderName, resource.typeName, version)
+		}
+
+		// Add type name aliases for each compatible version.
 		for _, alias := range typeNameAliases {
-			aliases = append(aliases, g.makeTypeAlias(alias, version))
+			addAlias(g.provider, alias, version)
+
+			// Add an alias for the other version, with alias, from its old module.
+			if resource.PreviousProviderName != nil {
+				addAlias(*resource.PreviousProviderName, alias, version)
+			}
 		}
 	}
 
@@ -1056,7 +1079,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 	}
 
 	// Generate the function to get this resource.
-	functionTok := g.generateTok(typeName, g.sdkVersion)
+	functionTok := generateTok(g.provider, typeName, g.sdkVersion)
 	if !g.shouldInclude(typeName, functionTok, g.apiVersion) {
 		return
 	}
@@ -1106,27 +1129,25 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 
 // moduleName produces the module name from the provider name and the version e.g. `compute/v20200701`.
 func (g *packageGenerator) moduleName() string {
-	return g.providerApiToModule(g.sdkVersion)
+	return providerApiToModule(g.provider, g.sdkVersion)
 }
 
-func (g *packageGenerator) versionedModuleName() string {
-	versionedModule := strings.ToLower(g.provider) + goModuleVersion
-	if g.sdkVersion == "" {
-		return versionedModule
-	}
-	return fmt.Sprintf("%s/%s", versionedModule, g.sdkVersion)
+// goModuleName produces the *Go* module name from the provider name and the version e.g. `compute/v20200701`.
+// or just the provider name if the version is empty (default version) e.g. `compute`.
+func goModuleName(provider openapi.ProviderName, sdkVersion openapi.SdkVersion) string {
+	return filepath.Join(goModuleRepoPath, strings.ToLower(provider), goModuleVersion, string(sdkVersion))
 }
 
 // providerApiToModule produces the module name from the provider name (g.provider), and the version if not empty, e.g. `compute/v20200701`.
-func (g *packageGenerator) providerApiToModule(apiVersion openapi.SdkVersion) string {
-	if apiVersion == "" {
-		return strings.ToLower(g.provider)
+func providerApiToModule(provider openapi.ProviderName, sdkVersion openapi.SdkVersion) string {
+	if sdkVersion == "" {
+		return strings.ToLower(provider)
 	}
-	return fmt.Sprintf("%s/%s", strings.ToLower(g.provider), apiVersion)
+	return fmt.Sprintf("%s/%s", strings.ToLower(provider), sdkVersion)
 }
 
-func (g *packageGenerator) generateTok(typeName string, apiVersion openapi.SdkVersion) string {
-	return fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, g.providerApiToModule(apiVersion), typeName)
+func generateTok(provider openapi.ProviderName, typeName string, apiVersion openapi.SdkVersion) string {
+	return fmt.Sprintf(`%s:%s:%s`, pulumiProviderName, providerApiToModule(provider, apiVersion), typeName)
 }
 
 func (g *packageGenerator) shouldInclude(typeName, tok string, version *openapi.ApiVersion) bool {
@@ -1159,7 +1180,7 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 			if v == defaultVersion {
 				continue
 			}
-			tok := g.generateTok(typeName, openapi.ApiToSdkVersion(v))
+			tok := generateTok(g.provider, typeName, openapi.ApiToSdkVersion(v))
 			if g.shouldInclude(typeName, tok, &v) {
 				includedVersions = append(includedVersions, string(v))
 			}

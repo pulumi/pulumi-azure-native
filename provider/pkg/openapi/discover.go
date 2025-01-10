@@ -17,6 +17,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
@@ -206,14 +207,15 @@ func (v VersionResources) All() map[string]*ResourceSpec {
 
 // ResourceSpec contains a pointer in an Open API Spec that defines a resource and related metadata.
 type ResourceSpec struct {
-	Path               string
-	PathItem           *spec.PathItem
-	PathItemList       *spec.PathItem
-	Swagger            *Spec
-	CompatibleVersions []SdkVersion
-	DefaultBody        map[string]interface{}
-	DeprecationMessage string
-	PreviousVersion    ApiVersion
+	Path                 string
+	PathItem             *spec.PathItem
+	PathItemList         *spec.PathItem
+	Swagger              *Spec
+	CompatibleVersions   []SdkVersion
+	DefaultBody          map[string]interface{}
+	DeprecationMessage   string
+	PreviousVersion      ApiVersion
+	PreviousProviderName *string
 }
 
 // ApplyProvidersTransformations adds the default version for each provider and deprecates and removes specified API versions.
@@ -507,7 +509,7 @@ func exclude(filePath string) bool {
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
 func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
-	prov, err := resources.ResourceProvider(filepath.Join(specsDir, fileLocation), path)
+	prov, oldProvider, err := resources.ResourceProvider(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
 	if err != nil {
 		return DiscoveryDiagnostics{
 			ProviderNameErrors: []ProviderNameError{
@@ -536,10 +538,10 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		versionMap[sdkVersion] = version
 	}
 
-	return addResourcesAndInvokes(version, fileLocation, path, prov, swagger)
+	return addResourcesAndInvokes(version, fileLocation, path, prov, oldProvider, swagger)
 }
 
-func addResourcesAndInvokes(version VersionResources, fileLocation, path, provider string, swagger *Spec) DiscoveryDiagnostics {
+func addResourcesAndInvokes(version VersionResources, fileLocation, path, provider string, oldProvider *string, swagger *Spec) DiscoveryDiagnostics {
 	apiVersion := ApiVersion(swagger.Info.Version)
 	sdkVersion := ApiToSdkVersion(apiVersion)
 
@@ -569,11 +571,12 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 	foundResourceOrInvoke := false
 	addResource := func(typeName string, defaultBody map[string]interface{}, pathItemList *spec.PathItem) {
 		version.Resources[typeName] = &ResourceSpec{
-			Path:         path,
-			PathItem:     &pathItem,
-			Swagger:      swagger,
-			DefaultBody:  defaultBody,
-			PathItemList: pathItemList,
+			Path:                 path,
+			PathItem:             &pathItem,
+			Swagger:              swagger,
+			DefaultBody:          defaultBody,
+			PathItemList:         pathItemList,
+			PreviousProviderName: oldProvider,
 		}
 		foundResourceOrInvoke = true
 	}
