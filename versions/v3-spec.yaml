@@ -8,3 +8,5 @@ ContainerRegistry:
         Registry: 2023-01-01-preview
         Task: 2019-06-01-preview
         TaskRun: 2019-06-01-preview
+HybridContainerService:
+    tracking: 2022-09-01-preview

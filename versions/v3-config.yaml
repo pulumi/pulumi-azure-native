@@ -370,10 +370,10 @@ HybridConnectivity:
   notes: Only preview versions
 HybridContainerService:
   expectTracking: preview
-  notes: Only preview versions
+  notes: Spec directory is hybridaks. Rest docs is "AKS Azure Arc enabled"
   exclusions:
-    # Temporarily remove additional resources from 2023-11-15-preview as they conflict with types from 2022-09-01-preview
-    # We could consider trying to upgrade the tracking version to 2023-11-15-preview once we're sure it's available in all regions.
+    # Between type conflicts and partial version releases, we're fairly stuck on the version combinations that work.
+    # Excluding some new resources from the default version and pinning to and older version as a workaround.
     KubernetesVersions: "2024-01-01"
     VMSkus: "2024-01-01"
     listprovisionedClusterInstanceAdminKubeconfig: "2024-01-01"
