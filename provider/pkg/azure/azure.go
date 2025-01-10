@@ -49,6 +49,11 @@ func IsNotFound(err error) bool {
 	if responseError, ok := err.(*azcore.ResponseError); ok {
 		return responseError.StatusCode == http.StatusNotFound
 	}
+
+	if responseError, ok := err.(*PulumiAzcoreResponseError); ok {
+		return responseError.StatusCode == http.StatusNotFound
+	}
+
 	return false
 }
 
