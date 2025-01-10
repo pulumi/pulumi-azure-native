@@ -294,6 +294,9 @@ var moduleNameOverridesWithAliases = map[string]map[string]string{
 		"privatedns":     "PrivateDns",
 		"trafficmanager": "TrafficManager",
 	},
+	"DocumentDB": {
+		"mongocluster": "MongoCluster",
+	},
 }
 
 // getNameOverride returns a name override for a given folder name, and non-prefixed namespace.

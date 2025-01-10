@@ -279,6 +279,17 @@ Devices:
 DigitalTwins:
 DocumentDB:
   expectAdditions: true
+  exclusions:
+    # Exclude very old DatabaseAccount variations which are no longer used.
+    DatabaseAccountCassandraKeyspace: "2016-03-31"
+    DatabaseAccountCassandraTable: "2016-03-31"
+    DatabaseAccountGremlinDatabase: "2016-03-31"
+    DatabaseAccountGremlinGraph: "2016-03-31"
+    DatabaseAccountMongoDBCollection: "2016-03-31"
+    DatabaseAccountMongoDBDatabase: "2016-03-31"
+    DatabaseAccountSqlContainer: "2016-03-31"
+    DatabaseAccountSqlDatabase: "2016-03-31"
+    DatabaseAccountTable: "2016-03-31"
   notes: |
     Some new features like Mongo clusters on vcore are only available in preview
     versions but are documented, e.g.
