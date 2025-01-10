@@ -260,6 +260,16 @@ DevHub:
   notes: Depreated and no longer listed on https://learn.microsoft.com/en-us/rest/api/azure/
 DevSpaces:
 DevTestLab:
+  exclusions:
+    # All from a 10 year old version where each resource has the word "Resource" appended to it
+    ArtifactSourceResource: 2015-05-21-preview
+    CustomImageResource: 2015-05-21-preview
+    FormulaResource: 2015-05-21-preview
+    LabResource: 2015-05-21-preview
+    PolicyResource: 2015-05-21-preview
+    ScheduleResource: 2015-05-21-preview
+    VirtualMachineResource: 2015-05-21-preview
+    VirtualNetworkResource: 2015-05-21-preview
 DeviceUpdate:
 Devices:
   expectAdditions: true
