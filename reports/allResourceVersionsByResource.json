@@ -8921,22 +8921,26 @@
   "DatabaseWatcher": {
     "AlertRuleResource": [
       "2024-07-19-preview",
-      "2024-10-01-preview"
+      "2024-10-01-preview",
+      "2025-01-02"
     ],
     "SharedPrivateLinkResource": [
       "2023-09-01-preview",
       "2024-07-19-preview",
-      "2024-10-01-preview"
+      "2024-10-01-preview",
+      "2025-01-02"
     ],
     "Target": [
       "2023-09-01-preview",
       "2024-07-19-preview",
-      "2024-10-01-preview"
+      "2024-10-01-preview",
+      "2025-01-02"
     ],
     "Watcher": [
       "2023-09-01-preview",
       "2024-07-19-preview",
-      "2024-10-01-preview"
+      "2024-10-01-preview",
+      "2025-01-02"
     ]
   },
   "Databricks": {

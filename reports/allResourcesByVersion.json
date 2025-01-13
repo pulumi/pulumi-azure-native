@@ -8679,6 +8679,12 @@
       "SharedPrivateLinkResource",
       "Target",
       "Watcher"
+    ],
+    "2025-01-02": [
+      "AlertRuleResource",
+      "SharedPrivateLinkResource",
+      "Target",
+      "Watcher"
     ]
   },
   "Databricks": {
