@@ -311,7 +311,7 @@ dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(
 	@touch $@
 
 .make/prebuild: .pulumi/bin/pulumi
-	cp -v versions/v${MAJOR_VERSION}-lock.json provider/pkg/versionLookup/
+	cp -v versions/v${MAJOR_VERSION}-lock.json provider/pkg/versionLookup/version-lock.json
 	@touch $@
 
 define FAKE_MODULE

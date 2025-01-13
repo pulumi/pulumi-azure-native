@@ -9,11 +9,9 @@ import (
 // excludeResourcePatterns lists resources being skipped due to known codegen issues.
 var excludeResourcePatterns = []string{
 	"azure-native:chaos:Experiment",
-	"azure-native:costmanagement:Budget",
-	"azure-native:costmanagement:Report",
 	"azure-native:datafactory:Pipeline", // go codegen goes full CPU and doesn't return
 
-	"azure-native:hybridcompute:GuestConfigurationHCRPAssignment",    // python name mismatch
+	"azure-native:hybridcompute:GuestConfigurationHCRPAssignment", // python name mismatch
 }
 var excludeRegexes []*regexp.Regexp
 

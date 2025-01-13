@@ -64,11 +64,14 @@ type genPropertiesVariant struct {
 	isType bool
 	// isResponse indicates that the properties are being generated for a response type.
 	isResponse bool
+	// isTopLevel indicates that the properties are being generated for a top-level resource rather than a referenced type.
+	isTopLevel bool
 }
 
-// noResponse returns a new copy of the variant with isResponse set to false.
-func (v *genPropertiesVariant) noResponse() genPropertiesVariant {
+// nestedWithoutResponse returns a new copy of the variant with isResponse set to false.
+func (v *genPropertiesVariant) nestedWithoutResponse() genPropertiesVariant {
 	return genPropertiesVariant{
+		isTopLevel: false,
 		isOutput:   v.isOutput,
 		isType:     v.isType,
 		isResponse: false,
@@ -109,6 +112,10 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 		if clientName, ok := resolvedProperty.Extensions.GetString(extensionClientName); ok {
 			sdkName = firstToLower(clientName)
 		}
+		// Urn is a reserved word in our SDKs so we should avoid it on the resource itself.
+		if sdkName == "urn" && variants.isTopLevel {
+			sdkName = "urnValue"
+		}
 		// Change the name to lowerCamelCase.
 		sdkName = ToLowerCamel(sdkName)
 
@@ -137,7 +144,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 			}
 
 			if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
-				bag, err := m.genProperties(resolvedProperty, variants.noResponse())
+				bag, err := m.genProperties(resolvedProperty, variants.nestedWithoutResponse())
 				if err != nil {
 					return nil, err
 				}
@@ -154,7 +161,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 			}
 		} else { // v3+: don't flatten when there are conflicts
 			if (ok && flatten && !isDict) || workaroundDelegatedNetworkBreakingChange {
-				bag, err := m.genProperties(resolvedProperty, variants.noResponse())
+				bag, err := m.genProperties(resolvedProperty, variants.nestedWithoutResponse())
 				if err != nil {
 					return nil, err
 				}
@@ -210,7 +217,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 			return nil, fmt.Errorf("failed to resolve allOf schema %d: %w", i, err)
 		}
 
-		allOfProperties, err := m.genProperties(allOfSchema, variants.noResponse())
+		allOfProperties, err := m.genProperties(allOfSchema, variants.nestedWithoutResponse())
 		if err != nil {
 			return nil, fmt.Errorf("failed to generate allOf properties %d: %w", i, err)
 		}

@@ -1418,6 +1418,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 
 			// The body parameter is flattened, so that all its properties become the properties of the type.
 			props, err := m.genProperties(bodySchema, genPropertiesVariant{
+				isTopLevel: true,
 				isOutput:   false,
 				isType:     false,
 				isResponse: false,
@@ -1514,6 +1515,7 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 	}
 
 	result, err := m.genProperties(responseSchema, genPropertiesVariant{
+		isTopLevel: true,
 		isOutput:   true,
 		isType:     false,
 		isResponse: true,
