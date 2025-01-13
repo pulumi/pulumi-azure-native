@@ -71,7 +71,7 @@ type GenerationResult struct {
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning Versioning, majorVersion int) (*GenerationResult, error) {
+func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning Versioning, providerVersion semver.Version) (*GenerationResult, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -321,7 +321,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 				caseSensitiveTypes:         caseSensitiveTypes,
 				rootDir:                    rootDir,
 				flattenedPropertyConflicts: flattenedPropertyConflicts,
-				majorVersion:               majorVersion,
+				majorVersion:               int(providerVersion.Major),
 				resourcePaths:              map[openapi.ResourceName]map[string]openapi.ApiVersion{},
 			}
 
@@ -365,8 +365,9 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	}
 
 	// When a resource maps to more than one API path, it's a conflict and we need to detect and report it. #2495
-	if majorVersion >= 3 && resourcesPathTracker.hasConflicts() {
-		return nil, fmt.Errorf("path conflicts detected. You probably need to add a case to schema.go/dedupResourceNameByPath.\n%v", resourcesPathTracker.pathConflicts)
+	isReleaseBuild := len(providerVersion.Build) == 0
+	if providerVersion.Major >= 3 && isReleaseBuild && resourcesPathTracker.hasConflicts() {
+		return nil, fmt.Errorf("path conflicts detected. You probably need to add a case to schema.go/dedupResourceNameByPath.\n%+v", resourcesPathTracker.pathConflicts)
 	}
 
 	err := genMixins(&pkg, &metadata)

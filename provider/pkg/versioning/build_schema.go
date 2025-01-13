@@ -3,9 +3,8 @@ package versioning
 import (
 	"path"
 	"sort"
-	"strconv"
-	"strings"
 
+	"github.com/blang/semver"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
@@ -86,7 +85,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	majorVersion, err := strconv.ParseInt(strings.Split(args.Version, ".")[0], 10, 64)
+	providerVersion, err := semver.Parse(args.Version)
 	if err != nil {
 		return nil, err
 	}
@@ -95,7 +94,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	if args.OnlyExplicitVersions {
 		versionMetadata = VersionMetadata{}
 	} else {
-		versionMetadata, err = LoadVersionMetadata(args.RootDir, providers, int(majorVersion))
+		versionMetadata, err = LoadVersionMetadata(args.RootDir, providers, int(providerVersion.Major))
 		if err != nil {
 			return nil, err
 		}
@@ -124,7 +123,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		InactiveDefaultVersions:       versionMetadata.InactiveDefaultVersions,
 	}
 
-	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata, int(majorVersion))
+	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata, providerVersion)
 
 	if err != nil {
 		return &BuildSchemaResult{

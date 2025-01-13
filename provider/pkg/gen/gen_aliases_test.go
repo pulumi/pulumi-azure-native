@@ -5,6 +5,7 @@ import (
 	"path"
 	"testing"
 
+	"github.com/blang/semver"
 	"github.com/gkampitakis/go-snaps/snaps"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 )
@@ -30,7 +31,7 @@ func TestAliasesGen(t *testing.T) {
 	}
 
 	t.Run("v2", func(t *testing.T) {
-		generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, 2)
+		generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, semver.MustParse("2.0.0"))
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -40,7 +41,7 @@ func TestAliasesGen(t *testing.T) {
 	})
 
 	t.Run("v3", func(t *testing.T) {
-		generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, 3)
+		generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, semver.MustParse("3.0.0"))
 		if err != nil {
 			t.Fatal(err)
 		}

@@ -5,6 +5,7 @@ import (
 	"path"
 	"testing"
 
+	"github.com/blang/semver"
 	"github.com/gkampitakis/go-snaps/snaps"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 )
@@ -25,7 +26,7 @@ func TestVnetGen(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, 2)
+	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, semver.MustParse("2.0.0"))
 	if err != nil {
 		t.Fatal(err)
 	}
