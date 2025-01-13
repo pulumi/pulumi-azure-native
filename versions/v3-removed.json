@@ -25,7 +25,8 @@
     "2017-07-14"
   ],
   "ApiManagement": [
-    "2016-07-07"
+    "2016-07-07",
+    "2016-10-10"
   ],
   "App": [],
   "AppComplianceAutomation": [],
@@ -382,7 +383,9 @@
   "Kusto": [
     "2017-09-07-privatepreview"
   ],
-  "LabServices": [],
+  "LabServices": [
+    "2018-10-15"
+  ],
   "LoadTestService": [],
   "Logic": [],
   "Logz": [],
@@ -430,7 +433,8 @@
   "MarketplaceOrdering": [],
   "Media": [],
   "Migrate": [
-    "2017-11-11-preview"
+    "2017-11-11-preview",
+    "2018-02-02"
   ],
   "MixedReality": [
     "2019-02-28-preview",
@@ -479,7 +483,8 @@
     "2018-02-01",
     "2018-03-01",
     "2018-03-01-preview",
-    "2018-04-01"
+    "2018-04-01",
+    "2021-05-01-preview"
   ],
   "NetworkCloud": [],
   "NetworkFunction": [],
@@ -584,6 +589,9 @@
   "SignalRService": [
     "2018-03-01-preview",
     "2018-10-01"
+  ],
+  "Sim": [
+    "2022-03-01-preview"
   ],
   "SoftwarePlan": [],
   "Solutions": [
