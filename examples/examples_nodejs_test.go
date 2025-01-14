@@ -1,5 +1,6 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
 //go:build nodejs || all
+// +build nodejs all
 
 package examples
 
@@ -7,6 +8,7 @@ import (
 	"context"
 	"encoding/json"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -329,25 +331,31 @@ func TestRecoveryServicesProtectedItemTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccPIMRoleManagementPolicies(t *testing.T) {
+func TestPIMRoleManagementPolicies(t *testing.T) {
 	skipIfShort(t)
 
 	// A randomly chosen Role Management Policy, from the list obtained by
 	// az rest --method get --url https://management.azure.com/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Authorization/roleManagementPolicies\?api-version\=2020-10-01
 	const policyId = "7ed63469-c833-4fba-9032-803ce289eabc"
 
+	// Set up standard azidentity auth for the azure sdk.
+	// If ARM_CLIENT_SECRET is set, service principal auth is configured and we use it.
+	// Otherwise, we use the default Azure credential, which attempts to use managed identity and CLI.
+	clientSecret := os.Getenv("ARM_CLIENT_SECRET")
+	if clientSecret != "" {
+		os.Setenv("AZURE_TENANT_ID", os.Getenv("ARM_TENANT_ID"))
+		os.Setenv("AZURE_CLIENT_ID", os.Getenv("ARM_CLIENT_ID"))
+		os.Setenv("AZURE_CLIENT_SECRET", clientSecret)
+	}
+
 	// Retrieve the `maximumDuration` property of the randomly chosen Expiration_Admin_Eligibility rule.
 	// Used in ExtraRuntimeValidation to assert that the rule has the expected duration.
 	// Uses the Azure SDK to be able to retrieve the actual value from Azure, independent of Pulumi.
 	get_Expiration_Admin_Eligibility_RuleDuration := func() string {
-		cred, err := azidentity.NewClientSecretCredential(
-			os.Getenv("ARM_TENANT_ID"),
-			os.Getenv("ARM_CLIENT_ID"),
-			os.Getenv("ARM_CLIENT_SECRET"),
-			nil)
+		cred, err := azidentity.NewDefaultAzureCredential(nil)
 		require.NoError(t, err)
 
-		sub := os.Getenv("ARM_SUBSCRIPTION_ID")
+		sub := getAzureSubscriptionId(t)
 		clientFactory, err := armauthorization.NewClientFactory(sub, cred, nil)
 		require.NoError(t, err)
 		client := clientFactory.NewRoleManagementPoliciesClient()
@@ -398,6 +406,18 @@ func TestAccPIMRoleManagementPolicies(t *testing.T) {
 		})
 
 	integration.ProgramTest(t, &test)
+}
+
+// Try ARM_SUBSCRIPTION_ID first as in CI, then 'az' as in local development.
+func getAzureSubscriptionId(t *testing.T) string {
+	sub := os.Getenv("ARM_SUBSCRIPTION_ID")
+	if sub != "" {
+		return sub
+	}
+
+	azOut, err := exec.Command("az", "account", "show", "--query", "id", "-o", "tsv").Output()
+	require.NoError(t, err)
+	return strings.TrimSpace(string(azOut))
 }
 
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
