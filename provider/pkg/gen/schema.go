@@ -935,7 +935,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	canonPath := paths.NormalizePath(resource.Path)
 
 	typeName := resource.typeName
-	if g.majorVersion > 3 {
+	if g.majorVersion > 2 {
 		typeName = dedupResourceNameByPath(g.moduleName, resource.typeName, canonPath)
 	}
 
