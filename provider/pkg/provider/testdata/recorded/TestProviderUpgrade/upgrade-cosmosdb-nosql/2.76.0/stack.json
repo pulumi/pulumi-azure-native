@@ -1,0 +1,405 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-01-14T12:57:48.548592-08:00",
+      "magic": "c8d1ee0f29b00486393c3f493bc4146a28196fd57861ad14dd486f5bd0f61d2d",
+      "version": "v3.144.1"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:+ljYtdt4b9E=:v1:l4m8v9cUFROoh4/a:bVMr/v5opWQYQQ5v22V39Jy7DzIDkA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:pulumi:Stack::upgrade-cosmosdb-nosql-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2025-01-14T20:55:18.902752Z",
+        "modified": "2025-01-14T20:55:18.902752Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:random::default",
+        "custom": true,
+        "id": "94743daf-e736-40fa-88da-cfec96ee3aee",
+        "type": "pulumi:providers:random",
+        "created": "2025-01-14T20:55:21.049363Z",
+        "modified": "2025-01-14T20:55:21.049363Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::random:index/randomPet:RandomPet::accountName",
+        "custom": true,
+        "id": "sql-rich-tahr",
+        "type": "random:index/randomPet:RandomPet",
+        "inputs": {
+          "prefix": "sql"
+        },
+        "outputs": {
+          "id": "sql-rich-tahr",
+          "length": 2,
+          "prefix": "sql",
+          "separator": "-"
+        },
+        "parent": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:pulumi:Stack::upgrade-cosmosdb-nosql-test",
+        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:random::default::94743daf-e736-40fa-88da-cfec96ee3aee",
+        "propertyDependencies": {
+          "prefix": []
+        },
+        "created": "2025-01-14T20:55:21.055143Z",
+        "modified": "2025-01-14T20:55:21.055143Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default",
+        "custom": true,
+        "id": "1940b775-3f3c-47c5-9219-12faf32a8863",
+        "type": "pulumi:providers:azure-native",
+        "inputs": {
+          "location": "westus2"
+        },
+        "outputs": {
+          "location": "westus2"
+        },
+        "created": "2025-01-14T20:55:21.055859Z",
+        "modified": "2025-01-14T20:55:21.055859Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471",
+        "type": "azure-native:resources:ResourceGroup",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "location": "centralus",
+          "resourceGroupName": "rg60811471"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471",
+          "location": "centralus",
+          "name": "rg60811471",
+          "properties": {
+            "provisioningState": "Succeeded"
+          },
+          "type": "Microsoft.Resources/resourceGroups"
+        },
+        "parent": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:pulumi:Stack::upgrade-cosmosdb-nosql-test",
+        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::1940b775-3f3c-47c5-9219-12faf32a8863",
+        "propertyDependencies": {
+          "location": []
+        },
+        "created": "2025-01-14T20:55:24.431107Z",
+        "modified": "2025-01-14T20:55:24.431107Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:DatabaseAccount::databaseAccount",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr",
+        "type": "azure-native:documentdb:DatabaseAccount",
+        "inputs": {
+          "accountName": "sql-rich-tahr",
+          "consistencyPolicy": {
+            "defaultConsistencyLevel": "Session"
+          },
+          "databaseAccountOfferType": "Standard",
+          "disableKeyBasedMetadataWriteAccess": true,
+          "enableAutomaticFailover": true,
+          "kind": "GlobalDocumentDB",
+          "location": "centralus",
+          "locations": [
+            {
+              "failoverPriority": 0,
+              "locationName": "centralus"
+            }
+          ],
+          "resourceGroupName": "rg60811471"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "analyticalStorageConfiguration": {
+            "schemaType": "WellDefined"
+          },
+          "backupPolicy": {
+            "periodicModeProperties": {
+              "backupIntervalInMinutes": 240,
+              "backupRetentionIntervalInHours": 8,
+              "backupStorageRedundancy": "Geo"
+            },
+            "type": "Periodic"
+          },
+          "capabilities": [],
+          "consistencyPolicy": {
+            "defaultConsistencyLevel": "Session",
+            "maxIntervalInSeconds": 5,
+            "maxStalenessPrefix": 100
+          },
+          "cors": [],
+          "databaseAccountOfferType": "Standard",
+          "defaultIdentity": "FirstPartyIdentity",
+          "disableKeyBasedMetadataWriteAccess": true,
+          "disableLocalAuth": false,
+          "documentEndpoint": "https://sql-rich-tahr.documents.azure.com:443/",
+          "enableAnalyticalStorage": false,
+          "enableAutomaticFailover": true,
+          "enableFreeTier": false,
+          "enableMultipleWriteLocations": false,
+          "enablePartitionMerge": false,
+          "failoverPolicies": [
+            {
+              "failoverPriority": 0,
+              "id": "sql-rich-tahr-centralus",
+              "locationName": "Central US"
+            }
+          ],
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr",
+          "identity": {
+            "type": "None"
+          },
+          "instanceId": "2e9a58ea-b9cf-4414-a60a-2b606cbd6e1b",
+          "ipRules": [],
+          "isVirtualNetworkFilterEnabled": false,
+          "keysMetadata": {
+            "primaryMasterKey": {
+              "generationTime": "2025-01-14T20:56:53.9613427Z"
+            },
+            "primaryReadonlyMasterKey": {
+              "generationTime": "2025-01-14T20:56:53.9613427Z"
+            },
+            "secondaryMasterKey": {
+              "generationTime": "2025-01-14T20:56:53.9613427Z"
+            },
+            "secondaryReadonlyMasterKey": {
+              "generationTime": "2025-01-14T20:56:53.9613427Z"
+            }
+          },
+          "kind": "GlobalDocumentDB",
+          "location": "Central US",
+          "locations": [
+            {
+              "documentEndpoint": "https://sql-rich-tahr-centralus.documents.azure.com:443/",
+              "failoverPriority": 0,
+              "id": "sql-rich-tahr-centralus",
+              "isZoneRedundant": false,
+              "locationName": "Central US",
+              "provisioningState": "Succeeded"
+            }
+          ],
+          "minimalTlsVersion": "Tls12",
+          "name": "sql-rich-tahr",
+          "networkAclBypass": "None",
+          "networkAclBypassResourceIds": [],
+          "provisioningState": "Succeeded",
+          "publicNetworkAccess": "Enabled",
+          "readLocations": [
+            {
+              "documentEndpoint": "https://sql-rich-tahr-centralus.documents.azure.com:443/",
+              "failoverPriority": 0,
+              "id": "sql-rich-tahr-centralus",
+              "isZoneRedundant": false,
+              "locationName": "Central US",
+              "provisioningState": "Succeeded"
+            }
+          ],
+          "systemData": {
+            "createdAt": "2025-01-14T20:56:53.9613427Z"
+          },
+          "tags": {},
+          "type": "Microsoft.DocumentDB/databaseAccounts",
+          "virtualNetworkRules": [],
+          "writeLocations": [
+            {
+              "documentEndpoint": "https://sql-rich-tahr-centralus.documents.azure.com:443/",
+              "failoverPriority": 0,
+              "id": "sql-rich-tahr-centralus",
+              "isZoneRedundant": false,
+              "locationName": "Central US",
+              "provisioningState": "Succeeded"
+            }
+          ]
+        },
+        "parent": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:pulumi:Stack::upgrade-cosmosdb-nosql-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-cosmosdb-nosql::random:index/randomPet:RandomPet::accountName"
+        ],
+        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::1940b775-3f3c-47c5-9219-12faf32a8863",
+        "propertyDependencies": {
+          "accountName": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::random:index/randomPet:RandomPet::accountName"
+          ],
+          "consistencyPolicy": [],
+          "databaseAccountOfferType": [],
+          "disableKeyBasedMetadataWriteAccess": [],
+          "enableAutomaticFailover": [],
+          "kind": [],
+          "location": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
+          ],
+          "locations": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2025-01-14T20:57:13.848556Z",
+        "modified": "2025-01-14T20:57:13.848556Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:SqlResourceSqlDatabase::sqlDatabase",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr/sqlDatabases/myDatabase",
+        "type": "azure-native:documentdb:SqlResourceSqlDatabase",
+        "inputs": {
+          "accountName": "sql-rich-tahr",
+          "databaseName": "myDatabase",
+          "location": "centralus",
+          "resource": {
+            "id": "myDatabase"
+          },
+          "resourceGroupName": "rg60811471"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr/sqlDatabases/myDatabase",
+          "name": "myDatabase",
+          "resource": {
+            "colls": "colls/",
+            "etag": "\"00008017-0000-0300-0000-6786cfb00000\"",
+            "id": "myDatabase",
+            "rid": "FNBEAA==",
+            "ts": 1736888240,
+            "users": "users/"
+          },
+          "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases"
+        },
+        "parent": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:pulumi:Stack::upgrade-cosmosdb-nosql-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:DatabaseAccount::databaseAccount",
+          "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::1940b775-3f3c-47c5-9219-12faf32a8863",
+        "propertyDependencies": {
+          "accountName": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:DatabaseAccount::databaseAccount"
+          ],
+          "databaseName": [],
+          "location": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
+          ],
+          "resource": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2025-01-14T20:57:26.239786Z",
+        "modified": "2025-01-14T20:57:26.239786Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:SqlResourceSqlContainer::sqlContainer",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr/sqlDatabases/myDatabase/containers/myContainer",
+        "type": "azure-native:documentdb:SqlResourceSqlContainer",
+        "inputs": {
+          "accountName": "sql-rich-tahr",
+          "containerName": "myContainer",
+          "databaseName": "myDatabase",
+          "location": "centralus",
+          "options": {
+            "throughput": 400
+          },
+          "resource": {
+            "id": "myContainer",
+            "partitionKey": {
+              "kind": "Hash",
+              "paths": [
+                "/myPartitionKey"
+              ]
+            }
+          },
+          "resourceGroupName": "rg60811471"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg60811471/providers/Microsoft.DocumentDB/databaseAccounts/sql-rich-tahr/sqlDatabases/myDatabase/containers/myContainer",
+          "name": "myContainer",
+          "resource": {
+            "conflictResolutionPolicy": {
+              "conflictResolutionPath": "/_ts",
+              "conflictResolutionProcedure": "",
+              "mode": "LastWriterWins"
+            },
+            "etag": "\"00008217-0000-0300-0000-6786cfbf0000\"",
+            "id": "myContainer",
+            "indexingPolicy": {
+              "automatic": true,
+              "excludedPaths": [
+                {
+                  "path": "/\"_etag\"/?"
+                }
+              ],
+              "includedPaths": [
+                {
+                  "path": "/*"
+                }
+              ],
+              "indexingMode": "consistent"
+            },
+            "partitionKey": {
+              "kind": "Hash",
+              "paths": [
+                "/myPartitionKey"
+              ]
+            },
+            "rid": "FNBEAPncBJA=",
+            "ts": 1736888255,
+            "uniqueKeyPolicy": {
+              "uniqueKeys": []
+            }
+          },
+          "type": "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers"
+        },
+        "parent": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:pulumi:Stack::upgrade-cosmosdb-nosql-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:DatabaseAccount::databaseAccount",
+          "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:SqlResourceSqlDatabase::sqlDatabase",
+          "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-cosmosdb-nosql::pulumi:providers:azure-native::default::1940b775-3f3c-47c5-9219-12faf32a8863",
+        "propertyDependencies": {
+          "accountName": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:DatabaseAccount::databaseAccount"
+          ],
+          "containerName": [],
+          "databaseName": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:documentdb:SqlResourceSqlDatabase::sqlDatabase"
+          ],
+          "location": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
+          ],
+          "options": [],
+          "resource": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-cosmosdb-nosql::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2025-01-14T20:57:48.524967Z",
+        "modified": "2025-01-14T20:57:48.524967Z"
+      }
+    ],
+    "metadata": {}
+  }
+}
