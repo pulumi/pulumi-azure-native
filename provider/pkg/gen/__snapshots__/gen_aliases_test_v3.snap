@@ -325,6 +325,8 @@
    "rootPackageName": "pulumiazurenativesdk"
   },
   "java": {
+   "buildFiles": "gradle",
+   "gradleNexusPublishPluginVersion": "2.0.0",
    "packages": {
     "aadiam/v20200301": "aadiam.v20200301",
     "azure-native": "azurenative"
