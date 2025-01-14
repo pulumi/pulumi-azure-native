@@ -30,7 +30,7 @@ endif
 
 # Input during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
 # Local builds will just used this fixed default version unless specified
-PROVIDER_VERSION ?= 2.0.0-alpha.0+dev
+PROVIDER_VERSION ?= 3.0.0-alpha.0+dev
 # Check version doesn't start with a "v" - this is a common mistake
 ifeq ($(shell echo $(PROVIDER_VERSION) | cut -c1),v)
 $(error PROVIDER_VERSION should not start with a "v")
