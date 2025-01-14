@@ -5,6 +5,7 @@ import (
 	"path"
 	"testing"
 
+	"github.com/blang/semver"
 	"github.com/gkampitakis/go-snaps/snaps"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/stretchr/testify/assert"
@@ -33,7 +34,7 @@ func TestPortalDashboardGen(t *testing.T) {
 			"Dashboard": "2020-09-01-preview",
 		},
 	}, openapi.DefaultVersionLock{}, nil, nil)
-	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, 2)
+	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, semver.MustParse("3.0.0"))
 	if err != nil {
 		t.Fatal(err)
 	}

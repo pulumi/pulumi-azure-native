@@ -359,3 +359,74 @@ func TestGoModuleName(t *testing.T) {
 		assert.Equal(t, "github.com/pulumi/pulumi-azure-native-sdk/network/v2", goModuleName("Network", ""))
 	})
 }
+
+func TestDedupResourceNameByPath(t *testing.T) {
+	t.Run("no change", func(t *testing.T) {
+		assert.Equal(t, "Resource", dedupResourceNameByPath("compute", "Resource", "/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualmachines/{}"))
+	})
+
+	t.Run("dbformysql single server", func(t *testing.T) {
+		assert.Equal(t, "SingleServerResource", dedupResourceNameByPath("dbformysql", "Resource", "/subscriptions/{}/resourcegroups/{}/providers/Microsoft.DBforMySQL/servers/{}"))
+	})
+
+	t.Run("dbformysql flexible server", func(t *testing.T) {
+		assert.Equal(t, "Resource", dedupResourceNameByPath("dbformysql", "Resource", "/subscriptions/{}/resourcegroups/{}/providers/Microsoft.DBforMySQL/flexibleservers/{}"))
+	})
+
+	t.Run("dbforpostgresql single server", func(t *testing.T) {
+		assert.Equal(t, "SingleServerResource", dedupResourceNameByPath("dbforpostgresql", "Resource", "/subscriptions/{}/resourcegroups/{}/providers/Microsoft.DBforPostgreSQL/servers/{}"))
+	})
+
+	t.Run("dbforpostgresql flexible server", func(t *testing.T) {
+		assert.Equal(t, "Resource", dedupResourceNameByPath("dbforpostgresql", "Resource", "/subscriptions/{}/resourcegroups/{}/providers/Microsoft.DBforPostgreSQL/flexibleservers/{}"))
+	})
+}
+
+func TestResourcePathTracker(t *testing.T) {
+	t.Run("no conflicts, one provider", func(t *testing.T) {
+		tracker := newResourcesPathConflictsTracker()
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"VirtualMachine": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}": {openapi.ApiVersion("2022-02-22")}},
+		})
+		assert.False(t, tracker.hasConflicts())
+	})
+
+	t.Run("conflicts, one provider", func(t *testing.T) {
+		tracker := newResourcesPathConflictsTracker()
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"VirtualMachine": {
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}":    {openapi.ApiVersion("2022-02-22")},
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachinesFoo/{}": {openapi.ApiVersion("2024-04-22")},
+			},
+		})
+		assert.True(t, tracker.hasConflicts())
+	})
+
+	t.Run("no conflicts, multiple providers", func(t *testing.T) {
+		tracker := newResourcesPathConflictsTracker()
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"VirtualMachine": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}": {openapi.ApiVersion("2022-02-22")}},
+		})
+		tracker.addPathConflictsForProvider("storage", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"StorageAccount": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}": {openapi.ApiVersion("2022-02-22")}},
+		})
+		assert.False(t, tracker.hasConflicts())
+	})
+
+	t.Run("conflicts, multiple providers", func(t *testing.T) {
+		tracker := newResourcesPathConflictsTracker()
+		tracker.addPathConflictsForProvider("storage", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"StorageAccount": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}": {openapi.ApiVersion("2022-02-22")}},
+		})
+		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"VirtualMachine": {
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}":    {openapi.ApiVersion("2022-02-22")},
+				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachinesFoo/{}": {openapi.ApiVersion("2024-04-22")},
+			},
+		})
+		tracker.addPathConflictsForProvider("migrate", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+			"AssessmentProject": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Migrate/assessmentProjects/{}": {openapi.ApiVersion("2022-02-22")}},
+		})
+		assert.True(t, tracker.hasConflicts())
+	})
+}

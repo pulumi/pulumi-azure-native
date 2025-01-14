@@ -1,0 +1,375 @@
+{
+  "ApiManagement": {
+    "ApiPolicy": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.apimanagement/service/{}/apis/{}/policies/{}": [
+        "2018-06-01-preview",
+        "2022-08-01",
+        "2022-09-01-preview",
+        "2023-03-01-preview",
+        "2023-05-01-preview",
+        "2023-09-01-preview",
+        "2024-05-01",
+        "2024-06-01-preview",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.apimanagement/service/{}/apis/{}/policy": [
+        "2016-10-10"
+      ]
+    },
+    "ProductPolicy": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.apimanagement/service/{}/products/{}/policies/{}": [
+        "2018-06-01-preview",
+        "2022-08-01",
+        "2022-09-01-preview",
+        "2023-03-01-preview",
+        "2023-05-01-preview",
+        "2023-09-01-preview",
+        "2024-05-01",
+        "2024-06-01-preview",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.apimanagement/service/{}/products/{}/policy": [
+        "2016-10-10"
+      ]
+    }
+  },
+  "Cache": {
+    "AccessPolicyAssignment": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.cache/redis/{}/accesspolicyassignments/{}": [
+        "2023-05-01-preview",
+        "2023-08-01",
+        "2024-03-01",
+        "2024-04-01-preview",
+        "2024-11-01",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.cache/redisenterprise/{}/databases/{}/accesspolicyassignments/{}": [
+        "2024-09-01-preview"
+      ]
+    }
+  },
+  "DBforMySQL": {
+    "Configuration": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/flexibleservers/{}/configurations/{}": [
+        "2020-07-01-privatepreview",
+        "2022-01-01",
+        "2023-06-01-preview",
+        "2023-06-30",
+        "2023-12-30",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/servers/{}/configurations/{}": [
+        "2017-12-01"
+      ]
+    },
+    "Database": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/flexibleservers/{}/databases/{}": [
+        "2022-01-01",
+        "2023-06-01-preview",
+        "2023-06-30",
+        "2023-12-30",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/servers/{}/databases/{}": [
+        "2017-12-01"
+      ]
+    },
+    "FirewallRule": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/flexibleservers/{}/firewallrules/{}": [
+        "2022-01-01",
+        "2023-06-01-preview",
+        "2023-06-30",
+        "2023-12-30",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/servers/{}/firewallrules/{}": [
+        "2017-12-01"
+      ]
+    },
+    "PrivateEndpointConnection": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/flexibleservers/{}/privateendpointconnections/{}": [
+        "2022-09-30-preview",
+        "2023-06-30",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/servers/{}/privateendpointconnections/{}": [
+        "2018-06-01-privatepreview"
+      ]
+    },
+    "Server": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/flexibleservers/{}": [
+        "2020-07-01-preview",
+        "2020-07-01-privatepreview",
+        "2022-01-01",
+        "2022-09-30-preview",
+        "2023-06-01-preview",
+        "2023-06-30",
+        "2023-10-01-preview",
+        "2023-12-01-preview",
+        "2023-12-30",
+        "2024-02-01-preview",
+        "2024-06-01-preview",
+        "2024-10-01-preview",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbformysql/servers/{}": [
+        "2017-12-01",
+        "2018-06-01-privatepreview"
+      ]
+    }
+  },
+  "DBforPostgreSQL": {
+    "Configuration": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/flexibleservers/{}/configurations/{}": [
+        "2022-12-01",
+        "2023-03-01-preview",
+        "2023-06-01-preview",
+        "2023-12-01-preview",
+        "2024-03-01-preview",
+        "2024-08-01",
+        "2024-11-01-preview",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servers/{}/configurations/{}": [
+        "2017-12-01"
+      ]
+    },
+    "Database": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/flexibleservers/{}/databases/{}": [
+        "2022-12-01",
+        "2023-03-01-preview",
+        "2023-06-01-preview",
+        "2023-12-01-preview",
+        "2024-03-01-preview",
+        "2024-08-01",
+        "2024-11-01-preview",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servers/{}/databases/{}": [
+        "2017-12-01"
+      ]
+    },
+    "FirewallRule": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/flexibleservers/{}/firewallrules/{}": [
+        "2022-12-01",
+        "2023-03-01-preview",
+        "2023-06-01-preview",
+        "2023-12-01-preview",
+        "2024-03-01-preview",
+        "2024-08-01",
+        "2024-11-01-preview",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servergroupsv2/{}/firewallrules/{}": [
+        "2020-10-05-privatepreview",
+        "2022-11-08",
+        "2023-03-02-preview"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servers/{}/firewallrules/{}": [
+        "2017-12-01"
+      ]
+    },
+    "PrivateEndpointConnection": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/flexibleservers/{}/privateendpointconnections/{}": [
+        "2023-06-01-preview",
+        "2023-12-01-preview",
+        "2024-03-01-preview",
+        "2024-08-01",
+        "2024-11-01-preview"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servergroupsv2/{}/privateendpointconnections/{}": [
+        "2022-11-08",
+        "2023-03-02-preview",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servers/{}/privateendpointconnections/{}": [
+        "2018-06-01-privatepreview"
+      ]
+    },
+    "Server": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/flexibleservers/{}": [
+        "2020-02-14-preview",
+        "2021-04-10-privatepreview",
+        "2021-06-15-privatepreview",
+        "2022-03-08-preview",
+        "2022-12-01",
+        "2023-03-01-preview",
+        "2023-06-01-preview",
+        "2023-12-01-preview",
+        "2024-03-01-preview",
+        "2024-08-01",
+        "2024-11-01-preview",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.dbforpostgresql/servers/{}": [
+        "2017-12-01",
+        "2017-12-01-preview"
+      ]
+    }
+  },
+  "DocumentDB": {
+    "PrivateEndpointConnection": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.documentdb/databaseaccounts/{}/privateendpointconnections/{}": [
+        "2023-04-15",
+        "2023-09-15",
+        "2023-09-15-preview",
+        "2023-11-15",
+        "2023-11-15-preview",
+        "2024-02-15-preview",
+        "2024-05-15",
+        "2024-05-15-preview",
+        "2024-08-15",
+        "2024-09-01-preview",
+        "2024-11-15",
+        "2024-12-01-preview",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.documentdb/mongoclusters/{}/privateendpointconnections/{}": [
+        "2024-03-01-preview",
+        "2024-06-01-preview",
+        "2024-07-01",
+        "2024-10-01-preview"
+      ]
+    }
+  },
+  "HDInsight": {
+    "Cluster": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.hdinsight/clusterpools/{}/clusters/{}": [
+        "2023-06-01-preview",
+        "2023-11-01-preview",
+        "2024-05-01-preview"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.hdinsight/clusters/{}": [
+        "2021-06-01",
+        "2023-04-15-preview",
+        "2023-08-15-preview",
+        "2024-08-01-preview",
+        "default"
+      ]
+    }
+  },
+  "HybridContainerService": {
+    "AgentPool": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.hybridcontainerservice/provisionedclusters/{}/agentpools/{}": [
+        "2022-05-01-preview",
+        "2022-09-01-preview",
+        "default"
+      ],
+      "/{}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/agentpools/{}": [
+        "2023-11-15-preview",
+        "2024-01-01"
+      ]
+    }
+  },
+  "LabServices": {
+    "Lab": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.labservices/labaccounts/{}/labs/{}": [
+        "2018-10-15"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.labservices/labs/{}": [
+        "2022-08-01",
+        "2023-06-07",
+        "default"
+      ]
+    },
+    "User": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.labservices/labaccounts/{}/labs/{}/users/{}": [
+        "2018-10-15"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.labservices/labs/{}/users/{}": [
+        "2022-08-01",
+        "2023-06-07",
+        "default"
+      ]
+    }
+  },
+  "MachineLearningServices": {
+    "ConnectionRaiBlocklist": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}": [
+        "2024-07-01-preview",
+        "2024-10-01-preview"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}/raiblocklistitems/{}": [
+        "2024-04-01-preview",
+        "default"
+      ]
+    },
+    "ConnectionRaiBlocklistItem": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}": [
+        "2024-04-01-preview",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}/raiblocklistitems/{}": [
+        "2024-07-01-preview",
+        "2024-10-01-preview"
+      ]
+    }
+  },
+  "Migrate": {
+    "Assessment": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/assessmentprojects/{}/groups/{}/assessments/{}": [
+        "2019-10-01",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/projects/{}/groups/{}/assessments/{}": [
+        "2018-02-02"
+      ]
+    },
+    "Group": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/assessmentprojects/{}/groups/{}": [
+        "2019-10-01",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/projects/{}/groups/{}": [
+        "2018-02-02"
+      ]
+    },
+    "Project": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/assessmentprojects/{}": [
+        "2019-10-01",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.migrate/projects/{}": [
+        "2018-02-02"
+      ]
+    }
+  },
+  "MobileNetwork": {
+    "Sim": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.mobilenetwork/simgroups/{}/sims/{}": [
+        "2022-04-01-preview",
+        "2022-11-01",
+        "2023-06-01",
+        "2023-09-01",
+        "2024-02-01",
+        "2024-04-01",
+        "default"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.mobilenetwork/sims/{}": [
+        "2022-03-01-preview"
+      ]
+    }
+  },
+  "NetApp": {
+    "Backup": {
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.netapp/netappaccounts/{}/backupvaults/{}/backups/{}": [
+        "2022-11-01-preview",
+        "2023-05-01-preview",
+        "2023-07-01-preview",
+        "2023-11-01",
+        "2023-11-01-preview",
+        "2024-01-01",
+        "2024-03-01",
+        "2024-03-01-preview",
+        "2024-05-01",
+        "2024-05-01-preview",
+        "2024-07-01",
+        "2024-07-01-preview"
+      ],
+      "/subscriptions/{}/resourcegroups/{}/providers/microsoft.netapp/netappaccounts/{}/capacitypools/{}/volumes/{}/backups/{}": [
+        "2022-11-01",
+        "default"
+      ]
+    }
+  }
+}

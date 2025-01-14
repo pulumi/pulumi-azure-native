@@ -3,9 +3,8 @@ package versioning
 import (
 	"path"
 	"sort"
-	"strconv"
-	"strings"
 
+	"github.com/blang/semver"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
@@ -33,6 +32,8 @@ type BuildSchemaArgs struct {
 
 type BuildSchemaReports struct {
 	PathChangesResult
+	// providerName -> resourceName -> set of paths, to record resources that have conflicting paths.
+	PathConflicts                 map[openapi.ProviderName]map[openapi.ResourceName]map[string][]openapi.ApiVersion
 	AllResourcesByVersion         ProvidersVersionResources
 	AllResourceVersionsByResource ProviderResourceVersions
 	Pending                       openapi.ProviderVersionList
@@ -49,19 +50,20 @@ type BuildSchemaReports struct {
 
 func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 	return gen.EmitFiles(outputDir, gen.FileMap{
-		"pathChanges.json":                   r.PathChangesResult,
+		"allEndpoints.json":                  r.AllEndpoints,
 		"allResourcesByVersion.json":         r.AllResourcesByVersion,
 		"allResourceVersionsByResource.json": r.AllResourceVersionsByResource,
-		"pending.json":                       r.Pending,
 		"curationViolations.json":            r.CurationViolations,
-		"namingDisambiguations.json":         r.NamingDisambiguations,
-		"skippedPOSTEndpoints.json":          r.SkippedPOSTEndpoints,
-		"providerNameErrors.json":            r.ProviderNameErrors,
-		"forceNewTypes.json":                 r.ForceNewTypes,
-		"typeCaseConflicts.json":             r.TypeCaseConflicts,
 		"flattenedPropertyConflicts.json":    r.FlattenedPropertyConflicts,
-		"allEndpoints.json":                  r.AllEndpoints,
+		"forceNewTypes.json":                 r.ForceNewTypes,
 		"inactiveDefaultVersions.json":       r.InactiveDefaultVersions,
+		"namingDisambiguations.json":         r.NamingDisambiguations,
+		"pathChanges.json":                   r.PathChangesResult,
+		"pathConflicts.json":                 r.PathConflicts,
+		"pending.json":                       r.Pending,
+		"providerNameErrors.json":            r.ProviderNameErrors,
+		"skippedPOSTEndpoints.json":          r.SkippedPOSTEndpoints,
+		"typeCaseConflicts.json":             r.TypeCaseConflicts,
 	})
 }
 
@@ -83,7 +85,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		return nil, err
 	}
 
-	majorVersion, err := strconv.ParseInt(strings.Split(args.Version, ".")[0], 10, 64)
+	providerVersion, err := semver.Parse(args.Version)
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +94,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	if args.OnlyExplicitVersions {
 		versionMetadata = VersionMetadata{}
 	} else {
-		versionMetadata, err = LoadVersionMetadata(args.RootDir, providers, int(majorVersion))
+		versionMetadata, err = LoadVersionMetadata(args.RootDir, providers, int(providerVersion.Major))
 		if err != nil {
 			return nil, err
 		}
@@ -121,7 +123,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		InactiveDefaultVersions:       versionMetadata.InactiveDefaultVersions,
 	}
 
-	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata, int(majorVersion))
+	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata, providerVersion)
 
 	if err != nil {
 		return &BuildSchemaResult{
@@ -135,6 +137,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	buildSchemaReports.ForceNewTypes = generationResult.ForceNewTypes
 	buildSchemaReports.TypeCaseConflicts = generationResult.TypeCaseConflicts
 	buildSchemaReports.FlattenedPropertyConflicts = generationResult.FlattenedPropertyConflicts
+	buildSchemaReports.PathConflicts = generationResult.PathConflicts
 
 	pkgSpec := generationResult.Schema
 	metadata := generationResult.Metadata

@@ -4,6 +4,7 @@ import (
 	"path"
 	"testing"
 
+	"github.com/blang/semver"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 )
@@ -35,5 +36,5 @@ func BenchmarkGen(b *testing.B) {
 
 	specs = openapi.ApplyProvidersTransformations(specs, versionMetadata.Lock, nil, versionSources.RemovedVersions, nil)
 
-	gen.PulumiSchema(rootDir, specs, versionMetadata, 2)
+	gen.PulumiSchema(rootDir, specs, versionMetadata, semver.MustParse("2.0.0"))
 }
