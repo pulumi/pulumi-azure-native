@@ -225,10 +225,6 @@
           "type": "Block"
         },
         "outputs": {
-          "__inputs": {
-            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
-            "plaintext": "{\"accountName\":\"REDACTED BY PROVIDERTEST\",\"blobName\":\"REDACTED BY PROVIDERTEST\",\"containerName\":\"REDACTED BY PROVIDERTEST\",\"resourceGroupName\":\"REDACTED BY PROVIDERTEST\",\"source\":{\"4dabf18193072939515e22adb298388d\":\"REDACTED BY PROVIDERTEST\",\"hash\":\"REDACTED BY PROVIDERTEST\",\"text\":\"REDACTED BY PROVIDERTEST\"},\"type\":\"REDACTED BY PROVIDERTEST\"}"
-          },
           "accessTier": "Hot",
           "accountName": "store64005e71",
           "blobName": "mon-fichier.txt",
