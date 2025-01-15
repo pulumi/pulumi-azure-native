@@ -1,0 +1,85 @@
+name: upgrade-containerservice-agentpool
+runtime: yaml
+description: |
+  Upgrade test for Container Service (AKS), with Agent Pools (node pools), based on:
+  https://github.com/Azure-Samples/azure-sdk-for-go-samples/blob/main/sdk/resourcemanager/containerservice/agent_pool/main.go#L22
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  # clusterName:
+  #   type: random:RandomPet
+  #   properties:
+  #     prefix: pulumi
+
+  cluster:
+    type: azure-native:containerservice:ManagedCluster
+    options:
+      replaceOnChanges:
+        - "agentPoolProfiles[0]" 
+    properties:
+      location: ${rg.location}
+      resourceGroupName: ${rg.name}
+      identity:
+        type: SystemAssigned
+      dnsPrefix: pulumi
+      agentPoolProfiles:
+        - name: systempool
+          osDiskSizeGB: 128
+          count: 2
+          vmSize: standard_d2s_v3
+          osType: Linux
+          mode: System
+          type: VirtualMachineScaleSets
+
+  pool:
+    type: azure-native:containerservice:AgentPool
+    properties:
+      resourceGroupName: ${rg.name}
+      resourceName: ${cluster.name}
+      agentPoolName: userpool
+      osDiskSizeGB: 128
+      count: 0
+      vmSize: standard_d2s_v3
+      osType: Linux
+      mode: User
+      type: VirtualMachineScaleSets
+      nodeLabels:
+        foo: bar
+
+outputs:
+  controlPlaneFQDN: ${cluster.fqdn}
+
+# resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
+#   name: clusterName
+#   location: location
+#   identity: {
+#     type: 'SystemAssigned'
+#   }
+#   properties: {
+#     dnsPrefix: dnsPrefix
+#     agentPoolProfiles: [
+#       {
+#         name: 'agentpool'
+#         osDiskSizeGB: osDiskSizeGB
+#         count: agentCount
+#         vmSize: agentVMSize
+#         osType: 'Linux'
+#         mode: 'System'
+#       }
+#     ]
+#     linuxProfile: {
+#       adminUsername: linuxAdminUsername
+#       ssh: {
+#         publicKeys: [
+#           {
+#             keyData: sshRSAPublicKey
+#           }
+#         ]
+#       }
+#     }
+#   }
+# }
+
+# output controlPlaneFQDN string = aks.properties.fqdn
