@@ -37972,15 +37972,11 @@
           "2023-02-01",
           "2023-01-02-preview",
           "2023-01-01",
-          "2022-11-02-preview",
           "2022-11-01",
           "2022-10-02-preview",
           "2022-09-02-preview",
           "2022-09-01",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
           "2022-08-01",
-          "2022-07-02-preview",
           "2022-07-01",
           "2022-06-01",
           "2022-04-01",
@@ -38792,12 +38788,8 @@
           "2023-03-02-preview",
           "2023-02-02-preview",
           "2023-01-02-preview",
-          "2022-11-02-preview",
           "2022-10-02-preview",
           "2022-09-02-preview",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
-          "2022-07-02-preview",
           "2022-03-01"
         ],
         "defaultApiVersion": null,
@@ -38896,15 +38888,11 @@
           "2023-02-01",
           "2023-01-02-preview",
           "2023-01-01",
-          "2022-11-02-preview",
           "2022-11-01",
           "2022-10-02-preview",
           "2022-09-02-preview",
           "2022-09-01",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
           "2022-08-01",
-          "2022-07-02-preview",
           "2022-07-01",
           "2022-06-01",
           "2022-04-01",
@@ -39033,15 +39021,11 @@
           "2023-02-01",
           "2023-01-02-preview",
           "2023-01-01",
-          "2022-11-02-preview",
           "2022-11-01",
           "2022-10-02-preview",
           "2022-09-02-preview",
           "2022-09-01",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
           "2022-08-01",
-          "2022-07-02-preview",
           "2022-07-01",
           "2022-06-01",
           "2022-04-01",
@@ -39154,15 +39138,11 @@
           "2023-02-01",
           "2023-01-02-preview",
           "2023-01-01",
-          "2022-11-02-preview",
           "2022-11-01",
           "2022-10-02-preview",
           "2022-09-02-preview",
           "2022-09-01",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
           "2022-08-01",
-          "2022-07-02-preview",
           "2022-07-01",
           "2022-06-01",
           "2022-04-01",
@@ -39278,15 +39258,11 @@
           "2023-02-01",
           "2023-01-02-preview",
           "2023-01-01",
-          "2022-11-02-preview",
           "2022-11-01",
           "2022-10-02-preview",
           "2022-09-02-preview",
           "2022-09-01",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
           "2022-08-01",
-          "2022-07-02-preview",
           "2022-07-01",
           "2022-06-01",
           "2022-04-01",
@@ -39457,12 +39433,8 @@
           "2023-03-02-preview",
           "2023-02-02-preview",
           "2023-01-02-preview",
-          "2022-11-02-preview",
           "2022-10-02-preview",
-          "2022-09-02-preview",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
-          "2022-07-02-preview"
+          "2022-09-02-preview"
         ],
         "defaultApiVersion": null,
         "locations": [
@@ -39639,15 +39611,11 @@
           "2023-02-01",
           "2023-01-02-preview",
           "2023-01-01",
-          "2022-11-02-preview",
           "2022-11-01",
           "2022-10-02-preview",
           "2022-09-02-preview",
           "2022-09-01",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
           "2022-08-01",
-          "2022-07-02-preview",
           "2022-07-01",
           "2022-06-01",
           "2022-04-01",
@@ -39757,12 +39725,8 @@
           "2023-03-02-preview",
           "2023-02-02-preview",
           "2023-01-02-preview",
-          "2022-11-02-preview",
           "2022-10-02-preview",
-          "2022-09-02-preview",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
-          "2022-07-02-preview"
+          "2022-09-02-preview"
         ],
         "defaultApiVersion": null,
         "locations": [
@@ -39860,15 +39824,11 @@
           "2023-02-01",
           "2023-01-02-preview",
           "2023-01-01",
-          "2022-11-02-preview",
           "2022-11-01",
           "2022-10-02-preview",
           "2022-09-02-preview",
           "2022-09-01",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
           "2022-08-01",
-          "2022-07-02-preview",
           "2022-07-01",
           "2022-06-01",
           "2022-04-01",
@@ -40002,15 +39962,11 @@
           "2023-02-01",
           "2023-01-02-preview",
           "2023-01-01",
-          "2022-11-02-preview",
           "2022-11-01",
           "2022-10-02-preview",
           "2022-09-02-preview",
           "2022-09-01",
-          "2022-08-03-preview",
-          "2022-08-02-preview",
           "2022-08-01",
-          "2022-07-02-preview",
           "2022-07-01",
           "2022-06-01",
           "2022-04-01",
@@ -42794,6 +42750,8 @@
       },
       {
         "apiVersions": [
+          "2024-12-30",
+          "2024-12-01-preview",
           "2024-10-30",
           "2024-10-01-preview",
           "2024-06-30",
@@ -42872,6 +42830,8 @@
       },
       {
         "apiVersions": [
+          "2024-12-30",
+          "2024-12-01-preview",
           "2024-10-30",
           "2024-10-01-preview",
           "2024-06-30",
@@ -43149,6 +43109,8 @@
       },
       {
         "apiVersions": [
+          "2024-12-30",
+          "2024-12-01-preview",
           "2024-10-30",
           "2024-10-01-preview",
           "2024-06-30",
@@ -43227,6 +43189,8 @@
       },
       {
         "apiVersions": [
+          "2024-12-30",
+          "2024-12-01-preview",
           "2024-10-30",
           "2024-10-01-preview",
           "2024-06-30",
@@ -43295,6 +43259,8 @@
       },
       {
         "apiVersions": [
+          "2024-12-30",
+          "2024-12-01-preview",
           "2024-10-30",
           "2024-10-01-preview",
           "2024-06-30",
@@ -43371,6 +43337,8 @@
       },
       {
         "apiVersions": [
+          "2024-12-30",
+          "2024-12-01-preview",
           "2024-10-30",
           "2024-10-01-preview",
           "2024-06-30",
@@ -43449,6 +43417,8 @@
       },
       {
         "apiVersions": [
+          "2024-12-30",
+          "2024-12-01-preview",
           "2024-10-30",
           "2024-10-01-preview",
           "2024-06-30",
@@ -43521,6 +43491,8 @@
       },
       {
         "apiVersions": [
+          "2024-12-30",
+          "2024-12-01-preview",
           "2024-10-30",
           "2024-10-01-preview",
           "2024-06-30",
@@ -44200,6 +44172,8 @@
       },
       {
         "apiVersions": [
+          "2024-12-30",
+          "2024-12-01-preview",
           "2024-10-30",
           "2024-10-01-preview",
           "2024-06-30",
@@ -44272,6 +44246,8 @@
       },
       {
         "apiVersions": [
+          "2024-12-30",
+          "2024-12-01-preview",
           "2024-10-30",
           "2024-10-01-preview",
           "2024-06-30",
@@ -52606,6 +52582,7 @@
       },
       {
         "apiVersions": [
+          "2024-11-14-preview",
           "2024-09-10",
           "2024-09-01-privatepreview",
           "2024-08-08-preview",
@@ -59004,6 +58981,7 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2025-01-15-preview",
           "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
@@ -59084,6 +59062,7 @@
       },
       {
         "apiVersions": [
+          "2025-01-15-preview",
           "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
@@ -59110,6 +59089,7 @@
       },
       {
         "apiVersions": [
+          "2025-01-15-preview",
           "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
@@ -59305,6 +59285,7 @@
       },
       {
         "apiVersions": [
+          "2025-01-15-preview",
           "2024-10-01-preview",
           "2024-06-15-preview",
           "2024-05-01-preview",
@@ -82365,12 +82346,16 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2024-12-24-preview",
+          "2024-12-17-preview",
+          "2024-12-01-preview",
+          "2024-11-01-preview",
           "2024-10-01-preview",
           "2024-09-01-preview",
           "2024-08-01-preview",
           "2024-05-01-preview"
         ],
-        "defaultApiVersion": "2024-10-01-preview",
+        "defaultApiVersion": "2024-12-24-preview",
         "locations": [
           "global"
         ],
@@ -82378,12 +82363,16 @@
       },
       {
         "apiVersions": [
+          "2024-12-24-preview",
+          "2024-12-17-preview",
+          "2024-12-01-preview",
+          "2024-11-01-preview",
           "2024-10-01-preview",
           "2024-09-01-preview",
           "2024-08-01-preview",
           "2024-05-01-preview"
         ],
-        "defaultApiVersion": "2024-10-01-preview",
+        "defaultApiVersion": "2024-12-24-preview",
         "locations": [],
         "resourceType": "Operations"
       }
@@ -82814,6 +82803,18 @@
           "West US 3"
         ],
         "resourceType": "locations/checkNameAvailability"
+      },
+      {
+        "apiVersions": [
+          "2019-10-01"
+        ],
+        "defaultApiVersion": "2019-10-01",
+        "locations": [
+          "UK South",
+          "East US",
+          "East US 2"
+        ],
+        "resourceType": "locations/operationStatuses"
       },
       {
         "apiVersions": [
@@ -97724,6 +97725,7 @@
     "resourceTypes": [
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97744,6 +97746,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97764,6 +97767,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97784,6 +97788,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97804,6 +97809,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97824,6 +97830,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97844,6 +97851,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97880,6 +97888,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97900,6 +97909,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97920,6 +97930,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97938,6 +97949,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97958,6 +97970,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -97978,6 +97991,7 @@
       },
       {
         "apiVersions": [
+          "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
           "2024-07-01",
@@ -97996,6 +98010,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -98017,6 +98032,7 @@
       },
       {
         "apiVersions": [
+          "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
           "2024-07-01",
@@ -98035,6 +98051,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -98055,6 +98072,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -98075,6 +98093,7 @@
       },
       {
         "apiVersions": [
+          "2025-02-01",
           "2024-10-01-preview",
           "2024-08-01-preview",
           "2024-07-01",
@@ -98125,6 +98144,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -98145,6 +98165,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -98165,6 +98186,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -98185,6 +98207,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -98205,6 +98228,7 @@
       },
       {
         "apiVersions": [
+          "2024-10-01-preview",
           "2024-07-01",
           "2024-06-01-preview",
           "2024-05-01-preview",
@@ -104838,8 +104862,9 @@
           "Qatar Central",
           "South Africa North",
           "South Central US",
-          "South India",
           "Southeast Asia",
+          "South India",
+          "Spain Central",
           "Sweden Central",
           "Switzerland North",
           "Switzerland West",
@@ -104848,9 +104873,9 @@
           "UK West",
           "West Central US",
           "West Europe",
-          "West US 3",
+          "West US",
           "West US 2",
-          "West US"
+          "West US 3"
         ],
         "resourceType": "OpenShiftClusters"
       },
@@ -104906,8 +104931,9 @@
           "Qatar Central",
           "South Africa North",
           "South Central US",
-          "South India",
           "Southeast Asia",
+          "South India",
+          "Spain Central",
           "Sweden Central",
           "Switzerland North",
           "Switzerland West",
@@ -104916,9 +104942,9 @@
           "UK West",
           "West Central US",
           "West Europe",
-          "West US 3",
+          "West US",
           "West US 2",
-          "West US"
+          "West US 3"
         ],
         "resourceType": "locations/openshiftversions"
       },
@@ -104961,8 +104987,9 @@
           "Qatar Central",
           "South Africa North",
           "South Central US",
-          "South India",
           "Southeast Asia",
+          "South India",
+          "Spain Central",
           "Sweden Central",
           "Switzerland North",
           "Switzerland West",
@@ -104971,9 +104998,9 @@
           "UK West",
           "West Central US",
           "West Europe",
-          "West US 3",
+          "West US",
           "West US 2",
-          "West US"
+          "West US 3"
         ],
         "resourceType": "locations/operationresults"
       },
@@ -105016,8 +105043,9 @@
           "Qatar Central",
           "South Africa North",
           "South Central US",
-          "South India",
           "Southeast Asia",
+          "South India",
+          "Spain Central",
           "Sweden Central",
           "Switzerland North",
           "Switzerland West",
@@ -105026,9 +105054,9 @@
           "UK West",
           "West Central US",
           "West Europe",
-          "West US 3",
+          "West US",
           "West US 2",
-          "West US"
+          "West US 3"
         ],
         "resourceType": "locations/operationsstatus"
       },
@@ -119072,7 +119100,9 @@
         "defaultApiVersion": "2024-10-31-preview",
         "locations": [
           "North Europe",
-          "Sweden Central"
+          "Sweden Central",
+          "UAE North",
+          "UK South"
         ],
         "resourceType": "Locations/OperationStatuses"
       },
@@ -147331,6 +147361,19 @@
     ]
   },
   {
+    "namespace": "Microsoft.Windows365",
+    "resourceTypes": [
+      {
+        "apiVersions": [
+          "2022-09-01-preview"
+        ],
+        "defaultApiVersion": "2022-09-01-preview",
+        "locations": [],
+        "resourceType": "operations"
+      }
+    ]
+  },
+  {
     "namespace": "Microsoft.WindowsPushNotificationServices",
     "resourceTypes": [
       {
@@ -148005,16 +148048,10 @@
       },
       {
         "apiVersions": [
-          "2024-09-01-preview",
-          "2024-06-01-preview",
-          "2024-01-01-preview",
-          "2023-09-01",
-          "2023-04-01",
-          "2022-11-01-preview",
-          "2022-08-01",
-          "2021-05-01-preview"
+          "2024-11-01-preview",
+          "2024-09-01-preview"
         ],
-        "defaultApiVersion": "2023-09-01",
+        "defaultApiVersion": "2024-11-01-preview",
         "locations": [
           "North Central US",
           "West Central US",
@@ -148035,6 +148072,7 @@
           "Germany West Central",
           "South India",
           "Central India",
+          "Brazil South",
           "Central US EUAP",
           "East US 2 EUAP"
         ],

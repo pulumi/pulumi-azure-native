@@ -105,6 +105,11 @@
     "Error": "resolved provider name mismatch: file: KeyVault, uri: Resources"
   },
   {
+    "FilePath": "specification/keyvault/resource-manager/Microsoft.KeyVault/preview/2024-12-01-preview/keyvault.json",
+    "Path": "/subscriptions/{subscriptionId}/resources",
+    "Error": "resolved provider name mismatch: file: KeyVault, uri: Resources"
+  },
+  {
     "FilePath": "specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2015-06-01/keyvault.json",
     "Path": "/subscriptions/{subscriptionId}/resources",
     "Error": "resolved provider name mismatch: file: KeyVault, uri: Resources"
@@ -146,6 +151,11 @@
   },
   {
     "FilePath": "specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2023-07-01/keyvault.json",
+    "Path": "/subscriptions/{subscriptionId}/resources",
+    "Error": "resolved provider name mismatch: file: KeyVault, uri: Resources"
+  },
+  {
+    "FilePath": "specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2024-11-01/keyvault.json",
     "Path": "/subscriptions/{subscriptionId}/resources",
     "Error": "resolved provider name mismatch: file: KeyVault, uri: Resources"
   },
