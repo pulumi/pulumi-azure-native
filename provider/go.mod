@@ -29,7 +29,7 @@ require (
 	github.com/manicminer/hamilton v0.57.1
 	github.com/manicminer/hamilton-autorest v0.3.0
 	github.com/pkg/errors v0.9.1
-	github.com/pulumi/providertest v0.1.3
+	github.com/pulumi/providertest v0.1.5
 	github.com/pulumi/pulumi-java/pkg v0.19.0
 	github.com/pulumi/pulumi-yaml v1.12.0
 	github.com/pulumi/pulumi/pkg/v3 v3.145.0
