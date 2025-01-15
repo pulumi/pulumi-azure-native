@@ -1,0 +1,88 @@
+name: upgrade-sql-database
+runtime: yaml
+description: |
+  Upgrade test for SQL Server, Database, and related network objects, based on:
+  https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-create-arm-template-quickstart?view=azuresql
+  With network access controls based on:
+  https://learn.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview?view=azuresql
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  serverName:
+    type: random:RandomPet
+    properties:
+      prefix: pulumi
+
+  adminPassword:
+    type: random:RandomPassword
+    properties:
+      special: true
+      length: 12
+
+  vnet:
+    type: azure-native:network:VirtualNetwork
+    properties:
+      resourceGroupName: ${rg.name}
+      addressSpace:
+        addressPrefixes: ["10.1.0.0/16"]
+
+  subnet:
+    type: azure-native:network:Subnet
+    properties:
+      resourceGroupName: ${rg.name}
+      virtualNetworkName: ${vnet.name}
+      addressPrefix: "10.1.0.0/24"
+      serviceEndpoints:
+        - service: Microsoft.Sql
+
+  server:
+    type: azure-native:sql:Server
+    properties:
+      resourceGroupName: ${rg.name}
+      serverName: ${serverName.id}
+      location: ${rg.location}
+      administratorLogin: adminuser
+      administratorLoginPassword: ${adminPassword.result}
+
+  database:
+    type: azure-native:sql:Database
+    properties:
+      resourceGroupName: ${rg.name}
+      serverName: ${server.name}
+      databaseName: mydatabase
+      location: ${rg.location}
+      sku:
+        name: "Standard"
+        tier: "Standard"
+
+  # Firewall rule for external connectivity
+  firewallRuleCorp:
+    type: azure-native:sql:FirewallRule
+    properties:
+      resourceGroupName: ${rg.name}
+      serverName: ${server.name}
+      firewallRuleName: "myfirewallrule"
+      startIpAddress: "192.0.2.0"
+      endIpAddress: "192.0.2.255"
+
+  # Firewall rule for Azure services
+  firewallRuleAllowAzure:
+    type: azure-native:sql:FirewallRule
+    properties:
+      resourceGroupName: ${rg.name}
+      serverName: ${server.name}
+      firewallRuleName: "AllowAllWindowsAzureIps"
+      startIpAddress: "0.0.0.0"
+      endIpAddress: "0.0.0.0"
+
+  # Firewall rule for a particular virtual network subnet
+  virtualNetworkRule:
+    type: azure-native:sql:VirtualNetworkRule
+    properties:
+      resourceGroupName: ${rg.name}
+      serverName: ${server.name}
+      virtualNetworkRuleName: "myvnetrule"
+      virtualNetworkSubnetId: ${subnet.id}
+      ignoreMissingVnetServiceEndpoint: false

@@ -1,0 +1,63 @@
+name: upgrade-servicebus-messaging
+runtime: yaml
+description: |
+  Upgrade test for Service Bus queues and topics based on:
+  https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-resource-manager-overview
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  namespace:
+    type: azure-native:servicebus:Namespace
+    properties:
+      resourceGroupName: ${rg.name}
+      location: ${rg.location}
+      sku:
+        name: Standard
+        tier: Standard
+
+  queue:
+    type: azure-native:servicebus:Queue
+    properties:
+      resourceGroupName: ${rg.name}
+      namespaceName: ${namespace.name}
+      queueName: myqueue
+      enablePartitioning: true
+      maxDeliveryCount: 10
+      lockDuration: "PT5M"
+
+  topic:
+    type: azure-native:servicebus:Topic
+    properties:
+      resourceGroupName: ${rg.name}
+      namespaceName: ${namespace.name}
+      topicName: mytopic
+      enablePartitioning: true
+      defaultMessageTimeToLive: "P14D"
+
+  subscription:
+    type: azure-native:servicebus:Subscription
+    properties:
+      resourceGroupName: ${rg.name}
+      namespaceName: ${namespace.name}
+      topicName: ${topic.name}
+      subscriptionName: mysubscription
+      forwardTo: ${queue.name}
+
+  rule:
+    type: azure-native:servicebus:Rule
+    properties:
+      resourceGroupName: ${rg.name}
+      namespaceName: ${namespace.name}
+      topicName: ${topic.name}
+      subscriptionName: ${subscription.name}
+      ruleName: myrule
+      filterType: SqlFilter
+      sqlFilter:
+        requiresPreprocessing: false
+        sqlExpression: |
+          StoreName = 'Store1'
+      action:
+        sqlExpression: |
+          set FilterTag = 'true'

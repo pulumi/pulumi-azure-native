@@ -16,8 +16,11 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/stretchr/testify/assert"
 
+	"github.com/pulumi/providertest"
+	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/providers"
 	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/assertrefresh"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 
@@ -72,6 +75,66 @@ func TestAutonaming(t *testing.T) {
 	assert.Contains(t, saname, "autonamingsa") // project + name + random suffix, no dashes
 }
 
+func TestUpgradeKeyVault_2_76_0(t *testing.T) {
+	t.Parallel()
+	upgradeTest(t, "upgrade-keyvault", "2.76.0")
+}
+
+func TestUpgradeNetworkedVm_2_76_0(t *testing.T) {
+	t.Parallel()
+	upgradeTest(t, "upgrade-networked-vm", "2.76.0")
+}
+
+func TestUpgradeStorageBlob_2_76_0(t *testing.T) {
+	t.Parallel()
+	upgradeTest(t, "upgrade-storage-blob", "2.76.0")
+}
+
+func TestUpgradeSqlDatabase_2_76_0(t *testing.T) {
+	t.Parallel()
+	upgradeTest(t, "upgrade-sql-database", "2.76.0")
+}
+
+func TestUpgradeServiceBusMessaging_2_76_0(t *testing.T) {
+	t.Parallel()
+	upgradeTest(t, "upgrade-servicebus-messaging", "2.76.0")
+}
+
+func TestUpgradeAppServicesWebApp_2_76_0(t *testing.T) {
+	t.Parallel()
+	upgradeTest(t, "upgrade-appservices-webapp", "2.76.0")
+}
+
+func TestUpgradeCosmosdbNosql_2_76_0(t *testing.T) {
+	t.Parallel()
+	upgradeTest(t, "upgrade-cosmosdb-nosql", "2.76.0")
+}
+
+func TestUpgradeContainerServiceAgentPool_2_76_0(t *testing.T) {
+	t.Parallel()
+	upgradeTest(t, "upgrade-containerservice-agentpool", "2.76.0")
+}
+
+func upgradeTest(t *testing.T, testProgramDir string, upgradeFromVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
+	t.Helper()
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without cloud credentials")
+		return
+	}
+
+	dir := filepath.Join("test-programs", testProgramDir)
+	azureLocation := getLocation()
+	rpFactory := providers.ResourceProviderFactory(providerServer)
+	cacheDir := providertest.GetUpgradeCacheDir(filepath.Base(dir), upgradeFromVersion)
+	pt := pulumitest.NewPulumiTest(t, dir,
+		opttest.AttachProvider("azure-native",
+			rpFactory.ReplayInvokes(filepath.Join(cacheDir, "grpc.json"), false /* allowLiveFallback */)))
+	pt.SetConfig(t, "azure-native:location", azureLocation)
+	previewResult := providertest.PreviewProviderUpgrade(t, pt, "azure-native", upgradeFromVersion, opts...)
+	assertpreview.HasNoReplacements(t, previewResult)
+	assertpreview.HasNoDeletes(t, previewResult)
+}
+
 func newPulumiTest(t *testing.T, testProgramDir string, opts ...opttest.Option) *pulumitest.PulumiTest {
 	t.Helper()
 	if testing.Short() {
@@ -111,10 +174,4 @@ func getLocation() string {
 	}
 
 	return azureLocation
-}
-
-func skipIfShort(t *testing.T) {
-	if testing.Short() {
-		t.Skip("skipping long-running test in short mode")
-	}
 }

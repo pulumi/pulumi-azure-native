@@ -1,0 +1,60 @@
+name: upgrade-cosmosdb-nosql
+runtime: yaml
+description: |
+  Upgrade test for DocumentDB (Cosmos DB), based on:
+  https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/quickstart-template-json?tabs=CLI
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+    properties:
+      location: centralus # has more capacity than westus
+
+  accountName:
+    type: random:RandomPet
+    properties:
+      prefix: sql
+
+  databaseAccount:
+    type: azure-native:documentdb:DatabaseAccount
+    properties:
+      accountName: ${accountName.id}
+      location: ${rg.location}
+      resourceGroupName: ${rg.name}
+      kind: GlobalDocumentDB
+      consistencyPolicy: 
+        defaultConsistencyLevel: "Session"
+      databaseAccountOfferType: "Standard"
+      enableAutomaticFailover: true
+      disableKeyBasedMetadataWriteAccess: true
+      locations:
+        - locationName: ${rg.location}
+          failoverPriority: 0
+
+  sqlDatabase:
+    type: azure-native:documentdb:SqlResourceSqlDatabase
+    properties:
+      accountName: ${databaseAccount.name}
+      databaseName: "myDatabase"
+      location: ${rg.location}
+      resourceGroupName: ${rg.name}
+      resource:
+        id: "myDatabase"
+
+  sqlContainer:
+    type: azure-native:documentdb:SqlResourceSqlContainer
+    properties:
+      accountName: ${databaseAccount.name}
+      databaseName: ${sqlDatabase.name}
+      containerName: "myContainer"
+      location: ${rg.location}
+      resourceGroupName: ${rg.name}
+      resource:
+        id: "myContainer"
+        partitionKey:
+          kind: Hash
+          paths:
+            - /myPartitionKey
+      options:
+        throughput: 400
+        

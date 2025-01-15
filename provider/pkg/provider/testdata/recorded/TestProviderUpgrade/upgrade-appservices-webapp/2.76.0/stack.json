@@ -1,0 +1,656 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2024-12-12T16:50:11.918554-08:00",
+      "magic": "ef3f5f63f5bdd04617263a579cf04a31800069d90aa87492a89d92526519e879",
+      "version": "v3.132.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:0IpVoWpf+zY=:v1:rApVhLUScgvweiAu:tWgw+73Yeo1zLVhXhuT3lfWjTW0x3A=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:pulumi:Stack::upgrade-appservices-webapp-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "outputs": {
+          "siteURL": "https://appcf05634f.azurewebsites.net/"
+        },
+        "created": "2024-12-13T00:48:07.989413Z",
+        "modified": "2024-12-13T00:48:07.989413Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:providers:azure-native::default",
+        "custom": true,
+        "id": "0f2a1c0b-e1b2-47ce-a082-e725693d7d43",
+        "type": "pulumi:providers:azure-native",
+        "inputs": {
+          "location": "westus2"
+        },
+        "outputs": {
+          "location": "westus2"
+        },
+        "created": "2024-12-13T00:48:09.120492Z",
+        "modified": "2024-12-13T00:48:09.120492Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339",
+        "type": "azure-native:resources:ResourceGroup",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "location": "westus2",
+          "resourceGroupName": "rg05734339"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339",
+          "location": "westus2",
+          "name": "rg05734339",
+          "properties": {
+            "provisioningState": "Succeeded"
+          },
+          "type": "Microsoft.Resources/resourceGroups"
+        },
+        "parent": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:pulumi:Stack::upgrade-appservices-webapp-test",
+        "provider": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:providers:azure-native::default::0f2a1c0b-e1b2-47ce-a082-e725693d7d43",
+        "created": "2024-12-13T00:48:11.724331Z",
+        "modified": "2024-12-13T00:48:11.724331Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:AppServicePlan::servicePlan",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/serverfarms/servicePlan5739a54b",
+        "type": "azure-native:web:AppServicePlan",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "kind": "app",
+          "location": "westus2",
+          "name": "servicePlan5739a54b",
+          "resourceGroupName": "rg05734339",
+          "sku": {
+            "name": "S1"
+          }
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "elasticScaleEnabled": false,
+          "geoRegion": "West US 2",
+          "hyperV": false,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/serverfarms/servicePlan5739a54b",
+          "isSpot": false,
+          "isXenon": false,
+          "kind": "app",
+          "location": "West US 2",
+          "maximumElasticWorkerCount": 1,
+          "maximumNumberOfWorkers": 10,
+          "name": "servicePlan5739a54b",
+          "numberOfSites": 0,
+          "numberOfWorkers": 1,
+          "perSiteScaling": false,
+          "provisioningState": "Succeeded",
+          "reserved": false,
+          "resourceGroup": "rg05734339",
+          "sku": {
+            "capacity": 1,
+            "family": "S",
+            "name": "S1",
+            "size": "S1",
+            "tier": "Standard"
+          },
+          "status": "Ready",
+          "subscription": "0282681f-7a9e-424b-80b2-96babd57a8a1",
+          "targetWorkerCount": 0,
+          "targetWorkerSizeId": 0,
+          "type": "Microsoft.Web/serverfarms",
+          "zoneRedundant": false
+        },
+        "parent": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:pulumi:Stack::upgrade-appservices-webapp-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:providers:azure-native::default::0f2a1c0b-e1b2-47ce-a082-e725693d7d43",
+        "propertyDependencies": {
+          "kind": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg"
+          ],
+          "sku": []
+        },
+        "created": "2024-12-13T00:48:18.746101Z",
+        "modified": "2024-12-13T00:48:18.746101Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f",
+        "type": "azure-native:web:WebApp",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "kind": "app",
+          "location": "westus2",
+          "name": "appcf05634f",
+          "resourceGroupName": "rg05734339",
+          "serverFarmId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/serverfarms/servicePlan5739a54b"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "availabilityState": "Normal",
+          "clientAffinityEnabled": true,
+          "clientCertEnabled": false,
+          "clientCertMode": "Required",
+          "containerSize": 0,
+          "customDomainVerificationId": "B11364C3A91B1C810CBDDE0B9D713B5749A8FA7544E52180C286BF80A38555A5",
+          "dailyMemoryTimeQuota": 0,
+          "defaultHostName": "appcf05634f.azurewebsites.net",
+          "enabled": true,
+          "enabledHostNames": [
+            "appcf05634f.azurewebsites.net",
+            "appcf05634f.scm.azurewebsites.net"
+          ],
+          "hostNameSslStates": [
+            {
+              "hostType": "Standard",
+              "name": "appcf05634f.azurewebsites.net",
+              "sslState": "Disabled"
+            },
+            {
+              "hostType": "Repository",
+              "name": "appcf05634f.scm.azurewebsites.net",
+              "sslState": "Disabled"
+            }
+          ],
+          "hostNames": [
+            "appcf05634f.azurewebsites.net"
+          ],
+          "hostNamesDisabled": false,
+          "httpsOnly": false,
+          "hyperV": false,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f",
+          "isXenon": false,
+          "keyVaultReferenceIdentity": "SystemAssigned",
+          "kind": "app",
+          "lastModifiedTimeUtc": "2024-12-13T00:48:20.7166667",
+          "location": "West US 2",
+          "name": "appcf05634f",
+          "outboundIpAddresses": "52.143.74.154,52.143.74.185,52.143.74.201,51.143.104.236,52.143.74.235,51.143.110.109,40.91.74.49,51.143.113.34,40.91.84.31,51.143.114.56,40.91.78.65,51.143.116.185,172.179.24.1,20.115.232.10",
+          "possibleOutboundIpAddresses": "52.143.74.154,52.143.74.185,52.143.74.201,51.143.104.236,52.143.74.235,51.143.110.109,40.91.74.49,51.143.113.34,40.91.84.31,51.143.114.56,40.91.78.65,51.143.116.185,172.179.24.1,52.143.74.144,52.143.75.35,51.143.110.177,52.143.75.41,51.143.106.79,52.143.75.233,52.143.77.70,52.143.79.91,52.143.79.113,52.143.79.156,40.91.90.167,52.143.88.52,52.143.88.130,52.143.88.139,51.143.111.99,52.143.89.26,52.137.89.44,40.91.90.164,52.137.90.186,51.143.63.73,52.143.94.17,52.143.94.201,52.143.95.32,52.143.95.76,20.115.232.10",
+          "redundancyMode": "None",
+          "repositorySiteName": "appcf05634f",
+          "reserved": false,
+          "resourceGroup": "rg05734339",
+          "scmSiteAlsoStopped": false,
+          "serverFarmId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/serverfarms/servicePlan5739a54b",
+          "siteConfig": {
+            "acrUseManagedIdentityCreds": false,
+            "alwaysOn": false,
+            "appCommandLine": "",
+            "autoHealEnabled": false,
+            "azureStorageAccounts": {},
+            "defaultDocuments": [
+              "Default.htm",
+              "Default.html",
+              "Default.asp",
+              "index.htm",
+              "index.html",
+              "iisstart.htm",
+              "default.aspx",
+              "index.php",
+              "hostingstart.html"
+            ],
+            "detailedErrorLoggingEnabled": false,
+            "elasticWebAppScaleLimit": 0,
+            "experiments": {
+              "rampUpRules": []
+            },
+            "ftpsState": "FtpsOnly",
+            "functionsRuntimeScaleMonitoringEnabled": false,
+            "http20Enabled": false,
+            "httpLoggingEnabled": false,
+            "ipSecurityRestrictions": [
+              {
+                "action": "Allow",
+                "description": "Allow all access",
+                "ipAddress": "Any",
+                "name": "Allow all",
+                "priority": 2147483647
+              }
+            ],
+            "linuxFxVersion": "",
+            "loadBalancing": "LeastRequests",
+            "localMySqlEnabled": false,
+            "logsDirectorySizeLimit": 35,
+            "managedPipelineMode": "Integrated",
+            "minTlsVersion": "1.2",
+            "minimumElasticInstanceCount": 0,
+            "netFrameworkVersion": "v4.0",
+            "nodeVersion": "",
+            "numberOfWorkers": 1,
+            "phpVersion": "5.6",
+            "powerShellVersion": "",
+            "preWarmedInstanceCount": 0,
+            "publishingUsername": "$appcf05634f",
+            "pythonVersion": "",
+            "remoteDebuggingEnabled": false,
+            "requestTracingEnabled": false,
+            "scmIpSecurityRestrictions": [
+              {
+                "action": "Allow",
+                "description": "Allow all access",
+                "ipAddress": "Any",
+                "name": "Allow all",
+                "priority": 2147483647
+              }
+            ],
+            "scmIpSecurityRestrictionsUseMain": false,
+            "scmMinTlsVersion": "1.2",
+            "scmType": "None",
+            "use32BitWorkerProcess": true,
+            "virtualApplications": [
+              {
+                "physicalPath": "site\\wwwroot",
+                "preloadEnabled": false,
+                "virtualPath": "/"
+              }
+            ],
+            "vnetName": "",
+            "vnetPrivatePortsCount": 0,
+            "vnetRouteAllEnabled": false,
+            "webSocketsEnabled": false
+          },
+          "state": "Running",
+          "storageAccountRequired": false,
+          "type": "Microsoft.Web/sites",
+          "usageState": "Normal",
+          "vnetContentShareEnabled": false,
+          "vnetImagePullEnabled": false,
+          "vnetRouteAllEnabled": false
+        },
+        "parent": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:pulumi:Stack::upgrade-appservices-webapp-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:AppServicePlan::servicePlan"
+        ],
+        "provider": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:providers:azure-native::default::0f2a1c0b-e1b2-47ce-a082-e725693d7d43",
+        "propertyDependencies": {
+          "kind": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg"
+          ],
+          "serverFarmId": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:AppServicePlan::servicePlan"
+          ]
+        },
+        "created": "2024-12-13T00:48:41.838974Z",
+        "modified": "2024-12-13T00:48:41.838974Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebAppApplicationSettings::appSettings",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f/config/appsettings",
+        "type": "azure-native:web:WebAppApplicationSettings",
+        "inputs": {
+          "name": "appcf05634f",
+          "properties": {
+            "setting1": "v1",
+            "sticky1": "production"
+          },
+          "resourceGroupName": "rg05734339"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f/config/appsettings",
+          "name": "appsettings",
+          "properties": {
+            "setting1": "v1",
+            "sticky1": "production"
+          },
+          "type": "Microsoft.Web/sites/config"
+        },
+        "parent": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:pulumi:Stack::upgrade-appservices-webapp-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app"
+        ],
+        "provider": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:providers:azure-native::default::0f2a1c0b-e1b2-47ce-a082-e725693d7d43",
+        "propertyDependencies": {
+          "name": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app"
+          ],
+          "properties": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2024-12-13T00:48:43.770532Z",
+        "modified": "2024-12-13T00:48:43.770532Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebAppSlotConfigurationNames::appStickies",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f/config/slotConfigNames",
+        "type": "azure-native:web:WebAppSlotConfigurationNames",
+        "inputs": {
+          "appSettingNames": [
+            "sticky1"
+          ],
+          "name": "appcf05634f",
+          "resourceGroupName": "rg05734339"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "appSettingNames": [
+            "sticky1"
+          ],
+          "azureStorageConfigNames": [],
+          "connectionStringNames": [],
+          "name": "appcf05634f",
+          "type": "Microsoft.Web/sites"
+        },
+        "parent": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:pulumi:Stack::upgrade-appservices-webapp-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app"
+        ],
+        "provider": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:providers:azure-native::default::0f2a1c0b-e1b2-47ce-a082-e725693d7d43",
+        "propertyDependencies": {
+          "appSettingNames": [],
+          "name": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2024-12-13T00:48:43.771126Z",
+        "modified": "2024-12-13T00:48:43.771126Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebAppSlot::staging",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f/slots/staging",
+        "type": "azure-native:web:WebAppSlot",
+        "inputs": {
+          "location": "westus2",
+          "name": "appcf05634f",
+          "resourceGroupName": "rg05734339",
+          "serverFarmId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/serverfarms/servicePlan5739a54b",
+          "slot": "staging"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "availabilityState": "Normal",
+          "clientAffinityEnabled": true,
+          "clientCertEnabled": false,
+          "clientCertMode": "Required",
+          "containerSize": 0,
+          "customDomainVerificationId": "B11364C3A91B1C810CBDDE0B9D713B5749A8FA7544E52180C286BF80A38555A5",
+          "dailyMemoryTimeQuota": 0,
+          "defaultHostName": "appcf05634f-staging.azurewebsites.net",
+          "enabled": true,
+          "enabledHostNames": [
+            "appcf05634f-staging.azurewebsites.net",
+            "appcf05634f-staging.scm.azurewebsites.net"
+          ],
+          "hostNameSslStates": [
+            {
+              "hostType": "Standard",
+              "name": "appcf05634f-staging.azurewebsites.net",
+              "sslState": "Disabled"
+            },
+            {
+              "hostType": "Repository",
+              "name": "appcf05634f-staging.scm.azurewebsites.net",
+              "sslState": "Disabled"
+            }
+          ],
+          "hostNames": [
+            "appcf05634f-staging.azurewebsites.net"
+          ],
+          "hostNamesDisabled": false,
+          "httpsOnly": false,
+          "hyperV": false,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f/slots/staging",
+          "isXenon": false,
+          "keyVaultReferenceIdentity": "SystemAssigned",
+          "kind": "app",
+          "lastModifiedTimeUtc": "2024-12-13T00:48:45.7233333",
+          "location": "West US 2",
+          "name": "appcf05634f/staging",
+          "outboundIpAddresses": "52.143.74.154,52.143.74.185,52.143.74.201,51.143.104.236,52.143.74.235,51.143.110.109,40.91.74.49,51.143.113.34,40.91.84.31,51.143.114.56,40.91.78.65,51.143.116.185,172.179.24.1,20.115.232.10",
+          "possibleOutboundIpAddresses": "52.143.74.154,52.143.74.185,52.143.74.201,51.143.104.236,52.143.74.235,51.143.110.109,40.91.74.49,51.143.113.34,40.91.84.31,51.143.114.56,40.91.78.65,51.143.116.185,172.179.24.1,52.143.74.144,52.143.75.35,51.143.110.177,52.143.75.41,51.143.106.79,52.143.75.233,52.143.77.70,52.143.79.91,52.143.79.113,52.143.79.156,40.91.90.167,52.143.88.52,52.143.88.130,52.143.88.139,51.143.111.99,52.143.89.26,52.137.89.44,40.91.90.164,52.137.90.186,51.143.63.73,52.143.94.17,52.143.94.201,52.143.95.32,52.143.95.76,20.115.232.10",
+          "redundancyMode": "None",
+          "repositorySiteName": "appcf05634f",
+          "reserved": false,
+          "resourceGroup": "rg05734339",
+          "scmSiteAlsoStopped": false,
+          "serverFarmId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/serverfarms/servicePlan5739a54b",
+          "siteConfig": {
+            "acrUseManagedIdentityCreds": false,
+            "alwaysOn": false,
+            "appCommandLine": "",
+            "autoHealEnabled": false,
+            "azureStorageAccounts": {},
+            "defaultDocuments": [
+              "Default.htm",
+              "Default.html",
+              "Default.asp",
+              "index.htm",
+              "index.html",
+              "iisstart.htm",
+              "default.aspx",
+              "index.php",
+              "hostingstart.html"
+            ],
+            "detailedErrorLoggingEnabled": false,
+            "elasticWebAppScaleLimit": 0,
+            "experiments": {
+              "rampUpRules": []
+            },
+            "ftpsState": "FtpsOnly",
+            "functionsRuntimeScaleMonitoringEnabled": false,
+            "http20Enabled": false,
+            "httpLoggingEnabled": false,
+            "ipSecurityRestrictions": [
+              {
+                "action": "Allow",
+                "description": "Allow all access",
+                "ipAddress": "Any",
+                "name": "Allow all",
+                "priority": 2147483647
+              }
+            ],
+            "linuxFxVersion": "",
+            "loadBalancing": "LeastRequests",
+            "localMySqlEnabled": false,
+            "logsDirectorySizeLimit": 35,
+            "managedPipelineMode": "Integrated",
+            "minTlsVersion": "1.2",
+            "minimumElasticInstanceCount": 1,
+            "netFrameworkVersion": "v4.0",
+            "nodeVersion": "",
+            "numberOfWorkers": 1,
+            "phpVersion": "5.6",
+            "powerShellVersion": "",
+            "preWarmedInstanceCount": 0,
+            "publishingUsername": "$appcf05634f__staging",
+            "pythonVersion": "",
+            "remoteDebuggingEnabled": false,
+            "remoteDebuggingVersion": "VS2022",
+            "requestTracingEnabled": false,
+            "scmIpSecurityRestrictions": [
+              {
+                "action": "Allow",
+                "description": "Allow all access",
+                "ipAddress": "Any",
+                "name": "Allow all",
+                "priority": 2147483647
+              }
+            ],
+            "scmIpSecurityRestrictionsUseMain": false,
+            "scmMinTlsVersion": "1.2",
+            "scmType": "None",
+            "use32BitWorkerProcess": true,
+            "virtualApplications": [
+              {
+                "physicalPath": "site\\wwwroot",
+                "preloadEnabled": false,
+                "virtualPath": "/"
+              }
+            ],
+            "vnetName": "",
+            "vnetPrivatePortsCount": 0,
+            "vnetRouteAllEnabled": false,
+            "webSocketsEnabled": false
+          },
+          "state": "Running",
+          "storageAccountRequired": false,
+          "type": "Microsoft.Web/sites/slots",
+          "usageState": "Normal",
+          "vnetContentShareEnabled": false,
+          "vnetImagePullEnabled": false,
+          "vnetRouteAllEnabled": false
+        },
+        "parent": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:pulumi:Stack::upgrade-appservices-webapp-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:AppServicePlan::servicePlan",
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app"
+        ],
+        "provider": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:providers:azure-native::default::0f2a1c0b-e1b2-47ce-a082-e725693d7d43",
+        "propertyDependencies": {
+          "name": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg"
+          ],
+          "serverFarmId": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:AppServicePlan::servicePlan"
+          ],
+          "slot": []
+        },
+        "created": "2024-12-13T00:49:06.095971Z",
+        "modified": "2024-12-13T00:49:06.095971Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebAppApplicationSettingsSlot::stagingSettings",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f/slots/staging/config/appsettings",
+        "type": "azure-native:web:WebAppApplicationSettingsSlot",
+        "inputs": {
+          "name": "appcf05634f",
+          "properties": {
+            "setting1": "v2",
+            "sticky1": "staging"
+          },
+          "resourceGroupName": "rg05734339",
+          "slot": "staging"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f/slots/staging/config/appsettings",
+          "name": "appsettings",
+          "properties": {
+            "setting1": "v2",
+            "sticky1": "staging"
+          },
+          "type": "Microsoft.Web/sites/config"
+        },
+        "parent": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:pulumi:Stack::upgrade-appservices-webapp-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg",
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app",
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebAppSlot::staging"
+        ],
+        "provider": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:providers:azure-native::default::0f2a1c0b-e1b2-47ce-a082-e725693d7d43",
+        "propertyDependencies": {
+          "name": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app"
+          ],
+          "properties": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg"
+          ],
+          "slot": []
+        },
+        "created": "2024-12-13T00:49:08.039426Z",
+        "modified": "2024-12-13T00:49:08.039426Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebAppSourceControl::appContent",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f/sourcecontrols/web",
+        "type": "azure-native:web:WebAppSourceControl",
+        "inputs": {
+          "branch": "master",
+          "isManualIntegration": true,
+          "name": "appcf05634f",
+          "repoUrl": "https://github.com/Azure-Samples/app-service-web-html-get-started.git",
+          "resourceGroupName": "rg05734339"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "\"REDACTED BY PROVIDERTEST\""
+          },
+          "branch": "master",
+          "deploymentRollbackEnabled": false,
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rg05734339/providers/Microsoft.Web/sites/appcf05634f/sourcecontrols/web",
+          "isGitHubAction": false,
+          "isManualIntegration": true,
+          "isMercurial": false,
+          "name": "appcf05634f",
+          "repoUrl": "https://github.com/Azure-Samples/app-service-web-html-get-started.git",
+          "type": "Microsoft.Web/sites/sourcecontrols"
+        },
+        "parent": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:pulumi:Stack::upgrade-appservices-webapp-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app",
+          "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-appservices-webapp::pulumi:providers:azure-native::default::0f2a1c0b-e1b2-47ce-a082-e725693d7d43",
+        "propertyDependencies": {
+          "branch": [],
+          "isManualIntegration": [],
+          "name": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:web:WebApp::app"
+          ],
+          "repoUrl": [],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-appservices-webapp::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2024-12-13T00:50:11.910086Z",
+        "modified": "2024-12-13T00:50:11.910086Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

@@ -1,0 +1,55 @@
+name: upgrade-keyvault
+runtime: yaml
+description: Upgrade test for KeyVault
+variables:
+  clientConfig:
+    fn::invoke:
+      function: azure-native:authorization:getClientConfig
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+
+  vault:
+    type: azure-native:keyvault:Vault
+    properties:
+      resourceGroupName: ${rg.name}
+      properties:
+        accessPolicies:
+          - objectId: ${clientConfig.objectId}
+            permissions:
+              keys:
+                - Get
+                - Create
+                - Delete
+                - List
+                - Recover
+                - Purge
+              secrets:
+                - Get
+                - List
+                - Set
+                - Delete
+                - Recover
+                - Purge
+            tenantId: ${clientConfig.tenantId}
+        sku:
+          family: A
+          name: standard
+        tenantId: ${clientConfig.tenantId}
+
+  secret:
+    type: azure-native:keyvault:Secret
+    properties:
+      resourceGroupName: ${rg.name}
+      vaultName: ${vault.name}
+      properties:
+        value: "myvalue"
+
+  key:
+    type: azure-native:keyvault:Key
+    properties:
+      resourceGroupName: ${rg.name}
+      vaultName: ${vault.name}
+      properties:
+        kty: "RSA"
