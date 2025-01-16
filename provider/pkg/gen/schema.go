@@ -826,7 +826,7 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 // dedupResourceNameByPath returns a modified resource name (`typeName`) if the resource is mapped to multiple API
 // paths. For instance, the deprecated "single server" resources in `dbformysql` and `dbforpostgresql` are renamed
 // to `SingleServerResource`.
-// TODO,tkappler check each one if we can just get rid of an old API version instead of doing this.
+// Note: if a path conflict can be fixed by removing an old API version instead, that's preferrable.
 func dedupResourceNameByPath(provider, typeName, canonPath string) string {
 	result := typeName
 
@@ -936,7 +936,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	canonPath := paths.NormalizePath(resource.Path)
 
 	typeName := resource.typeName
-	if g.majorVersion > 3 {
+	if g.majorVersion >= 3 {
 		typeName = dedupResourceNameByPath(g.provider, resource.typeName, canonPath)
 	}
 
