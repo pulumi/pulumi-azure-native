@@ -49,7 +49,12 @@ AlertsManagement:
 AnalysisServices:
 ApiManagement:
   expectAdditions: true
-  notes: Only listDelegationSettingSecrets seems to have no new name
+  expectTracking: preview
+  notes: |
+    Only listDelegationSettingSecrets seems to have no new name
+    The TestApi integration test fails when using 2024-05-01 so we currently need to use a lower version.
+    The documentation is for 2024-05-01: https://learn.microsoft.com/en-us/rest/api/apimanagement/api-version-set
+    The portal uses 2022-09-01-preview, so we'll go with that as it includes most new resources.
   exclusions:
     ApiDiagnosticLogger: "2018-01-01" # last appeared 2018, not documented in https://learn.microsoft.com/en-us/rest/api/apimanagement/
     ApiOperationsPolicy: "2016-10-10" # renamed to ApiOperationPolicy
