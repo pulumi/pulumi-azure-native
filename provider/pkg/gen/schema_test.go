@@ -64,7 +64,7 @@ func TestAliases(t *testing.T) {
 			resource.PreviousProviderName = &previousProviderName
 		}
 
-		aliasSpecs := generator.generateAliases(resource, resource.typeName, typeNameAliases...)
+		aliasSpecs := generator.generateAliases(resource, typeNameAliases...)
 		typeAliases := []string{}
 		for _, alias := range aliasSpecs {
 			typeAliases = append(typeAliases, *alias.Type)
