@@ -27,6 +27,22 @@ import (
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
+var schemaBytes []byte
+var azureAPIResourcesBytes []byte
+
+func init() {
+	var err error
+	schemaBytes, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-full.json"))
+	if err != nil {
+		fmt.Printf("failed to read schema file, run `make schema` before running tests: %v", err)
+	}
+
+	azureAPIResourcesBytes, err = os.ReadFile(filepath.Join("..", "..", "..", "bin", "metadata-compact.json"))
+	if err != nil {
+		fmt.Printf("failed to read metadata file, run `make schema` before running tests: %v", err)
+	}
+}
+
 func TestStorageBlob(t *testing.T) {
 	t.Parallel()
 	pt := newPulumiTest(t, "storage-blob")
@@ -76,42 +92,34 @@ func TestAutonaming(t *testing.T) {
 }
 
 func TestUpgradeKeyVault_2_76_0(t *testing.T) {
-	t.Parallel()
 	upgradeTest(t, "upgrade-keyvault", "2.76.0")
 }
 
 func TestUpgradeNetworkedVm_2_76_0(t *testing.T) {
-	t.Parallel()
 	upgradeTest(t, "upgrade-networked-vm", "2.76.0")
 }
 
 func TestUpgradeStorageBlob_2_76_0(t *testing.T) {
-	t.Parallel()
 	upgradeTest(t, "upgrade-storage-blob", "2.76.0")
 }
 
 func TestUpgradeSqlDatabase_2_76_0(t *testing.T) {
-	t.Parallel()
 	upgradeTest(t, "upgrade-sql-database", "2.76.0")
 }
 
 func TestUpgradeServiceBusMessaging_2_76_0(t *testing.T) {
-	t.Parallel()
 	upgradeTest(t, "upgrade-servicebus-messaging", "2.76.0")
 }
 
 func TestUpgradeAppServicesWebApp_2_76_0(t *testing.T) {
-	t.Parallel()
 	upgradeTest(t, "upgrade-appservices-webapp", "2.76.0")
 }
 
 func TestUpgradeCosmosdbNosql_2_76_0(t *testing.T) {
-	t.Parallel()
 	upgradeTest(t, "upgrade-cosmosdb-nosql", "2.76.0")
 }
 
 func TestUpgradeContainerServiceAgentPool_2_76_0(t *testing.T) {
-	t.Parallel()
 	upgradeTest(t, "upgrade-containerservice-agentpool", "2.76.0")
 }
 
@@ -153,14 +161,11 @@ func newPulumiTest(t *testing.T, testProgramDir string, opts ...opttest.Option) 
 func providerServer(_ providers.PulumiTest) (pulumirpc.ResourceProviderServer, error) {
 	version.Version = "0.0.1"
 
-	schemaBytes, err := os.ReadFile(filepath.Join("..", "..", "..", "bin", "schema-full.json"))
-	if err != nil {
-		return nil, fmt.Errorf("failed to read schema file, run `make schema` before running tests: %v", err)
+	if len(schemaBytes) == 0 {
+		return nil, fmt.Errorf("schema not loaded")
 	}
-
-	azureAPIResourcesBytes, err := os.ReadFile(filepath.Join("..", "..", "..", "bin", "metadata-compact.json"))
-	if err != nil {
-		return nil, fmt.Errorf("failed to read metadata file, run `make schema` before running tests: %v", err)
+	if len(azureAPIResourcesBytes) == 0 {
+		return nil, fmt.Errorf("azure API resources not loaded")
 	}
 
 	return makeProvider(nil, "azure-native", "2.0.0", schemaBytes, azureAPIResourcesBytes)
