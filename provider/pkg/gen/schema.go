@@ -695,16 +695,8 @@ type packageGenerator struct {
 
 func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
 	// Resource names should consistently start with upper case.
-	typeNameAliases := []string{}
+	typeNameAliases := g.genAliases(typeName)
 	titleCasedTypeName := strings.Title(typeName)
-
-	if g.majorVersion < 3 {
-		// We need to alias the previous, lowercase name so users can upgrade to v2 without replacement.
-		// These aliases aren't required anymore with v3.
-		if titleCasedTypeName != typeName {
-			typeNameAliases = append(typeNameAliases, typeName)
-		}
-	}
 
 	// A single API path can be modelled as several resources if it accepts a polymorphic payload:
 	// i.e., when the request body is a discriminated union type of several object types. Pulumi
@@ -735,6 +727,20 @@ func (g *packageGenerator) genResources(typeName string, resource *openapi.Resou
 		mainResource.deprecationMessage = resource.DeprecationMessage
 	}
 	return g.genResourceVariant(resource, mainResource, nestedResourceBodyRefs, typeNameAliases...)
+}
+
+func (g *packageGenerator) genAliases(typeName string) []string {
+	switch g.majorVersion {
+	case 2:
+		// We need to alias the previous, lowercase name so users can upgrade to v2 without replacement.
+		// These aliases aren't required anymore with v3.
+		if strings.Title(typeName) != typeName {
+			return []string{typeName}
+		}
+	case 3:
+		// TODO: Add additional aliases for v3 case changes: https://github.com/pulumi/pulumi-azure-native/issues/3848
+	}
+	return nil
 }
 
 // resourceVariant points to request body's and response's schemas of a resource which is one of the variants
