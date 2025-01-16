@@ -957,7 +957,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		metadata:                   g.metadata,
 		module:                     module,
 		prov:                       g.provider,
-		resourceName:               resource.typeName,
+		resourceName:               typeName,
 		resourceToken:              resourceTok,
 		visitedTypes:               make(map[string]bool),
 		caseSensitiveTypes:         g.caseSensitiveTypes,
@@ -991,7 +991,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		return errors.Wrapf(err, "failed to generate '%s': request type", resourceTok)
 	}
 
-	gen.escapeCSharpNames(resource.typeName, resourceResponse)
+	gen.escapeCSharpNames(typeName, resourceResponse)
 
 	// Id is a property of the base Custom Resource, we don't want to introduce it on derived resources.
 	delete(resourceResponse.specs, "id")
@@ -1013,21 +1013,21 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: g.formatDescription(resourceResponse.description, resource.typeName, openapi.ApiVersion(swagger.Info.Version), apiSpec.PreviousVersion, additionalDocs),
+			Description: g.formatDescription(resourceResponse.description, typeName, openapi.ApiVersion(swagger.Info.Version), apiSpec.PreviousVersion, additionalDocs),
 			Type:        "object",
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
 		},
 		InputProperties:    resourceRequest.specs,
 		RequiredInputs:     resourceRequest.requiredSpecs.SortedValues(),
-		Aliases:            g.generateAliases(resource, typeNameAliases...),
+		Aliases:            g.generateAliases(resource, typeName, typeNameAliases...),
 		DeprecationMessage: resource.deprecationMessage,
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
 
 	// Generate the function to get this resource.
-	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, resource.typeName)
-	if g.versioning.ShouldInclude(g.provider, g.apiVersion, resource.typeName, functionTok) {
+	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, typeName)
+	if g.versioning.ShouldInclude(g.provider, g.apiVersion, typeName, functionTok) {
 		var readOp *spec.Operation
 		switch {
 		case resource.PathItemList != nil:
@@ -1054,7 +1054,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 		if path.Get != nil && responseFunction != nil {
 			functionSpec := pschema.FunctionSpec{
-				Description:        g.formatFunctionDescription(readOp, resource.typeName, resourceResponse, swagger.Info),
+				Description:        g.formatFunctionDescription(readOp, typeName, resourceResponse, swagger.Info),
 				DeprecationMessage: resource.deprecationMessage,
 				Inputs: &pschema.ObjectTypeSpec{
 					Description: requestFunction.description,
@@ -1111,7 +1111,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		ReadQueryParams:      readUrlParams,
 		AutoLocationDisabled: resources.AutoLocationDisabled(resource.Path),
 		RequiredContainers:   requiredContainers,
-		DefaultProperties:    propertyDefaults(module, resource.typeName),
+		DefaultProperties:    propertyDefaults(module, typeName),
 	}
 
 	g.metadata.Resources[resourceTok] = r
@@ -1128,7 +1128,7 @@ func isSingleton(resource *resourceVariant) bool {
 	return resource.PathItem.Delete == nil || customresources.IsSingleton(resource.Path)
 }
 
-func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
+func (g *packageGenerator) generateAliases(resource *resourceVariant, typeName string, typeNameAliases ...string) []pschema.AliasSpec {
 	var aliases []pschema.AliasSpec
 
 	addAlias := func(module, typeName string, version openapi.SdkVersion) {
@@ -1138,7 +1138,7 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAl
 
 	// Add an alias for the same version of the resource, but in its old module.
 	if resource.PreviousProviderName != nil {
-		addAlias(*resource.PreviousProviderName, resource.typeName, g.sdkVersion)
+		addAlias(*resource.PreviousProviderName, typeName, g.sdkVersion)
 	}
 
 	for _, alias := range typeNameAliases {
@@ -1151,11 +1151,11 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAl
 
 	// Add an alias for each API version that has the same path in it.
 	for _, version := range resource.CompatibleVersions {
-		addAlias(g.provider, resource.typeName, version)
+		addAlias(g.provider, typeName, version)
 
 		// Add an alias for the other versions, but from its old module.
 		if resource.PreviousProviderName != nil {
-			addAlias(*resource.PreviousProviderName, resource.typeName, version)
+			addAlias(*resource.PreviousProviderName, typeName, version)
 		}
 
 		// Add type name aliases for each compatible version.
