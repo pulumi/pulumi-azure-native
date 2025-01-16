@@ -66,7 +66,7 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 // getIdAndQuery replaces the default implementation of crud.ResourceCrudClient.PrepareAzureRESTIdAndQuery. It doesn't
 // change queryParams, only the id, to replace the file share's friendly name with the system name.
 func getIdAndQuery(ctx context.Context, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient, reader systemNameReader) (string, map[string]any, error) {
-	systemName, err := retrieveSystemName(ctx, inputs, reader)
+	systemName, err := retrieveSystemName(ctx, inputs, reader, 10, 30*time.Second)
 	if err != nil {
 		return "", nil, fmt.Errorf("failed to retrieve system name: %w", err)
 	}
@@ -85,7 +85,7 @@ func getIdAndQuery(ctx context.Context, inputs resource.PropertyMap, crudClient 
 }
 
 // retrieveSystemName looks up the system name of a file share protected item in Azure.
-func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader) (string, error) {
+func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader, maxAttempts int, waitBetweenAttempts time.Duration) (string, error) {
 	item, err := extractProtectedItemProperties(input)
 	if err != nil {
 		return "", fmt.Errorf("failed to extract protected item properties from input: %w", err)
@@ -97,19 +97,21 @@ func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader 
 	}
 
 	logging.V(9).Infof("looking up system name for %s", item.itemName)
-	systemName, err := reader.readSystemNameFromProtectableItem(ctx, item)
-	if err != nil {
-		return "", fmt.Errorf("failed to read system name for protectable item: %w", err)
-	}
 	// Based on observations during testing, the system name is usually, but not always immediately available.
-	if systemName == "" {
-		time.Sleep(30 * time.Second)
-		systemName, err = reader.readSystemNameFromProtectableItem(ctx, item)
+	for i := 1; i <= maxAttempts; i++ {
+		systemName, err := reader.readSystemNameFromProtectableItem(ctx, item)
 		if err != nil {
-			return "", fmt.Errorf("failed to read system name for protectable item in second attempt: %w", err)
+			return "", fmt.Errorf("failed to read system name for protectable item: %w", err)
+		}
+		if systemName != "" {
+			logging.V(9).Infof("found system name %s for %s in attempt %d", systemName, item.itemName, i)
+			return systemName, nil
+		}
+		if i < maxAttempts {
+			time.Sleep(waitBetweenAttempts)
 		}
 	}
-	return systemName, nil
+	return "", fmt.Errorf("failed to retrieve system name after %d attempts", maxAttempts)
 }
 
 // systemNameReader is an interface for getting the Azure system name of a protected item.
