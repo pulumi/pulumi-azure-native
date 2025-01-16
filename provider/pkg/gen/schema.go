@@ -337,14 +337,23 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			pythonModuleNames[module] = module
 			golangImportAliases[goModuleName(gen.provider, gen.sdkVersion)] = strings.ToLower(providerName)
 
-			// Populate resources and get invokes.
+			// Create a sorted list of resource names, potentially deduplicating resources by path.
 			items := versionMap[sdkVersion]
 			var resources []string
-			for resource := range items.Resources {
-				resources = append(resources, resource)
+			for resourceName, resource := range items.Resources {
+				if gen.majorVersion >= 3 {
+					newResourceName := dedupResourceNameByPath(providerName, resourceName, resource.Path)
+					if newResourceName != resourceName {
+						resourceName = newResourceName
+						items.Resources[newResourceName] = resource
+						delete(items.Resources, resourceName)
+					}
+				}
+				resources = append(resources, resourceName)
 			}
 			sort.Strings(resources)
 
+			// Populate resources and get invokes.
 			for _, typeName := range resources {
 				resource := items.Resources[typeName]
 				nestedResourceBodyRefs := findNestedResourceBodyRefs(resource, items.Resources)
@@ -935,13 +944,8 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	path := resource.PathItem
 	canonPath := paths.NormalizePath(resource.Path)
 
-	typeName := resource.typeName
-	if g.majorVersion >= 3 {
-		typeName = dedupResourceNameByPath(g.provider, resource.typeName, canonPath)
-	}
-
-	resourceTok := generateTok(g.provider, typeName, g.sdkVersion)
-	if !g.versioning.ShouldInclude(g.provider, g.apiVersion, typeName, resourceTok) {
+	resourceTok := generateTok(g.provider, resource.typeName, g.sdkVersion)
+	if !g.versioning.ShouldInclude(g.provider, g.apiVersion, resource.typeName, resourceTok) {
 		return nil
 	}
 
@@ -949,7 +953,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	if g.apiVersion != nil {
 		apiVersion = *g.apiVersion
 	}
-	g.recordPath(typeName, canonPath, apiVersion)
+	g.recordPath(resource.typeName, canonPath, apiVersion)
 
 	// Generate the resource.
 	gen := moduleGenerator{
