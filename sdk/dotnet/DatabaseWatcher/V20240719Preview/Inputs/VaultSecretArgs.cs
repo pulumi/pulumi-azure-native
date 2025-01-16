@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20240719Preview.Inputs
     public sealed class VaultSecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure ResourceId of the Key Vault instance storing database authentication secrets.
+        /// The Azure resource ID of the Key Vault instance storing database authentication secrets.
         /// </summary>
         [Input("akvResourceId")]
         public Input<string>? AkvResourceId { get; set; }

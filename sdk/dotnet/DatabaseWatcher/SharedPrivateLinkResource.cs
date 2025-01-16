@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
     /// Azure REST API version: 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+    /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
     /// </summary>
     [AzureNativeResourceType("azure-native:databasewatcher:SharedPrivateLinkResource")]
     public partial class SharedPrivateLinkResource : global::Pulumi.CustomResource
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource id of the resource the shared private link resource is for.
+        /// The resource ID of the resource the shared private link resource is for.
         /// </summary>
         [Output("privateLinkResourceId")]
         public Output<string> PrivateLinkResourceId { get; private set; } = null!;
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20250102:SharedPrivateLinkResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +137,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
-        /// The resource id of the resource the shared private link resource is for.
+        /// The resource ID of the resource the shared private link resource is for.
         /// </summary>
         [Input("privateLinkResourceId", required: true)]
         public Input<string> PrivateLinkResourceId { get; set; } = null!;

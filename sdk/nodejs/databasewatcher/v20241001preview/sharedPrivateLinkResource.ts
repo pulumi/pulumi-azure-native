@@ -50,7 +50,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource id of the resource the shared private link resource is for.
+     * The resource ID of the resource the shared private link resource is for.
      */
     public readonly privateLinkResourceId!: pulumi.Output<string>;
     /**
@@ -124,7 +124,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20250102:SharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);
     }
@@ -143,7 +143,7 @@ export interface SharedPrivateLinkResourceArgs {
      */
     groupId: pulumi.Input<string>;
     /**
-     * The resource id of the resource the shared private link resource is for.
+     * The resource ID of the resource the shared private link resource is for.
      */
     privateLinkResourceId: pulumi.Input<string>;
     /**

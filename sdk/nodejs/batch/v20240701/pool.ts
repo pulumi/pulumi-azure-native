@@ -142,7 +142,7 @@ export class Pool extends pulumi.CustomResource {
     public readonly upgradePolicy!: pulumi.Output<outputs.batch.v20240701.UpgradePolicyResponse | undefined>;
     public readonly userAccounts!: pulumi.Output<outputs.batch.v20240701.UserAccountResponse[] | undefined>;
     /**
-     * For information about available VM sizes, see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+     * For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
      */
     public readonly vmSize!: pulumi.Output<string | undefined>;
 
@@ -332,7 +332,7 @@ export interface PoolArgs {
     upgradePolicy?: pulumi.Input<inputs.batch.v20240701.UpgradePolicyArgs>;
     userAccounts?: pulumi.Input<pulumi.Input<inputs.batch.v20240701.UserAccountArgs>[]>;
     /**
-     * For information about available VM sizes, see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+     * For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
      */
     vmSize?: pulumi.Input<string>;
 }

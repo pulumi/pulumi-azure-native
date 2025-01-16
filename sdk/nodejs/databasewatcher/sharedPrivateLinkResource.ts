@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
  * Azure REST API version: 2023-09-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
  */
 export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
@@ -53,7 +53,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource id of the resource the shared private link resource is for.
+     * The resource ID of the resource the shared private link resource is for.
      */
     public readonly privateLinkResourceId!: pulumi.Output<string>;
     /**
@@ -127,7 +127,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource" }, { type: "azure-native:databasewatcher/v20250102:SharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);
     }
@@ -146,7 +146,7 @@ export interface SharedPrivateLinkResourceArgs {
      */
     groupId: pulumi.Input<string>;
     /**
-     * The resource id of the resource the shared private link resource is for.
+     * The resource ID of the resource the shared private link resource is for.
      */
     privateLinkResourceId: pulumi.Input<string>;
     /**

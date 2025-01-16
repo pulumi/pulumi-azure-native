@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Quota
         /// Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview.
+        /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
         /// </summary>
         public static Task<GetGroupQuotaSubscriptionResult> InvokeAsync(GetGroupQuotaSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupQuotaSubscriptionResult>("azure-native:quota:getGroupQuotaSubscription", args ?? new GetGroupQuotaSubscriptionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Quota
         /// Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview.
+        /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
         /// </summary>
         public static Output<GetGroupQuotaSubscriptionResult> Invoke(GetGroupQuotaSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaSubscriptionResult>("azure-native:quota:getGroupQuotaSubscription", args ?? new GetGroupQuotaSubscriptionInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Quota
         /// Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
         /// Azure REST API version: 2023-06-01-preview.
         /// 
-        /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview.
+        /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
         /// </summary>
         public static Output<GetGroupQuotaSubscriptionResult> Invoke(GetGroupQuotaSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupQuotaSubscriptionResult>("azure-native:quota:getGroupQuotaSubscription", args ?? new GetGroupQuotaSubscriptionInvokeArgs(), options.WithDefaults());

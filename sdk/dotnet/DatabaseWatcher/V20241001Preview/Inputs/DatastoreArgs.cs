@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20241001Preview.Inputs
     public sealed class DatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure ResourceId of an Azure Data Explorer cluster.
+        /// The Azure resource ID of an Azure Data Explorer cluster.
         /// </summary>
         [Input("adxClusterResourceId")]
         public Input<string>? AdxClusterResourceId { get; set; }

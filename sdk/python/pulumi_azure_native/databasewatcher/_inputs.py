@@ -53,7 +53,7 @@ if not MYPY:
         """
         adx_cluster_resource_id: NotRequired[pulumi.Input[str]]
         """
-        The Azure ResourceId of an Azure Data Explorer cluster.
+        The Azure resource ID of an Azure Data Explorer cluster.
         """
         kusto_cluster_display_name: NotRequired[pulumi.Input[str]]
         """
@@ -79,7 +79,7 @@ class DatastoreArgs:
         :param pulumi.Input[str] kusto_database_name: The name of a Kusto database.
         :param pulumi.Input[str] kusto_management_url: The Kusto management URL.
         :param pulumi.Input[Union[str, 'KustoOfferingType']] kusto_offering_type: The type of a Kusto offering.
-        :param pulumi.Input[str] adx_cluster_resource_id: The Azure ResourceId of an Azure Data Explorer cluster.
+        :param pulumi.Input[str] adx_cluster_resource_id: The Azure resource ID of an Azure Data Explorer cluster.
         :param pulumi.Input[str] kusto_cluster_display_name: The Kusto cluster display name.
         """
         pulumi.set(__self__, "kusto_cluster_uri", kusto_cluster_uri)
@@ -156,7 +156,7 @@ class DatastoreArgs:
     @pulumi.getter(name="adxClusterResourceId")
     def adx_cluster_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure ResourceId of an Azure Data Explorer cluster.
+        The Azure resource ID of an Azure Data Explorer cluster.
         """
         return pulumi.get(self, "adx_cluster_resource_id")
 
@@ -239,7 +239,7 @@ if not MYPY:
         """
         akv_resource_id: NotRequired[pulumi.Input[str]]
         """
-        The Azure ResourceId of the Key Vault instance storing database authentication secrets.
+        The Azure resource ID of the Key Vault instance storing database authentication secrets.
         """
         akv_target_password: NotRequired[pulumi.Input[str]]
         """
@@ -260,7 +260,7 @@ class VaultSecretArgs:
                  akv_target_user: Optional[pulumi.Input[str]] = None):
         """
         The vault specific details required if using SQL authentication to connect to a target.
-        :param pulumi.Input[str] akv_resource_id: The Azure ResourceId of the Key Vault instance storing database authentication secrets.
+        :param pulumi.Input[str] akv_resource_id: The Azure resource ID of the Key Vault instance storing database authentication secrets.
         :param pulumi.Input[str] akv_target_password: The path to the Key Vault secret storing the password for authentication to a target.
         :param pulumi.Input[str] akv_target_user: The path to the Key Vault secret storing the login name (aka user name, aka account name) for authentication to a target.
         """
@@ -275,7 +275,7 @@ class VaultSecretArgs:
     @pulumi.getter(name="akvResourceId")
     def akv_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure ResourceId of the Key Vault instance storing database authentication secrets.
+        The Azure resource ID of the Key Vault instance storing database authentication secrets.
         """
         return pulumi.get(self, "akv_resource_id")
 

@@ -6940,6 +6940,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databasewatcher/v20250102",
+  "fqn": "pulumi_azure_native.databasewatcher.v20250102",
+  "classes": {
+   "azure-native:databasewatcher/v20250102:AlertRuleResource": "AlertRuleResource",
+   "azure-native:databasewatcher/v20250102:SharedPrivateLinkResource": "SharedPrivateLinkResource",
+   "azure-native:databasewatcher/v20250102:Target": "Target",
+   "azure-native:databasewatcher/v20250102:Watcher": "Watcher"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databox",
   "fqn": "pulumi_azure_native.databox",
   "classes": {
@@ -11663,6 +11674,32 @@ _utilities.register(
    "azure-native:keyvault/v20240401preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:keyvault/v20240401preview:Secret": "Secret",
    "azure-native:keyvault/v20240401preview:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "keyvault/v20241101",
+  "fqn": "pulumi_azure_native.keyvault.v20241101",
+  "classes": {
+   "azure-native:keyvault/v20241101:Key": "Key",
+   "azure-native:keyvault/v20241101:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
+   "azure-native:keyvault/v20241101:ManagedHsm": "ManagedHsm",
+   "azure-native:keyvault/v20241101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:keyvault/v20241101:Secret": "Secret",
+   "azure-native:keyvault/v20241101:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "keyvault/v20241201preview",
+  "fqn": "pulumi_azure_native.keyvault.v20241201preview",
+  "classes": {
+   "azure-native:keyvault/v20241201preview:Key": "Key",
+   "azure-native:keyvault/v20241201preview:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
+   "azure-native:keyvault/v20241201preview:ManagedHsm": "ManagedHsm",
+   "azure-native:keyvault/v20241201preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:keyvault/v20241201preview:Secret": "Secret",
+   "azure-native:keyvault/v20241201preview:Vault": "Vault"
   }
  },
  {
@@ -16573,6 +16610,15 @@ _utilities.register(
   "classes": {
    "azure-native:quota/v20241218preview:GroupQuota": "GroupQuota",
    "azure-native:quota/v20241218preview:GroupQuotaSubscription": "GroupQuotaSubscription"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "quota/v20250301",
+  "fqn": "pulumi_azure_native.quota.v20250301",
+  "classes": {
+   "azure-native:quota/v20250301:GroupQuota": "GroupQuota",
+   "azure-native:quota/v20250301:GroupQuotaSubscription": "GroupQuotaSubscription"
   }
  },
  {

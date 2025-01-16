@@ -221,7 +221,7 @@ class Target(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher:Target"), pulumi.Alias(type_="azure-native:databasewatcher/v20240719preview:Target"), pulumi.Alias(type_="azure-native:databasewatcher/v20241001preview:Target")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher:Target"), pulumi.Alias(type_="azure-native:databasewatcher/v20240719preview:Target"), pulumi.Alias(type_="azure-native:databasewatcher/v20241001preview:Target"), pulumi.Alias(type_="azure-native:databasewatcher/v20250102:Target")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Target, __self__).__init__(
             'azure-native:databasewatcher/v20230901preview:Target',

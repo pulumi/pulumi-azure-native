@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// Get a Target
         /// Azure REST API version: 2023-09-01-preview.
         /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
         /// </summary>
         public static Task<GetTargetResult> InvokeAsync(GetTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTargetResult>("azure-native:databasewatcher:getTarget", args ?? new GetTargetArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// Get a Target
         /// Azure REST API version: 2023-09-01-preview.
         /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
         /// </summary>
         public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:databasewatcher:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// Get a Target
         /// Azure REST API version: 2023-09-01-preview.
         /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
         /// </summary>
         public static Output<GetTargetResult> Invoke(GetTargetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetResult>("azure-native:databasewatcher:getTarget", args ?? new GetTargetInvokeArgs(), options.WithDefaults());

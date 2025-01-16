@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// Get a AlertRuleResource
         /// Azure REST API version: 2024-07-19-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2024-10-01-preview, 2025-01-02.
         /// </summary>
         public static Task<GetAlertRuleResourceResult> InvokeAsync(GetAlertRuleResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResourceResult>("azure-native:databasewatcher:getAlertRuleResource", args ?? new GetAlertRuleResourceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// Get a AlertRuleResource
         /// Azure REST API version: 2024-07-19-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2024-10-01-preview, 2025-01-02.
         /// </summary>
         public static Output<GetAlertRuleResourceResult> Invoke(GetAlertRuleResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleResourceResult>("azure-native:databasewatcher:getAlertRuleResource", args ?? new GetAlertRuleResourceInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// Get a AlertRuleResource
         /// Azure REST API version: 2024-07-19-preview.
         /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Other available API versions: 2024-10-01-preview, 2025-01-02.
         /// </summary>
         public static Output<GetAlertRuleResourceResult> Invoke(GetAlertRuleResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleResourceResult>("azure-native:databasewatcher:getAlertRuleResource", args ?? new GetAlertRuleResourceInvokeArgs(), options.WithDefaults());

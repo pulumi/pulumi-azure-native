@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Quota
     /// This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
     /// Azure REST API version: 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview.
+    /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:quota:GroupQuotaSubscription")]
     public partial class GroupQuotaSubscription : global::Pulumi.CustomResource
@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.Quota
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20230601preview:GroupQuotaSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20241015preview:GroupQuotaSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20241218preview:GroupQuotaSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:quota/v20250301:GroupQuotaSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

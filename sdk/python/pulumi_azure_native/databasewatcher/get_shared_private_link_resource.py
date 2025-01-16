@@ -95,7 +95,7 @@ class GetSharedPrivateLinkResourceResult:
     @pulumi.getter(name="privateLinkResourceId")
     def private_link_resource_id(self) -> str:
         """
-        The resource id of the resource the shared private link resource is for.
+        The resource ID of the resource the shared private link resource is for.
         """
         return pulumi.get(self, "private_link_resource_id")
 
@@ -166,7 +166,7 @@ def get_shared_private_link_resource(resource_group_name: Optional[str] = None,
     Get a SharedPrivateLinkResource
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -199,7 +199,7 @@ def get_shared_private_link_resource_output(resource_group_name: Optional[pulumi
     Get a SharedPrivateLinkResource
     Azure REST API version: 2023-09-01-preview.
 
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

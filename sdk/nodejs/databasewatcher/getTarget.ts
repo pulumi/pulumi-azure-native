@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a Target
  * Azure REST API version: 2023-09-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
  */
 export function getTarget(args: GetTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,7 +82,7 @@ export interface GetTargetResult {
  * Get a Target
  * Azure REST API version: 2023-09-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
  */
 export function getTargetOutput(args: GetTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

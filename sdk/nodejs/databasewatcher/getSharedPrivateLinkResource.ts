@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Get a SharedPrivateLinkResource
  * Azure REST API version: 2023-09-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
  */
 export function getSharedPrivateLinkResource(args: GetSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedPrivateLinkResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,7 +58,7 @@ export interface GetSharedPrivateLinkResourceResult {
      */
     readonly name: string;
     /**
-     * The resource id of the resource the shared private link resource is for.
+     * The resource ID of the resource the shared private link resource is for.
      */
     readonly privateLinkResourceId: string;
     /**
@@ -86,7 +86,7 @@ export interface GetSharedPrivateLinkResourceResult {
  * Get a SharedPrivateLinkResource
  * Azure REST API version: 2023-09-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
  */
 export function getSharedPrivateLinkResourceOutput(args: GetSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSharedPrivateLinkResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

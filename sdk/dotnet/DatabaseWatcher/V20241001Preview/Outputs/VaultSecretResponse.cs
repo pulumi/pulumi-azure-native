@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20241001Preview.Outputs
     public sealed class VaultSecretResponse
     {
         /// <summary>
-        /// The Azure ResourceId of the Key Vault instance storing database authentication secrets.
+        /// The Azure resource ID of the Key Vault instance storing database authentication secrets.
         /// </summary>
         public readonly string? AkvResourceId;
         /// <summary>

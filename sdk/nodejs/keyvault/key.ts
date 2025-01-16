@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The key resource.
  * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01.
  *
- * Other available API versions: 2023-07-01, 2024-04-01-preview.
+ * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
  */
 export class Key extends pulumi.CustomResource {
     /**
@@ -143,7 +143,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:keyvault/v20190901:Key" }, { type: "azure-native:keyvault/v20200401preview:Key" }, { type: "azure-native:keyvault/v20210401preview:Key" }, { type: "azure-native:keyvault/v20210601preview:Key" }, { type: "azure-native:keyvault/v20211001:Key" }, { type: "azure-native:keyvault/v20211101preview:Key" }, { type: "azure-native:keyvault/v20220201preview:Key" }, { type: "azure-native:keyvault/v20220701:Key" }, { type: "azure-native:keyvault/v20221101:Key" }, { type: "azure-native:keyvault/v20230201:Key" }, { type: "azure-native:keyvault/v20230701:Key" }, { type: "azure-native:keyvault/v20240401preview:Key" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:keyvault/v20190901:Key" }, { type: "azure-native:keyvault/v20200401preview:Key" }, { type: "azure-native:keyvault/v20210401preview:Key" }, { type: "azure-native:keyvault/v20210601preview:Key" }, { type: "azure-native:keyvault/v20211001:Key" }, { type: "azure-native:keyvault/v20211101preview:Key" }, { type: "azure-native:keyvault/v20220201preview:Key" }, { type: "azure-native:keyvault/v20220701:Key" }, { type: "azure-native:keyvault/v20221101:Key" }, { type: "azure-native:keyvault/v20230201:Key" }, { type: "azure-native:keyvault/v20230701:Key" }, { type: "azure-native:keyvault/v20240401preview:Key" }, { type: "azure-native:keyvault/v20241101:Key" }, { type: "azure-native:keyvault/v20241201preview:Key" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Key.__pulumiType, name, resourceInputs, opts);
     }

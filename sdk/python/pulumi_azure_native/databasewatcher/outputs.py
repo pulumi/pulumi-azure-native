@@ -73,7 +73,7 @@ class DatastoreResponse(dict):
         :param str kusto_database_name: The name of a Kusto database.
         :param str kusto_management_url: The Kusto management URL.
         :param str kusto_offering_type: The type of a Kusto offering.
-        :param str adx_cluster_resource_id: The Azure ResourceId of an Azure Data Explorer cluster.
+        :param str adx_cluster_resource_id: The Azure resource ID of an Azure Data Explorer cluster.
         :param str kusto_cluster_display_name: The Kusto cluster display name.
         """
         pulumi.set(__self__, "kusto_cluster_uri", kusto_cluster_uri)
@@ -130,7 +130,7 @@ class DatastoreResponse(dict):
     @pulumi.getter(name="adxClusterResourceId")
     def adx_cluster_resource_id(self) -> Optional[str]:
         """
-        The Azure ResourceId of an Azure Data Explorer cluster.
+        The Azure resource ID of an Azure Data Explorer cluster.
         """
         return pulumi.get(self, "adx_cluster_resource_id")
 
@@ -414,7 +414,7 @@ class VaultSecretResponse(dict):
                  akv_target_user: Optional[str] = None):
         """
         The vault specific details required if using SQL authentication to connect to a target.
-        :param str akv_resource_id: The Azure ResourceId of the Key Vault instance storing database authentication secrets.
+        :param str akv_resource_id: The Azure resource ID of the Key Vault instance storing database authentication secrets.
         :param str akv_target_password: The path to the Key Vault secret storing the password for authentication to a target.
         :param str akv_target_user: The path to the Key Vault secret storing the login name (aka user name, aka account name) for authentication to a target.
         """
@@ -429,7 +429,7 @@ class VaultSecretResponse(dict):
     @pulumi.getter(name="akvResourceId")
     def akv_resource_id(self) -> Optional[str]:
         """
-        The Azure ResourceId of the Key Vault instance storing database authentication secrets.
+        The Azure resource ID of the Key Vault instance storing database authentication secrets.
         """
         return pulumi.get(self, "akv_resource_id")
 

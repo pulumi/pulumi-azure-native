@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20241001Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource id of the resource the shared private link resource is for.
+        /// The resource ID of the resource the shared private link resource is for.
         /// </summary>
         public readonly string PrivateLinkResourceId;
         /// <summary>

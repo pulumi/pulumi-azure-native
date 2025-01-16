@@ -55,7 +55,7 @@ export interface GetSharedPrivateLinkResourceResult {
      */
     readonly name: string;
     /**
-     * The resource id of the resource the shared private link resource is for.
+     * The resource ID of the resource the shared private link resource is for.
      */
     readonly privateLinkResourceId: string;
     /**

@@ -8679,6 +8679,12 @@
       "SharedPrivateLinkResource",
       "Target",
       "Watcher"
+    ],
+    "2025-01-02": [
+      "AlertRuleResource",
+      "SharedPrivateLinkResource",
+      "Target",
+      "Watcher"
     ]
   },
   "Databricks": {
@@ -13146,6 +13152,22 @@
       "Vault"
     ],
     "2024-04-01-preview": [
+      "Key",
+      "MHSMPrivateEndpointConnection",
+      "ManagedHsm",
+      "PrivateEndpointConnection",
+      "Secret",
+      "Vault"
+    ],
+    "2024-11-01": [
+      "Key",
+      "MHSMPrivateEndpointConnection",
+      "ManagedHsm",
+      "PrivateEndpointConnection",
+      "Secret",
+      "Vault"
+    ],
+    "2024-12-01-preview": [
       "Key",
       "MHSMPrivateEndpointConnection",
       "ManagedHsm",
@@ -20784,6 +20806,10 @@
       "GroupQuotaSubscription"
     ],
     "2024-12-18-preview": [
+      "GroupQuota",
+      "GroupQuotaSubscription"
+    ],
+    "2025-03-01": [
       "GroupQuota",
       "GroupQuotaSubscription"
     ]

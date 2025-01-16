@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2024-10-15-preview, 2024-12-18-preview.
+ * Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
  */
 export class GroupQuota extends pulumi.CustomResource {
     /**
@@ -84,7 +84,7 @@ export class GroupQuota extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:quota/v20230601preview:GroupQuota" }, { type: "azure-native:quota/v20241015preview:GroupQuota" }, { type: "azure-native:quota/v20241218preview:GroupQuota" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:quota/v20230601preview:GroupQuota" }, { type: "azure-native:quota/v20241015preview:GroupQuota" }, { type: "azure-native:quota/v20241218preview:GroupQuota" }, { type: "azure-native:quota/v20250301:GroupQuota" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GroupQuota.__pulumiType, name, resourceInputs, opts);
     }

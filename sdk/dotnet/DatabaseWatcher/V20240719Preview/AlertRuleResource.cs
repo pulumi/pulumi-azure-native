@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20240719Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher:AlertRuleResource" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20241001preview:AlertRuleResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20250102:AlertRuleResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -130,7 +130,7 @@ export class AlertRuleResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher:AlertRuleResource" }, { type: "azure-native:databasewatcher/v20240719preview:AlertRuleResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databasewatcher:AlertRuleResource" }, { type: "azure-native:databasewatcher/v20240719preview:AlertRuleResource" }, { type: "azure-native:databasewatcher/v20250102:AlertRuleResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertRuleResource.__pulumiType, name, resourceInputs, opts);
     }

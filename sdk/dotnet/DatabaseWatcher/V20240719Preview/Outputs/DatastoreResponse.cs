@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20240719Preview.Outputs
     public sealed class DatastoreResponse
     {
         /// <summary>
-        /// The Azure ResourceId of an Azure Data Explorer cluster.
+        /// The Azure resource ID of an Azure Data Explorer cluster.
         /// </summary>
         public readonly string? AdxClusterResourceId;
         /// <summary>

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.KeyVault
         /// Gets the specified managed HSM Pool.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview.
+        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
         /// </summary>
         public static Task<GetManagedHsmResult> InvokeAsync(GetManagedHsmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-native:keyvault:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.KeyVault
         /// Gets the specified managed HSM Pool.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview.
+        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
         /// </summary>
         public static Output<GetManagedHsmResult> Invoke(GetManagedHsmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.KeyVault
         /// Gets the specified managed HSM Pool.
         /// Azure REST API version: 2023-02-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview.
+        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
         /// </summary>
         public static Output<GetManagedHsmResult> Invoke(GetManagedHsmInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithDefaults());

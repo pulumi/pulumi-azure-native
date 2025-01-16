@@ -30,7 +30,7 @@ class SharedPrivateLinkResourceArgs:
         """
         The set of arguments for constructing a SharedPrivateLinkResource resource.
         :param pulumi.Input[str] group_id: The group id from the provider of resource the shared private link resource is for.
-        :param pulumi.Input[str] private_link_resource_id: The resource id of the resource the shared private link resource is for.
+        :param pulumi.Input[str] private_link_resource_id: The resource ID of the resource the shared private link resource is for.
         :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] watcher_name: The database watcher name.
@@ -63,7 +63,7 @@ class SharedPrivateLinkResourceArgs:
     @pulumi.getter(name="privateLinkResourceId")
     def private_link_resource_id(self) -> pulumi.Input[str]:
         """
-        The resource id of the resource the shared private link resource is for.
+        The resource ID of the resource the shared private link resource is for.
         """
         return pulumi.get(self, "private_link_resource_id")
 
@@ -152,7 +152,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_zone: The DNS zone to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances. The value to use is the second segment of the host FQDN name of the resource that the shared private link resource is for.
         :param pulumi.Input[str] group_id: The group id from the provider of resource the shared private link resource is for.
-        :param pulumi.Input[str] private_link_resource_id: The resource id of the resource the shared private link resource is for.
+        :param pulumi.Input[str] private_link_resource_id: The resource ID of the resource the shared private link resource is for.
         :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] shared_private_link_resource_name: The Shared Private Link resource name.
@@ -220,7 +220,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20250102:SharedPrivateLinkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SharedPrivateLinkResource, __self__).__init__(
             'azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource',
@@ -283,7 +283,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     @pulumi.getter(name="privateLinkResourceId")
     def private_link_resource_id(self) -> pulumi.Output[str]:
         """
-        The resource id of the resource the shared private link resource is for.
+        The resource ID of the resource the shared private link resource is for.
         """
         return pulumi.get(self, "private_link_resource_id")
 

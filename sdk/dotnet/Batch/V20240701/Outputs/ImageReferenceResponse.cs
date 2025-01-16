@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.Batch.V20240701.Outputs
         /// </summary>
         public readonly string? CommunityGalleryImageId;
         /// <summary>
-        /// This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
+        /// This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
         /// </summary>
         public readonly string? Id;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault
     /// Private endpoint connection resource.
     /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-04-01-preview.
+    /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:MHSMPrivateEndpointConnection")]
     public partial class MHSMPrivateEndpointConnection : global::Pulumi.CustomResource
@@ -113,6 +113,8 @@ namespace Pulumi.AzureNative.KeyVault
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230701:MHSMPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20240401preview:MHSMPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20241101:MHSMPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault/v20241201preview:MHSMPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

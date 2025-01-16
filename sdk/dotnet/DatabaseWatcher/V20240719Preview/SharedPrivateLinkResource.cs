@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20240719Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource id of the resource the shared private link resource is for.
+        /// The resource ID of the resource the shared private link resource is for.
         /// </summary>
         [Output("privateLinkResourceId")]
         public Output<string> PrivateLinkResourceId { get; private set; } = null!;
@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20240719Preview
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20250102:SharedPrivateLinkResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,7 +134,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20240719Preview
         public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
-        /// The resource id of the resource the shared private link resource is for.
+        /// The resource ID of the resource the shared private link resource is for.
         /// </summary>
         [Input("privateLinkResourceId", required: true)]
         public Input<string> PrivateLinkResourceId { get; set; } = null!;

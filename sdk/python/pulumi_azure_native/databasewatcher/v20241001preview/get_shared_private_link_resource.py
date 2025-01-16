@@ -95,7 +95,7 @@ class GetSharedPrivateLinkResourceResult:
     @pulumi.getter(name="privateLinkResourceId")
     def private_link_resource_id(self) -> str:
         """
-        The resource id of the resource the shared private link resource is for.
+        The resource ID of the resource the shared private link resource is for.
         """
         return pulumi.get(self, "private_link_resource_id")
 
