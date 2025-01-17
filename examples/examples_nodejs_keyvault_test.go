@@ -85,7 +85,6 @@ func TestAccKeyVaultTs_ClientCert(t *testing.T) {
 				"ACTIONS_ID_TOKEN_REQUEST_TOKEN=",
 				"ACTIONS_ID_TOKEN_REQUEST_URL=",
 				"ARM_CLIENT_SECRET=",
-				"ARM_CLIENT_CERTIFICATE_PATH=",
 			},
 		})
 
