@@ -509,7 +509,7 @@ func exclude(filePath string) bool {
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
 func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
-	prov, oldProvider, err := resources.ResourceProvider(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
+	provider, oldProvider, err := resources.ResourceProvider(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
 	if err != nil {
 		return DiscoveryDiagnostics{
 			ProviderNameErrors: []ProviderNameError{
@@ -523,10 +523,10 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 	}
 
 	// Find (or create) the version map with this name.
-	versionMap, ok := providers[prov]
+	versionMap, ok := providers[provider]
 	if !ok {
 		versionMap = map[SdkVersion]VersionResources{}
-		providers[prov] = versionMap
+		providers[provider] = versionMap
 	}
 
 	// Find (or create) the resource map with this name.
@@ -538,7 +538,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		versionMap[sdkVersion] = version
 	}
 
-	return addResourcesAndInvokes(version, fileLocation, path, prov, oldProvider, swagger)
+	return addResourcesAndInvokes(version, fileLocation, path, provider, oldProvider, swagger)
 }
 
 func addResourcesAndInvokes(version VersionResources, fileLocation, path, provider string, oldProvider *string, swagger *Spec) DiscoveryDiagnostics {
