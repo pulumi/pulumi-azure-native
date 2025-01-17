@@ -207,6 +207,13 @@ func (v VersionResources) All() map[string]*ResourceSpec {
 
 // ResourceSpec contains a pointer in an Open API Spec that defines a resource and related metadata.
 type ResourceSpec struct {
+	// FileLocation is the path to the Open API Spec file.
+	FileLocation string
+	// API version of the resource
+	ApiVersion ApiVersion
+	// SDK version of the resource
+	SdkVersion SdkVersion
+	// Path is the API path in the Open API Spec.
 	Path                 string
 	PathItem             *spec.PathItem
 	PathItemList         *spec.PathItem
@@ -571,6 +578,9 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 	foundResourceOrInvoke := false
 	addResource := func(typeName string, defaultBody map[string]interface{}, pathItemList *spec.PathItem) {
 		version.Resources[typeName] = &ResourceSpec{
+			FileLocation:         fileLocation,
+			ApiVersion:           apiVersion,
+			SdkVersion:           sdkVersion,
 			Path:                 path,
 			PathItem:             &pathItem,
 			Swagger:              swagger,
@@ -582,9 +592,12 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 	}
 	addInvoke := func(typeName string) {
 		version.Invokes[typeName] = &ResourceSpec{
-			Path:     path,
-			PathItem: &pathItem,
-			Swagger:  swagger,
+			FileLocation: fileLocation,
+			ApiVersion:   apiVersion,
+			SdkVersion:   sdkVersion,
+			Path:         path,
+			PathItem:     &pathItem,
+			Swagger:      swagger,
 		}
 		foundResourceOrInvoke = true
 	}
