@@ -109,6 +109,7 @@ func TestRetrieveSystemName(t *testing.T) {
 		systemName, err := retrieveSystemName(context.Background(), standardAzureFileshareProtectedItemInput(), reader, 1, 0*time.Second)
 		assert.NoError(t, err)
 		assert.Equal(t, "systemName", systemName)
+		assert.True(t, reader.inquireCalled)
 	})
 
 	t.Run("no system name is found", func(t *testing.T) {
@@ -117,6 +118,7 @@ func TestRetrieveSystemName(t *testing.T) {
 		systemName, err := retrieveSystemName(context.Background(), standardAzureFileshareProtectedItemInput(), reader, 1, 0*time.Second)
 		assert.Error(t, err)
 		assert.Empty(t, systemName)
+		assert.True(t, reader.inquireCalled)
 	})
 
 	t.Run("system name is found after multiple attempts", func(t *testing.T) {
@@ -128,6 +130,7 @@ func TestRetrieveSystemName(t *testing.T) {
 		systemName, err := retrieveSystemName(context.Background(), standardAzureFileshareProtectedItemInput(), reader, 5, 0*time.Second)
 		assert.NoError(t, err)
 		assert.Equal(t, "systemName", systemName)
+		assert.True(t, reader.inquireCalled)
 	})
 
 	t.Run("stops after max attempts", func(t *testing.T) {
@@ -139,6 +142,7 @@ func TestRetrieveSystemName(t *testing.T) {
 		systemName, err := retrieveSystemName(context.Background(), standardAzureFileshareProtectedItemInput(), reader, 2, 0*time.Second)
 		assert.Error(t, err)
 		assert.Empty(t, systemName)
+		assert.True(t, reader.inquireCalled)
 	})
 
 	t.Run("no system name for protected item of type other than AzureFileShareProtectedItem", func(t *testing.T) {
@@ -150,6 +154,7 @@ func TestRetrieveSystemName(t *testing.T) {
 		systemName, err := retrieveSystemName(context.Background(), input, reader, 1, 0*time.Second)
 		assert.NoError(t, err)
 		assert.Empty(t, systemName)
+		assert.False(t, reader.inquireCalled)
 	})
 }
 
@@ -157,6 +162,8 @@ type mockSystemNameReader struct {
 	systemNames []string
 	errors      []error
 	attempt     int
+	// Was the /inquire API resp. the SDK's ProtectionContainersClient.Inquire called?
+	inquireCalled bool
 }
 
 func (m *mockSystemNameReader) readSystemNameFromProtectableItem(ctx context.Context, input *protectedItemProperties) (string, error) {
@@ -167,6 +174,11 @@ func (m *mockSystemNameReader) readSystemNameFromProtectableItem(ctx context.Con
 	}
 	m.attempt++
 	return name, err
+}
+
+func (m *mockSystemNameReader) inquireContainer(ctx context.Context, input *protectedItemProperties) error {
+	m.inquireCalled = true
+	return nil
 }
 
 func TestFindSystemName(t *testing.T) {
