@@ -22,28 +22,27 @@ __all__ = ['IpamPoolArgs', 'IpamPool']
 class IpamPoolArgs:
     def __init__(__self__, *,
                  network_manager_name: pulumi.Input[str],
+                 properties: pulumi.Input['IpamPoolPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['IpamPoolPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IpamPool resource.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
+        :param pulumi.Input['IpamPoolPropertiesArgs'] properties: Properties of IpamPool resource properties which are specific to the Pool resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] pool_name: IP Address Manager Pool resource name.
-        :param pulumi.Input['IpamPoolPropertiesArgs'] properties: Properties of IpamPool resource properties which are specific to the Pool resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "network_manager_name", network_manager_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if pool_name is not None:
             pulumi.set(__self__, "pool_name", pool_name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -58,6 +57,18 @@ class IpamPoolArgs:
     @network_manager_name.setter
     def network_manager_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "network_manager_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['IpamPoolPropertiesArgs']:
+        """
+        Properties of IpamPool resource properties which are specific to the Pool resource.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['IpamPoolPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -94,18 +105,6 @@ class IpamPoolArgs:
     @pool_name.setter
     def pool_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pool_name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['IpamPoolPropertiesArgs']]:
-        """
-        Properties of IpamPool resource properties which are specific to the Pool resource.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['IpamPoolPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
@@ -194,6 +193,8 @@ class IpamPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'network_manager_name'")
             __props__.__dict__["network_manager_name"] = network_manager_name
             __props__.__dict__["pool_name"] = pool_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

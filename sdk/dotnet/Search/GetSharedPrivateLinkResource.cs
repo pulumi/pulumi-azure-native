@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Search
         /// Gets the details of the shared private link resource managed by the search service in the given resource group.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
         /// </summary>
         public static Task<GetSharedPrivateLinkResourceResult> InvokeAsync(GetSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azure-native:search:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Search
         /// Gets the details of the shared private link resource managed by the search service in the given resource group.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
         /// </summary>
         public static Output<GetSharedPrivateLinkResourceResult> Invoke(GetSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:search:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Search
         /// Gets the details of the shared private link resource managed by the search service in the given resource group.
         /// Azure REST API version: 2022-09-01.
         /// 
-        /// Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
+        /// Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
         /// </summary>
         public static Output<GetSharedPrivateLinkResourceResult> Invoke(GetSharedPrivateLinkResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:search:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());

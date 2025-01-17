@@ -4018,6 +4018,23 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurestackhci/v20241001preview",
+  "fqn": "pulumi_azure_native.azurestackhci.v20241001preview",
+  "classes": {
+   "azure-native:azurestackhci/v20241001preview:GalleryImage": "GalleryImage",
+   "azure-native:azurestackhci/v20241001preview:GuestAgent": "GuestAgent",
+   "azure-native:azurestackhci/v20241001preview:LogicalNetwork": "LogicalNetwork",
+   "azure-native:azurestackhci/v20241001preview:MarketplaceGalleryImage": "MarketplaceGalleryImage",
+   "azure-native:azurestackhci/v20241001preview:NetworkInterface": "NetworkInterface",
+   "azure-native:azurestackhci/v20241001preview:NetworkSecurityGroup": "NetworkSecurityGroup",
+   "azure-native:azurestackhci/v20241001preview:SecurityRule": "SecurityRule",
+   "azure-native:azurestackhci/v20241001preview:StorageContainer": "StorageContainer",
+   "azure-native:azurestackhci/v20241001preview:VirtualHardDisk": "VirtualHardDisk",
+   "azure-native:azurestackhci/v20241001preview:VirtualMachineInstance": "VirtualMachineInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azurestackhci/v20241201preview",
   "fqn": "pulumi_azure_native.azurestackhci.v20241201preview",
   "classes": {
@@ -17460,6 +17477,16 @@ _utilities.register(
    "azure-native:search/v20240601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:search/v20240601preview:Service": "Service",
    "azure-native:search/v20240601preview:SharedPrivateLinkResource": "SharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "search/v20250201preview",
+  "fqn": "pulumi_azure_native.search.v20250201preview",
+  "classes": {
+   "azure-native:search/v20250201preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:search/v20250201preview:Service": "Service",
+   "azure-native:search/v20250201preview:SharedPrivateLinkResource": "SharedPrivateLinkResource"
   }
  },
  {

@@ -2114,6 +2114,34 @@
     "Property": "jobType"
   },
   {
+    "Module": "azurestackhci/v20241001preview",
+    "Provider": "AzureStackHCI",
+    "ResourceName": "NetworkInterface",
+    "ReferenceName": "IPConfiguration",
+    "Property": "name"
+  },
+  {
+    "Module": "azurestackhci/v20241001preview",
+    "Provider": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "VirtualMachineInstancePropertiesOsProfile",
+    "Property": "adminPassword"
+  },
+  {
+    "Module": "azurestackhci/v20241001preview",
+    "Provider": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "ImageArmReference",
+    "Property": "id"
+  },
+  {
+    "Module": "azurestackhci/v20241001preview",
+    "Provider": "AzureStackHCI",
+    "ResourceName": "VirtualMachineInstance",
+    "ReferenceName": "ImageArmReference",
+    "Property": "imageReference"
+  },
+  {
     "Module": "azurestackhci/v20241201preview",
     "Provider": "AzureStackHCI",
     "ResourceName": "HciEdgeDeviceJob",

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The logical network resource definition.
         /// Azure REST API version: 2023-09-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview.
+        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetLogicalNetworkResult> InvokeAsync(GetLogicalNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogicalNetworkResult>("azure-native:azurestackhci:getLogicalNetwork", args ?? new GetLogicalNetworkArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The logical network resource definition.
         /// Azure REST API version: 2023-09-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview.
+        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetLogicalNetworkResult> Invoke(GetLogicalNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogicalNetworkResult>("azure-native:azurestackhci:getLogicalNetwork", args ?? new GetLogicalNetworkInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The logical network resource definition.
         /// Azure REST API version: 2023-09-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview.
+        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetLogicalNetworkResult> Invoke(GetLogicalNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogicalNetworkResult>("azure-native:azurestackhci:getLogicalNetwork", args ?? new GetLogicalNetworkInvokeArgs(), options.WithDefaults());

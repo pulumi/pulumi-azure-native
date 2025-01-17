@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Security Rule resource.
  * Azure REST API version: 2024-02-01-preview.
  *
- * Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview.
+ * Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
 export class SecurityRule extends pulumi.CustomResource {
     /**
@@ -160,7 +160,7 @@ export class SecurityRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20240201preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20240501preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20240715preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20240801preview:SecurityRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20240201preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20240501preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20240715preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20240801preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20241001preview:SecurityRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityRule.__pulumiType, name, resourceInputs, opts);
     }

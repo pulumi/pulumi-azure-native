@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Properties of IpamPool resource properties which are specific to the Pool resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IpamPoolPropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.IpamPoolPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

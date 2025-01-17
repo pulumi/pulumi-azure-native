@@ -151,6 +151,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:virtualharddiskRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:VirtualharddiskRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:virtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:VirtualharddiskRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:virtualharddiskRetrieve" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

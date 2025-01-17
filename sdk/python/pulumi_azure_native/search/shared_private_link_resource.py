@@ -103,7 +103,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
 
-        Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
+        Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -122,7 +122,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
         Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
 
-        Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview.
+        Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
@@ -162,7 +162,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             __props__.__dict__["shared_private_link_resource_name"] = shared_private_link_resource_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search/v20200801:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20200801preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20210401preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20220901:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20231101:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20240301preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20240601preview:SharedPrivateLinkResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search/v20200801:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20200801preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20210401preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20220901:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20231101:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20240301preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20240601preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:search/v20250201preview:SharedPrivateLinkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SharedPrivateLinkResource, __self__).__init__(
             'azure-native:search:SharedPrivateLinkResource',
