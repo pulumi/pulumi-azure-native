@@ -18,7 +18,8 @@ import (
 )
 
 const (
-	protectedItemPath = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}"
+	protectedItemPath                  = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}"
+	recoveryServicesAzureStorageFilter = "backupManagementType eq 'AzureStorage'"
 )
 
 type protectedItem struct {
@@ -51,7 +52,8 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 	}
 
 	reader := &systemNameReaderImpl{
-		protectableItemsClient: clientFactory.NewBackupProtectableItemsClient(),
+		protectableItemsClient:     clientFactory.NewBackupProtectableItemsClient(),
+		protectionContainersClient: clientFactory.NewProtectionContainersClient(),
 	}
 
 	return &CustomResource{
@@ -66,7 +68,7 @@ func recoveryServicesProtectedItem(subscription string, cred azcore.TokenCredent
 // getIdAndQuery replaces the default implementation of crud.ResourceCrudClient.PrepareAzureRESTIdAndQuery. It doesn't
 // change queryParams, only the id, to replace the file share's friendly name with the system name.
 func getIdAndQuery(ctx context.Context, inputs resource.PropertyMap, crudClient crud.ResourceCrudClient, reader systemNameReader) (string, map[string]any, error) {
-	systemName, err := retrieveSystemName(ctx, inputs, reader)
+	systemName, err := retrieveSystemName(ctx, inputs, reader, 10, 30*time.Second)
 	if err != nil {
 		return "", nil, fmt.Errorf("failed to retrieve system name: %w", err)
 	}
@@ -85,7 +87,7 @@ func getIdAndQuery(ctx context.Context, inputs resource.PropertyMap, crudClient 
 }
 
 // retrieveSystemName looks up the system name of a file share protected item in Azure.
-func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader) (string, error) {
+func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader systemNameReader, maxAttempts int, waitBetweenAttempts time.Duration) (string, error) {
 	item, err := extractProtectedItemProperties(input)
 	if err != nil {
 		return "", fmt.Errorf("failed to extract protected item properties from input: %w", err)
@@ -96,20 +98,28 @@ func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader 
 		return "", nil
 	}
 
-	logging.V(9).Infof("looking up system name for %s", item.itemName)
-	systemName, err := reader.readSystemNameFromProtectableItem(ctx, item)
+	err = reader.inquireContainer(ctx, item)
 	if err != nil {
-		return "", fmt.Errorf("failed to read system name for protectable item: %w", err)
+		return "", fmt.Errorf("failed to inquire protection container %s: %w", item.containerName, err)
 	}
+
+	logging.V(9).Infof("looking up system name for %s", item.itemName)
 	// Based on observations during testing, the system name is usually, but not always immediately available.
-	if systemName == "" {
-		time.Sleep(30 * time.Second)
-		systemName, err = reader.readSystemNameFromProtectableItem(ctx, item)
+	// The /inquire request above should be awaited according to the docs, but the SDK doesn't actually support that.
+	for i := 1; i <= maxAttempts; i++ {
+		systemName, err := reader.readSystemNameFromProtectableItem(ctx, item)
 		if err != nil {
-			return "", fmt.Errorf("failed to read system name for protectable item in second attempt: %w", err)
+			return "", fmt.Errorf("failed to read system name for protectable item: %w", err)
+		}
+		if systemName != "" {
+			logging.V(9).Infof("found system name %s for %s in attempt %d", systemName, item.itemName, i)
+			return systemName, nil
+		}
+		if i < maxAttempts {
+			time.Sleep(waitBetweenAttempts)
 		}
 	}
-	return systemName, nil
+	return "", fmt.Errorf("failed to retrieve system name after %d attempts", maxAttempts)
 }
 
 // systemNameReader is an interface for getting the Azure system name of a protected item.
@@ -117,11 +127,15 @@ func retrieveSystemName(ctx context.Context, input resource.PropertyMap, reader 
 // needs to be determined by iterating over the protected items in scope and matching by the human-readable name.
 // Abstracted into an interface to allow for testing.
 type systemNameReader interface {
+	// inquireContainer makes a request to /inquire, a special recovery services API that triggers a background job to
+	// update the protectable items in scope.
+	inquireContainer(ctx context.Context, input *protectedItemProperties) error
 	readSystemNameFromProtectableItem(ctx context.Context, input *protectedItemProperties) (string, error)
 }
 
 type systemNameReaderImpl struct {
-	protectableItemsClient *recovery.BackupProtectableItemsClient
+	protectableItemsClient     *recovery.BackupProtectableItemsClient
+	protectionContainersClient *recovery.ProtectionContainersClient
 }
 
 func (s *systemNameReaderImpl) readSystemNameFromProtectableItem(ctx context.Context, input *protectedItemProperties) (string, error) {
@@ -129,7 +143,7 @@ func (s *systemNameReaderImpl) readSystemNameFromProtectableItem(ctx context.Con
 	storageAccountName := segments[len(segments)-1]
 
 	protectablePager := s.protectableItemsClient.NewListPager(input.recoveryVaultName, input.resourceGroupName, &recovery.BackupProtectableItemsClientListOptions{
-		Filter: to.Ptr("backupManagementType eq 'AzureStorage'"),
+		Filter: to.Ptr(recoveryServicesAzureStorageFilter),
 	})
 	for protectablePager.More() {
 		page, err := protectablePager.NextPage(ctx)
@@ -145,6 +159,15 @@ func (s *systemNameReaderImpl) readSystemNameFromProtectableItem(ctx context.Con
 		}
 	}
 	return "", nil
+}
+
+func (s *systemNameReaderImpl) inquireContainer(ctx context.Context, item *protectedItemProperties) error {
+	// the first return value is an empty struct, so we can ignore it
+	_, err := s.protectionContainersClient.Inquire(ctx, item.recoveryVaultName, item.resourceGroupName, item.fabricName, item.containerName,
+		&recovery.ProtectionContainersClientInquireOptions{
+			Filter: to.Ptr(recoveryServicesAzureStorageFilter),
+		})
+	return err
 }
 
 // findSystemName finds the system name of the file share protected item by looking through the given protectable items
