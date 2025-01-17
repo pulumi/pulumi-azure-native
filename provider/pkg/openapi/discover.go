@@ -214,15 +214,15 @@ type ResourceSpec struct {
 	// SDK version of the resource
 	SdkVersion SdkVersion
 	// Path is the API path in the Open API Spec.
-	Path                 string
-	PathItem             *spec.PathItem
-	PathItemList         *spec.PathItem
-	Swagger              *Spec
-	CompatibleVersions   []SdkVersion
-	DefaultBody          map[string]interface{}
-	DeprecationMessage   string
-	PreviousVersion      ApiVersion
-	PreviousProviderName *string
+	Path               string
+	PathItem           *spec.PathItem
+	PathItemList       *spec.PathItem
+	Swagger            *Spec
+	CompatibleVersions []SdkVersion
+	DefaultBody        map[string]interface{}
+	DeprecationMessage string
+	PreviousVersion    ApiVersion
+	ProviderNaming     resources.ResourceProviderNaming
 }
 
 // ApplyProvidersTransformations adds the default version for each provider and deprecates and removes specified API versions.
@@ -516,7 +516,7 @@ func exclude(filePath string) bool {
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
 func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
-	provider, oldProvider, err := resources.ResourceProvider(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
+	providerNaming, err := resources.ResourceProvider(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
 	if err != nil {
 		return DiscoveryDiagnostics{
 			ProviderNameErrors: []ProviderNameError{
@@ -528,6 +528,7 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 			},
 		}
 	}
+	provider := providerNaming.ResolvedName
 
 	// Find (or create) the version map with this name.
 	versionMap, ok := providers[provider]
@@ -545,10 +546,10 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		versionMap[sdkVersion] = version
 	}
 
-	return addResourcesAndInvokes(version, fileLocation, path, provider, oldProvider, swagger)
+	return addResourcesAndInvokes(version, fileLocation, path, providerNaming, swagger)
 }
 
-func addResourcesAndInvokes(version VersionResources, fileLocation, path, provider string, oldProvider *string, swagger *Spec) DiscoveryDiagnostics {
+func addResourcesAndInvokes(version VersionResources, fileLocation, path string, providerNaming resources.ResourceProviderNaming, swagger *Spec) DiscoveryDiagnostics {
 	apiVersion := ApiVersion(swagger.Info.Version)
 	sdkVersion := ApiToSdkVersion(apiVersion)
 
@@ -578,26 +579,27 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 	foundResourceOrInvoke := false
 	addResource := func(typeName string, defaultBody map[string]interface{}, pathItemList *spec.PathItem) {
 		version.Resources[typeName] = &ResourceSpec{
-			FileLocation:         fileLocation,
-			ApiVersion:           apiVersion,
-			SdkVersion:           sdkVersion,
-			Path:                 path,
-			PathItem:             &pathItem,
-			Swagger:              swagger,
-			DefaultBody:          defaultBody,
-			PathItemList:         pathItemList,
-			PreviousProviderName: oldProvider,
+			FileLocation:   fileLocation,
+			ApiVersion:     apiVersion,
+			SdkVersion:     sdkVersion,
+			Path:           path,
+			PathItem:       &pathItem,
+			Swagger:        swagger,
+			DefaultBody:    defaultBody,
+			PathItemList:   pathItemList,
+			ProviderNaming: providerNaming,
 		}
 		foundResourceOrInvoke = true
 	}
 	addInvoke := func(typeName string) {
 		version.Invokes[typeName] = &ResourceSpec{
-			FileLocation: fileLocation,
-			ApiVersion:   apiVersion,
-			SdkVersion:   sdkVersion,
-			Path:         path,
-			PathItem:     &pathItem,
-			Swagger:      swagger,
+			FileLocation:   fileLocation,
+			ApiVersion:     apiVersion,
+			SdkVersion:     sdkVersion,
+			Path:           path,
+			PathItem:       &pathItem,
+			Swagger:        swagger,
+			ProviderNaming: providerNaming,
 		}
 		foundResourceOrInvoke = true
 	}
@@ -711,7 +713,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 			// - It's about a key, a token, or credentials.
 			prefix = "get"
 		default:
-			diagnostics.addSkippedPOSTEndpoint(provider, pathItem.Post.ID, path)
+			diagnostics.addSkippedPOSTEndpoint(providerNaming.ResolvedName, pathItem.Post.ID, path)
 		}
 
 		if prefix != "" {
@@ -739,7 +741,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path, provid
 		}
 	}
 
-	diagnostics.addPathItem(pathItem, provider, resourceBaseName, path, fileLocation, foundResourceOrInvoke)
+	diagnostics.addPathItem(pathItem, providerNaming.ResolvedName, resourceBaseName, path, fileLocation, foundResourceOrInvoke)
 	return diagnostics
 }
 

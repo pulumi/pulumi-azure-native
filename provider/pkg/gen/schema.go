@@ -1137,15 +1137,15 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAl
 	}
 
 	// Add an alias for the same version of the resource, but in its old module.
-	if resource.PreviousProviderName != nil {
-		addAlias(*resource.PreviousProviderName, resource.typeName, g.sdkVersion)
+	if resource.ProviderNaming.PreviousName != nil {
+		addAlias(*resource.ProviderNaming.PreviousName, resource.typeName, g.sdkVersion)
 	}
 
 	for _, alias := range typeNameAliases {
 		addAlias(g.provider, alias, g.sdkVersion)
 		// Add an alias for the same alias, but in its old module.
-		if resource.PreviousProviderName != nil {
-			addAlias(*resource.PreviousProviderName, alias, g.sdkVersion)
+		if resource.ProviderNaming.PreviousName != nil {
+			addAlias(*resource.ProviderNaming.PreviousName, alias, g.sdkVersion)
 		}
 	}
 
@@ -1154,8 +1154,8 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAl
 		addAlias(g.provider, resource.typeName, version)
 
 		// Add an alias for the other versions, but from its old module.
-		if resource.PreviousProviderName != nil {
-			addAlias(*resource.PreviousProviderName, resource.typeName, version)
+		if resource.ProviderNaming.PreviousName != nil {
+			addAlias(*resource.ProviderNaming.PreviousName, resource.typeName, version)
 		}
 
 		// Add type name aliases for each compatible version.
@@ -1163,8 +1163,8 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAl
 			addAlias(g.provider, alias, version)
 
 			// Add an alias for the other version, with alias, from its old module.
-			if resource.PreviousProviderName != nil {
-				addAlias(*resource.PreviousProviderName, alias, version)
+			if resource.ProviderNaming.PreviousName != nil {
+				addAlias(*resource.ProviderNaming.PreviousName, alias, version)
 			}
 		}
 	}

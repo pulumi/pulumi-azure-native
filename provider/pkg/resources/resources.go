@@ -258,9 +258,16 @@ var wellKnownProviderNames = map[string]string{
 	"visualstudio":                 "VisualStudio",
 }
 
+type ResourceProviderNaming struct {
+	ResolvedName           string
+	PreviousName           *string
+	SpecFolderName         string
+	NamespaceWithoutPrefix string
+}
+
 // ResourceProvider returns a provider name given Open API spec file and resource's API URI.
 // Returns the module name, optional old module name, or error.
-func ResourceProvider(majorVersion uint64, filePath, apiUri string) (string, *string, error) {
+func ResourceProvider(majorVersion uint64, filePath, apiUri string) (ResourceProviderNaming, error) {
 	// We extract the provider name from two sources:
 	// - from the folder name of the Open API spec
 	// - from the URI of the API endpoint (we take the last provider in the URI)
@@ -271,14 +278,24 @@ func ResourceProvider(majorVersion uint64, filePath, apiUri string) (string, *st
 	// use it as the provider name. This is the new style we use for newer resources after 1.0. Older
 	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
 	if override, oldModule, hasOverride := getNameOverride(majorVersion, specFolderName, namespaceWithoutPrefixFromSpecFilePath); hasOverride {
-		return override, oldModule, nil
+		return ResourceProviderNaming{
+			ResolvedName:           override,
+			PreviousName:           oldModule,
+			SpecFolderName:         specFolderName,
+			NamespaceWithoutPrefix: namespaceWithoutPrefixFromResourceUrl,
+		}, nil
 	}
 	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
 	// declarations outside of the current API provider.
 	if !strings.EqualFold(namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl) {
-		return "", nil, fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl)
+		return ResourceProviderNaming{}, fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl)
 	}
-	return namespaceWithoutPrefixFromSpecFilePath, nil, nil
+	// Ultimately we use the provider name from the spec file path.
+	return ResourceProviderNaming{
+		ResolvedName:           namespaceWithoutPrefixFromSpecFilePath,
+		SpecFolderName:         specFolderName,
+		NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
+	}, nil
 }
 
 var modulesNamedByFolder = map[string]string{
@@ -342,7 +359,7 @@ func findNamespaceWithoutPrefixFromPath(path, defaultValue string) string {
 	return defaultValue
 }
 
-var folderModulePattern = regexp.MustCompile(`.*/specification/([a-z]+)/resource-manager/.*`)
+var folderModulePattern = regexp.MustCompile(`.*/specification/([a-zA-Z]+)/resource-manager/.*`)
 
 func getSpecFolderName(path string) string {
 	subMatches := folderModulePattern.FindStringSubmatch(path)

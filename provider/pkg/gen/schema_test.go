@@ -61,7 +61,7 @@ func TestAliases(t *testing.T) {
 			typeName: typeName,
 		}
 		if previousProviderName != "" {
-			resource.PreviousProviderName = &previousProviderName
+			resource.ProviderNaming.PreviousName = &previousProviderName
 		}
 
 		aliasSpecs := generator.generateAliases(resource, typeNameAliases...)

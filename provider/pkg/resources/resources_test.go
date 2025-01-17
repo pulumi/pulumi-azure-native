@@ -201,67 +201,104 @@ func TestTraverseProperties(t *testing.T) {
 
 func TestResourceProviderNaming(t *testing.T) {
 	t.Run("Standard case", func(t *testing.T) {
-		module, oldModule, err := ResourceProvider(2,
+		naming, err := ResourceProvider(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.EnterpriseKnowledgeGraph/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
 			"/providers/Microsoft.EnterpriseKnowledgeGraph/operations")
 		assert.Nil(t, err)
-		assert.Equal(t, "EnterpriseKnowledgeGraph", module)
-		assert.Nil(t, oldModule)
+		assert.Equal(t, ResourceProviderNaming{
+			ResolvedName:           "EnterpriseKnowledgeGraph",
+			SpecFolderName:         "EnterpriseKnowledgeGraph",
+			NamespaceWithoutPrefix: "EnterpriseKnowledgeGraph",
+		}, naming)
 	})
 	t.Run("Standard case v3", func(t *testing.T) {
-		module, oldModule, err := ResourceProvider(3,
+		naming, err := ResourceProvider(3,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.EnterpriseKnowledgeGraph/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
 			"/providers/Microsoft.EnterpriseKnowledgeGraph/operations")
 		assert.Nil(t, err)
-		assert.Equal(t, "EnterpriseKnowledgeGraph", module)
-		assert.Nil(t, oldModule)
+		assert.Equal(t, ResourceProviderNaming{
+			ResolvedName:           "EnterpriseKnowledgeGraph",
+			SpecFolderName:         "EnterpriseKnowledgeGraph",
+			NamespaceWithoutPrefix: "EnterpriseKnowledgeGraph",
+		}, naming)
+	})
+	// go/pulumi-azure-native/azure-rest-api-specs/specification/dfp/resource-manager/Microsoft.Dynamics365Fraudprotection/preview/2021-02-01-preview/dfp.json
+	t.Run("Prefer namespace from file path", func(t *testing.T) {
+		naming, err := ResourceProvider(2,
+			"/go/pulumi-azure-native/azure-rest-api-specs/specification/dfp/resource-manager/Microsoft.Dynamics365Fraudprotection/preview/2021-02-01-preview/dfp.json",
+			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dynamics365FraudProtection/instances/{instanceName}")
+		assert.Nil(t, err)
+		assert.Equal(t, ResourceProviderNaming{
+			ResolvedName:           "Dynamics365Fraudprotection",
+			SpecFolderName:         "dfp",
+			NamespaceWithoutPrefix: "Dynamics365Fraudprotection",
+		}, naming)
 	})
 	t.Run("PaloAltoNetworks namespace", func(t *testing.T) {
-		module, oldModule, err := ResourceProvider(2,
+		naming, err := ResourceProvider(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json",
 			"/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks")
 		assert.Nil(t, err)
-		assert.Equal(t, "Cloudngfw", module)
-		assert.Nil(t, oldModule)
+		assert.Equal(t, ResourceProviderNaming{
+			ResolvedName:           "Cloudngfw",
+			SpecFolderName:         "paloaltonetworks",
+			NamespaceWithoutPrefix: "Cloudngfw",
+		}, naming)
 	})
 	t.Run("When the provider names of file path and URI don't match, return empty", func(t *testing.T) {
-		module, oldModule, err := ResourceProvider(2,
+		naming, err := ResourceProvider(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.One/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
 			"/providers/Microsoft.Two/operations")
 		assert.ErrorContains(t, err, "resolved provider name mismatch: file: One, uri: Two")
-		assert.Equal(t, "", module)
-		assert.Nil(t, oldModule)
+		assert.Equal(t, ResourceProviderNaming{}, naming)
 	})
 	t.Run("Change lower case to title case", func(t *testing.T) {
-		module, oldModule, err := ResourceProvider(2,
+		naming, err := ResourceProvider(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/microsoft.fooBar/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
 			"/providers/microsoft.fooBar/operations")
 		assert.Nil(t, err)
-		assert.Equal(t, "FooBar", module)
-		assert.Nil(t, oldModule)
+		assert.Equal(t, ResourceProviderNaming{
+			ResolvedName:           "FooBar",
+			SpecFolderName:         "EnterpriseKnowledgeGraph",
+			NamespaceWithoutPrefix: "FooBar",
+		}, naming)
 	})
 	t.Run("Folder named resource", func(t *testing.T) {
-		module, oldModule, err := ResourceProvider(2,
+		naming, err := ResourceProvider(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/PipelineTopologies.json",
 			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/edgeModules/{edgeModuleName}")
 		assert.Nil(t, err)
-		assert.Equal(t, "VideoAnalyzer", module)
-		assert.Nil(t, oldModule)
+		assert.Equal(t, ResourceProviderNaming{
+			ResolvedName:           "VideoAnalyzer",
+			SpecFolderName:         "videoanalyzer",
+			NamespaceWithoutPrefix: "Media",
+		}, naming)
 	})
 	t.Run("Network overrides not applied to v2", func(t *testing.T) {
-		module, oldModule, err := ResourceProvider(2,
+		naming, err := ResourceProvider(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/dns/resource-manager/Microsoft.Network/stable/2018-05-01/dns.json",
 			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}")
 		assert.Nil(t, err)
-		assert.Equal(t, "Network", module)
-		assert.Nil(t, oldModule)
+		assert.Equal(t, ResourceProviderNaming{
+			ResolvedName:           "Network",
+			SpecFolderName:         "dns",
+			NamespaceWithoutPrefix: "Network",
+		}, naming)
 	})
 	t.Run("Network overrides applied to v3", func(t *testing.T) {
-		module, oldModule, err := ResourceProvider(3,
+		naming, err := ResourceProvider(3,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/dns/resource-manager/Microsoft.Network/stable/2018-05-01/dns.json",
 			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}")
 		assert.Nil(t, err)
-		assert.Equal(t, "Dns", module)
-		assert.Equal(t, "Network", *oldModule)
+		assert.Equal(t, ResourceProviderNaming{
+			ResolvedName:           "Dns",
+			PreviousName:           ptr("Network"),
+			SpecFolderName:         "dns",
+			NamespaceWithoutPrefix: "Network",
+		}, naming)
 	})
+}
+
+func ptr(s string) *string {
+	return &s
 }
