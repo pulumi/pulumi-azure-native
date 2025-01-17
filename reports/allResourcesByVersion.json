@@ -3875,6 +3875,18 @@
       "UpdateRun",
       "UpdateSummary"
     ],
+    "2024-10-01-preview": [
+      "GalleryImage",
+      "GuestAgent",
+      "LogicalNetwork",
+      "MarketplaceGalleryImage",
+      "NetworkInterface",
+      "NetworkSecurityGroup",
+      "SecurityRule",
+      "StorageContainer",
+      "VirtualHardDisk",
+      "VirtualMachineInstance"
+    ],
     "2024-12-01-preview": [
       "ArcSetting",
       "Cluster",
@@ -21986,6 +21998,13 @@
       "listQueryKeyBySearchService"
     ],
     "2024-06-01-preview": [
+      "PrivateEndpointConnection",
+      "Service",
+      "SharedPrivateLinkResource",
+      "listAdminKey",
+      "listQueryKeyBySearchService"
+    ],
+    "2025-02-01-preview": [
       "PrivateEndpointConnection",
       "Service",
       "SharedPrivateLinkResource",

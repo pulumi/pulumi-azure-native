@@ -4252,7 +4252,8 @@
       "2024-02-01-preview",
       "2024-05-01-preview",
       "2024-07-15-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-10-01-preview"
     ],
     "GuestAgent": [
       "2021-09-01-preview",
@@ -4263,7 +4264,8 @@
       "2024-02-01-preview",
       "2024-05-01-preview",
       "2024-07-15-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-10-01-preview"
     ],
     "HybridIdentityMetadatum": [
       "2021-09-01-preview",
@@ -4275,7 +4277,8 @@
       "2024-02-01-preview",
       "2024-05-01-preview",
       "2024-07-15-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-10-01-preview"
     ],
     "MachineExtension": [
       "2021-09-01-preview",
@@ -4289,7 +4292,8 @@
       "2024-02-01-preview",
       "2024-05-01-preview",
       "2024-07-15-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-10-01-preview"
     ],
     "NetworkInterface": [
       "2022-12-15-preview",
@@ -4299,19 +4303,22 @@
       "2024-02-01-preview",
       "2024-05-01-preview",
       "2024-07-15-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-10-01-preview"
     ],
     "NetworkSecurityGroup": [
       "2024-02-01-preview",
       "2024-05-01-preview",
       "2024-07-15-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-10-01-preview"
     ],
     "SecurityRule": [
       "2024-02-01-preview",
       "2024-05-01-preview",
       "2024-07-15-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-10-01-preview"
     ],
     "SecuritySetting": [
       "2023-11-01-preview",
@@ -4329,7 +4336,8 @@
       "2024-02-01-preview",
       "2024-05-01-preview",
       "2024-07-15-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-10-01-preview"
     ],
     "Update": [
       "2022-12-01",
@@ -4384,7 +4392,8 @@
       "2024-02-01-preview",
       "2024-05-01-preview",
       "2024-07-15-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-10-01-preview"
     ],
     "VirtualMachine": [
       "2022-12-15-preview"
@@ -4396,7 +4405,8 @@
       "2024-02-01-preview",
       "2024-05-01-preview",
       "2024-07-15-preview",
-      "2024-08-01-preview"
+      "2024-08-01-preview",
+      "2024-10-01-preview"
     ],
     "VirtualNetwork": [
       "2022-12-15-preview",
@@ -22583,7 +22593,8 @@
       "2022-09-01",
       "2023-11-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2025-02-01-preview"
     ],
     "Service": [
       "2015-08-19",
@@ -22595,7 +22606,8 @@
       "2022-09-01",
       "2023-11-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2025-02-01-preview"
     ],
     "SharedPrivateLinkResource": [
       "2020-08-01",
@@ -22604,7 +22616,8 @@
       "2022-09-01",
       "2023-11-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2025-02-01-preview"
     ],
     "listAdminKey": [
       "2015-02-28",
@@ -22617,7 +22630,8 @@
       "2022-09-01",
       "2023-11-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2025-02-01-preview"
     ],
     "listQueryKeyBySearchService": [
       "2015-08-19",
@@ -22629,7 +22643,8 @@
       "2022-09-01",
       "2023-11-01",
       "2024-03-01-preview",
-      "2024-06-01-preview"
+      "2024-06-01-preview",
+      "2025-02-01-preview"
     ]
   },
   "SecretSyncController": {
