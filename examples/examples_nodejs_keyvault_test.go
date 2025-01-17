@@ -93,6 +93,8 @@ func TestAccKeyVaultTs_ClientCert(t *testing.T) {
 }
 
 func TestAccKeyVaultTs_CLI(t *testing.T) {
+	t.Skip("Skipping CLI test due to #3851")
+
 	skipIfShort(t)
 
 	usr, err := user.Current()
