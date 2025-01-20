@@ -50,6 +50,12 @@
   "azure-native:insights/v20150501:Workbook": {
     "properties.kind": {}
   },
+  "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration": {
+    "properties.name": {}
+  },
+  "azure-native:insights:ProactiveDetectionConfiguration": {
+    "properties.name": {}
+  },
   "azure-native:netapp/v20210401:BackupPolicy": {
     "properties.name": {}
   },
