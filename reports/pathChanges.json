@@ -2,109 +2,109 @@
   "Changes": [],
   "MissingPreviousDefaultVersions": [
     {
-      "ProviderName": "Cache",
+      "ModuleName": "Cache",
       "ResourceName": "PrivateEndpointConnection",
       "Version": "v20210301",
       "IsPrevious": true
     },
     {
-      "ProviderName": "ContainerStorage",
+      "ModuleName": "ContainerStorage",
       "ResourceName": "Pool",
       "Version": "v20230301preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "ContainerStorage",
+      "ModuleName": "ContainerStorage",
       "ResourceName": "Volume",
       "Version": "v20230301preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "BareMetalMachine",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "BareMetalMachineKeySet",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "BmcKeySet",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "CloudServicesNetwork",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "Cluster",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "ClusterManager",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "Console",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "L2Network",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "L3Network",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "MetricsConfiguration",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "Rack",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "StorageAppliance",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "TrunkedNetwork",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "VirtualMachine",
       "Version": "v20221212preview",
       "IsPrevious": true
     },
     {
-      "ProviderName": "NetworkCloud",
+      "ModuleName": "NetworkCloud",
       "ResourceName": "Volume",
       "Version": "v20221212preview",
       "IsPrevious": true

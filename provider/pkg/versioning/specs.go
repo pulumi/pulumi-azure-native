@@ -9,12 +9,12 @@ import (
 
 type VersionResources = map[openapi.ApiVersion][]openapi.ResourceName
 
-// Provider->version->[]resource
-type ProvidersVersionResources = map[openapi.ProviderName]VersionResources
+// Module->version->[]resource
+type ModuleVersionResources = map[openapi.ModuleName]VersionResources
 
-func FindAllResources(providerVersions openapi.AzureProviders) ProvidersVersionResources {
-	formatted := ProvidersVersionResources{}
-	for providerName, versions := range providerVersions {
+func FindAllResources(moduleVersions openapi.AzureModules) ModuleVersionResources {
+	formatted := ModuleVersionResources{}
+	for moduleName, versions := range moduleVersions {
 		versionResources := VersionResources{}
 		for _, resources := range versions {
 			version := openapi.ApiVersion("")
@@ -27,18 +27,18 @@ func FindAllResources(providerVersions openapi.AzureProviders) ProvidersVersionR
 			sort.Strings(specResources)
 			versionResources[version] = specResources
 		}
-		formatted[providerName] = versionResources
+		formatted[moduleName] = versionResources
 	}
 	return formatted
 }
 
 type ResourceVersions = map[openapi.DefinitionName][]openapi.ApiVersion
-type ProviderResourceVersions = map[openapi.ProviderName]ResourceVersions
+type ModuleResourceVersions = map[openapi.ModuleName]ResourceVersions
 
 // FormatResourceVersions flips the hierarchy from Version->Resources to Resource->Versions
-func FormatResourceVersions(providerVersions ProvidersVersionResources) ProviderResourceVersions {
-	formatted := ProviderResourceVersions{}
-	for providerName, versions := range providerVersions {
+func FormatResourceVersions(moduleVersions ModuleVersionResources) ModuleResourceVersions {
+	formatted := ModuleResourceVersions{}
+	for moduleName, versions := range moduleVersions {
 		resourceVersions := ResourceVersions{}
 
 		for version, resources := range versions {
@@ -49,7 +49,7 @@ func FormatResourceVersions(providerVersions ProvidersVersionResources) Provider
 		for _, apiVersions := range resourceVersions {
 			slices.Sort(apiVersions)
 		}
-		formatted[providerName] = resourceVersions
+		formatted[moduleName] = resourceVersions
 	}
 	return formatted
 }

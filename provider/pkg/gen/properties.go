@@ -133,7 +133,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, variants
 
 		// See #3556 and https://github.com/Azure/azure-rest-api-specs/issues/30443
 		// It's ok if a new API version is fixed, this is a no-op then.
-		if m.resourceName == "CIAMTenant" && name == "tier" && strings.HasPrefix(m.module, "azureactivedirectory") {
+		if m.resourceName == "CIAMTenant" && name == "tier" && strings.HasPrefix(string(m.module), "azureactivedirectory") {
 			flatten = false
 		}
 
@@ -323,7 +323,7 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 
 	// Special case for KeyVault access policies - they are a resource that can be defined inline in Vaults or
 	// stand-alone. The logic above cannot detect that because they are defined as a custom resource. #594
-	if m.resourceName == "Vault" && m.prov == "KeyVault" && name == "accessPolicies" {
+	if m.resourceName == "Vault" && m.moduleName == "KeyVault" && name == "accessPolicies" {
 		maintainSubResourceIfUnset = true
 	}
 
@@ -513,18 +513,18 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 	if hasMutabilityInfo && forcesRecreate {
 		if isType {
 			m.forceNewTypes = append(m.forceNewTypes, ForceNewType{
-				Module:        m.module,
-				Provider:      m.prov,
-				ResourceName:  m.resourceName,
-				ReferenceName: schema.ReferenceContext.ReferenceName,
-				Property:      propertyName,
+				VersionedModule: m.module,
+				Module:          m.moduleName,
+				ResourceName:    m.resourceName,
+				ReferenceName:   schema.ReferenceContext.ReferenceName,
+				Property:        propertyName,
 			})
 			return forceNewSetOnReferencedType
 		}
 		return forceNew
 	}
 
-	if resourceMap, ok := forceNewMap[m.prov]; ok {
+	if resourceMap, ok := forceNewMap[m.moduleName]; ok {
 		if properties, ok := resourceMap[m.resourceName]; ok {
 			if properties.Has(propertyName) {
 				return forceNew

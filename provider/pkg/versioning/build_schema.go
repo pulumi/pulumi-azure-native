@@ -9,6 +9,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
@@ -32,20 +33,20 @@ type BuildSchemaArgs struct {
 
 type BuildSchemaReports struct {
 	PathChangesResult
-	// providerName -> resourceName -> set of paths, to record resources that have conflicting paths.
-	PathConflicts                 map[openapi.ProviderName]map[openapi.ResourceName]map[string][]openapi.ApiVersion
-	AllResourcesByVersion         ProvidersVersionResources
-	AllResourceVersionsByResource ProviderResourceVersions
-	Pending                       openapi.ProviderVersionList
+	// ModuleName -> resourceName -> set of paths, to record resources that have conflicting paths.
+	PathConflicts                 map[openapi.ModuleName]map[openapi.ResourceName]map[string][]openapi.ApiVersion
+	AllResourcesByVersion         ModuleVersionResources
+	AllResourceVersionsByResource ModuleResourceVersions
+	Pending                       openapi.ModuleVersionList
 	CurationViolations            []CurationViolation
 	NamingDisambiguations         []resources.NameDisambiguation
-	SkippedPOSTEndpoints          map[string]map[string]string
-	ProviderNameErrors            []openapi.ProviderNameError
+	SkippedPOSTEndpoints          map[openapi.ModuleName]map[string]string
+	ModuleNameErrors              []openapi.ModuleNameError
 	ForceNewTypes                 []gen.ForceNewType
 	TypeCaseConflicts             gen.CaseConflicts
-	FlattenedPropertyConflicts    map[openapi.ProviderName]map[string]struct{}
-	AllEndpoints                  map[openapi.ProviderName]map[openapi.ResourceName]map[string]*openapi.Endpoint
-	InactiveDefaultVersions       map[openapi.ProviderName][]openapi.ApiVersion
+	FlattenedPropertyConflicts    map[string]map[string]any
+	AllEndpoints                  map[openapi.ModuleName]map[openapi.ResourceName]map[string]*openapi.Endpoint
+	InactiveDefaultVersions       map[openapi.ModuleName][]openapi.ApiVersion
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
@@ -61,7 +62,7 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 		"pathChanges.json":                   r.PathChangesResult,
 		"pathConflicts.json":                 r.PathConflicts,
 		"pending.json":                       r.Pending,
-		"providerNameErrors.json":            r.ProviderNameErrors,
+		"moduleNameErrors.json":              r.ModuleNameErrors,
 		"skippedPOSTEndpoints.json":          r.SkippedPOSTEndpoints,
 		"typeCaseConflicts.json":             r.TypeCaseConflicts,
 	})
@@ -72,7 +73,7 @@ type BuildSchemaResult struct {
 	Metadata    resources.AzureAPIMetadata
 	Version     VersionMetadata
 	Reports     BuildSchemaReports
-	Providers   openapi.AzureProviders
+	Modules     openapi.AzureModules
 }
 
 func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
@@ -80,7 +81,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	if specsDir == "" {
 		specsDir = path.Join(args.RootDir, "azure-rest-api-specs")
 	}
-	providers, diagnostics, err := openapi.ReadAzureProviders(specsDir, args.Specs.NamespaceFilter, args.Specs.VersionsFilter)
+	modules, diagnostics, err := openapi.ReadAzureModules(specsDir, args.Specs.NamespaceFilter, args.Specs.VersionsFilter)
 	if err != nil {
 		return nil, err
 	}
@@ -94,26 +95,26 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	if args.OnlyExplicitVersions {
 		versionMetadata = VersionMetadata{}
 	} else {
-		versionMetadata, err = LoadVersionMetadata(args.RootDir, providers, int(providerVersion.Major))
+		versionMetadata, err = LoadVersionMetadata(args.RootDir, modules, int(providerVersion.Major))
 		if err != nil {
 			return nil, err
 		}
 	}
 
 	if !args.OnlyExplicitVersions {
-		providers = openapi.ApplyProvidersTransformations(providers, versionMetadata.Lock, versionMetadata.PreviousLock, nil, nil)
+		modules = openapi.ApplyTransformations(modules, versionMetadata.Lock, versionMetadata.PreviousLock, nil, nil)
 	}
 
-	pathChanges := findPathChanges(providers, versionMetadata.Lock, versionMetadata.PreviousLock, versionMetadata.Config)
+	pathChanges := findPathChanges(modules, versionMetadata.Lock, versionMetadata.PreviousLock, versionMetadata.Config)
 
 	if args.ExcludeExplicitVersions {
-		providers = openapi.SingleVersion(providers)
+		modules = openapi.SingleVersion(modules)
 	}
 
 	buildSchemaReports := BuildSchemaReports{
 		NamingDisambiguations:         diagnostics.NamingDisambiguations,
 		SkippedPOSTEndpoints:          diagnostics.SkippedPOSTEndpoints,
-		ProviderNameErrors:            diagnostics.ProviderNameErrors,
+		ModuleNameErrors:              diagnostics.ModuleNameErrors,
 		PathChangesResult:             pathChanges,
 		AllResourcesByVersion:         versionMetadata.AllResourcesByVersion,
 		AllResourceVersionsByResource: versionMetadata.AllResourceVersionsByResource,
@@ -123,7 +124,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		InactiveDefaultVersions:       versionMetadata.InactiveDefaultVersions,
 	}
 
-	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata, providerVersion)
+	generationResult, err := gen.PulumiSchema(args.RootDir, modules, versionMetadata, providerVersion)
 
 	if err != nil {
 		return &BuildSchemaResult{
@@ -159,7 +160,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		Metadata:    *metadata,
 		Version:     versionMetadata,
 		Reports:     buildSchemaReports,
-		Providers:   providers,
+		Modules:     modules,
 	}, nil
 }
 
@@ -170,7 +171,7 @@ type PathChange struct {
 }
 
 type MissingExpectedResourceVersion struct {
-	ProviderName string
+	ModuleName   openapi.ModuleName
 	ResourceName string
 	Version      openapi.SdkVersion
 	IsPrevious   bool
@@ -181,7 +182,7 @@ type PathChangesResult struct {
 	MissingPreviousDefaultVersions []MissingExpectedResourceVersion
 }
 
-func findPathChanges(providers openapi.AzureProviders,
+func findPathChanges(modules openapi.AzureModules,
 	defaultVersion openapi.DefaultVersionLock,
 	previousVersion openapi.DefaultVersionLock,
 	curations Curations) PathChangesResult {
@@ -189,19 +190,13 @@ func findPathChanges(providers openapi.AzureProviders,
 	result := []PathChange{}
 	missingPreviousDefaultVersions := []MissingExpectedResourceVersion{}
 
-	sortedProviderNames := []string{}
-	for providerName := range defaultVersion {
-		sortedProviderNames = append(sortedProviderNames, providerName)
-	}
-	sort.Strings(sortedProviderNames)
-
-	for _, providerName := range sortedProviderNames {
-		resources := defaultVersion[providerName]
-		previousResources, ok := previousVersion[providerName]
+	for _, moduleName := range util.SortedKeys(defaultVersion) {
+		resources := defaultVersion[moduleName]
+		previousResources, ok := previousVersion[moduleName]
 		if !ok {
 			continue
 		}
-		providerVersions := providers[providerName]
+		moduleVersions := modules[moduleName]
 
 		sortedResourceNames := []string{}
 		for resourceName := range resources {
@@ -216,9 +211,9 @@ func findPathChanges(providers openapi.AzureProviders,
 				continue
 			}
 
-			cur := providerVersions[openapi.ApiToSdkVersion(version)]
+			cur := moduleVersions[openapi.ApiToSdkVersion(version)]
 			prevVersion := openapi.ApiToSdkVersion(previousVersion)
-			prev := providerVersions[prevVersion]
+			prev := moduleVersions[prevVersion]
 
 			spec, ok := cur.Resources[resourceName]
 			if !ok {
@@ -226,7 +221,7 @@ func findPathChanges(providers openapi.AzureProviders,
 			}
 			if !ok {
 				missingPreviousDefaultVersions = append(missingPreviousDefaultVersions, MissingExpectedResourceVersion{
-					ProviderName: providerName,
+					ModuleName:   moduleName,
 					ResourceName: resourceName,
 					Version:      prevVersion,
 					IsPrevious:   false,
@@ -240,7 +235,7 @@ func findPathChanges(providers openapi.AzureProviders,
 			}
 			if !ok {
 				missingPreviousDefaultVersions = append(missingPreviousDefaultVersions, MissingExpectedResourceVersion{
-					ProviderName: providerName,
+					ModuleName:   moduleName,
 					ResourceName: resourceName,
 					Version:      prevVersion,
 					IsPrevious:   true,
@@ -252,7 +247,7 @@ func findPathChanges(providers openapi.AzureProviders,
 			prevPath := paths.NormalizePath(prevSpec.Path)
 
 			if path != prevPath {
-				excluded, err := curations.IsExcluded(providerName, resourceName, previousVersion)
+				excluded, err := curations.IsExcluded(moduleName, resourceName, previousVersion)
 				if !excluded && err == nil {
 					result = append(result, PathChange{
 						CurrentPath:  path,

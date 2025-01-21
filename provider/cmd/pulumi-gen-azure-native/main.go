@@ -147,7 +147,7 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		squeezedInvokes := versioning.FindRemovedInvokesFromResources(buildSchemaResult.Providers, squeezedResources)
+		squeezedInvokes := versioning.FindRemovedInvokesFromResources(buildSchemaResult.Modules, squeezedResources)
 		majorVersion := strings.Split(version, ".")[0]
 		err = gen.EmitFile(path.Join("versions", fmt.Sprintf("v%s-removed-resources.json", majorVersion)), squeezedResources)
 		if err != nil {

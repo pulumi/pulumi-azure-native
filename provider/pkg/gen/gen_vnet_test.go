@@ -22,11 +22,11 @@ func TestVnetGen(t *testing.T) {
 	// 3. rm -rf provider/pkg/gen/test-data/vnet/azure-rest-api-specs/specification/network/resource-manager/Microsoft.Network/stable/2023-02-01/examples/
 	rootDir := path.Join(wd, "test-data", "vnet")
 
-	providers, _, err := openapi.ReadAzureProviders(path.Join(rootDir, "azure-rest-api-specs"), "Network", "2023-02-01")
+	modules, _, err := openapi.ReadAzureModules(path.Join(rootDir, "azure-rest-api-specs"), "Network", "2023-02-01")
 	if err != nil {
 		t.Fatal(err)
 	}
-	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, semver.MustParse("2.0.0"))
+	generationResult, err := PulumiSchema(rootDir, modules, versioningStub{}, semver.MustParse("2.0.0"))
 	if err != nil {
 		t.Fatal(err)
 	}

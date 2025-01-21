@@ -332,7 +332,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 			enumVal := pschema.EnumValueSpec{Value: fmt.Sprintf("%v", val)}
 			// Override the name for the values for this Enum since it contains unfortunately
 			// named values like `Input` and `Output` which collide especially for Go Codegen.
-			if strings.HasPrefix(m.module, "datafactory") && enumName == "ScriptActivityParameterDirection" {
+			if strings.HasPrefix(string(m.module), "datafactory") && enumName == "ScriptActivityParameterDirection" {
 				enumVal.Name = fmt.Sprintf("Value%s", val)
 			}
 			if !enumExists(enumVal) {
@@ -424,7 +424,7 @@ func (m *moduleGenerator) genDiscriminatedType(resolvedSchema *openapi.Schema, i
 }
 
 // typeNameOverrides is a manually-maintained map of alternative names when a type name represents two or more
-// distinct types in the same resource provider. This can happen if there are multiple Open API spec files
+// distinct types in the same module. This can happen if there are multiple Open API spec files
 // for the same RP and version, and each of those files has its own definition of the type under the same name.
 // That happens a lot (there are many files for several RPs) but most of the time the definitions are similar
 // enough to treat them as same. The following map lists all exceptions from this rule.
@@ -481,7 +481,7 @@ var typeNameOverrides = map[string]string{
 }
 
 func (m *moduleGenerator) typeNameOverride(typeName string) string {
-	key := fmt.Sprintf("%s.%s.%s", m.prov, m.resourceName, typeName)
+	key := fmt.Sprintf("%s.%s.%s", m.moduleName, m.resourceName, typeName)
 	if v, ok := typeNameOverrides[key]; ok {
 		return v
 	}

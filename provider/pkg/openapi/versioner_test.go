@@ -14,7 +14,7 @@ import (
 //   - Res 1 defined across all API versions
 //   - Res 2 defined in two API versions
 //   - Res 3 has been renamed but its path is the same, so we consider it the same resource
-//     (e.g., happened in Web provider for ServerFarm -> AppServicePlan)
+//     (e.g., happened in Web module for ServerFarm -> AppServicePlan)
 //   - Res 4 is named consistently, but the path has changed over time
 //     (e.g., happened with several resources in ApiManagement)
 var versionMap = map[SdkVersion]VersionResources{
@@ -62,8 +62,8 @@ func TestFindingPathVersions(t *testing.T) {
 }
 
 func TestSqueezeSimple(t *testing.T) {
-	providers := AzureProviders{
-		"provider": {
+	modules := AzureModules{
+		"module": {
 			"version1": {
 				Resources: map[ResourceName]*ResourceSpec{
 					"resourceA": {
@@ -99,13 +99,13 @@ func TestSqueezeSimple(t *testing.T) {
 	}
 
 	squeeze := RemovableResources{
-		"azure-native:provider/version1:resourceA": "azure-native:provider/version2:resourceA",
+		"azure-native:module/version1:resourceA": "azure-native:module/version2:resourceA",
 	}
 
-	filteredSpec := RemoveResources(providers, squeeze)
+	filteredSpec := RemoveResources(modules, squeeze)
 
-	expected := AzureProviders{
-		"provider": {
+	expected := AzureModules{
+		"module": {
 			"version1": {
 				Resources: map[ResourceName]*ResourceSpec{
 					"resourceB": {

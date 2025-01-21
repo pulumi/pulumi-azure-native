@@ -17,14 +17,14 @@ import (
 var _ Versioning = (*versioningStub)(nil)
 
 type versioningStub struct {
-	shouldInclude   func(provider string, version *openapi.ApiVersion, typeName, token string) bool
+	shouldInclude   func(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool
 	getDeprecations func(token string) (ResourceDeprecation, bool)
-	getAllVersions  func(provider, resource string) []openapi.ApiVersion
+	getAllVersions  func(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion
 }
 
-func (v versioningStub) ShouldInclude(provider string, version *openapi.ApiVersion, typeName, token string) bool {
+func (v versioningStub) ShouldInclude(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool {
 	if v.shouldInclude != nil {
-		return v.shouldInclude(provider, version, typeName, token)
+		return v.shouldInclude(moduleName, version, typeName, token)
 	}
 	return true
 }
@@ -36,21 +36,21 @@ func (v versioningStub) GetDeprecation(token string) (ResourceDeprecation, bool)
 	return ResourceDeprecation{}, false
 }
 
-func (v versioningStub) GetAllVersions(provider, resource string) []openapi.ApiVersion {
+func (v versioningStub) GetAllVersions(moduleName openapi.ModuleName, resource string) []openapi.ApiVersion {
 	if v.getAllVersions != nil {
-		return v.getAllVersions(provider, resource)
+		return v.getAllVersions(moduleName, resource)
 	}
 	return []openapi.ApiVersion{}
 }
 
 func TestAliases(t *testing.T) {
 	// Wrap the generation of type aliases in a function to make it easier to test
-	generateTypeAliases := func(provider, typeName string, sdkVersion openapi.SdkVersion, previousProviderName string, typeNameAliases []string, versions []openapi.SdkVersion) []string {
+	generateTypeAliases := func(moduleName, typeName string, sdkVersion openapi.SdkVersion, previousModuleName string, typeNameAliases []string, versions []openapi.SdkVersion) []string {
 		generator := packageGenerator{
 			pkg:          &pschema.PackageSpec{Name: "azure-native"},
 			sdkVersion:   sdkVersion,
 			versioning:   versioningStub{},
-			provider:     provider,
+			moduleName:   openapi.ModuleName(moduleName),
 			majorVersion: 2,
 		}
 
@@ -60,8 +60,9 @@ func TestAliases(t *testing.T) {
 			},
 			typeName: typeName,
 		}
-		if previousProviderName != "" {
-			resource.ProviderNaming.PreviousName = &previousProviderName
+		if previousModuleName != "" {
+			previousName := openapi.ModuleName(previousModuleName)
+			resource.ModuleNaming.PreviousName = &previousName
 		}
 
 		aliasSpecs := generator.generateAliases(resource, typeNameAliases...)
@@ -101,7 +102,7 @@ func TestAliases(t *testing.T) {
 		assert.ElementsMatch(t, expected, actual)
 	})
 
-	t.Run("previous provider", func(t *testing.T) {
+	t.Run("previous module", func(t *testing.T) {
 		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", nil, []openapi.SdkVersion{})
 		expected := []string{
 			"azure-native:insights/v20220222:PrivateLinkForAzureAd",
@@ -109,7 +110,7 @@ func TestAliases(t *testing.T) {
 		assert.ElementsMatch(t, expected, actual)
 	})
 
-	t.Run("previous provider & type alias", func(t *testing.T) {
+	t.Run("previous module & type alias", func(t *testing.T) {
 		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", []string{"privateLinkForAzureAd"}, []openapi.SdkVersion{})
 		expected := []string{
 			"azure-native:monitor/v20220222:privateLinkForAzureAd",  // change case
@@ -119,7 +120,7 @@ func TestAliases(t *testing.T) {
 		assert.ElementsMatch(t, expected, actual)
 	})
 
-	t.Run("previous provider & compatible version", func(t *testing.T) {
+	t.Run("previous module & compatible version", func(t *testing.T) {
 		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", nil, []openapi.SdkVersion{"v20200110", "v20210111"})
 		expected := []string{
 			"azure-native:monitor/v20200110:PrivateLinkForAzureAd",  // change version
@@ -131,7 +132,7 @@ func TestAliases(t *testing.T) {
 		assert.ElementsMatch(t, expected, actual)
 	})
 
-	t.Run("previous provider, compatible version & type alias", func(t *testing.T) {
+	t.Run("previous module, compatible version & type alias", func(t *testing.T) {
 		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", []string{"privateLinkForAzureAd"}, []openapi.SdkVersion{"v20200110", "v20210111"})
 		expected := []string{
 			"azure-native:monitor/v20200110:PrivateLinkForAzureAd",  // change version
@@ -383,17 +384,17 @@ func TestDedupResourceNameByPath(t *testing.T) {
 }
 
 func TestResourcePathTracker(t *testing.T) {
-	t.Run("no conflicts, one provider", func(t *testing.T) {
+	t.Run("no conflicts, one module", func(t *testing.T) {
 		tracker := newResourcesPathConflictsTracker()
-		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+		tracker.addPathConflictsForModule("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
 			"VirtualMachine": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}": {openapi.ApiVersion("2022-02-22")}},
 		})
 		assert.False(t, tracker.hasConflicts())
 	})
 
-	t.Run("conflicts, one provider", func(t *testing.T) {
+	t.Run("conflicts, one module", func(t *testing.T) {
 		tracker := newResourcesPathConflictsTracker()
-		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+		tracker.addPathConflictsForModule("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
 			"VirtualMachine": {
 				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}":    {openapi.ApiVersion("2022-02-22")},
 				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachinesFoo/{}": {openapi.ApiVersion("2024-04-22")},
@@ -402,29 +403,29 @@ func TestResourcePathTracker(t *testing.T) {
 		assert.True(t, tracker.hasConflicts())
 	})
 
-	t.Run("no conflicts, multiple providers", func(t *testing.T) {
+	t.Run("no conflicts, multiple modules", func(t *testing.T) {
 		tracker := newResourcesPathConflictsTracker()
-		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+		tracker.addPathConflictsForModule("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
 			"VirtualMachine": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}": {openapi.ApiVersion("2022-02-22")}},
 		})
-		tracker.addPathConflictsForProvider("storage", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+		tracker.addPathConflictsForModule("storage", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
 			"StorageAccount": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}": {openapi.ApiVersion("2022-02-22")}},
 		})
 		assert.False(t, tracker.hasConflicts())
 	})
 
-	t.Run("conflicts, multiple providers", func(t *testing.T) {
+	t.Run("conflicts, multiple modules", func(t *testing.T) {
 		tracker := newResourcesPathConflictsTracker()
-		tracker.addPathConflictsForProvider("storage", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+		tracker.addPathConflictsForModule("storage", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
 			"StorageAccount": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}": {openapi.ApiVersion("2022-02-22")}},
 		})
-		tracker.addPathConflictsForProvider("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+		tracker.addPathConflictsForModule("compute", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
 			"VirtualMachine": {
 				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachines/{}":    {openapi.ApiVersion("2022-02-22")},
 				"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualMachinesFoo/{}": {openapi.ApiVersion("2024-04-22")},
 			},
 		})
-		tracker.addPathConflictsForProvider("migrate", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
+		tracker.addPathConflictsForModule("migrate", map[openapi.ResourceName]map[string][]openapi.ApiVersion{
 			"AssessmentProject": {"/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Migrate/assessmentProjects/{}": {openapi.ApiVersion("2022-02-22")}},
 		})
 		assert.True(t, tracker.hasConflicts())

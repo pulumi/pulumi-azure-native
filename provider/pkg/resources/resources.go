@@ -35,6 +35,15 @@ const (
 	AutoNameUuid   AutoNameKind = "uuid"
 )
 
+// ModuleName as used within the Pulumi provider e.g. aad
+// This is often derived from the "Azure Resource Provider" (namespace) in the Azure spec.
+// But sometimes is related to the top-level directory in the specs.
+type ModuleName string
+
+func (m ModuleName) Lowered() string {
+	return strings.ToLower(string(m))
+}
+
 // AzureAPIProperty represents validation constraints for a single parameter or body property.
 type AzureAPIProperty struct {
 	Type                 string            `json:"type,omitempty"`
@@ -247,7 +256,7 @@ type AzureAPIMetadata struct {
 // Some resource providers changed capitalization between API versions, but we should map them to the
 // same spelling so that folder names and namespaces are consistent. The map below provides such
 // canonical names based on which names seems to be used prominently as of 2020.
-var wellKnownProviderNames = map[string]string{
+var wellKnownModuleNames = map[string]string{
 	"aad":                          "Aad",
 	"aadiam":                       "AadIam",
 	"dbformariadb":                 "DBforMariaDB",
@@ -258,47 +267,47 @@ var wellKnownProviderNames = map[string]string{
 	"visualstudio":                 "VisualStudio",
 }
 
-type ResourceProviderNaming struct {
-	ResolvedName           string
-	PreviousName           *string
+type ModuleNaming struct {
+	ResolvedName           ModuleName
+	PreviousName           *ModuleName
 	SpecFolderName         string
 	NamespaceWithoutPrefix string
 }
 
-// ResourceProvider returns a provider name given Open API spec file and resource's API URI.
+// GetModuleName returns a module name given Open API spec file and resource's API URI.
 // Returns the module name, optional old module name, or error.
-func ResourceProvider(majorVersion uint64, filePath, apiUri string) (ResourceProviderNaming, error) {
-	// We extract the provider name from two sources:
+func GetModuleName(majorVersion uint64, filePath, apiUri string) (ModuleNaming, error) {
+	// We extract the module name from two sources:
 	// - from the folder name of the Open API spec
-	// - from the URI of the API endpoint (we take the last provider in the URI)
+	// - from the URI of the API endpoint (we take the last namespace in the URI)
 	specFolderName := getSpecFolderName(filePath)
 	namespaceWithoutPrefixFromSpecFilePath := findNamespaceWithoutPrefixFromPath(filePath, "")
 	namespaceWithoutPrefixFromResourceUrl := findNamespaceWithoutPrefixFromPath(apiUri, "Resources")
-	// Start with extracting the provider from the folder path. If the folder name is explicitly listed,
-	// use it as the provider name. This is the new style we use for newer resources after 1.0. Older
+	// Start with extracting the namespace from the folder path. If the folder name is explicitly listed,
+	// use it as the module name. This is the new style we use for newer resources after 1.0. Older
 	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
 	if override, oldModule, hasOverride := getNameOverride(majorVersion, specFolderName, namespaceWithoutPrefixFromSpecFilePath); hasOverride {
-		return ResourceProviderNaming{
+		return ModuleNaming{
 			ResolvedName:           override,
 			PreviousName:           oldModule,
 			SpecFolderName:         specFolderName,
 			NamespaceWithoutPrefix: namespaceWithoutPrefixFromResourceUrl,
 		}, nil
 	}
-	// We proceed with the endpoint if both provider values match. This way, we avoid flukes and
+	// We proceed with the endpoint if both module values match. This way, we avoid flukes and
 	// declarations outside of the current API provider.
 	if !strings.EqualFold(namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl) {
-		return ResourceProviderNaming{}, fmt.Errorf("resolved provider name mismatch: file: %s, uri: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl)
+		return ModuleNaming{}, fmt.Errorf("resolved module name mismatch: file: %s, uri: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl)
 	}
-	// Ultimately we use the provider name from the spec file path.
-	return ResourceProviderNaming{
-		ResolvedName:           namespaceWithoutPrefixFromSpecFilePath,
+	// Ultimately we use the module name from the spec file path.
+	return ModuleNaming{
+		ResolvedName:           ModuleName(namespaceWithoutPrefixFromSpecFilePath),
 		SpecFolderName:         specFolderName,
 		NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
 	}, nil
 }
 
-var modulesNamedByFolder = map[string]string{
+var modulesNamedByFolder = map[string]ModuleName{
 	"videoanalyzer": "VideoAnalyzer",
 	"webpubsub":     "WebPubSub",
 }
@@ -318,10 +327,10 @@ var moduleNameOverridesWithAliases = map[string]map[string]string{
 
 // getNameOverride returns a name override for a given folder name, and non-prefixed namespace.
 // The second return value is true if an override is found.
-func getNameOverride(majorVersion uint64, specFolderName, namespaceWithoutPrefix string) (string, *string, bool) {
-	// For the cases below, we use folder (SDK) name for module names instead of the ARM name.
-	if name, ok := modulesNamedByFolder[specFolderName]; ok {
-		return name, nil, true
+func getNameOverride(majorVersion uint64, specFolderName, namespaceWithoutPrefix string) (ModuleName, *ModuleName, bool) {
+	// For the cases below, we use folder (SDK) moduleName for module names instead of the ARM moduleName.
+	if moduleName, ok := modulesNamedByFolder[specFolderName]; ok {
+		return moduleName, nil, true
 	}
 	// Disable additional rules for v2 and below.
 	// TODO: Remove after v3 release.
@@ -331,7 +340,8 @@ func getNameOverride(majorVersion uint64, specFolderName, namespaceWithoutPrefix
 	// New rules for v3 and above which include aliases back to the original namespace.
 	if namespaceOverrides, ok := moduleNameOverridesWithAliases[namespaceWithoutPrefix]; ok {
 		if folderName, ok := namespaceOverrides[specFolderName]; ok {
-			return folderName, &namespaceWithoutPrefix, true
+			oldModule := ModuleName(namespaceWithoutPrefix)
+			return ModuleName(folderName), &oldModule, true
 		}
 	}
 	return "", nil, false
@@ -348,7 +358,7 @@ func findNamespaceWithoutPrefixFromPath(path, defaultValue string) string {
 		for _, prefix := range []string{"Microsoft.", "microsoft.", "PaloAltoNetworks."} {
 			if strings.HasPrefix(part, prefix) {
 				name := strings.Title(strings.TrimPrefix(part, prefix))
-				if knownName, ok := wellKnownProviderNames[strings.ToLower(name)]; ok {
+				if knownName, ok := wellKnownModuleNames[strings.ToLower(name)]; ok {
 					return knownName
 				}
 				return name

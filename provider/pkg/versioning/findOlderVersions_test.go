@@ -10,29 +10,29 @@ import (
 )
 
 func TestFindOlderVersions(t *testing.T) {
-	providerA := "providerA"
+	moduleA := openapi.ModuleName("moduleA")
 	resourceA := "resourceA"
 	resourceB := "resourceB"
 	olderVersion := fakeApiVersion(FakeApiVersion{})
 	versionA := fakeApiVersion(FakeApiVersion{GreaterThan: olderVersion})
 	versionB := fakeApiVersion(FakeApiVersion{GreaterThan: olderVersion})
 
-	specVersions := ProvidersVersionResources{
-		providerA: {
+	specVersions := ModuleVersionResources{
+		moduleA: {
 			olderVersion: []string{resourceA, resourceB},
 			versionA:     []string{resourceA, resourceB},
 			versionB:     []string{resourceA, resourceB},
 		},
 	}
 	defaultVersion := openapi.DefaultVersionLock{
-		providerA: {
+		moduleA: {
 			resourceA: versionA,
 			resourceB: versionB,
 		},
 	}
 	olderVersions := findOlderVersions(specVersions, defaultVersion)
-	expected := openapi.ProviderVersionList{
-		providerA: {
+	expected := openapi.ModuleVersionList{
+		moduleA: {
 			olderVersion,
 		},
 	}

@@ -48,9 +48,9 @@ func TestFindMinimalVersionSet(t *testing.T) {
 }
 
 func TestFilterCandidateVersions(t *testing.T) {
-	emptyBuilder := providerSpecBuilder{
-		providerName: "",
-		providerList: providerlist.ProviderList{}.Index(),
+	emptyBuilder := moduleSpecBuilder{
+		moduleName:           "",
+		activeVersionChecker: providerlist.ProviderList{}.Index(),
 	}
 	t.Run("empty spec", func(t *testing.T) {
 		actual := emptyBuilder.filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{}, "")

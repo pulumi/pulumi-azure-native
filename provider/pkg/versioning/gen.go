@@ -19,14 +19,14 @@ import (
 
 type VersionMetadata struct {
 	VersionSources
-	// provider->resource->[]version
-	AllResourceVersionsByResource ProviderResourceVersions
-	// map[ProviderName][]ApiVersion
-	Pending                 openapi.ProviderVersionList
+	// module->resource->[]version
+	AllResourceVersionsByResource ModuleResourceVersions
+	// map[ModuleName][]ApiVersion
+	Pending                 openapi.ModuleVersionList
 	Spec                    Spec
 	Lock                    openapi.DefaultVersionLock
 	CurationViolations      []CurationViolation
-	InactiveDefaultVersions map[openapi.ProviderName][]openapi.ApiVersion
+	InactiveDefaultVersions map[openapi.ModuleName][]openapi.ApiVersion
 }
 
 // Ensure our VersionMetadata type implements the gen.Versioning interface
@@ -35,21 +35,21 @@ var _ gen.Versioning = (*VersionMetadata)(nil)
 
 // Determine if an explicit resource version is being included in the SDK.
 // Version being nil indicates the default version of the resource which should always be included.
-func (v VersionMetadata) ShouldInclude(provider string, version *openapi.ApiVersion, typeName, token string) bool {
+func (v VersionMetadata) ShouldInclude(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool {
 	// Nil version indicates this is in the default version.
 	if version == nil {
 		return true
 	}
 	// Keep any resources in the default version lock
-	if v.Lock.IsAtVersion(provider, typeName, *version) {
+	if v.Lock.IsAtVersion(moduleName, typeName, *version) {
 		return true
 	}
 	// Keep any resources in the previous version lock for easier migration
-	if v.MajorVersion >= 3 && v.PreviousLock.IsAtVersion(provider, typeName, *version) {
+	if v.MajorVersion >= 3 && v.PreviousLock.IsAtVersion(moduleName, typeName, *version) {
 		return true
 	}
 	// Exclude versions from removed versions
-	if versions, ok := v.RemovedVersions[provider]; ok {
+	if versions, ok := v.RemovedVersions[moduleName]; ok {
 		for _, removedVersion := range versions {
 			if removedVersion == *version {
 				return false
@@ -76,12 +76,12 @@ func (v VersionMetadata) GetDeprecation(token string) (gen.ResourceDeprecation, 
 	return gen.ResourceDeprecation{}, false
 }
 
-func (v VersionMetadata) GetAllVersions(provider openapi.ProviderName, resource openapi.ResourceName) []openapi.ApiVersion {
-	return v.AllResourceVersionsByResource[provider][resource]
+func (v VersionMetadata) GetAllVersions(moduleName openapi.ModuleName, resource openapi.ResourceName) []openapi.ApiVersion {
+	return v.AllResourceVersionsByResource[moduleName][resource]
 }
 
-func LoadVersionMetadata(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
-	versionSources, err := ReadVersionSources(rootDir, providers, majorVersion)
+func LoadVersionMetadata(rootDir string, modules openapi.AzureModules, majorVersion int) (VersionMetadata, error) {
+	versionSources, err := ReadVersionSources(rootDir, modules, majorVersion)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
@@ -136,21 +136,21 @@ type VersionSources struct {
 	MajorVersion              int
 	ProviderList              providerlist.ProviderList
 	requiredExplicitResources []string
-	// map[ProviderName]map[DefinitionName]ApiVersion
+	// map[ModuleName]map[DefinitionName]ApiVersion
 	PreviousLock    openapi.DefaultVersionLock
-	RemovedVersions openapi.ProviderVersionList
+	RemovedVersions openapi.ModuleVersionList
 	Spec            Spec
 	Config          Curations
 	ConfigPath      string
-	// provider->version->[]resource
-	AllResourcesByVersion ProvidersVersionResources
+	// Module->version->[]resource
+	AllResourcesByVersion ModuleVersionResources
 	// map[TokenToRemove]TokenReplacedWith
 	ResourcesToRemove     ResourceRemovals
 	RemovedInvokes        ResourceRemovals
 	NextResourcesToRemove ResourceRemovals
 }
 
-func ReadVersionSources(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionSources, error) {
+func ReadVersionSources(rootDir string, modules openapi.AzureModules, majorVersion int) (VersionSources, error) {
 	providerList, err := providerlist.ReadProviderList(filepath.Join(rootDir, "versions", "az-provider-list.json"))
 	if err != nil {
 		return VersionSources{}, err
@@ -214,7 +214,7 @@ func ReadVersionSources(rootDir string, providers openapi.AzureProviders, majorV
 		Spec:                      spec,
 		Config:                    config,
 		ConfigPath:                configPath,
-		AllResourcesByVersion:     FindAllResources(providers),
+		AllResourcesByVersion:     FindAllResources(modules),
 		ResourcesToRemove:         resourcesToRemove,
 		RemovedInvokes:            removedInvokes,
 		NextResourcesToRemove:     nextResourcesToRemove,
@@ -275,21 +275,21 @@ func ReadRequiredExplicitResources(path string) ([]string, error) {
 	return lines, nil
 }
 
-func FindRemovedInvokesFromResources(providers openapi.AzureProviders, removedResources openapi.RemovableResources) openapi.RemovableResources {
+func FindRemovedInvokesFromResources(modules openapi.AzureModules, removedResources openapi.RemovableResources) openapi.RemovableResources {
 	removableInvokes := openapi.RemovableResources{}
-	for provider, versions := range providers {
+	for moduleName, versions := range modules {
 		for version, resources := range versions {
 			removedResourcePaths := []string{}
 			for resourceName, resource := range resources.Resources {
-				if removedResources.CanBeRemoved(provider, resourceName, string(version)) {
+				if removedResources.CanBeRemoved(moduleName, resourceName, string(version)) {
 					removedResourcePaths = append(removedResourcePaths, paths.NormalizePath(resource.Path))
 					continue
 				}
 			}
 			for invokeName, invoke := range resources.Invokes {
-				fullyQualifiedName := openapi.ToFullyQualifiedName(provider, invokeName, string(version))
+				fullyQualifiedName := openapi.ToFullyQualifiedName(moduleName, invokeName, string(version))
 				// Check if the "resource" removal is actually an invoke.
-				if removedResources.CanBeRemoved(provider, invokeName, string(version)) {
+				if removedResources.CanBeRemoved(moduleName, invokeName, string(version)) {
 					removableInvokes[fullyQualifiedName] = ""
 					continue
 				}

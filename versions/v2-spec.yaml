@@ -440,142 +440,142 @@ DBforMySQL:
     additions:
         PrivateEndpointConnection: 2022-09-30-preview
     exclusionErrors:
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Configuration
           detail: version 2018-06-01-privatepreview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Database
           detail: version 2018-06-01-privatepreview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: FirewallRule
           detail: version 2018-06-01-privatepreview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2018-06-01-privatepreview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: ServerAdministrator
           detail: version 2018-06-01-privatepreview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: VirtualNetworkRule
           detail: version 2018-06-01-privatepreview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Configuration
           detail: version 2020-07-01-privatepreview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Database
           detail: version 2020-07-01-privatepreview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: FirewallRule
           detail: version 2020-07-01-privatepreview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2020-07-01-privatepreview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Configuration
           detail: version 2020-07-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Database
           detail: version 2020-07-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: FirewallRule
           detail: version 2020-07-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2020-07-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Configuration
           detail: version 2021-05-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Database
           detail: version 2021-05-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: FirewallRule
           detail: version 2021-05-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2021-05-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Configuration
           detail: version 2021-05-01 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Database
           detail: version 2021-05-01 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: FirewallRule
           detail: version 2021-05-01 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2021-05-01 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Configuration
           detail: version 2021-12-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Database
           detail: version 2021-12-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: FirewallRule
           detail: version 2021-12-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2021-12-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: PrivateEndpointConnection
           detail: version 2022-09-30-preview is greater than 2018-06-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2022-09-30-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Configuration
           detail: version 2023-06-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Database
           detail: version 2023-06-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: FirewallRule
           detail: version 2023-06-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2023-06-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Configuration
           detail: version 2023-06-30 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Database
           detail: version 2023-06-30 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: FirewallRule
           detail: version 2023-06-30 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: PrivateEndpointConnection
           detail: version 2023-06-30 is greater than 2018-06-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2023-06-30 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2023-10-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2023-12-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Configuration
           detail: version 2023-12-30 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Database
           detail: version 2023-12-30 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: FirewallRule
           detail: version 2023-12-30 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2023-12-30 is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2024-02-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2024-06-01-preview is greater than 2017-12-01
-        - provider: DBforMySQL
+        - modulename: DBforMySQL
           resourcename: Server
           detail: version 2024-10-01-preview is greater than 2017-12-01
 DBforPostgreSQL:
@@ -588,187 +588,187 @@ DBforPostgreSQL:
         Role: "2022-11-08"
         VirtualEndpoint: 2023-06-01-preview
     exclusionErrors:
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2020-02-14-privatepreview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2020-02-14-privatepreview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: ServerKey
           detail: version 2020-02-14-privatepreview is greater than 2020-01-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2020-02-14-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2020-02-14-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2020-10-05-privatepreview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2020-11-05-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2021-04-10-privatepreview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2021-04-10-privatepreview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2021-06-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2021-06-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2021-06-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2021-06-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2021-06-01 is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2021-06-01 is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2021-06-01 is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2021-06-01 is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2021-06-15-privatepreview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2021-06-15-privatepreview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2021-06-15-privatepreview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2022-01-20-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2022-01-20-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2022-01-20-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2022-01-20-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2022-03-08-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2022-03-08-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2022-03-08-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2022-03-08-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2022-11-08 is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: PrivateEndpointConnection
           detail: version 2022-11-08 is greater than 2018-06-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2023-03-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2023-03-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2023-03-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2023-03-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2023-03-02-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: PrivateEndpointConnection
           detail: version 2023-03-02-preview is greater than 2018-06-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2023-06-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2023-06-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2023-06-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: PrivateEndpointConnection
           detail: version 2023-06-01-preview is greater than 2018-06-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2023-06-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2023-12-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2023-12-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2023-12-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: PrivateEndpointConnection
           detail: version 2023-12-01-preview is greater than 2018-06-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2023-12-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2024-03-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2024-03-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2024-03-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: PrivateEndpointConnection
           detail: version 2024-03-01-preview is greater than 2018-06-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2024-03-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2024-08-01 is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2024-08-01 is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2024-08-01 is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: PrivateEndpointConnection
           detail: version 2024-08-01 is greater than 2018-06-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2024-08-01 is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Configuration
           detail: version 2024-11-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Database
           detail: version 2024-11-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: FirewallRule
           detail: version 2024-11-01-preview is greater than 2017-12-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: PrivateEndpointConnection
           detail: version 2024-11-01-preview is greater than 2018-06-01
-        - provider: DBforPostgreSQL
+        - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2024-11-01-preview is greater than 2017-12-01
 Dashboard:
@@ -1119,22 +1119,22 @@ LabServices:
         listGlobalUserEnvironments: "2018-10-15"
         listGlobalUserLabs: "2018-10-15"
     exclusionErrors:
-        - provider: LabServices
+        - modulename: LabServices
           resourcename: Lab
           detail: version 2021-10-01-preview is greater than 2018-10-15
-        - provider: LabServices
+        - modulename: LabServices
           resourcename: User
           detail: version 2021-10-01-preview is greater than 2018-10-15
-        - provider: LabServices
+        - modulename: LabServices
           resourcename: Lab
           detail: version 2021-11-15-preview is greater than 2018-10-15
-        - provider: LabServices
+        - modulename: LabServices
           resourcename: User
           detail: version 2021-11-15-preview is greater than 2018-10-15
-        - provider: LabServices
+        - modulename: LabServices
           resourcename: Lab
           detail: version 2023-06-07 is greater than 2018-10-15
-        - provider: LabServices
+        - modulename: LabServices
           resourcename: User
           detail: version 2023-06-07 is greater than 2018-10-15
 LoadTestService:
@@ -1201,10 +1201,10 @@ MachineLearningServices:
         listWorkspaceConnectionModels: 2024-04-01-preview
         listWorkspaceConnectionSecrets: 2023-06-01-preview
     exclusionErrors:
-        - provider: MachineLearningServices
+        - modulename: MachineLearningServices
           resourcename: LinkedWorkspace
           detail: version 2020-05-01-preview is greater than 2020-03-01
-        - provider: MachineLearningServices
+        - modulename: MachineLearningServices
           resourcename: LinkedWorkspace
           detail: version 2020-05-15-preview is greater than 2020-03-01
 Maintenance:
@@ -1315,13 +1315,13 @@ Migrate:
         getSolutionsControllerConfig: "2023-01-01"
         getWorkloadDeploymentSecretConfigurations: 2022-05-01-preview
     exclusionErrors:
-        - provider: Migrate
+        - modulename: Migrate
           resourcename: AssessmentsOperation
           detail: version 2023-04-01-preview is greater than 2023-03-15
-        - provider: Migrate
+        - modulename: Migrate
           resourcename: AssessmentsOperation
           detail: version 2023-05-01-preview is greater than 2023-03-15
-        - provider: Migrate
+        - modulename: Migrate
           resourcename: AssessmentsOperation
           detail: version 2023-09-09-preview is greater than 2023-03-15
 MixedReality:
@@ -1520,34 +1520,34 @@ Network:
         listNetworkManagerEffectiveSecurityAdminRules: "2023-02-01"
         listVpnLinkConnectionDefaultSharedKey: "2024-03-01"
     exclusionErrors:
-        - provider: Network
+        - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2022-11-01 is greater than 2022-09-01
-        - provider: Network
+        - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2023-02-01 is greater than 2022-09-01
-        - provider: Network
+        - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2023-04-01 is greater than 2022-09-01
-        - provider: Network
+        - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2023-05-01 is greater than 2022-09-01
-        - provider: Network
+        - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2023-06-01 is greater than 2022-09-01
-        - provider: Network
+        - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2023-09-01 is greater than 2022-09-01
-        - provider: Network
+        - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2023-11-01 is greater than 2022-09-01
-        - provider: Network
+        - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-01-01 is greater than 2022-09-01
-        - provider: Network
+        - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-03-01 is greater than 2022-09-01
-        - provider: Network
+        - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-05-01 is greater than 2022-09-01
 NetworkAnalytics:
@@ -2038,22 +2038,22 @@ Web:
         listWorkflowRunActionRepetitionExpressionTraces: "2022-09-01"
         listWorkflowTriggerCallbackUrl: "2022-09-01"
     exclusionErrors:
-        - provider: Web
+        - modulename: Web
           resourcename: ContainerApp
           detail: version 2023-01-01 is greater than 2022-09-01
-        - provider: Web
+        - modulename: Web
           resourcename: listContainerAppSecrets
           detail: version 2023-01-01 is greater than 2022-09-01
-        - provider: Web
+        - modulename: Web
           resourcename: ContainerApp
           detail: version 2023-12-01 is greater than 2022-09-01
-        - provider: Web
+        - modulename: Web
           resourcename: listContainerAppSecrets
           detail: version 2023-12-01 is greater than 2022-09-01
-        - provider: Web
+        - modulename: Web
           resourcename: ContainerApp
           detail: version 2024-04-01 is greater than 2022-09-01
-        - provider: Web
+        - modulename: Web
           resourcename: listContainerAppSecrets
           detail: version 2024-04-01 is greater than 2022-09-01
 WebPubSub:

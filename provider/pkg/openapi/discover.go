@@ -17,12 +17,12 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
-// ProviderName e.g. aad
-type ProviderName = string
+type ModuleName = resources.ModuleName
 
 // ApiVersion e.g. 2020-01-30
 // Occasionally we use empty string to represent the default version or no version.
@@ -41,15 +41,15 @@ type InvokeName = string
 // SdkVersion e.g. v20200130
 type SdkVersion string
 
-// AzureProviders maps provider names (e.g. Compute) to versions in that providers and resources therein.
-type AzureProviders map[ProviderName]ProviderVersions
+// AzureModules maps module names (e.g. Compute) to versions in that module and resources therein.
+type AzureModules map[ModuleName]ModuleVersions
 
-// ProviderVersions maps API Versions (e.g. v20200801) to resources and invokes in that version.
-type ProviderVersions = map[SdkVersion]VersionResources
+// ModuleVersions maps API Versions (e.g. v20200801) to resources and invokes in that version.
+type ModuleVersions = map[SdkVersion]VersionResources
 
-// Represents a failed attempt to determine the provider name for a given path within a spec.
+// Represents a failed attempt to determine the module name for a given path within a spec.
 // This results in the path being skipped and not considered for resource or invoke generation.
-type ProviderNameError struct {
+type ModuleNameError struct {
 	FilePath string
 	Path     string
 	Error    string
@@ -58,30 +58,30 @@ type ProviderNameError struct {
 type DiscoveryDiagnostics struct {
 	NamingDisambiguations []resources.NameDisambiguation
 	// POST endpoints defined in the Azure spec that we don't include because they don't belong to a resource.
-	// Map is provider -> operation id -> path.
-	SkippedPOSTEndpoints map[string]map[string]string
-	// provider -> resource/type name -> path -> Endpoints
+	// Map is module -> operation id -> path.
+	SkippedPOSTEndpoints map[ModuleName]map[string]string
+	// module -> resource/type name -> path -> Endpoints
 	Endpoints Endpoints
-	// Errors where we can't determine the provider name for a given path within a spec.
-	ProviderNameErrors []ProviderNameError
+	// Errors where we can't determine the module name for a given path within a spec.
+	ModuleNameErrors []ModuleNameError
 }
 
-// provider -> resource/type name -> path -> Endpoint
-type Endpoints map[ProviderName]map[ResourceName]map[string]*Endpoint
+// module -> resource/type name -> path -> Endpoint
+type Endpoints map[ModuleName]map[ResourceName]map[string]*Endpoint
 
 // merge combines e2 into e, which is modified in-place.
 func (e Endpoints) merge(e2 Endpoints) {
-	for provider, providerEndpoints := range e2 {
-		if _, ok := e[provider]; !ok {
-			e[provider] = map[string]map[string]*Endpoint{}
+	for moduleName, moduleEndpoints := range e2 {
+		if _, ok := e[moduleName]; !ok {
+			e[moduleName] = map[string]map[string]*Endpoint{}
 		}
 
-		for typeName, byPath := range providerEndpoints {
-			if _, ok := e[provider][typeName]; !ok {
-				e[provider][typeName] = map[string]*Endpoint{}
+		for typeName, byPath := range moduleEndpoints {
+			if _, ok := e[moduleName][typeName]; !ok {
+				e[moduleName][typeName] = map[string]*Endpoint{}
 			}
 			for path, things := range byPath {
-				if existing, ok := e[provider][typeName][path]; ok {
+				if existing, ok := e[moduleName][typeName][path]; ok {
 					// the POST endpoints are unique per version, but we don't track versions here, so check for duplicates
 					ops := codegen.NewStringSet(existing.PostOperations...)
 					for _, op := range things.PostOperations {
@@ -95,16 +95,16 @@ func (e Endpoints) merge(e2 Endpoints) {
 					}
 					existing.HttpVerbs = verbs.SortedValues()
 				} else {
-					e[provider][typeName][path] = things
+					e[moduleName][typeName][path] = things
 				}
 			}
 		}
 	}
 }
 
-func (e Endpoints) add(pathItem spec.PathItem, provider, typeName, path, filePath string, addedResourceOrInvoke bool) {
-	if _, ok := e[provider]; !ok {
-		e[provider] = map[string]map[string]*Endpoint{}
+func (e Endpoints) add(pathItem spec.PathItem, moduleName ModuleName, typeName, path, filePath string, addedResourceOrInvoke bool) {
+	if _, ok := e[moduleName]; !ok {
+		e[moduleName] = map[string]map[string]*Endpoint{}
 	}
 
 	endpoint := &Endpoint{
@@ -134,10 +134,10 @@ func (e Endpoints) add(pathItem spec.PathItem, provider, typeName, path, filePat
 		endpoint.HttpVerbs = append(endpoint.HttpVerbs, "PUT")
 	}
 
-	if _, ok := e[provider][typeName]; !ok {
-		e[provider][typeName] = map[string]*Endpoint{}
+	if _, ok := e[moduleName][typeName]; !ok {
+		e[moduleName][typeName] = map[string]*Endpoint{}
 	}
-	e[provider][typeName][endpoint.Path] = endpoint
+	e[moduleName][typeName][endpoint.Path] = endpoint
 }
 
 type Endpoint struct {
@@ -149,20 +149,20 @@ type Endpoint struct {
 	Added                         bool     `json:",omitempty"`
 }
 
-func (d *DiscoveryDiagnostics) addSkippedPOSTEndpoint(provider, operation, path string) {
-	cur, ok := d.SkippedPOSTEndpoints[provider]
+func (d *DiscoveryDiagnostics) addSkippedPOSTEndpoint(moduleName ModuleName, operation, path string) {
+	cur, ok := d.SkippedPOSTEndpoints[moduleName]
 	if !ok {
 		cur = map[string]string{}
-		d.SkippedPOSTEndpoints[provider] = cur
+		d.SkippedPOSTEndpoints[moduleName] = cur
 	}
 	cur[operation] = path
 }
 
-func (d *DiscoveryDiagnostics) addPathItem(pathItem spec.PathItem, provider, typeName, path, filePath string, addedResourceOrInvoke bool) {
+func (d *DiscoveryDiagnostics) addPathItem(pathItem spec.PathItem, moduleName ModuleName, typeName, path, filePath string, addedResourceOrInvoke bool) {
 	if d.Endpoints == nil {
-		d.Endpoints = map[ProviderName]map[string]map[string]*Endpoint{}
+		d.Endpoints = map[ModuleName]map[string]map[string]*Endpoint{}
 	}
-	d.Endpoints.add(pathItem, provider, typeName, path, filePath, addedResourceOrInvoke)
+	d.Endpoints.add(pathItem, moduleName, typeName, path, filePath, addedResourceOrInvoke)
 }
 
 // VersionResources contains all resources and invokes in a given API version.
@@ -178,13 +178,13 @@ func NewVersionResources() VersionResources {
 	}
 }
 
-type ProviderVersionList = map[ProviderName][]ApiVersion
+type ModuleVersionList = map[ModuleName][]ApiVersion
 
 // DefaultVersionLock is an amalgamation of multiple API versions
-type DefaultVersionLock map[ProviderName]map[DefinitionName]ApiVersion
+type DefaultVersionLock map[ModuleName]map[DefinitionName]ApiVersion
 
-func (lock DefaultVersionLock) IsAtVersion(provider ProviderName, typeName DefinitionName, version ApiVersion) bool {
-	if resources, ok := lock[provider]; ok {
+func (lock DefaultVersionLock) IsAtVersion(moduleName ModuleName, typeName DefinitionName, version ApiVersion) bool {
+	if resources, ok := lock[moduleName]; ok {
 		if resourceVersion, ok := resources[typeName]; ok {
 			if resourceVersion == version {
 				return true
@@ -222,22 +222,22 @@ type ResourceSpec struct {
 	DefaultBody        map[string]interface{}
 	DeprecationMessage string
 	PreviousVersion    ApiVersion
-	ProviderNaming     resources.ResourceProviderNaming
+	ModuleNaming       resources.ModuleNaming
 }
 
-// ApplyProvidersTransformations adds the default version for each provider and deprecates and removes specified API versions.
-func ApplyProvidersTransformations(providers AzureProviders, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock, deprecated, removed ProviderVersionList) AzureProviders {
-	ApplyRemovals(providers, removed)
-	AddDefaultVersion(providers, defaultVersion, previousVersion)
-	ApplyDeprecations(providers, deprecated)
+// ApplyTransformations adds the default version for each module and deprecates and removes specified API versions.
+func ApplyTransformations(modules AzureModules, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock, deprecated, removed ModuleVersionList) AzureModules {
+	ApplyRemovals(modules, removed)
+	AddDefaultVersion(modules, defaultVersion, previousVersion)
+	ApplyDeprecations(modules, deprecated)
 
-	return providers
+	return modules
 }
 
-func ApplyRemovals(providers map[ProviderName]ProviderVersions, removed ProviderVersionList) {
-	for _, providerName := range codegen.SortedKeys(providers) {
-		versionMap := providers[providerName]
-		if removedVersion, ok := removed[providerName]; ok {
+func ApplyRemovals(modules map[ModuleName]ModuleVersions, removed ModuleVersionList) {
+	for _, moduleName := range util.SortedKeys(modules) {
+		versionMap := modules[moduleName]
+		if removedVersion, ok := removed[moduleName]; ok {
 			for _, versionToRemove := range removedVersion {
 				sdkVersionToRemove := ApiToSdkVersion(versionToRemove)
 				delete(versionMap, sdkVersionToRemove)
@@ -246,12 +246,12 @@ func ApplyRemovals(providers map[ProviderName]ProviderVersions, removed Provider
 	}
 }
 
-func AddDefaultVersion(providers AzureProviders, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) {
-	for _, providerName := range codegen.SortedKeys(providers) {
-		versionMap := providers[providerName]
+func AddDefaultVersion(modules AzureModules, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) {
+	for _, moduleName := range util.SortedKeys(modules) {
+		versionMap := modules[moduleName]
 		// Add a default version for each resource and invoke.
-		defaultResourceVersions := defaultVersion[providerName]
-		versionMap[""] = buildDefaultVersion(versionMap, defaultResourceVersions, previousVersion[providerName])
+		defaultResourceVersions := defaultVersion[moduleName]
+		versionMap[""] = buildDefaultVersion(versionMap, defaultResourceVersions, previousVersion[moduleName])
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)
@@ -278,20 +278,20 @@ func AddDefaultVersion(providers AzureProviders, defaultVersion DefaultVersionLo
 	}
 }
 
-func ApplyDeprecations(providers AzureProviders, deprecated ProviderVersionList) AzureProviders {
-	for _, providerName := range codegen.SortedKeys(providers) {
-		versionMap := providers[providerName]
-		for _, apiVersion := range deprecated[providerName] {
+func ApplyDeprecations(modules AzureModules, deprecated ModuleVersionList) AzureModules {
+	for _, moduleName := range util.SortedKeys(modules) {
+		versionMap := modules[moduleName]
+		for _, apiVersion := range deprecated[moduleName] {
 			sdkVersion := ApiToSdkVersion(apiVersion)
 			resources := versionMap[sdkVersion]
 			deprecateAll(resources.All(), apiVersion)
 		}
 	}
 
-	return providers
+	return modules
 }
 
-func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions map[ResourceName]ApiVersion, previousResourceVersions map[ResourceName]ApiVersion) VersionResources {
+func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[ResourceName]ApiVersion, previousResourceVersions map[ResourceName]ApiVersion) VersionResources {
 	resources := map[string]*ResourceSpec{}
 	invokes := map[string]*ResourceSpec{}
 	for _, resourceName := range codegen.SortedKeys(defaultResourceVersions) {
@@ -314,14 +314,14 @@ func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions ma
 	}
 }
 
-// ReadAzureProviders finds Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
-// collected per Azure Provider and API Version - for all API versions.
+// ReadAzureModules finds Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
+// collected per Azure Module and API Version - for all API versions.
 // Use the namespace "*" to load all available namespaces, or a specific namespace to filter, e.g. "Compute".
 // Use apiVersions with a wildcard to filter versions, e.g. "2022*preview", or leave it blank to use the default of "20*".
-func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders, DiscoveryDiagnostics, error) {
+func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, DiscoveryDiagnostics, error) {
 	diagnostics := DiscoveryDiagnostics{
-		SkippedPOSTEndpoints: map[ProviderName]map[string]string{},
-		Endpoints:            map[ProviderName]map[string]map[string]*Endpoint{},
+		SkippedPOSTEndpoints: map[ModuleName]map[string]string{},
+		Endpoints:            map[ModuleName]map[string]map[string]*Endpoint{},
 	}
 	swaggerSpecLocations, err := swaggerLocations(specsDir, namespace, apiVersions)
 	if err != nil {
@@ -329,7 +329,7 @@ func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders
 	}
 
 	// Collect all versions for each path in the API across all Swagger files.
-	providers := AzureProviders{}
+	modules := AzureModules{}
 	for _, location := range swaggerSpecLocations {
 		relLocation, err := filepath.Rel(specsDir, location)
 		if err != nil {
@@ -351,20 +351,20 @@ func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders
 		}
 		sort.Strings(orderedPaths)
 		for _, path := range orderedPaths {
-			providerDiagnostics := providers.addAPIPath(specsDir, relLocation, path, swagger)
+			moduleDiagnostics := modules.addAPIPath(specsDir, relLocation, path, swagger)
 
 			// Update reports
-			diagnostics.NamingDisambiguations = append(diagnostics.NamingDisambiguations, providerDiagnostics.NamingDisambiguations...)
-			for resource, operations := range providerDiagnostics.SkippedPOSTEndpoints {
+			diagnostics.NamingDisambiguations = append(diagnostics.NamingDisambiguations, moduleDiagnostics.NamingDisambiguations...)
+			for moduleName, operations := range moduleDiagnostics.SkippedPOSTEndpoints {
 				for op, path := range operations {
-					diagnostics.addSkippedPOSTEndpoint(resource, op, path)
+					diagnostics.addSkippedPOSTEndpoint(moduleName, op, path)
 				}
 			}
-			diagnostics.Endpoints.merge(providerDiagnostics.Endpoints)
-			diagnostics.ProviderNameErrors = append(diagnostics.ProviderNameErrors, providerDiagnostics.ProviderNameErrors...)
+			diagnostics.Endpoints.merge(moduleDiagnostics.Endpoints)
+			diagnostics.ModuleNameErrors = append(diagnostics.ModuleNameErrors, moduleDiagnostics.ModuleNameErrors...)
 		}
 	}
-	return providers, diagnostics, nil
+	return modules, diagnostics, nil
 }
 
 func deprecateAll(resourceSpecs map[string]*ResourceSpec, version ApiVersion) {
@@ -378,11 +378,11 @@ func deprecateAll(resourceSpecs map[string]*ResourceSpec, version ApiVersion) {
 
 // SingleVersion returns only a single (latest or preview) version of each resource from the full list of resource
 // versions.
-func SingleVersion(providers AzureProviders) AzureProviders {
-	singleVersion := AzureProviders{}
+func SingleVersion(modules AzureModules) AzureModules {
+	singleVersion := AzureModules{}
 
-	for providerName, allVersionMap := range providers {
-		singleVersion[providerName] = ProviderVersions{"": allVersionMap[""]}
+	for moduleName, allVersionMap := range modules {
+		singleVersion[moduleName] = ModuleVersions{"": allVersionMap[""]}
 	}
 
 	return singleVersion
@@ -514,12 +514,12 @@ func exclude(filePath string) bool {
 }
 
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
-// provider map. `providers` are mutated in-place.
-func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
-	providerNaming, err := resources.ResourceProvider(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
+// module map. Modules are mutated in-place.
+func (modules AzureModules) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
+	moduleNaming, err := resources.GetModuleName(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
 	if err != nil {
 		return DiscoveryDiagnostics{
-			ProviderNameErrors: []ProviderNameError{
+			ModuleNameErrors: []ModuleNameError{
 				{
 					FilePath: fileLocation,
 					Path:     path,
@@ -528,13 +528,13 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 			},
 		}
 	}
-	provider := providerNaming.ResolvedName
+	moduleName := moduleNaming.ResolvedName
 
 	// Find (or create) the version map with this name.
-	versionMap, ok := providers[provider]
+	versionMap, ok := modules[moduleName]
 	if !ok {
 		versionMap = map[SdkVersion]VersionResources{}
-		providers[provider] = versionMap
+		modules[moduleName] = versionMap
 	}
 
 	// Find (or create) the resource map with this name.
@@ -546,10 +546,10 @@ func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, 
 		versionMap[sdkVersion] = version
 	}
 
-	return addResourcesAndInvokes(version, fileLocation, path, providerNaming, swagger)
+	return addResourcesAndInvokes(version, fileLocation, path, moduleNaming, swagger)
 }
 
-func addResourcesAndInvokes(version VersionResources, fileLocation, path string, providerNaming resources.ResourceProviderNaming, swagger *Spec) DiscoveryDiagnostics {
+func addResourcesAndInvokes(version VersionResources, fileLocation, path string, moduleNaming resources.ModuleNaming, swagger *Spec) DiscoveryDiagnostics {
 	apiVersion := ApiVersion(swagger.Info.Version)
 	sdkVersion := ApiToSdkVersion(apiVersion)
 
@@ -565,7 +565,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 	}
 
 	diagnostics := DiscoveryDiagnostics{
-		SkippedPOSTEndpoints: map[string]map[string]string{},
+		SkippedPOSTEndpoints: map[ModuleName]map[string]string{},
 	}
 
 	recordDisambiguation := func(disambiguation *resources.NameDisambiguation) {
@@ -579,27 +579,27 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 	foundResourceOrInvoke := false
 	addResource := func(typeName string, defaultBody map[string]interface{}, pathItemList *spec.PathItem) {
 		version.Resources[typeName] = &ResourceSpec{
-			FileLocation:   fileLocation,
-			ApiVersion:     apiVersion,
-			SdkVersion:     sdkVersion,
-			Path:           path,
-			PathItem:       &pathItem,
-			Swagger:        swagger,
-			DefaultBody:    defaultBody,
-			PathItemList:   pathItemList,
-			ProviderNaming: providerNaming,
+			FileLocation: fileLocation,
+			ApiVersion:   apiVersion,
+			SdkVersion:   sdkVersion,
+			Path:         path,
+			PathItem:     &pathItem,
+			Swagger:      swagger,
+			DefaultBody:  defaultBody,
+			PathItemList: pathItemList,
+			ModuleNaming: moduleNaming,
 		}
 		foundResourceOrInvoke = true
 	}
 	addInvoke := func(typeName string) {
 		version.Invokes[typeName] = &ResourceSpec{
-			FileLocation:   fileLocation,
-			ApiVersion:     apiVersion,
-			SdkVersion:     sdkVersion,
-			Path:           path,
-			PathItem:       &pathItem,
-			Swagger:        swagger,
-			ProviderNaming: providerNaming,
+			FileLocation: fileLocation,
+			ApiVersion:   apiVersion,
+			SdkVersion:   sdkVersion,
+			Path:         path,
+			PathItem:     &pathItem,
+			Swagger:      swagger,
+			ModuleNaming: moduleNaming,
 		}
 		foundResourceOrInvoke = true
 	}
@@ -713,7 +713,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 			// - It's about a key, a token, or credentials.
 			prefix = "get"
 		default:
-			diagnostics.addSkippedPOSTEndpoint(providerNaming.ResolvedName, pathItem.Post.ID, path)
+			diagnostics.addSkippedPOSTEndpoint(moduleNaming.ResolvedName, pathItem.Post.ID, path)
 		}
 
 		if prefix != "" {
@@ -741,7 +741,7 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 		}
 	}
 
-	diagnostics.addPathItem(pathItem, providerNaming.ResolvedName, resourceBaseName, path, fileLocation, foundResourceOrInvoke)
+	diagnostics.addPathItem(pathItem, moduleNaming.ResolvedName, resourceBaseName, path, fileLocation, foundResourceOrInvoke)
 	return diagnostics
 }
 

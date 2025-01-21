@@ -5,7 +5,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 )
 
-func FindDeprecations(specVersions ProvidersVersionResources, defaultVersion openapi.DefaultVersionLock) openapi.ProviderVersionList {
+func FindDeprecations(specVersions ModuleVersionResources, defaultVersion openapi.DefaultVersionLock) openapi.ModuleVersionList {
 	deprecationCutoff := openapi.ApiVersion("2021-01-01")
 	olderVersions := findOlderVersions(specVersions, defaultVersion)
 	for name, versions := range olderVersions {
@@ -20,22 +20,22 @@ func FindDeprecations(specVersions ProvidersVersionResources, defaultVersion ope
 	return olderVersions
 }
 
-func RemoveDeprecations(versions ProvidersVersionResources, deprecations openapi.ProviderVersionList) ProvidersVersionResources {
-	filteredSpec := ProvidersVersionResources{}
-	for providerName, versionResources := range versions {
+func RemoveDeprecations(versions ModuleVersionResources, deprecations openapi.ModuleVersionList) ModuleVersionResources {
+	filteredSpec := ModuleVersionResources{}
+	for moduleName, versionResources := range versions {
 		filteredVersions := VersionResources{}
-		versionsToRemove := collections.NewOrderableSet[openapi.ApiVersion](deprecations[providerName]...)
+		versionsToRemove := collections.NewOrderableSet[openapi.ApiVersion](deprecations[moduleName]...)
 		for apiVersion, resourceNames := range versionResources {
 			if versionsToRemove.Has(apiVersion) {
 				continue
 			}
 			filteredVersions[apiVersion] = resourceNames
 		}
-		filteredSpec[providerName] = filteredVersions
+		filteredSpec[moduleName] = filteredVersions
 	}
 	return filteredSpec
 }
 
-func ReadDeprecations(deprecationPath string) (openapi.ProviderVersionList, error) {
-	return openapi.ReadProviderVersionList(deprecationPath)
+func ReadDeprecations(deprecationPath string) (openapi.ModuleVersionList, error) {
+	return openapi.ReadModuleVersionList(deprecationPath)
 }

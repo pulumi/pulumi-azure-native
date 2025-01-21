@@ -67,7 +67,7 @@ func ReadProviderList(providerListPath string) (*ProviderList, error) {
 	return &ProviderList{Providers: providers}, nil
 }
 
-type ProviderListActiveVersionChecker interface {
+type ActiveVersionChecker interface {
 	HasProviderVersion(providerName string, version openapi.ApiVersion) bool
 }
 
@@ -86,7 +86,7 @@ func (index *providerListIndex) HasProviderVersion(providerName string, version 
 }
 
 // Ensure providerListIndex implements ProviderListActiveVersionChecker
-var _ ProviderListActiveVersionChecker = &providerListIndex{}
+var _ ActiveVersionChecker = &providerListIndex{}
 
 func (providers ProviderList) Index() *providerListIndex {
 	providerLiveVersions := make(ProviderPathVersions)

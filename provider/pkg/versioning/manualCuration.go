@@ -24,9 +24,9 @@ const (
 
 const ExclusionAllVersions = "*"
 
-// providerCuration contains manual edits to the automatically determined API versions for a resource provider
-type providerCuration struct {
-	// Exclude these resources from the provider. Used when generating the final vN.json from vN-config.yaml.
+// moduleCuration contains manual edits to the automatically determined API versions for a module
+type moduleCuration struct {
+	// Exclude these resources from the module. Used when generating the final vN.json from vN-config.yaml.
 	// The value is the API version to exclude, or `*` to exclude all versions.
 	Exclusions map[openapi.ResourceName]openapi.ApiVersion `yaml:"exclusions,omitempty"`
 	// Don't use a tracking version, list all resources with their API version instead. Used when generating vN-config.yaml.
@@ -35,15 +35,15 @@ type providerCuration struct {
 	Preview string `yaml:"preview"`
 	// Either "stable" or "preview" - defaults to expecting stable tracking version
 	ExpectTracking string `yaml:"expectTracking"`
-	// Whether to expect additions to the provider. Defaults to false.
+	// Whether to expect additions to the module. Defaults to false.
 	ExpectAdditions bool `yaml:"expectAdditions"`
 }
 
 // Curations contains manual edits to the automatically determined API versions
-type Curations map[openapi.ProviderName]providerCuration
+type Curations map[openapi.ModuleName]moduleCuration
 
 // The error is returned when the exclusion is specified but the range doesn't include the requested version
-func (curation providerCuration) IsExcluded(resourceName openapi.ResourceName, apiVersion openapi.ApiVersion) (bool, error) {
+func (curation moduleCuration) IsExcluded(resourceName openapi.ResourceName, apiVersion openapi.ApiVersion) (bool, error) {
 	if curation.Exclusions == nil {
 		return false, nil
 	}
@@ -62,8 +62,8 @@ func (curation providerCuration) IsExcluded(resourceName openapi.ResourceName, a
 }
 
 // The error is returned when the exclusion is specified but the range doesn't include the requested version
-func (c Curations) IsExcluded(providerName openapi.ProviderName, resourceName openapi.ResourceName, apiVersion openapi.ApiVersion) (bool, error) {
-	return c[providerName].IsExcluded(resourceName, apiVersion)
+func (c Curations) IsExcluded(moduleName openapi.ModuleName, resourceName openapi.ResourceName, apiVersion openapi.ApiVersion) (bool, error) {
+	return c[moduleName].IsExcluded(resourceName, apiVersion)
 }
 
 func ReadManualCurations(path string) (Curations, error) {

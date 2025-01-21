@@ -73,7 +73,7 @@ func TestPropChangeForcesRecreate(t *testing.T) {
 
 func TestForceNew(t *testing.T) {
 	m := moduleGenerator{
-		prov: "foo",
+		moduleName: "foo",
 	}
 
 	t.Run("forceNew", func(t *testing.T) {
@@ -105,7 +105,7 @@ func TestForceNew(t *testing.T) {
 
 func TestNonObjectInvokeResponses(t *testing.T) {
 	m := moduleGenerator{
-		prov: "foo",
+		moduleName: "foo",
 	}
 
 	resolvedSchema := &openapi.Schema{

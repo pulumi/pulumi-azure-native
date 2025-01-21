@@ -2,11 +2,14 @@
 
 package gen
 
-import "github.com/pulumi/pulumi/pkg/v3/codegen"
+import (
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+)
 
-// forceNewMap is a map of Azure Resource Provider -> Resource Name -> Properties that cause replacements.
+// forceNewMap is a map of Module Name -> Resource Name -> Properties that cause replacements.
 // API Versions are currently ignored.
-var forceNewMap = map[string]map[string]codegen.StringSet{
+var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 	"Authorization": {
 		"RoleAssignment": codegen.NewStringSet("principalId", "scope"),
 	},
