@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/gedex/inflector"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 )
 
 // SingleValueProperty is the name of the property that we insert into the schema for non-object type responses of invokes.
@@ -463,6 +464,10 @@ type NameDisambiguation struct {
 // ResourceName constructs a name of a resource based on Get or List operation ID,
 // e.g. "Managers_GetActivationKey" -> "ManagerActivationKey".
 func ResourceName(operationID, path string) (string, *NameDisambiguation) {
+	return createResourceName(operationID, path, version.GetVersion().Major)
+}
+
+func createResourceName(operationID, path string, majorVersion uint64) (string, *NameDisambiguation) {
 	normalizedID := strings.ReplaceAll(operationID, "-", "_")
 	parts := strings.Split(normalizedID, "_")
 	var name, verb string
@@ -493,66 +498,61 @@ func ResourceName(operationID, path string) (string, *NameDisambiguation) {
 
 	resourceName := name + subName
 
-	var nameDisambiuation *NameDisambiguation
+	return handleResourceNameSpecialCases(resourceName, operationID, path, majorVersion)
+}
 
-	// Special cases
+// handleResourceNameSpecialCases returns a modified resource name if the resource is mapped to multiple API paths. For
+// instance, the deprecated "single server" resources in `dbformysql` and `dbforpostgresql` are renamed to `SingleServer`.
+func handleResourceNameSpecialCases(resourceName, operationID, path string, majorVersion uint64) (string, *NameDisambiguation) {
+	newName := func(prefix, newName string) (string, *NameDisambiguation) {
+		// Don't generate "RedisRedis"
+		if prefix != "" && !strings.HasPrefix(resourceName, prefix) {
+			newName = prefix + newName
+		}
 
+		var nameDisambiguation *NameDisambiguation
+		if newName != resourceName {
+			nameDisambiguation = &NameDisambiguation{
+				OperationID:       operationID,
+				Path:              path,
+				GeneratedName:     resourceName,
+				DisambiguatedName: newName,
+			}
+		}
+
+		return newName, nameDisambiguation
+	}
+
+	var nameDisambiguation *NameDisambiguation
+	lowerPath := strings.ToLower(path)
+
+	// Microsoft.CognitiveServices has global and per-account commitment plans with the same name.
+	// The global ones are new, introduced in 2022-12-01, so we rename them.
+	// The global plan still has the description "Cognitive Services account commitment plan." - upstream issue?
+	if resourceName == "CommitmentPlan" && strings.Contains(path, "/providers/Microsoft.CognitiveServices/commitmentPlans/") {
+		resourceName, nameDisambiguation = newName("", "SharedCommitmentPlan")
+	}
+
+	// Microsoft.NetApp
+	if strings.Contains(lowerPath, "/providers/microsoft.netapp/backupvaults/") {
+		resourceName, nameDisambiguation = newName("BackupVault", resourceName)
+	}
+
+	// Microsoft.Network
 	// Manual override to resolve ambiguity between public and private RecordSet.
 	// See https://github.com/pulumi/pulumi-azure-native/issues/583.
 	// To be removed with https://github.com/pulumi/pulumi-azure-native/issues/690.
 	if resourceName == "RecordSet" && strings.Contains(path, "/providers/Microsoft.Network/privateDnsZones/") {
-		newName := "PrivateRecordSet"
-		nameDisambiuation = &NameDisambiguation{
-			OperationID:       operationID,
-			Path:              path,
-			GeneratedName:     resourceName,
-			DisambiguatedName: newName,
-		}
-		resourceName = newName
+		resourceName, nameDisambiguation = newName("", "PrivateRecordSet")
 	}
 
-	// Cognitive Services has global and per-account commitment plans with the same name.
-	// The global ones are new, introduced in 2022-12-01, so we rename them.
-	// TODO,tkappler The global plan still has the description "Cognitive Services account
-	// commitment plan." - upstream issue?
-	if resourceName == "CommitmentPlan" && strings.Contains(path, "/providers/Microsoft.CognitiveServices/commitmentPlans/") {
-		newName := "SharedCommitmentPlan"
-		nameDisambiuation = &NameDisambiguation{
-			OperationID:       operationID,
-			Path:              path,
-			GeneratedName:     resourceName,
-			DisambiguatedName: newName,
-		}
-		resourceName = newName
-	}
-
-	// Redis and RedisEnterprise are essentially distinct resources sharing the Microsoft.Cache
-	// namespace. It works out ok because each API version has only one of them, and of the shared
-	// types only PrivateEndpointConnection clashes.
-	if resourceName == "PrivateEndpointConnection" && strings.Contains(path, "/providers/Microsoft.Cache/redisEnterprise/") {
-		newName := "EnterprisePrivateEndpointConnection"
-		nameDisambiuation = &NameDisambiguation{
-			OperationID:       operationID,
-			Path:              path,
-			GeneratedName:     resourceName,
-			DisambiguatedName: newName,
-		}
-		resourceName = newName
-	}
-
+	// Microsoft.Network
 	// Both are virtual network links, but the other side of the link is a different resource and
 	// the links have different properties.
 	// https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview#virtual-network-links
 	// https://learn.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links
 	if resourceName == "VirtualNetworkLink" && strings.Contains(path, "/providers/Microsoft.Network/dnsForwardingRulesets/") {
-		newName := "PrivateResolverVirtualNetworkLink"
-		nameDisambiuation = &NameDisambiguation{
-			OperationID:       operationID,
-			Path:              path,
-			GeneratedName:     resourceName,
-			DisambiguatedName: newName,
-		}
-		resourceName = newName
+		resourceName, nameDisambiguation = newName("", "PrivateResolverVirtualNetworkLink")
 	}
 
 	// ServiceFabric introduced managed clusters in a new folder 'servicefabricmanagedclusters' but
@@ -562,17 +562,84 @@ func ResourceName(operationID, path string) (string, *NameDisambiguation) {
 			resourceName == "ApplicationType" ||
 			resourceName == "ApplicationTypeVersion" ||
 			resourceName == "Service") {
-		newName := "ManagedCluster" + resourceName
-		nameDisambiuation = &NameDisambiguation{
-			OperationID:       operationID,
-			Path:              path,
-			GeneratedName:     resourceName,
-			DisambiguatedName: newName,
-		}
-		resourceName = newName
+		resourceName, nameDisambiguation = newName("ManagedCluster", resourceName)
 	}
 
-	return resourceName, nameDisambiuation
+	if majorVersion < 3 {
+		if resourceName == "PrivateEndpointConnection" && strings.Contains(path, "/providers/Microsoft.Cache/redisEnterprise/") {
+			resourceName, nameDisambiguation = newName("", "EnterprisePrivateEndpointConnection")
+		}
+	}
+
+	if majorVersion >= 3 {
+		// Microsoft.Cache
+		if strings.Contains(lowerPath, "/providers/microsoft.cache/redis/") {
+			// resourceName, nameDisambiguation = newName("Redis", resourceName)
+		} else if strings.Contains(lowerPath, "/providers/microsoft.cache/redisenterprise/") {
+			if resourceName != "RedisEnterprise" {
+				resourceName, nameDisambiguation = newName("Enterprise", resourceName)
+			}
+		}
+
+		// Microsoft.DBforMySQL
+		if strings.Contains(lowerPath, "/providers/microsoft.dbformysql/servers/") {
+			if resourceName == "Server" {
+				resourceName, nameDisambiguation = newName("", "SingleServer")
+			} else {
+				resourceName, nameDisambiguation = newName("SingleServer", resourceName)
+			}
+		}
+
+		// Microsoft.DBforPostgreSQL
+		if strings.Contains(lowerPath, "/providers/microsoft.dbforpostgresql/servers/") {
+			if resourceName == "Server" {
+				resourceName, nameDisambiguation = newName("", "SingleServer")
+			} else {
+				resourceName, nameDisambiguation = newName("SingleServer", resourceName)
+			}
+		} else if strings.Contains(lowerPath, "/providers/microsoft.dbforpostgresql/servergroupsv2/") {
+			resourceName, nameDisambiguation = newName("ServerGroup", resourceName)
+		}
+
+		// Microsoft.DocumentDB
+		if strings.Contains(lowerPath, "/providers/microsoft.documentdb/mongoclusters/") {
+			resourceName, nameDisambiguation = newName("MongoCluster", resourceName)
+		}
+
+		// Microsoft.HDInsight
+		if strings.Contains(lowerPath, "/providers/microsoft.hdinsight/clusterpools/") {
+			resourceName, nameDisambiguation = newName("ClusterPool", resourceName)
+		}
+
+		// Microsoft.HybridContainerService
+		if strings.Contains(lowerPath, "/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/") {
+			if !strings.Contains(resourceName, "ClusterInstance") {
+				resourceName, nameDisambiguation = newName("ClusterInstance", resourceName)
+			}
+		}
+
+		// Microsoft.LabServices
+		if strings.Contains(lowerPath, "/providers/microsoft.labservices/labaccounts/") {
+			resourceName, nameDisambiguation = newName("LabAccount", resourceName)
+		}
+
+		// Microsoft.Migrate
+		if strings.Contains(lowerPath, "/providers/microsoft.migrate/assessmentprojects/") {
+			resourceName, nameDisambiguation = newName("AssessmentProjects", resourceName)
+		}
+
+		// Microsoft.MobileNetwork
+		if strings.Contains(lowerPath, "/providers/microsoft.mobilenetwork/simgroups/") {
+			resourceName, nameDisambiguation = newName("SimGroup", resourceName)
+		}
+
+		// Microsoft.NetApp
+		if strings.Contains(lowerPath, "/providers/microsoft.netapp/netappaccounts/") && strings.Contains(lowerPath, "/capacitypools/") {
+			resourceName, nameDisambiguation = newName("CapacityPool", resourceName)
+		}
+	}
+
+	return resourceName, nameDisambiguation
 }
 
 var referenceNameReplacer = strings.NewReplacer("CreateOrUpdateParameters", "", "Create", "", "Request", "")
