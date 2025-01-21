@@ -45,7 +45,7 @@ func (v versioningStub) GetAllVersions(moduleName openapi.ModuleName, resource s
 
 func TestAliases(t *testing.T) {
 	// Wrap the generation of type aliases in a function to make it easier to test
-	generateTypeAliases := func(moduleName, typeName string, sdkVersion openapi.SdkVersion, previousModuleName string, typeNameAliases []string, versions []openapi.SdkVersion) []string {
+	generateTypeAliases := func(moduleName, typeName string, sdkVersion openapi.SdkVersion, previousModuleName string, typeNameAliases []string, versions []openapi.ApiVersion) []string {
 		generator := packageGenerator{
 			pkg:          &pschema.PackageSpec{Name: "azure-native"},
 			sdkVersion:   sdkVersion,
@@ -74,7 +74,7 @@ func TestAliases(t *testing.T) {
 	}
 
 	t.Run("compatible version", func(t *testing.T) {
-		actual := generateTypeAliases("Insights", "PrivateLinkForAzureAd", "v20220222", "", nil, []openapi.SdkVersion{"v20200110", "v20210111"})
+		actual := generateTypeAliases("Insights", "PrivateLinkForAzureAd", "v20220222", "", nil, []openapi.ApiVersion{"2020-01-10", "2021-01-11"})
 		expected := []string{
 			"azure-native:insights/v20200110:PrivateLinkForAzureAd",
 			"azure-native:insights/v20210111:PrivateLinkForAzureAd",
@@ -83,7 +83,7 @@ func TestAliases(t *testing.T) {
 	})
 
 	t.Run("type alias", func(t *testing.T) {
-		actual := generateTypeAliases("Insights", "PrivateLinkForAzureAd", "v20220222", "", []string{"privateLinkForAzureAd"}, []openapi.SdkVersion{})
+		actual := generateTypeAliases("Insights", "PrivateLinkForAzureAd", "v20220222", "", []string{"privateLinkForAzureAd"}, []openapi.ApiVersion{})
 		expected := []string{
 			"azure-native:insights/v20220222:privateLinkForAzureAd",
 		}
@@ -91,7 +91,7 @@ func TestAliases(t *testing.T) {
 	})
 
 	t.Run("compatible version & type alias", func(t *testing.T) {
-		actual := generateTypeAliases("Insights", "PrivateLinkForAzureAd", "v20220222", "", []string{"privateLinkForAzureAd"}, []openapi.SdkVersion{"v20200110", "v20210111"})
+		actual := generateTypeAliases("Insights", "PrivateLinkForAzureAd", "v20220222", "", []string{"privateLinkForAzureAd"}, []openapi.ApiVersion{"2020-01-10", "2021-01-11"})
 		expected := []string{
 			"azure-native:insights/v20200110:privateLinkForAzureAd",
 			"azure-native:insights/v20200110:PrivateLinkForAzureAd",
@@ -103,7 +103,7 @@ func TestAliases(t *testing.T) {
 	})
 
 	t.Run("previous module", func(t *testing.T) {
-		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", nil, []openapi.SdkVersion{})
+		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", nil, []openapi.ApiVersion{})
 		expected := []string{
 			"azure-native:insights/v20220222:PrivateLinkForAzureAd",
 		}
@@ -111,7 +111,7 @@ func TestAliases(t *testing.T) {
 	})
 
 	t.Run("previous module & type alias", func(t *testing.T) {
-		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", []string{"privateLinkForAzureAd"}, []openapi.SdkVersion{})
+		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", []string{"privateLinkForAzureAd"}, []openapi.ApiVersion{})
 		expected := []string{
 			"azure-native:monitor/v20220222:privateLinkForAzureAd",  // change case
 			"azure-native:insights/v20220222:PrivateLinkForAzureAd", // change module
@@ -121,7 +121,7 @@ func TestAliases(t *testing.T) {
 	})
 
 	t.Run("previous module & compatible version", func(t *testing.T) {
-		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", nil, []openapi.SdkVersion{"v20200110", "v20210111"})
+		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", nil, []openapi.ApiVersion{"2020-01-10", "2021-01-11"})
 		expected := []string{
 			"azure-native:monitor/v20200110:PrivateLinkForAzureAd",  // change version
 			"azure-native:insights/v20200110:PrivateLinkForAzureAd", // change version & module
@@ -133,7 +133,7 @@ func TestAliases(t *testing.T) {
 	})
 
 	t.Run("previous module, compatible version & type alias", func(t *testing.T) {
-		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", []string{"privateLinkForAzureAd"}, []openapi.SdkVersion{"v20200110", "v20210111"})
+		actual := generateTypeAliases("Monitor", "PrivateLinkForAzureAd", "v20220222", "Insights", []string{"privateLinkForAzureAd"}, []openapi.ApiVersion{"2020-01-10", "2021-01-11"})
 		expected := []string{
 			"azure-native:monitor/v20200110:PrivateLinkForAzureAd",  // change version
 			"azure-native:monitor/v20200110:privateLinkForAzureAd",  // change version & case

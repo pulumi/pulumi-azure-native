@@ -276,8 +276,6 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	pythonModuleNames := map[string]string{}
 	golangImportAliases := map[string]string{}
 
-	moduleNames := util.SortedKeys(modules)
-
 	// Track some global data
 	var forceNewTypes []ForceNewType
 	caseSensitiveTypes := newCaseSensitiveTokens()
@@ -285,25 +283,22 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	resourcesPathTracker := newResourcesPathConflictsTracker()
 
-	for _, moduleName := range moduleNames {
+	for _, moduleName := range util.SortedKeys(modules) {
 		versionMap := modules[moduleName]
-		var versions []openapi.SdkVersion
-		for version := range versionMap {
-			versions = append(versions, version)
-		}
-		slices.Sort(versions)
 
 		resourcePaths := map[openapi.ResourceName]map[string][]openapi.ApiVersion{}
 
-		for _, sdkVersion := range versions {
-			// Attempt to convert back to an API version for use elsewhere
+		versions := util.SortedKeys(versionMap)
+		// The version in the parsed module is "" for the default version.
+		for _, moduleVersion := range versions {
+			var sdkVersion openapi.SdkVersion
 			var apiVersion *openapi.ApiVersion
-			if sdkVersion != "" {
-				apiVersionConverted, err := openapi.SdkToApiVersion(sdkVersion)
-				if err != nil {
-					return nil, fmt.Errorf("failed to convert SDK version %s back to API version: %v", sdkVersion, err)
-				}
-				apiVersion = &apiVersionConverted
+			if moduleVersion.IsDefault() {
+				apiVersion = nil
+				sdkVersion = ""
+			} else {
+				apiVersion = &moduleVersion
+				sdkVersion = openapi.ApiToSdkVersion(moduleVersion)
 			}
 
 			gen := packageGenerator{
@@ -312,7 +307,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 				moduleName:                 moduleName,
 				apiVersion:                 apiVersion,
 				sdkVersion:                 sdkVersion,
-				allSdkVersions:             versions,
+				allVersions:                versions,
 				examples:                   exampleMap,
 				versioning:                 versioning,
 				caseSensitiveTypes:         caseSensitiveTypes,
@@ -335,7 +330,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 			golangImportAliases[goModuleName(gen.moduleName, gen.sdkVersion)] = moduleName.Lowered()
 
 			// Populate resources and get invokes.
-			items := versionMap[sdkVersion]
+			items := versionMap[moduleVersion]
 			var resources []string
 			for resource := range items.Resources {
 				resources = append(resources, resource)
@@ -677,7 +672,7 @@ type packageGenerator struct {
 	examples           map[string][]resources.AzureAPIExample
 	apiVersion         *openapi.ApiVersion
 	sdkVersion         openapi.SdkVersion
-	allSdkVersions     []openapi.SdkVersion
+	allVersions        []openapi.ApiVersion
 	versioning         Versioning
 	caseSensitiveTypes caseSensitiveTokens
 	// rootDir is used to resolve relative paths in the examples.
@@ -1155,20 +1150,20 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAl
 
 	// Add an alias for each API version that has the same path in it.
 	for _, version := range resource.CompatibleVersions {
-		addAlias(g.moduleName, resource.typeName, version)
+		addAlias(g.moduleName, resource.typeName, version.ToSdkVersion())
 
 		// Add an alias for the other versions, but from its old module.
 		if resource.ModuleNaming.PreviousName != nil {
-			addAlias(*resource.ModuleNaming.PreviousName, resource.typeName, version)
+			addAlias(*resource.ModuleNaming.PreviousName, resource.typeName, version.ToSdkVersion())
 		}
 
 		// Add type name aliases for each compatible version.
 		for _, alias := range typeNameAliases {
-			addAlias(g.moduleName, alias, version)
+			addAlias(g.moduleName, alias, version.ToSdkVersion())
 
 			// Add an alias for the other version, with alias, from its old module.
 			if resource.ModuleNaming.PreviousName != nil {
-				addAlias(*resource.ModuleNaming.PreviousName, alias, version)
+				addAlias(*resource.ModuleNaming.PreviousName, alias, version.ToSdkVersion())
 			}
 		}
 	}

@@ -58,14 +58,14 @@ func ReadDefaultVersionLock(path string) (DefaultVersionLock, error) {
 
 // calculatePathVersions builds a map of all versions defined for an API paths from a map of all versions of a module.
 // The result is a map from a normalized path to a set of versions for that path.
-func calculatePathVersions(versionMap ModuleVersions) map[string]*collections.OrderableSet[SdkVersion] {
-	pathVersions := map[string]*collections.OrderableSet[SdkVersion]{}
+func calculatePathVersions(versionMap ModuleVersions) map[string]*collections.OrderableSet[ApiVersion] {
+	pathVersions := map[string]*collections.OrderableSet[ApiVersion]{}
 	for version, items := range versionMap {
 		for _, r := range items.Resources {
 			normalizedPath := paths.NormalizePath(r.Path)
 			versions, ok := pathVersions[normalizedPath]
 			if !ok {
-				versions = collections.NewOrderableSet[SdkVersion]()
+				versions = collections.NewOrderableSet[ApiVersion]()
 				pathVersions[normalizedPath] = versions
 			}
 			versions.Add(version)
@@ -76,6 +76,9 @@ func calculatePathVersions(versionMap ModuleVersions) map[string]*collections.Or
 
 // 2022-02-02-preview -> v20220202preview
 func ApiToSdkVersion(apiVersion ApiVersion) SdkVersion {
+	if apiVersion == "" {
+		return ""
+	}
 	return SdkVersion("v" + strings.ReplaceAll(string(apiVersion), "-", ""))
 }
 

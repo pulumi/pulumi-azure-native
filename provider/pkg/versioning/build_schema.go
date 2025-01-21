@@ -173,7 +173,7 @@ type PathChange struct {
 type MissingExpectedResourceVersion struct {
 	ModuleName   openapi.ModuleName
 	ResourceName string
-	Version      openapi.SdkVersion
+	Version      openapi.ApiVersion
 	IsPrevious   bool
 }
 
@@ -211,9 +211,8 @@ func findPathChanges(modules openapi.AzureModules,
 				continue
 			}
 
-			cur := moduleVersions[openapi.ApiToSdkVersion(version)]
-			prevVersion := openapi.ApiToSdkVersion(previousVersion)
-			prev := moduleVersions[prevVersion]
+			cur := moduleVersions[version]
+			prev := moduleVersions[previousVersion]
 
 			spec, ok := cur.Resources[resourceName]
 			if !ok {
@@ -223,7 +222,7 @@ func findPathChanges(modules openapi.AzureModules,
 				missingPreviousDefaultVersions = append(missingPreviousDefaultVersions, MissingExpectedResourceVersion{
 					ModuleName:   moduleName,
 					ResourceName: resourceName,
-					Version:      prevVersion,
+					Version:      previousVersion,
 					IsPrevious:   false,
 				})
 				continue
@@ -237,7 +236,7 @@ func findPathChanges(modules openapi.AzureModules,
 				missingPreviousDefaultVersions = append(missingPreviousDefaultVersions, MissingExpectedResourceVersion{
 					ModuleName:   moduleName,
 					ResourceName: resourceName,
-					Version:      prevVersion,
+					Version:      previousVersion,
 					IsPrevious:   true,
 				})
 				continue

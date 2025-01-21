@@ -17,15 +17,15 @@ import (
 //     (e.g., happened in Web module for ServerFarm -> AppServicePlan)
 //   - Res 4 is named consistently, but the path has changed over time
 //     (e.g., happened with several resources in ApiManagement)
-var versionMap = map[SdkVersion]VersionResources{
-	"v20200101": {
+var versionMap = map[ApiVersion]VersionResources{
+	"2020-01-01": {
 		Resources: map[string]*ResourceSpec{
 			"Res1": makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v1"),
 			"Res2": makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v1"),
 			"Res3": makeResource("/someprefix/Microsoft.Foo/res3/{res3Name}", "Res 3 v1"),
 		},
 	},
-	"v20200201": {
+	"2020-02-01": {
 		Resources: map[string]*ResourceSpec{
 			"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v2"),
 			"Res2":        makeResource("/someprefix/Microsoft.Foo/res2/{res2Name}", "Res 2 v2"),
@@ -33,7 +33,7 @@ var versionMap = map[SdkVersion]VersionResources{
 			"Res4":        makeResource("/someprefix/Microsoft.Foo/res4/{res4Name}", "Res 4 v1"),
 		},
 	},
-	"v20200301": {
+	"2020-03-01": {
 		Resources: map[string]*ResourceSpec{
 			"Res1":        makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v3"),
 			"Res3Renamed": makeResource("/someprefix/Microsoft.Foo/res3/{res3Name}", "Res 3 v3"),
@@ -41,7 +41,7 @@ var versionMap = map[SdkVersion]VersionResources{
 		},
 	},
 	// The next version is "unknown" yet.
-	"v20200401": {
+	"2020-04-01": {
 		Resources: map[string]*ResourceSpec{
 			"Res1": makeResource("/someprefix/Microsoft.Foo/res1/{res1Name}", "Res 1 v4"),
 			"Res4": makeResource("/someprefix/Microsoft.Foo/Res-4/{res4AnotherName}", "Res 4 v3"),
@@ -50,11 +50,11 @@ var versionMap = map[SdkVersion]VersionResources{
 }
 
 func TestFindingPathVersions(t *testing.T) {
-	expected := map[string]*collections.OrderableSet[SdkVersion]{
-		"/someprefix/microsoft.foo/res1/{}": collections.NewOrderableSet[SdkVersion]("v20200101", "v20200201", "v20200301", "v20200401"),
-		"/someprefix/microsoft.foo/res2/{}": collections.NewOrderableSet[SdkVersion]("v20200101", "v20200201"),
-		"/someprefix/microsoft.foo/res3/{}": collections.NewOrderableSet[SdkVersion]("v20200101", "v20200201", "v20200301"),
-		"/someprefix/microsoft.foo/res4/{}": collections.NewOrderableSet[SdkVersion]("v20200201", "v20200301", "v20200401"),
+	expected := map[string]*collections.OrderableSet[ApiVersion]{
+		"/someprefix/microsoft.foo/res1/{}": collections.NewOrderableSet[ApiVersion]("2020-01-01", "2020-02-01", "2020-03-01", "2020-04-01"),
+		"/someprefix/microsoft.foo/res2/{}": collections.NewOrderableSet[ApiVersion]("2020-01-01", "2020-02-01"),
+		"/someprefix/microsoft.foo/res3/{}": collections.NewOrderableSet[ApiVersion]("2020-01-01", "2020-02-01", "2020-03-01"),
+		"/someprefix/microsoft.foo/res4/{}": collections.NewOrderableSet[ApiVersion]("2020-02-01", "2020-03-01", "2020-04-01"),
 	}
 
 	actual := calculatePathVersions(versionMap)

@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"path/filepath"
 	"regexp"
-	"slices"
 	"sort"
 	"strings"
 	"time"
@@ -29,6 +28,18 @@ type ModuleName = resources.ModuleName
 // Sometimes this is also used as a query and can include a wildcard.
 type ApiVersion string
 
+func (v ApiVersion) IsDefault() bool {
+	return v == ""
+}
+
+func (v ApiVersion) IsWildcard() bool {
+	return strings.Contains(string(v), "*")
+}
+
+func (v ApiVersion) ToSdkVersion() SdkVersion {
+	return ApiToSdkVersion(v)
+}
+
 // DefinitionName is the name of either an 'invoke' or a resource (e.g. listBuckets or Bucket)
 type DefinitionName = string
 
@@ -45,7 +56,7 @@ type SdkVersion string
 type AzureModules map[ModuleName]ModuleVersions
 
 // ModuleVersions maps API Versions (e.g. v20200801) to resources and invokes in that version.
-type ModuleVersions = map[SdkVersion]VersionResources
+type ModuleVersions = map[ApiVersion]VersionResources
 
 // Represents a failed attempt to determine the module name for a given path within a spec.
 // This results in the path being skipped and not considered for resource or invoke generation.
@@ -214,11 +225,13 @@ type ResourceSpec struct {
 	// SDK version of the resource
 	SdkVersion SdkVersion
 	// Path is the API path in the Open API Spec.
-	Path               string
-	PathItem           *spec.PathItem
-	PathItemList       *spec.PathItem
-	Swagger            *Spec
-	CompatibleVersions []SdkVersion
+	Path         string
+	PathItem     *spec.PathItem
+	PathItemList *spec.PathItem
+	Swagger      *Spec
+	// CompatibleVersions is a list of other API versions that are compatible with this resource.
+	// These versions can be the default version, indicated by an empty string.
+	CompatibleVersions []ApiVersion
 	DefaultBody        map[string]interface{}
 	DeprecationMessage string
 	PreviousVersion    ApiVersion
@@ -239,8 +252,7 @@ func ApplyRemovals(modules map[ModuleName]ModuleVersions, removed ModuleVersionL
 		versionMap := modules[moduleName]
 		if removedVersion, ok := removed[moduleName]; ok {
 			for _, versionToRemove := range removedVersion {
-				sdkVersionToRemove := ApiToSdkVersion(versionToRemove)
-				delete(versionMap, sdkVersionToRemove)
+				delete(versionMap, versionToRemove)
 			}
 		}
 	}
@@ -255,16 +267,11 @@ func AddDefaultVersion(modules AzureModules, defaultVersion DefaultVersionLock, 
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)
-		versions := []SdkVersion{}
-		for version := range versionMap {
-			versions = append(versions, version)
-		}
-		slices.Sort(versions)
-		for _, version := range versions {
+		for _, version := range util.SortedKeys(versionMap) {
 			items := versionMap[version]
-			for _, resourceName := range codegen.SortedKeys(items.Resources) {
+			for _, resourceName := range util.SortedKeys(items.Resources) {
 				r := items.Resources[resourceName]
-				var otherVersions []SdkVersion
+				var otherVersions []ApiVersion
 				normalisedPath := paths.NormalizePath(r.Path)
 				otherVersionsSorted := pathVersions[normalisedPath].SortedValues()
 				for _, otherVersion := range otherVersionsSorted {
@@ -282,8 +289,7 @@ func ApplyDeprecations(modules AzureModules, deprecated ModuleVersionList) Azure
 	for _, moduleName := range util.SortedKeys(modules) {
 		versionMap := modules[moduleName]
 		for _, apiVersion := range deprecated[moduleName] {
-			sdkVersion := ApiToSdkVersion(apiVersion)
-			resources := versionMap[sdkVersion]
+			resources := versionMap[apiVersion]
 			deprecateAll(resources.All(), apiVersion)
 		}
 	}
@@ -296,7 +302,7 @@ func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[
 	invokes := map[string]*ResourceSpec{}
 	for _, resourceName := range codegen.SortedKeys(defaultResourceVersions) {
 		apiVersion := defaultResourceVersions[resourceName]
-		if versionResources, ok := versionMap[ApiToSdkVersion(apiVersion)]; ok {
+		if versionResources, ok := versionMap[apiVersion]; ok {
 			if resource, ok := versionResources.Resources[resourceName]; ok {
 				resourceCopy := *resource
 				resourceCopy.PreviousVersion = previousResourceVersions[resourceName]
@@ -533,17 +539,16 @@ func (modules AzureModules) addAPIPath(specsDir, fileLocation, path string, swag
 	// Find (or create) the version map with this name.
 	versionMap, ok := modules[moduleName]
 	if !ok {
-		versionMap = map[SdkVersion]VersionResources{}
+		versionMap = map[ApiVersion]VersionResources{}
 		modules[moduleName] = versionMap
 	}
 
 	// Find (or create) the resource map with this name.
 	apiVersion := ApiVersion(swagger.Info.Version)
-	sdkVersion := ApiToSdkVersion(apiVersion)
-	version, ok := versionMap[sdkVersion]
+	version, ok := versionMap[apiVersion]
 	if !ok {
 		version = NewVersionResources()
-		versionMap[sdkVersion] = version
+		versionMap[apiVersion] = version
 	}
 
 	return addResourcesAndInvokes(version, fileLocation, path, moduleNaming, swagger)
