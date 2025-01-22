@@ -117,8 +117,8 @@ func FindInactiveDefaultVersions(defaultVersions openapi.DefaultVersions, active
 		inactiveVersions := collections.NewOrderableSet[openapi.ApiVersion]()
 		for _, version := range versions {
 			// TODO: Use the original AZ namespace rather that our adjusted module name
-			if !activeVersions.HasProviderVersion(string(moduleName), version) {
-				inactiveVersions.Add(version)
+			if !activeVersions.HasProviderVersion(string(moduleName), version.ApiVersion) {
+				inactiveVersions.Add(version.ApiVersion)
 			}
 		}
 		if inactiveVersions.Count() > 0 {
@@ -132,7 +132,7 @@ func DefaultVersionsFromConfig(spec ModuleVersionResources, defaultConfig Spec) 
 	var err error
 	defaultVersions := openapi.DefaultVersions{}
 	for moduleName, versionResources := range spec {
-		definitions := map[openapi.DefinitionName]openapi.ApiVersion{}
+		definitions := map[openapi.DefinitionName]openapi.DefinitionVersion{}
 		moduleConfig, ok := defaultConfig[moduleName]
 		if !ok {
 			if len(versionResources) > 0 {
@@ -151,7 +151,7 @@ func DefaultVersionsFromConfig(spec ModuleVersionResources, defaultConfig Spec) 
 
 		if moduleConfig.Tracking != nil {
 			for _, resourceName := range versionResources[*moduleConfig.Tracking] {
-				definitions[resourceName] = *moduleConfig.Tracking
+				definitions[resourceName] = openapi.DefinitionVersion{ApiVersion: *moduleConfig.Tracking}
 			}
 		}
 		if moduleConfig.Additions != nil {
@@ -159,7 +159,7 @@ func DefaultVersionsFromConfig(spec ModuleVersionResources, defaultConfig Spec) 
 				if existingVersion, ok := definitions[resourceName]; ok {
 					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", moduleName, resourceName, apiVersion, existingVersion))
 				} else {
-					definitions[resourceName] = apiVersion
+					definitions[resourceName] = openapi.DefinitionVersion{ApiVersion: apiVersion}
 				}
 			}
 		}

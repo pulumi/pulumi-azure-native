@@ -205,14 +205,14 @@ func findPathChanges(modules openapi.AzureModules,
 		sort.Strings(sortedResourceNames)
 
 		for _, resourceName := range sortedResourceNames {
-			version := resources[resourceName]
-			previousVersion, ok := previousResources[resourceName]
+			defaultVersion := resources[resourceName].ApiVersion
+			previousDefault, ok := previousResources[resourceName]
 			if !ok {
 				continue
 			}
 
-			cur := moduleVersions[version]
-			prev := moduleVersions[previousVersion]
+			cur := moduleVersions[defaultVersion]
+			prev := moduleVersions[previousDefault.ApiVersion]
 
 			spec, ok := cur.Resources[resourceName]
 			if !ok {
@@ -222,7 +222,7 @@ func findPathChanges(modules openapi.AzureModules,
 				missingPreviousDefaultVersions = append(missingPreviousDefaultVersions, MissingExpectedResourceVersion{
 					ModuleName:   moduleName,
 					ResourceName: resourceName,
-					Version:      previousVersion,
+					Version:      previousDefault.ApiVersion,
 					IsPrevious:   false,
 				})
 				continue
@@ -236,7 +236,7 @@ func findPathChanges(modules openapi.AzureModules,
 				missingPreviousDefaultVersions = append(missingPreviousDefaultVersions, MissingExpectedResourceVersion{
 					ModuleName:   moduleName,
 					ResourceName: resourceName,
-					Version:      previousVersion,
+					Version:      previousDefault.ApiVersion,
 					IsPrevious:   true,
 				})
 				continue
@@ -246,7 +246,7 @@ func findPathChanges(modules openapi.AzureModules,
 			prevPath := paths.NormalizePath(prevSpec.Path)
 
 			if path != prevPath {
-				excluded, err := curations.IsExcluded(moduleName, resourceName, previousVersion)
+				excluded, err := curations.IsExcluded(moduleName, resourceName, previousDefault.ApiVersion)
 				if !excluded && err == nil {
 					result = append(result, PathChange{
 						CurrentPath:  path,

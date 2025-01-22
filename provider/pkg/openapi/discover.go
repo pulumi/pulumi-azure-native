@@ -191,13 +191,21 @@ func NewVersionResources() VersionResources {
 
 type ModuleVersionList = map[ModuleName][]ApiVersion
 
+// A definition version is a resource or invoke version and its source information.
+type DefinitionVersion struct {
+	ApiVersion   ApiVersion `yaml:"ApiVersion,omitempty"`
+	SpecFilePath string     `yaml:"SpecFilePath,omitempty"`
+	ResourceUri  string     `yaml:"ResourceUri,omitempty"`
+	RpNamespace  string     `yaml:"RpNamespace,omitempty"`
+}
+
 // DefaultVersions is an amalgamation of multiple API versions, generated from a specification.
-type DefaultVersions map[ModuleName]map[DefinitionName]ApiVersion
+type DefaultVersions map[ModuleName]map[DefinitionName]DefinitionVersion
 
 func (defaultVersions DefaultVersions) IsAtVersion(moduleName ModuleName, typeName DefinitionName, version ApiVersion) bool {
 	if resources, ok := defaultVersions[moduleName]; ok {
 		if resourceVersion, ok := resources[typeName]; ok {
-			if resourceVersion == version {
+			if resourceVersion.ApiVersion == version {
 				return true
 			}
 		}
@@ -297,19 +305,19 @@ func ApplyDeprecations(modules AzureModules, deprecated ModuleVersionList) Azure
 	return modules
 }
 
-func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[ResourceName]ApiVersion, previousResourceVersions map[ResourceName]ApiVersion) VersionResources {
+func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[ResourceName]DefinitionVersion, previousResourceVersions map[ResourceName]DefinitionVersion) VersionResources {
 	resources := map[string]*ResourceSpec{}
 	invokes := map[string]*ResourceSpec{}
 	for _, resourceName := range codegen.SortedKeys(defaultResourceVersions) {
 		apiVersion := defaultResourceVersions[resourceName]
-		if versionResources, ok := versionMap[apiVersion]; ok {
+		if versionResources, ok := versionMap[apiVersion.ApiVersion]; ok {
 			if resource, ok := versionResources.Resources[resourceName]; ok {
 				resourceCopy := *resource
-				resourceCopy.PreviousVersion = previousResourceVersions[resourceName]
+				resourceCopy.PreviousVersion = previousResourceVersions[resourceName].ApiVersion
 				resources[resourceName] = &resourceCopy
 			} else if invoke, ok := versionResources.Invokes[resourceName]; ok {
 				invokeCopy := *invoke
-				invokeCopy.PreviousVersion = previousResourceVersions[resourceName]
+				invokeCopy.PreviousVersion = previousResourceVersions[resourceName].ApiVersion
 				invokes[resourceName] = &invokeCopy
 			}
 		}

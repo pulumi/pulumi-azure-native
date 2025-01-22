@@ -22,13 +22,13 @@ func FindNewerVersions(specVersions ModuleVersionResources, defaultVersions open
 	return olderModuleVersions
 }
 
-func findMaxDefaultVersion(resourceVersions map[openapi.DefinitionName]openapi.ApiVersion) openapi.ApiVersion {
+func findMaxDefaultVersion(resourceVersions map[openapi.DefinitionName]openapi.DefinitionVersion) openapi.ApiVersion {
 	// We currently use empty string to represent when there is no version available which must be handled above.
 	// This might be better being represented as a nil value.
 	minVersion := openapi.ApiVersion("")
 	for _, version := range resourceVersions {
-		if minVersion == "" || version < minVersion {
-			minVersion = version
+		if minVersion == "" || version.ApiVersion < minVersion {
+			minVersion = version.ApiVersion
 		}
 	}
 	return minVersion

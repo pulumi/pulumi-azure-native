@@ -31,7 +31,9 @@ func TestPortalDashboardGen(t *testing.T) {
 	}
 	modules = openapi.ApplyTransformations(modules, openapi.DefaultVersions{
 		"Portal": {
-			"Dashboard": "2020-09-01-preview",
+			"Dashboard": {
+				ApiVersion: "2020-09-01-preview",
+			},
 		},
 	}, openapi.DefaultVersions{}, nil, nil)
 	generationResult, err := PulumiSchema(rootDir, modules, versioningStub{}, semver.MustParse("3.0.0"))
