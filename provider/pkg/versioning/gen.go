@@ -123,9 +123,9 @@ func calculateVersionMetadata(versionSources VersionSources) (VersionMetadata, e
 }
 
 func (v VersionMetadata) WriteTo(outputDir string) ([]string, error) {
-	filePrefix := fmt.Sprintf("v%d-", v.MajorVersion)
-	specPath := filePrefix + "spec.yaml"
-	lockPath := filePrefix + "lock.json"
+	filePrefix := fmt.Sprintf("v%d", v.MajorVersion)
+	specPath := filePrefix + "-spec.yaml"
+	lockPath := filePrefix + ".yaml"
 	return gen.EmitFiles(outputDir, gen.FileMap{
 		specPath: v.Spec,
 		lockPath: v.DefaultVersions,
@@ -161,15 +161,13 @@ func ReadVersionSources(rootDir string, modules openapi.AzureModules, majorVersi
 		return VersionSources{}, err
 	}
 
-	previousFilePrefix := fmt.Sprintf("v%d-", majorVersion-1)
-	filePrefix := fmt.Sprintf("v%d-", majorVersion)
-
-	previousLockPath := path.Join(rootDir, "versions", previousFilePrefix+"lock.json")
+	previousLockPath := path.Join(rootDir, "versions", fmt.Sprintf("v%d.yaml", majorVersion-1))
 	previousLock, err := openapi.ReadDefaultVersions(previousLockPath)
 	if err != nil {
 		return VersionSources{}, err
 	}
 
+	filePrefix := fmt.Sprintf("v%d-", majorVersion)
 	removed, err := ReadDeprecations(path.Join(rootDir, "versions", filePrefix+"removed.json"))
 	if err != nil {
 		return VersionSources{}, err

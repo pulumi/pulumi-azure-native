@@ -2,10 +2,11 @@ package versionLookup
 
 import (
 	_ "embed"
-	"encoding/json"
+
+	"gopkg.in/yaml.v3"
 )
 
-//go:embed version-lock.json
+//go:embed default-versions.yaml
 var rawVersionLock []byte
 
 // versionLock is a map from Azure provider name to resource name to API version.
@@ -14,7 +15,7 @@ var rawVersionLock []byte
 var versionLock map[string]map[string]string
 
 func init() {
-	err := json.Unmarshal(rawVersionLock, &versionLock)
+	err := yaml.Unmarshal(rawVersionLock, &versionLock)
 	if err != nil {
 		panic(err)
 	}

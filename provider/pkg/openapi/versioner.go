@@ -12,6 +12,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/segmentio/encoding/json"
+	"gopkg.in/yaml.v2"
 )
 
 func ReadModuleVersionList(path string) (ModuleVersionList, error) {
@@ -48,7 +49,7 @@ func ReadDefaultVersions(path string) (DefaultVersions, error) {
 	}
 
 	var curatedVersion DefaultVersions
-	err = json.Unmarshal(byteValue, &curatedVersion)
+	err = yaml.Unmarshal(byteValue, &curatedVersion)
 	if err != nil {
 		return nil, err
 	}
