@@ -272,6 +272,7 @@ type ModuleNaming struct {
 	PreviousName           *ModuleName
 	SpecFolderName         string
 	NamespaceWithoutPrefix string
+	RpNamespace            string
 }
 
 // GetModuleName returns a module name given Open API spec file and resource's API URI.
@@ -282,7 +283,14 @@ func GetModuleName(majorVersion uint64, filePath, apiUri string) (ModuleNaming, 
 	// - from the URI of the API endpoint (we take the last namespace in the URI)
 	specFolderName := getSpecFolderName(filePath)
 	namespaceWithoutPrefixFromSpecFilePath := findNamespaceWithoutPrefixFromPath(filePath, "")
-	namespaceWithoutPrefixFromResourceUrl := findNamespaceWithoutPrefixFromPath(apiUri, "Resources")
+	namespace, err := findSpecNamespace(filePath)
+	if err != nil {
+		return ModuleNaming{}, err
+	}
+	// Sanity check the new and old methods return consistent results for now.
+	if namespaceWithoutPrefix := removeNamespacePrefixAndNormalise(namespace); namespaceWithoutPrefix != namespaceWithoutPrefixFromSpecFilePath {
+		return ModuleNaming{}, fmt.Errorf("resolved namespace mismatch: old: %s, new: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefix)
+	}
 	// Start with extracting the namespace from the folder path. If the folder name is explicitly listed,
 	// use it as the module name. This is the new style we use for newer resources after 1.0. Older
 	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
@@ -291,11 +299,13 @@ func GetModuleName(majorVersion uint64, filePath, apiUri string) (ModuleNaming, 
 			ResolvedName:           override,
 			PreviousName:           oldModule,
 			SpecFolderName:         specFolderName,
-			NamespaceWithoutPrefix: namespaceWithoutPrefixFromResourceUrl,
+			NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
+			RpNamespace:            namespace,
 		}, nil
 	}
 	// We proceed with the endpoint if both module values match. This way, we avoid flukes and
 	// declarations outside of the current API provider.
+	namespaceWithoutPrefixFromResourceUrl := findNamespaceWithoutPrefixFromPath(apiUri, "Resources")
 	if !strings.EqualFold(namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl) {
 		return ModuleNaming{}, fmt.Errorf("resolved module name mismatch: file: %s, uri: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl)
 	}
@@ -304,6 +314,7 @@ func GetModuleName(majorVersion uint64, filePath, apiUri string) (ModuleNaming, 
 		ResolvedName:           ModuleName(namespaceWithoutPrefixFromSpecFilePath),
 		SpecFolderName:         specFolderName,
 		NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
+		RpNamespace:            namespace,
 	}, nil
 }
 
@@ -347,6 +358,39 @@ func getNameOverride(majorVersion uint64, specFolderName, namespaceWithoutPrefix
 	return "", nil, false
 }
 
+// Identify the first segment of the path that contains a namespace.
+func findSpecNamespace(path string) (string, error) {
+	parts := strings.Split(path, "/")
+	if len(parts) < 3 {
+		return "", fmt.Errorf("path did not contain at least 3 parts: %s", path)
+	}
+
+	for _, part := range parts {
+		// It must contain a dot to indicate it's a namespace,
+		// but not contain any curly braces which would indicate it's a parameter (used in Microsoft.EventGrid).
+		if strings.Contains(part, ".") && !strings.ContainsAny(part, "{}") {
+			return part, nil
+		}
+	}
+	return "", fmt.Errorf("no namespace found in path: %s", path)
+}
+
+// Remove the namespace prefix, normalise the casing and account for renames.
+func removeNamespacePrefixAndNormalise(namespace string) string {
+	// Some namespaces can be nested such as Microsoft.Web.Admin, though it's rare.
+	_, after, found := strings.Cut(namespace, ".")
+	if !found {
+		return namespace
+	}
+	if knownName, ok := wellKnownModuleNames[strings.ToLower(after)]; ok {
+		return knownName
+	}
+	return strings.Title(after)
+}
+
+// Locate namespaces based on well known prefixes (Microsoft., microsoft., PaloAltoNetworks.)
+// and return the namespace without the prefix.
+// If the path is long enough, but no prefix is found, return the default value.
 func findNamespaceWithoutPrefixFromPath(path, defaultValue string) string {
 	parts := strings.Split(path, "/")
 	if len(parts) < 3 {

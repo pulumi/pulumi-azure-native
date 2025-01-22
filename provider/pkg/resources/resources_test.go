@@ -209,6 +209,7 @@ func TestResourceModuleNaming(t *testing.T) {
 			ResolvedName:           "EnterpriseKnowledgeGraph",
 			SpecFolderName:         "EnterpriseKnowledgeGraph",
 			NamespaceWithoutPrefix: "EnterpriseKnowledgeGraph",
+			RpNamespace:            "Microsoft.EnterpriseKnowledgeGraph",
 		}, naming)
 	})
 	t.Run("Standard case v3", func(t *testing.T) {
@@ -220,6 +221,7 @@ func TestResourceModuleNaming(t *testing.T) {
 			ResolvedName:           "EnterpriseKnowledgeGraph",
 			SpecFolderName:         "EnterpriseKnowledgeGraph",
 			NamespaceWithoutPrefix: "EnterpriseKnowledgeGraph",
+			RpNamespace:            "Microsoft.EnterpriseKnowledgeGraph",
 		}, naming)
 	})
 	// go/pulumi-azure-native/azure-rest-api-specs/specification/dfp/resource-manager/Microsoft.Dynamics365Fraudprotection/preview/2021-02-01-preview/dfp.json
@@ -232,6 +234,7 @@ func TestResourceModuleNaming(t *testing.T) {
 			ResolvedName:           "Dynamics365Fraudprotection",
 			SpecFolderName:         "dfp",
 			NamespaceWithoutPrefix: "Dynamics365Fraudprotection",
+			RpNamespace:            "Microsoft.Dynamics365Fraudprotection",
 		}, naming)
 	})
 	t.Run("PaloAltoNetworks namespace", func(t *testing.T) {
@@ -243,6 +246,19 @@ func TestResourceModuleNaming(t *testing.T) {
 			ResolvedName:           "Cloudngfw",
 			SpecFolderName:         "paloaltonetworks",
 			NamespaceWithoutPrefix: "Cloudngfw",
+			RpNamespace:            "PaloAltoNetworks.Cloudngfw",
+		}, naming)
+	})
+	t.Run("Well known namespace", func(t *testing.T) {
+		naming, err := GetModuleName(2,
+			"/go/pulumi-azure-native/azure-rest-api-specs/specification/domainservices/resource-manager/Microsoft.AAD/stable/2017-06-01/examples/GetDomainService.json",
+			"/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/sva-tt-WUS/providers/Microsoft.AAD/domainServices/zdomain.zforest.com")
+		assert.Nil(t, err)
+		assert.Equal(t, ModuleNaming{
+			ResolvedName:           "Aad",
+			SpecFolderName:         "domainservices",
+			NamespaceWithoutPrefix: "Aad",
+			RpNamespace:            "Microsoft.AAD",
 		}, naming)
 	})
 	t.Run("When the namespace from the file path and URI don't match, return empty", func(t *testing.T) {
@@ -261,6 +277,7 @@ func TestResourceModuleNaming(t *testing.T) {
 			ResolvedName:           "FooBar",
 			SpecFolderName:         "EnterpriseKnowledgeGraph",
 			NamespaceWithoutPrefix: "FooBar",
+			RpNamespace:            "microsoft.fooBar",
 		}, naming)
 	})
 	t.Run("Folder named resource", func(t *testing.T) {
@@ -272,6 +289,7 @@ func TestResourceModuleNaming(t *testing.T) {
 			ResolvedName:           "VideoAnalyzer",
 			SpecFolderName:         "videoanalyzer",
 			NamespaceWithoutPrefix: "Media",
+			RpNamespace:            "Microsoft.Media",
 		}, naming)
 	})
 	t.Run("Network overrides not applied to v2", func(t *testing.T) {
@@ -283,6 +301,7 @@ func TestResourceModuleNaming(t *testing.T) {
 			ResolvedName:           "Network",
 			SpecFolderName:         "dns",
 			NamespaceWithoutPrefix: "Network",
+			RpNamespace:            "Microsoft.Network",
 		}, naming)
 	})
 	t.Run("Network overrides applied to v3", func(t *testing.T) {
@@ -295,6 +314,7 @@ func TestResourceModuleNaming(t *testing.T) {
 			PreviousName:           ptr(ModuleName("Network")),
 			SpecFolderName:         "dns",
 			NamespaceWithoutPrefix: "Network",
+			RpNamespace:            "Microsoft.Network",
 		}, naming)
 	})
 }
