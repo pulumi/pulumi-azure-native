@@ -18,7 +18,7 @@ func TestIsExcluded_NoProviders(t *testing.T) {
 
 func TestIsExcluded_NoProviderExclusions(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{}
+	curations["Compute"] = moduleCuration{}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 
@@ -28,7 +28,7 @@ func TestIsExcluded_NoProviderExclusions(t *testing.T) {
 
 func TestIsExcluded_OtherExclusion(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{Exclusions: map[string]openapi.ApiVersion{"anotherResource": "*"}}
+	curations["Compute"] = moduleCuration{Exclusions: map[string]openapi.ApiVersion{"anotherResource": "*"}}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 
@@ -38,7 +38,7 @@ func TestIsExcluded_OtherExclusion(t *testing.T) {
 
 func TestIsExcluded_WildcardExclusion(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "*"}}
+	curations["Compute"] = moduleCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "*"}}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 
@@ -48,7 +48,7 @@ func TestIsExcluded_WildcardExclusion(t *testing.T) {
 
 func TestIsExcluded_ExactExclusion(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "2020-01-01"}}
+	curations["Compute"] = moduleCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "2020-01-01"}}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 
@@ -58,7 +58,7 @@ func TestIsExcluded_ExactExclusion(t *testing.T) {
 
 func TestIsExcluded_OverExclusion(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "2022-12-12"}}
+	curations["Compute"] = moduleCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "2022-12-12"}}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 
@@ -68,7 +68,7 @@ func TestIsExcluded_OverExclusion(t *testing.T) {
 
 func TestIsExcluded_UnderExclusion(t *testing.T) {
 	var curations = make(Curations)
-	curations["Compute"] = providerCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "2000-01-01"}}
+	curations["Compute"] = moduleCuration{Exclusions: map[string]openapi.ApiVersion{"someResource": "2000-01-01"}}
 
 	isExcluded, err := curations.IsExcluded("Compute", "someResource", "2020-01-01")
 

@@ -19,7 +19,7 @@ func BenchmarkGen(b *testing.B) {
 
 	b.ResetTimer()
 
-	specs, _, err := openapi.ReadAzureProviders(path.Join(rootDir, "azure-rest-api-specs"), "*", "")
+	specs, _, err := openapi.ReadAzureModules(path.Join(rootDir, "azure-rest-api-specs"), "*", "")
 	if err != nil {
 		b.Fatal(err)
 	}
@@ -34,7 +34,7 @@ func BenchmarkGen(b *testing.B) {
 		b.Fatal(err)
 	}
 
-	specs = openapi.ApplyProvidersTransformations(specs, versionMetadata.Lock, nil, versionSources.RemovedVersions, nil)
+	specs = openapi.ApplyTransformations(specs, versionMetadata.DefaultVersions, nil, versionSources.RemovedVersions, nil)
 
 	gen.PulumiSchema(rootDir, specs, versionMetadata, semver.MustParse("2.0.0"))
 }

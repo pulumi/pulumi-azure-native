@@ -35,6 +35,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -53,9 +54,9 @@ type ResourceDeprecation struct {
 }
 
 type Versioning interface {
-	ShouldInclude(provider string, version *openapi.ApiVersion, typeName, token string) bool
+	ShouldInclude(moduleName openapi.ModuleName, version *openapi.ApiVersion, typeName, token string) bool
 	GetDeprecation(token string) (ResourceDeprecation, bool)
-	GetAllVersions(openapi.ProviderName, openapi.ResourceName) []openapi.ApiVersion
+	GetAllVersions(openapi.ModuleName, openapi.ResourceName) []openapi.ApiVersion
 }
 
 type GenerationResult struct {
@@ -64,14 +65,14 @@ type GenerationResult struct {
 	Examples                   map[string][]resources.AzureAPIExample
 	ForceNewTypes              []ForceNewType
 	TypeCaseConflicts          CaseConflicts
-	FlattenedPropertyConflicts map[string]map[string]struct{}
-	// A map of provider -> resource -> set of paths, to record resources that have conflicts where the same resource
+	FlattenedPropertyConflicts map[string]map[string]any
+	// A map of module -> resource -> set of paths, to record resources that have conflicts where the same resource
 	// maps to more than one API path.
-	PathConflicts map[openapi.ProviderName]map[openapi.ResourceName]map[string][]openapi.ApiVersion
+	PathConflicts map[openapi.ModuleName]map[openapi.ResourceName]map[string][]openapi.ApiVersion
 }
 
-// PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning Versioning, providerVersion semver.Version) (*GenerationResult, error) {
+// PulumiSchema will generate a Pulumi schema for the given Azure modules and resources map.
+func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versioning, providerVersion semver.Version) (*GenerationResult, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -275,47 +276,38 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 	pythonModuleNames := map[string]string{}
 	golangImportAliases := map[string]string{}
 
-	var providers []string
-	for prov := range providerMap {
-		providers = append(providers, prov)
-	}
-	sort.Strings(providers)
-
 	// Track some global data
 	var forceNewTypes []ForceNewType
 	caseSensitiveTypes := newCaseSensitiveTokens()
-	flattenedPropertyConflicts := map[string]map[string]struct{}{}
+	flattenedPropertyConflicts := map[string]map[string]any{}
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	resourcesPathTracker := newResourcesPathConflictsTracker()
 
-	for _, providerName := range providers {
-		versionMap := providerMap[providerName]
-		var versions []openapi.SdkVersion
-		for version := range versionMap {
-			versions = append(versions, version)
-		}
-		slices.Sort(versions)
+	for _, moduleName := range util.SortedKeys(modules) {
+		moduleVersions := modules[moduleName]
 
 		resourcePaths := map[openapi.ResourceName]map[string][]openapi.ApiVersion{}
 
-		for _, sdkVersion := range versions {
-			// Attempt to convert back to an API version for use elsewhere
+		versions := util.SortedKeys(moduleVersions)
+		// The version in the parsed module is "" for the default version.
+		for _, moduleVersion := range versions {
+			var sdkVersion openapi.SdkVersion
 			var apiVersion *openapi.ApiVersion
-			if sdkVersion != "" {
-				apiVersionConverted, err := openapi.SdkToApiVersion(sdkVersion)
-				if err != nil {
-					return nil, fmt.Errorf("failed to convert SDK version %s back to API version: %v", sdkVersion, err)
-				}
-				apiVersion = &apiVersionConverted
+			if moduleVersion.IsDefault() {
+				apiVersion = nil
+				sdkVersion = ""
+			} else {
+				apiVersion = &moduleVersion
+				sdkVersion = openapi.ApiToSdkVersion(moduleVersion)
 			}
 
 			gen := packageGenerator{
 				pkg:                        &pkg,
 				metadata:                   &metadata,
-				provider:                   providerName,
+				moduleName:                 moduleName,
 				apiVersion:                 apiVersion,
 				sdkVersion:                 sdkVersion,
-				allSdkVersions:             versions,
+				allVersions:                versions,
 				examples:                   exampleMap,
 				versioning:                 versioning,
 				caseSensitiveTypes:         caseSensitiveTypes,
@@ -326,19 +318,19 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
-			module := gen.moduleName()
-			csharpNamespaces[strings.ToLower(providerName)] = providerName
-			javaPackages[module] = strings.ToLower(providerName)
+			module := gen.moduleWithVersion()
+			csharpNamespaces[moduleName.Lowered()] = string(moduleName)
+			javaPackages[string(module)] = moduleName.Lowered()
 			if sdkVersion != "" {
 				csVersion := strings.Title(csharpVersionReplacer.Replace(string(sdkVersion)))
-				csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
-				javaPackages[module] = fmt.Sprintf("%s.%s", strings.ToLower(providerName), sdkVersion)
+				csharpNamespaces[string(module)] = fmt.Sprintf("%s.%s", moduleName, csVersion)
+				javaPackages[string(module)] = fmt.Sprintf("%s.%s", moduleName.Lowered(), sdkVersion)
 			}
-			pythonModuleNames[module] = module
-			golangImportAliases[goModuleName(gen.provider, gen.sdkVersion)] = strings.ToLower(providerName)
+			pythonModuleNames[string(module)] = string(module)
+			golangImportAliases[goModuleName(gen.moduleName, gen.sdkVersion)] = moduleName.Lowered()
 
 			// Populate resources and get invokes.
-			items := versionMap[sdkVersion]
+			items := moduleVersions[moduleVersion]
 			var resources []string
 			for resource := range items.Resources {
 				resources = append(resources, resource)
@@ -361,7 +353,7 @@ func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning
 			gen.mergeResourcePathsInto(resourcePaths)
 		}
 
-		resourcesPathTracker.addPathConflictsForProvider(providerName, resourcePaths)
+		resourcesPathTracker.addPathConflictsForModule(moduleName, resourcePaths)
 	}
 
 	// When a resource maps to more than one API path, it's a conflict and we need to detect and report it. #2495
@@ -433,24 +425,24 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 	}, nil
 }
 
-// resourcesPathConflictsTracker tracks resource path conflicts by provider/module. Use newResourcesPathTracker to instantiate.
+// resourcesPathConflictsTracker tracks resource path conflicts by module. Use newResourcesPathTracker to instantiate.
 type resourcesPathConflictsTracker struct {
-	pathConflicts map[openapi.ProviderName]map[openapi.ResourceName]map[string][]openapi.ApiVersion
+	pathConflicts map[openapi.ModuleName]map[openapi.ResourceName]map[string][]openapi.ApiVersion
 }
 
 func newResourcesPathConflictsTracker() *resourcesPathConflictsTracker {
-	return &resourcesPathConflictsTracker{pathConflicts: map[openapi.ProviderName]map[openapi.ResourceName]map[string][]openapi.ApiVersion{}}
+	return &resourcesPathConflictsTracker{pathConflicts: map[openapi.ModuleName]map[openapi.ResourceName]map[string][]openapi.ApiVersion{}}
 }
 
-func (rpt *resourcesPathConflictsTracker) addPathConflictsForProvider(providerName openapi.ProviderName, resourcePaths map[openapi.ResourceName]map[string][]openapi.ApiVersion) {
-	providerPathConflicts := map[openapi.ResourceName]map[string][]openapi.ApiVersion{}
+func (rpt *resourcesPathConflictsTracker) addPathConflictsForModule(moduleName openapi.ModuleName, resourcePaths map[openapi.ResourceName]map[string][]openapi.ApiVersion) {
+	modulePathConflicts := map[openapi.ResourceName]map[string][]openapi.ApiVersion{}
 	for resource, paths := range resourcePaths {
 		if len(paths) > 1 {
-			providerPathConflicts[resource] = paths
+			modulePathConflicts[resource] = paths
 		}
 	}
-	if len(providerPathConflicts) > 0 {
-		rpt.pathConflicts[providerName] = providerPathConflicts
+	if len(modulePathConflicts) > 0 {
+		rpt.pathConflicts[moduleName] = modulePathConflicts
 	}
 }
 
@@ -676,17 +668,18 @@ const (
 type packageGenerator struct {
 	pkg                *pschema.PackageSpec
 	metadata           *resources.AzureAPIMetadata
-	provider           openapi.ProviderName
+	moduleName         openapi.ModuleName
 	examples           map[string][]resources.AzureAPIExample
 	apiVersion         *openapi.ApiVersion
 	sdkVersion         openapi.SdkVersion
-	allSdkVersions     []openapi.SdkVersion
+	allVersions        []openapi.ApiVersion
 	versioning         Versioning
 	caseSensitiveTypes caseSensitiveTokens
 	// rootDir is used to resolve relative paths in the examples.
-	rootDir                    string
-	forceNewTypes              []ForceNewType
-	flattenedPropertyConflicts map[string]map[string]struct{}
+	rootDir       string
+	forceNewTypes []ForceNewType
+	// Token -> set<property>
+	flattenedPropertyConflicts map[string]map[string]any
 	majorVersion               int
 	// A resource -> path -> API version map to record API paths per resource and later detect conflicts.
 	// Each packageGenerator instance is only used for a single API version, so there won't be conflicting paths here.
@@ -695,16 +688,8 @@ type packageGenerator struct {
 
 func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
 	// Resource names should consistently start with upper case.
-	typeNameAliases := []string{}
+	typeNameAliases := g.genAliases(typeName)
 	titleCasedTypeName := strings.Title(typeName)
-
-	if g.majorVersion < 3 {
-		// We need to alias the previous, lowercase name so users can upgrade to v2 without replacement.
-		// These aliases aren't required anymore with v3.
-		if titleCasedTypeName != typeName {
-			typeNameAliases = append(typeNameAliases, typeName)
-		}
-	}
 
 	// A single API path can be modelled as several resources if it accepts a polymorphic payload:
 	// i.e., when the request body is a discriminated union type of several object types. Pulumi
@@ -712,7 +697,7 @@ func (g *packageGenerator) genResources(typeName string, resource *openapi.Resou
 	// per each union case. We call them "variants" in the code below.
 	variants, err := g.findResourceVariants(resource)
 	if err != nil {
-		return errors.Wrapf(err, "resource %s.%s", g.provider, titleCasedTypeName)
+		return errors.Wrapf(err, "resource %s.%s", g.moduleName, titleCasedTypeName)
 	}
 
 	for _, v := range variants {
@@ -735,6 +720,20 @@ func (g *packageGenerator) genResources(typeName string, resource *openapi.Resou
 		mainResource.deprecationMessage = resource.DeprecationMessage
 	}
 	return g.genResourceVariant(resource, mainResource, nestedResourceBodyRefs, typeNameAliases...)
+}
+
+func (g *packageGenerator) genAliases(typeName string) []string {
+	switch g.majorVersion {
+	case 2:
+		// We need to alias the previous, lowercase name so users can upgrade to v2 without replacement.
+		// These aliases aren't required anymore with v3.
+		if strings.Title(typeName) != typeName {
+			return []string{typeName}
+		}
+	case 3:
+		// TODO: Add additional aliases for v3 case changes: https://github.com/pulumi/pulumi-azure-native/issues/3848
+	}
+	return nil
 }
 
 // resourceVariant points to request body's and response's schemas of a resource which is one of the variants
@@ -827,7 +826,7 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 // paths. For instance, the deprecated "single server" resources in `dbformysql` and `dbforpostgresql` are renamed
 // to `SingleServerResource`.
 // TODO,tkappler check each one if we can just get rid of an old API version instead of doing this.
-func dedupResourceNameByPath(provider, typeName, canonPath string) string {
+func dedupResourceNameByPath(moduleName openapi.ModuleName, typeName, canonPath string) string {
 	result := typeName
 
 	prefix := func(prefix string) string {
@@ -837,7 +836,7 @@ func dedupResourceNameByPath(provider, typeName, canonPath string) string {
 		return typeName
 	}
 
-	switch strings.ToLower(provider) {
+	switch moduleName.Lowered() {
 	case "cache":
 		if strings.Contains(canonPath, "/redis/") {
 			result = prefix("Redis")
@@ -930,18 +929,18 @@ func (g *packageGenerator) mergeResourcePathsInto(resourcePaths map[openapi.Reso
 }
 
 func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {
-	module := g.moduleName()
+	module := g.moduleWithVersion()
 	swagger := resource.Swagger
 	path := resource.PathItem
 	canonPath := paths.NormalizePath(resource.Path)
 
 	typeName := resource.typeName
 	if g.majorVersion > 3 {
-		typeName = dedupResourceNameByPath(g.provider, resource.typeName, canonPath)
+		typeName = dedupResourceNameByPath(g.moduleName, resource.typeName, canonPath)
 	}
 
-	resourceTok := generateTok(g.provider, typeName, g.sdkVersion)
-	if !g.versioning.ShouldInclude(g.provider, g.apiVersion, typeName, resourceTok) {
+	resourceTok := generateTok(g.moduleName, typeName, g.sdkVersion)
+	if !g.versioning.ShouldInclude(g.moduleName, g.apiVersion, typeName, resourceTok) {
 		return nil
 	}
 
@@ -956,14 +955,14 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		pkg:                        g.pkg,
 		metadata:                   g.metadata,
 		module:                     module,
-		prov:                       g.provider,
+		moduleName:                 g.moduleName,
 		resourceName:               resource.typeName,
 		resourceToken:              resourceTok,
 		visitedTypes:               make(map[string]bool),
 		caseSensitiveTypes:         g.caseSensitiveTypes,
 		inlineTypes:                map[*openapi.ReferenceContext]codegen.StringSet{},
 		nestedResourceBodyRefs:     nestedResourceBodyRefs,
-		flattenedPropertyConflicts: map[string]struct{}{},
+		flattenedPropertyConflicts: map[string]any{},
 	}
 
 	updateOp := path.Put
@@ -1027,7 +1026,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, resource.typeName)
-	if g.versioning.ShouldInclude(g.provider, g.apiVersion, resource.typeName, functionTok) {
+	if g.versioning.ShouldInclude(g.moduleName, g.apiVersion, resource.typeName, functionTok) {
 		var readOp *spec.Operation
 		switch {
 		case resource.PathItemList != nil:
@@ -1131,40 +1130,40 @@ func isSingleton(resource *resourceVariant) bool {
 func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
 	var aliases []pschema.AliasSpec
 
-	addAlias := func(module, typeName string, version openapi.SdkVersion) {
+	addAlias := func(module openapi.ModuleName, typeName string, version openapi.SdkVersion) {
 		alias := generateTok(module, typeName, version)
 		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
 	}
 
 	// Add an alias for the same version of the resource, but in its old module.
-	if resource.PreviousProviderName != nil {
-		addAlias(*resource.PreviousProviderName, resource.typeName, g.sdkVersion)
+	if resource.ModuleNaming.PreviousName != nil {
+		addAlias(*resource.ModuleNaming.PreviousName, resource.typeName, g.sdkVersion)
 	}
 
 	for _, alias := range typeNameAliases {
-		addAlias(g.provider, alias, g.sdkVersion)
+		addAlias(g.moduleName, alias, g.sdkVersion)
 		// Add an alias for the same alias, but in its old module.
-		if resource.PreviousProviderName != nil {
-			addAlias(*resource.PreviousProviderName, alias, g.sdkVersion)
+		if resource.ModuleNaming.PreviousName != nil {
+			addAlias(*resource.ModuleNaming.PreviousName, alias, g.sdkVersion)
 		}
 	}
 
 	// Add an alias for each API version that has the same path in it.
 	for _, version := range resource.CompatibleVersions {
-		addAlias(g.provider, resource.typeName, version)
+		addAlias(g.moduleName, resource.typeName, version.ToSdkVersion())
 
 		// Add an alias for the other versions, but from its old module.
-		if resource.PreviousProviderName != nil {
-			addAlias(*resource.PreviousProviderName, resource.typeName, version)
+		if resource.ModuleNaming.PreviousName != nil {
+			addAlias(*resource.ModuleNaming.PreviousName, resource.typeName, version.ToSdkVersion())
 		}
 
 		// Add type name aliases for each compatible version.
 		for _, alias := range typeNameAliases {
-			addAlias(g.provider, alias, version)
+			addAlias(g.moduleName, alias, version.ToSdkVersion())
 
 			// Add an alias for the other version, with alias, from its old module.
-			if resource.PreviousProviderName != nil {
-				addAlias(*resource.PreviousProviderName, alias, version)
+			if resource.ModuleNaming.PreviousName != nil {
+				addAlias(*resource.ModuleNaming.PreviousName, alias, version.ToSdkVersion())
 			}
 		}
 	}
@@ -1230,22 +1229,22 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 // genFunctions defines functions for list* (listKeys, listSecrets, etc.)
 // and get* (getFullUrl, getBastionShareableLink, etc.) POST and GET endpoints.
 func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec.Parameter, operation *spec.Operation, swagger *openapi.Spec) {
-	module := g.moduleName()
+	module := g.moduleWithVersion()
 	gen := moduleGenerator{
 		pkg:                        g.pkg,
 		metadata:                   g.metadata,
 		module:                     module,
 		resourceToken:              fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName),
-		prov:                       g.provider,
+		moduleName:                 g.moduleName,
 		resourceName:               typeName,
 		visitedTypes:               make(map[string]bool),
 		caseSensitiveTypes:         g.caseSensitiveTypes,
 		inlineTypes:                map[*openapi.ReferenceContext]codegen.StringSet{},
-		flattenedPropertyConflicts: map[string]struct{}{},
+		flattenedPropertyConflicts: map[string]any{},
 	}
 
 	// Generate the function to get this resource.
-	functionTok := generateTok(g.provider, typeName, g.sdkVersion)
+	functionTok := generateTok(g.moduleName, typeName, g.sdkVersion)
 	if !g.shouldInclude(typeName, functionTok, g.apiVersion) {
 		return
 	}
@@ -1293,31 +1292,34 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 	g.metadata.Invokes[functionTok] = f
 }
 
-// moduleName produces the module name from the provider name and the version e.g. `compute/v20200701`.
-func (g *packageGenerator) moduleName() string {
-	return providerApiToModule(g.provider, g.sdkVersion)
+// TokenModule is the module as appears in the token e.g. `compute/v20200701` or `network`.
+type TokenModule string
+
+// moduleWithVersion produces the token's module part from the module name and the version e.g. `compute/v20200701` or `network`.
+func (g *packageGenerator) moduleWithVersion() TokenModule {
+	return TokenModule(versionedModule(g.moduleName, g.sdkVersion))
 }
 
 // goModuleName produces the *Go* module name from the provider name and the version e.g. `compute/v20200701`.
-// or just the provider name if the version is empty (default version) e.g. `compute`.
-func goModuleName(provider openapi.ProviderName, sdkVersion openapi.SdkVersion) string {
-	return filepath.Join(goModuleRepoPath, strings.ToLower(provider), goModuleVersion, string(sdkVersion))
+// or just the module name if the version is empty (default version) e.g. `compute`.
+func goModuleName(moduleName openapi.ModuleName, sdkVersion openapi.SdkVersion) string {
+	return filepath.Join(goModuleRepoPath, moduleName.Lowered(), goModuleVersion, string(sdkVersion))
 }
 
-// providerApiToModule produces the module name from the provider name (g.provider), and the version if not empty, e.g. `compute/v20200701`.
-func providerApiToModule(provider openapi.ProviderName, sdkVersion openapi.SdkVersion) string {
+// versionedModule produces the module name from the module name, and the version if not empty, e.g. `compute/v20200701`.
+func versionedModule(moduleName openapi.ModuleName, sdkVersion openapi.SdkVersion) string {
 	if sdkVersion == "" {
-		return strings.ToLower(provider)
+		return moduleName.Lowered()
 	}
-	return fmt.Sprintf("%s/%s", strings.ToLower(provider), sdkVersion)
+	return fmt.Sprintf("%s/%s", moduleName.Lowered(), sdkVersion)
 }
 
-func generateTok(provider openapi.ProviderName, typeName string, apiVersion openapi.SdkVersion) string {
-	return fmt.Sprintf(`%s:%s:%s`, pulumiProviderName, providerApiToModule(provider, apiVersion), typeName)
+func generateTok(moduleName openapi.ModuleName, typeName string, apiVersion openapi.SdkVersion) string {
+	return fmt.Sprintf(`%s:%s:%s`, pulumiProviderName, versionedModule(moduleName, apiVersion), typeName)
 }
 
 func (g *packageGenerator) shouldInclude(typeName, tok string, version *openapi.ApiVersion) bool {
-	return g.versioning.ShouldInclude(g.provider, version, typeName, tok)
+	return g.versioning.ShouldInclude(g.moduleName, version, typeName, tok)
 }
 
 func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, typeName string, response *propertyBag, info *spec.Info) string {
@@ -1339,14 +1341,14 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 		}
 
 		// List other available API versions, if any.
-		allVersions := g.versioning.GetAllVersions(g.provider, typeName)
+		allVersions := g.versioning.GetAllVersions(g.moduleName, typeName)
 		includedVersions := []string{}
 		for _, v := range allVersions {
 			// Don't list the default version twice.
 			if v == defaultVersion {
 				continue
 			}
-			tok := generateTok(g.provider, typeName, openapi.ApiToSdkVersion(v))
+			tok := generateTok(g.moduleName, typeName, openapi.ApiToSdkVersion(v))
 			if g.shouldInclude(typeName, tok, &v) {
 				includedVersions = append(includedVersions, string(v))
 			}
@@ -1491,18 +1493,18 @@ func (t *caseSensitiveTokens) findCaseConflicts() CaseConflicts {
 }
 
 type ForceNewType struct {
-	Module        string
-	Provider      string
-	ResourceName  string
-	ReferenceName string
-	Property      string
+	VersionedModule TokenModule
+	Module          openapi.ModuleName
+	ResourceName    string
+	ReferenceName   string
+	Property        string
 }
 
 type moduleGenerator struct {
 	pkg                        *pschema.PackageSpec
 	metadata                   *resources.AzureAPIMetadata
-	module                     string
-	prov                       string
+	module                     TokenModule
+	moduleName                 openapi.ModuleName
 	resourceName               string
 	resourceToken              string
 	visitedTypes               map[string]bool
@@ -1510,7 +1512,7 @@ type moduleGenerator struct {
 	inlineTypes                map[*openapi.ReferenceContext]codegen.StringSet
 	nestedResourceBodyRefs     []string
 	forceNewTypes              []ForceNewType
-	flattenedPropertyConflicts map[string]struct{}
+	flattenedPropertyConflicts map[string]any
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {

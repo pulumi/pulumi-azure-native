@@ -75,13 +75,14 @@ Updates to the version selection is done conservatively within the same major ve
 
 ### Configuration Files
 
-Version configuration files are prefixed with the major version they're for (e.g. `v2-`) and live within the `versions/` folder. There's three steps to the versioning process:
+Version configuration files are prefixed with the major version they're for (e.g. `v2-`) and live within the `versions/` folder.
 
 1. Config: (e.g. [`v2-config.json`](./versions/v2-config.json)) is a hand-edited file to control how the Spec is updated.
 2. Spec: (e.g. [`v2-spec.yaml`](./versions/v2-spec.yaml)) is automatically appended to but can be manually edited.
-3. Lock: (e.g. [`v2-lock.json`](./versions/v2-lock.json)) is generated from the Spec and is the exact selection of resource versions to use.
+3. Removed resources/invokes: (e.g. [`v2-removed-resources.json`](./versions/v2-removed-resources.json))
+4. Removed versions: (e.g. [`v2-removed.json`](./versions/v2-removed.json))
 
-The default version selection is calculated as a part of the `make schema` target.
+The default versions file (e.g. [`v2.yaml`](./versions/v2.yaml)) is calculated as a part of the `make schema` target and shouldn't be modified directly.
 
 ### Config
 
@@ -100,7 +101,7 @@ A spec file consists of service names, each specifying:
 
 Both `tracking` and `additions` can be specified together but if the set of resources overlaps (the same resource exists) in both the tracking version and the additions, then the versioning program will fail with an error.
 
-From the Spec file, we generate the Lock JSON file (e.g. [`v2-lock.json`](./versions/v2-lock.json)) which contain the fully expanded set of default resources. These are the files used at the point of generating the schema.
+From the Spec file, we calculate the default versions file (e.g. [`v2.yaml`](./versions/v2.yaml)) which contain the fully expanded set of resource versions for each module. These are the files used at the point of generating the schema.
 
 ### Creating a new major version default selection
 
@@ -116,9 +117,9 @@ Supporting every version of every API causes the SDK size to be very large. One 
 
 Ideally, at the point a new incompatible version of the type is added, it should then be created with a unique, stable name. Alternatively, we could create a union of the two possible types
 
-### Default Version Locks
+### Default Versions File
 
-The default version is calculated and written to a 'lock' file which list every resource (or invoke) at a specific API version. This file is read in during the schema and SDK generation. Currently there is a `v1-lock.json` and `v2-lock.json` lock file. These lock files should not be edited directly, but should be calculated by the versioner tool using a specific algorithm.
+The default version is calculated and written to a YAML file which list every resource (or invoke) at a specific API version. This file is read in during the schema and SDK generation. Currently there is a `v1.json` and `v2.json` file. These files should not be edited directly, but should be calculated by the versioner tool using a specific algorithm.
 
 ### Additional Reports
 

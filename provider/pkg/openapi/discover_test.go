@@ -7,6 +7,7 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/exp/maps"
@@ -72,7 +73,7 @@ func TestAddInvokes(t *testing.T) {
 		version := NewVersionResources()
 		spec := createTestSwaggerForInvoke(tc.path, tc.operationId, tc.httpMethod)
 
-		addResourcesAndInvokes(version, "/file/path", tc.path, "foo", nil, &spec)
+		addResourcesAndInvokes(version, "/file/path", tc.path, resources.ModuleNaming{ResolvedName: "foo"}, &spec)
 
 		assert.Empty(t, version.Resources, tcName)
 		assert.NotEmpty(t, version.Invokes, tcName)
@@ -126,7 +127,7 @@ func TestDefaultState(t *testing.T) {
 		swagger := makeSwagger(path)
 		version := NewVersionResources()
 
-		addResourcesAndInvokes(version, "/file/path", path, "insights", nil, &swagger)
+		addResourcesAndInvokes(version, "/file/path", path, resources.ModuleNaming{ResolvedName: "insights"}, &swagger)
 
 		require.NotEmpty(t, version.Resources)
 		res, ok := version.Resources["DiagnosticSettingsCategory"]

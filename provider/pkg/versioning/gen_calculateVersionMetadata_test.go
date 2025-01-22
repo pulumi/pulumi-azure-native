@@ -21,7 +21,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 
 	t.Run("New module tracks latest version", func(t *testing.T) {
 		sources := VersionSources{
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2019-01-01": {"Resource1", "Resource2"},
 					"2020-01-01": {"Resource1", "Resource2"},
@@ -32,7 +32,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 			},
@@ -41,7 +41,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 
 	t.Run("New module tracks latest of two preview versions", func(t *testing.T) {
 		sources := VersionSources{
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2019-01-01-preview": {"Resource1"},
 					"2020-01-01-preview": {"Resource1"},
@@ -52,7 +52,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(openapi.ApiVersion("2020-01-01-preview")),
 			},
@@ -61,7 +61,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 
 	t.Run("New module tracks preview if more than 1 year newer than last stable", func(t *testing.T) {
 		sources := VersionSources{
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2019-01-01":         {"Resource1"},
 					"2020-02-01-preview": {"Resource1"},
@@ -72,7 +72,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(openapi.ApiVersion("2020-02-01-preview")),
 			},
@@ -85,7 +85,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		olderStable := openapi.ApiVersion(elevenMonthsAgo)
 		newerPreview := openapi.ApiVersion(today + "-preview")
 		sources := VersionSources{
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					olderStable:  {"Resource1"},
 					newerPreview: {"Resource1"},
@@ -96,7 +96,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(olderStable),
 			},
@@ -122,7 +122,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 					},
 				},
 			},
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2019-01-01": {"Resource1", "Resource2"},
 					"2020-01-01": {"Resource1", "Resource2"},
@@ -133,7 +133,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(openapi.ApiVersion("2019-01-01")),
 			},
@@ -159,7 +159,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 					},
 				},
 			},
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2020-01-01": {"Resource1", "Resource2"},
 					"2021-01-01": {"Resource1"},
@@ -170,7 +170,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				// Tracks latest
 				Tracking: ptr(openapi.ApiVersion("2021-01-01")),
@@ -184,14 +184,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 
 	t.Run("New spec from config excluding all future versions of resource", func(t *testing.T) {
 		sources := VersionSources{
-			Config: map[openapi.ProviderName]providerCuration{
+			Config: map[openapi.ModuleName]moduleCuration{
 				"Module": {
 					Exclusions: map[openapi.ResourceName]openapi.ApiVersion{
 						"Resource2": "*",
 					},
 				},
 			},
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2019-01-01": {"Resource1", "Resource2"},
 					"2020-01-01": {"Resource1"},
@@ -202,7 +202,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 			},
@@ -211,14 +211,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 
 	t.Run("New spec from config excluding specific recent resource version", func(t *testing.T) {
 		sources := VersionSources{
-			Config: map[openapi.ProviderName]providerCuration{
+			Config: map[openapi.ModuleName]moduleCuration{
 				"Module": {
 					Exclusions: map[openapi.ResourceName]openapi.ApiVersion{
 						"Resource2": "2019-01-01",
 					},
 				},
 			},
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2019-01-01": {"Resource1", "Resource2"},
 					"2020-01-01": {"Resource1"},
@@ -229,7 +229,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 			},
@@ -238,12 +238,12 @@ func TestCalculateVersionMetadata(t *testing.T) {
 
 	t.Run("New spec with preference for explicit version selection", func(t *testing.T) {
 		sources := VersionSources{
-			Config: map[openapi.ProviderName]providerCuration{
+			Config: map[openapi.ModuleName]moduleCuration{
 				"Module": {
 					Explicit: true,
 				},
 			},
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2019-01-01": {"Resource1", "Resource2"},
 					"2020-01-01": {"Resource1"},
@@ -271,7 +271,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Additions: &map[string]openapi.ApiVersion{
 					"Resource1": "2020-01-01",
@@ -300,12 +300,12 @@ func TestCalculateVersionMetadata(t *testing.T) {
 					},
 				},
 			},
-			Spec: map[openapi.ProviderName]ProviderSpec{
+			Spec: map[openapi.ModuleName]ModuleSpec{
 				"Module": {
 					Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 				},
 			},
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2020-01-01": {"Resource1"},
 					"2021-01-01": {"Resource1", "Resource2"},
@@ -316,7 +316,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 			},
@@ -325,12 +325,12 @@ func TestCalculateVersionMetadata(t *testing.T) {
 
 	t.Run("New version ignored if already tracking during upgrade", func(t *testing.T) {
 		sources := VersionSources{
-			Spec: map[openapi.ProviderName]ProviderSpec{
+			Spec: map[openapi.ModuleName]ModuleSpec{
 				"Module": {
 					Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 				},
 			},
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2020-01-01": {"Resource1", "Resource2"},
 					"2021-01-01": {"Resource1"},
@@ -341,7 +341,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 			},
@@ -367,12 +367,12 @@ func TestCalculateVersionMetadata(t *testing.T) {
 					},
 				},
 			},
-			Spec: map[openapi.ProviderName]ProviderSpec{
+			Spec: map[openapi.ModuleName]ModuleSpec{
 				"Module": {
 					Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 				},
 			},
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2020-01-01": {"Resource1"},
 					"2021-01-01": {"Resource1", "Resource2"},
@@ -383,7 +383,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 				Additions: &map[string]openapi.ApiVersion{
@@ -395,7 +395,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 
 	t.Run("Remove previous addition via exclusion", func(t *testing.T) {
 		sources := VersionSources{
-			Spec: map[openapi.ProviderName]ProviderSpec{
+			Spec: map[openapi.ModuleName]ModuleSpec{
 				"Module": {
 					Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 					Additions: &map[string]openapi.ApiVersion{
@@ -403,14 +403,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 					},
 				},
 			},
-			Config: map[openapi.ProviderName]providerCuration{
+			Config: map[openapi.ModuleName]moduleCuration{
 				"Module": {
 					Exclusions: map[openapi.ResourceName]openapi.ApiVersion{
 						"Resource2": "2021-01-01",
 					},
 				},
 			},
-			AllResourcesByVersion: ProvidersVersionResources{
+			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
 					"2020-01-01": {"Resource1"},
 					"2021-01-01": {"Resource1", "Resource2"},
@@ -421,7 +421,7 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		result, err := calculateVersionMetadata(sources)
 
 		assert.NoError(t, err)
-		assert.Equal(t, Spec(map[openapi.ProviderName]ProviderSpec{
+		assert.Equal(t, Spec(map[openapi.ModuleName]ModuleSpec{
 			"Module": {
 				Tracking: ptr(openapi.ApiVersion("2020-01-01")),
 			},

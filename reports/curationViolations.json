@@ -1,426 +1,426 @@
 [
   {
-    "Provider": "AVS",
+    "ModuleName": "AVS",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "ApiCenter",
+    "ModuleName": "ApiCenter",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "ApiCenter",
+    "ModuleName": "ApiCenter",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "AppComplianceAutomation",
+    "ModuleName": "AppComplianceAutomation",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "AppPlatform",
+    "ModuleName": "AppPlatform",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "AppPlatform",
+    "ModuleName": "AppPlatform",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "AzureActiveDirectory",
+    "ModuleName": "AzureActiveDirectory",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "AzureArcData",
+    "ModuleName": "AzureArcData",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "AzureDataTransfer",
+    "ModuleName": "AzureDataTransfer",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "AzureDataTransfer",
+    "ModuleName": "AzureDataTransfer",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "AzureFleet",
+    "ModuleName": "AzureFleet",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "AzureLargeInstance",
+    "ModuleName": "AzureLargeInstance",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "AzurePlaywrightService",
+    "ModuleName": "AzurePlaywrightService",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "AzureSphere",
+    "ModuleName": "AzureSphere",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "AzureStack",
+    "ModuleName": "AzureStack",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "AzureStackHCI",
+    "ModuleName": "AzureStackHCI",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "BareMetalInfrastructure",
+    "ModuleName": "BareMetalInfrastructure",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Billing",
+    "ModuleName": "Billing",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Cdn",
+    "ModuleName": "Cdn",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Chaos",
+    "ModuleName": "Chaos",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Cloudngfw",
+    "ModuleName": "Cloudngfw",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "CodeSigning",
+    "ModuleName": "CodeSigning",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "CognitiveServices",
+    "ModuleName": "CognitiveServices",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Communication",
+    "ModuleName": "Communication",
     "Detail": "expected tracking preview but found stable"
   },
   {
-    "Provider": "Communication",
+    "ModuleName": "Communication",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Confluent",
+    "ModuleName": "Confluent",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "ConnectedCache",
+    "ModuleName": "ConnectedCache",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "ConnectedVMwarevSphere",
+    "ModuleName": "ConnectedVMwarevSphere",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "ContainerInstance",
+    "ModuleName": "ContainerInstance",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "ContainerStorage",
+    "ModuleName": "ContainerStorage",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Contoso",
+    "ModuleName": "Contoso",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "Dashboard",
+    "ModuleName": "Dashboard",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "DataReplication",
+    "ModuleName": "DataReplication",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "DatabaseWatcher",
+    "ModuleName": "DatabaseWatcher",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "DatabaseWatcher",
+    "ModuleName": "DatabaseWatcher",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Datadog",
+    "ModuleName": "Datadog",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "DevCenter",
+    "ModuleName": "DevCenter",
     "Detail": "expected tracking preview but found stable"
   },
   {
-    "Provider": "DevCenter",
+    "ModuleName": "DevCenter",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "DevHub",
+    "ModuleName": "DevHub",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "DevOpsInfrastructure",
+    "ModuleName": "DevOpsInfrastructure",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "DeviceRegistry",
+    "ModuleName": "DeviceRegistry",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "DeviceRegistry",
+    "ModuleName": "DeviceRegistry",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "DurableTask",
+    "ModuleName": "DurableTask",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "Edge",
+    "ModuleName": "Edge",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "EdgeMarketplace",
+    "ModuleName": "EdgeMarketplace",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "EdgeOrder",
+    "ModuleName": "EdgeOrder",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "ElasticSan",
+    "ModuleName": "ElasticSan",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "EventHub",
+    "ModuleName": "EventHub",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "EventHub",
+    "ModuleName": "EventHub",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "ExtendedLocation",
+    "ModuleName": "ExtendedLocation",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "GraphServices",
+    "ModuleName": "GraphServices",
     "Detail": "expected tracking preview but found stable"
   },
   {
-    "Provider": "HDInsight",
+    "ModuleName": "HDInsight",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "HanaOnAzure",
+    "ModuleName": "HanaOnAzure",
     "Detail": "expected tracking preview but found stable"
   },
   {
-    "Provider": "HealthDataAIServices",
+    "ModuleName": "HealthDataAIServices",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "HealthcareApis",
+    "ModuleName": "HealthcareApis",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "HybridCloud",
+    "ModuleName": "HybridCloud",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "HybridCompute",
+    "ModuleName": "HybridCompute",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "HybridConnectivity",
+    "ModuleName": "HybridConnectivity",
     "Detail": "expected tracking preview but found stable"
   },
   {
-    "Provider": "HybridConnectivity",
+    "ModuleName": "HybridConnectivity",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "HybridNetwork",
+    "ModuleName": "HybridNetwork",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "HybridNetwork",
+    "ModuleName": "HybridNetwork",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Impact",
+    "ModuleName": "Impact",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "IntegrationSpaces",
+    "ModuleName": "IntegrationSpaces",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "IoTCentral",
+    "ModuleName": "IoTCentral",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "IoTFirmwareDefense",
+    "ModuleName": "IoTFirmwareDefense",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "IoTOperations",
+    "ModuleName": "IoTOperations",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "IoTOperationsDataProcessor",
+    "ModuleName": "IoTOperationsDataProcessor",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "IoTOperationsMQ",
+    "ModuleName": "IoTOperationsMQ",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "IoTOperationsOrchestrator",
+    "ModuleName": "IoTOperationsOrchestrator",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "Kubernetes",
+    "ModuleName": "Kubernetes",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "Kubernetes",
+    "ModuleName": "Kubernetes",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "KubernetesConfiguration",
+    "ModuleName": "KubernetesConfiguration",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Kusto",
+    "ModuleName": "Kusto",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "LabServices",
+    "ModuleName": "LabServices",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "LoadTestService",
+    "ModuleName": "LoadTestService",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "MachineLearningServices",
+    "ModuleName": "MachineLearningServices",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Maintenance",
+    "ModuleName": "Maintenance",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "ManagedIdentity",
+    "ModuleName": "ManagedIdentity",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "ManagedNetworkFabric",
+    "ModuleName": "ManagedNetworkFabric",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Maps",
+    "ModuleName": "Maps",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "MixedReality",
+    "ModuleName": "MixedReality",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Monitor",
+    "ModuleName": "Monitor",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "NetApp",
+    "ModuleName": "NetApp",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "NetworkCloud",
+    "ModuleName": "NetworkCloud",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "NotificationHubs",
+    "ModuleName": "NotificationHubs",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "OffAzure",
+    "ModuleName": "OffAzure",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "OffAzureSpringBoot",
+    "ModuleName": "OffAzureSpringBoot",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "OffAzureSpringBoot",
+    "ModuleName": "OffAzureSpringBoot",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Orbital",
+    "ModuleName": "Orbital",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "PortalServices",
+    "ModuleName": "PortalServices",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "ProgrammableConnectivity",
+    "ModuleName": "ProgrammableConnectivity",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "Quantum",
+    "ModuleName": "Quantum",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Quota",
+    "ModuleName": "Quota",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "ScVmm",
+    "ModuleName": "ScVmm",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Scom",
+    "ModuleName": "Scom",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "SecretSyncController",
+    "ModuleName": "SecretSyncController",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "ServiceFabric",
+    "ModuleName": "ServiceFabric",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "ServiceNetworking",
+    "ModuleName": "ServiceNetworking",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "StandbyPool",
+    "ModuleName": "StandbyPool",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "Storage",
+    "ModuleName": "Storage",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "StorageCache",
+    "ModuleName": "StorageCache",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Subscription",
+    "ModuleName": "Subscription",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "TestBase",
+    "ModuleName": "TestBase",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "VerifiedId",
+    "ModuleName": "VerifiedId",
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "Provider": "VideoIndexer",
+    "ModuleName": "VideoIndexer",
     "Detail": "expected no additions but found some"
   },
   {
-    "Provider": "Workloads",
+    "ModuleName": "Workloads",
     "Detail": "expected no additions but found some"
   }
 ]

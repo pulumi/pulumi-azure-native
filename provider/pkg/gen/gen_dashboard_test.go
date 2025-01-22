@@ -25,16 +25,16 @@ func TestPortalDashboardGen(t *testing.T) {
 	// rm -rf provider/pkg/gen/test-data/dashboard/azure-rest-api-specs/specification/portal/resource-manager/Microsoft.Portal/preview/2020-09-01-preview/examples/
 	rootDir := path.Join(wd, "test-data", "dashboard")
 
-	providers, _, err := openapi.ReadAzureProviders(path.Join(rootDir, "azure-rest-api-specs"), "Portal", "2020-09-01-preview")
+	modules, _, err := openapi.ReadAzureModules(path.Join(rootDir, "azure-rest-api-specs"), "Portal", "2020-09-01-preview")
 	if err != nil {
 		t.Fatal(err)
 	}
-	providers = openapi.ApplyProvidersTransformations(providers, openapi.DefaultVersionLock{
+	modules = openapi.ApplyTransformations(modules, openapi.DefaultVersions{
 		"Portal": {
 			"Dashboard": "2020-09-01-preview",
 		},
-	}, openapi.DefaultVersionLock{}, nil, nil)
-	generationResult, err := PulumiSchema(rootDir, providers, versioningStub{}, semver.MustParse("3.0.0"))
+	}, openapi.DefaultVersions{}, nil, nil)
+	generationResult, err := PulumiSchema(rootDir, modules, versioningStub{}, semver.MustParse("3.0.0"))
 	if err != nil {
 		t.Fatal(err)
 	}

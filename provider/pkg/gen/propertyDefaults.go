@@ -7,8 +7,8 @@ import "strings"
 // the omission as "no change" instead of removing the value.
 // propertyDefaults returns a map of property names to default values for the given module
 // and resource, for recording in metadata for later use.
-func propertyDefaults(module, resourceName string) map[string]interface{} {
-	if resourceName == "StorageAccount" && (module == "storage" || strings.HasPrefix(module, "storage/")) {
+func propertyDefaults(module TokenModule, resourceName string) map[string]interface{} {
+	if resourceName == "StorageAccount" && (module == "storage" || strings.HasPrefix(string(module), "storage/")) {
 		return map[string]interface{}{
 			"networkRuleSet": map[string]interface{}{
 				"bypass":              "AzureServices",
