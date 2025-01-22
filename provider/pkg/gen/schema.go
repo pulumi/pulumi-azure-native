@@ -822,80 +822,6 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 	return result, nil
 }
 
-// dedupResourceNameByPath returns a modified resource name (`typeName`) if the resource is mapped to multiple API
-// paths. For instance, the deprecated "single server" resources in `dbformysql` and `dbforpostgresql` are renamed
-// to `SingleServerResource`.
-// TODO,tkappler check each one if we can just get rid of an old API version instead of doing this.
-func dedupResourceNameByPath(moduleName openapi.ModuleName, typeName, canonPath string) string {
-	result := typeName
-
-	prefix := func(prefix string) string {
-		if !strings.HasPrefix(typeName, prefix) {
-			return prefix + typeName
-		}
-		return typeName
-	}
-
-	switch moduleName.Lowered() {
-	case "cache":
-		if strings.Contains(canonPath, "/redis/") {
-			result = prefix("Redis")
-		} else if strings.Contains(canonPath, "/redisenterprise/") {
-			result = prefix("RedisEnterprise")
-		}
-	// $ rg --only-matching --no-filename --glob '!examples' 'providers/Microsoft.DBforMySQL/.+?/' azure-rest-api-specs/specification/ | sort | uniq
-	// providers/Microsoft.DBforMySQL/flexibleServers/
-	// providers/Microsoft.DBforMySQL/servers/
-	case "dbformysql":
-		if strings.Contains(canonPath, "/servers/") {
-			result = prefix("SingleServer")
-		}
-	// $ rg --only-matching --no-filename --glob '!examples' 'providers/Microsoft.DBforPostgreSQL/.+?/' azure-rest-api-specs/specification/ | sort | uniq
-	// providers/Microsoft.DBforPostgreSQL/flexibleServers/
-	// providers/Microsoft.DBforPostgreSQL/serverGroupsv2/
-	// providers/Microsoft.DBforPostgreSQL/servers/
-	case "dbforpostgresql":
-		if strings.Contains(canonPath, "/servers/") {
-			result = prefix("SingleServer")
-		} else if strings.Contains(canonPath, "/servergroupsv2/") {
-			result = prefix("ServerGroup")
-		}
-	case "documentdb":
-		if strings.Contains(canonPath, "/mongoclusters/") {
-			prefix("MongoCluster")
-		}
-	case "hdinsight":
-		if strings.Contains(canonPath, "/clusterpools/") {
-			result = prefix("ClusterPool")
-		}
-	case "hybridcontainerservice":
-		if strings.Contains(canonPath, "/provisionedclusterinstances/") {
-			result = prefix("ClusterInstance")
-		}
-	case "labservices":
-		// /labaccounts is an old API that only occurs in 2018 but we support it in v2
-		if strings.Contains(canonPath, "/labaccounts/") {
-			result = prefix("LabAccount")
-		}
-	case "migrate":
-		if strings.Contains(canonPath, "/assessmentprojects/") {
-			result = prefix("AssessmentProjects")
-		}
-	case "mobilenetwork":
-		if strings.Contains(canonPath, "/simgroups/") {
-			result = prefix("SimGroup")
-		}
-	case "netapp":
-		if strings.Contains(canonPath, "/backupvaults/") {
-			result = prefix("BackupVault")
-		} else if strings.Contains(canonPath, "/capacitypools/") {
-			result = prefix("CapacityPool")
-		}
-	}
-
-	return result
-}
-
 // recordPath adds path to keep track of all API paths a resource is mapped to.
 func (g *packageGenerator) recordPath(typeName openapi.ResourceName, canonPath string, apiVersion openapi.ApiVersion) {
 	// Some resources have a /default path, e.g., azure-native:azurestackhci:GuestAgent has conflicting paths
@@ -935,9 +861,6 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	canonPath := paths.NormalizePath(resource.Path)
 
 	typeName := resource.typeName
-	if g.majorVersion > 2 {
-		typeName = dedupResourceNameByPath(g.moduleName, resource.typeName, canonPath)
-	}
 
 	resourceTok := generateTok(g.moduleName, typeName, g.sdkVersion)
 	if !g.versioning.ShouldInclude(g.moduleName, g.apiVersion, typeName, resourceTok) {

@@ -361,28 +361,6 @@ func TestGoModuleName(t *testing.T) {
 	})
 }
 
-func TestDedupResourceNameByPath(t *testing.T) {
-	t.Run("no change", func(t *testing.T) {
-		assert.Equal(t, "Resource", dedupResourceNameByPath("compute", "Resource", "/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Compute/virtualmachines/{}"))
-	})
-
-	t.Run("dbformysql single server", func(t *testing.T) {
-		assert.Equal(t, "SingleServerResource", dedupResourceNameByPath("dbformysql", "Resource", "/subscriptions/{}/resourcegroups/{}/providers/Microsoft.DBforMySQL/servers/{}"))
-	})
-
-	t.Run("dbformysql flexible server", func(t *testing.T) {
-		assert.Equal(t, "Resource", dedupResourceNameByPath("dbformysql", "Resource", "/subscriptions/{}/resourcegroups/{}/providers/Microsoft.DBforMySQL/flexibleservers/{}"))
-	})
-
-	t.Run("dbforpostgresql single server", func(t *testing.T) {
-		assert.Equal(t, "SingleServerResource", dedupResourceNameByPath("dbforpostgresql", "Resource", "/subscriptions/{}/resourcegroups/{}/providers/Microsoft.DBforPostgreSQL/servers/{}"))
-	})
-
-	t.Run("dbforpostgresql flexible server", func(t *testing.T) {
-		assert.Equal(t, "Resource", dedupResourceNameByPath("dbforpostgresql", "Resource", "/subscriptions/{}/resourcegroups/{}/providers/Microsoft.DBforPostgreSQL/flexibleservers/{}"))
-	})
-}
-
 func TestResourcePathTracker(t *testing.T) {
 	t.Run("no conflicts, one module", func(t *testing.T) {
 		tracker := newResourcesPathConflictsTracker()

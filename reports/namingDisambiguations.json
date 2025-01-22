@@ -126,6 +126,48 @@
     "DisambiguatedName": "PrivateResolverVirtualNetworkLink"
   },
   {
+    "FileLocation": "specification/mobilenetwork/resource-manager/Microsoft.MobileNetwork/preview/2022-04-01-preview/mobileNetwork.json",
+    "OperationID": "Sims_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}/sims/{simName}",
+    "GeneratedName": "Sim",
+    "DisambiguatedName": "SimGroupSim"
+  },
+  {
+    "FileLocation": "specification/mobilenetwork/resource-manager/Microsoft.MobileNetwork/stable/2022-11-01/sim.json",
+    "OperationID": "Sims_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}/sims/{simName}",
+    "GeneratedName": "Sim",
+    "DisambiguatedName": "SimGroupSim"
+  },
+  {
+    "FileLocation": "specification/mobilenetwork/resource-manager/Microsoft.MobileNetwork/stable/2023-06-01/sim.json",
+    "OperationID": "Sims_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}/sims/{simName}",
+    "GeneratedName": "Sim",
+    "DisambiguatedName": "SimGroupSim"
+  },
+  {
+    "FileLocation": "specification/mobilenetwork/resource-manager/Microsoft.MobileNetwork/stable/2023-09-01/sim.json",
+    "OperationID": "Sims_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}/sims/{simName}",
+    "GeneratedName": "Sim",
+    "DisambiguatedName": "SimGroupSim"
+  },
+  {
+    "FileLocation": "specification/mobilenetwork/resource-manager/Microsoft.MobileNetwork/stable/2024-02-01/sim.json",
+    "OperationID": "Sims_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}/sims/{simName}",
+    "GeneratedName": "Sim",
+    "DisambiguatedName": "SimGroupSim"
+  },
+  {
+    "FileLocation": "specification/mobilenetwork/resource-manager/Microsoft.MobileNetwork/stable/2024-04-01/sim.json",
+    "OperationID": "Sims_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}/sims/{simName}",
+    "GeneratedName": "Sim",
+    "DisambiguatedName": "SimGroupSim"
+  },
+  {
     "FileLocation": "specification/privatedns/resource-manager/Microsoft.Network/stable/2018-09-01/privatedns.json",
     "OperationID": "RecordSets_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}",
