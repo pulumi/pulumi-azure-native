@@ -284,11 +284,11 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	resourcesPathTracker := newResourcesPathConflictsTracker()
 
 	for _, moduleName := range util.SortedKeys(modules) {
-		versionMap := modules[moduleName]
+		moduleVersions := modules[moduleName]
 
 		resourcePaths := map[openapi.ResourceName]map[string][]openapi.ApiVersion{}
 
-		versions := util.SortedKeys(versionMap)
+		versions := util.SortedKeys(moduleVersions)
 		// The version in the parsed module is "" for the default version.
 		for _, moduleVersion := range versions {
 			var sdkVersion openapi.SdkVersion
@@ -330,7 +330,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 			golangImportAliases[goModuleName(gen.moduleName, gen.sdkVersion)] = moduleName.Lowered()
 
 			// Populate resources and get invokes.
-			items := versionMap[moduleVersion]
+			items := moduleVersions[moduleVersion]
 			var resources []string
 			for resource := range items.Resources {
 				resources = append(resources, resource)
@@ -1292,6 +1292,7 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 	g.metadata.Invokes[functionTok] = f
 }
 
+// TokenModule is the module as appears in the token e.g. `compute/v20200701` or `network`.
 type TokenModule string
 
 // moduleWithVersion produces the token's module part from the module name and the version e.g. `compute/v20200701` or `network`.
