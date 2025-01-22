@@ -191,11 +191,11 @@ func NewVersionResources() VersionResources {
 
 type ModuleVersionList = map[ModuleName][]ApiVersion
 
-// DefaultVersionLock is an amalgamation of multiple API versions
-type DefaultVersionLock map[ModuleName]map[DefinitionName]ApiVersion
+// DefaultVersions is an amalgamation of multiple API versions, generated from a specification.
+type DefaultVersions map[ModuleName]map[DefinitionName]ApiVersion
 
-func (lock DefaultVersionLock) IsAtVersion(moduleName ModuleName, typeName DefinitionName, version ApiVersion) bool {
-	if resources, ok := lock[moduleName]; ok {
+func (defaultVersions DefaultVersions) IsAtVersion(moduleName ModuleName, typeName DefinitionName, version ApiVersion) bool {
+	if resources, ok := defaultVersions[moduleName]; ok {
 		if resourceVersion, ok := resources[typeName]; ok {
 			if resourceVersion == version {
 				return true
@@ -239,9 +239,9 @@ type ResourceSpec struct {
 }
 
 // ApplyTransformations adds the default version for each module and deprecates and removes specified API versions.
-func ApplyTransformations(modules AzureModules, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock, deprecated, removed ModuleVersionList) AzureModules {
+func ApplyTransformations(modules AzureModules, defaultVersions DefaultVersions, previousDefaultVersions DefaultVersions, deprecated, removed ModuleVersionList) AzureModules {
 	ApplyRemovals(modules, removed)
-	AddDefaultVersion(modules, defaultVersion, previousVersion)
+	AddDefaultVersion(modules, defaultVersions, previousDefaultVersions)
 	ApplyDeprecations(modules, deprecated)
 
 	return modules
@@ -258,12 +258,12 @@ func ApplyRemovals(modules map[ModuleName]ModuleVersions, removed ModuleVersionL
 	}
 }
 
-func AddDefaultVersion(modules AzureModules, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) {
+func AddDefaultVersion(modules AzureModules, defaultVersions DefaultVersions, previousDefaultVersions DefaultVersions) {
 	for _, moduleName := range util.SortedKeys(modules) {
 		versionMap := modules[moduleName]
 		// Add a default version for each resource and invoke.
-		defaultResourceVersions := defaultVersion[moduleName]
-		versionMap[""] = buildDefaultVersion(versionMap, defaultResourceVersions, previousVersion[moduleName])
+		defaultResourceVersions := defaultVersions[moduleName]
+		versionMap[""] = buildDefaultVersion(versionMap, defaultResourceVersions, previousDefaultVersions[moduleName])
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)

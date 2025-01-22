@@ -102,10 +102,10 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	}
 
 	if !args.OnlyExplicitVersions {
-		modules = openapi.ApplyTransformations(modules, versionMetadata.Lock, versionMetadata.PreviousLock, nil, nil)
+		modules = openapi.ApplyTransformations(modules, versionMetadata.DefaultVersions, versionMetadata.PreviousDefaultVersions, nil, nil)
 	}
 
-	pathChanges := findPathChanges(modules, versionMetadata.Lock, versionMetadata.PreviousLock, versionMetadata.Config)
+	pathChanges := findPathChanges(modules, versionMetadata.DefaultVersions, versionMetadata.PreviousDefaultVersions, versionMetadata.Config)
 
 	if args.ExcludeExplicitVersions {
 		modules = openapi.SingleVersion(modules)
@@ -183,16 +183,16 @@ type PathChangesResult struct {
 }
 
 func findPathChanges(modules openapi.AzureModules,
-	defaultVersion openapi.DefaultVersionLock,
-	previousVersion openapi.DefaultVersionLock,
+	defaultVersions openapi.DefaultVersions,
+	previousDefaultVersions openapi.DefaultVersions,
 	curations Curations) PathChangesResult {
 
 	result := []PathChange{}
 	missingPreviousDefaultVersions := []MissingExpectedResourceVersion{}
 
-	for _, moduleName := range util.SortedKeys(defaultVersion) {
-		resources := defaultVersion[moduleName]
-		previousResources, ok := previousVersion[moduleName]
+	for _, moduleName := range util.SortedKeys(defaultVersions) {
+		resources := defaultVersions[moduleName]
+		previousResources, ok := previousDefaultVersions[moduleName]
 		if !ok {
 			continue
 		}

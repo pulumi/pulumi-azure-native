@@ -5,9 +5,9 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 )
 
-func FindDeprecations(specVersions ModuleVersionResources, defaultVersion openapi.DefaultVersionLock) openapi.ModuleVersionList {
+func FindDeprecations(specVersions ModuleVersionResources, defaultVersions openapi.DefaultVersions) openapi.ModuleVersionList {
 	deprecationCutoff := openapi.ApiVersion("2021-01-01")
-	olderVersions := findOlderVersions(specVersions, defaultVersion)
+	olderVersions := findOlderVersions(specVersions, defaultVersions)
 	for name, versions := range olderVersions {
 		filteredVersions := []openapi.ApiVersion{}
 		for _, version := range versions {

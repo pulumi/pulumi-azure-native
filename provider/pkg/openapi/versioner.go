@@ -35,7 +35,7 @@ func ReadModuleVersionList(path string) (ModuleVersionList, error) {
 	return curatedVersion, nil
 }
 
-func ReadDefaultVersionLock(path string) (DefaultVersionLock, error) {
+func ReadDefaultVersions(path string) (DefaultVersions, error) {
 	jsonFile, err := os.Open(path)
 	if err != nil {
 		return nil, err
@@ -47,7 +47,7 @@ func ReadDefaultVersionLock(path string) (DefaultVersionLock, error) {
 		return nil, err
 	}
 
-	var curatedVersion DefaultVersionLock
+	var curatedVersion DefaultVersions
 	err = json.Unmarshal(byteValue, &curatedVersion)
 	if err != nil {
 		return nil, err

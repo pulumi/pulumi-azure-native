@@ -5,11 +5,11 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 )
 
-func FindNewerVersions(specVersions ModuleVersionResources, defaultVersion openapi.DefaultVersionLock) openapi.ModuleVersionList {
+func FindNewerVersions(specVersions ModuleVersionResources, defaultVersions openapi.DefaultVersions) openapi.ModuleVersionList {
 	olderModuleVersions := openapi.ModuleVersionList{}
 	for moduleName, versions := range specVersions {
 		newerVersions := collections.NewOrderableSet[openapi.ApiVersion]()
-		defaultResourceVersions := defaultVersion[moduleName]
+		defaultResourceVersions := defaultVersions[moduleName]
 		maxCuratedVersion := findMaxDefaultVersion(defaultResourceVersions)
 		for version := range versions {
 			if version == "" || version <= maxCuratedVersion {

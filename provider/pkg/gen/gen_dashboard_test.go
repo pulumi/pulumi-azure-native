@@ -29,11 +29,11 @@ func TestPortalDashboardGen(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	modules = openapi.ApplyTransformations(modules, openapi.DefaultVersionLock{
+	modules = openapi.ApplyTransformations(modules, openapi.DefaultVersions{
 		"Portal": {
 			"Dashboard": "2020-09-01-preview",
 		},
-	}, openapi.DefaultVersionLock{}, nil, nil)
+	}, openapi.DefaultVersions{}, nil, nil)
 	generationResult, err := PulumiSchema(rootDir, modules, versioningStub{}, semver.MustParse("3.0.0"))
 	if err != nil {
 		t.Fatal(err)

@@ -34,7 +34,7 @@ func BenchmarkGen(b *testing.B) {
 		b.Fatal(err)
 	}
 
-	specs = openapi.ApplyTransformations(specs, versionMetadata.Lock, nil, versionSources.RemovedVersions, nil)
+	specs = openapi.ApplyTransformations(specs, versionMetadata.DefaultVersions, nil, versionSources.RemovedVersions, nil)
 
 	gen.PulumiSchema(rootDir, specs, versionMetadata, semver.MustParse("2.0.0"))
 }

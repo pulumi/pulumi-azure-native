@@ -24,13 +24,13 @@ func TestFindOlderVersions(t *testing.T) {
 			versionB:     []string{resourceA, resourceB},
 		},
 	}
-	defaultVersion := openapi.DefaultVersionLock{
+	defaultVersions := openapi.DefaultVersions{
 		moduleA: {
 			resourceA: versionA,
 			resourceB: versionB,
 		},
 	}
-	olderVersions := findOlderVersions(specVersions, defaultVersion)
+	olderVersions := findOlderVersions(specVersions, defaultVersions)
 	expected := openapi.ModuleVersionList{
 		moduleA: {
 			olderVersion,

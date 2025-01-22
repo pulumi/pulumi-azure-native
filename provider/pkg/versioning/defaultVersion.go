@@ -111,9 +111,9 @@ func ReadSpec(path string) (Spec, error) {
 	return curatedVersion, err
 }
 
-func FindInactiveDefaultVersions(defaultVersionLock openapi.DefaultVersionLock, activeVersions providerlist.ActiveVersionChecker) map[openapi.ModuleName][]openapi.ApiVersion {
+func FindInactiveDefaultVersions(defaultVersions openapi.DefaultVersions, activeVersions providerlist.ActiveVersionChecker) map[openapi.ModuleName][]openapi.ApiVersion {
 	result := map[openapi.ModuleName][]openapi.ApiVersion{}
-	for moduleName, versions := range defaultVersionLock {
+	for moduleName, versions := range defaultVersions {
 		inactiveVersions := collections.NewOrderableSet[openapi.ApiVersion]()
 		for _, version := range versions {
 			// TODO: Use the original AZ namespace rather that our adjusted module name
@@ -128,9 +128,9 @@ func FindInactiveDefaultVersions(defaultVersionLock openapi.DefaultVersionLock, 
 	return result
 }
 
-func DefaultConfigToDefaultVersionLock(spec ModuleVersionResources, defaultConfig Spec) (openapi.DefaultVersionLock, error) {
+func DefaultVersionsFromConfig(spec ModuleVersionResources, defaultConfig Spec) (openapi.DefaultVersions, error) {
 	var err error
-	defaultVersionLock := openapi.DefaultVersionLock{}
+	defaultVersions := openapi.DefaultVersions{}
 	for moduleName, versionResources := range spec {
 		definitions := map[openapi.DefinitionName]openapi.ApiVersion{}
 		moduleConfig, ok := defaultConfig[moduleName]
@@ -163,9 +163,9 @@ func DefaultConfigToDefaultVersionLock(spec ModuleVersionResources, defaultConfi
 				}
 			}
 		}
-		defaultVersionLock[moduleName] = definitions
+		defaultVersions[moduleName] = definitions
 	}
-	return defaultVersionLock, multierror.Flatten(err)
+	return defaultVersions, multierror.Flatten(err)
 }
 
 type moduleSpecBuilder struct {
