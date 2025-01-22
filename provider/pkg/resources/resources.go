@@ -7,6 +7,7 @@ import (
 	"regexp"
 	"sort"
 	"strings"
+	"unicode"
 
 	"github.com/gedex/inflector"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
@@ -468,6 +469,13 @@ func ResourceName(operationID, path string) (string, *NameDisambiguation) {
 }
 
 func createResourceName(operationID, path string, majorVersion uint64) (string, *NameDisambiguation) {
+	if majorVersion >= 3 {
+		// Uppercase the first character of operationID
+		r := []rune(operationID)
+		r[0] = unicode.ToUpper(r[0])
+		operationID = string(r)
+	}
+
 	normalizedID := strings.ReplaceAll(operationID, "-", "_")
 	parts := strings.Split(normalizedID, "_")
 	var name, verb string
