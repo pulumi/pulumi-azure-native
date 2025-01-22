@@ -82862,10 +82862,7 @@
       {
         "apiVersions": [
           "2024-06-01-preview",
-          "2024-01-01-preview",
-          "2023-11-01-preview",
-          "2023-08-01-preview",
-          "2023-02-01-preview"
+          "2024-01-01-preview"
         ],
         "defaultApiVersion": "2024-06-01-preview",
         "locations": [
@@ -82876,10 +82873,7 @@
       {
         "apiVersions": [
           "2024-06-01-preview",
-          "2024-01-01-preview",
-          "2023-11-01-preview",
-          "2023-08-01-preview",
-          "2023-02-01-preview"
+          "2024-01-01-preview"
         ],
         "defaultApiVersion": "2024-06-01-preview",
         "locations": [
@@ -82900,10 +82894,7 @@
       {
         "apiVersions": [
           "2024-06-01-preview",
-          "2024-01-01-preview",
-          "2023-11-01-preview",
-          "2023-08-01-preview",
-          "2023-02-01-preview"
+          "2024-01-01-preview"
         ],
         "defaultApiVersion": "2024-06-01-preview",
         "locations": [
@@ -82914,10 +82905,7 @@
       {
         "apiVersions": [
           "2024-06-01-preview",
-          "2024-01-01-preview",
-          "2023-11-01-preview",
-          "2023-08-01-preview",
-          "2023-02-01-preview"
+          "2024-01-01-preview"
         ],
         "defaultApiVersion": "2024-06-01-preview",
         "locations": [],
@@ -83126,207 +83114,6 @@
         "defaultApiVersion": "2024-04-01",
         "locations": [],
         "resourceType": "packetCoreControlPlaneVersions"
-      }
-    ]
-  },
-  {
-    "namespace": "Microsoft.ModSimWorkbench",
-    "resourceTypes": [
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [
-          "global"
-        ],
-        "resourceType": "Locations"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [
-          "West US 2",
-          "Sweden Central",
-          "East US",
-          "West US 3",
-          "East US 2"
-        ],
-        "resourceType": "Locations/operationStatuses"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [],
-        "resourceType": "Operations"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": null,
-        "locations": [
-          "Central US EUAP"
-        ],
-        "resourceType": "instances"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": null,
-        "locations": [
-          "Central US EUAP"
-        ],
-        "resourceType": "instances/chambers"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": null,
-        "locations": [
-          "Central US EUAP"
-        ],
-        "resourceType": "instances/chambers/connectors"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": null,
-        "locations": [
-          "Central US EUAP"
-        ],
-        "resourceType": "instances/chambers/fileRequests"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": null,
-        "locations": [
-          "Central US EUAP"
-        ],
-        "resourceType": "instances/chambers/files"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": null,
-        "locations": [
-          "Central US EUAP"
-        ],
-        "resourceType": "instances/chambers/workloads"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [
-          "West US 2",
-          "Sweden Central",
-          "East US",
-          "West US 3"
-        ],
-        "resourceType": "workbenches"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [
-          "West US 2",
-          "Sweden Central",
-          "East US",
-          "West US 3"
-        ],
-        "resourceType": "workbenches/chambers"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [
-          "West US 2",
-          "Sweden Central",
-          "East US",
-          "West US 3"
-        ],
-        "resourceType": "workbenches/chambers/connectors"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [
-          "West US 2",
-          "Sweden Central",
-          "East US",
-          "West US 3"
-        ],
-        "resourceType": "workbenches/chambers/fileRequests"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [
-          "West US 2",
-          "Sweden Central",
-          "East US",
-          "West US 3"
-        ],
-        "resourceType": "workbenches/chambers/files"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [
-          "West US 2",
-          "Sweden Central",
-          "East US",
-          "West US 3"
-        ],
-        "resourceType": "workbenches/chambers/storages"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [
-          "West US 2",
-          "Sweden Central",
-          "East US",
-          "West US 3"
-        ],
-        "resourceType": "workbenches/chambers/workloads"
-      },
-      {
-        "apiVersions": [
-          "2021-03-01-preview"
-        ],
-        "defaultApiVersion": "2021-03-01-preview",
-        "locations": [
-          "West US 2",
-          "Sweden Central",
-          "East US",
-          "West US 3"
-        ],
-        "resourceType": "workbenches/sharedStorages"
       }
     ]
   },
@@ -103664,6 +103451,7 @@
       },
       {
         "apiVersions": [
+          "2024-12-18-preview",
           "2023-06-01-preview",
           "2023-02-01",
           "2021-03-15-preview"
@@ -103674,6 +103462,7 @@
       },
       {
         "apiVersions": [
+          "2024-12-18-preview",
           "2023-06-01-preview",
           "2023-02-01",
           "2021-03-15-preview"
@@ -103684,6 +103473,7 @@
       },
       {
         "apiVersions": [
+          "2024-12-18-preview",
           "2023-06-01-preview",
           "2023-02-01",
           "2021-03-15-preview"
@@ -103694,6 +103484,7 @@
       },
       {
         "apiVersions": [
+          "2024-12-18-preview",
           "2023-06-01-preview",
           "2023-02-01",
           "2021-03-15-preview"
@@ -103704,6 +103495,7 @@
       },
       {
         "apiVersions": [
+          "2024-12-18-preview",
           "2023-06-01-preview",
           "2023-02-01",
           "2021-03-15-preview"
@@ -150439,15 +150231,53 @@
         "defaultApiVersion": "2021-10-01",
         "locations": [
           "Australia Central",
+          "Australia Central 2",
+          "Australia East",
+          "Australia Southeast",
+          "Brazil South",
+          "Brazil Southeast",
+          "Canada Central",
+          "Canada East",
+          "Central India",
+          "Central US",
           "East Asia",
           "East US",
           "East US 2",
+          "France Central",
+          "France South",
+          "Germany North",
+          "Germany West Central",
+          "Israel Central",
+          "Italy North",
+          "Japan East",
+          "Japan West",
+          "Korea Central",
+          "Korea South",
+          "Mexico Central",
           "North Central US",
           "North Europe",
+          "Norway East",
+          "Norway West",
+          "Poland Central",
+          "Qatar Central",
+          "South Africa North",
+          "South Africa West",
           "South Central US",
+          "South India",
           "Southeast Asia",
+          "Spain Central",
+          "Sweden Central",
+          "Switzerland North",
+          "Switzerland West",
+          "UAE Central",
+          "UAE North",
+          "UK West",
+          "UK South",
+          "West Central US",
+          "West Europe",
           "West US",
           "West US 2",
+          "West US 3",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
@@ -150460,15 +150290,53 @@
         "defaultApiVersion": "2021-10-01",
         "locations": [
           "Australia Central",
+          "Australia Central 2",
+          "Australia East",
+          "Australia Southeast",
+          "Brazil South",
+          "Brazil Southeast",
+          "Canada Central",
+          "Canada East",
+          "Central India",
+          "Central US",
           "East Asia",
           "East US",
           "East US 2",
+          "France Central",
+          "France South",
+          "Germany North",
+          "Germany West Central",
+          "Israel Central",
+          "Italy North",
+          "Japan East",
+          "Japan West",
+          "Korea Central",
+          "Korea South",
+          "Mexico Central",
           "North Central US",
           "North Europe",
+          "Norway East",
+          "Norway West",
+          "Poland Central",
+          "Qatar Central",
+          "South Africa North",
+          "South Africa West",
           "South Central US",
+          "South India",
           "Southeast Asia",
+          "Spain Central",
+          "Sweden Central",
+          "Switzerland North",
+          "Switzerland West",
+          "UAE Central",
+          "UAE North",
+          "UK West",
+          "UK South",
+          "West Central US",
+          "West Europe",
           "West US",
           "West US 2",
+          "West US 3",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
@@ -153392,15 +153260,53 @@
         "defaultApiVersion": "2021-10-01",
         "locations": [
           "Australia Central",
+          "Australia Central 2",
+          "Australia East",
+          "Australia Southeast",
+          "Brazil South",
+          "Brazil Southeast",
+          "Canada Central",
+          "Canada East",
+          "Central India",
+          "Central US",
           "East Asia",
           "East US",
           "East US 2",
+          "France Central",
+          "France South",
+          "Germany North",
+          "Germany West Central",
+          "Israel Central",
+          "Italy North",
+          "Japan East",
+          "Japan West",
+          "Korea Central",
+          "Korea South",
+          "Mexico Central",
           "North Central US",
           "North Europe",
+          "Norway East",
+          "Norway West",
+          "Poland Central",
+          "Qatar Central",
+          "South Africa North",
+          "South Africa West",
           "South Central US",
+          "South India",
           "Southeast Asia",
+          "Spain Central",
+          "Sweden Central",
+          "Switzerland North",
+          "Switzerland West",
+          "UAE Central",
+          "UAE North",
+          "UK West",
+          "UK South",
+          "West Central US",
+          "West Europe",
           "West US",
           "West US 2",
+          "West US 3",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
@@ -153413,15 +153319,53 @@
         "defaultApiVersion": "2021-10-01",
         "locations": [
           "Australia Central",
+          "Australia Central 2",
+          "Australia East",
+          "Australia Southeast",
+          "Brazil South",
+          "Brazil Southeast",
+          "Canada Central",
+          "Canada East",
+          "Central India",
+          "Central US",
           "East Asia",
           "East US",
           "East US 2",
+          "France Central",
+          "France South",
+          "Germany North",
+          "Germany West Central",
+          "Israel Central",
+          "Italy North",
+          "Japan East",
+          "Japan West",
+          "Korea Central",
+          "Korea South",
+          "Mexico Central",
           "North Central US",
           "North Europe",
+          "Norway East",
+          "Norway West",
+          "Poland Central",
+          "Qatar Central",
+          "South Africa North",
+          "South Africa West",
           "South Central US",
+          "South India",
           "Southeast Asia",
+          "Spain Central",
+          "Sweden Central",
+          "Switzerland North",
+          "Switzerland West",
+          "UAE Central",
+          "UAE North",
+          "UK West",
+          "UK South",
+          "West Central US",
+          "West Europe",
           "West US",
           "West US 2",
+          "West US 3",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
