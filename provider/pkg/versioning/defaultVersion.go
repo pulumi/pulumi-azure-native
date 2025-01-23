@@ -330,6 +330,10 @@ func (b moduleSpecBuilder) filterCandidateVersions(versions VersionResources, pr
 	liveOrderedVersions := []openapi.ApiVersion{}
 	for _, version := range orderedVersions {
 		definitions := versions[version]
+		// Skip versions with no definitions
+		if len(definitions) == 0 {
+			continue
+		}
 		firstDefinition := definitions[util.SortedKeys(definitions)[0]]
 		if b.activeVersionChecker.HasProviderVersion(firstDefinition.RpNamespace, version) {
 			liveOrderedVersions = append(liveOrderedVersions, version)
