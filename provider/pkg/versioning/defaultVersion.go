@@ -116,8 +116,7 @@ func FindInactiveDefaultVersions(defaultVersions openapi.DefaultVersions, active
 	for moduleName, versions := range defaultVersions {
 		inactiveVersions := collections.NewOrderableSet[openapi.ApiVersion]()
 		for _, version := range versions {
-			// TODO: Use the original AZ namespace rather that our adjusted module name
-			if !activeVersions.HasProviderVersion(string(moduleName), version.ApiVersion) {
+			if !activeVersions.HasProviderVersion(version.RpNamespace, version.ApiVersion) {
 				inactiveVersions.Add(version.ApiVersion)
 			}
 		}
@@ -230,6 +229,7 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 			continue
 		}
 		for _, definitionName := range util.SortedKeys(definitions) {
+			definition := definitions[definitionName]
 			isExcluded, exclusionErr := moduleCuration.IsExcluded(definitionName, apiVersion)
 			if exclusionErr != nil {
 				exclusionErrors = append(exclusionErrors, ExclusionError{
@@ -245,8 +245,7 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 				additions[definitionName] = existingVersion
 				continue
 			}
-			// TODO: Use the original AZ namespace rather that our adjusted module name
-			if !b.activeVersionChecker.HasProviderVersion(string(b.moduleName), apiVersion) {
+			if !b.activeVersionChecker.HasProviderVersion(definition.RpNamespace, apiVersion) {
 				// Don't add if not marked as live
 				continue
 			}
@@ -332,8 +331,9 @@ func (b moduleSpecBuilder) filterCandidateVersions(versions VersionResources, pr
 	openapi.SortApiVersions(orderedVersions)
 	liveOrderedVersions := []openapi.ApiVersion{}
 	for _, version := range orderedVersions {
-		// TODO: Use the original AZ namespace rather that our adjusted module name
-		if b.activeVersionChecker.HasProviderVersion(string(b.moduleName), version) {
+		definitions := versions[version]
+		firstDefinition := definitions[util.SortedKeys(definitions)[0]]
+		if b.activeVersionChecker.HasProviderVersion(firstDefinition.RpNamespace, version) {
 			liveOrderedVersions = append(liveOrderedVersions, version)
 		}
 	}

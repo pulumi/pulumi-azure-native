@@ -68,7 +68,7 @@ func ReadProviderList(providerListPath string) (*ProviderList, error) {
 }
 
 type ActiveVersionChecker interface {
-	HasProviderVersion(providerName string, version openapi.ApiVersion) bool
+	HasProviderVersion(namespace string, version openapi.ApiVersion) bool
 }
 
 type providerListIndex struct {
@@ -76,9 +76,9 @@ type providerListIndex struct {
 	providerVersions              map[LoweredProviderName]ApiVersions
 }
 
-func (index *providerListIndex) HasProviderVersion(providerName string, version openapi.ApiVersion) bool {
-	providerName = strings.ToLower(providerName)
-	versions, ok := index.providerVersions[providerName]
+func (index *providerListIndex) HasProviderVersion(namespace string, version openapi.ApiVersion) bool {
+	namespace = strings.ToLower(namespace)
+	versions, ok := index.providerVersions[namespace]
 	if !ok {
 		return false
 	}
@@ -97,7 +97,6 @@ func (providers ProviderList) Index() *providerListIndex {
 		if !strings.HasPrefix(namespace, "microsoft.") {
 			continue
 		}
-		providerName := strings.TrimPrefix(namespace, "microsoft.")
 
 		pathVersions := map[ResourcePath]ApiVersions{}
 		allVersions := codegen.NewStringSet()
@@ -112,8 +111,8 @@ func (providers ProviderList) Index() *providerListIndex {
 		}
 
 		pathVersions[""] = allVersions
-		providerVersions[providerName] = allVersions
-		providerLiveVersions[providerName] = pathVersions
+		providerVersions[namespace] = allVersions
+		providerLiveVersions[namespace] = pathVersions
 	}
 
 	return &providerListIndex{

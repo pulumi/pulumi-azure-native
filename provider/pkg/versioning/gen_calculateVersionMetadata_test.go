@@ -23,8 +23,16 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		sources := VersionSources{
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01": {"Resource1": {}, "Resource2": {}},
-					"2020-01-01": {"Resource1": {}, "Resource2": {}},
+					"2019-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2020-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -43,8 +51,12 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		sources := VersionSources{
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01-preview": {"Resource1": {}},
-					"2020-01-01-preview": {"Resource1": {}},
+					"2019-01-01-preview": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2020-01-01-preview": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -63,8 +75,12 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		sources := VersionSources{
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01":         {"Resource1": {}},
-					"2020-02-01-preview": {"Resource1": {}},
+					"2019-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2020-02-01-preview": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -87,8 +103,12 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		sources := VersionSources{
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					olderStable:  {"Resource1": {}},
-					newerPreview: {"Resource1": {}},
+					olderStable: {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					newerPreview: {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -124,8 +144,16 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01": {"Resource1": {}, "Resource2": {}},
-					"2020-01-01": {"Resource1": {}, "Resource2": {}},
+					"2019-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2020-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -161,8 +189,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2020-01-01": {"Resource1": {}, "Resource2": {}},
-					"2021-01-01": {"Resource1": {}},
+					"2020-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2021-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -193,8 +227,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01": {"Resource1": {}, "Resource2": {}},
-					"2020-01-01": {"Resource1": {}},
+					"2019-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2020-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -220,8 +260,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01": {"Resource1": {}, "Resource2": {}},
-					"2020-01-01": {"Resource1": {}},
+					"2019-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2020-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -245,8 +291,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01": {"Resource1": {}, "Resource2": {}},
-					"2020-01-01": {"Resource1": {}},
+					"2019-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2020-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 			ProviderList: providerlist.ProviderList{
@@ -307,8 +359,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2020-01-01": {"Resource1": {}},
-					"2021-01-01": {"Resource1": {}, "Resource2": {}},
+					"2020-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2021-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -332,8 +390,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2020-01-01": {"Resource1": {}, "Resource2": {}},
-					"2021-01-01": {"Resource1": {}},
+					"2020-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2021-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -374,8 +438,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2020-01-01": {"Resource1": {}},
-					"2021-01-01": {"Resource1": {}, "Resource2": {}},
+					"2020-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2021-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
@@ -412,8 +482,14 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2020-01-01": {"Resource1": {}},
-					"2021-01-01": {"Resource1": {}, "Resource2": {}},
+					"2020-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}},
+					"2021-01-01": {"Resource1": {
+						RpNamespace: "Microsoft.Module",
+					}, "Resource2": {
+						RpNamespace: "Microsoft.Module",
+					}},
 				},
 			},
 		}
