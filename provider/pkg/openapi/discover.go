@@ -191,12 +191,22 @@ func NewVersionResources() VersionResources {
 
 type ModuleVersionList = map[ModuleName][]ApiVersion
 
+// Can only by "Resource" or "Invoke"
+type DefinitionType string
+
+const (
+	DefinitionTypeResource DefinitionType = "Resource"
+	DefinitionTypeInvoke   DefinitionType = "Invoke"
+)
+
 // A definition version is a resource or invoke version and its source information.
 type DefinitionVersion struct {
-	ApiVersion   ApiVersion `yaml:"ApiVersion,omitempty"`
-	SpecFilePath string     `yaml:"SpecFilePath,omitempty"`
-	ResourceUri  string     `yaml:"ResourceUri,omitempty"`
-	RpNamespace  string     `yaml:"RpNamespace,omitempty"`
+	Type         DefinitionType `yaml:"Type,omitempty"`
+	Name         DefinitionName `yaml:"Name,omitempty"`
+	ApiVersion   ApiVersion     `yaml:"ApiVersion,omitempty"`
+	SpecFilePath string         `yaml:"SpecFilePath,omitempty"`
+	ResourceUri  string         `yaml:"ResourceUri,omitempty"`
+	RpNamespace  string         `yaml:"RpNamespace,omitempty"`
 }
 
 // DefaultVersions is an amalgamation of multiple API versions, generated from a specification.
@@ -424,6 +434,7 @@ func IsPrivate(apiVersion string) bool {
 
 // Attempt to convert both versions to dates and compare them.
 // Fall back to string comparison if either version is not a date.
+// The result will be 0 if a == b, -1 if a < b, and +1 if a > b.
 func CompareApiVersions(a, b ApiVersion) int {
 	timeA, err := ApiVersionToDate(a)
 	if err != nil {

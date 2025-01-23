@@ -23,8 +23,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		sources := VersionSources{
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01": {"Resource1", "Resource2"},
-					"2020-01-01": {"Resource1", "Resource2"},
+					"2019-01-01": {"Resource1": {}, "Resource2": {}},
+					"2020-01-01": {"Resource1": {}, "Resource2": {}},
 				},
 			},
 		}
@@ -43,8 +43,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		sources := VersionSources{
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01-preview": {"Resource1"},
-					"2020-01-01-preview": {"Resource1"},
+					"2019-01-01-preview": {"Resource1": {}},
+					"2020-01-01-preview": {"Resource1": {}},
 				},
 			},
 		}
@@ -63,8 +63,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		sources := VersionSources{
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01":         {"Resource1"},
-					"2020-02-01-preview": {"Resource1"},
+					"2019-01-01":         {"Resource1": {}},
+					"2020-02-01-preview": {"Resource1": {}},
 				},
 			},
 		}
@@ -87,8 +87,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 		sources := VersionSources{
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					olderStable:  {"Resource1"},
-					newerPreview: {"Resource1"},
+					olderStable:  {"Resource1": {}},
+					newerPreview: {"Resource1": {}},
 				},
 			},
 		}
@@ -124,8 +124,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01": {"Resource1", "Resource2"},
-					"2020-01-01": {"Resource1", "Resource2"},
+					"2019-01-01": {"Resource1": {}, "Resource2": {}},
+					"2020-01-01": {"Resource1": {}, "Resource2": {}},
 				},
 			},
 		}
@@ -161,8 +161,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2020-01-01": {"Resource1", "Resource2"},
-					"2021-01-01": {"Resource1"},
+					"2020-01-01": {"Resource1": {}, "Resource2": {}},
+					"2021-01-01": {"Resource1": {}},
 				},
 			},
 		}
@@ -193,8 +193,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01": {"Resource1", "Resource2"},
-					"2020-01-01": {"Resource1"},
+					"2019-01-01": {"Resource1": {}, "Resource2": {}},
+					"2020-01-01": {"Resource1": {}},
 				},
 			},
 		}
@@ -220,8 +220,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01": {"Resource1", "Resource2"},
-					"2020-01-01": {"Resource1"},
+					"2019-01-01": {"Resource1": {}, "Resource2": {}},
+					"2020-01-01": {"Resource1": {}},
 				},
 			},
 		}
@@ -245,8 +245,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2019-01-01": {"Resource1", "Resource2"},
-					"2020-01-01": {"Resource1"},
+					"2019-01-01": {"Resource1": {}, "Resource2": {}},
+					"2020-01-01": {"Resource1": {}},
 				},
 			},
 			ProviderList: providerlist.ProviderList{
@@ -307,8 +307,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2020-01-01": {"Resource1"},
-					"2021-01-01": {"Resource1", "Resource2"},
+					"2020-01-01": {"Resource1": {}},
+					"2021-01-01": {"Resource1": {}, "Resource2": {}},
 				},
 			},
 		}
@@ -332,8 +332,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2020-01-01": {"Resource1", "Resource2"},
-					"2021-01-01": {"Resource1"},
+					"2020-01-01": {"Resource1": {}, "Resource2": {}},
+					"2021-01-01": {"Resource1": {}},
 				},
 			},
 		}
@@ -374,8 +374,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2020-01-01": {"Resource1"},
-					"2021-01-01": {"Resource1", "Resource2"},
+					"2020-01-01": {"Resource1": {}},
+					"2021-01-01": {"Resource1": {}, "Resource2": {}},
 				},
 			},
 		}
@@ -412,8 +412,8 @@ func TestCalculateVersionMetadata(t *testing.T) {
 			},
 			AllResourcesByVersion: ModuleVersionResources{
 				"Module": {
-					"2020-01-01": {"Resource1"},
-					"2021-01-01": {"Resource1", "Resource2"},
+					"2020-01-01": {"Resource1": {}},
+					"2021-01-01": {"Resource1": {}, "Resource2": {}},
 				},
 			},
 		}

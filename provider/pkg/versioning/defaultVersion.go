@@ -150,16 +150,30 @@ func DefaultVersionsFromConfig(spec ModuleVersionResources, defaultConfig Spec) 
 		}
 
 		if moduleConfig.Tracking != nil {
-			for _, resourceName := range versionResources[*moduleConfig.Tracking] {
-				definitions[resourceName] = openapi.DefinitionVersion{ApiVersion: *moduleConfig.Tracking}
+			trackingDefinitions := versionResources[*moduleConfig.Tracking]
+			for _, definitionName := range util.SortedKeys(trackingDefinitions) {
+				definition := trackingDefinitions[definitionName]
+				definitions[definitionName] = openapi.DefinitionVersion{
+					ApiVersion:   definition.ApiVersion,
+					SpecFilePath: definition.SpecFilePath,
+					ResourceUri:  definition.ResourceUri,
+					RpNamespace:  definition.RpNamespace,
+				}
 			}
 		}
 		if moduleConfig.Additions != nil {
-			for resourceName, apiVersion := range *moduleConfig.Additions {
-				if existingVersion, ok := definitions[resourceName]; ok {
-					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", moduleName, resourceName, apiVersion, existingVersion))
+			for definitionName, apiVersion := range *moduleConfig.Additions {
+				if existingVersion, ok := definitions[definitionName]; ok {
+					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", moduleName, definitionName, apiVersion, existingVersion))
 				} else {
-					definitions[resourceName] = openapi.DefinitionVersion{ApiVersion: apiVersion}
+					versionDefinitions := versionResources[apiVersion]
+					versionDefinition := versionDefinitions[definitionName]
+					definitions[definitionName] = openapi.DefinitionVersion{
+						ApiVersion:   apiVersion,
+						SpecFilePath: versionDefinition.SpecFilePath,
+						ResourceUri:  versionDefinition.ResourceUri,
+						RpNamespace:  versionDefinition.RpNamespace,
+					}
 				}
 			}
 		}
@@ -189,7 +203,7 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 	var trackingResources codegen.StringSet
 	if existing.Tracking != nil {
 		trackingPtr = existing.Tracking
-		trackingResources = codegen.NewStringSet(versions[*trackingPtr]...)
+		trackingResources = codegen.NewStringSet(util.SortedKeys(versions[*trackingPtr])...)
 	} else if !moduleCuration.Explicit {
 		// Take the latest version as the new tracking version
 		maxVersion := maxKey(latestVersions)
@@ -211,24 +225,24 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 	// Loop through every version in order, skipping excluded and private versions
 	// and overwriting additions from previous versions.
 	for _, apiVersion := range sortedVersions {
-		resources := versions[apiVersion]
+		definitions := versions[apiVersion]
 		if !moduleCuration.Explicit && (trackingPtr == nil || apiVersion == *trackingPtr) {
 			continue
 		}
-		for _, resourceName := range resources {
-			isExcluded, exclusionErr := moduleCuration.IsExcluded(resourceName, apiVersion)
+		for _, definitionName := range util.SortedKeys(definitions) {
+			isExcluded, exclusionErr := moduleCuration.IsExcluded(definitionName, apiVersion)
 			if exclusionErr != nil {
 				exclusionErrors = append(exclusionErrors, ExclusionError{
 					ModuleName:   b.moduleName,
-					ResourceName: resourceName,
+					ResourceName: definitionName,
 					Detail:       exclusionErr.Error(),
 				})
 			}
 			if isExcluded || openapi.IsPrivate(string(apiVersion)) {
 				continue
 			}
-			if existingVersion, ok := existingAdditions[resourceName]; ok {
-				additions[resourceName] = existingVersion
+			if existingVersion, ok := existingAdditions[definitionName]; ok {
+				additions[definitionName] = existingVersion
 				continue
 			}
 			// TODO: Use the original AZ namespace rather that our adjusted module name
@@ -236,8 +250,8 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 				// Don't add if not marked as live
 				continue
 			}
-			if !trackingResources.Has(resourceName) {
-				additions[resourceName] = apiVersion
+			if !trackingResources.Has(definitionName) {
+				additions[definitionName] = apiVersion
 			}
 		}
 	}
@@ -282,11 +296,11 @@ func (b moduleSpecBuilder) findLatestResourceVersions(versions VersionResources,
 	latestResourceVersions := map[openapi.ResourceName]openapi.ApiVersion{}
 	for i := len(orderedVersions) - 1; i >= 0; i-- {
 		version := orderedVersions[i]
-		resources := minimalVersions[version]
-		for _, resourceName := range resources {
+		definitions := minimalVersions[version]
+		for _, definitionName := range util.SortedKeys(definitions) {
 			// Only add if not already exists
-			if _, ok := latestResourceVersions[resourceName]; !ok {
-				latestResourceVersions[resourceName] = version
+			if _, ok := latestResourceVersions[definitionName]; !ok {
+				latestResourceVersions[definitionName] = version
 			}
 		}
 	}
@@ -397,19 +411,17 @@ func (b moduleSpecBuilder) containsRecentStable(orderedVersions []openapi.ApiVer
 
 // findMinimalVersionSet returns the minimum set of versions required to produce all resources
 func findMinimalVersionSet(versions VersionResources) []openapi.ApiVersion {
-	orderedVersions := make([]openapi.ApiVersion, 0, len(versions))
-	for version := range versions {
-		orderedVersions = append(orderedVersions, version)
-	}
-	slices.Sort(orderedVersions)
+	// TODO: Consider using openapi.SortApiVersions
+	orderedVersions := util.SortedKeys(versions)
 
 	latestResourceVersions := map[openapi.ResourceName]openapi.ApiVersion{}
 	for _, version := range orderedVersions {
-		resourceNames := versions[version]
-		for _, resourceName := range resourceNames {
-			latestVersion := latestResourceVersions[resourceName]
+		definitions := versions[version]
+		for _, definitionName := range util.SortedKeys(definitions) {
+			latestVersion := latestResourceVersions[definitionName]
+			// TODO: Consider using openapi.CompareApiVersions
 			if version > latestVersion {
-				latestResourceVersions[resourceName] = version
+				latestResourceVersions[definitionName] = version
 			}
 		}
 	}

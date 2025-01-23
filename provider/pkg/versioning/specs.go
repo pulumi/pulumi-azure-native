@@ -2,12 +2,12 @@ package versioning
 
 import (
 	"slices"
-	"sort"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 )
 
-type VersionResources = map[openapi.ApiVersion][]openapi.ResourceName
+type VersionResources = map[openapi.ApiVersion]map[openapi.DefinitionName]openapi.DefinitionVersion
 
 // Module->version->[]resource
 type ModuleVersionResources = map[openapi.ModuleName]VersionResources
@@ -16,16 +16,27 @@ func FindAllResources(moduleVersions openapi.AzureModules) ModuleVersionResource
 	formatted := ModuleVersionResources{}
 	for moduleName, versions := range moduleVersions {
 		versionResources := VersionResources{}
-		for _, resources := range versions {
-			version := openapi.ApiVersion("")
-			allResources := resources.All()
-			specResources := make([]string, 0, len(allResources))
-			for resourceName, spec := range allResources {
-				specResources = append(specResources, resourceName)
-				version = openapi.ApiVersion(spec.Swagger.Info.Version)
+		for version, resources := range versions {
+			specResources := map[openapi.DefinitionName]openapi.DefinitionVersion{}
+			definitions := resources.All()
+			for _, definitionName := range util.SortedKeys(definitions) {
+				spec := definitions[definitionName]
+				definitionType := openapi.DefinitionTypeResource
+				if _, isInvoke := resources.Invokes[definitionName]; isInvoke {
+					definitionType = openapi.DefinitionTypeInvoke
+				}
+				specResources[definitionName] = openapi.DefinitionVersion{
+					Type:         definitionType,
+					Name:         definitionName,
+					ApiVersion:   spec.ApiVersion,
+					SpecFilePath: spec.FileLocation,
+					ResourceUri:  spec.Path,
+					RpNamespace:  spec.ModuleNaming.RpNamespace,
+				}
 			}
-			sort.Strings(specResources)
-			versionResources[version] = specResources
+			if len(specResources) > 0 {
+				versionResources[version] = specResources
+			}
 		}
 		formatted[moduleName] = versionResources
 	}
@@ -42,8 +53,8 @@ func FormatResourceVersions(moduleVersions ModuleVersionResources) ModuleResourc
 		resourceVersions := ResourceVersions{}
 
 		for version, resources := range versions {
-			for _, resourceName := range resources {
-				resourceVersions[resourceName] = append(resourceVersions[resourceName], version)
+			for _, definitionName := range util.SortedKeys(resources) {
+				resourceVersions[definitionName] = append(resourceVersions[definitionName], version)
 			}
 		}
 		for _, apiVersions := range resourceVersions {

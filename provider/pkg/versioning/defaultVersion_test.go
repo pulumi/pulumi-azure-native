@@ -11,18 +11,18 @@ import (
 
 func TestFindMinimalVersionSet(t *testing.T) {
 	t.Run("empty", func(t *testing.T) {
-		actual := findMinimalVersionSet(map[openapi.ApiVersion][]openapi.ResourceName{})
+		actual := findMinimalVersionSet(VersionResources{})
 		expected := []openapi.ApiVersion{}
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("latest superset", func(t *testing.T) {
-		actual := findMinimalVersionSet(map[openapi.ApiVersion][]openapi.ResourceName{
+		actual := findMinimalVersionSet(VersionResources{
 			"2020-01-01": {
-				"Resource A",
+				"Resource A": {},
 			},
 			"2021-02-02": {
-				"Resource A",
-				"Resource B",
+				"Resource A": {},
+				"Resource B": {},
 			},
 		})
 		expected := []openapi.ApiVersion{
@@ -31,13 +31,13 @@ func TestFindMinimalVersionSet(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("rollup", func(t *testing.T) {
-		actual := findMinimalVersionSet(map[openapi.ApiVersion][]openapi.ResourceName{
+		actual := findMinimalVersionSet(VersionResources{
 			"2020-01-01": {
-				"Resource A",
-				"Resource B",
+				"Resource A": {},
+				"Resource B": {},
 			},
 			"2021-02-02": {
-				"Resource A",
+				"Resource A": {},
 			},
 		})
 		expected := []openapi.ApiVersion{
@@ -53,7 +53,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 		activeVersionChecker: providerlist.ProviderList{}.Index(),
 	}
 	t.Run("empty spec", func(t *testing.T) {
-		actual := emptyBuilder.filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{}, "")
+		actual := emptyBuilder.filterCandidateVersions(VersionResources{}, "")
 		expected := []openapi.ApiVersion{}
 		assert.Equal(t, expected, actual)
 	})
@@ -61,7 +61,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 		twoMonthsAgo := openapi.ApiVersion(time.Now().Add(-time.Hour * 24 * 30).Format("2006-01-02"))
 		oneMonthAgo := openapi.ApiVersion(time.Now().Add(-time.Hour * 24 * 30).Format("2006-01-02"))
 		recentPreview := oneMonthAgo + "-preview"
-		actual := emptyBuilder.filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
+		actual := emptyBuilder.filterCandidateVersions(VersionResources{
 			twoMonthsAgo:  {},
 			recentPreview: {},
 		}, "")
@@ -69,7 +69,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("skips preview which is now stable", func(t *testing.T) {
-		actual := emptyBuilder.filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
+		actual := emptyBuilder.filterCandidateVersions(VersionResources{
 			"2020-01-01":         {},
 			"2020-01-01-preview": {},
 			"2022-02-02":         {},
@@ -78,7 +78,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("skips multiple previews recently after a stable", func(t *testing.T) {
-		actual := emptyBuilder.filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
+		actual := emptyBuilder.filterCandidateVersions(VersionResources{
 			"2020-01-01":         {},
 			"2020-01-01-preview": {},
 			"2020-06-01-preview": {},
@@ -88,14 +88,14 @@ func TestFilterCandidateVersions(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("single preview", func(t *testing.T) {
-		actual := emptyBuilder.filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
+		actual := emptyBuilder.filterCandidateVersions(VersionResources{
 			"2020-01-01-preview": {},
 		}, "")
 		expected := []openapi.ApiVersion{"2020-01-01-preview"}
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("only previews", func(t *testing.T) {
-		actual := emptyBuilder.filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
+		actual := emptyBuilder.filterCandidateVersions(VersionResources{
 			"2020-01-01-preview": {},
 			"2021-01-01-preview": {},
 		}, "")
@@ -103,7 +103,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("remove private previews", func(t *testing.T) {
-		actual := emptyBuilder.filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
+		actual := emptyBuilder.filterCandidateVersions(VersionResources{
 			"2015-01-14-preview":        {},
 			"2015-01-14-privatepreview": {},
 		}, "")
