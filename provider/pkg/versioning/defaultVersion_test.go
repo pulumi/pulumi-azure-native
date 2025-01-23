@@ -4,6 +4,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
 	"github.com/stretchr/testify/assert"
@@ -12,7 +13,7 @@ import (
 func TestFindMinimalVersionSet(t *testing.T) {
 	t.Run("empty", func(t *testing.T) {
 		actual := findMinimalVersionSet(VersionResources{})
-		expected := []openapi.ApiVersion{}
+		expected := collections.NewOrderableSet[openapi.ApiVersion]()
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("latest superset", func(t *testing.T) {
@@ -25,9 +26,9 @@ func TestFindMinimalVersionSet(t *testing.T) {
 				"Resource B": {},
 			},
 		})
-		expected := []openapi.ApiVersion{
+		expected := collections.NewOrderableSet[openapi.ApiVersion](
 			"2021-02-02",
-		}
+		)
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("rollup", func(t *testing.T) {
@@ -40,9 +41,9 @@ func TestFindMinimalVersionSet(t *testing.T) {
 				"Resource A": {},
 			},
 		})
-		expected := []openapi.ApiVersion{
+		expected := collections.NewOrderableSet[openapi.ApiVersion](
 			"2020-01-01", "2021-02-02",
-		}
+		)
 		assert.Equal(t, expected, actual)
 	})
 }
@@ -59,7 +60,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 	}
 	t.Run("empty spec", func(t *testing.T) {
 		actual := emptyBuilder.filterCandidateVersions(VersionResources{}, "")
-		expected := []openapi.ApiVersion{}
+		expected := collections.NewOrderableSet[openapi.ApiVersion]()
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("skips recent preview after recent stable", func(t *testing.T) {
@@ -70,7 +71,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 			twoMonthsAgo:  someResources,
 			recentPreview: someResources,
 		}, "")
-		expected := []openapi.ApiVersion{twoMonthsAgo}
+		expected := collections.NewOrderableSet(twoMonthsAgo)
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("skips preview which is now stable", func(t *testing.T) {
@@ -79,7 +80,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 			"2020-01-01-preview": someResources,
 			"2022-02-02":         someResources,
 		}, "")
-		expected := []openapi.ApiVersion{"2020-01-01", "2022-02-02"}
+		expected := collections.NewOrderableSet[openapi.ApiVersion]("2020-01-01", "2022-02-02")
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("skips multiple previews recently after a stable", func(t *testing.T) {
@@ -89,14 +90,14 @@ func TestFilterCandidateVersions(t *testing.T) {
 			"2020-06-01-preview": someResources,
 			"2022-02-02":         someResources,
 		}, "")
-		expected := []openapi.ApiVersion{"2020-01-01", "2022-02-02"}
+		expected := collections.NewOrderableSet[openapi.ApiVersion]("2020-01-01", "2022-02-02")
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("single preview", func(t *testing.T) {
 		actual := emptyBuilder.filterCandidateVersions(VersionResources{
 			"2020-01-01-preview": someResources,
 		}, "")
-		expected := []openapi.ApiVersion{"2020-01-01-preview"}
+		expected := collections.NewOrderableSet[openapi.ApiVersion]("2020-01-01-preview")
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("only previews", func(t *testing.T) {
@@ -104,7 +105,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 			"2020-01-01-preview": someResources,
 			"2021-01-01-preview": someResources,
 		}, "")
-		expected := []openapi.ApiVersion{"2020-01-01-preview", "2021-01-01-preview"}
+		expected := collections.NewOrderableSet[openapi.ApiVersion]("2020-01-01-preview", "2021-01-01-preview")
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("remove private previews", func(t *testing.T) {
@@ -112,7 +113,7 @@ func TestFilterCandidateVersions(t *testing.T) {
 			"2015-01-14-preview":        someResources,
 			"2015-01-14-privatepreview": someResources,
 		}, "")
-		expected := []openapi.ApiVersion{"2015-01-14-preview"}
+		expected := collections.NewOrderableSet[openapi.ApiVersion]("2015-01-14-preview")
 		assert.Equal(t, expected, actual)
 	})
 }

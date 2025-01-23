@@ -31,6 +31,14 @@ func GetInnerMap(m map[string]any, keys ...string) (map[string]any, bool) {
 	return nil, false
 }
 
+func UnsortedKeys[K comparable, V any](m map[K]V) []K {
+	keys := slice.Prealloc[K](len(m))
+	for key := range m {
+		keys = append(keys, key)
+	}
+	return keys
+}
+
 func SortedKeys[K cmp.Ordered, V any](m map[K]V) []K {
 	keys := slice.Prealloc[K](len(m))
 	for key := range m {

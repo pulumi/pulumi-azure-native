@@ -305,12 +305,11 @@ func (b moduleSpecBuilder) findLatestResourceVersions(versions VersionResources,
 	return latestResourceVersions
 }
 
-func filterVersionResources(versions VersionResources, filter []openapi.ApiVersion) VersionResources {
+func filterVersionResources(versions VersionResources, filter *collections.OrderableSet[openapi.ApiVersion]) VersionResources {
 	filtered := VersionResources{}
-	filterMap := collections.NewOrderableSet(filter...)
 
 	for apiVersion, resourceNames := range versions {
-		if filterMap.Has(apiVersion) {
+		if filter.Has(apiVersion) {
 			filtered[apiVersion] = resourceNames
 		}
 	}
@@ -319,7 +318,7 @@ func filterVersionResources(versions VersionResources, filter []openapi.ApiVersi
 
 // filterCandidateVersions returns a sorted list of versions which are the best upgrade options,
 // removing versions which have now been superseded by a newer or more stable version.
-func (b moduleSpecBuilder) filterCandidateVersions(versions VersionResources, previewPolicy string) []openapi.ApiVersion {
+func (b moduleSpecBuilder) filterCandidateVersions(versions VersionResources, previewPolicy string) *collections.OrderableSet[openapi.ApiVersion] {
 	orderedVersions := make([]openapi.ApiVersion, 0, len(versions))
 	for _, version := range keys(versions) {
 		if version != "" { // Ignore default version placeholders
@@ -379,7 +378,7 @@ func (b moduleSpecBuilder) filterCandidateVersions(versions VersionResources, pr
 		}
 	}
 
-	return candidateVersions.SortedValues()
+	return candidateVersions
 }
 
 func isMoreThanOneYearOld(version openapi.ApiVersion) (bool, error) {
@@ -412,17 +411,16 @@ func (b moduleSpecBuilder) containsRecentStable(orderedVersions []openapi.ApiVer
 }
 
 // findMinimalVersionSet returns the minimum set of versions required to produce all resources
-func findMinimalVersionSet(versions VersionResources) []openapi.ApiVersion {
-	// TODO: Consider using openapi.SortApiVersions
-	orderedVersions := util.SortedKeys(versions)
+func findMinimalVersionSet(versions VersionResources) *collections.OrderableSet[openapi.ApiVersion] {
+	orderedVersions := util.UnsortedKeys(versions)
+	openapi.SortApiVersions(orderedVersions)
 
 	latestResourceVersions := map[openapi.ResourceName]openapi.ApiVersion{}
 	for _, version := range orderedVersions {
 		definitions := versions[version]
 		for _, definitionName := range util.SortedKeys(definitions) {
 			latestVersion := latestResourceVersions[definitionName]
-			// TODO: Consider using openapi.CompareApiVersions
-			if version > latestVersion {
+			if openapi.CompareApiVersions(version, latestVersion) > 0 {
 				latestResourceVersions[definitionName] = version
 			}
 		}
@@ -433,8 +431,7 @@ func findMinimalVersionSet(versions VersionResources) []openapi.ApiVersion {
 		minimalVersions.Add(apiVersion)
 	}
 
-	result := minimalVersions.SortedValues()
-	return result
+	return minimalVersions
 }
 
 func timeBetweenVersions(from, to openapi.ApiVersion) (diff time.Duration, err error) {
