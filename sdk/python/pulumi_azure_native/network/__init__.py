@@ -27,6 +27,7 @@ from .dns_resolver_domain_list import *
 from .dns_resolver_policy import *
 from .dns_resolver_policy_virtual_network_link import *
 from .dns_security_rule import *
+from .dnssec_config import *
 from .dscp_configuration import *
 from .endpoint import *
 from .experiment import *
@@ -72,6 +73,7 @@ from .get_dns_resolver_policy import *
 from .get_dns_resolver_policy_virtual_network_link import *
 from .get_dns_resource_reference_by_tar_resources import *
 from .get_dns_security_rule import *
+from .get_dnssec_config import *
 from .get_dscp_configuration import *
 from .get_endpoint import *
 from .get_experiment import *
@@ -117,6 +119,7 @@ from .get_network_profile import *
 from .get_network_security_group import *
 from .get_network_security_perimeter import *
 from .get_network_virtual_appliance import *
+from .get_network_virtual_appliance_connection import *
 from .get_network_watcher import *
 from .get_nsp_access_rule import *
 from .get_nsp_association import *
@@ -242,6 +245,7 @@ from .network_profile import *
 from .network_security_group import *
 from .network_security_perimeter import *
 from .network_virtual_appliance import *
+from .network_virtual_appliance_connection import *
 from .network_watcher import *
 from .nsp_access_rule import *
 from .nsp_association import *

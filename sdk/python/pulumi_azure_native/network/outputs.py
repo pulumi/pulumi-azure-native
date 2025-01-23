@@ -132,6 +132,7 @@ __all__ = [
     'DdosSettingsResponse',
     'DelegationPropertiesResponse',
     'DelegationResponse',
+    'DelegationSignerInfoResponse',
     'DevicePropertiesResponse',
     'DhcpOptionsResponse',
     'DnsConfigResponse',
@@ -340,6 +341,7 @@ __all__ = [
     'ServiceEndpointPolicyResponse',
     'ServiceEndpointPropertiesFormatResponse',
     'SharedKeyPropertiesResponse',
+    'SigningKeyResponse',
     'SingleQueryResultResponse',
     'SkuResponse',
     'SoaRecordResponse',
@@ -12319,6 +12321,69 @@ class DelegationResponse(dict):
         Resource type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DelegationSignerInfoResponse(dict):
+    """
+    The delegation signer information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "digestAlgorithmType":
+            suggest = "digest_algorithm_type"
+        elif key == "digestValue":
+            suggest = "digest_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DelegationSignerInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DelegationSignerInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DelegationSignerInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 digest_algorithm_type: int,
+                 digest_value: str,
+                 record: str):
+        """
+        The delegation signer information.
+        :param int digest_algorithm_type: The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
+        :param str digest_value: The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
+        :param str record: The record represents a delegation signer (DS) record.
+        """
+        pulumi.set(__self__, "digest_algorithm_type", digest_algorithm_type)
+        pulumi.set(__self__, "digest_value", digest_value)
+        pulumi.set(__self__, "record", record)
+
+    @property
+    @pulumi.getter(name="digestAlgorithmType")
+    def digest_algorithm_type(self) -> int:
+        """
+        The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
+        """
+        return pulumi.get(self, "digest_algorithm_type")
+
+    @property
+    @pulumi.getter(name="digestValue")
+    def digest_value(self) -> str:
+        """
+        The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
+        """
+        return pulumi.get(self, "digest_value")
+
+    @property
+    @pulumi.getter
+    def record(self) -> str:
+        """
+        The record represents a delegation signer (DS) record.
+        """
+        return pulumi.get(self, "record")
 
 
 @pulumi.output_type
@@ -31232,6 +31297,106 @@ class SharedKeyPropertiesResponse(dict):
         The length of the shared key for the vpn link connection.
         """
         return pulumi.get(self, "shared_key_length")
+
+
+@pulumi.output_type
+class SigningKeyResponse(dict):
+    """
+    Represents the signing key.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "delegationSignerInfo":
+            suggest = "delegation_signer_info"
+        elif key == "keyTag":
+            suggest = "key_tag"
+        elif key == "publicKey":
+            suggest = "public_key"
+        elif key == "securityAlgorithmType":
+            suggest = "security_algorithm_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SigningKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SigningKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SigningKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delegation_signer_info: Sequence['outputs.DelegationSignerInfoResponse'],
+                 flags: int,
+                 key_tag: int,
+                 protocol: int,
+                 public_key: str,
+                 security_algorithm_type: int):
+        """
+        Represents the signing key.
+        :param Sequence['DelegationSignerInfoResponse'] delegation_signer_info: The delegation signer information.
+        :param int flags: The flags specifies how the key is used.
+        :param int key_tag: The key tag value of the DNSKEY Resource Record.
+        :param int protocol: The protocol value. The value is always 3.
+        :param str public_key: The public key, represented as a Base64 encoding.
+        :param int security_algorithm_type: The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
+        """
+        pulumi.set(__self__, "delegation_signer_info", delegation_signer_info)
+        pulumi.set(__self__, "flags", flags)
+        pulumi.set(__self__, "key_tag", key_tag)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "public_key", public_key)
+        pulumi.set(__self__, "security_algorithm_type", security_algorithm_type)
+
+    @property
+    @pulumi.getter(name="delegationSignerInfo")
+    def delegation_signer_info(self) -> Sequence['outputs.DelegationSignerInfoResponse']:
+        """
+        The delegation signer information.
+        """
+        return pulumi.get(self, "delegation_signer_info")
+
+    @property
+    @pulumi.getter
+    def flags(self) -> int:
+        """
+        The flags specifies how the key is used.
+        """
+        return pulumi.get(self, "flags")
+
+    @property
+    @pulumi.getter(name="keyTag")
+    def key_tag(self) -> int:
+        """
+        The key tag value of the DNSKEY Resource Record.
+        """
+        return pulumi.get(self, "key_tag")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> int:
+        """
+        The protocol value. The value is always 3.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> str:
+        """
+        The public key, represented as a Base64 encoding.
+        """
+        return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter(name="securityAlgorithmType")
+    def security_algorithm_type(self) -> int:
+        """
+        The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
+        """
+        return pulumi.get(self, "security_algorithm_type")
 
 
 @pulumi.output_type

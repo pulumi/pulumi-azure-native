@@ -1365,7 +1365,7 @@ Network:
         DnsResolverPolicy: 2023-07-01-preview
         DnsResolverPolicyVirtualNetworkLink: 2023-07-01-preview
         DnsSecurityRule: 2023-07-01-preview
-        DnssecConfig: "2018-05-01"
+        DnssecConfig: 2023-07-01-preview
         DscpConfiguration: "2023-02-01"
         Endpoint: "2022-04-01"
         Experiment: "2019-11-01"
@@ -1410,7 +1410,7 @@ Network:
         NetworkSecurityGroup: "2023-02-01"
         NetworkSecurityPerimeter: 2021-03-01-preview
         NetworkVirtualAppliance: "2023-02-01"
-        NetworkVirtualApplianceConnection: "2023-02-01"
+        NetworkVirtualApplianceConnection: "2023-06-01"
         NetworkWatcher: "2023-02-01"
         NspAccessRule: 2021-02-01-preview
         NspAssociation: 2021-02-01-preview

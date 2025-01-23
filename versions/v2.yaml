@@ -8618,7 +8618,10 @@ Network:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsResolverPolicies/{dnsResolverPolicyName}/dnsSecurityRules/{dnsSecurityRuleName}
         RpNamespace: Microsoft.Network
     DnssecConfig:
-        ApiVersion: "2018-05-01"
+        ApiVersion: 2023-07-01-preview
+        SpecFilePath: specification/dns/resource-manager/Microsoft.Network/preview/2023-07-01-preview/dns.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}/dnssecConfigs/default
+        RpNamespace: Microsoft.Network
     DscpConfiguration:
         ApiVersion: "2023-02-01"
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2023-02-01/dscpConfiguration.json
@@ -8840,7 +8843,10 @@ Network:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}
         RpNamespace: Microsoft.Network
     NetworkVirtualApplianceConnection:
-        ApiVersion: "2023-02-01"
+        ApiVersion: "2023-06-01"
+        SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2023-06-01/virtualWan.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections/{connectionName}
+        RpNamespace: Microsoft.Network
     NetworkWatcher:
         ApiVersion: "2023-02-01"
         SpecFilePath: specification/network/resource-manager/Microsoft.Network/stable/2023-02-01/networkWatcher.json

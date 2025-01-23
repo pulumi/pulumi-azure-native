@@ -124,6 +124,9 @@
     "properties.etag": {},
     "properties.name": {}
   },
+  "azure-native:network:NetworkVirtualApplianceConnection": {
+    "properties.name": {}
+  },
   "azure-native:network:P2sVpnServerConfiguration": {
     "properties.etag": {},
     "properties.name": {}
