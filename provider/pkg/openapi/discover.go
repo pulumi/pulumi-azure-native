@@ -191,22 +191,12 @@ func NewVersionResources() VersionResources {
 
 type ModuleVersionList = map[ModuleName][]ApiVersion
 
-// Can only by "Resource" or "Invoke"
-type DefinitionType string
-
-const (
-	DefinitionTypeResource DefinitionType = "Resource"
-	DefinitionTypeInvoke   DefinitionType = "Invoke"
-)
-
 // A definition version is a resource or invoke version and its source information.
 type DefinitionVersion struct {
-	Type         DefinitionType `yaml:"Type,omitempty"`
-	Name         DefinitionName `yaml:"Name,omitempty"`
-	ApiVersion   ApiVersion     `yaml:"ApiVersion,omitempty"`
-	SpecFilePath string         `yaml:"SpecFilePath,omitempty"`
-	ResourceUri  string         `yaml:"ResourceUri,omitempty"`
-	RpNamespace  string         `yaml:"RpNamespace,omitempty"`
+	ApiVersion   ApiVersion `yaml:"ApiVersion,omitempty"`
+	SpecFilePath string     `yaml:"SpecFilePath,omitempty"`
+	ResourceUri  string     `yaml:"ResourceUri,omitempty"`
+	RpNamespace  string     `yaml:"RpNamespace,omitempty"`
 }
 
 // DefaultVersions is an amalgamation of multiple API versions, generated from a specification.

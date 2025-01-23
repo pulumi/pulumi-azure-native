@@ -152,12 +152,7 @@ func DefaultVersionsFromConfig(spec ModuleVersionResources, defaultConfig Spec) 
 			trackingDefinitions := versionResources[*moduleConfig.Tracking]
 			for _, definitionName := range util.SortedKeys(trackingDefinitions) {
 				definition := trackingDefinitions[definitionName]
-				definitions[definitionName] = openapi.DefinitionVersion{
-					ApiVersion:   definition.ApiVersion,
-					SpecFilePath: definition.SpecFilePath,
-					ResourceUri:  definition.ResourceUri,
-					RpNamespace:  definition.RpNamespace,
-				}
+				definitions[definitionName] = definition
 			}
 		}
 		if moduleConfig.Additions != nil {
@@ -165,14 +160,17 @@ func DefaultVersionsFromConfig(spec ModuleVersionResources, defaultConfig Spec) 
 				if existingVersion, ok := definitions[definitionName]; ok {
 					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", moduleName, definitionName, apiVersion, existingVersion))
 				} else {
-					versionDefinitions := versionResources[apiVersion]
-					versionDefinition := versionDefinitions[definitionName]
-					definitions[definitionName] = openapi.DefinitionVersion{
-						ApiVersion:   apiVersion,
-						SpecFilePath: versionDefinition.SpecFilePath,
-						ResourceUri:  versionDefinition.ResourceUri,
-						RpNamespace:  versionDefinition.RpNamespace,
+					versionDefinitions, ok := versionResources[apiVersion]
+					if !ok {
+						err = multierror.Append(err, fmt.Errorf("resource %s:%s not found in %s", moduleName, definitionName, apiVersion))
+						continue
 					}
+					versionDefinition, ok := versionDefinitions[definitionName]
+					if !ok {
+						err = multierror.Append(err, fmt.Errorf("resource %s:%s not found in %s", moduleName, definitionName, apiVersion))
+						continue
+					}
+					definitions[definitionName] = versionDefinition
 				}
 			}
 		}

@@ -21,14 +21,8 @@ func FindAllResources(moduleVersions openapi.AzureModules) ModuleVersionResource
 			definitions := resources.All()
 			for _, definitionName := range util.SortedKeys(definitions) {
 				spec := definitions[definitionName]
-				definitionType := openapi.DefinitionTypeResource
-				if _, isInvoke := resources.Invokes[definitionName]; isInvoke {
-					definitionType = openapi.DefinitionTypeInvoke
-				}
 				specResources[definitionName] = openapi.DefinitionVersion{
-					Type:         definitionType,
-					Name:         definitionName,
-					ApiVersion:   spec.ApiVersion,
+					ApiVersion:   version,
 					SpecFilePath: spec.FileLocation,
 					ResourceUri:  spec.Path,
 					RpNamespace:  spec.ModuleNaming.RpNamespace,
