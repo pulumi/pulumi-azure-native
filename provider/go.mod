@@ -32,8 +32,8 @@ require (
 	github.com/pulumi/providertest v0.1.5
 	github.com/pulumi/pulumi-java/pkg v0.19.0
 	github.com/pulumi/pulumi-yaml v1.12.0
-	github.com/pulumi/pulumi/pkg/v3 v3.146.0
-	github.com/pulumi/pulumi/sdk/v3 v3.146.0
+	github.com/pulumi/pulumi/pkg/v3 v3.147.0
+	github.com/pulumi/pulumi/sdk/v3 v3.147.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/stretchr/testify v1.10.0
@@ -239,7 +239,7 @@ require (
 	golang.org/x/text v0.21.0 // indirect
 	golang.org/x/tools v0.23.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
+	gopkg.in/yaml.v2 v2.4.0
 	lukechampine.com/frand v1.4.2 // indirect
 )
 
