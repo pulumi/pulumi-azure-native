@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 type resourceNameTestCase struct {
@@ -14,9 +15,9 @@ type resourceNameTestCase struct {
 	expected    string
 }
 
-func TestResourceName(t *testing.T) {
+func TestStandardResourceNames(t *testing.T) {
 	// Empty path means "doesn't matter", not that these resources don't have a path.
-	testCases2 := []resourceNameTestCase{
+	testCases := []resourceNameTestCase{
 		{"GetUserSettings", "", "UserSettings"},
 		{"Mediaservices_Get", "", "MediaService"},
 		{"Redis_Get", "", "Redis"},
@@ -33,6 +34,24 @@ func TestResourceName(t *testing.T) {
 		{"WebApps_ListApplicationSettings", "", "WebAppApplicationSettings"},
 		{"Products_GetProducts", "", "Products"},
 		{"PowerBIResources_ListByResourceName", "", "PowerBIResource"},
+	}
+
+	for _, tc := range testCases {
+		require.NotEmpty(t, tc.expected) // test invariant
+		for _, majorVersion := range []uint64{2, 3} {
+			actual, _ := createResourceName(tc.operationID, tc.path, majorVersion)
+			assert.Equal(t, tc.expected, actual)
+		}
+	}
+}
+
+func TestSpecialResourceNames(t *testing.T) {
+	testCases := []resourceNameTestCase{
+		{
+			"Servers_Get",
+			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}",
+			"Server",
+		},
 
 		// An exception for https://github.com/pulumi/pulumi-azure-native/issues/583, disambiguated by path.
 		{
@@ -47,9 +66,38 @@ func TestResourceName(t *testing.T) {
 		},
 	}
 
-	for _, tc := range testCases2 {
-		actual, _ := ResourceName(tc.operationID, tc.path)
+	for _, tc := range testCases {
+		require.NotEmpty(t, tc.expected) // test invariant
+		for _, majorVersion := range []uint64{2, 3} {
+			actual, _ := createResourceName(tc.operationID, tc.path, majorVersion)
+			assert.Equal(t, tc.expected, actual)
+		}
+	}
+}
+
+func TestSpecialResourceNamesV3(t *testing.T) {
+	testCases := []resourceNameTestCase{
+		{
+			"Servers_Get",
+			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}",
+			"SingleServer",
+		},
+		{
+			"Servers_Get",
+			"/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}",
+			"SingleServer",
+		},
+	}
+
+	for _, tc := range testCases {
+		require.NotEmpty(t, tc.expected) // test invariant
+		actual, _ := createResourceName(tc.operationID, tc.path, 3)
 		assert.Equal(t, tc.expected, actual)
+	}
+
+	for _, tc := range testCases {
+		actual, _ := createResourceName(tc.operationID, tc.path, 2)
+		assert.NotEqual(t, tc.expected, actual)
 	}
 }
 

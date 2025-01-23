@@ -46,6 +46,11 @@ func (v VersionMetadata) ShouldInclude(moduleName openapi.ModuleName, version *o
 	}
 	// Keep any resources in the previous version lock for easier migration
 	if v.MajorVersion >= 3 && v.PreviousDefaultVersions.IsAtVersion(moduleName, typeName, *version) {
+		// We're making an exception for these types because we want to remove their previous default version since it
+		// was broken and had no Pulumi Cloud users according to Metabase. #3817
+		if moduleName == "MachineLearningServices" && (typeName == "ConnectionRaiBlocklist" || typeName == "ConnectionRaiBlocklistItem") {
+			return false
+		}
 		return true
 	}
 	// Exclude versions from removed versions

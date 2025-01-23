@@ -24,6 +24,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
@@ -450,9 +451,17 @@ var typeNameOverrides = map[string]string{
 	// This one is not a disambiguation but a fix for a type name "String" that is not descriptive and leads to
 	// generating invalid Java.
 	"DatabaseWatcher.Target.String": "TargetCollectionStatus",
+	// SingleServer is different from just "Server", see the exception in resources.go ResourceName().
+	"DBforPostgreSQL.SingleServer.Sku": "SingleServerSku",
 	// Devices RP comes from "deviceprovisioningservices" and "iothub" which are similar but slightly different.
 	// In particular, the IP Filter Rule has more properties in the DPS version.
 	"Devices.IotDpsResource.IpFilterRule": "TargetIpFilterRule",
+	// See the exception for Microsoft.HDInsight in resources.go ResourceName().
+	"HDInsight.ClusterPoolCluster.Sku":            "ClusterPoolSku",
+	"HDInsight.ClusterPoolCluster.ComputeProfile": "ClusterPoolComputeProfile",
+	"HDInsight.ClusterPoolCluster.SshProfile":     "ClusterPoolSshProfile",
+
+	"HybridContainerService.ClusterInstanceAgentPool.Status": "AgentPoolProvisioningStatus",
 	// Workbook vs. MyWorkbook types are slightly different. Probably, a bug in the spec, but we have to disambiguate.
 	"Insights.MyWorkbook.ManagedIdentity":                  "MyManagedIdentity",
 	"Insights.MyWorkbook.UserAssignedIdentities":           "MyUserAssignedIdentities",
@@ -480,10 +489,21 @@ var typeNameOverrides = map[string]string{
 	"SecurityInsights.WatchlistItem.UserInfo": "WatchlistUserInfo",
 }
 
+var typeNameOverridesV3 = map[string]string{
+	// DocumentDB.MongoCluster from /mongocluster uses a different private endpoint connection.
+	// The MongoCluster resource has the same name in v2 and v3, but the private endpoint connection was disambiguated in v3.
+	"DocumentDB.MongoCluster.PrivateEndpointConnection": "MongoClusterPrivateEndpointConnection",
+}
+
 func (m *moduleGenerator) typeNameOverride(typeName string) string {
 	key := fmt.Sprintf("%s.%s.%s", m.moduleName, m.resourceName, typeName)
 	if v, ok := typeNameOverrides[key]; ok {
 		return v
+	}
+	if version.GetVersion().Major >= 3 {
+		if v, ok := typeNameOverridesV3[key]; ok {
+			return v
+		}
 	}
 	return typeName
 }
