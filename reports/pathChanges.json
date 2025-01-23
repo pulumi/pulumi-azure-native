@@ -1,112 +1,49 @@
 {
-  "Changes": [],
+  "Changes": [
+    {
+      "CurrentPath": "/{}/providers/microsoft.azurestackhci/virtualmachineinstances/default/guestagents/default",
+      "PreviousPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.azurestackhci/virtualmachines/{}/guestagents/{}",
+      "ResourceName": "GuestAgent"
+    },
+    {
+      "CurrentPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}",
+      "PreviousPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}/raiblocklistitems/{}",
+      "ResourceName": "ConnectionRaiBlocklist"
+    },
+    {
+      "CurrentPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}/raiblocklistitems/{}",
+      "PreviousPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.machinelearningservices/workspaces/{}/connections/{}/raiblocklists/{}",
+      "ResourceName": "ConnectionRaiBlocklistItem"
+    },
+    {
+      "CurrentPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.netapp/netappaccounts/{}/backupvaults/{}/backups/{}",
+      "PreviousPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.netapp/netappaccounts/{}/capacitypools/{}/volumes/{}/backups/{}",
+      "ResourceName": "Backup"
+    }
+  ],
   "MissingPreviousDefaultVersions": [
     {
-      "ModuleName": "Cache",
+      "ModuleName": "DBforPostgreSQL",
       "ResourceName": "PrivateEndpointConnection",
-      "Version": "2021-03-01",
+      "Version": "2022-11-08",
       "IsPrevious": true
     },
     {
-      "ModuleName": "ContainerStorage",
-      "ResourceName": "Pool",
-      "Version": "2023-03-01-preview",
-      "IsPrevious": true
+      "ModuleName": "DocumentDB",
+      "ResourceName": "MongoCluster",
+      "Version": "2023-03-15-preview",
+      "IsPrevious": false
     },
     {
-      "ModuleName": "ContainerStorage",
-      "ResourceName": "Volume",
-      "Version": "2023-03-01-preview",
-      "IsPrevious": true
+      "ModuleName": "DocumentDB",
+      "ResourceName": "listMongoClusterConnectionStrings",
+      "Version": "2023-03-15-preview",
+      "IsPrevious": false
     },
     {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "BareMetalMachine",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "BareMetalMachineKeySet",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "BmcKeySet",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "CloudServicesNetwork",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "Cluster",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "ClusterManager",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "Console",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "L2Network",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "L3Network",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "MetricsConfiguration",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "Rack",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "StorageAppliance",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "TrunkedNetwork",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "VirtualMachine",
-      "Version": "2022-12-12-preview",
-      "IsPrevious": true
-    },
-    {
-      "ModuleName": "NetworkCloud",
-      "ResourceName": "Volume",
-      "Version": "2022-12-12-preview",
+      "ModuleName": "Network",
+      "ResourceName": "NetworkVirtualApplianceConnection",
+      "Version": "2023-02-01",
       "IsPrevious": true
     }
   ]

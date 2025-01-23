@@ -188,13 +188,13 @@
     ],
     "2020-03-01": [
       "PrivateEndpointConnection",
-      "privateLinkForAzureAd"
+      "PrivateLinkForAzureAd"
     ],
     "2020-03-01-preview": [
-      "privateLinkForAzureAd"
+      "PrivateLinkForAzureAd"
     ],
     "2020-07-01-preview": [
-      "azureADMetric"
+      "AzureADMetric"
     ]
   },
   "Addons": {
@@ -3624,11 +3624,11 @@
       "Extension"
     ],
     "2021-07-01-preview": [
-      "galleryimageRetrieve",
-      "networkinterfaceRetrieve",
-      "virtualharddiskRetrieve",
-      "virtualmachineRetrieve",
-      "virtualnetworkRetrieve"
+      "GalleryimageRetrieve",
+      "NetworkinterfaceRetrieve",
+      "VirtualharddiskRetrieve",
+      "VirtualmachineRetrieve",
+      "VirtualnetworkRetrieve"
     ],
     "2021-09-01": [
       "ArcSetting",
@@ -3639,16 +3639,16 @@
       "ArcSetting",
       "Cluster",
       "Extension",
+      "GalleryimageRetrieve",
       "GuestAgent",
       "HybridIdentityMetadatum",
       "MachineExtension",
-      "galleryimageRetrieve",
-      "marketplacegalleryimage",
-      "networkinterfaceRetrieve",
-      "storagecontainerRetrieve",
-      "virtualharddiskRetrieve",
-      "virtualmachineRetrieve",
-      "virtualnetworkRetrieve"
+      "Marketplacegalleryimage",
+      "NetworkinterfaceRetrieve",
+      "StoragecontainerRetrieve",
+      "VirtualharddiskRetrieve",
+      "VirtualmachineRetrieve",
+      "VirtualnetworkRetrieve"
     ],
     "2022-01-01": [
       "ArcSetting",
@@ -4222,10 +4222,10 @@
       "listRedisKeys"
     ],
     "2020-10-01-preview": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2020-12-01": [
       "FirewallRule",
@@ -4236,16 +4236,16 @@
       "listRedisKeys"
     ],
     "2021-02-01-preview": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2021-03-01": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2021-06-01": [
       "FirewallRule",
@@ -4256,16 +4256,16 @@
       "listRedisKeys"
     ],
     "2021-08-01": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2022-01-01": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2022-05-01": [
       "FirewallRule",
@@ -4284,16 +4284,16 @@
       "listRedisKeys"
     ],
     "2022-11-01-preview": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2023-03-01-preview": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2023-04-01": [
       "FirewallRule",
@@ -4314,10 +4314,10 @@
       "listRedisKeys"
     ],
     "2023-07-01": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2023-08-01": [
       "AccessPolicy",
@@ -4330,28 +4330,28 @@
       "listRedisKeys"
     ],
     "2023-08-01-preview": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2023-10-01-preview": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2023-11-01": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2024-02-01": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2024-03-01": [
       "AccessPolicy",
@@ -4364,10 +4364,10 @@
       "listRedisKeys"
     ],
     "2024-03-01-preview": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2024-04-01-preview": [
       "AccessPolicy",
@@ -4380,23 +4380,23 @@
       "listRedisKeys"
     ],
     "2024-06-01-preview": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2024-09-01-preview": [
-      "AccessPolicyAssignment",
-      "Database",
+      "EnterpriseAccessPolicyAssignment",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2024-10-01": [
-      "Database",
+      "EnterpriseDatabase",
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
-      "listDatabaseKeys"
+      "listEnterpriseDatabaseKeys"
     ],
     "2024-11-01": [
       "AccessPolicy",
@@ -7600,38 +7600,38 @@
   },
   "DBforMySQL": {
     "2017-12-01": [
-      "Configuration",
-      "Database",
-      "FirewallRule",
-      "Server",
-      "ServerAdministrator",
-      "VirtualNetworkRule"
+      "SingleServer",
+      "SingleServerConfiguration",
+      "SingleServerDatabase",
+      "SingleServerFirewallRule",
+      "SingleServerServerAdministrator",
+      "SingleServerVirtualNetworkRule"
     ],
     "2017-12-01-preview": [
-      "Configuration",
-      "Database",
-      "FirewallRule",
-      "Server",
-      "ServerAdministrator",
-      "VirtualNetworkRule"
+      "SingleServer",
+      "SingleServerConfiguration",
+      "SingleServerDatabase",
+      "SingleServerFirewallRule",
+      "SingleServerServerAdministrator",
+      "SingleServerVirtualNetworkRule"
     ],
     "2018-06-01": [
-      "PrivateEndpointConnection"
+      "SingleServerPrivateEndpointConnection"
     ],
     "2018-06-01-privatepreview": [
-      "Configuration",
-      "Database",
-      "FirewallRule",
-      "PrivateEndpointConnection",
-      "Server",
-      "ServerAdministrator",
-      "VirtualNetworkRule"
+      "SingleServer",
+      "SingleServerConfiguration",
+      "SingleServerDatabase",
+      "SingleServerFirewallRule",
+      "SingleServerPrivateEndpointConnection",
+      "SingleServerServerAdministrator",
+      "SingleServerVirtualNetworkRule"
     ],
     "2020-01-01": [
-      "ServerKey"
+      "SingleServerServerKey"
     ],
     "2020-01-01-privatepreview": [
-      "ServerKey"
+      "SingleServerServerKey"
     ],
     "2020-07-01-preview": [
       "Configuration",
@@ -7727,34 +7727,34 @@
   },
   "DBforPostgreSQL": {
     "2017-12-01": [
-      "Configuration",
-      "Database",
-      "FirewallRule",
-      "Server",
-      "ServerAdministrator",
-      "ServerSecurityAlertPolicy",
-      "VirtualNetworkRule"
+      "SingleServer",
+      "SingleServerConfiguration",
+      "SingleServerDatabase",
+      "SingleServerFirewallRule",
+      "SingleServerServerAdministrator",
+      "SingleServerServerSecurityAlertPolicy",
+      "SingleServerVirtualNetworkRule"
     ],
     "2017-12-01-preview": [
-      "Configuration",
-      "Database",
-      "FirewallRule",
-      "Server",
-      "ServerAdministrator",
-      "ServerSecurityAlertPolicy",
-      "VirtualNetworkRule"
+      "SingleServer",
+      "SingleServerConfiguration",
+      "SingleServerDatabase",
+      "SingleServerFirewallRule",
+      "SingleServerServerAdministrator",
+      "SingleServerServerSecurityAlertPolicy",
+      "SingleServerVirtualNetworkRule"
     ],
     "2018-06-01": [
-      "PrivateEndpointConnection"
+      "SingleServerPrivateEndpointConnection"
     ],
     "2018-06-01-privatepreview": [
-      "PrivateEndpointConnection"
+      "SingleServerPrivateEndpointConnection"
     ],
     "2020-01-01": [
-      "ServerKey"
+      "SingleServerServerKey"
     ],
     "2020-01-01-privatepreview": [
-      "ServerKey"
+      "SingleServerServerKey"
     ],
     "2020-02-14-preview": [
       "FirewallRule",
@@ -7766,8 +7766,8 @@
       "ServerKey"
     ],
     "2020-10-05-privatepreview": [
-      "FirewallRule",
-      "ServerGroup"
+      "ServerGroup",
+      "ServerGroupFirewallRule"
     ],
     "2020-11-05-preview": [
       "Database"
@@ -7820,10 +7820,10 @@
       "Migration"
     ],
     "2022-11-08": [
-      "Cluster",
-      "FirewallRule",
-      "PrivateEndpointConnection",
-      "Role"
+      "ServerGroupCluster",
+      "ServerGroupFirewallRule",
+      "ServerGroupPrivateEndpointConnection",
+      "ServerGroupRole"
     ],
     "2022-12-01": [
       "Administrator",
@@ -7843,10 +7843,10 @@
       "getGetPrivateDnsZoneSuffixExecute"
     ],
     "2023-03-02-preview": [
-      "Cluster",
-      "FirewallRule",
-      "PrivateEndpointConnection",
-      "Role"
+      "ServerGroupCluster",
+      "ServerGroupFirewallRule",
+      "ServerGroupPrivateEndpointConnection",
+      "ServerGroupRole"
     ],
     "2023-06-01-preview": [
       "Administrator",
@@ -8406,10 +8406,10 @@
     ],
     "2023-07-15-preview": [
       "DatabaseMigrationsMongoToCosmosDbRUMongo",
-      "DatabaseMigrationsMongoToCosmosDbvCoreMongo",
       "DatabaseMigrationsSqlDb",
       "File",
       "MigrationService",
+      "MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo",
       "Project",
       "Service",
       "ServiceTask",
@@ -8701,47 +8701,47 @@
   },
   "Databricks": {
     "2018-04-01": [
-      "Workspace",
-      "vNetPeering"
+      "VNetPeering",
+      "Workspace"
     ],
     "2021-04-01-preview": [
       "PrivateEndpointConnection",
-      "Workspace",
-      "vNetPeering"
+      "VNetPeering",
+      "Workspace"
     ],
     "2022-04-01-preview": [
       "AccessConnector",
       "PrivateEndpointConnection",
-      "Workspace",
-      "vNetPeering"
+      "VNetPeering",
+      "Workspace"
     ],
     "2022-10-01-preview": [
       "AccessConnector"
     ],
     "2023-02-01": [
       "PrivateEndpointConnection",
-      "Workspace",
-      "vNetPeering"
+      "VNetPeering",
+      "Workspace"
     ],
     "2023-05-01": [
       "AccessConnector"
     ],
     "2023-09-15-preview": [
       "PrivateEndpointConnection",
-      "Workspace",
-      "vNetPeering"
+      "VNetPeering",
+      "Workspace"
     ],
     "2024-05-01": [
       "AccessConnector",
       "PrivateEndpointConnection",
-      "Workspace",
-      "vNetPeering"
+      "VNetPeering",
+      "Workspace"
     ],
     "2024-09-01-preview": [
       "AccessConnector",
       "PrivateEndpointConnection",
-      "Workspace",
-      "vNetPeering"
+      "VNetPeering",
+      "Workspace"
     ]
   },
   "Datadog": {
@@ -9847,6 +9847,76 @@
       "TimeSeriesDatabaseConnection"
     ]
   },
+  "Dns": {
+    "2015-05-04-preview": [
+      "RecordSet",
+      "Zone"
+    ],
+    "2016-04-01": [
+      "RecordSet",
+      "Zone"
+    ],
+    "2017-09-01": [
+      "RecordSet",
+      "Zone"
+    ],
+    "2017-10-01": [
+      "RecordSet",
+      "Zone"
+    ],
+    "2018-03-01-preview": [
+      "RecordSet",
+      "Zone"
+    ],
+    "2018-05-01": [
+      "RecordSet",
+      "Zone",
+      "getDnsResourceReferenceByTarResources"
+    ],
+    "2023-07-01-preview": [
+      "DnssecConfig",
+      "RecordSet",
+      "Zone",
+      "getDnsResourceReferenceByTarResources"
+    ]
+  },
+  "DnsResolver": {
+    "2020-04-01-preview": [
+      "DnsForwardingRuleset",
+      "DnsResolver",
+      "ForwardingRule",
+      "InboundEndpoint",
+      "OutboundEndpoint",
+      "PrivateResolverVirtualNetworkLink",
+      "listDnsForwardingRulesetByVirtualNetwork",
+      "listDnsResolverByVirtualNetwork"
+    ],
+    "2022-07-01": [
+      "DnsForwardingRuleset",
+      "DnsResolver",
+      "ForwardingRule",
+      "InboundEndpoint",
+      "OutboundEndpoint",
+      "PrivateResolverVirtualNetworkLink",
+      "listDnsForwardingRulesetByVirtualNetwork",
+      "listDnsResolverByVirtualNetwork"
+    ],
+    "2023-07-01-preview": [
+      "DnsForwardingRuleset",
+      "DnsResolver",
+      "DnsResolverDomainList",
+      "DnsResolverPolicy",
+      "DnsResolverPolicyVirtualNetworkLink",
+      "DnsSecurityRule",
+      "ForwardingRule",
+      "InboundEndpoint",
+      "OutboundEndpoint",
+      "PrivateResolverVirtualNetworkLink",
+      "listDnsForwardingRulesetByVirtualNetwork",
+      "listDnsResolverByVirtualNetwork",
+      "listDnsResolverPolicyByVirtualNetwork"
+    ]
+  },
   "DocumentDB": {
     "2015-04-01": [
       "DatabaseAccount",
@@ -10768,12 +10838,6 @@
       "listMongoClusterConnectionStrings",
       "listNotebookWorkspaceConnectionInfo"
     ],
-    "2024-03-01-preview": [
-      "FirewallRule",
-      "MongoCluster",
-      "PrivateEndpointConnection",
-      "listMongoClusterConnectionStrings"
-    ],
     "2024-05-15": [
       "CassandraCluster",
       "CassandraDataCenter",
@@ -10832,18 +10896,6 @@
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
     ],
-    "2024-06-01-preview": [
-      "FirewallRule",
-      "MongoCluster",
-      "PrivateEndpointConnection",
-      "listMongoClusterConnectionStrings"
-    ],
-    "2024-07-01": [
-      "FirewallRule",
-      "MongoCluster",
-      "PrivateEndpointConnection",
-      "listMongoClusterConnectionStrings"
-    ],
     "2024-08-15": [
       "CassandraCluster",
       "CassandraDataCenter",
@@ -10901,12 +10953,6 @@
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
-    ],
-    "2024-10-01-preview": [
-      "FirewallRule",
-      "MongoCluster",
-      "PrivateEndpointConnection",
-      "listMongoClusterConnectionStrings"
     ],
     "2024-11-15": [
       "CassandraCluster",
@@ -11178,30 +11224,30 @@
       "TagRule",
       "listAllTrafficFilter",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2022-07-01-preview": [
       "Monitor",
       "TagRule",
       "listAllTrafficFilter",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2022-09-01-preview": [
       "Monitor",
       "TagRule",
       "listAllTrafficFilter",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2023-02-01-preview": [
       "Monitor",
@@ -11209,10 +11255,10 @@
       "getOrganizationApiKey",
       "listAllTrafficFilter",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2023-05-01-preview": [
       "Monitor",
@@ -11220,10 +11266,10 @@
       "getOrganizationApiKey",
       "listAllTrafficFilter",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2023-06-01": [
       "Monitor",
@@ -11231,10 +11277,10 @@
       "getOrganizationApiKey",
       "listAllTrafficFilter",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2023-06-15-preview": [
       "Monitor",
@@ -11243,10 +11289,10 @@
       "getOrganizationElasticToAzureSubscriptionMapping",
       "listAllTrafficFilter",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2023-07-01-preview": [
       "Monitor",
@@ -11257,10 +11303,10 @@
       "listAllTrafficFilter",
       "listConnectedPartnerResource",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2023-10-01-preview": [
       "Monitor",
@@ -11271,10 +11317,10 @@
       "listAllTrafficFilter",
       "listConnectedPartnerResource",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2023-11-01-preview": [
       "Monitor",
@@ -11285,10 +11331,10 @@
       "listAllTrafficFilter",
       "listConnectedPartnerResource",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2024-01-01-preview": [
       "Monitor",
@@ -11301,10 +11347,10 @@
       "listAllTrafficFilter",
       "listConnectedPartnerResource",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2024-03-01": [
       "Monitor",
@@ -11317,10 +11363,10 @@
       "listAllTrafficFilter",
       "listConnectedPartnerResource",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2024-05-01-preview": [
       "Monitor",
@@ -11334,10 +11380,10 @@
       "listAllTrafficFilter",
       "listConnectedPartnerResource",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2024-06-15-preview": [
       "Monitor",
@@ -11351,10 +11397,10 @@
       "listAllTrafficFilter",
       "listConnectedPartnerResource",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ],
     "2024-10-01-preview": [
       "Monitor",
@@ -11368,10 +11414,10 @@
       "listAllTrafficFilter",
       "listConnectedPartnerResource",
       "listDeploymentInfo",
+      "listListAssociatedTrafficFilter",
       "listMonitoredResource",
       "listUpgradableVersionDetails",
-      "listVMHost",
-      "listlistAssociatedTrafficFilter"
+      "listVMHost"
     ]
   },
   "ElasticSan": {
@@ -12063,6 +12109,51 @@
       "listFluidRelayServerKeys"
     ]
   },
+  "FrontDoor": {
+    "2019-03-01": [
+      "Policy"
+    ],
+    "2019-04-01": [
+      "FrontDoor"
+    ],
+    "2019-05-01": [
+      "FrontDoor"
+    ],
+    "2019-10-01": [
+      "Policy"
+    ],
+    "2019-11-01": [
+      "Experiment",
+      "NetworkExperimentProfile"
+    ],
+    "2020-01-01": [
+      "FrontDoor",
+      "RulesEngine"
+    ],
+    "2020-04-01": [
+      "FrontDoor",
+      "Policy",
+      "RulesEngine"
+    ],
+    "2020-05-01": [
+      "FrontDoor",
+      "RulesEngine"
+    ],
+    "2020-11-01": [
+      "Policy"
+    ],
+    "2021-06-01": [
+      "FrontDoor",
+      "Policy",
+      "RulesEngine"
+    ],
+    "2022-05-01": [
+      "Policy"
+    ],
+    "2024-02-01": [
+      "Policy"
+    ]
+  },
   "GraphServices": {
     "2022-09-22-preview": [
       "Account"
@@ -12142,8 +12233,8 @@
       "listVirtualMachineHosts"
     ],
     "2023-06-01-preview": [
-      "Cluster",
-      "ClusterPool"
+      "ClusterPool",
+      "ClusterPoolCluster"
     ],
     "2023-08-15-preview": [
       "Application",
@@ -12156,12 +12247,12 @@
       "listVirtualMachineHosts"
     ],
     "2023-11-01-preview": [
-      "Cluster",
-      "ClusterPool"
+      "ClusterPool",
+      "ClusterPoolCluster"
     ],
     "2024-05-01-preview": [
-      "Cluster",
-      "ClusterPool"
+      "ClusterPool",
+      "ClusterPoolCluster"
     ],
     "2024-08-01-preview": [
       "Application",
@@ -12201,10 +12292,10 @@
   },
   "HealthBot": {
     "2020-10-20": [
-      "getbot"
+      "Getbot"
     ],
     "2020-10-20-preview": [
-      "getbot"
+      "Getbot"
     ],
     "2020-12-08": [
       "Bot"
@@ -12615,38 +12706,38 @@
   },
   "HybridContainerService": {
     "2022-05-01-preview": [
+      "AgentPool",
       "HybridIdentityMetadatum",
       "ProvisionedCluster",
-      "agentPool",
-      "storageSpaceRetrieve",
-      "virtualNetworkRetrieve"
+      "StorageSpaceRetrieve",
+      "VirtualNetworkRetrieve"
     ],
     "2022-09-01-preview": [
+      "AgentPool",
       "HybridIdentityMetadatum",
       "ProvisionedCluster",
-      "agentPool",
-      "storageSpaceRetrieve",
-      "virtualNetworkRetrieve"
+      "StorageSpaceRetrieve",
+      "VirtualNetworkRetrieve"
     ],
     "2023-11-15-preview": [
-      "HybridIdentityMetadatum",
+      "ClusterInstanceAgentPool",
+      "ClusterInstanceHybridIdentityMetadatum",
       "KubernetesVersions",
+      "ProvisionedClusterInstance",
       "VMSkus",
-      "agentPool",
-      "listprovisionedClusterInstanceAdminKubeconfig",
-      "listprovisionedClusterInstanceUserKubeconfig",
-      "provisionedClusterInstance",
-      "virtualNetworkRetrieve"
+      "VirtualNetworkRetrieve",
+      "listProvisionedClusterInstanceAdminKubeconfig",
+      "listProvisionedClusterInstanceUserKubeconfig"
     ],
     "2024-01-01": [
-      "HybridIdentityMetadatum",
+      "ClusterInstanceAgentPool",
+      "ClusterInstanceHybridIdentityMetadatum",
       "KubernetesVersions",
+      "ProvisionedClusterInstance",
       "VMSkus",
-      "agentPool",
-      "listprovisionedClusterInstanceAdminKubeconfig",
-      "listprovisionedClusterInstanceUserKubeconfig",
-      "provisionedClusterInstance",
-      "virtualNetworkRetrieve"
+      "VirtualNetworkRetrieve",
+      "listProvisionedClusterInstanceAdminKubeconfig",
+      "listProvisionedClusterInstanceUserKubeconfig"
     ]
   },
   "HybridData": {
@@ -12788,8 +12879,8 @@
       "WebTest"
     ],
     "2018-06-01-preview": [
-      "GuestDiagnosticsSettingsAssociation",
-      "guestDiagnosticsSetting"
+      "GuestDiagnosticsSetting",
+      "GuestDiagnosticsSettingsAssociation"
     ],
     "2018-06-17-preview": [
       "Workbook"
@@ -13522,12 +13613,12 @@
   },
   "LabServices": {
     "2018-10-15": [
-      "Environment",
-      "EnvironmentSetting",
-      "GalleryImage",
-      "Lab",
       "LabAccount",
-      "User",
+      "LabAccountEnvironment",
+      "LabAccountEnvironmentSetting",
+      "LabAccountGalleryImage",
+      "LabAccountLab",
+      "LabAccountUser",
       "getGlobalUserEnvironment",
       "getGlobalUserOperationBatchStatus",
       "getGlobalUserOperationStatus",
@@ -13716,12 +13807,12 @@
       "PrivateEndpointConnectionsForMIPPolicySync",
       "PrivateEndpointConnectionsForSCCPowershell",
       "PrivateEndpointConnectionsSec",
-      "privateLinkServicesForEDMUpload",
-      "privateLinkServicesForM365ComplianceCenter",
-      "privateLinkServicesForM365SecurityCenter",
-      "privateLinkServicesForMIPPolicySync",
-      "privateLinkServicesForO365ManagementActivityAPI",
-      "privateLinkServicesForSCCPowershell"
+      "PrivateLinkServicesForEDMUpload",
+      "PrivateLinkServicesForM365ComplianceCenter",
+      "PrivateLinkServicesForM365SecurityCenter",
+      "PrivateLinkServicesForMIPPolicySync",
+      "PrivateLinkServicesForO365ManagementActivityAPI",
+      "PrivateLinkServicesForSCCPowershell"
     ]
   },
   "MachineLearning": {
@@ -15407,14 +15498,14 @@
       "getSolutionConfig"
     ],
     "2019-10-01": [
-      "Assessment",
-      "Group",
-      "HyperVCollector",
-      "ImportCollector",
-      "PrivateEndpointConnection",
-      "Project",
-      "ServerCollector",
-      "VMwareCollector"
+      "AssessmentProjectsAssessment",
+      "AssessmentProjectsGroup",
+      "AssessmentProjectsHyperVCollector",
+      "AssessmentProjectsImportCollector",
+      "AssessmentProjectsPrivateEndpointConnection",
+      "AssessmentProjectsProject",
+      "AssessmentProjectsServerCollector",
+      "AssessmentProjectsVMwareCollector"
     ],
     "2019-10-01-preview": [
       "MoveCollection",
@@ -15451,75 +15542,75 @@
       "getSolutionsControllerConfig"
     ],
     "2023-03-15": [
+      "AssessmentProjectsAssessmentsOperation",
+      "AssessmentProjectsAvsAssessmentsOperation",
+      "AssessmentProjectsGroupsOperation",
+      "AssessmentProjectsHypervCollectorsOperation",
+      "AssessmentProjectsImportCollectorsOperation",
       "AssessmentProjectsOperation",
-      "AssessmentsOperation",
-      "AvsAssessmentsOperation",
-      "GroupsOperation",
-      "HypervCollectorsOperation",
-      "ImportCollectorsOperation",
-      "PrivateEndpointConnectionOperation",
-      "ServerCollectorsOperation",
-      "SqlAssessmentV2Operation",
-      "SqlCollectorOperation",
-      "VmwareCollectorsOperation"
+      "AssessmentProjectsPrivateEndpointConnectionOperation",
+      "AssessmentProjectsServerCollectorsOperation",
+      "AssessmentProjectsSqlAssessmentV2Operation",
+      "AssessmentProjectsSqlCollectorOperation",
+      "AssessmentProjectsVmwareCollectorsOperation"
     ],
     "2023-04-01-preview": [
-      "AksAssessmentOperation",
+      "AssessmentProjectsAksAssessmentOperation",
+      "AssessmentProjectsAssessmentsOperation",
+      "AssessmentProjectsAvsAssessmentsOperation",
+      "AssessmentProjectsBusinessCaseOperation",
+      "AssessmentProjectsGroupsOperation",
+      "AssessmentProjectsHypervCollectorsOperation",
+      "AssessmentProjectsImportCollectorsOperation",
       "AssessmentProjectsOperation",
-      "AssessmentsOperation",
-      "AvsAssessmentsOperation",
-      "BusinessCaseOperation",
-      "GroupsOperation",
-      "HypervCollectorsOperation",
-      "ImportCollectorsOperation",
-      "PrivateEndpointConnectionOperation",
-      "ServerCollectorsOperation",
-      "SqlAssessmentV2Operation",
-      "SqlCollectorOperation",
-      "VmwareCollectorsOperation",
-      "WebAppAssessmentV2Operation",
-      "WebAppCollectorOperation",
-      "getBusinessCaseOperationReportDownloadUrl"
+      "AssessmentProjectsPrivateEndpointConnectionOperation",
+      "AssessmentProjectsServerCollectorsOperation",
+      "AssessmentProjectsSqlAssessmentV2Operation",
+      "AssessmentProjectsSqlCollectorOperation",
+      "AssessmentProjectsVmwareCollectorsOperation",
+      "AssessmentProjectsWebAppAssessmentV2Operation",
+      "AssessmentProjectsWebAppCollectorOperation",
+      "getAssessmentProjectsBusinessCaseOperationReportDownloadUrl"
     ],
     "2023-05-01-preview": [
-      "AksAssessmentOperation",
+      "AssessmentProjectsAksAssessmentOperation",
+      "AssessmentProjectsAssessmentsOperation",
+      "AssessmentProjectsAvsAssessmentsOperation",
+      "AssessmentProjectsBusinessCaseOperation",
+      "AssessmentProjectsGroupsOperation",
+      "AssessmentProjectsHypervCollectorsOperation",
+      "AssessmentProjectsImportCollectorsOperation",
       "AssessmentProjectsOperation",
-      "AssessmentsOperation",
-      "AvsAssessmentsOperation",
-      "BusinessCaseOperation",
-      "GroupsOperation",
-      "HypervCollectorsOperation",
-      "ImportCollectorsOperation",
-      "PrivateEndpointConnectionOperation",
-      "ServerCollectorsOperation",
-      "SqlAssessmentV2Operation",
-      "SqlCollectorOperation",
-      "VmwareCollectorsOperation",
-      "WebAppAssessmentV2Operation",
-      "WebAppCollectorOperation",
-      "getBusinessCaseOperationReportDownloadUrl"
+      "AssessmentProjectsPrivateEndpointConnectionOperation",
+      "AssessmentProjectsServerCollectorsOperation",
+      "AssessmentProjectsSqlAssessmentV2Operation",
+      "AssessmentProjectsSqlCollectorOperation",
+      "AssessmentProjectsVmwareCollectorsOperation",
+      "AssessmentProjectsWebAppAssessmentV2Operation",
+      "AssessmentProjectsWebAppCollectorOperation",
+      "getAssessmentProjectsBusinessCaseOperationReportDownloadUrl"
     ],
     "2023-08-01": [
       "MoveCollection",
       "MoveResource"
     ],
     "2023-09-09-preview": [
-      "AksAssessmentOperation",
+      "AssessmentProjectsAksAssessmentOperation",
+      "AssessmentProjectsAssessmentsOperation",
+      "AssessmentProjectsAvsAssessmentsOperation",
+      "AssessmentProjectsBusinessCaseOperation",
+      "AssessmentProjectsGroupsOperation",
+      "AssessmentProjectsHypervCollectorsOperation",
+      "AssessmentProjectsImportCollectorsOperation",
       "AssessmentProjectsOperation",
-      "AssessmentsOperation",
-      "AvsAssessmentsOperation",
-      "BusinessCaseOperation",
-      "GroupsOperation",
-      "HypervCollectorsOperation",
-      "ImportCollectorsOperation",
-      "PrivateEndpointConnectionOperation",
-      "ServerCollectorsOperation",
-      "SqlAssessmentV2Operation",
-      "SqlCollectorOperation",
-      "VmwareCollectorsOperation",
-      "WebAppAssessmentV2Operation",
-      "WebAppCollectorOperation",
-      "getBusinessCaseOperationReportDownloadUrl"
+      "AssessmentProjectsPrivateEndpointConnectionOperation",
+      "AssessmentProjectsServerCollectorsOperation",
+      "AssessmentProjectsSqlAssessmentV2Operation",
+      "AssessmentProjectsSqlCollectorOperation",
+      "AssessmentProjectsVmwareCollectorsOperation",
+      "AssessmentProjectsWebAppAssessmentV2Operation",
+      "AssessmentProjectsWebAppCollectorOperation",
+      "getAssessmentProjectsBusinessCaseOperationReportDownloadUrl"
     ]
   },
   "MixedReality": {
@@ -15574,8 +15665,8 @@
       "PacketCoreControlPlane",
       "PacketCoreDataPlane",
       "Service",
-      "Sim",
       "SimGroup",
+      "SimGroupSim",
       "SimPolicy",
       "Site",
       "Slice",
@@ -15588,8 +15679,8 @@
       "PacketCoreControlPlane",
       "PacketCoreDataPlane",
       "Service",
-      "Sim",
       "SimGroup",
+      "SimGroupSim",
       "SimPolicy",
       "Site",
       "Slice"
@@ -15603,8 +15694,8 @@
       "PacketCoreControlPlane",
       "PacketCoreDataPlane",
       "Service",
-      "Sim",
       "SimGroup",
+      "SimGroupSim",
       "SimPolicy",
       "Site",
       "Slice"
@@ -15618,8 +15709,8 @@
       "PacketCoreControlPlane",
       "PacketCoreDataPlane",
       "Service",
-      "Sim",
       "SimGroup",
+      "SimGroupSim",
       "SimPolicy",
       "Site",
       "Slice"
@@ -15633,8 +15724,8 @@
       "PacketCoreControlPlane",
       "PacketCoreDataPlane",
       "Service",
-      "Sim",
       "SimGroup",
+      "SimGroupSim",
       "SimPolicy",
       "Site",
       "Slice"
@@ -15648,12 +15739,38 @@
       "PacketCoreControlPlane",
       "PacketCoreDataPlane",
       "Service",
-      "Sim",
       "SimGroup",
+      "SimGroupSim",
       "SimPolicy",
       "Site",
       "Slice",
       "listMobileNetworkSimGroups"
+    ]
+  },
+  "MongoCluster": {
+    "2024-03-01-preview": [
+      "MongoCluster",
+      "MongoClusterFirewallRule",
+      "MongoClusterPrivateEndpointConnection",
+      "listMongoClusterConnectionStrings"
+    ],
+    "2024-06-01-preview": [
+      "MongoCluster",
+      "MongoClusterFirewallRule",
+      "MongoClusterPrivateEndpointConnection",
+      "listMongoClusterConnectionStrings"
+    ],
+    "2024-07-01": [
+      "MongoCluster",
+      "MongoClusterFirewallRule",
+      "MongoClusterPrivateEndpointConnection",
+      "listMongoClusterConnectionStrings"
+    ],
+    "2024-10-01-preview": [
+      "MongoCluster",
+      "MongoClusterFirewallRule",
+      "MongoClusterPrivateEndpointConnection",
+      "listMongoClusterConnectionStrings"
     ]
   },
   "Monitor": {
@@ -16163,10 +16280,6 @@
       "Subnet",
       "VirtualNetwork"
     ],
-    "2015-05-04-preview": [
-      "RecordSet",
-      "Zone"
-    ],
     "2015-06-15": [
       "ApplicationGateway",
       "ExpressRouteCircuit",
@@ -16185,10 +16298,6 @@
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection"
     ],
-    "2015-11-01": [
-      "Endpoint",
-      "Profile"
-    ],
     "2016-03-30": [
       "ApplicationGateway",
       "ExpressRouteCircuit",
@@ -16206,10 +16315,6 @@
       "VirtualNetwork",
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection"
-    ],
-    "2016-04-01": [
-      "RecordSet",
-      "Zone"
     ],
     "2016-06-01": [
       "ApplicationGateway",
@@ -16282,7 +16387,6 @@
     ],
     "2017-03-01": [
       "ApplicationGateway",
-      "Endpoint",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
       "ExpressRouteCircuitPeering",
@@ -16292,7 +16396,6 @@
       "NetworkSecurityGroup",
       "NetworkWatcher",
       "PacketCapture",
-      "Profile",
       "PublicIPAddress",
       "Route",
       "RouteFilter",
@@ -16307,10 +16410,6 @@
       "getVirtualNetworkGatewayAdvertisedRoutes",
       "getVirtualNetworkGatewayBgpPeerStatus",
       "getVirtualNetworkGatewayLearnedRoutes"
-    ],
-    "2017-05-01": [
-      "Endpoint",
-      "Profile"
     ],
     "2017-06-01": [
       "ApplicationGateway",
@@ -16381,7 +16480,6 @@
       "NetworkWatcher",
       "PacketCapture",
       "PublicIPAddress",
-      "RecordSet",
       "Route",
       "RouteFilter",
       "RouteFilterRule",
@@ -16392,14 +16490,10 @@
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection",
       "VirtualNetworkPeering",
-      "Zone",
       "getVirtualNetworkGatewayAdvertisedRoutes",
       "getVirtualNetworkGatewayBgpPeerStatus",
       "getVirtualNetworkGatewayLearnedRoutes",
       "getVirtualNetworkGatewayVpnProfilePackageUrl"
-    ],
-    "2017-09-01-preview": [
-      "TrafficManagerUserMetricsKey"
     ],
     "2017-10-01": [
       "ApplicationGateway",
@@ -16416,7 +16510,6 @@
       "NetworkWatcher",
       "PacketCapture",
       "PublicIPAddress",
-      "RecordSet",
       "Route",
       "RouteFilter",
       "RouteFilterRule",
@@ -16427,7 +16520,6 @@
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection",
       "VirtualNetworkPeering",
-      "Zone",
       "getVirtualNetworkGatewayAdvertisedRoutes",
       "getVirtualNetworkGatewayBgpPeerStatus",
       "getVirtualNetworkGatewayLearnedRoutes",
@@ -16498,7 +16590,6 @@
       "ApplicationSecurityGroup",
       "ConnectionMonitor",
       "DdosProtectionPlan",
-      "Endpoint",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
       "ExpressRouteCircuitConnection",
@@ -16511,7 +16602,6 @@
       "NetworkSecurityGroup",
       "NetworkWatcher",
       "PacketCapture",
-      "Profile",
       "PublicIPAddress",
       "Route",
       "RouteFilter",
@@ -16529,21 +16619,12 @@
       "getVirtualNetworkGatewayVpnProfilePackageUrl",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
     ],
-    "2018-03-01": [
-      "Endpoint",
-      "Profile"
-    ],
-    "2018-03-01-preview": [
-      "RecordSet",
-      "Zone"
-    ],
     "2018-04-01": [
       "ApplicationGateway",
       "ApplicationSecurityGroup",
       "AzureFirewall",
       "ConnectionMonitor",
       "DdosProtectionPlan",
-      "Endpoint",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
       "ExpressRouteCircuitConnection",
@@ -16556,7 +16637,6 @@
       "NetworkSecurityGroup",
       "NetworkWatcher",
       "PacketCapture",
-      "Profile",
       "PublicIPAddress",
       "Route",
       "RouteFilter",
@@ -16564,7 +16644,6 @@
       "RouteTable",
       "SecurityRule",
       "Subnet",
-      "TrafficManagerUserMetricsKey",
       "VirtualHub",
       "VirtualNetwork",
       "VirtualNetworkGateway",
@@ -16579,11 +16658,6 @@
       "getVirtualNetworkGatewayLearnedRoutes",
       "getVirtualNetworkGatewayVpnProfilePackageUrl",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
-    ],
-    "2018-05-01": [
-      "RecordSet",
-      "Zone",
-      "getDnsResourceReferenceByTarResources"
     ],
     "2018-06-01": [
       "ApplicationGateway",
@@ -16674,7 +16748,6 @@
       "AzureFirewall",
       "ConnectionMonitor",
       "DdosProtectionPlan",
-      "Endpoint",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
       "ExpressRouteCircuitConnection",
@@ -16695,7 +16768,6 @@
       "P2sVpnGateway",
       "P2sVpnServerConfiguration",
       "PacketCapture",
-      "Profile",
       "PublicIPAddress",
       "PublicIPPrefix",
       "Route",
@@ -16706,7 +16778,6 @@
       "ServiceEndpointPolicy",
       "ServiceEndpointPolicyDefinition",
       "Subnet",
-      "TrafficManagerUserMetricsKey",
       "VirtualHub",
       "VirtualNetwork",
       "VirtualNetworkGateway",
@@ -16722,11 +16793,6 @@
       "getVirtualNetworkGatewayLearnedRoutes",
       "getVirtualNetworkGatewayVpnProfilePackageUrl",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
-    ],
-    "2018-09-01": [
-      "PrivateRecordSet",
-      "PrivateZone",
-      "VirtualNetworkLink"
     ],
     "2018-10-01": [
       "ApplicationGateway",
@@ -16943,9 +17009,6 @@
       "getVirtualNetworkGatewayVpnProfilePackageUrl",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
     ],
-    "2019-03-01": [
-      "Policy"
-    ],
     "2019-04-01": [
       "ApplicationGateway",
       "ApplicationSecurityGroup",
@@ -16962,7 +17025,6 @@
       "ExpressRouteCrossConnectionPeering",
       "ExpressRouteGateway",
       "ExpressRoutePort",
-      "FrontDoor",
       "InboundNatRule",
       "LoadBalancer",
       "LocalNetworkGateway",
@@ -17006,9 +17068,6 @@
       "getVirtualNetworkGatewayVpnProfilePackageUrl",
       "getVirtualNetworkGatewayVpnclientConnectionHealth",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
-    ],
-    "2019-05-01": [
-      "FrontDoor"
     ],
     "2019-06-01": [
       "ApplicationGateway",
@@ -17271,9 +17330,6 @@
       "getVirtualNetworkGatewayVpnclientConnectionHealth",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
     ],
-    "2019-10-01": [
-      "Policy"
-    ],
     "2019-11-01": [
       "ApplicationGateway",
       "ApplicationSecurityGroup",
@@ -17282,7 +17338,6 @@
       "ConnectionMonitor",
       "DdosCustomPolicy",
       "DdosProtectionPlan",
-      "Experiment",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
       "ExpressRouteCircuitConnection",
@@ -17299,7 +17354,6 @@
       "LoadBalancer",
       "LocalNetworkGateway",
       "NatGateway",
-      "NetworkExperimentProfile",
       "NetworkInterface",
       "NetworkInterfaceTapConfiguration",
       "NetworkProfile",
@@ -17419,13 +17473,6 @@
       "getVirtualNetworkGatewayVpnclientConnectionHealth",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
     ],
-    "2020-01-01": [
-      "FrontDoor",
-      "PrivateRecordSet",
-      "PrivateZone",
-      "RulesEngine",
-      "VirtualNetworkLink"
-    ],
     "2020-03-01": [
       "ApplicationGateway",
       "ApplicationSecurityGroup",
@@ -17520,7 +17567,6 @@
       "FirewallPolicy",
       "FirewallPolicyRuleGroup",
       "FlowLog",
-      "FrontDoor",
       "HubRouteTable",
       "InboundNatRule",
       "IpAllocation",
@@ -17537,7 +17583,6 @@
       "NetworkWatcher",
       "P2sVpnGateway",
       "PacketCapture",
-      "Policy",
       "PrivateDnsZoneGroup",
       "PrivateEndpoint",
       "PrivateLinkService",
@@ -17548,7 +17593,6 @@
       "RouteFilter",
       "RouteFilterRule",
       "RouteTable",
-      "RulesEngine",
       "SecurityPartnerProvider",
       "SecurityRule",
       "ServiceEndpointPolicy",
@@ -17581,16 +17625,6 @@
       "getVirtualNetworkGatewayVpnclientConnectionHealth",
       "getVirtualNetworkGatewayVpnclientIpsecParameters"
     ],
-    "2020-04-01-preview": [
-      "DnsForwardingRuleset",
-      "DnsResolver",
-      "ForwardingRule",
-      "InboundEndpoint",
-      "OutboundEndpoint",
-      "PrivateResolverVirtualNetworkLink",
-      "listDnsForwardingRulesetByVirtualNetwork",
-      "listDnsResolverByVirtualNetwork"
-    ],
     "2020-05-01": [
       "ApplicationGateway",
       "ApplicationGatewayPrivateEndpointConnection",
@@ -17611,7 +17645,6 @@
       "FirewallPolicy",
       "FirewallPolicyRuleCollectionGroup",
       "FlowLog",
-      "FrontDoor",
       "HubRouteTable",
       "HubVirtualNetworkConnection",
       "InboundNatRule",
@@ -17639,7 +17672,6 @@
       "RouteFilter",
       "RouteFilterRule",
       "RouteTable",
-      "RulesEngine",
       "SecurityPartnerProvider",
       "SecurityRule",
       "ServiceEndpointPolicy",
@@ -17718,8 +17750,6 @@
       "PrivateEndpoint",
       "PrivateLinkService",
       "PrivateLinkServicePrivateEndpointConnection",
-      "PrivateRecordSet",
-      "PrivateZone",
       "PublicIPAddress",
       "PublicIPPrefix",
       "Route",
@@ -17739,7 +17769,6 @@
       "VirtualNetwork",
       "VirtualNetworkGateway",
       "VirtualNetworkGatewayConnection",
-      "VirtualNetworkLink",
       "VirtualNetworkPeering",
       "VirtualNetworkTap",
       "VirtualRouter",
@@ -17972,7 +18001,6 @@
       "NetworkWatcher",
       "P2sVpnGateway",
       "PacketCapture",
-      "Policy",
       "PrivateDnsZoneGroup",
       "PrivateEndpoint",
       "PrivateLinkService",
@@ -18337,11 +18365,6 @@
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
-    "2021-06-01": [
-      "FrontDoor",
-      "Policy",
-      "RulesEngine"
-    ],
     "2021-08-01": [
       "ApplicationGateway",
       "ApplicationGatewayPrivateEndpointConnection",
@@ -18566,26 +18589,18 @@
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
-    "2022-04-01": [
-      "Endpoint",
-      "Profile",
-      "TrafficManagerUserMetricsKey"
-    ],
     "2022-04-01-preview": [
       "AdminRule",
       "AdminRuleCollection",
       "ConnectivityConfiguration",
-      "Endpoint",
       "ManagementGroupNetworkManagerConnection",
       "NetworkGroup",
       "NetworkManager",
-      "Profile",
       "ScopeConnection",
       "SecurityAdminConfiguration",
       "SecurityUserConfiguration",
       "StaticMember",
       "SubscriptionNetworkManagerConnection",
-      "TrafficManagerUserMetricsKey",
       "UserRule",
       "UserRuleCollection",
       "listActiveConnectivityConfigurations",
@@ -18645,7 +18660,6 @@
       "NetworkWatcher",
       "P2sVpnGateway",
       "PacketCapture",
-      "Policy",
       "PrivateDnsZoneGroup",
       "PrivateEndpoint",
       "PrivateLinkService",
@@ -18721,8 +18735,6 @@
       "CustomIPPrefix",
       "DdosCustomPolicy",
       "DdosProtectionPlan",
-      "DnsForwardingRuleset",
-      "DnsResolver",
       "DscpConfiguration",
       "ExpressRouteCircuit",
       "ExpressRouteCircuitAuthorization",
@@ -18736,10 +18748,8 @@
       "FirewallPolicy",
       "FirewallPolicyRuleCollectionGroup",
       "FlowLog",
-      "ForwardingRule",
       "HubRouteTable",
       "HubVirtualNetworkConnection",
-      "InboundEndpoint",
       "InboundNatRule",
       "IpAllocation",
       "IpGroup",
@@ -18757,14 +18767,12 @@
       "NetworkSecurityGroup",
       "NetworkVirtualAppliance",
       "NetworkWatcher",
-      "OutboundEndpoint",
       "P2sVpnGateway",
       "PacketCapture",
       "PrivateDnsZoneGroup",
       "PrivateEndpoint",
       "PrivateLinkService",
       "PrivateLinkServicePrivateEndpointConnection",
-      "PrivateResolverVirtualNetworkLink",
       "PublicIPAddress",
       "PublicIPPrefix",
       "Route",
@@ -18816,8 +18824,6 @@
       "getVpnLinkConnectionIkeSas",
       "listActiveConnectivityConfigurations",
       "listActiveSecurityAdminRules",
-      "listDnsForwardingRulesetByVirtualNetwork",
-      "listDnsResolverByVirtualNetwork",
       "listFirewallPolicyIdpsSignature",
       "listFirewallPolicyIdpsSignaturesFilterValue",
       "listNetworkManagerDeploymentStatus",
@@ -19480,28 +19486,11 @@
       "listNetworkManagerEffectiveSecurityAdminRules"
     ],
     "2023-07-01-preview": [
-      "DnsForwardingRuleset",
-      "DnsResolver",
-      "DnsResolverDomainList",
-      "DnsResolverPolicy",
-      "DnsResolverPolicyVirtualNetworkLink",
-      "DnsSecurityRule",
-      "DnssecConfig",
-      "ForwardingRule",
-      "InboundEndpoint",
       "NetworkSecurityPerimeter",
       "NspAccessRule",
       "NspAssociation",
       "NspLink",
-      "NspProfile",
-      "OutboundEndpoint",
-      "PrivateResolverVirtualNetworkLink",
-      "RecordSet",
-      "Zone",
-      "getDnsResourceReferenceByTarResources",
-      "listDnsForwardingRulesetByVirtualNetwork",
-      "listDnsResolverByVirtualNetwork",
-      "listDnsResolverPolicyByVirtualNetwork"
+      "NspProfile"
     ],
     "2023-08-01-preview": [
       "NetworkSecurityPerimeter",
@@ -19858,9 +19847,6 @@
       "listIpamPoolAssociatedResources",
       "listNetworkManagerDeploymentStatus"
     ],
-    "2024-02-01": [
-      "Policy"
-    ],
     "2024-03-01": [
       "AdminRule",
       "AdminRuleCollection",
@@ -20107,11 +20093,6 @@
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules",
       "listVpnLinkConnectionDefaultSharedKey"
-    ],
-    "2024-06-01": [
-      "PrivateRecordSet",
-      "PrivateZone",
-      "VirtualNetworkLink"
     ]
   },
   "NetworkAnalytics": {
@@ -20369,13 +20350,13 @@
   },
   "OffAzureSpringBoot": {
     "2023-01-01-preview": [
-      "springbootserver",
-      "springbootsite"
+      "Springbootserver",
+      "Springbootsite"
     ],
     "2024-04-01-preview": [
-      "springbootapp",
-      "springbootserver",
-      "springbootsite"
+      "Springbootapp",
+      "Springbootserver",
+      "Springbootsite"
     ]
   },
   "OpenEnergyPlatform": {
@@ -20699,6 +20680,28 @@
       "Account",
       "EnterprisePolicy",
       "PrivateEndpointConnection"
+    ]
+  },
+  "PrivateDns": {
+    "2018-09-01": [
+      "PrivateRecordSet",
+      "PrivateZone",
+      "VirtualNetworkLink"
+    ],
+    "2020-01-01": [
+      "PrivateRecordSet",
+      "PrivateZone",
+      "VirtualNetworkLink"
+    ],
+    "2020-06-01": [
+      "PrivateRecordSet",
+      "PrivateZone",
+      "VirtualNetworkLink"
+    ],
+    "2024-06-01": [
+      "PrivateRecordSet",
+      "PrivateZone",
+      "VirtualNetworkLink"
     ]
   },
   "ProfessionalService": {
@@ -22164,11 +22167,11 @@
       "PrivateEndpointConnectionsForEDM",
       "PrivateEndpointConnectionsForSCCPowershell",
       "PrivateEndpointConnectionsSec",
-      "privateLinkServicesForEDMUpload",
-      "privateLinkServicesForM365ComplianceCenter",
-      "privateLinkServicesForM365SecurityCenter",
-      "privateLinkServicesForO365ManagementActivityAPI",
-      "privateLinkServicesForSCCPowershell"
+      "PrivateLinkServicesForEDMUpload",
+      "PrivateLinkServicesForM365ComplianceCenter",
+      "PrivateLinkServicesForM365SecurityCenter",
+      "PrivateLinkServicesForO365ManagementActivityAPI",
+      "PrivateLinkServicesForSCCPowershell"
     ],
     "2021-03-08": [
       "PrivateEndpointConnectionsAdtAPI",
@@ -22177,12 +22180,12 @@
       "PrivateEndpointConnectionsForMIPPolicySync",
       "PrivateEndpointConnectionsForSCCPowershell",
       "PrivateEndpointConnectionsSec",
-      "privateLinkServicesForEDMUpload",
-      "privateLinkServicesForM365ComplianceCenter",
-      "privateLinkServicesForM365SecurityCenter",
-      "privateLinkServicesForMIPPolicySync",
-      "privateLinkServicesForO365ManagementActivityAPI",
-      "privateLinkServicesForSCCPowershell"
+      "PrivateLinkServicesForEDMUpload",
+      "PrivateLinkServicesForM365ComplianceCenter",
+      "PrivateLinkServicesForM365SecurityCenter",
+      "PrivateLinkServicesForMIPPolicySync",
+      "PrivateLinkServicesForO365ManagementActivityAPI",
+      "PrivateLinkServicesForSCCPowershell"
     ]
   },
   "SecurityInsights": {
@@ -23383,7 +23386,7 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus"
+      "getManagedAzResiliencyStatus"
     ],
     "2022-06-01-preview": [
       "ManagedCluster",
@@ -23392,7 +23395,7 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus"
+      "getManagedAzResiliencyStatus"
     ],
     "2022-08-01-preview": [
       "ManagedCluster",
@@ -23401,7 +23404,7 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus"
+      "getManagedAzResiliencyStatus"
     ],
     "2022-10-01-preview": [
       "ManagedCluster",
@@ -23410,7 +23413,7 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus"
+      "getManagedAzResiliencyStatus"
     ],
     "2023-02-01-preview": [
       "ManagedCluster",
@@ -23419,7 +23422,7 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus"
+      "getManagedAzResiliencyStatus"
     ],
     "2023-03-01-preview": [
       "ManagedCluster",
@@ -23428,7 +23431,7 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus"
+      "getManagedAzResiliencyStatus"
     ],
     "2023-07-01-preview": [
       "ManagedCluster",
@@ -23437,8 +23440,8 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus",
-      "getmanagedMaintenanceWindowStatus"
+      "getManagedAzResiliencyStatus",
+      "getManagedMaintenanceWindowStatus"
     ],
     "2023-09-01-preview": [
       "ManagedCluster",
@@ -23447,8 +23450,8 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus",
-      "getmanagedMaintenanceWindowStatus"
+      "getManagedAzResiliencyStatus",
+      "getManagedMaintenanceWindowStatus"
     ],
     "2023-11-01-preview": [
       "ManagedCluster",
@@ -23457,8 +23460,8 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus",
-      "getmanagedMaintenanceWindowStatus"
+      "getManagedAzResiliencyStatus",
+      "getManagedMaintenanceWindowStatus"
     ],
     "2023-12-01-preview": [
       "ManagedCluster",
@@ -23467,8 +23470,8 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus",
-      "getmanagedMaintenanceWindowStatus"
+      "getManagedAzResiliencyStatus",
+      "getManagedMaintenanceWindowStatus"
     ],
     "2024-02-01-preview": [
       "ManagedCluster",
@@ -23477,8 +23480,8 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus",
-      "getmanagedMaintenanceWindowStatus"
+      "getManagedAzResiliencyStatus",
+      "getManagedMaintenanceWindowStatus"
     ],
     "2024-04-01": [
       "ManagedCluster",
@@ -23487,8 +23490,8 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus",
-      "getmanagedMaintenanceWindowStatus"
+      "getManagedAzResiliencyStatus",
+      "getManagedMaintenanceWindowStatus"
     ],
     "2024-06-01-preview": [
       "ManagedCluster",
@@ -23497,8 +23500,8 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus",
-      "getmanagedMaintenanceWindowStatus"
+      "getManagedAzResiliencyStatus",
+      "getManagedMaintenanceWindowStatus"
     ],
     "2024-09-01-preview": [
       "ManagedCluster",
@@ -23507,8 +23510,8 @@
       "ManagedClusterApplicationTypeVersion",
       "ManagedClusterService",
       "NodeType",
-      "getmanagedAzResiliencyStatus",
-      "getmanagedMaintenanceWindowStatus"
+      "getManagedAzResiliencyStatus",
+      "getManagedMaintenanceWindowStatus"
     ]
   },
   "ServiceFabricMesh": {
@@ -25348,29 +25351,29 @@
       "StorageTarget"
     ],
     "2023-03-01-preview": [
+      "AmlFilesystem",
       "Cache",
       "StorageTarget",
-      "amlFilesystem",
       "getRequiredAmlFSSubnetsSize"
     ],
     "2023-05-01": [
+      "AmlFilesystem",
       "Cache",
       "StorageTarget",
-      "amlFilesystem",
       "getRequiredAmlFSSubnetsSize"
     ],
     "2023-11-01-preview": [
+      "AmlFilesystem",
       "Cache",
       "StorageTarget",
-      "amlFilesystem",
       "getRequiredAmlFSSubnetsSize"
     ],
     "2024-03-01": [
+      "AmlFilesystem",
       "Cache",
+      "ImportJob",
       "StorageTarget",
-      "amlFilesystem",
-      "getRequiredAmlFSSubnetsSize",
-      "importJob"
+      "getRequiredAmlFSSubnetsSize"
     ]
   },
   "StorageMover": {
@@ -25649,6 +25652,7 @@
       "IntegrationRuntime",
       "IpFirewallRule",
       "Key",
+      "KustoPool",
       "KustoPoolPrincipalAssignment",
       "PrivateEndpointConnection",
       "PrivateLinkHub",
@@ -25666,7 +25670,6 @@
       "getIntegrationRuntimeConnectionInfo",
       "getIntegrationRuntimeObjectMetadatum",
       "getIntegrationRuntimeStatus",
-      "kustoPool",
       "listIntegrationRuntimeAuthKey"
     ],
     "2021-05-01": [
@@ -25833,6 +25836,51 @@
       "Environment",
       "EventSource",
       "ReferenceDataSet"
+    ]
+  },
+  "TrafficManager": {
+    "2015-11-01": [
+      "Endpoint",
+      "Profile"
+    ],
+    "2017-03-01": [
+      "Endpoint",
+      "Profile"
+    ],
+    "2017-05-01": [
+      "Endpoint",
+      "Profile"
+    ],
+    "2017-09-01-preview": [
+      "TrafficManagerUserMetricsKey"
+    ],
+    "2018-02-01": [
+      "Endpoint",
+      "Profile"
+    ],
+    "2018-03-01": [
+      "Endpoint",
+      "Profile"
+    ],
+    "2018-04-01": [
+      "Endpoint",
+      "Profile",
+      "TrafficManagerUserMetricsKey"
+    ],
+    "2018-08-01": [
+      "Endpoint",
+      "Profile",
+      "TrafficManagerUserMetricsKey"
+    ],
+    "2022-04-01": [
+      "Endpoint",
+      "Profile",
+      "TrafficManagerUserMetricsKey"
+    ],
+    "2022-04-01-preview": [
+      "Endpoint",
+      "Profile",
+      "TrafficManagerUserMetricsKey"
     ]
   },
   "VMwareCloudSimple": {
@@ -27835,6 +27883,7 @@
   },
   "Workloads": {
     "2021-12-01-preview": [
+      "Monitor",
       "PhpWorkload",
       "ProviderInstance",
       "SAPApplicationServerInstance",
@@ -27845,10 +27894,10 @@
       "getSAPAvailabilityZoneDetails",
       "getSAPDiskConfigurations",
       "getSAPSizingRecommendations",
-      "getSAPSupportedSku",
-      "monitor"
+      "getSAPSupportedSku"
     ],
     "2022-11-01-preview": [
+      "Monitor",
       "ProviderInstance",
       "SAPApplicationServerInstance",
       "SAPCentralInstance",
@@ -27858,10 +27907,10 @@
       "getSAPAvailabilityZoneDetails",
       "getSAPDiskConfigurations",
       "getSAPSizingRecommendations",
-      "getSAPSupportedSku",
-      "monitor"
+      "getSAPSupportedSku"
     ],
     "2023-04-01": [
+      "Monitor",
       "ProviderInstance",
       "SAPApplicationServerInstance",
       "SAPCentralInstance",
@@ -27871,12 +27920,12 @@
       "getSAPAvailabilityZoneDetails",
       "getSAPDiskConfigurations",
       "getSAPSizingRecommendations",
-      "getSAPSupportedSku",
-      "monitor"
+      "getSAPSupportedSku"
     ],
     "2023-10-01-preview": [
       "ACSSBackupConnection",
       "Connector",
+      "Monitor",
       "ProviderInstance",
       "SAPApplicationServerInstance",
       "SAPCentralInstance",
@@ -27889,8 +27938,7 @@
       "getSAPAvailabilityZoneDetails",
       "getSAPDiskConfigurations",
       "getSAPSizingRecommendations",
-      "getSAPSupportedSku",
-      "monitor"
+      "getSAPSupportedSku"
     ],
     "2023-12-01-preview": [
       "Monitor",

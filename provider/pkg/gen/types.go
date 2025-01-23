@@ -450,9 +450,19 @@ var typeNameOverrides = map[string]string{
 	// This one is not a disambiguation but a fix for a type name "String" that is not descriptive and leads to
 	// generating invalid Java.
 	"DatabaseWatcher.Target.String": "TargetCollectionStatus",
+	// SingleServer is different from just "Server", see the exception in resources.go ResourceName().
+	"DBforPostgreSQL.SingleServer.Sku": "SingleServerSku",
 	// Devices RP comes from "deviceprovisioningservices" and "iothub" which are similar but slightly different.
 	// In particular, the IP Filter Rule has more properties in the DPS version.
 	"Devices.IotDpsResource.IpFilterRule": "TargetIpFilterRule",
+	// DocumentDB.MongoCluster from /mongocluster uses a different private endpoint connection
+	"DocumentDB.MongoCluster.PrivateEndpointConnection": "MongoClusterPrivateEndpointConnection",
+	// See the exception for Microsoft.HDInsight in resources.go ResourceName().
+	"HDInsight.ClusterPoolCluster.Sku":            "ClusterPoolSku",
+	"HDInsight.ClusterPoolCluster.ComputeProfile": "ClusterPoolComputeProfile",
+	"HDInsight.ClusterPoolCluster.SshProfile":     "ClusterPoolSshProfile",
+
+	"HybridContainerService.ClusterInstanceAgentPool.Status": "AgentPoolProvisioningStatus",
 	// Workbook vs. MyWorkbook types are slightly different. Probably, a bug in the spec, but we have to disambiguate.
 	"Insights.MyWorkbook.ManagedIdentity":                  "MyManagedIdentity",
 	"Insights.MyWorkbook.UserAssignedIdentities":           "MyUserAssignedIdentities",

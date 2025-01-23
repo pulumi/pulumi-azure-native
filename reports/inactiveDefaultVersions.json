@@ -1,23 +1,9 @@
 {
-  "AadIam": [
-    "2020-03-01",
-    "2020-07-01-preview"
-  ],
-  "Automanage": [
-    "2020-06-30-preview"
-  ],
   "AzureData": [
     "2019-07-24-preview"
   ],
   "Cloudngfw": [
-    "2023-09-01",
-    "2024-02-07-preview"
-  ],
-  "ContainerInstance": [
-    "2024-11-01-preview"
-  ],
-  "ContainerService": [
-    "2019-10-27-preview"
+    "2024-01-19-preview"
   ],
   "ContainerStorage": [
     "2023-07-01-preview"
@@ -28,17 +14,17 @@
   "CustomerInsights": [
     "2017-04-26"
   ],
-  "DBforPostgreSQL": [
-    "2024-03-01-preview"
-  ],
   "DataCatalog": [
     "2016-03-30"
   ],
-  "DevHub": [
-    "2024-08-01-preview"
-  ],
   "DevSpaces": [
     "2019-04-01"
+  ],
+  "Dns": [
+    "2023-07-01-preview"
+  ],
+  "DnsResolver": [
+    "2023-07-01-preview"
   ],
   "Dynamics365Fraudprotection": [
     "2021-02-01-preview"
@@ -52,14 +38,14 @@
   "EnterpriseKnowledgeGraph": [
     "2018-12-03"
   ],
+  "FrontDoor": [
+    "2024-02-01"
+  ],
   "HybridData": [
     "2019-06-01"
   ],
   "ImportExport": [
     "2021-01-01"
-  ],
-  "Insights": [
-    "2021-03-03-preview"
   ],
   "Intune": [
     "2015-01-14-preview"
@@ -68,12 +54,7 @@
     "2021-03-25-preview"
   ],
   "MachineLearning": [
-    "2016-05-01-preview",
-    "2017-01-01",
     "2019-10-01"
-  ],
-  "ManagedIdentity": [
-    "2022-01-31-preview"
   ],
   "ManagedNetwork": [
     "2019-06-01-preview"
@@ -81,35 +62,23 @@
   "ManagementPartner": [
     "2018-02-01"
   ],
-  "Media": [
-    "2020-02-01-preview"
-  ],
-  "Migrate": [
-    "2023-01-01"
-  ],
-  "Network": [
-    "2021-03-01-preview"
+  "MongoCluster": [
+    "2024-07-01"
   ],
   "NetworkAnalytics": [
     "2023-11-15"
   ],
-  "PolicyInsights": [
-    "2022-09-01"
-  ],
   "PortalServices": [
     "2024-04-01-preview"
+  ],
+  "PrivateDns": [
+    "2024-06-01"
   ],
   "Scheduler": [
     "2016-03-01"
   ],
-  "Security": [
-    "2024-05-15-preview"
-  ],
   "SecurityAndCompliance": [
     "2021-03-08"
-  ],
-  "SoftwarePlan": [
-    "2019-12-01"
   ],
   "StorSimple": [
     "2017-06-01"
@@ -118,12 +87,13 @@
     "2021-08-01"
   ],
   "TestBase": [
-    "2022-04-01-preview",
     "2023-11-01-preview"
   ],
   "TimeSeriesInsights": [
-    "2020-05-15",
-    "2021-03-31-preview"
+    "2020-05-15"
+  ],
+  "TrafficManager": [
+    "2022-04-01"
   ],
   "VMwareCloudSimple": [
     "2019-04-01"
@@ -131,12 +101,8 @@
   "VideoAnalyzer": [
     "2021-11-01-preview"
   ],
-  "VisualStudio": [
-    "2017-11-01-preview"
-  ],
   "WebPubSub": [
-    "2023-02-01",
-    "2023-03-01-preview"
+    "2024-03-01"
   ],
   "WindowsESU": [
     "2019-09-16-preview"
