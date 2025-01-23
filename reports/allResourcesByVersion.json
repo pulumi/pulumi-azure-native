@@ -7934,6 +7934,12 @@
       "IntegrationFabric",
       "ManagedPrivateEndpoint",
       "PrivateEndpointConnection"
+    ],
+    "2024-10-01": [
+      "Grafana",
+      "IntegrationFabric",
+      "ManagedPrivateEndpoint",
+      "PrivateEndpointConnection"
     ]
   },
   "DataBox": {
