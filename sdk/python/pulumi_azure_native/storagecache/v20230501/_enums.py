@@ -5,23 +5,13 @@
 from enum import Enum
 
 __all__ = [
-    'AmlFilesystemIdentityType',
     'CacheIdentityType',
-    'MaintenanceDayOfWeekType',
     'NfsAccessRuleAccess',
     'NfsAccessRuleScope',
     'OperationalStateType',
     'StorageTargetType',
     'UsernameSource',
 ]
-
-
-class AmlFilesystemIdentityType(str, Enum):
-    """
-    The type of identity used for the resource.
-    """
-    USER_ASSIGNED = "UserAssigned"
-    NONE = "None"
 
 
 class CacheIdentityType(str, Enum):
@@ -32,19 +22,6 @@ class CacheIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
-
-
-class MaintenanceDayOfWeekType(str, Enum):
-    """
-    Day of the week on which the maintenance window will occur.
-    """
-    MONDAY = "Monday"
-    TUESDAY = "Tuesday"
-    WEDNESDAY = "Wednesday"
-    THURSDAY = "Thursday"
-    FRIDAY = "Friday"
-    SATURDAY = "Saturday"
-    SUNDAY = "Sunday"
 
 
 class NfsAccessRuleAccess(str, Enum):

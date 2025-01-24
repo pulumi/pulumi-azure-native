@@ -24,7 +24,7 @@ __all__ = [
 @pulumi.output_type
 class ListAdminKeyResult:
     """
-    Response containing the primary and secondary admin API keys for a given Azure Cognitive Search service.
+    Response containing the primary and secondary admin API keys for a given search service.
     """
     def __init__(__self__, primary_key=None, secondary_key=None):
         if primary_key and not isinstance(primary_key, str):
@@ -65,14 +65,14 @@ def list_admin_key(resource_group_name: Optional[str] = None,
                    search_service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAdminKeyResult:
     """
-    Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
-    Azure REST API version: 2022-09-01.
+    Gets the primary and secondary admin API keys for the specified search service.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+    Other available API versions: 2022-09-01, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+    :param str search_service_name: The name of the search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -87,14 +87,14 @@ def list_admin_key_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           search_service_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAdminKeyResult]:
     """
-    Gets the primary and secondary admin API keys for the specified Azure Cognitive Search service.
-    Azure REST API version: 2022-09-01.
+    Gets the primary and secondary admin API keys for the specified search service.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2021-04-01-preview, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+    Other available API versions: 2022-09-01, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+    :param str search_service_name: The name of the search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name

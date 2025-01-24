@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ReportArgs', 'Report']
@@ -21,28 +22,80 @@ __all__ = ['ReportArgs', 'Report']
 @pulumi.input_type
 class ReportArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['ReportPropertiesArgs'],
-                 report_name: Optional[pulumi.Input[str]] = None):
+                 resources: pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]],
+                 time_zone: pulumi.Input[str],
+                 trigger_time: pulumi.Input[str],
+                 offer_guid: Optional[pulumi.Input[str]] = None,
+                 report_name: Optional[pulumi.Input[str]] = None,
+                 storage_info: Optional[pulumi.Input['StorageInfoArgs']] = None):
         """
         The set of arguments for constructing a Report resource.
-        :param pulumi.Input['ReportPropertiesArgs'] properties: Report property.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]] resources: List of resource data.
+        :param pulumi.Input[str] time_zone: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
+               An example of valid timezone id is "Pacific Standard Time".
+        :param pulumi.Input[str] trigger_time: Report collection trigger time.
+        :param pulumi.Input[str] offer_guid: A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
         :param pulumi.Input[str] report_name: Report Name.
+        :param pulumi.Input['StorageInfoArgs'] storage_info: The information of 'bring your own storage' binding to the report
         """
-        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "resources", resources)
+        pulumi.set(__self__, "time_zone", time_zone)
+        pulumi.set(__self__, "trigger_time", trigger_time)
+        if offer_guid is not None:
+            pulumi.set(__self__, "offer_guid", offer_guid)
         if report_name is not None:
             pulumi.set(__self__, "report_name", report_name)
+        if storage_info is not None:
+            pulumi.set(__self__, "storage_info", storage_info)
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Input['ReportPropertiesArgs']:
+    def resources(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]]:
         """
-        Report property.
+        List of resource data.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "resources")
 
-    @properties.setter
-    def properties(self, value: pulumi.Input['ReportPropertiesArgs']):
-        pulumi.set(self, "properties", value)
+    @resources.setter
+    def resources(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]]):
+        pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Input[str]:
+        """
+        Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
+        An example of valid timezone id is "Pacific Standard Time".
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_zone", value)
+
+    @property
+    @pulumi.getter(name="triggerTime")
+    def trigger_time(self) -> pulumi.Input[str]:
+        """
+        Report collection trigger time.
+        """
+        return pulumi.get(self, "trigger_time")
+
+    @trigger_time.setter
+    def trigger_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "trigger_time", value)
+
+    @property
+    @pulumi.getter(name="offerGuid")
+    def offer_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
+        """
+        return pulumi.get(self, "offer_guid")
+
+    @offer_guid.setter
+    def offer_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "offer_guid", value)
 
     @property
     @pulumi.getter(name="reportName")
@@ -56,25 +109,46 @@ class ReportArgs:
     def report_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "report_name", value)
 
+    @property
+    @pulumi.getter(name="storageInfo")
+    def storage_info(self) -> Optional[pulumi.Input['StorageInfoArgs']]:
+        """
+        The information of 'bring your own storage' binding to the report
+        """
+        return pulumi.get(self, "storage_info")
+
+    @storage_info.setter
+    def storage_info(self, value: Optional[pulumi.Input['StorageInfoArgs']]):
+        pulumi.set(self, "storage_info", value)
+
 
 class Report(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['ReportPropertiesArgs', 'ReportPropertiesArgsDict']]] = None,
+                 offer_guid: Optional[pulumi.Input[str]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceMetadataArgs', 'ResourceMetadataArgsDict']]]]] = None,
+                 storage_info: Optional[pulumi.Input[Union['StorageInfoArgs', 'StorageInfoArgsDict']]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
+                 trigger_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A class represent an AppComplianceAutomation report resource.
-        Azure REST API version: 2022-11-16-preview. Prior API version in Azure Native 1.x: 2022-11-16-preview.
+        Azure REST API version: 2024-06-27. Prior API version in Azure Native 1.x: 2022-11-16-preview.
 
-        Other available API versions: 2024-06-27.
+        Other available API versions: 2022-11-16-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ReportPropertiesArgs', 'ReportPropertiesArgsDict']] properties: Report property.
+        :param pulumi.Input[str] offer_guid: A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
         :param pulumi.Input[str] report_name: Report Name.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceMetadataArgs', 'ResourceMetadataArgsDict']]]] resources: List of resource data.
+        :param pulumi.Input[Union['StorageInfoArgs', 'StorageInfoArgsDict']] storage_info: The information of 'bring your own storage' binding to the report
+        :param pulumi.Input[str] time_zone: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
+               An example of valid timezone id is "Pacific Standard Time".
+        :param pulumi.Input[str] trigger_time: Report collection trigger time.
         """
         ...
     @overload
@@ -84,9 +158,9 @@ class Report(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent an AppComplianceAutomation report resource.
-        Azure REST API version: 2022-11-16-preview. Prior API version in Azure Native 1.x: 2022-11-16-preview.
+        Azure REST API version: 2024-06-27. Prior API version in Azure Native 1.x: 2022-11-16-preview.
 
-        Other available API versions: 2024-06-27.
+        Other available API versions: 2022-11-16-preview.
 
         :param str resource_name: The name of the resource.
         :param ReportArgs args: The arguments to use to populate this resource's properties.
@@ -103,8 +177,12 @@ class Report(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['ReportPropertiesArgs', 'ReportPropertiesArgsDict']]] = None,
+                 offer_guid: Optional[pulumi.Input[str]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceMetadataArgs', 'ResourceMetadataArgsDict']]]]] = None,
+                 storage_info: Optional[pulumi.Input[Union['StorageInfoArgs', 'StorageInfoArgsDict']]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
+                 trigger_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -114,12 +192,29 @@ class Report(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReportArgs.__new__(ReportArgs)
 
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
+            __props__.__dict__["offer_guid"] = offer_guid
             __props__.__dict__["report_name"] = report_name
+            if resources is None and not opts.urn:
+                raise TypeError("Missing required property 'resources'")
+            __props__.__dict__["resources"] = resources
+            __props__.__dict__["storage_info"] = storage_info
+            if time_zone is None and not opts.urn:
+                raise TypeError("Missing required property 'time_zone'")
+            __props__.__dict__["time_zone"] = time_zone
+            if trigger_time is None and not opts.urn:
+                raise TypeError("Missing required property 'trigger_time'")
+            __props__.__dict__["trigger_time"] = trigger_time
+            __props__.__dict__["cert_records"] = None
+            __props__.__dict__["compliance_status"] = None
+            __props__.__dict__["errors"] = None
+            __props__.__dict__["last_trigger_time"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["next_trigger_time"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["subscriptions"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appcomplianceautomation/v20221116preview:Report"), pulumi.Alias(type_="azure-native:appcomplianceautomation/v20240627:Report")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -145,11 +240,56 @@ class Report(pulumi.CustomResource):
 
         __props__ = ReportArgs.__new__(ReportArgs)
 
+        __props__.__dict__["cert_records"] = None
+        __props__.__dict__["compliance_status"] = None
+        __props__.__dict__["errors"] = None
+        __props__.__dict__["last_trigger_time"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
+        __props__.__dict__["next_trigger_time"] = None
+        __props__.__dict__["offer_guid"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resources"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["storage_info"] = None
+        __props__.__dict__["subscriptions"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["time_zone"] = None
+        __props__.__dict__["trigger_time"] = None
         __props__.__dict__["type"] = None
         return Report(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="certRecords")
+    def cert_records(self) -> pulumi.Output[Sequence['outputs.CertSyncRecordResponse']]:
+        """
+        List of synchronized certification records.
+        """
+        return pulumi.get(self, "cert_records")
+
+    @property
+    @pulumi.getter(name="complianceStatus")
+    def compliance_status(self) -> pulumi.Output['outputs.ReportComplianceStatusResponse']:
+        """
+        Report compliance status.
+        """
+        return pulumi.get(self, "compliance_status")
+
+    @property
+    @pulumi.getter
+    def errors(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of report error codes.
+        """
+        return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter(name="lastTriggerTime")
+    def last_trigger_time(self) -> pulumi.Output[str]:
+        """
+        Report last collection trigger time.
+        """
+        return pulumi.get(self, "last_trigger_time")
 
     @property
     @pulumi.getter
@@ -160,12 +300,60 @@ class Report(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="nextTriggerTime")
+    def next_trigger_time(self) -> pulumi.Output[str]:
+        """
+        Report next collection trigger time.
+        """
+        return pulumi.get(self, "next_trigger_time")
+
+    @property
+    @pulumi.getter(name="offerGuid")
+    def offer_guid(self) -> pulumi.Output[Optional[str]]:
+        """
+        A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
+        """
+        return pulumi.get(self, "offer_guid")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ReportPropertiesResponse']:
+    def resources(self) -> pulumi.Output[Sequence['outputs.ResourceMetadataResponse']]:
         """
-        Report property.
+        List of resource data.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[str]:
+        """
+        Report status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="storageInfo")
+    def storage_info(self) -> pulumi.Output[Optional['outputs.StorageInfoResponse']]:
+        """
+        The information of 'bring your own storage' binding to the report
+        """
+        return pulumi.get(self, "storage_info")
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of subscription Ids.
+        """
+        return pulumi.get(self, "subscriptions")
 
     @property
     @pulumi.getter(name="systemData")
@@ -174,6 +362,31 @@ class Report(pulumi.CustomResource):
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Output[str]:
+        """
+        Report's tenant id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Output[str]:
+        """
+        Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
+        An example of valid timezone id is "Pacific Standard Time".
+        """
+        return pulumi.get(self, "time_zone")
+
+    @property
+    @pulumi.getter(name="triggerTime")
+    def trigger_time(self) -> pulumi.Output[str]:
+        """
+        Report collection trigger time.
+        """
+        return pulumi.get(self, "trigger_time")
 
     @property
     @pulumi.getter

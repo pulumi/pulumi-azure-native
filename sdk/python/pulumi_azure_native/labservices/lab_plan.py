@@ -238,9 +238,9 @@ class LabPlan(pulumi.CustomResource):
                  __props__=None):
         """
         Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview.
+        Azure REST API version: 2023-06-07. Prior API version in Azure Native 1.x: 2022-08-01.
 
-        Other available API versions: 2023-06-07.
+        Other available API versions: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,9 +265,9 @@ class LabPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview.
+        Azure REST API version: 2023-06-07. Prior API version in Azure Native 1.x: 2022-08-01.
 
-        Other available API versions: 2023-06-07.
+        Other available API versions: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param LabPlanArgs args: The arguments to use to populate this resource's properties.
@@ -321,6 +321,7 @@ class LabPlan(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_operation_error"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20211001preview:LabPlan"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:LabPlan"), pulumi.Alias(type_="azure-native:labservices/v20220801:LabPlan"), pulumi.Alias(type_="azure-native:labservices/v20230607:LabPlan")])
@@ -356,6 +357,7 @@ class LabPlan(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_operation_error"] = None
         __props__.__dict__["shared_gallery_id"] = None
         __props__.__dict__["support_info"] = None
         __props__.__dict__["system_data"] = None
@@ -434,6 +436,14 @@ class LabPlan(pulumi.CustomResource):
         Current provisioning state of the lab plan.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceOperationError")
+    def resource_operation_error(self) -> pulumi.Output['outputs.ResourceOperationErrorResponse']:
+        """
+        Error details of last operation done on lab plan.
+        """
+        return pulumi.get(self, "resource_operation_error")
 
     @property
     @pulumi.getter(name="sharedGalleryId")

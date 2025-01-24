@@ -266,6 +266,7 @@ class Lab(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["total_budget"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:education/v20211201preview:Lab")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -302,6 +303,7 @@ class Lab(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["total_budget"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["value"] = None
         return Lab(resource_name, opts=opts, __props__=__props__)
@@ -393,6 +395,14 @@ class Lab(pulumi.CustomResource):
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter(name="totalBudget")
+    def total_budget(self) -> pulumi.Output['outputs.AmountResponse']:
+        """
+        Total budget
+        """
+        return pulumi.get(self, "total_budget")
 
     @property
     @pulumi.getter

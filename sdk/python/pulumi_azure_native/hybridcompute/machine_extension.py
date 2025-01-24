@@ -135,9 +135,9 @@ class MachineExtension(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Machine Extension.
-        Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02.
+        Azure REST API version: 2024-07-10. Prior API version in Azure Native 1.x: 2022-12-27.
 
-        Other available API versions: 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Other available API versions: 2020-08-15-preview, 2022-12-27, 2023-03-15-preview, 2024-11-10-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,9 +156,9 @@ class MachineExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Machine Extension.
-        Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02.
+        Azure REST API version: 2024-07-10. Prior API version in Azure Native 1.x: 2022-12-27.
 
-        Other available API versions: 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Other available API versions: 2020-08-15-preview, 2022-12-27, 2023-03-15-preview, 2024-11-10-preview.
 
         :param str resource_name: The name of the resource.
         :param MachineExtensionArgs args: The arguments to use to populate this resource's properties.

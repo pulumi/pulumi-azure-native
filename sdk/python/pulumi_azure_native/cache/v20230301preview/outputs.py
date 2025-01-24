@@ -20,12 +20,8 @@ __all__ = [
     'ClusterPropertiesResponseCustomerManagedKeyEncryption',
     'ClusterPropertiesResponseEncryption',
     'ClusterPropertiesResponseKeyEncryptionKeyIdentity',
-    'DatabasePropertiesResponseGeoReplication',
     'EnterpriseSkuResponse',
-    'LinkedDatabaseResponse',
     'ManagedServiceIdentityResponse',
-    'ModuleResponse',
-    'PersistenceResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -182,60 +178,6 @@ class ClusterPropertiesResponseKeyEncryptionKeyIdentity(dict):
 
 
 @pulumi.output_type
-class DatabasePropertiesResponseGeoReplication(dict):
-    """
-    Optional set of properties to configure geo replication for this database.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupNickname":
-            suggest = "group_nickname"
-        elif key == "linkedDatabases":
-            suggest = "linked_databases"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatabasePropertiesResponseGeoReplication. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DatabasePropertiesResponseGeoReplication.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DatabasePropertiesResponseGeoReplication.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 group_nickname: Optional[str] = None,
-                 linked_databases: Optional[Sequence['outputs.LinkedDatabaseResponse']] = None):
-        """
-        Optional set of properties to configure geo replication for this database.
-        :param str group_nickname: Name for the group of linked database resources
-        :param Sequence['LinkedDatabaseResponse'] linked_databases: List of database resources to link with this database
-        """
-        if group_nickname is not None:
-            pulumi.set(__self__, "group_nickname", group_nickname)
-        if linked_databases is not None:
-            pulumi.set(__self__, "linked_databases", linked_databases)
-
-    @property
-    @pulumi.getter(name="groupNickname")
-    def group_nickname(self) -> Optional[str]:
-        """
-        Name for the group of linked database resources
-        """
-        return pulumi.get(self, "group_nickname")
-
-    @property
-    @pulumi.getter(name="linkedDatabases")
-    def linked_databases(self) -> Optional[Sequence['outputs.LinkedDatabaseResponse']]:
-        """
-        List of database resources to link with this database
-        """
-        return pulumi.get(self, "linked_databases")
-
-
-@pulumi.output_type
 class EnterpriseSkuResponse(dict):
     """
     SKU parameters supplied to the create RedisEnterprise operation.
@@ -267,40 +209,6 @@ class EnterpriseSkuResponse(dict):
         The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
         """
         return pulumi.get(self, "capacity")
-
-
-@pulumi.output_type
-class LinkedDatabaseResponse(dict):
-    """
-    Specifies details of a linked database resource.
-    """
-    def __init__(__self__, *,
-                 state: str,
-                 id: Optional[str] = None):
-        """
-        Specifies details of a linked database resource.
-        :param str state: State of the link between the database resources.
-        :param str id: Resource ID of a database resource to link with this database.
-        """
-        pulumi.set(__self__, "state", state)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def state(self) -> str:
-        """
-        State of the link between the database resources.
-        """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID of a database resource to link with this database.
-        """
-        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -378,133 +286,6 @@ class ManagedServiceIdentityResponse(dict):
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
-
-
-@pulumi.output_type
-class ModuleResponse(dict):
-    """
-    Specifies configuration of a redis module
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 version: str,
-                 args: Optional[str] = None):
-        """
-        Specifies configuration of a redis module
-        :param str name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-        :param str version: The version of the module, e.g. '1.0'.
-        :param str args: Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "version", version)
-        if args is not None:
-            pulumi.set(__self__, "args", args)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def version(self) -> str:
-        """
-        The version of the module, e.g. '1.0'.
-        """
-        return pulumi.get(self, "version")
-
-    @property
-    @pulumi.getter
-    def args(self) -> Optional[str]:
-        """
-        Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
-        """
-        return pulumi.get(self, "args")
-
-
-@pulumi.output_type
-class PersistenceResponse(dict):
-    """
-    Persistence-related configuration for the RedisEnterprise database
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "aofEnabled":
-            suggest = "aof_enabled"
-        elif key == "aofFrequency":
-            suggest = "aof_frequency"
-        elif key == "rdbEnabled":
-            suggest = "rdb_enabled"
-        elif key == "rdbFrequency":
-            suggest = "rdb_frequency"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PersistenceResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PersistenceResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PersistenceResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 aof_enabled: Optional[bool] = None,
-                 aof_frequency: Optional[str] = None,
-                 rdb_enabled: Optional[bool] = None,
-                 rdb_frequency: Optional[str] = None):
-        """
-        Persistence-related configuration for the RedisEnterprise database
-        :param bool aof_enabled: Sets whether AOF is enabled.
-        :param str aof_frequency: Sets the frequency at which data is written to disk.
-        :param bool rdb_enabled: Sets whether RDB is enabled.
-        :param str rdb_frequency: Sets the frequency at which a snapshot of the database is created.
-        """
-        if aof_enabled is not None:
-            pulumi.set(__self__, "aof_enabled", aof_enabled)
-        if aof_frequency is not None:
-            pulumi.set(__self__, "aof_frequency", aof_frequency)
-        if rdb_enabled is not None:
-            pulumi.set(__self__, "rdb_enabled", rdb_enabled)
-        if rdb_frequency is not None:
-            pulumi.set(__self__, "rdb_frequency", rdb_frequency)
-
-    @property
-    @pulumi.getter(name="aofEnabled")
-    def aof_enabled(self) -> Optional[bool]:
-        """
-        Sets whether AOF is enabled.
-        """
-        return pulumi.get(self, "aof_enabled")
-
-    @property
-    @pulumi.getter(name="aofFrequency")
-    def aof_frequency(self) -> Optional[str]:
-        """
-        Sets the frequency at which data is written to disk.
-        """
-        return pulumi.get(self, "aof_frequency")
-
-    @property
-    @pulumi.getter(name="rdbEnabled")
-    def rdb_enabled(self) -> Optional[bool]:
-        """
-        Sets whether RDB is enabled.
-        """
-        return pulumi.get(self, "rdb_enabled")
-
-    @property
-    @pulumi.getter(name="rdbFrequency")
-    def rdb_frequency(self) -> Optional[str]:
-        """
-        Sets the frequency at which a snapshot of the database is created.
-        """
-        return pulumi.get(self, "rdb_frequency")
 
 
 @pulumi.output_type

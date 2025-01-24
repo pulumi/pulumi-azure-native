@@ -21,7 +21,6 @@ __all__ = [
     'ArmUserIdentityResponse',
     'CertificatePropertiesResponse',
     'CloudToDevicePropertiesResponse',
-    'EncryptionPropertiesDescriptionResponse',
     'EnrichmentPropertiesResponse',
     'EventHubPropertiesResponse',
     'FallbackRoutePropertiesResponse',
@@ -31,11 +30,10 @@ __all__ = [
     'IotHubDefinitionDescriptionResponse',
     'IotHubLocationDescriptionResponse',
     'IotHubPropertiesResponse',
-    'IotHubPropertiesResponseDeviceStreams',
     'IotHubSkuInfoResponse',
     'IpFilterRuleResponse',
-    'KeyVaultKeyPropertiesResponse',
     'ManagedIdentityResponse',
+    'ManagedServiceIdentityResponse',
     'MessagingEndpointPropertiesResponse',
     'NetworkRuleSetIpRuleResponse',
     'NetworkRuleSetPropertiesResponse',
@@ -43,7 +41,6 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
-    'RootCertificatePropertiesResponse',
     'RoutePropertiesResponse',
     'RoutingCosmosDBSqlApiPropertiesResponse',
     'RoutingEndpointsResponse',
@@ -57,6 +54,7 @@ __all__ = [
     'StorageEndpointPropertiesResponse',
     'SystemDataResponse',
     'TargetIpFilterRuleResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -90,7 +88,7 @@ class ArmIdentityResponse(dict):
         """
         :param str principal_id: Principal Id
         :param str tenant_id: Tenant Id
-        :param str type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -119,7 +117,7 @@ class ArmIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         """
         return pulumi.get(self, "type")
 
@@ -338,60 +336,6 @@ class CloudToDevicePropertiesResponse(dict):
         The max delivery count for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
         """
         return pulumi.get(self, "max_delivery_count")
-
-
-@pulumi.output_type
-class EncryptionPropertiesDescriptionResponse(dict):
-    """
-    The encryption properties for the IoT hub.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keySource":
-            suggest = "key_source"
-        elif key == "keyVaultProperties":
-            suggest = "key_vault_properties"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertiesDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EncryptionPropertiesDescriptionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EncryptionPropertiesDescriptionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 key_source: Optional[str] = None,
-                 key_vault_properties: Optional[Sequence['outputs.KeyVaultKeyPropertiesResponse']] = None):
-        """
-        The encryption properties for the IoT hub.
-        :param str key_source: The source of the key.
-        :param Sequence['KeyVaultKeyPropertiesResponse'] key_vault_properties: The properties of the KeyVault key.
-        """
-        if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-
-    @property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[str]:
-        """
-        The source of the key.
-        """
-        return pulumi.get(self, "key_source")
-
-    @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[Sequence['outputs.KeyVaultKeyPropertiesResponse']]:
-        """
-        The properties of the KeyVault key.
-        """
-        return pulumi.get(self, "key_vault_properties")
 
 
 @pulumi.output_type
@@ -1092,8 +1036,6 @@ class IotHubPropertiesResponse(dict):
             suggest = "authorization_policies"
         elif key == "cloudToDevice":
             suggest = "cloud_to_device"
-        elif key == "deviceStreams":
-            suggest = "device_streams"
         elif key == "disableDeviceSAS":
             suggest = "disable_device_sas"
         elif key == "disableLocalAuth":
@@ -1120,8 +1062,6 @@ class IotHubPropertiesResponse(dict):
             suggest = "public_network_access"
         elif key == "restrictOutboundNetworkAccess":
             suggest = "restrict_outbound_network_access"
-        elif key == "rootCertificate":
-            suggest = "root_certificate"
         elif key == "storageEndpoints":
             suggest = "storage_endpoints"
 
@@ -1145,13 +1085,11 @@ class IotHubPropertiesResponse(dict):
                  authorization_policies: Optional[Sequence['outputs.SharedAccessSignatureAuthorizationRuleResponse']] = None,
                  cloud_to_device: Optional['outputs.CloudToDevicePropertiesResponse'] = None,
                  comments: Optional[str] = None,
-                 device_streams: Optional['outputs.IotHubPropertiesResponseDeviceStreams'] = None,
                  disable_device_sas: Optional[bool] = None,
                  disable_local_auth: Optional[bool] = None,
                  disable_module_sas: Optional[bool] = None,
                  enable_data_residency: Optional[bool] = None,
                  enable_file_upload_notifications: Optional[bool] = None,
-                 encryption: Optional['outputs.EncryptionPropertiesDescriptionResponse'] = None,
                  event_hub_endpoints: Optional[Mapping[str, 'outputs.EventHubPropertiesResponse']] = None,
                  features: Optional[str] = None,
                  ip_filter_rules: Optional[Sequence['outputs.IpFilterRuleResponse']] = None,
@@ -1161,7 +1099,6 @@ class IotHubPropertiesResponse(dict):
                  private_endpoint_connections: Optional[Sequence['outputs.PrivateEndpointConnectionResponse']] = None,
                  public_network_access: Optional[str] = None,
                  restrict_outbound_network_access: Optional[bool] = None,
-                 root_certificate: Optional['outputs.RootCertificatePropertiesResponse'] = None,
                  routing: Optional['outputs.RoutingPropertiesResponse'] = None,
                  storage_endpoints: Optional[Mapping[str, 'outputs.StorageEndpointPropertiesResponse']] = None):
         """
@@ -1174,13 +1111,11 @@ class IotHubPropertiesResponse(dict):
         :param Sequence['SharedAccessSignatureAuthorizationRuleResponse'] authorization_policies: The shared access policies you can use to secure a connection to the IoT hub.
         :param 'CloudToDevicePropertiesResponse' cloud_to_device: The IoT hub cloud-to-device messaging properties.
         :param str comments: IoT hub comments.
-        :param 'IotHubPropertiesResponseDeviceStreams' device_streams: The device streams properties of iothub.
         :param bool disable_device_sas: If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
         :param bool disable_local_auth: If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
         :param bool disable_module_sas: If true, all module scoped SAS keys cannot be used for authentication.
         :param bool enable_data_residency: This property when set to true, will enable data residency, thus, disabling disaster recovery.
         :param bool enable_file_upload_notifications: If True, file upload notifications are enabled.
-        :param 'EncryptionPropertiesDescriptionResponse' encryption: The encryption properties for the IoT hub.
         :param Mapping[str, 'EventHubPropertiesResponse'] event_hub_endpoints: The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
         :param str features: The capabilities and features enabled for the IoT hub.
         :param Sequence['IpFilterRuleResponse'] ip_filter_rules: The IP filter rules.
@@ -1190,7 +1125,6 @@ class IotHubPropertiesResponse(dict):
         :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param str public_network_access: Whether requests from Public Network are allowed
         :param bool restrict_outbound_network_access: If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
-        :param 'RootCertificatePropertiesResponse' root_certificate: This property store root certificate related information
         :param 'RoutingPropertiesResponse' routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         :param Mapping[str, 'StorageEndpointPropertiesResponse'] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
         """
@@ -1206,8 +1140,6 @@ class IotHubPropertiesResponse(dict):
             pulumi.set(__self__, "cloud_to_device", cloud_to_device)
         if comments is not None:
             pulumi.set(__self__, "comments", comments)
-        if device_streams is not None:
-            pulumi.set(__self__, "device_streams", device_streams)
         if disable_device_sas is not None:
             pulumi.set(__self__, "disable_device_sas", disable_device_sas)
         if disable_local_auth is not None:
@@ -1218,8 +1150,6 @@ class IotHubPropertiesResponse(dict):
             pulumi.set(__self__, "enable_data_residency", enable_data_residency)
         if enable_file_upload_notifications is not None:
             pulumi.set(__self__, "enable_file_upload_notifications", enable_file_upload_notifications)
-        if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
         if event_hub_endpoints is not None:
             pulumi.set(__self__, "event_hub_endpoints", event_hub_endpoints)
         if features is not None:
@@ -1238,8 +1168,6 @@ class IotHubPropertiesResponse(dict):
             pulumi.set(__self__, "public_network_access", public_network_access)
         if restrict_outbound_network_access is not None:
             pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
-        if root_certificate is not None:
-            pulumi.set(__self__, "root_certificate", root_certificate)
         if routing is not None:
             pulumi.set(__self__, "routing", routing)
         if storage_endpoints is not None:
@@ -1310,14 +1238,6 @@ class IotHubPropertiesResponse(dict):
         return pulumi.get(self, "comments")
 
     @property
-    @pulumi.getter(name="deviceStreams")
-    def device_streams(self) -> Optional['outputs.IotHubPropertiesResponseDeviceStreams']:
-        """
-        The device streams properties of iothub.
-        """
-        return pulumi.get(self, "device_streams")
-
-    @property
     @pulumi.getter(name="disableDeviceSAS")
     def disable_device_sas(self) -> Optional[bool]:
         """
@@ -1356,14 +1276,6 @@ class IotHubPropertiesResponse(dict):
         If True, file upload notifications are enabled.
         """
         return pulumi.get(self, "enable_file_upload_notifications")
-
-    @property
-    @pulumi.getter
-    def encryption(self) -> Optional['outputs.EncryptionPropertiesDescriptionResponse']:
-        """
-        The encryption properties for the IoT hub.
-        """
-        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="eventHubEndpoints")
@@ -1438,14 +1350,6 @@ class IotHubPropertiesResponse(dict):
         return pulumi.get(self, "restrict_outbound_network_access")
 
     @property
-    @pulumi.getter(name="rootCertificate")
-    def root_certificate(self) -> Optional['outputs.RootCertificatePropertiesResponse']:
-        """
-        This property store root certificate related information
-        """
-        return pulumi.get(self, "root_certificate")
-
-    @property
     @pulumi.getter
     def routing(self) -> Optional['outputs.RoutingPropertiesResponse']:
         """
@@ -1460,46 +1364,6 @@ class IotHubPropertiesResponse(dict):
         The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
         """
         return pulumi.get(self, "storage_endpoints")
-
-
-@pulumi.output_type
-class IotHubPropertiesResponseDeviceStreams(dict):
-    """
-    The device streams properties of iothub.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "streamingEndpoints":
-            suggest = "streaming_endpoints"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IotHubPropertiesResponseDeviceStreams. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IotHubPropertiesResponseDeviceStreams.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IotHubPropertiesResponseDeviceStreams.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 streaming_endpoints: Optional[Sequence[str]] = None):
-        """
-        The device streams properties of iothub.
-        :param Sequence[str] streaming_endpoints: List of Device Streams Endpoints.
-        """
-        if streaming_endpoints is not None:
-            pulumi.set(__self__, "streaming_endpoints", streaming_endpoints)
-
-    @property
-    @pulumi.getter(name="streamingEndpoints")
-    def streaming_endpoints(self) -> Optional[Sequence[str]]:
-        """
-        List of Device Streams Endpoints.
-        """
-        return pulumi.get(self, "streaming_endpoints")
 
 
 @pulumi.output_type
@@ -1611,58 +1475,6 @@ class IpFilterRuleResponse(dict):
 
 
 @pulumi.output_type
-class KeyVaultKeyPropertiesResponse(dict):
-    """
-    The properties of the KeyVault key.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keyIdentifier":
-            suggest = "key_identifier"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KeyVaultKeyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KeyVaultKeyPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KeyVaultKeyPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 identity: Optional['outputs.ManagedIdentityResponse'] = None,
-                 key_identifier: Optional[str] = None):
-        """
-        The properties of the KeyVault key.
-        :param 'ManagedIdentityResponse' identity: Managed identity properties of KeyVault Key.
-        :param str key_identifier: The identifier of the key.
-        """
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
-        if key_identifier is not None:
-            pulumi.set(__self__, "key_identifier", key_identifier)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
-        """
-        Managed identity properties of KeyVault Key.
-        """
-        return pulumi.get(self, "identity")
-
-    @property
-    @pulumi.getter(name="keyIdentifier")
-    def key_identifier(self) -> Optional[str]:
-        """
-        The identifier of the key.
-        """
-        return pulumi.get(self, "key_identifier")
-
-
-@pulumi.output_type
 class ManagedIdentityResponse(dict):
     """
     The properties of the Managed identity.
@@ -1700,6 +1512,83 @@ class ManagedIdentityResponse(dict):
         The user assigned identity.
         """
         return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -2126,59 +2015,6 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
-class RootCertificatePropertiesResponse(dict):
-    """
-    This property store root certificate related information
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lastUpdatedTimeUtc":
-            suggest = "last_updated_time_utc"
-        elif key == "enableRootCertificateV2":
-            suggest = "enable_root_certificate_v2"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RootCertificatePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RootCertificatePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RootCertificatePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 last_updated_time_utc: str,
-                 enable_root_certificate_v2: Optional[bool] = None):
-        """
-        This property store root certificate related information
-        :param str last_updated_time_utc: the last update time to root certificate flag.
-        :param bool enable_root_certificate_v2: This property when set to true, hub will use G2 cert; while it's set to false, hub uses Baltimore Cert.
-        """
-        pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
-        if enable_root_certificate_v2 is not None:
-            pulumi.set(__self__, "enable_root_certificate_v2", enable_root_certificate_v2)
-
-    @property
-    @pulumi.getter(name="lastUpdatedTimeUtc")
-    def last_updated_time_utc(self) -> str:
-        """
-        the last update time to root certificate flag.
-        """
-        return pulumi.get(self, "last_updated_time_utc")
-
-    @property
-    @pulumi.getter(name="enableRootCertificateV2")
-    def enable_root_certificate_v2(self) -> Optional[bool]:
-        """
-        This property when set to true, hub will use G2 cert; while it's set to false, hub uses Baltimore Cert.
-        """
-        return pulumi.get(self, "enable_root_certificate_v2")
-
-
-@pulumi.output_type
 class RoutePropertiesResponse(dict):
     """
     The properties of a routing rule that your IoT hub uses to route messages to endpoints.
@@ -2267,13 +2103,13 @@ class RoutePropertiesResponse(dict):
 @pulumi.output_type
 class RoutingCosmosDBSqlApiPropertiesResponse(dict):
     """
-    The properties related to a cosmos DB sql collection endpoint.
+    The properties related to a cosmos DB sql container endpoint.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "collectionName":
-            suggest = "collection_name"
+        if key == "containerName":
+            suggest = "container_name"
         elif key == "databaseName":
             suggest = "database_name"
         elif key == "endpointUri":
@@ -2305,12 +2141,12 @@ class RoutingCosmosDBSqlApiPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 collection_name: str,
+                 container_name: str,
                  database_name: str,
                  endpoint_uri: str,
+                 id: str,
                  name: str,
                  authentication_type: Optional[str] = None,
-                 id: Optional[str] = None,
                  identity: Optional['outputs.ManagedIdentityResponse'] = None,
                  partition_key_name: Optional[str] = None,
                  partition_key_template: Optional[str] = None,
@@ -2319,29 +2155,28 @@ class RoutingCosmosDBSqlApiPropertiesResponse(dict):
                  secondary_key: Optional[str] = None,
                  subscription_id: Optional[str] = None):
         """
-        The properties related to a cosmos DB sql collection endpoint.
-        :param str collection_name: The name of the cosmos DB sql collection in the cosmos DB database.
+        The properties related to a cosmos DB sql container endpoint.
+        :param str container_name: The name of the cosmos DB sql container in the cosmos DB database.
         :param str database_name: The name of the cosmos DB database in the cosmos DB account.
         :param str endpoint_uri: The url of the cosmos DB account. It must include the protocol https://
+        :param str id: Id of the cosmos DB sql container endpoint
         :param str name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-        :param str authentication_type: Method used to authenticate against the cosmos DB sql collection endpoint
-        :param str id: Id of the cosmos DB sql collection endpoint
-        :param 'ManagedIdentityResponse' identity: Managed identity properties of routing cosmos DB collection endpoint.
-        :param str partition_key_name: The name of the partition key associated with this cosmos DB sql collection if one exists. This is an optional parameter.
-        :param str partition_key_template: The template for generating a synthetic partition key value for use with this cosmos DB sql collection. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
+        :param str authentication_type: Method used to authenticate against the cosmos DB sql container endpoint
+        :param 'ManagedIdentityResponse' identity: Managed identity properties of routing cosmos DB container endpoint.
+        :param str partition_key_name: The name of the partition key associated with this cosmos DB sql container if one exists. This is an optional parameter.
+        :param str partition_key_template: The template for generating a synthetic partition key value for use with this cosmos DB sql container. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
         :param str primary_key: The primary key of the cosmos DB account.
         :param str resource_group: The name of the resource group of the cosmos DB account.
         :param str secondary_key: The secondary key of the cosmos DB account.
         :param str subscription_id: The subscription identifier of the cosmos DB account.
         """
-        pulumi.set(__self__, "collection_name", collection_name)
+        pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if partition_key_name is not None:
@@ -2358,12 +2193,12 @@ class RoutingCosmosDBSqlApiPropertiesResponse(dict):
             pulumi.set(__self__, "subscription_id", subscription_id)
 
     @property
-    @pulumi.getter(name="collectionName")
-    def collection_name(self) -> str:
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
         """
-        The name of the cosmos DB sql collection in the cosmos DB database.
+        The name of the cosmos DB sql container in the cosmos DB database.
         """
-        return pulumi.get(self, "collection_name")
+        return pulumi.get(self, "container_name")
 
     @property
     @pulumi.getter(name="databaseName")
@@ -2383,6 +2218,14 @@ class RoutingCosmosDBSqlApiPropertiesResponse(dict):
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the cosmos DB sql container endpoint
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
@@ -2393,23 +2236,15 @@ class RoutingCosmosDBSqlApiPropertiesResponse(dict):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[str]:
         """
-        Method used to authenticate against the cosmos DB sql collection endpoint
+        Method used to authenticate against the cosmos DB sql container endpoint
         """
         return pulumi.get(self, "authentication_type")
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Id of the cosmos DB sql collection endpoint
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
         """
-        Managed identity properties of routing cosmos DB collection endpoint.
+        Managed identity properties of routing cosmos DB container endpoint.
         """
         return pulumi.get(self, "identity")
 
@@ -2417,7 +2252,7 @@ class RoutingCosmosDBSqlApiPropertiesResponse(dict):
     @pulumi.getter(name="partitionKeyName")
     def partition_key_name(self) -> Optional[str]:
         """
-        The name of the partition key associated with this cosmos DB sql collection if one exists. This is an optional parameter.
+        The name of the partition key associated with this cosmos DB sql container if one exists. This is an optional parameter.
         """
         return pulumi.get(self, "partition_key_name")
 
@@ -2425,7 +2260,7 @@ class RoutingCosmosDBSqlApiPropertiesResponse(dict):
     @pulumi.getter(name="partitionKeyTemplate")
     def partition_key_template(self) -> Optional[str]:
         """
-        The template for generating a synthetic partition key value for use with this cosmos DB sql collection. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
+        The template for generating a synthetic partition key value for use with this cosmos DB sql container. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
         """
         return pulumi.get(self, "partition_key_template")
 
@@ -2470,8 +2305,8 @@ class RoutingEndpointsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "cosmosDBSqlCollections":
-            suggest = "cosmos_db_sql_collections"
+        if key == "cosmosDBSqlContainers":
+            suggest = "cosmos_db_sql_containers"
         elif key == "eventHubs":
             suggest = "event_hubs"
         elif key == "serviceBusQueues":
@@ -2493,21 +2328,21 @@ class RoutingEndpointsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cosmos_db_sql_collections: Optional[Sequence['outputs.RoutingCosmosDBSqlApiPropertiesResponse']] = None,
+                 cosmos_db_sql_containers: Optional[Sequence['outputs.RoutingCosmosDBSqlApiPropertiesResponse']] = None,
                  event_hubs: Optional[Sequence['outputs.RoutingEventHubPropertiesResponse']] = None,
                  service_bus_queues: Optional[Sequence['outputs.RoutingServiceBusQueueEndpointPropertiesResponse']] = None,
                  service_bus_topics: Optional[Sequence['outputs.RoutingServiceBusTopicEndpointPropertiesResponse']] = None,
                  storage_containers: Optional[Sequence['outputs.RoutingStorageContainerPropertiesResponse']] = None):
         """
         The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
-        :param Sequence['RoutingCosmosDBSqlApiPropertiesResponse'] cosmos_db_sql_collections: The list of Cosmos DB collection endpoints that IoT hub routes messages to, based on the routing rules.
+        :param Sequence['RoutingCosmosDBSqlApiPropertiesResponse'] cosmos_db_sql_containers: The list of Cosmos DB container endpoints that IoT hub routes messages to, based on the routing rules.
         :param Sequence['RoutingEventHubPropertiesResponse'] event_hubs: The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
         :param Sequence['RoutingServiceBusQueueEndpointPropertiesResponse'] service_bus_queues: The list of Service Bus queue endpoints that IoT hub routes the messages to, based on the routing rules.
         :param Sequence['RoutingServiceBusTopicEndpointPropertiesResponse'] service_bus_topics: The list of Service Bus topic endpoints that the IoT hub routes the messages to, based on the routing rules.
         :param Sequence['RoutingStorageContainerPropertiesResponse'] storage_containers: The list of storage container endpoints that IoT hub routes messages to, based on the routing rules.
         """
-        if cosmos_db_sql_collections is not None:
-            pulumi.set(__self__, "cosmos_db_sql_collections", cosmos_db_sql_collections)
+        if cosmos_db_sql_containers is not None:
+            pulumi.set(__self__, "cosmos_db_sql_containers", cosmos_db_sql_containers)
         if event_hubs is not None:
             pulumi.set(__self__, "event_hubs", event_hubs)
         if service_bus_queues is not None:
@@ -2518,12 +2353,12 @@ class RoutingEndpointsResponse(dict):
             pulumi.set(__self__, "storage_containers", storage_containers)
 
     @property
-    @pulumi.getter(name="cosmosDBSqlCollections")
-    def cosmos_db_sql_collections(self) -> Optional[Sequence['outputs.RoutingCosmosDBSqlApiPropertiesResponse']]:
+    @pulumi.getter(name="cosmosDBSqlContainers")
+    def cosmos_db_sql_containers(self) -> Optional[Sequence['outputs.RoutingCosmosDBSqlApiPropertiesResponse']]:
         """
-        The list of Cosmos DB collection endpoints that IoT hub routes messages to, based on the routing rules.
+        The list of Cosmos DB container endpoints that IoT hub routes messages to, based on the routing rules.
         """
-        return pulumi.get(self, "cosmos_db_sql_collections")
+        return pulumi.get(self, "cosmos_db_sql_containers")
 
     @property
     @pulumi.getter(name="eventHubs")
@@ -2734,7 +2569,7 @@ class RoutingPropertiesResponse(dict):
         The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         :param 'RoutingEndpointsResponse' endpoints: The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
         :param Sequence['EnrichmentPropertiesResponse'] enrichments: The list of user-provided enrichments that the IoT hub applies to messages to be delivered to built-in and custom endpoints. See: https://aka.ms/telemetryoneventgrid
-        :param 'FallbackRoutePropertiesResponse' fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+        :param 'FallbackRoutePropertiesResponse' fallback_route: The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not present in the template, the fallback route is disabled by default.
         :param Sequence['RoutePropertiesResponse'] routes: The list of user-provided routing rules that the IoT hub uses to route messages to built-in and custom endpoints. A maximum of 100 routing rules are allowed for paid hubs and a maximum of 5 routing rules are allowed for free hubs.
         """
         if endpoints is not None:
@@ -2766,7 +2601,7 @@ class RoutingPropertiesResponse(dict):
     @pulumi.getter(name="fallbackRoute")
     def fallback_route(self) -> Optional['outputs.FallbackRoutePropertiesResponse']:
         """
-        The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not set, the messages which do not meet any of the conditions specified in the 'routes' section get routed to the built-in eventhub endpoint.
+        The properties of the route that is used as a fall-back route when none of the conditions specified in the 'routes' section are met. This is an optional parameter. When this property is not present in the template, the fallback route is disabled by default.
         """
         return pulumi.get(self, "fallback_route")
 
@@ -3698,5 +3533,57 @@ class TargetIpFilterRuleResponse(dict):
         Target for requests captured by this rule.
         """
         return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 

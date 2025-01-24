@@ -118,9 +118,9 @@ class ClientGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The Client group resource.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,9 +139,9 @@ class ClientGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Client group resource.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ClientGroupArgs args: The arguments to use to populate this resource's properties.
@@ -254,7 +254,7 @@ class ClientGroup(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to the ClientGroup resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

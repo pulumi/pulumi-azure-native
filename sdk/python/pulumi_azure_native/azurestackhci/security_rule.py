@@ -250,9 +250,9 @@ class SecurityRule(pulumi.CustomResource):
                  __props__=None):
         """
         Security Rule resource.
-        Azure REST API version: 2024-02-01-preview.
+        Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 1.x: 2024-02-01-preview.
 
-        Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,9 +278,9 @@ class SecurityRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security Rule resource.
-        Azure REST API version: 2024-02-01-preview.
+        Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 1.x: 2024-02-01-preview.
 
-        Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2024-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SecurityRuleArgs args: The arguments to use to populate this resource's properties.
@@ -348,7 +348,7 @@ class SecurityRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:SecurityRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:SecurityRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityRule, __self__).__init__(
             'azure-native:azurestackhci:SecurityRule',

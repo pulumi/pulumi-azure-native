@@ -50,7 +50,7 @@ class DomainArgs:
         :param pulumi.Input['DnsType'] dns_type: Current DNS type
         :param pulumi.Input[str] dns_zone_id: Azure DNS Zone to use
         :param pulumi.Input[str] domain_name: Name of the domain.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[bool] privacy: <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -218,7 +218,7 @@ class DomainArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -299,9 +299,9 @@ class Domain(pulumi.CustomResource):
                  __props__=None):
         """
         Information about a domain.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2020-10-01, 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -314,7 +314,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input['DnsType'] dns_type: Current DNS type
         :param pulumi.Input[str] dns_zone_id: Azure DNS Zone to use
         :param pulumi.Input[str] domain_name: Name of the domain.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[bool] privacy: <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -329,9 +329,9 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about a domain.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2020-10-01, 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
@@ -517,7 +517,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

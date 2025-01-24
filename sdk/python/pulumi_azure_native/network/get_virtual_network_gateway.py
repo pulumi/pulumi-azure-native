@@ -27,7 +27,7 @@ class GetVirtualNetworkGatewayResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, active_active=None, admin_state=None, allow_remote_vnet_traffic=None, allow_virtual_wan_traffic=None, bgp_settings=None, custom_routes=None, disable_ip_sec_replay_protection=None, enable_bgp=None, enable_bgp_route_translation_for_nat=None, enable_dns_forwarding=None, enable_private_ip_address=None, etag=None, extended_location=None, gateway_default_site=None, gateway_type=None, id=None, inbound_dns_forwarding_endpoint=None, ip_configurations=None, location=None, name=None, nat_rules=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, v_net_extended_location_resource_id=None, virtual_network_gateway_policy_groups=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None):
+    def __init__(__self__, active_active=None, admin_state=None, allow_remote_vnet_traffic=None, allow_virtual_wan_traffic=None, auto_scale_configuration=None, bgp_settings=None, custom_routes=None, disable_ip_sec_replay_protection=None, enable_bgp=None, enable_bgp_route_translation_for_nat=None, enable_dns_forwarding=None, enable_private_ip_address=None, etag=None, extended_location=None, gateway_default_site=None, gateway_type=None, id=None, identity=None, inbound_dns_forwarding_endpoint=None, ip_configurations=None, location=None, name=None, nat_rules=None, provisioning_state=None, resiliency_model=None, resource_guid=None, sku=None, tags=None, type=None, v_net_extended_location_resource_id=None, virtual_network_gateway_policy_groups=None, vpn_client_configuration=None, vpn_gateway_generation=None, vpn_type=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError("Expected argument 'active_active' to be a bool")
         pulumi.set(__self__, "active_active", active_active)
@@ -40,6 +40,9 @@ class GetVirtualNetworkGatewayResult:
         if allow_virtual_wan_traffic and not isinstance(allow_virtual_wan_traffic, bool):
             raise TypeError("Expected argument 'allow_virtual_wan_traffic' to be a bool")
         pulumi.set(__self__, "allow_virtual_wan_traffic", allow_virtual_wan_traffic)
+        if auto_scale_configuration and not isinstance(auto_scale_configuration, dict):
+            raise TypeError("Expected argument 'auto_scale_configuration' to be a dict")
+        pulumi.set(__self__, "auto_scale_configuration", auto_scale_configuration)
         if bgp_settings and not isinstance(bgp_settings, dict):
             raise TypeError("Expected argument 'bgp_settings' to be a dict")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -76,6 +79,9 @@ class GetVirtualNetworkGatewayResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if inbound_dns_forwarding_endpoint and not isinstance(inbound_dns_forwarding_endpoint, str):
             raise TypeError("Expected argument 'inbound_dns_forwarding_endpoint' to be a str")
         pulumi.set(__self__, "inbound_dns_forwarding_endpoint", inbound_dns_forwarding_endpoint)
@@ -94,6 +100,9 @@ class GetVirtualNetworkGatewayResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resiliency_model and not isinstance(resiliency_model, str):
+            raise TypeError("Expected argument 'resiliency_model' to be a str")
+        pulumi.set(__self__, "resiliency_model", resiliency_model)
         if resource_guid and not isinstance(resource_guid, str):
             raise TypeError("Expected argument 'resource_guid' to be a str")
         pulumi.set(__self__, "resource_guid", resource_guid)
@@ -153,6 +162,14 @@ class GetVirtualNetworkGatewayResult:
         Configures this gateway to accept traffic from remote Virtual WAN networks.
         """
         return pulumi.get(self, "allow_virtual_wan_traffic")
+
+    @property
+    @pulumi.getter(name="autoScaleConfiguration")
+    def auto_scale_configuration(self) -> Optional['outputs.VirtualNetworkGatewayAutoScaleConfigurationResponse']:
+        """
+        Autoscale configuration for virutal network gateway
+        """
+        return pulumi.get(self, "auto_scale_configuration")
 
     @property
     @pulumi.getter(name="bgpSettings")
@@ -251,6 +268,14 @@ class GetVirtualNetworkGatewayResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity of the virtual network gateway, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="inboundDnsForwardingEndpoint")
     def inbound_dns_forwarding_endpoint(self) -> str:
         """
@@ -297,6 +322,14 @@ class GetVirtualNetworkGatewayResult:
         The provisioning state of the virtual network gateway resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resiliencyModel")
+    def resiliency_model(self) -> Optional[str]:
+        """
+        Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+        """
+        return pulumi.get(self, "resiliency_model")
 
     @property
     @pulumi.getter(name="resourceGuid")
@@ -381,6 +414,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             admin_state=self.admin_state,
             allow_remote_vnet_traffic=self.allow_remote_vnet_traffic,
             allow_virtual_wan_traffic=self.allow_virtual_wan_traffic,
+            auto_scale_configuration=self.auto_scale_configuration,
             bgp_settings=self.bgp_settings,
             custom_routes=self.custom_routes,
             disable_ip_sec_replay_protection=self.disable_ip_sec_replay_protection,
@@ -393,12 +427,14 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             gateway_default_site=self.gateway_default_site,
             gateway_type=self.gateway_type,
             id=self.id,
+            identity=self.identity,
             inbound_dns_forwarding_endpoint=self.inbound_dns_forwarding_endpoint,
             ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
             nat_rules=self.nat_rules,
             provisioning_state=self.provisioning_state,
+            resiliency_model=self.resiliency_model,
             resource_guid=self.resource_guid,
             sku=self.sku,
             tags=self.tags,
@@ -415,9 +451,9 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkGatewayResult:
     """
     Gets the specified virtual network gateway by resource group.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2019-08-01, 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -434,6 +470,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
         admin_state=pulumi.get(__ret__, 'admin_state'),
         allow_remote_vnet_traffic=pulumi.get(__ret__, 'allow_remote_vnet_traffic'),
         allow_virtual_wan_traffic=pulumi.get(__ret__, 'allow_virtual_wan_traffic'),
+        auto_scale_configuration=pulumi.get(__ret__, 'auto_scale_configuration'),
         bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
         custom_routes=pulumi.get(__ret__, 'custom_routes'),
         disable_ip_sec_replay_protection=pulumi.get(__ret__, 'disable_ip_sec_replay_protection'),
@@ -446,12 +483,14 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
         gateway_default_site=pulumi.get(__ret__, 'gateway_default_site'),
         gateway_type=pulumi.get(__ret__, 'gateway_type'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         inbound_dns_forwarding_endpoint=pulumi.get(__ret__, 'inbound_dns_forwarding_endpoint'),
         ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         nat_rules=pulumi.get(__ret__, 'nat_rules'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resiliency_model=pulumi.get(__ret__, 'resiliency_model'),
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -466,9 +505,9 @@ def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayResult]:
     """
     Gets the specified virtual network gateway by resource group.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-05-01.
 
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Other available API versions: 2019-08-01, 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -484,6 +523,7 @@ def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Inpu
         admin_state=pulumi.get(__response__, 'admin_state'),
         allow_remote_vnet_traffic=pulumi.get(__response__, 'allow_remote_vnet_traffic'),
         allow_virtual_wan_traffic=pulumi.get(__response__, 'allow_virtual_wan_traffic'),
+        auto_scale_configuration=pulumi.get(__response__, 'auto_scale_configuration'),
         bgp_settings=pulumi.get(__response__, 'bgp_settings'),
         custom_routes=pulumi.get(__response__, 'custom_routes'),
         disable_ip_sec_replay_protection=pulumi.get(__response__, 'disable_ip_sec_replay_protection'),
@@ -496,12 +536,14 @@ def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Inpu
         gateway_default_site=pulumi.get(__response__, 'gateway_default_site'),
         gateway_type=pulumi.get(__response__, 'gateway_type'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         inbound_dns_forwarding_endpoint=pulumi.get(__response__, 'inbound_dns_forwarding_endpoint'),
         ip_configurations=pulumi.get(__response__, 'ip_configurations'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         nat_rules=pulumi.get(__response__, 'nat_rules'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resiliency_model=pulumi.get(__response__, 'resiliency_model'),
         resource_guid=pulumi.get(__response__, 'resource_guid'),
         sku=pulumi.get(__response__, 'sku'),
         tags=pulumi.get(__response__, 'tags'),

@@ -135,9 +135,9 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
-        Azure REST API version: 2022-01-25. Prior API version in Azure Native 1.x: 2020-06-25.
+        Azure REST API version: 2024-04-05. Prior API version in Azure Native 1.x: 2022-01-25.
 
-        Other available API versions: 2024-04-05.
+        Other available API versions: 2022-01-25.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,9 +156,9 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
-        Azure REST API version: 2022-01-25. Prior API version in Azure Native 1.x: 2020-06-25.
+        Azure REST API version: 2024-04-05. Prior API version in Azure Native 1.x: 2022-01-25.
 
-        Other available API versions: 2024-04-05.
+        Other available API versions: 2022-01-25.
 
         :param str resource_name: The name of the resource.
         :param GuestConfigurationAssignmentArgs args: The arguments to use to populate this resource's properties.

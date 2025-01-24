@@ -18,41 +18,27 @@ from ._enums import *
 
 __all__ = [
     'AdapterPropertyOverridesResponse',
-    'ArcConnectivityPropertiesResponse',
-    'ClusterDesiredPropertiesResponse',
-    'ClusterNodeResponse',
-    'ClusterReportedPropertiesResponse',
     'ClusterResponse',
-    'DefaultExtensionDetailsResponse',
     'DeploymentConfigurationResponse',
     'DeploymentDataResponse',
     'DeploymentStatusResponse',
     'DeviceConfigurationResponse',
-    'ExtensionInstanceViewResponse',
-    'ExtensionInstanceViewResponseStatus',
     'HostNetworkResponse',
     'InfrastructureNetworkResponse',
     'IntentsResponse',
     'IpPoolsResponse',
-    'IsolatedVmAttestationConfigurationResponse',
     'NicDetailResponse',
     'ObservabilityResponse',
     'OptionalServicesResponse',
-    'PerNodeExtensionStateResponse',
-    'PerNodeStateResponse',
     'PhysicalNodesResponse',
     'QosPolicyOverridesResponse',
     'ReportedPropertiesResponse',
     'ScaleUnitsResponse',
     'SecuritySettingsResponse',
-    'ServiceConfigurationResponse',
-    'SoftwareAssurancePropertiesResponse',
     'StepResponse',
     'StorageNetworksResponse',
     'StorageResponse',
     'SystemDataResponse',
-    'UpdatePrerequisiteResponse',
-    'UserAssignedIdentityResponse',
     'ValidationStatusResponse',
     'VirtualSwitchConfigurationOverridesResponse',
 ]
@@ -123,491 +109,6 @@ class AdapterPropertyOverridesResponse(dict):
         This parameter should only be modified based on your OEM guidance. Do not modify this parameter without OEM validation. Expected values are 'iWARP', 'RoCEv2', 'RoCE'
         """
         return pulumi.get(self, "network_direct_technology")
-
-
-@pulumi.output_type
-class ArcConnectivityPropertiesResponse(dict):
-    """
-    Connectivity related configuration required by arc server.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "serviceConfigurations":
-            suggest = "service_configurations"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ArcConnectivityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ArcConnectivityPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ArcConnectivityPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
-                 service_configurations: Optional[Sequence['outputs.ServiceConfigurationResponse']] = None):
-        """
-        Connectivity related configuration required by arc server.
-        :param bool enabled: True indicates ARC connectivity is enabled
-        :param Sequence['ServiceConfigurationResponse'] service_configurations: Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if service_configurations is not None:
-            pulumi.set(__self__, "service_configurations", service_configurations)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        True indicates ARC connectivity is enabled
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="serviceConfigurations")
-    def service_configurations(self) -> Optional[Sequence['outputs.ServiceConfigurationResponse']]:
-        """
-        Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
-        """
-        return pulumi.get(self, "service_configurations")
-
-
-@pulumi.output_type
-class ClusterDesiredPropertiesResponse(dict):
-    """
-    Desired properties of the cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "diagnosticLevel":
-            suggest = "diagnostic_level"
-        elif key == "windowsServerSubscription":
-            suggest = "windows_server_subscription"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterDesiredPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterDesiredPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterDesiredPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 diagnostic_level: Optional[str] = None,
-                 windows_server_subscription: Optional[str] = None):
-        """
-        Desired properties of the cluster.
-        :param str diagnostic_level: Desired level of diagnostic data emitted by the cluster.
-        :param str windows_server_subscription: Desired state of Windows Server Subscription.
-        """
-        if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
-        if windows_server_subscription is not None:
-            pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
-
-    @property
-    @pulumi.getter(name="diagnosticLevel")
-    def diagnostic_level(self) -> Optional[str]:
-        """
-        Desired level of diagnostic data emitted by the cluster.
-        """
-        return pulumi.get(self, "diagnostic_level")
-
-    @property
-    @pulumi.getter(name="windowsServerSubscription")
-    def windows_server_subscription(self) -> Optional[str]:
-        """
-        Desired state of Windows Server Subscription.
-        """
-        return pulumi.get(self, "windows_server_subscription")
-
-
-@pulumi.output_type
-class ClusterNodeResponse(dict):
-    """
-    Cluster node details.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "coreCount":
-            suggest = "core_count"
-        elif key == "ehcResourceId":
-            suggest = "ehc_resource_id"
-        elif key == "lastLicensingTimestamp":
-            suggest = "last_licensing_timestamp"
-        elif key == "memoryInGiB":
-            suggest = "memory_in_gi_b"
-        elif key == "nodeType":
-            suggest = "node_type"
-        elif key == "oemActivation":
-            suggest = "oem_activation"
-        elif key == "osDisplayVersion":
-            suggest = "os_display_version"
-        elif key == "osName":
-            suggest = "os_name"
-        elif key == "osVersion":
-            suggest = "os_version"
-        elif key == "serialNumber":
-            suggest = "serial_number"
-        elif key == "windowsServerSubscription":
-            suggest = "windows_server_subscription"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterNodeResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterNodeResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterNodeResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 core_count: float,
-                 ehc_resource_id: str,
-                 id: float,
-                 last_licensing_timestamp: str,
-                 manufacturer: str,
-                 memory_in_gi_b: float,
-                 model: str,
-                 name: str,
-                 node_type: str,
-                 oem_activation: str,
-                 os_display_version: str,
-                 os_name: str,
-                 os_version: str,
-                 serial_number: str,
-                 windows_server_subscription: str):
-        """
-        Cluster node details.
-        :param float core_count: Number of physical cores on the cluster node.
-        :param str ehc_resource_id: Edge Hardware Center Resource Id
-        :param float id: Id of the node in the cluster.
-        :param str last_licensing_timestamp: Most recent licensing timestamp.
-        :param str manufacturer: Manufacturer of the cluster node hardware.
-        :param float memory_in_gi_b: Total available memory on the cluster node (in GiB).
-        :param str model: Model name of the cluster node hardware.
-        :param str name: Name of the cluster node.
-        :param str node_type: Type of the cluster node hardware.
-        :param str oem_activation: OEM activation status of the node.
-        :param str os_display_version: Display version of the operating system running on the cluster node.
-        :param str os_name: Operating system running on the cluster node.
-        :param str os_version: Version of the operating system running on the cluster node.
-        :param str serial_number: Immutable id of the cluster node.
-        :param str windows_server_subscription: State of Windows Server Subscription.
-        """
-        pulumi.set(__self__, "core_count", core_count)
-        pulumi.set(__self__, "ehc_resource_id", ehc_resource_id)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "last_licensing_timestamp", last_licensing_timestamp)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "memory_in_gi_b", memory_in_gi_b)
-        pulumi.set(__self__, "model", model)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "node_type", node_type)
-        pulumi.set(__self__, "oem_activation", oem_activation)
-        pulumi.set(__self__, "os_display_version", os_display_version)
-        pulumi.set(__self__, "os_name", os_name)
-        pulumi.set(__self__, "os_version", os_version)
-        pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
-
-    @property
-    @pulumi.getter(name="coreCount")
-    def core_count(self) -> float:
-        """
-        Number of physical cores on the cluster node.
-        """
-        return pulumi.get(self, "core_count")
-
-    @property
-    @pulumi.getter(name="ehcResourceId")
-    def ehc_resource_id(self) -> str:
-        """
-        Edge Hardware Center Resource Id
-        """
-        return pulumi.get(self, "ehc_resource_id")
-
-    @property
-    @pulumi.getter
-    def id(self) -> float:
-        """
-        Id of the node in the cluster.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="lastLicensingTimestamp")
-    def last_licensing_timestamp(self) -> str:
-        """
-        Most recent licensing timestamp.
-        """
-        return pulumi.get(self, "last_licensing_timestamp")
-
-    @property
-    @pulumi.getter
-    def manufacturer(self) -> str:
-        """
-        Manufacturer of the cluster node hardware.
-        """
-        return pulumi.get(self, "manufacturer")
-
-    @property
-    @pulumi.getter(name="memoryInGiB")
-    def memory_in_gi_b(self) -> float:
-        """
-        Total available memory on the cluster node (in GiB).
-        """
-        return pulumi.get(self, "memory_in_gi_b")
-
-    @property
-    @pulumi.getter
-    def model(self) -> str:
-        """
-        Model name of the cluster node hardware.
-        """
-        return pulumi.get(self, "model")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the cluster node.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="nodeType")
-    def node_type(self) -> str:
-        """
-        Type of the cluster node hardware.
-        """
-        return pulumi.get(self, "node_type")
-
-    @property
-    @pulumi.getter(name="oemActivation")
-    def oem_activation(self) -> str:
-        """
-        OEM activation status of the node.
-        """
-        return pulumi.get(self, "oem_activation")
-
-    @property
-    @pulumi.getter(name="osDisplayVersion")
-    def os_display_version(self) -> str:
-        """
-        Display version of the operating system running on the cluster node.
-        """
-        return pulumi.get(self, "os_display_version")
-
-    @property
-    @pulumi.getter(name="osName")
-    def os_name(self) -> str:
-        """
-        Operating system running on the cluster node.
-        """
-        return pulumi.get(self, "os_name")
-
-    @property
-    @pulumi.getter(name="osVersion")
-    def os_version(self) -> str:
-        """
-        Version of the operating system running on the cluster node.
-        """
-        return pulumi.get(self, "os_version")
-
-    @property
-    @pulumi.getter(name="serialNumber")
-    def serial_number(self) -> str:
-        """
-        Immutable id of the cluster node.
-        """
-        return pulumi.get(self, "serial_number")
-
-    @property
-    @pulumi.getter(name="windowsServerSubscription")
-    def windows_server_subscription(self) -> str:
-        """
-        State of Windows Server Subscription.
-        """
-        return pulumi.get(self, "windows_server_subscription")
-
-
-@pulumi.output_type
-class ClusterReportedPropertiesResponse(dict):
-    """
-    Properties reported by cluster agent.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clusterId":
-            suggest = "cluster_id"
-        elif key == "clusterName":
-            suggest = "cluster_name"
-        elif key == "clusterType":
-            suggest = "cluster_type"
-        elif key == "clusterVersion":
-            suggest = "cluster_version"
-        elif key == "imdsAttestation":
-            suggest = "imds_attestation"
-        elif key == "lastUpdated":
-            suggest = "last_updated"
-        elif key == "oemActivation":
-            suggest = "oem_activation"
-        elif key == "supportedCapabilities":
-            suggest = "supported_capabilities"
-        elif key == "diagnosticLevel":
-            suggest = "diagnostic_level"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ClusterReportedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ClusterReportedPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ClusterReportedPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cluster_id: str,
-                 cluster_name: str,
-                 cluster_type: str,
-                 cluster_version: str,
-                 imds_attestation: str,
-                 last_updated: str,
-                 manufacturer: str,
-                 nodes: Sequence['outputs.ClusterNodeResponse'],
-                 oem_activation: str,
-                 supported_capabilities: Sequence[str],
-                 diagnostic_level: Optional[str] = None):
-        """
-        Properties reported by cluster agent.
-        :param str cluster_id: Unique id generated by the on-prem cluster.
-        :param str cluster_name: Name of the on-prem cluster connected to this resource.
-        :param str cluster_type: The node type of all the nodes of the cluster.
-        :param str cluster_version: Version of the cluster software.
-        :param str imds_attestation: IMDS attestation status of the cluster.
-        :param str last_updated: Last time the cluster reported the data.
-        :param str manufacturer: The manufacturer of all the nodes of the cluster.
-        :param Sequence['ClusterNodeResponse'] nodes: List of nodes reported by the cluster.
-        :param str oem_activation: OEM activation status of the cluster.
-        :param Sequence[str] supported_capabilities: Capabilities supported by the cluster.
-        :param str diagnostic_level: Level of diagnostic data emitted by the cluster.
-        """
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cluster_type", cluster_type)
-        pulumi.set(__self__, "cluster_version", cluster_version)
-        pulumi.set(__self__, "imds_attestation", imds_attestation)
-        pulumi.set(__self__, "last_updated", last_updated)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "nodes", nodes)
-        pulumi.set(__self__, "oem_activation", oem_activation)
-        pulumi.set(__self__, "supported_capabilities", supported_capabilities)
-        if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
-
-    @property
-    @pulumi.getter(name="clusterId")
-    def cluster_id(self) -> str:
-        """
-        Unique id generated by the on-prem cluster.
-        """
-        return pulumi.get(self, "cluster_id")
-
-    @property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> str:
-        """
-        Name of the on-prem cluster connected to this resource.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @property
-    @pulumi.getter(name="clusterType")
-    def cluster_type(self) -> str:
-        """
-        The node type of all the nodes of the cluster.
-        """
-        return pulumi.get(self, "cluster_type")
-
-    @property
-    @pulumi.getter(name="clusterVersion")
-    def cluster_version(self) -> str:
-        """
-        Version of the cluster software.
-        """
-        return pulumi.get(self, "cluster_version")
-
-    @property
-    @pulumi.getter(name="imdsAttestation")
-    def imds_attestation(self) -> str:
-        """
-        IMDS attestation status of the cluster.
-        """
-        return pulumi.get(self, "imds_attestation")
-
-    @property
-    @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> str:
-        """
-        Last time the cluster reported the data.
-        """
-        return pulumi.get(self, "last_updated")
-
-    @property
-    @pulumi.getter
-    def manufacturer(self) -> str:
-        """
-        The manufacturer of all the nodes of the cluster.
-        """
-        return pulumi.get(self, "manufacturer")
-
-    @property
-    @pulumi.getter
-    def nodes(self) -> Sequence['outputs.ClusterNodeResponse']:
-        """
-        List of nodes reported by the cluster.
-        """
-        return pulumi.get(self, "nodes")
-
-    @property
-    @pulumi.getter(name="oemActivation")
-    def oem_activation(self) -> str:
-        """
-        OEM activation status of the cluster.
-        """
-        return pulumi.get(self, "oem_activation")
-
-    @property
-    @pulumi.getter(name="supportedCapabilities")
-    def supported_capabilities(self) -> Sequence[str]:
-        """
-        Capabilities supported by the cluster.
-        """
-        return pulumi.get(self, "supported_capabilities")
-
-    @property
-    @pulumi.getter(name="diagnosticLevel")
-    def diagnostic_level(self) -> Optional[str]:
-        """
-        Level of diagnostic data emitted by the cluster.
-        """
-        return pulumi.get(self, "diagnostic_level")
 
 
 @pulumi.output_type
@@ -702,56 +203,6 @@ class ClusterResponse(dict):
         Use a cloud witness if you have internet access and if you use an Azure Storage account to provide a vote on cluster quorum. A cloud witness uses Azure Blob Storage to read or write a blob file and then uses it to arbitrate in split-brain resolution. Only allowed values are 'Cloud', 'FileShare'. 
         """
         return pulumi.get(self, "witness_type")
-
-
-@pulumi.output_type
-class DefaultExtensionDetailsResponse(dict):
-    """
-    Properties for a particular default extension category.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "consentTime":
-            suggest = "consent_time"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DefaultExtensionDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DefaultExtensionDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DefaultExtensionDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 category: str,
-                 consent_time: str):
-        """
-        Properties for a particular default extension category.
-        :param str category: Default extension category
-        :param str consent_time: Consent time for extension category
-        """
-        pulumi.set(__self__, "category", category)
-        pulumi.set(__self__, "consent_time", consent_time)
-
-    @property
-    @pulumi.getter
-    def category(self) -> str:
-        """
-        Default extension category
-        """
-        return pulumi.get(self, "category")
-
-    @property
-    @pulumi.getter(name="consentTime")
-    def consent_time(self) -> str:
-        """
-        Consent time for extension category
-        """
-        return pulumi.get(self, "consent_time")
 
 
 @pulumi.output_type
@@ -1077,170 +528,6 @@ class DeviceConfigurationResponse(dict):
         device metadata details.
         """
         return pulumi.get(self, "device_metadata")
-
-
-@pulumi.output_type
-class ExtensionInstanceViewResponse(dict):
-    """
-    Describes the Extension Instance View.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "typeHandlerVersion":
-            suggest = "type_handler_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ExtensionInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ExtensionInstanceViewResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ExtensionInstanceViewResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 status: Optional['outputs.ExtensionInstanceViewResponseStatus'] = None,
-                 type: Optional[str] = None,
-                 type_handler_version: Optional[str] = None):
-        """
-        Describes the Extension Instance View.
-        :param str name: The extension name.
-        :param 'ExtensionInstanceViewResponseStatus' status: Instance view status.
-        :param str type: Specifies the type of the extension; an example is "MicrosoftMonitoringAgent".
-        :param str type_handler_version: Specifies the version of the script handler.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The extension name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional['outputs.ExtensionInstanceViewResponseStatus']:
-        """
-        Instance view status.
-        """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Specifies the type of the extension; an example is "MicrosoftMonitoringAgent".
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[str]:
-        """
-        Specifies the version of the script handler.
-        """
-        return pulumi.get(self, "type_handler_version")
-
-
-@pulumi.output_type
-class ExtensionInstanceViewResponseStatus(dict):
-    """
-    Instance view status.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "displayStatus":
-            suggest = "display_status"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ExtensionInstanceViewResponseStatus. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ExtensionInstanceViewResponseStatus.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ExtensionInstanceViewResponseStatus.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 code: Optional[str] = None,
-                 display_status: Optional[str] = None,
-                 level: Optional[str] = None,
-                 message: Optional[str] = None,
-                 time: Optional[str] = None):
-        """
-        Instance view status.
-        :param str code: The status code.
-        :param str display_status: The short localizable label for the status.
-        :param str level: The level code.
-        :param str message: The detailed status message, including for alerts and error messages.
-        :param str time: The time of the status.
-        """
-        if code is not None:
-            pulumi.set(__self__, "code", code)
-        if display_status is not None:
-            pulumi.set(__self__, "display_status", display_status)
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-        if message is not None:
-            pulumi.set(__self__, "message", message)
-        if time is not None:
-            pulumi.set(__self__, "time", time)
-
-    @property
-    @pulumi.getter
-    def code(self) -> Optional[str]:
-        """
-        The status code.
-        """
-        return pulumi.get(self, "code")
-
-    @property
-    @pulumi.getter(name="displayStatus")
-    def display_status(self) -> Optional[str]:
-        """
-        The short localizable label for the status.
-        """
-        return pulumi.get(self, "display_status")
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[str]:
-        """
-        The level code.
-        """
-        return pulumi.get(self, "level")
-
-    @property
-    @pulumi.getter
-    def message(self) -> Optional[str]:
-        """
-        The detailed status message, including for alerts and error messages.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def time(self) -> Optional[str]:
-        """
-        The time of the status.
-        """
-        return pulumi.get(self, "time")
 
 
 @pulumi.output_type
@@ -1630,71 +917,6 @@ class IpPoolsResponse(dict):
 
 
 @pulumi.output_type
-class IsolatedVmAttestationConfigurationResponse(dict):
-    """
-    Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "attestationResourceId":
-            suggest = "attestation_resource_id"
-        elif key == "attestationServiceEndpoint":
-            suggest = "attestation_service_endpoint"
-        elif key == "relyingPartyServiceEndpoint":
-            suggest = "relying_party_service_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IsolatedVmAttestationConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IsolatedVmAttestationConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IsolatedVmAttestationConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 attestation_resource_id: str,
-                 attestation_service_endpoint: str,
-                 relying_party_service_endpoint: str):
-        """
-        Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.
-        :param str attestation_resource_id: Fully qualified Azure resource id of the Microsoft Azure attestation resource associated with this cluster.
-        :param str attestation_service_endpoint: Region specific endpoint for Microsoft Azure Attestation service for the cluster
-        :param str relying_party_service_endpoint: Region specific endpoint for relying party service.
-        """
-        pulumi.set(__self__, "attestation_resource_id", attestation_resource_id)
-        pulumi.set(__self__, "attestation_service_endpoint", attestation_service_endpoint)
-        pulumi.set(__self__, "relying_party_service_endpoint", relying_party_service_endpoint)
-
-    @property
-    @pulumi.getter(name="attestationResourceId")
-    def attestation_resource_id(self) -> str:
-        """
-        Fully qualified Azure resource id of the Microsoft Azure attestation resource associated with this cluster.
-        """
-        return pulumi.get(self, "attestation_resource_id")
-
-    @property
-    @pulumi.getter(name="attestationServiceEndpoint")
-    def attestation_service_endpoint(self) -> str:
-        """
-        Region specific endpoint for Microsoft Azure Attestation service for the cluster
-        """
-        return pulumi.get(self, "attestation_service_endpoint")
-
-    @property
-    @pulumi.getter(name="relyingPartyServiceEndpoint")
-    def relying_party_service_endpoint(self) -> str:
-        """
-        Region specific endpoint for relying party service.
-        """
-        return pulumi.get(self, "relying_party_service_endpoint")
-
-
-@pulumi.output_type
 class NicDetailResponse(dict):
     """
     The NIC Detail of a device.
@@ -1957,165 +1179,6 @@ class OptionalServicesResponse(dict):
         The name of custom location.
         """
         return pulumi.get(self, "custom_location")
-
-
-@pulumi.output_type
-class PerNodeExtensionStateResponse(dict):
-    """
-    Status of Arc Extension for a particular node in HCI Cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceView":
-            suggest = "instance_view"
-        elif key == "typeHandlerVersion":
-            suggest = "type_handler_version"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PerNodeExtensionStateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PerNodeExtensionStateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PerNodeExtensionStateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 extension: str,
-                 instance_view: 'outputs.ExtensionInstanceViewResponse',
-                 name: str,
-                 state: str,
-                 type_handler_version: str):
-        """
-        Status of Arc Extension for a particular node in HCI Cluster.
-        :param str extension: Fully qualified resource ID for the particular Arc Extension on this node.
-        :param 'ExtensionInstanceViewResponse' instance_view: The extension instance view.
-        :param str name: Name of the node in HCI Cluster.
-        :param str state: State of Arc Extension in this node.
-        :param str type_handler_version: Specifies the version of the script handler.
-        """
-        pulumi.set(__self__, "extension", extension)
-        pulumi.set(__self__, "instance_view", instance_view)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "type_handler_version", type_handler_version)
-
-    @property
-    @pulumi.getter
-    def extension(self) -> str:
-        """
-        Fully qualified resource ID for the particular Arc Extension on this node.
-        """
-        return pulumi.get(self, "extension")
-
-    @property
-    @pulumi.getter(name="instanceView")
-    def instance_view(self) -> 'outputs.ExtensionInstanceViewResponse':
-        """
-        The extension instance view.
-        """
-        return pulumi.get(self, "instance_view")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the node in HCI Cluster.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def state(self) -> str:
-        """
-        State of Arc Extension in this node.
-        """
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> str:
-        """
-        Specifies the version of the script handler.
-        """
-        return pulumi.get(self, "type_handler_version")
-
-
-@pulumi.output_type
-class PerNodeStateResponse(dict):
-    """
-    Status of Arc agent for a particular node in HCI Cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "arcInstance":
-            suggest = "arc_instance"
-        elif key == "arcNodeServicePrincipalObjectId":
-            suggest = "arc_node_service_principal_object_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PerNodeStateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PerNodeStateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PerNodeStateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 arc_instance: str,
-                 arc_node_service_principal_object_id: str,
-                 name: str,
-                 state: str):
-        """
-        Status of Arc agent for a particular node in HCI Cluster.
-        :param str arc_instance: Fully qualified resource ID for the Arc agent of this node.
-        :param str arc_node_service_principal_object_id: The service principal id of the arc for server node
-        :param str name: Name of the Node in HCI Cluster
-        :param str state: State of Arc agent in this node.
-        """
-        pulumi.set(__self__, "arc_instance", arc_instance)
-        pulumi.set(__self__, "arc_node_service_principal_object_id", arc_node_service_principal_object_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter(name="arcInstance")
-    def arc_instance(self) -> str:
-        """
-        Fully qualified resource ID for the Arc agent of this node.
-        """
-        return pulumi.get(self, "arc_instance")
-
-    @property
-    @pulumi.getter(name="arcNodeServicePrincipalObjectId")
-    def arc_node_service_principal_object_id(self) -> str:
-        """
-        The service principal id of the arc for server node
-        """
-        return pulumi.get(self, "arc_node_service_principal_object_id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the Node in HCI Cluster
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def state(self) -> str:
-        """
-        State of Arc agent in this node.
-        """
-        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -2516,137 +1579,17 @@ class SecuritySettingsResponse(dict):
 
 
 @pulumi.output_type
-class ServiceConfigurationResponse(dict):
-    """
-    Service configuration details
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "serviceName":
-            suggest = "service_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServiceConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServiceConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 port: float,
-                 service_name: str):
-        """
-        Service configuration details
-        :param float port: The port on which service is enabled.
-        :param str service_name: Name of the service.
-        """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "service_name", service_name)
-
-    @property
-    @pulumi.getter
-    def port(self) -> float:
-        """
-        The port on which service is enabled.
-        """
-        return pulumi.get(self, "port")
-
-    @property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> str:
-        """
-        Name of the service.
-        """
-        return pulumi.get(self, "service_name")
-
-
-@pulumi.output_type
-class SoftwareAssurancePropertiesResponse(dict):
-    """
-    Software Assurance properties of the cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lastUpdated":
-            suggest = "last_updated"
-        elif key == "softwareAssuranceStatus":
-            suggest = "software_assurance_status"
-        elif key == "softwareAssuranceIntent":
-            suggest = "software_assurance_intent"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SoftwareAssurancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SoftwareAssurancePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SoftwareAssurancePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 last_updated: str,
-                 software_assurance_status: str,
-                 software_assurance_intent: Optional[str] = None):
-        """
-        Software Assurance properties of the cluster.
-        :param str last_updated: TimeStamp denoting the latest SA benefit applicability is validated.
-        :param str software_assurance_status: Status of the Software Assurance for the cluster.
-        :param str software_assurance_intent: Customer Intent for Software Assurance Benefit.
-        """
-        pulumi.set(__self__, "last_updated", last_updated)
-        pulumi.set(__self__, "software_assurance_status", software_assurance_status)
-        if software_assurance_intent is not None:
-            pulumi.set(__self__, "software_assurance_intent", software_assurance_intent)
-
-    @property
-    @pulumi.getter(name="lastUpdated")
-    def last_updated(self) -> str:
-        """
-        TimeStamp denoting the latest SA benefit applicability is validated.
-        """
-        return pulumi.get(self, "last_updated")
-
-    @property
-    @pulumi.getter(name="softwareAssuranceStatus")
-    def software_assurance_status(self) -> str:
-        """
-        Status of the Software Assurance for the cluster.
-        """
-        return pulumi.get(self, "software_assurance_status")
-
-    @property
-    @pulumi.getter(name="softwareAssuranceIntent")
-    def software_assurance_intent(self) -> Optional[str]:
-        """
-        Customer Intent for Software Assurance Benefit.
-        """
-        return pulumi.get(self, "software_assurance_intent")
-
-
-@pulumi.output_type
 class StepResponse(dict):
     """
-    Progress representation of the update run steps.
+    The Step of AzureStackHCI Cluster.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "endTimeUtc":
             suggest = "end_time_utc"
-        elif key == "errorMessage":
-            suggest = "error_message"
         elif key == "fullStepIndex":
             suggest = "full_step_index"
-        elif key == "lastUpdatedTimeUtc":
-            suggest = "last_updated_time_utc"
         elif key == "startTimeUtc":
             suggest = "start_time_utc"
 
@@ -2662,77 +1605,53 @@ class StepResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 description: Optional[str] = None,
-                 end_time_utc: Optional[str] = None,
-                 error_message: Optional[str] = None,
-                 exception: Optional[Sequence[str]] = None,
-                 full_step_index: Optional[str] = None,
-                 last_updated_time_utc: Optional[str] = None,
-                 name: Optional[str] = None,
-                 start_time_utc: Optional[str] = None,
-                 status: Optional[str] = None,
-                 steps: Optional[Sequence['outputs.StepResponse']] = None):
+                 description: str,
+                 end_time_utc: str,
+                 exception: Sequence[str],
+                 full_step_index: str,
+                 name: str,
+                 start_time_utc: str,
+                 status: str,
+                 steps: Sequence['outputs.StepResponse']):
         """
-        Progress representation of the update run steps.
-        :param str description: More detailed description of the step.
-        :param str end_time_utc: When the step reached a terminal state.
-        :param str error_message: Error message, specified if the step is in a failed state.
+        The Step of AzureStackHCI Cluster.
+        :param str description: Description of step.
+        :param str end_time_utc: End time of step.
         :param Sequence[str] exception: List of exceptions in AzureStackHCI Cluster Deployment.
         :param str full_step_index: FullStepIndex of step.
-        :param str last_updated_time_utc: Completion time of this step or the last completed sub-step.
-        :param str name: Name of the step.
-        :param str start_time_utc: When the step started, or empty if it has not started executing.
-        :param str status: Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
-        :param Sequence['StepResponse'] steps: Recursive model for child steps of this step.
+        :param str name: Name of step.
+        :param str start_time_utc: Start time of step.
+        :param str status: Status of step. Allowed values are 'Error', 'Success', 'InProgress'
+        :param Sequence['StepResponse'] steps: List of nested steps of AzureStackHCI Cluster Deployment.
         """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if end_time_utc is not None:
-            pulumi.set(__self__, "end_time_utc", end_time_utc)
-        if error_message is not None:
-            pulumi.set(__self__, "error_message", error_message)
-        if exception is not None:
-            pulumi.set(__self__, "exception", exception)
-        if full_step_index is not None:
-            pulumi.set(__self__, "full_step_index", full_step_index)
-        if last_updated_time_utc is not None:
-            pulumi.set(__self__, "last_updated_time_utc", last_updated_time_utc)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if start_time_utc is not None:
-            pulumi.set(__self__, "start_time_utc", start_time_utc)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if steps is not None:
-            pulumi.set(__self__, "steps", steps)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "end_time_utc", end_time_utc)
+        pulumi.set(__self__, "exception", exception)
+        pulumi.set(__self__, "full_step_index", full_step_index)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "steps", steps)
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> str:
         """
-        More detailed description of the step.
+        Description of step.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="endTimeUtc")
-    def end_time_utc(self) -> Optional[str]:
+    def end_time_utc(self) -> str:
         """
-        When the step reached a terminal state.
+        End time of step.
         """
         return pulumi.get(self, "end_time_utc")
 
     @property
-    @pulumi.getter(name="errorMessage")
-    def error_message(self) -> Optional[str]:
-        """
-        Error message, specified if the step is in a failed state.
-        """
-        return pulumi.get(self, "error_message")
-
-    @property
     @pulumi.getter
-    def exception(self) -> Optional[Sequence[str]]:
+    def exception(self) -> Sequence[str]:
         """
         List of exceptions in AzureStackHCI Cluster Deployment.
         """
@@ -2740,49 +1659,41 @@ class StepResponse(dict):
 
     @property
     @pulumi.getter(name="fullStepIndex")
-    def full_step_index(self) -> Optional[str]:
+    def full_step_index(self) -> str:
         """
         FullStepIndex of step.
         """
         return pulumi.get(self, "full_step_index")
 
     @property
-    @pulumi.getter(name="lastUpdatedTimeUtc")
-    def last_updated_time_utc(self) -> Optional[str]:
-        """
-        Completion time of this step or the last completed sub-step.
-        """
-        return pulumi.get(self, "last_updated_time_utc")
-
-    @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
-        Name of the step.
+        Name of step.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="startTimeUtc")
-    def start_time_utc(self) -> Optional[str]:
+    def start_time_utc(self) -> str:
         """
-        When the step started, or empty if it has not started executing.
+        Start time of step.
         """
         return pulumi.get(self, "start_time_utc")
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> str:
         """
-        Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
+        Status of step. Allowed values are 'Error', 'Success', 'InProgress'
         """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
-    def steps(self) -> Optional[Sequence['outputs.StepResponse']]:
+    def steps(self) -> Sequence['outputs.StepResponse']:
         """
-        Recursive model for child steps of this step.
+        List of nested steps of AzureStackHCI Cluster Deployment.
         """
         return pulumi.get(self, "steps")
 
@@ -3003,124 +1914,6 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class UpdatePrerequisiteResponse(dict):
-    """
-    If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "packageName":
-            suggest = "package_name"
-        elif key == "updateType":
-            suggest = "update_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UpdatePrerequisiteResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UpdatePrerequisiteResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UpdatePrerequisiteResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 package_name: Optional[str] = None,
-                 update_type: Optional[str] = None,
-                 version: Optional[str] = None):
-        """
-        If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
-        :param str package_name: Friendly name of the prerequisite.
-        :param str update_type: Updatable component type.
-        :param str version: Version of the prerequisite.
-        """
-        if package_name is not None:
-            pulumi.set(__self__, "package_name", package_name)
-        if update_type is not None:
-            pulumi.set(__self__, "update_type", update_type)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="packageName")
-    def package_name(self) -> Optional[str]:
-        """
-        Friendly name of the prerequisite.
-        """
-        return pulumi.get(self, "package_name")
-
-    @property
-    @pulumi.getter(name="updateType")
-    def update_type(self) -> Optional[str]:
-        """
-        Updatable component type.
-        """
-        return pulumi.get(self, "update_type")
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[str]:
-        """
-        Version of the prerequisite.
-        """
-        return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class UserAssignedIdentityResponse(dict):
-    """
-    User assigned identity properties
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        UserAssignedIdentityResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        User assigned identity properties
-        :param str client_id: The client ID of the assigned identity.
-        :param str principal_id: The principal ID of the assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client ID of the assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal ID of the assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

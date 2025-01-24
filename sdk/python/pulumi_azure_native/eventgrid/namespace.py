@@ -33,22 +33,28 @@ class NamespaceArgs:
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  sku: Optional[pulumi.Input['NamespaceSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topic_spaces_configuration: Optional[pulumi.Input['TopicSpacesConfigurationArgs']] = None):
+                 topic_spaces_configuration: Optional[pulumi.Input['TopicSpacesConfigurationArgs']] = None,
+                 topics_configuration: Optional[pulumi.Input['TopicsConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Namespace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input['IdentityInfoArgs'] identity: Identity information for the Namespace resource.
         :param pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-        :param pulumi.Input[bool] is_zone_redundant: Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+        :param pulumi.Input[bool] is_zone_redundant: This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+               property is not specified explicitly by the user, its default value depends on the following conditions:
+                 a. For Availability Zones enabled regions - The default property value would be true.
+                 b. For non-Availability Zones enabled regions - The default property value would be false.
                Once specified, this property cannot be updated.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version_allowed: Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
         :param pulumi.Input[str] namespace_name: Name of the namespace.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: List of private endpoint connections.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PubSub.NamespaceProperties.InboundIpRules" />
         :param pulumi.Input['NamespaceSkuArgs'] sku: Represents available Sku pricing tiers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         :param pulumi.Input['TopicSpacesConfigurationArgs'] topic_spaces_configuration: Topic spaces configuration information for the namespace resource
+        :param pulumi.Input['TopicsConfigurationArgs'] topics_configuration: Topics configuration information for the namespace resource
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
@@ -73,6 +79,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "tags", tags)
         if topic_spaces_configuration is not None:
             pulumi.set(__self__, "topic_spaces_configuration", topic_spaces_configuration)
+        if topics_configuration is not None:
+            pulumi.set(__self__, "topics_configuration", topics_configuration)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -114,7 +122,10 @@ class NamespaceArgs:
     @pulumi.getter(name="isZoneRedundant")
     def is_zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+        This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+        property is not specified explicitly by the user, its default value depends on the following conditions:
+          a. For Availability Zones enabled regions - The default property value would be true.
+          b. For non-Availability Zones enabled regions - The default property value would be false.
         Once specified, this property cannot be updated.
         """
         return pulumi.get(self, "is_zone_redundant")
@@ -162,6 +173,9 @@ class NamespaceArgs:
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
+        """
+        List of private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @private_endpoint_connections.setter
@@ -217,6 +231,18 @@ class NamespaceArgs:
     def topic_spaces_configuration(self, value: Optional[pulumi.Input['TopicSpacesConfigurationArgs']]):
         pulumi.set(self, "topic_spaces_configuration", value)
 
+    @property
+    @pulumi.getter(name="topicsConfiguration")
+    def topics_configuration(self) -> Optional[pulumi.Input['TopicsConfigurationArgs']]:
+        """
+        Topics configuration information for the namespace resource
+        """
+        return pulumi.get(self, "topics_configuration")
+
+    @topics_configuration.setter
+    def topics_configuration(self, value: Optional[pulumi.Input['TopicsConfigurationArgs']]):
+        pulumi.set(self, "topics_configuration", value)
+
 
 class Namespace(pulumi.CustomResource):
     @overload
@@ -235,28 +261,34 @@ class Namespace(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[Union['NamespaceSkuArgs', 'NamespaceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_spaces_configuration: Optional[pulumi.Input[Union['TopicSpacesConfigurationArgs', 'TopicSpacesConfigurationArgsDict']]] = None,
+                 topics_configuration: Optional[pulumi.Input[Union['TopicsConfigurationArgs', 'TopicsConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Namespace resource.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['IdentityInfoArgs', 'IdentityInfoArgsDict']] identity: Identity information for the Namespace resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-        :param pulumi.Input[bool] is_zone_redundant: Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+        :param pulumi.Input[bool] is_zone_redundant: This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+               property is not specified explicitly by the user, its default value depends on the following conditions:
+                 a. For Availability Zones enabled regions - The default property value would be true.
+                 b. For non-Availability Zones enabled regions - The default property value would be false.
                Once specified, this property cannot be updated.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version_allowed: Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
         :param pulumi.Input[str] namespace_name: Name of the namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrivateEndpointConnectionArgs', 'PrivateEndpointConnectionArgsDict']]]] private_endpoint_connections: List of private endpoint connections.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PubSub.NamespaceProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Union['NamespaceSkuArgs', 'NamespaceSkuArgsDict']] sku: Represents available Sku pricing tiers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         :param pulumi.Input[Union['TopicSpacesConfigurationArgs', 'TopicSpacesConfigurationArgsDict']] topic_spaces_configuration: Topic spaces configuration information for the namespace resource
+        :param pulumi.Input[Union['TopicsConfigurationArgs', 'TopicsConfigurationArgsDict']] topics_configuration: Topics configuration information for the namespace resource
         """
         ...
     @overload
@@ -266,9 +298,9 @@ class Namespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Namespace resource.
-        Azure REST API version: 2023-06-01-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2023-06-01-preview.
 
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.
@@ -297,6 +329,7 @@ class Namespace(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[Union['NamespaceSkuArgs', 'NamespaceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_spaces_configuration: Optional[pulumi.Input[Union['TopicSpacesConfigurationArgs', 'TopicSpacesConfigurationArgsDict']]] = None,
+                 topics_configuration: Optional[pulumi.Input[Union['TopicsConfigurationArgs', 'TopicsConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -320,10 +353,10 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["topic_spaces_configuration"] = topic_spaces_configuration
+            __props__.__dict__["topics_configuration"] = topics_configuration
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
-            __props__.__dict__["topics_configuration"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:Namespace"), pulumi.Alias(type_="azure-native:eventgrid/v20231215preview:Namespace"), pulumi.Alias(type_="azure-native:eventgrid/v20240601preview:Namespace"), pulumi.Alias(type_="azure-native:eventgrid/v20241215preview:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -386,7 +419,10 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="isZoneRedundant")
     def is_zone_redundant(self) -> pulumi.Output[Optional[bool]]:
         """
-        Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+        This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+        property is not specified explicitly by the user, its default value depends on the following conditions:
+          a. For Availability Zones enabled regions - The default property value would be true.
+          b. For non-Availability Zones enabled regions - The default property value would be false.
         Once specified, this property cannot be updated.
         """
         return pulumi.get(self, "is_zone_redundant")
@@ -418,6 +454,9 @@ class Namespace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]]:
+        """
+        List of private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
@@ -449,7 +488,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to the namespace resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

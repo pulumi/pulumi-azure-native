@@ -35,6 +35,7 @@ class VirtualNetworkArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_v_net_policies: Optional[pulumi.Input[Union[str, 'PrivateEndpointVNetPolicies']]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
@@ -54,6 +55,7 @@ class VirtualNetworkArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ip_allocations: Array of IpAllocation which reference this VNET.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Union[str, 'PrivateEndpointVNetPolicies']] private_endpoint_v_net_policies: Private Endpoint VNet Policies.
         :param pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]] subnets: A list of subnets in a Virtual Network.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -90,6 +92,8 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "ip_allocations", ip_allocations)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if private_endpoint_v_net_policies is not None:
+            pulumi.set(__self__, "private_endpoint_v_net_policies", private_endpoint_v_net_policies)
         if subnets is not None:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
@@ -256,6 +260,18 @@ class VirtualNetworkArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="privateEndpointVNetPolicies")
+    def private_endpoint_v_net_policies(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointVNetPolicies']]]:
+        """
+        Private Endpoint VNet Policies.
+        """
+        return pulumi.get(self, "private_endpoint_v_net_policies")
+
+    @private_endpoint_v_net_policies.setter
+    def private_endpoint_v_net_policies(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointVNetPolicies']]]):
+        pulumi.set(self, "private_endpoint_v_net_policies", value)
+
+    @property
     @pulumi.getter
     def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]]]:
         """
@@ -323,6 +339,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_v_net_policies: Optional[pulumi.Input[Union[str, 'PrivateEndpointVNetPolicies']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -331,9 +348,9 @@ class VirtualNetwork(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual Network resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-06-01, 2019-08-01, 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -349,6 +366,7 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]] ip_allocations: Array of IpAllocation which reference this VNET.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Union[str, 'PrivateEndpointVNetPolicies']] private_endpoint_v_net_policies: Private Endpoint VNet Policies.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]] subnets: A list of subnets in a Virtual Network.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
@@ -365,9 +383,9 @@ class VirtualNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Network resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-06-01, 2019-08-01, 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -396,6 +414,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 private_endpoint_v_net_policies: Optional[pulumi.Input[Union[str, 'PrivateEndpointVNetPolicies']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -426,6 +445,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_allocations"] = ip_allocations
             __props__.__dict__["location"] = location
+            __props__.__dict__["private_endpoint_v_net_policies"] = private_endpoint_v_net_policies
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -477,6 +497,7 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["ip_allocations"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["private_endpoint_v_net_policies"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_guid"] = None
         __props__.__dict__["subnets"] = None
@@ -596,6 +617,14 @@ class VirtualNetwork(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointVNetPolicies")
+    def private_endpoint_v_net_policies(self) -> pulumi.Output[Optional[str]]:
+        """
+        Private Endpoint VNet Policies.
+        """
+        return pulumi.get(self, "private_endpoint_v_net_policies")
 
     @property
     @pulumi.getter(name="provisioningState")

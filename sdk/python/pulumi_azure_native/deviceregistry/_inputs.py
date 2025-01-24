@@ -16,8 +16,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AuthenticationArgs',
+    'AuthenticationArgsDict',
     'DataPointArgs',
     'DataPointArgsDict',
+    'DatasetArgs',
+    'DatasetArgsDict',
     'DiscoveredDataPointArgs',
     'DiscoveredDataPointArgsDict',
     'DiscoveredDatasetArgs',
@@ -28,16 +32,10 @@ __all__ = [
     'EventArgsDict',
     'ExtendedLocationArgs',
     'ExtendedLocationArgsDict',
-    'OwnCertificateArgs',
-    'OwnCertificateArgsDict',
     'SystemAssignedServiceIdentityArgs',
     'SystemAssignedServiceIdentityArgsDict',
     'TopicArgs',
     'TopicArgsDict',
-    'TransportAuthenticationArgs',
-    'TransportAuthenticationArgsDict',
-    'UserAuthenticationArgs',
-    'UserAuthenticationArgsDict',
     'UsernamePasswordCredentialsArgs',
     'UsernamePasswordCredentialsArgsDict',
     'X509CredentialsArgs',
@@ -45,6 +43,83 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AuthenticationArgsDict(TypedDict):
+        """
+        Definition of the client authentication mechanism to the server.
+        """
+        method: pulumi.Input[Union[str, 'AuthenticationMethod']]
+        """
+        Defines the method to authenticate the user of the client at the server.
+        """
+        username_password_credentials: NotRequired[pulumi.Input['UsernamePasswordCredentialsArgsDict']]
+        """
+        Defines the username and password references when UsernamePassword user authentication mode is selected.
+        """
+        x509_credentials: NotRequired[pulumi.Input['X509CredentialsArgsDict']]
+        """
+        Defines the certificate reference when Certificate user authentication mode is selected.
+        """
+elif False:
+    AuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AuthenticationArgs:
+    def __init__(__self__, *,
+                 method: Optional[pulumi.Input[Union[str, 'AuthenticationMethod']]] = None,
+                 username_password_credentials: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']] = None,
+                 x509_credentials: Optional[pulumi.Input['X509CredentialsArgs']] = None):
+        """
+        Definition of the client authentication mechanism to the server.
+        :param pulumi.Input[Union[str, 'AuthenticationMethod']] method: Defines the method to authenticate the user of the client at the server.
+        :param pulumi.Input['UsernamePasswordCredentialsArgs'] username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
+        :param pulumi.Input['X509CredentialsArgs'] x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
+        """
+        if method is None:
+            method = 'Certificate'
+        pulumi.set(__self__, "method", method)
+        if username_password_credentials is not None:
+            pulumi.set(__self__, "username_password_credentials", username_password_credentials)
+        if x509_credentials is not None:
+            pulumi.set(__self__, "x509_credentials", x509_credentials)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[Union[str, 'AuthenticationMethod']]:
+        """
+        Defines the method to authenticate the user of the client at the server.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[Union[str, 'AuthenticationMethod']]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="usernamePasswordCredentials")
+    def username_password_credentials(self) -> Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]:
+        """
+        Defines the username and password references when UsernamePassword user authentication mode is selected.
+        """
+        return pulumi.get(self, "username_password_credentials")
+
+    @username_password_credentials.setter
+    def username_password_credentials(self, value: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]):
+        pulumi.set(self, "username_password_credentials", value)
+
+    @property
+    @pulumi.getter(name="x509Credentials")
+    def x509_credentials(self) -> Optional[pulumi.Input['X509CredentialsArgs']]:
+        """
+        Defines the certificate reference when Certificate user authentication mode is selected.
+        """
+        return pulumi.get(self, "x509_credentials")
+
+    @x509_credentials.setter
+    def x509_credentials(self, value: Optional[pulumi.Input['X509CredentialsArgs']]):
+        pulumi.set(self, "x509_credentials", value)
+
 
 if not MYPY:
     class DataPointArgsDict(TypedDict):
@@ -55,19 +130,15 @@ if not MYPY:
         """
         The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
         """
-        capability_id: NotRequired[pulumi.Input[str]]
+        name: pulumi.Input[str]
         """
-        The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
+        The name of the data point.
         """
         data_point_configuration: NotRequired[pulumi.Input[str]]
         """
         Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the data point.
-        """
-        observability_mode: NotRequired[pulumi.Input[Union[str, 'DataPointsObservabilityMode']]]
+        observability_mode: NotRequired[pulumi.Input[Union[str, 'DataPointObservabilityMode']]]
         """
         An indication of how the data point should be mapped to OpenTelemetry.
         """
@@ -78,27 +149,22 @@ elif False:
 class DataPointArgs:
     def __init__(__self__, *,
                  data_source: pulumi.Input[str],
-                 capability_id: Optional[pulumi.Input[str]] = None,
+                 name: pulumi.Input[str],
                  data_point_configuration: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 observability_mode: Optional[pulumi.Input[Union[str, 'DataPointsObservabilityMode']]] = None):
+                 observability_mode: Optional[pulumi.Input[Union[str, 'DataPointObservabilityMode']]] = None):
         """
         Defines the data point properties.
         :param pulumi.Input[str] data_source: The address of the source of the data in the asset (e.g. URL) so that a client can access the data source on the asset.
-        :param pulumi.Input[str] capability_id: The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        :param pulumi.Input[str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         :param pulumi.Input[str] name: The name of the data point.
-        :param pulumi.Input[Union[str, 'DataPointsObservabilityMode']] observability_mode: An indication of how the data point should be mapped to OpenTelemetry.
+        :param pulumi.Input[str] data_point_configuration: Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        :param pulumi.Input[Union[str, 'DataPointObservabilityMode']] observability_mode: An indication of how the data point should be mapped to OpenTelemetry.
         """
         pulumi.set(__self__, "data_source", data_source)
-        if capability_id is not None:
-            pulumi.set(__self__, "capability_id", capability_id)
+        pulumi.set(__self__, "name", name)
         if data_point_configuration is not None:
             pulumi.set(__self__, "data_point_configuration", data_point_configuration)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if observability_mode is None:
-            observability_mode = 'none'
+            observability_mode = 'None'
         if observability_mode is not None:
             pulumi.set(__self__, "observability_mode", observability_mode)
 
@@ -115,16 +181,16 @@ class DataPointArgs:
         pulumi.set(self, "data_source", value)
 
     @property
-    @pulumi.getter(name="capabilityId")
-    def capability_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
         """
-        The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
+        The name of the data point.
         """
-        return pulumi.get(self, "capability_id")
+        return pulumi.get(self, "name")
 
-    @capability_id.setter
-    def capability_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "capability_id", value)
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="dataPointConfiguration")
@@ -139,28 +205,111 @@ class DataPointArgs:
         pulumi.set(self, "data_point_configuration", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the data point.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="observabilityMode")
-    def observability_mode(self) -> Optional[pulumi.Input[Union[str, 'DataPointsObservabilityMode']]]:
+    def observability_mode(self) -> Optional[pulumi.Input[Union[str, 'DataPointObservabilityMode']]]:
         """
         An indication of how the data point should be mapped to OpenTelemetry.
         """
         return pulumi.get(self, "observability_mode")
 
     @observability_mode.setter
-    def observability_mode(self, value: Optional[pulumi.Input[Union[str, 'DataPointsObservabilityMode']]]):
+    def observability_mode(self, value: Optional[pulumi.Input[Union[str, 'DataPointObservabilityMode']]]):
         pulumi.set(self, "observability_mode", value)
+
+
+if not MYPY:
+    class DatasetArgsDict(TypedDict):
+        """
+        Defines the dataset properties.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the dataset.
+        """
+        data_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataPointArgsDict']]]]
+        """
+        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        """
+        dataset_configuration: NotRequired[pulumi.Input[str]]
+        """
+        Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        """
+        topic: NotRequired[pulumi.Input['TopicArgsDict']]
+        """
+        Object that describes the topic information for the specific dataset.
+        """
+elif False:
+    DatasetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatasetArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]]] = None,
+                 dataset_configuration: Optional[pulumi.Input[str]] = None,
+                 topic: Optional[pulumi.Input['TopicArgs']] = None):
+        """
+        Defines the dataset properties.
+        :param pulumi.Input[str] name: Name of the dataset.
+        :param pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]] data_points: Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        :param pulumi.Input[str] dataset_configuration: Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        :param pulumi.Input['TopicArgs'] topic: Object that describes the topic information for the specific dataset.
+        """
+        pulumi.set(__self__, "name", name)
+        if data_points is not None:
+            pulumi.set(__self__, "data_points", data_points)
+        if dataset_configuration is not None:
+            pulumi.set(__self__, "dataset_configuration", dataset_configuration)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="dataPoints")
+    def data_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]]]:
+        """
+        Array of data points that are part of the dataset. Each data point can have per-data point configuration.
+        """
+        return pulumi.get(self, "data_points")
+
+    @data_points.setter
+    def data_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]]]):
+        pulumi.set(self, "data_points", value)
+
+    @property
+    @pulumi.getter(name="datasetConfiguration")
+    def dataset_configuration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Stringified JSON that contains connector-specific JSON string that describes configuration for the specific dataset.
+        """
+        return pulumi.get(self, "dataset_configuration")
+
+    @dataset_configuration.setter
+    def dataset_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dataset_configuration", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[pulumi.Input['TopicArgs']]:
+        """
+        Object that describes the topic information for the specific dataset.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: Optional[pulumi.Input['TopicArgs']]):
+        pulumi.set(self, "topic", value)
 
 
 if not MYPY:
@@ -475,21 +624,21 @@ if not MYPY:
         """
         The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
         """
-        capability_id: NotRequired[pulumi.Input[str]]
+        name: pulumi.Input[str]
         """
-        The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
+        The name of the event.
         """
         event_configuration: NotRequired[pulumi.Input[str]]
         """
         Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the event.
-        """
-        observability_mode: NotRequired[pulumi.Input[Union[str, 'EventsObservabilityMode']]]
+        observability_mode: NotRequired[pulumi.Input[Union[str, 'EventObservabilityMode']]]
         """
         An indication of how the event should be mapped to OpenTelemetry.
+        """
+        topic: NotRequired[pulumi.Input['TopicArgsDict']]
+        """
+        Object that describes the topic information for the specific event.
         """
 elif False:
     EventArgsDict: TypeAlias = Mapping[str, Any]
@@ -498,29 +647,28 @@ elif False:
 class EventArgs:
     def __init__(__self__, *,
                  event_notifier: pulumi.Input[str],
-                 capability_id: Optional[pulumi.Input[str]] = None,
+                 name: pulumi.Input[str],
                  event_configuration: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 observability_mode: Optional[pulumi.Input[Union[str, 'EventsObservabilityMode']]] = None):
+                 observability_mode: Optional[pulumi.Input[Union[str, 'EventObservabilityMode']]] = None,
+                 topic: Optional[pulumi.Input['TopicArgs']] = None):
         """
         Defines the event properties.
         :param pulumi.Input[str] event_notifier: The address of the notifier of the event in the asset (e.g. URL) so that a client can access the event on the asset.
-        :param pulumi.Input[str] capability_id: The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        :param pulumi.Input[str] event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         :param pulumi.Input[str] name: The name of the event.
-        :param pulumi.Input[Union[str, 'EventsObservabilityMode']] observability_mode: An indication of how the event should be mapped to OpenTelemetry.
+        :param pulumi.Input[str] event_configuration: Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
+        :param pulumi.Input[Union[str, 'EventObservabilityMode']] observability_mode: An indication of how the event should be mapped to OpenTelemetry.
+        :param pulumi.Input['TopicArgs'] topic: Object that describes the topic information for the specific event.
         """
         pulumi.set(__self__, "event_notifier", event_notifier)
-        if capability_id is not None:
-            pulumi.set(__self__, "capability_id", capability_id)
+        pulumi.set(__self__, "name", name)
         if event_configuration is not None:
             pulumi.set(__self__, "event_configuration", event_configuration)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if observability_mode is None:
-            observability_mode = 'none'
+            observability_mode = 'None'
         if observability_mode is not None:
             pulumi.set(__self__, "observability_mode", observability_mode)
+        if topic is not None:
+            pulumi.set(__self__, "topic", topic)
 
     @property
     @pulumi.getter(name="eventNotifier")
@@ -535,16 +683,16 @@ class EventArgs:
         pulumi.set(self, "event_notifier", value)
 
     @property
-    @pulumi.getter(name="capabilityId")
-    def capability_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
         """
-        The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
+        The name of the event.
         """
-        return pulumi.get(self, "capability_id")
+        return pulumi.get(self, "name")
 
-    @capability_id.setter
-    def capability_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "capability_id", value)
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="eventConfiguration")
@@ -559,28 +707,28 @@ class EventArgs:
         pulumi.set(self, "event_configuration", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the event.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="observabilityMode")
-    def observability_mode(self) -> Optional[pulumi.Input[Union[str, 'EventsObservabilityMode']]]:
+    def observability_mode(self) -> Optional[pulumi.Input[Union[str, 'EventObservabilityMode']]]:
         """
         An indication of how the event should be mapped to OpenTelemetry.
         """
         return pulumi.get(self, "observability_mode")
 
     @observability_mode.setter
-    def observability_mode(self, value: Optional[pulumi.Input[Union[str, 'EventsObservabilityMode']]]):
+    def observability_mode(self, value: Optional[pulumi.Input[Union[str, 'EventObservabilityMode']]]):
         pulumi.set(self, "observability_mode", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> Optional[pulumi.Input['TopicArgs']]:
+        """
+        Object that describes the topic information for the specific event.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: Optional[pulumi.Input['TopicArgs']]):
+        pulumi.set(self, "topic", value)
 
 
 if not MYPY:
@@ -635,82 +783,6 @@ class ExtendedLocationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
-
-
-if not MYPY:
-    class OwnCertificateArgsDict(TypedDict):
-        """
-        Certificate or private key that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
-        """
-        cert_password_reference: NotRequired[pulumi.Input[str]]
-        """
-        Secret Reference Name (Pfx or Pem password).
-        """
-        cert_secret_reference: NotRequired[pulumi.Input[str]]
-        """
-        Secret Reference name (cert and private key).
-        """
-        cert_thumbprint: NotRequired[pulumi.Input[str]]
-        """
-        Certificate thumbprint.
-        """
-elif False:
-    OwnCertificateArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OwnCertificateArgs:
-    def __init__(__self__, *,
-                 cert_password_reference: Optional[pulumi.Input[str]] = None,
-                 cert_secret_reference: Optional[pulumi.Input[str]] = None,
-                 cert_thumbprint: Optional[pulumi.Input[str]] = None):
-        """
-        Certificate or private key that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
-        :param pulumi.Input[str] cert_password_reference: Secret Reference Name (Pfx or Pem password).
-        :param pulumi.Input[str] cert_secret_reference: Secret Reference name (cert and private key).
-        :param pulumi.Input[str] cert_thumbprint: Certificate thumbprint.
-        """
-        if cert_password_reference is not None:
-            pulumi.set(__self__, "cert_password_reference", cert_password_reference)
-        if cert_secret_reference is not None:
-            pulumi.set(__self__, "cert_secret_reference", cert_secret_reference)
-        if cert_thumbprint is not None:
-            pulumi.set(__self__, "cert_thumbprint", cert_thumbprint)
-
-    @property
-    @pulumi.getter(name="certPasswordReference")
-    def cert_password_reference(self) -> Optional[pulumi.Input[str]]:
-        """
-        Secret Reference Name (Pfx or Pem password).
-        """
-        return pulumi.get(self, "cert_password_reference")
-
-    @cert_password_reference.setter
-    def cert_password_reference(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cert_password_reference", value)
-
-    @property
-    @pulumi.getter(name="certSecretReference")
-    def cert_secret_reference(self) -> Optional[pulumi.Input[str]]:
-        """
-        Secret Reference name (cert and private key).
-        """
-        return pulumi.get(self, "cert_secret_reference")
-
-    @cert_secret_reference.setter
-    def cert_secret_reference(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cert_secret_reference", value)
-
-    @property
-    @pulumi.getter(name="certThumbprint")
-    def cert_thumbprint(self) -> Optional[pulumi.Input[str]]:
-        """
-        Certificate thumbprint.
-        """
-        return pulumi.get(self, "cert_thumbprint")
-
-    @cert_thumbprint.setter
-    def cert_thumbprint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cert_thumbprint", value)
 
 
 if not MYPY:
@@ -806,129 +878,17 @@ class TopicArgs:
 
 
 if not MYPY:
-    class TransportAuthenticationArgsDict(TypedDict):
-        """
-        Definition of the authentication mechanism for the southbound connector.
-        """
-        own_certificates: pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgsDict']]]
-        """
-        Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
-        """
-elif False:
-    TransportAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class TransportAuthenticationArgs:
-    def __init__(__self__, *,
-                 own_certificates: pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgs']]]):
-        """
-        Definition of the authentication mechanism for the southbound connector.
-        :param pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgs']]] own_certificates: Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
-        """
-        pulumi.set(__self__, "own_certificates", own_certificates)
-
-    @property
-    @pulumi.getter(name="ownCertificates")
-    def own_certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgs']]]:
-        """
-        Defines a reference to a secret which contains all certificates and private keys that can be used by the southbound connector connecting to the shop floor/OT device. The accepted extensions are .der for certificates and .pfx/.pem for private keys.
-        """
-        return pulumi.get(self, "own_certificates")
-
-    @own_certificates.setter
-    def own_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['OwnCertificateArgs']]]):
-        pulumi.set(self, "own_certificates", value)
-
-
-if not MYPY:
-    class UserAuthenticationArgsDict(TypedDict):
-        """
-        Definition of the client authentication mechanism to the server.
-        """
-        mode: pulumi.Input[Union[str, 'UserAuthenticationMode']]
-        """
-        Defines the method to authenticate the user of the client at the server.
-        """
-        username_password_credentials: NotRequired[pulumi.Input['UsernamePasswordCredentialsArgsDict']]
-        """
-        Defines the username and password references when UsernamePassword user authentication mode is selected.
-        """
-        x509_credentials: NotRequired[pulumi.Input['X509CredentialsArgsDict']]
-        """
-        Defines the certificate reference when Certificate user authentication mode is selected.
-        """
-elif False:
-    UserAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class UserAuthenticationArgs:
-    def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[Union[str, 'UserAuthenticationMode']]] = None,
-                 username_password_credentials: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']] = None,
-                 x509_credentials: Optional[pulumi.Input['X509CredentialsArgs']] = None):
-        """
-        Definition of the client authentication mechanism to the server.
-        :param pulumi.Input[Union[str, 'UserAuthenticationMode']] mode: Defines the method to authenticate the user of the client at the server.
-        :param pulumi.Input['UsernamePasswordCredentialsArgs'] username_password_credentials: Defines the username and password references when UsernamePassword user authentication mode is selected.
-        :param pulumi.Input['X509CredentialsArgs'] x509_credentials: Defines the certificate reference when Certificate user authentication mode is selected.
-        """
-        if mode is None:
-            mode = 'Certificate'
-        pulumi.set(__self__, "mode", mode)
-        if username_password_credentials is not None:
-            pulumi.set(__self__, "username_password_credentials", username_password_credentials)
-        if x509_credentials is not None:
-            pulumi.set(__self__, "x509_credentials", x509_credentials)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> pulumi.Input[Union[str, 'UserAuthenticationMode']]:
-        """
-        Defines the method to authenticate the user of the client at the server.
-        """
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: pulumi.Input[Union[str, 'UserAuthenticationMode']]):
-        pulumi.set(self, "mode", value)
-
-    @property
-    @pulumi.getter(name="usernamePasswordCredentials")
-    def username_password_credentials(self) -> Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]:
-        """
-        Defines the username and password references when UsernamePassword user authentication mode is selected.
-        """
-        return pulumi.get(self, "username_password_credentials")
-
-    @username_password_credentials.setter
-    def username_password_credentials(self, value: Optional[pulumi.Input['UsernamePasswordCredentialsArgs']]):
-        pulumi.set(self, "username_password_credentials", value)
-
-    @property
-    @pulumi.getter(name="x509Credentials")
-    def x509_credentials(self) -> Optional[pulumi.Input['X509CredentialsArgs']]:
-        """
-        Defines the certificate reference when Certificate user authentication mode is selected.
-        """
-        return pulumi.get(self, "x509_credentials")
-
-    @x509_credentials.setter
-    def x509_credentials(self, value: Optional[pulumi.Input['X509CredentialsArgs']]):
-        pulumi.set(self, "x509_credentials", value)
-
-
-if not MYPY:
     class UsernamePasswordCredentialsArgsDict(TypedDict):
         """
         The credentials for authentication mode UsernamePassword.
         """
-        password_reference: pulumi.Input[str]
+        password_secret_name: pulumi.Input[str]
         """
-        A reference to secret containing the password.
+        The name of the secret containing the password.
         """
-        username_reference: pulumi.Input[str]
+        username_secret_name: pulumi.Input[str]
         """
-        A reference to secret containing the username.
+        The name of the secret containing the username.
         """
 elif False:
     UsernamePasswordCredentialsArgsDict: TypeAlias = Mapping[str, Any]
@@ -936,39 +896,39 @@ elif False:
 @pulumi.input_type
 class UsernamePasswordCredentialsArgs:
     def __init__(__self__, *,
-                 password_reference: pulumi.Input[str],
-                 username_reference: pulumi.Input[str]):
+                 password_secret_name: pulumi.Input[str],
+                 username_secret_name: pulumi.Input[str]):
         """
         The credentials for authentication mode UsernamePassword.
-        :param pulumi.Input[str] password_reference: A reference to secret containing the password.
-        :param pulumi.Input[str] username_reference: A reference to secret containing the username.
+        :param pulumi.Input[str] password_secret_name: The name of the secret containing the password.
+        :param pulumi.Input[str] username_secret_name: The name of the secret containing the username.
         """
-        pulumi.set(__self__, "password_reference", password_reference)
-        pulumi.set(__self__, "username_reference", username_reference)
+        pulumi.set(__self__, "password_secret_name", password_secret_name)
+        pulumi.set(__self__, "username_secret_name", username_secret_name)
 
     @property
-    @pulumi.getter(name="passwordReference")
-    def password_reference(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="passwordSecretName")
+    def password_secret_name(self) -> pulumi.Input[str]:
         """
-        A reference to secret containing the password.
+        The name of the secret containing the password.
         """
-        return pulumi.get(self, "password_reference")
+        return pulumi.get(self, "password_secret_name")
 
-    @password_reference.setter
-    def password_reference(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password_reference", value)
+    @password_secret_name.setter
+    def password_secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password_secret_name", value)
 
     @property
-    @pulumi.getter(name="usernameReference")
-    def username_reference(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="usernameSecretName")
+    def username_secret_name(self) -> pulumi.Input[str]:
         """
-        A reference to secret containing the username.
+        The name of the secret containing the username.
         """
-        return pulumi.get(self, "username_reference")
+        return pulumi.get(self, "username_secret_name")
 
-    @username_reference.setter
-    def username_reference(self, value: pulumi.Input[str]):
-        pulumi.set(self, "username_reference", value)
+    @username_secret_name.setter
+    def username_secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username_secret_name", value)
 
 
 if not MYPY:
@@ -976,9 +936,9 @@ if not MYPY:
         """
         The x509 certificate for authentication mode Certificate.
         """
-        certificate_reference: pulumi.Input[str]
+        certificate_secret_name: pulumi.Input[str]
         """
-        A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+        The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
         """
 elif False:
     X509CredentialsArgsDict: TypeAlias = Mapping[str, Any]
@@ -986,23 +946,23 @@ elif False:
 @pulumi.input_type
 class X509CredentialsArgs:
     def __init__(__self__, *,
-                 certificate_reference: pulumi.Input[str]):
+                 certificate_secret_name: pulumi.Input[str]):
         """
         The x509 certificate for authentication mode Certificate.
-        :param pulumi.Input[str] certificate_reference: A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+        :param pulumi.Input[str] certificate_secret_name: The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
         """
-        pulumi.set(__self__, "certificate_reference", certificate_reference)
+        pulumi.set(__self__, "certificate_secret_name", certificate_secret_name)
 
     @property
-    @pulumi.getter(name="certificateReference")
-    def certificate_reference(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="certificateSecretName")
+    def certificate_secret_name(self) -> pulumi.Input[str]:
         """
-        A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+        The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
         """
-        return pulumi.get(self, "certificate_reference")
+        return pulumi.get(self, "certificate_secret_name")
 
-    @certificate_reference.setter
-    def certificate_reference(self, value: pulumi.Input[str]):
-        pulumi.set(self, "certificate_reference", value)
+    @certificate_secret_name.setter
+    def certificate_secret_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_secret_name", value)
 
 

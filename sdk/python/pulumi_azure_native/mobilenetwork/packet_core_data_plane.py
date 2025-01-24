@@ -26,7 +26,8 @@ class PacketCoreDataPlaneArgs:
                  user_plane_access_interface: pulumi.Input['InterfacePropertiesArgs'],
                  location: Optional[pulumi.Input[str]] = None,
                  packet_core_data_plane_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_plane_access_virtual_ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PacketCoreDataPlane resource.
         :param pulumi.Input[str] packet_core_control_plane_name: The name of the packet core control plane.
@@ -35,6 +36,7 @@ class PacketCoreDataPlaneArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] packet_core_data_plane_name: The name of the packet core data plane.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_plane_access_virtual_ipv4_addresses: The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
         """
         pulumi.set(__self__, "packet_core_control_plane_name", packet_core_control_plane_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -45,6 +47,8 @@ class PacketCoreDataPlaneArgs:
             pulumi.set(__self__, "packet_core_data_plane_name", packet_core_data_plane_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if user_plane_access_virtual_ipv4_addresses is not None:
+            pulumi.set(__self__, "user_plane_access_virtual_ipv4_addresses", user_plane_access_virtual_ipv4_addresses)
 
     @property
     @pulumi.getter(name="packetCoreControlPlaneName")
@@ -118,6 +122,18 @@ class PacketCoreDataPlaneArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="userPlaneAccessVirtualIpv4Addresses")
+    def user_plane_access_virtual_ipv4_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
+        """
+        return pulumi.get(self, "user_plane_access_virtual_ipv4_addresses")
+
+    @user_plane_access_virtual_ipv4_addresses.setter
+    def user_plane_access_virtual_ipv4_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_plane_access_virtual_ipv4_addresses", value)
+
 
 class PacketCoreDataPlane(pulumi.CustomResource):
     @overload
@@ -130,12 +146,13 @@ class PacketCoreDataPlane(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_plane_access_interface: Optional[pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']]] = None,
+                 user_plane_access_virtual_ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
-        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2023-06-01.
 
-        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        Other available API versions: 2022-04-01-preview, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,6 +162,7 @@ class PacketCoreDataPlane(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']] user_plane_access_interface: The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_plane_access_virtual_ipv4_addresses: The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
         """
         ...
     @overload
@@ -154,9 +172,9 @@ class PacketCoreDataPlane(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
-        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2023-06-01.
 
-        Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        Other available API versions: 2022-04-01-preview, 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param PacketCoreDataPlaneArgs args: The arguments to use to populate this resource's properties.
@@ -179,6 +197,7 @@ class PacketCoreDataPlane(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_plane_access_interface: Optional[pulumi.Input[Union['InterfacePropertiesArgs', 'InterfacePropertiesArgsDict']]] = None,
+                 user_plane_access_virtual_ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -200,6 +219,7 @@ class PacketCoreDataPlane(pulumi.CustomResource):
             if user_plane_access_interface is None and not opts.urn:
                 raise TypeError("Missing required property 'user_plane_access_interface'")
             __props__.__dict__["user_plane_access_interface"] = user_plane_access_interface
+            __props__.__dict__["user_plane_access_virtual_ipv4_addresses"] = user_plane_access_virtual_ipv4_addresses
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -235,6 +255,7 @@ class PacketCoreDataPlane(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_plane_access_interface"] = None
+        __props__.__dict__["user_plane_access_virtual_ipv4_addresses"] = None
         return PacketCoreDataPlane(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -292,4 +313,12 @@ class PacketCoreDataPlane(pulumi.CustomResource):
         The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
         """
         return pulumi.get(self, "user_plane_access_interface")
+
+    @property
+    @pulumi.getter(name="userPlaneAccessVirtualIpv4Addresses")
+    def user_plane_access_virtual_ipv4_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
+        """
+        return pulumi.get(self, "user_plane_access_virtual_ipv4_addresses")
 

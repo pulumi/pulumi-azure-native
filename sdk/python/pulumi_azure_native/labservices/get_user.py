@@ -27,7 +27,7 @@ class GetUserResult:
     """
     User of a lab that can register for and use virtual machines within the lab.
     """
-    def __init__(__self__, additional_usage_quota=None, display_name=None, email=None, id=None, invitation_sent=None, invitation_state=None, name=None, provisioning_state=None, registration_state=None, system_data=None, total_usage=None, type=None):
+    def __init__(__self__, additional_usage_quota=None, display_name=None, email=None, id=None, invitation_sent=None, invitation_state=None, name=None, provisioning_state=None, registration_state=None, resource_operation_error=None, system_data=None, total_usage=None, type=None):
         if additional_usage_quota and not isinstance(additional_usage_quota, str):
             raise TypeError("Expected argument 'additional_usage_quota' to be a str")
         pulumi.set(__self__, "additional_usage_quota", additional_usage_quota)
@@ -55,6 +55,9 @@ class GetUserResult:
         if registration_state and not isinstance(registration_state, str):
             raise TypeError("Expected argument 'registration_state' to be a str")
         pulumi.set(__self__, "registration_state", registration_state)
+        if resource_operation_error and not isinstance(resource_operation_error, dict):
+            raise TypeError("Expected argument 'resource_operation_error' to be a dict")
+        pulumi.set(__self__, "resource_operation_error", resource_operation_error)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -138,6 +141,14 @@ class GetUserResult:
         return pulumi.get(self, "registration_state")
 
     @property
+    @pulumi.getter(name="resourceOperationError")
+    def resource_operation_error(self) -> 'outputs.ResourceOperationErrorResponse':
+        """
+        Error details of last operation done on lab plan.
+        """
+        return pulumi.get(self, "resource_operation_error")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -177,6 +188,7 @@ class AwaitableGetUserResult(GetUserResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             registration_state=self.registration_state,
+            resource_operation_error=self.resource_operation_error,
             system_data=self.system_data,
             total_usage=self.total_usage,
             type=self.type)
@@ -188,9 +200,9 @@ def get_user(lab_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Returns the properties of a lab user.
-    Azure REST API version: 2022-08-01.
+    Azure REST API version: 2023-06-07.
 
-    Other available API versions: 2018-10-15, 2023-06-07.
+    Other available API versions: 2022-08-01.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -214,6 +226,7 @@ def get_user(lab_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         registration_state=pulumi.get(__ret__, 'registration_state'),
+        resource_operation_error=pulumi.get(__ret__, 'resource_operation_error'),
         system_data=pulumi.get(__ret__, 'system_data'),
         total_usage=pulumi.get(__ret__, 'total_usage'),
         type=pulumi.get(__ret__, 'type'))
@@ -223,9 +236,9 @@ def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Returns the properties of a lab user.
-    Azure REST API version: 2022-08-01.
+    Azure REST API version: 2023-06-07.
 
-    Other available API versions: 2018-10-15, 2023-06-07.
+    Other available API versions: 2022-08-01.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -248,6 +261,7 @@ def get_user_output(lab_name: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         registration_state=pulumi.get(__response__, 'registration_state'),
+        resource_operation_error=pulumi.get(__response__, 'resource_operation_error'),
         system_data=pulumi.get(__response__, 'system_data'),
         total_usage=pulumi.get(__response__, 'total_usage'),
         type=pulumi.get(__response__, 'type')))

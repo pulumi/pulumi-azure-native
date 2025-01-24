@@ -27,6 +27,7 @@ class AvailabilitySetArgs:
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  platform_update_domain_count: Optional[pulumi.Input[int]] = None,
                  proximity_placement_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 scheduled_events_policy: Optional[pulumi.Input['ScheduledEventsPolicyArgs']] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None):
@@ -38,6 +39,7 @@ class AvailabilitySetArgs:
         :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count.
         :param pulumi.Input[int] platform_update_domain_count: Update Domain count.
         :param pulumi.Input['SubResourceArgs'] proximity_placement_group: Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
+        :param pulumi.Input['ScheduledEventsPolicyArgs'] scheduled_events_policy: Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
         :param pulumi.Input['SkuArgs'] sku: Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] virtual_machines: A list of references to all virtual machines in the availability set.
@@ -53,6 +55,8 @@ class AvailabilitySetArgs:
             pulumi.set(__self__, "platform_update_domain_count", platform_update_domain_count)
         if proximity_placement_group is not None:
             pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+        if scheduled_events_policy is not None:
+            pulumi.set(__self__, "scheduled_events_policy", scheduled_events_policy)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -133,6 +137,18 @@ class AvailabilitySetArgs:
         pulumi.set(self, "proximity_placement_group", value)
 
     @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> Optional[pulumi.Input['ScheduledEventsPolicyArgs']]:
+        """
+        Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
+
+    @scheduled_events_policy.setter
+    def scheduled_events_policy(self, value: Optional[pulumi.Input['ScheduledEventsPolicyArgs']]):
+        pulumi.set(self, "scheduled_events_policy", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
@@ -180,15 +196,16 @@ class AvailabilitySet(pulumi.CustomResource):
                  platform_update_domain_count: Optional[pulumi.Input[int]] = None,
                  proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
                  __props__=None):
         """
         Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2023-03-01.
 
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Other available API versions: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,6 +215,7 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[int] platform_update_domain_count: Update Domain count.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] proximity_placement_group: Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']] scheduled_events_policy: Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]] virtual_machines: A list of references to all virtual machines in the availability set.
@@ -210,9 +228,9 @@ class AvailabilitySet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2023-03-01.
 
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Other available API versions: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param AvailabilitySetArgs args: The arguments to use to populate this resource's properties.
@@ -235,6 +253,7 @@ class AvailabilitySet(pulumi.CustomResource):
                  platform_update_domain_count: Optional[pulumi.Input[int]] = None,
                  proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
@@ -255,6 +274,7 @@ class AvailabilitySet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scheduled_events_policy"] = scheduled_events_policy
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_machines"] = virtual_machines
@@ -290,6 +310,7 @@ class AvailabilitySet(pulumi.CustomResource):
         __props__.__dict__["platform_fault_domain_count"] = None
         __props__.__dict__["platform_update_domain_count"] = None
         __props__.__dict__["proximity_placement_group"] = None
+        __props__.__dict__["scheduled_events_policy"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["statuses"] = None
         __props__.__dict__["tags"] = None
@@ -336,6 +357,14 @@ class AvailabilitySet(pulumi.CustomResource):
         Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
         """
         return pulumi.get(self, "proximity_placement_group")
+
+    @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> pulumi.Output[Optional['outputs.ScheduledEventsPolicyResponse']]:
+        """
+        Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
 
     @property
     @pulumi.getter

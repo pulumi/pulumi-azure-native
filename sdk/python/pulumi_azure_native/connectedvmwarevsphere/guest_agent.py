@@ -27,6 +27,7 @@ class GuestAgentArgs:
                  credentials: Optional[pulumi.Input['GuestCredentialArgs']] = None,
                  http_proxy_config: Optional[pulumi.Input['HttpProxyConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None):
         """
         The set of arguments for constructing a GuestAgent resource.
@@ -35,6 +36,7 @@ class GuestAgentArgs:
         :param pulumi.Input['GuestCredentialArgs'] credentials: Username / Password Credentials to provision guest agent.
         :param pulumi.Input['HttpProxyConfigurationArgs'] http_proxy_config: HTTP Proxy configuration for the VM.
         :param pulumi.Input[str] name: Name of the guestAgents.
+        :param pulumi.Input[str] private_link_scope_resource_id: The resource id of the private link scope this machine is assigned to, if any.
         :param pulumi.Input[Union[str, 'ProvisioningAction']] provisioning_action: Gets or sets the guest agent provisioning action.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -45,6 +47,8 @@ class GuestAgentArgs:
             pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_link_scope_resource_id is not None:
+            pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
         if provisioning_action is not None:
             pulumi.set(__self__, "provisioning_action", provisioning_action)
 
@@ -109,6 +113,18 @@ class GuestAgentArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="privateLinkScopeResourceId")
+    def private_link_scope_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the private link scope this machine is assigned to, if any.
+        """
+        return pulumi.get(self, "private_link_scope_resource_id")
+
+    @private_link_scope_resource_id.setter
+    def private_link_scope_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_scope_resource_id", value)
+
+    @property
     @pulumi.getter(name="provisioningAction")
     def provisioning_action(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningAction']]]:
         """
@@ -129,21 +145,23 @@ class GuestAgent(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
                  http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Defines the GuestAgent.
-        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2022-07-15-preview.
 
-        Other available API versions: 2023-03-01-preview.
+        Other available API versions: 2022-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']] credentials: Username / Password Credentials to provision guest agent.
         :param pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']] http_proxy_config: HTTP Proxy configuration for the VM.
         :param pulumi.Input[str] name: Name of the guestAgents.
+        :param pulumi.Input[str] private_link_scope_resource_id: The resource id of the private link scope this machine is assigned to, if any.
         :param pulumi.Input[Union[str, 'ProvisioningAction']] provisioning_action: Gets or sets the guest agent provisioning action.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[str] virtual_machine_name: Name of the vm.
@@ -156,9 +174,9 @@ class GuestAgent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the GuestAgent.
-        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2022-07-15-preview.
 
-        Other available API versions: 2023-03-01-preview.
+        Other available API versions: 2022-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param GuestAgentArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +196,7 @@ class GuestAgent(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[Union['GuestCredentialArgs', 'GuestCredentialArgsDict']]] = None,
                  http_proxy_config: Optional[pulumi.Input[Union['HttpProxyConfigurationArgs', 'HttpProxyConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 private_link_scope_resource_id: Optional[pulumi.Input[str]] = None,
                  provisioning_action: Optional[pulumi.Input[Union[str, 'ProvisioningAction']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
@@ -193,6 +212,7 @@ class GuestAgent(pulumi.CustomResource):
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["http_proxy_config"] = http_proxy_config
             __props__.__dict__["name"] = name
+            __props__.__dict__["private_link_scope_resource_id"] = private_link_scope_resource_id
             __props__.__dict__["provisioning_action"] = provisioning_action
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -235,6 +255,7 @@ class GuestAgent(pulumi.CustomResource):
         __props__.__dict__["custom_resource_name"] = None
         __props__.__dict__["http_proxy_config"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["private_link_scope_resource_id"] = None
         __props__.__dict__["provisioning_action"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["status"] = None
@@ -277,6 +298,14 @@ class GuestAgent(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateLinkScopeResourceId")
+    def private_link_scope_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The resource id of the private link scope this machine is assigned to, if any.
+        """
+        return pulumi.get(self, "private_link_scope_resource_id")
+
+    @property
     @pulumi.getter(name="provisioningAction")
     def provisioning_action(self) -> pulumi.Output[Optional[str]]:
         """
@@ -288,7 +317,7 @@ class GuestAgent(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -312,7 +341,7 @@ class GuestAgent(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system data.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

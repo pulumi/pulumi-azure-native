@@ -25,21 +25,15 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.redhatopenshift.v20220904 as __v20220904
     v20220904 = __v20220904
-    import pulumi_azure_native.redhatopenshift.v20230401 as __v20230401
-    v20230401 = __v20230401
     import pulumi_azure_native.redhatopenshift.v20230701preview as __v20230701preview
     v20230701preview = __v20230701preview
     import pulumi_azure_native.redhatopenshift.v20230904 as __v20230904
     v20230904 = __v20230904
     import pulumi_azure_native.redhatopenshift.v20231122 as __v20231122
     v20231122 = __v20231122
-    import pulumi_azure_native.redhatopenshift.v20240812preview as __v20240812preview
-    v20240812preview = __v20240812preview
 else:
     v20220904 = _utilities.lazy_import('pulumi_azure_native.redhatopenshift.v20220904')
-    v20230401 = _utilities.lazy_import('pulumi_azure_native.redhatopenshift.v20230401')
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.redhatopenshift.v20230701preview')
     v20230904 = _utilities.lazy_import('pulumi_azure_native.redhatopenshift.v20230904')
     v20231122 = _utilities.lazy_import('pulumi_azure_native.redhatopenshift.v20231122')
-    v20240812preview = _utilities.lazy_import('pulumi_azure_native.redhatopenshift.v20240812preview')
 

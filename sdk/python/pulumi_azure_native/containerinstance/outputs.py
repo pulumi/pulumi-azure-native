@@ -52,6 +52,7 @@ __all__ = [
     'ResourceLimitsResponse',
     'ResourceRequestsResponse',
     'ResourceRequirementsResponse',
+    'SecretReferenceResponse',
     'SecurityContextCapabilitiesDefinitionResponse',
     'SecurityContextDefinitionResponse',
     'SystemDataResponse',
@@ -2377,6 +2378,67 @@ class ResourceRequirementsResponse(dict):
         The resource limits of this container instance.
         """
         return pulumi.get(self, "limits")
+
+
+@pulumi.output_type
+class SecretReferenceResponse(dict):
+    """
+    A secret reference
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretReferenceUri":
+            suggest = "secret_reference_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: str,
+                 name: str,
+                 secret_reference_uri: str):
+        """
+        A secret reference
+        :param str identity: The ARM resource id of the managed identity that has access to the secret in the key vault
+        :param str name: The identifier of the secret reference
+        :param str secret_reference_uri: The URI to the secret in key vault
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "secret_reference_uri", secret_reference_uri)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> str:
+        """
+        The ARM resource id of the managed identity that has access to the secret in the key vault
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The identifier of the secret reference
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretReferenceUri")
+    def secret_reference_uri(self) -> str:
+        """
+        The URI to the secret in key vault
+        """
+        return pulumi.get(self, "secret_reference_uri")
 
 
 @pulumi.output_type

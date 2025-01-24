@@ -14,7 +14,6 @@ from .get_admin_rule_collection import *
 from .get_connectivity_configuration import *
 from .get_network_group import *
 from .get_network_manager import *
-from .get_network_security_perimeter import *
 from .get_nsp_access_rule import *
 from .get_nsp_association import *
 from .get_nsp_link import *
@@ -30,7 +29,6 @@ from .list_network_manager_deployment_status import *
 from .list_network_manager_effective_security_admin_rule import *
 from .network_group import *
 from .network_manager import *
-from .network_security_perimeter import *
 from .nsp_access_rule import *
 from .nsp_association import *
 from .nsp_link import *

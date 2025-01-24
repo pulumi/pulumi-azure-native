@@ -33,14 +33,14 @@ class DedicatedHsmArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DedicatedHsm resource.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the resource belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: SKU details
-        :param pulumi.Input[str] location: The supported Azure location where the dedicated HSM should be created.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['NetworkProfileArgs'] management_network_profile: Specifies the management network interfaces of the dedicated hsm.
         :param pulumi.Input[str] name: Name of the dedicated Hsm
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Specifies the network interfaces of the dedicated hsm.
         :param pulumi.Input[str] stamp_id: This field will be used when RP does not support Availability zones.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Dedicated Hsm zones.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -64,7 +64,7 @@ class DedicatedHsmArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group to which the resource belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -88,7 +88,7 @@ class DedicatedHsmArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The supported Azure location where the dedicated HSM should be created.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -148,7 +148,7 @@ class DedicatedHsmArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -186,20 +186,20 @@ class DedicatedHsm(pulumi.CustomResource):
                  __props__=None):
         """
         Resource information with extended details.
-        Azure REST API version: 2021-11-30. Prior API version in Azure Native 1.x: 2018-10-31-preview.
+        Azure REST API version: 2024-06-30-preview. Prior API version in Azure Native 1.x: 2021-11-30.
 
-        Other available API versions: 2024-06-30-preview.
+        Other available API versions: 2021-11-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The supported Azure location where the dedicated HSM should be created.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] management_network_profile: Specifies the management network interfaces of the dedicated hsm.
         :param pulumi.Input[str] name: Name of the dedicated Hsm
         :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: Specifies the network interfaces of the dedicated hsm.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the resource belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: SKU details
         :param pulumi.Input[str] stamp_id: This field will be used when RP does not support Availability zones.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: The Dedicated Hsm zones.
         """
         ...
@@ -210,9 +210,9 @@ class DedicatedHsm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource information with extended details.
-        Azure REST API version: 2021-11-30. Prior API version in Azure Native 1.x: 2018-10-31-preview.
+        Azure REST API version: 2024-06-30-preview. Prior API version in Azure Native 1.x: 2021-11-30.
 
-        Other available API versions: 2024-06-30-preview.
+        Other available API versions: 2021-11-30.
 
         :param str resource_name: The name of the resource.
         :param DedicatedHsmArgs args: The arguments to use to populate this resource's properties.
@@ -306,7 +306,7 @@ class DedicatedHsm(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The supported Azure location where the dedicated HSM should be created.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -322,7 +322,7 @@ class DedicatedHsm(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the dedicated HSM.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -370,7 +370,7 @@ class DedicatedHsm(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -378,7 +378,7 @@ class DedicatedHsm(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -386,7 +386,7 @@ class DedicatedHsm(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The resource type of the dedicated HSM.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

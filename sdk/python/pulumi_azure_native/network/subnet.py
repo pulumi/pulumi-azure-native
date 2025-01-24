@@ -27,9 +27,11 @@ class SubnetInitArgs:
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  application_gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]]] = None,
+                 default_outbound_access: Optional[pulumi.Input[bool]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 ipam_pool_prefix_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['IpamPoolPrefixAllocationArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nat_gateway: Optional[pulumi.Input['SubResourceArgs']] = None,
                  network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArgs']] = None,
@@ -38,6 +40,7 @@ class SubnetInitArgs:
                  route_table: Optional[pulumi.Input['RouteTableArgs']] = None,
                  service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]]] = None,
+                 sharing_scope: Optional[pulumi.Input[Union[str, 'SharingScope']]] = None,
                  subnet_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -47,9 +50,11 @@ class SubnetInitArgs:
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of address prefixes for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]] application_gateway_ip_configurations: Application gateway IP configurations of virtual network resource.
+        :param pulumi.Input[bool] default_outbound_access: Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
         :param pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]] delegations: An array of references to the delegations on the subnet.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ip_allocations: Array of IpAllocation which reference this subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['IpamPoolPrefixAllocationArgs']]] ipam_pool_prefix_allocations: A list of IPAM Pools for allocating IP address prefixes.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input['SubResourceArgs'] nat_gateway: Nat gateway associated with this subnet.
         :param pulumi.Input['NetworkSecurityGroupArgs'] network_security_group: The reference to the NetworkSecurityGroup resource.
@@ -58,6 +63,7 @@ class SubnetInitArgs:
         :param pulumi.Input['RouteTableArgs'] route_table: The reference to the RouteTable resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPolicyArgs']]] service_endpoint_policies: An array of service endpoint policies.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointPropertiesFormatArgs']]] service_endpoints: An array of service endpoints.
+        :param pulumi.Input[Union[str, 'SharingScope']] sharing_scope: Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
         :param pulumi.Input[str] subnet_name: The name of the subnet.
         :param pulumi.Input[str] type: Resource type.
         """
@@ -69,12 +75,16 @@ class SubnetInitArgs:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
         if application_gateway_ip_configurations is not None:
             pulumi.set(__self__, "application_gateway_ip_configurations", application_gateway_ip_configurations)
+        if default_outbound_access is not None:
+            pulumi.set(__self__, "default_outbound_access", default_outbound_access)
         if delegations is not None:
             pulumi.set(__self__, "delegations", delegations)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ip_allocations is not None:
             pulumi.set(__self__, "ip_allocations", ip_allocations)
+        if ipam_pool_prefix_allocations is not None:
+            pulumi.set(__self__, "ipam_pool_prefix_allocations", ipam_pool_prefix_allocations)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if nat_gateway is not None:
@@ -95,6 +105,8 @@ class SubnetInitArgs:
             pulumi.set(__self__, "service_endpoint_policies", service_endpoint_policies)
         if service_endpoints is not None:
             pulumi.set(__self__, "service_endpoints", service_endpoints)
+        if sharing_scope is not None:
+            pulumi.set(__self__, "sharing_scope", sharing_scope)
         if subnet_name is not None:
             pulumi.set(__self__, "subnet_name", subnet_name)
         if type is not None:
@@ -161,6 +173,18 @@ class SubnetInitArgs:
         pulumi.set(self, "application_gateway_ip_configurations", value)
 
     @property
+    @pulumi.getter(name="defaultOutboundAccess")
+    def default_outbound_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+        """
+        return pulumi.get(self, "default_outbound_access")
+
+    @default_outbound_access.setter
+    def default_outbound_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "default_outbound_access", value)
+
+    @property
     @pulumi.getter
     def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DelegationArgs']]]]:
         """
@@ -195,6 +219,18 @@ class SubnetInitArgs:
     @ip_allocations.setter
     def ip_allocations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
         pulumi.set(self, "ip_allocations", value)
+
+    @property
+    @pulumi.getter(name="ipamPoolPrefixAllocations")
+    def ipam_pool_prefix_allocations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpamPoolPrefixAllocationArgs']]]]:
+        """
+        A list of IPAM Pools for allocating IP address prefixes.
+        """
+        return pulumi.get(self, "ipam_pool_prefix_allocations")
+
+    @ipam_pool_prefix_allocations.setter
+    def ipam_pool_prefix_allocations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpamPoolPrefixAllocationArgs']]]]):
+        pulumi.set(self, "ipam_pool_prefix_allocations", value)
 
     @property
     @pulumi.getter
@@ -293,6 +329,18 @@ class SubnetInitArgs:
         pulumi.set(self, "service_endpoints", value)
 
     @property
+    @pulumi.getter(name="sharingScope")
+    def sharing_scope(self) -> Optional[pulumi.Input[Union[str, 'SharingScope']]]:
+        """
+        Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        """
+        return pulumi.get(self, "sharing_scope")
+
+    @sharing_scope.setter
+    def sharing_scope(self, value: Optional[pulumi.Input[Union[str, 'SharingScope']]]):
+        pulumi.set(self, "sharing_scope", value)
+
+    @property
     @pulumi.getter(name="subnetName")
     def subnet_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -325,9 +373,11 @@ class Subnet(pulumi.CustomResource):
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  application_gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayIPConfigurationArgs', 'ApplicationGatewayIPConfigurationArgsDict']]]]] = None,
+                 default_outbound_access: Optional[pulumi.Input[bool]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DelegationArgs', 'DelegationArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 ipam_pool_prefix_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamPoolPrefixAllocationArgs', 'IpamPoolPrefixAllocationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nat_gateway: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
@@ -337,24 +387,27 @@ class Subnet(pulumi.CustomResource):
                  route_table: Optional[pulumi.Input[Union['RouteTableArgs', 'RouteTableArgsDict']]] = None,
                  service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPolicyArgs', 'ServiceEndpointPolicyArgsDict']]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPropertiesFormatArgs', 'ServiceEndpointPropertiesFormatArgsDict']]]]] = None,
+                 sharing_scope: Optional[pulumi.Input[Union[str, 'SharingScope']]] = None,
                  subnet_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Subnet in a virtual network resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: List of address prefixes for the subnet.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayIPConfigurationArgs', 'ApplicationGatewayIPConfigurationArgsDict']]]] application_gateway_ip_configurations: Application gateway IP configurations of virtual network resource.
+        :param pulumi.Input[bool] default_outbound_access: Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DelegationArgs', 'DelegationArgsDict']]]] delegations: An array of references to the delegations on the subnet.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]] ip_allocations: Array of IpAllocation which reference this subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpamPoolPrefixAllocationArgs', 'IpamPoolPrefixAllocationArgsDict']]]] ipam_pool_prefix_allocations: A list of IPAM Pools for allocating IP address prefixes.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] nat_gateway: Nat gateway associated with this subnet.
         :param pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']] network_security_group: The reference to the NetworkSecurityGroup resource.
@@ -364,6 +417,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[Union['RouteTableArgs', 'RouteTableArgsDict']] route_table: The reference to the RouteTable resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPolicyArgs', 'ServiceEndpointPolicyArgsDict']]]] service_endpoint_policies: An array of service endpoint policies.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPropertiesFormatArgs', 'ServiceEndpointPropertiesFormatArgsDict']]]] service_endpoints: An array of service endpoints.
+        :param pulumi.Input[Union[str, 'SharingScope']] sharing_scope: Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
         :param pulumi.Input[str] subnet_name: The name of the subnet.
         :param pulumi.Input[str] type: Resource type.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
@@ -376,9 +430,9 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subnet in a virtual network resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param SubnetInitArgs args: The arguments to use to populate this resource's properties.
@@ -398,9 +452,11 @@ class Subnet(pulumi.CustomResource):
                  address_prefix: Optional[pulumi.Input[str]] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  application_gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationGatewayIPConfigurationArgs', 'ApplicationGatewayIPConfigurationArgsDict']]]]] = None,
+                 default_outbound_access: Optional[pulumi.Input[bool]] = None,
                  delegations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DelegationArgs', 'DelegationArgsDict']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]]]] = None,
+                 ipam_pool_prefix_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpamPoolPrefixAllocationArgs', 'IpamPoolPrefixAllocationArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nat_gateway: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArgs', 'NetworkSecurityGroupArgsDict']]] = None,
@@ -410,6 +466,7 @@ class Subnet(pulumi.CustomResource):
                  route_table: Optional[pulumi.Input[Union['RouteTableArgs', 'RouteTableArgsDict']]] = None,
                  service_endpoint_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPolicyArgs', 'ServiceEndpointPolicyArgsDict']]]]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointPropertiesFormatArgs', 'ServiceEndpointPropertiesFormatArgsDict']]]]] = None,
+                 sharing_scope: Optional[pulumi.Input[Union[str, 'SharingScope']]] = None,
                  subnet_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  virtual_network_name: Optional[pulumi.Input[str]] = None,
@@ -425,9 +482,11 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["address_prefix"] = address_prefix
             __props__.__dict__["address_prefixes"] = address_prefixes
             __props__.__dict__["application_gateway_ip_configurations"] = application_gateway_ip_configurations
+            __props__.__dict__["default_outbound_access"] = default_outbound_access
             __props__.__dict__["delegations"] = delegations
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_allocations"] = ip_allocations
+            __props__.__dict__["ipam_pool_prefix_allocations"] = ipam_pool_prefix_allocations
             __props__.__dict__["name"] = name
             __props__.__dict__["nat_gateway"] = nat_gateway
             __props__.__dict__["network_security_group"] = network_security_group
@@ -443,6 +502,7 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["route_table"] = route_table
             __props__.__dict__["service_endpoint_policies"] = service_endpoint_policies
             __props__.__dict__["service_endpoints"] = service_endpoints
+            __props__.__dict__["sharing_scope"] = sharing_scope
             __props__.__dict__["subnet_name"] = subnet_name
             __props__.__dict__["type"] = type
             if virtual_network_name is None and not opts.urn:
@@ -483,11 +543,13 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["address_prefix"] = None
         __props__.__dict__["address_prefixes"] = None
         __props__.__dict__["application_gateway_ip_configurations"] = None
+        __props__.__dict__["default_outbound_access"] = None
         __props__.__dict__["delegations"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["ip_allocations"] = None
         __props__.__dict__["ip_configuration_profiles"] = None
         __props__.__dict__["ip_configurations"] = None
+        __props__.__dict__["ipam_pool_prefix_allocations"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["nat_gateway"] = None
         __props__.__dict__["network_security_group"] = None
@@ -501,6 +563,7 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["service_association_links"] = None
         __props__.__dict__["service_endpoint_policies"] = None
         __props__.__dict__["service_endpoints"] = None
+        __props__.__dict__["sharing_scope"] = None
         __props__.__dict__["type"] = None
         return Subnet(resource_name, opts=opts, __props__=__props__)
 
@@ -527,6 +590,14 @@ class Subnet(pulumi.CustomResource):
         Application gateway IP configurations of virtual network resource.
         """
         return pulumi.get(self, "application_gateway_ip_configurations")
+
+    @property
+    @pulumi.getter(name="defaultOutboundAccess")
+    def default_outbound_access(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+        """
+        return pulumi.get(self, "default_outbound_access")
 
     @property
     @pulumi.getter
@@ -567,6 +638,14 @@ class Subnet(pulumi.CustomResource):
         An array of references to the network interface IP configurations using subnet.
         """
         return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="ipamPoolPrefixAllocations")
+    def ipam_pool_prefix_allocations(self) -> pulumi.Output[Optional[Sequence['outputs.IpamPoolPrefixAllocationResponse']]]:
+        """
+        A list of IPAM Pools for allocating IP address prefixes.
+        """
+        return pulumi.get(self, "ipam_pool_prefix_allocations")
 
     @property
     @pulumi.getter
@@ -671,6 +750,14 @@ class Subnet(pulumi.CustomResource):
         An array of service endpoints.
         """
         return pulumi.get(self, "service_endpoints")
+
+    @property
+    @pulumi.getter(name="sharingScope")
+    def sharing_scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        """
+        return pulumi.get(self, "sharing_scope")
 
     @property
     @pulumi.getter

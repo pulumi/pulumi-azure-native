@@ -135,7 +135,7 @@ class InternetGatewayRule(pulumi.CustomResource):
                  __props__=None):
         """
         The Internet Gateway Rule resource definition.
-        Azure REST API version: 2023-06-15.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +154,7 @@ class InternetGatewayRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Internet Gateway Rule resource definition.
-        Azure REST API version: 2023-06-15.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param InternetGatewayRuleArgs args: The arguments to use to populate this resource's properties.

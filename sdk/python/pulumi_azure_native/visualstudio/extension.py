@@ -151,7 +151,9 @@ class Extension(pulumi.CustomResource):
                  __props__=None):
         """
         The response to an extension resource GET request.
-        Azure REST API version: 2017-11-01-preview. Prior API version in Azure Native 1.x: 2014-04-01-preview.
+        Azure REST API version: 2014-04-01-preview. Prior API version in Azure Native 1.x: 2017-11-01-preview.
+
+        Other available API versions: 2017-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +173,9 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The response to an extension resource GET request.
-        Azure REST API version: 2017-11-01-preview. Prior API version in Azure Native 1.x: 2014-04-01-preview.
+        Azure REST API version: 2014-04-01-preview. Prior API version in Azure Native 1.x: 2017-11-01-preview.
+
+        Other available API versions: 2017-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

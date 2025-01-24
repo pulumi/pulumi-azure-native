@@ -33,8 +33,8 @@ class NspLinkArgs:
         :param pulumi.Input[str] auto_approved_remote_perimeter_resource_id: Perimeter ARM Id for the remote NSP with which the link gets created in Auto-approval mode. It should be used when the NSP admin have Microsoft.Network/networkSecurityPerimeters/linkPerimeter/action permission on the remote NSP resource.
         :param pulumi.Input[str] description: A message passed to the owner of the remote NSP link resource with this connection request. In case of Auto-approved flow, it is default to 'Auto Approved'. Restricted to 140 chars.
         :param pulumi.Input[str] link_name: The name of the NSP link.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_inbound_profiles: Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_inbound_profiles: Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_inbound_profiles: Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_inbound_profiles: Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         """
         pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -113,7 +113,7 @@ class NspLinkArgs:
     @pulumi.getter(name="localInboundProfiles")
     def local_inbound_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+        Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
         """
         return pulumi.get(self, "local_inbound_profiles")
 
@@ -125,7 +125,7 @@ class NspLinkArgs:
     @pulumi.getter(name="remoteInboundProfiles")
     def remote_inbound_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+        Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         """
         return pulumi.get(self, "remote_inbound_profiles")
 
@@ -149,18 +149,18 @@ class NspLink(pulumi.CustomResource):
                  __props__=None):
         """
         The network security perimeter link resource
-        Azure REST API version: 2021-02-01-preview.
+        Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        Other available API versions: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_approved_remote_perimeter_resource_id: Perimeter ARM Id for the remote NSP with which the link gets created in Auto-approval mode. It should be used when the NSP admin have Microsoft.Network/networkSecurityPerimeters/linkPerimeter/action permission on the remote NSP resource.
         :param pulumi.Input[str] description: A message passed to the owner of the remote NSP link resource with this connection request. In case of Auto-approved flow, it is default to 'Auto Approved'. Restricted to 140 chars.
         :param pulumi.Input[str] link_name: The name of the NSP link.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_inbound_profiles: Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_inbound_profiles: Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
         :param pulumi.Input[str] network_security_perimeter_name: The name of the network security perimeter.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_inbound_profiles: Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_inbound_profiles: Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         ...
@@ -171,9 +171,9 @@ class NspLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network security perimeter link resource
-        Azure REST API version: 2021-02-01-preview.
+        Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        Other available API versions: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NspLinkArgs args: The arguments to use to populate this resource's properties.
@@ -293,7 +293,7 @@ class NspLink(pulumi.CustomResource):
     @pulumi.getter(name="localInboundProfiles")
     def local_inbound_profiles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+        Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
         """
         return pulumi.get(self, "local_inbound_profiles")
 
@@ -325,7 +325,7 @@ class NspLink(pulumi.CustomResource):
     @pulumi.getter(name="remoteInboundProfiles")
     def remote_inbound_profiles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+        Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         """
         return pulumi.get(self, "remote_inbound_profiles")
 

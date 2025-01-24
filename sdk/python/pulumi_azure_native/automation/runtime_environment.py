@@ -184,7 +184,7 @@ class RuntimeEnvironment(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the Runtime Environment type.
-        Azure REST API version: 2023-05-15-preview.
+        Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 1.x: 2023-05-15-preview.
 
         Other available API versions: 2024-10-23.
 
@@ -208,7 +208,7 @@ class RuntimeEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the Runtime Environment type.
-        Azure REST API version: 2023-05-15-preview.
+        Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 1.x: 2023-05-15-preview.
 
         Other available API versions: 2024-10-23.
 

@@ -127,9 +127,9 @@ def get_data_source(data_source_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSourceResult:
     """
     Gets a datasource instance.
-    Azure REST API version: 2020-08-01.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2015-11-01-preview, 2023-09-01.
+    Other available API versions: 2015-11-01-preview, 2020-08-01.
 
 
     :param str data_source_name: Name of the datasource
@@ -157,9 +157,9 @@ def get_data_source_output(data_source_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Gets a datasource instance.
-    Azure REST API version: 2020-08-01.
+    Azure REST API version: 2023-09-01.
 
-    Other available API versions: 2015-11-01-preview, 2023-09-01.
+    Other available API versions: 2015-11-01-preview, 2020-08-01.
 
 
     :param str data_source_name: Name of the datasource

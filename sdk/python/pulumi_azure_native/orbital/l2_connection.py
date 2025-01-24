@@ -23,6 +23,7 @@ class L2ConnectionArgs:
     def __init__(__self__, *,
                  edge_site: pulumi.Input['L2ConnectionsPropertiesEdgeSiteArgs'],
                  ground_station: pulumi.Input['L2ConnectionsPropertiesGroundStationArgs'],
+                 ground_station_partner_router: pulumi.Input['L2ConnectionsPropertiesGroundStationPartnerRouterArgs'],
                  name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  vlan_id: pulumi.Input[int],
@@ -33,7 +34,8 @@ class L2ConnectionArgs:
         The set of arguments for constructing a L2Connection resource.
         :param pulumi.Input['L2ConnectionsPropertiesEdgeSiteArgs'] edge_site: A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
         :param pulumi.Input['L2ConnectionsPropertiesGroundStationArgs'] ground_station: A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
-        :param pulumi.Input[str] name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        :param pulumi.Input['L2ConnectionsPropertiesGroundStationPartnerRouterArgs'] ground_station_partner_router: The name of the partner router to establish a connection to within the ground station.
+        :param pulumi.Input[str] name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the edge site.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] vlan_id: The VLAN ID for the L2 connection.
         :param pulumi.Input[str] l2_connection_name: L2 Connection name.
@@ -42,6 +44,7 @@ class L2ConnectionArgs:
         """
         pulumi.set(__self__, "edge_site", edge_site)
         pulumi.set(__self__, "ground_station", ground_station)
+        pulumi.set(__self__, "ground_station_partner_router", ground_station_partner_router)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vlan_id", vlan_id)
@@ -77,10 +80,22 @@ class L2ConnectionArgs:
         pulumi.set(self, "ground_station", value)
 
     @property
+    @pulumi.getter(name="groundStationPartnerRouter")
+    def ground_station_partner_router(self) -> pulumi.Input['L2ConnectionsPropertiesGroundStationPartnerRouterArgs']:
+        """
+        The name of the partner router to establish a connection to within the ground station.
+        """
+        return pulumi.get(self, "ground_station_partner_router")
+
+    @ground_station_partner_router.setter
+    def ground_station_partner_router(self, value: pulumi.Input['L2ConnectionsPropertiesGroundStationPartnerRouterArgs']):
+        pulumi.set(self, "ground_station_partner_router", value)
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        The unique name of the partner router that cross-connects with the Orbital Edge Router at the edge site.
         """
         return pulumi.get(self, "name")
 
@@ -156,6 +171,7 @@ class L2Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  edge_site: Optional[pulumi.Input[Union['L2ConnectionsPropertiesEdgeSiteArgs', 'L2ConnectionsPropertiesEdgeSiteArgsDict']]] = None,
                  ground_station: Optional[pulumi.Input[Union['L2ConnectionsPropertiesGroundStationArgs', 'L2ConnectionsPropertiesGroundStationArgsDict']]] = None,
+                 ground_station_partner_router: Optional[pulumi.Input[Union['L2ConnectionsPropertiesGroundStationPartnerRouterArgs', 'L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict']]] = None,
                  l2_connection_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -165,17 +181,16 @@ class L2Connection(pulumi.CustomResource):
                  __props__=None):
         """
         Connects an edge site to an orbital gateway and describes what layer 2 traffic to forward between them.
-        Azure REST API version: 2024-03-01-preview.
-
-        Other available API versions: 2024-03-01.
+        Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 1.x: 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['L2ConnectionsPropertiesEdgeSiteArgs', 'L2ConnectionsPropertiesEdgeSiteArgsDict']] edge_site: A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
         :param pulumi.Input[Union['L2ConnectionsPropertiesGroundStationArgs', 'L2ConnectionsPropertiesGroundStationArgsDict']] ground_station: A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
+        :param pulumi.Input[Union['L2ConnectionsPropertiesGroundStationPartnerRouterArgs', 'L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict']] ground_station_partner_router: The name of the partner router to establish a connection to within the ground station.
         :param pulumi.Input[str] l2_connection_name: L2 Connection name.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the ground station site.
+        :param pulumi.Input[str] name: The unique name of the partner router that cross-connects with the Orbital Edge Router at the edge site.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] vlan_id: The VLAN ID for the L2 connection.
@@ -188,9 +203,7 @@ class L2Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Connects an edge site to an orbital gateway and describes what layer 2 traffic to forward between them.
-        Azure REST API version: 2024-03-01-preview.
-
-        Other available API versions: 2024-03-01.
+        Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 1.x: 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param L2ConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -209,6 +222,7 @@ class L2Connection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  edge_site: Optional[pulumi.Input[Union['L2ConnectionsPropertiesEdgeSiteArgs', 'L2ConnectionsPropertiesEdgeSiteArgsDict']]] = None,
                  ground_station: Optional[pulumi.Input[Union['L2ConnectionsPropertiesGroundStationArgs', 'L2ConnectionsPropertiesGroundStationArgsDict']]] = None,
+                 ground_station_partner_router: Optional[pulumi.Input[Union['L2ConnectionsPropertiesGroundStationPartnerRouterArgs', 'L2ConnectionsPropertiesGroundStationPartnerRouterArgsDict']]] = None,
                  l2_connection_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -230,6 +244,9 @@ class L2Connection(pulumi.CustomResource):
             if ground_station is None and not opts.urn:
                 raise TypeError("Missing required property 'ground_station'")
             __props__.__dict__["ground_station"] = ground_station
+            if ground_station_partner_router is None and not opts.urn:
+                raise TypeError("Missing required property 'ground_station_partner_router'")
+            __props__.__dict__["ground_station_partner_router"] = ground_station_partner_router
             __props__.__dict__["l2_connection_name"] = l2_connection_name
             __props__.__dict__["location"] = location
             if name is None and not opts.urn:
@@ -272,6 +289,7 @@ class L2Connection(pulumi.CustomResource):
         __props__.__dict__["circuit_id"] = None
         __props__.__dict__["edge_site"] = None
         __props__.__dict__["ground_station"] = None
+        __props__.__dict__["ground_station_partner_router"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
@@ -303,6 +321,14 @@ class L2Connection(pulumi.CustomResource):
         A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
         """
         return pulumi.get(self, "ground_station")
+
+    @property
+    @pulumi.getter(name="groundStationPartnerRouter")
+    def ground_station_partner_router(self) -> pulumi.Output['outputs.L2ConnectionsPropertiesResponseGroundStationPartnerRouter']:
+        """
+        The name of the partner router to establish a connection to within the ground station.
+        """
+        return pulumi.get(self, "ground_station_partner_router")
 
     @property
     @pulumi.getter

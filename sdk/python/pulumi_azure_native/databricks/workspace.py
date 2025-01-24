@@ -24,8 +24,12 @@ class WorkspaceArgs:
     def __init__(__self__, *,
                  managed_resource_group_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 access_connector: Optional[pulumi.Input['WorkspacePropertiesAccessConnectorArgs']] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]] = None,
+                 default_catalog: Optional[pulumi.Input['DefaultCatalogPropertiesArgs']] = None,
+                 default_storage_firewall: Optional[pulumi.Input[Union[str, 'DefaultStorageFirewall']]] = None,
                  encryption: Optional[pulumi.Input['WorkspacePropertiesEncryptionArgs']] = None,
+                 enhanced_security_compliance: Optional[pulumi.Input['EnhancedSecurityComplianceDefinitionArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
@@ -38,8 +42,12 @@ class WorkspaceArgs:
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['WorkspacePropertiesAccessConnectorArgs'] access_connector: Access Connector Resource that is going to be associated with Databricks Workspace
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]] authorizations: The workspace provider authorizations.
+        :param pulumi.Input['DefaultCatalogPropertiesArgs'] default_catalog: Properties for Default Catalog configuration during workspace creation.
+        :param pulumi.Input[Union[str, 'DefaultStorageFirewall']] default_storage_firewall: Gets or Sets Default Storage Firewall configuration information
         :param pulumi.Input['WorkspacePropertiesEncryptionArgs'] encryption: Encryption properties for databricks workspace
+        :param pulumi.Input['EnhancedSecurityComplianceDefinitionArgs'] enhanced_security_compliance: Contains settings related to the Enhanced Security and Compliance Add-On.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['WorkspaceCustomParametersArgs'] parameters: The workspace's custom parameters.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
@@ -51,10 +59,18 @@ class WorkspaceArgs:
         """
         pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if access_connector is not None:
+            pulumi.set(__self__, "access_connector", access_connector)
         if authorizations is not None:
             pulumi.set(__self__, "authorizations", authorizations)
+        if default_catalog is not None:
+            pulumi.set(__self__, "default_catalog", default_catalog)
+        if default_storage_firewall is not None:
+            pulumi.set(__self__, "default_storage_firewall", default_storage_firewall)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if enhanced_security_compliance is not None:
+            pulumi.set(__self__, "enhanced_security_compliance", enhanced_security_compliance)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if parameters is not None:
@@ -97,6 +113,18 @@ class WorkspaceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="accessConnector")
+    def access_connector(self) -> Optional[pulumi.Input['WorkspacePropertiesAccessConnectorArgs']]:
+        """
+        Access Connector Resource that is going to be associated with Databricks Workspace
+        """
+        return pulumi.get(self, "access_connector")
+
+    @access_connector.setter
+    def access_connector(self, value: Optional[pulumi.Input['WorkspacePropertiesAccessConnectorArgs']]):
+        pulumi.set(self, "access_connector", value)
+
+    @property
     @pulumi.getter
     def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]]:
         """
@@ -109,6 +137,30 @@ class WorkspaceArgs:
         pulumi.set(self, "authorizations", value)
 
     @property
+    @pulumi.getter(name="defaultCatalog")
+    def default_catalog(self) -> Optional[pulumi.Input['DefaultCatalogPropertiesArgs']]:
+        """
+        Properties for Default Catalog configuration during workspace creation.
+        """
+        return pulumi.get(self, "default_catalog")
+
+    @default_catalog.setter
+    def default_catalog(self, value: Optional[pulumi.Input['DefaultCatalogPropertiesArgs']]):
+        pulumi.set(self, "default_catalog", value)
+
+    @property
+    @pulumi.getter(name="defaultStorageFirewall")
+    def default_storage_firewall(self) -> Optional[pulumi.Input[Union[str, 'DefaultStorageFirewall']]]:
+        """
+        Gets or Sets Default Storage Firewall configuration information
+        """
+        return pulumi.get(self, "default_storage_firewall")
+
+    @default_storage_firewall.setter
+    def default_storage_firewall(self, value: Optional[pulumi.Input[Union[str, 'DefaultStorageFirewall']]]):
+        pulumi.set(self, "default_storage_firewall", value)
+
+    @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['WorkspacePropertiesEncryptionArgs']]:
         """
@@ -119,6 +171,18 @@ class WorkspaceArgs:
     @encryption.setter
     def encryption(self, value: Optional[pulumi.Input['WorkspacePropertiesEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter(name="enhancedSecurityCompliance")
+    def enhanced_security_compliance(self) -> Optional[pulumi.Input['EnhancedSecurityComplianceDefinitionArgs']]:
+        """
+        Contains settings related to the Enhanced Security and Compliance Add-On.
+        """
+        return pulumi.get(self, "enhanced_security_compliance")
+
+    @enhanced_security_compliance.setter
+    def enhanced_security_compliance(self, value: Optional[pulumi.Input['EnhancedSecurityComplianceDefinitionArgs']]):
+        pulumi.set(self, "enhanced_security_compliance", value)
 
     @property
     @pulumi.getter
@@ -222,8 +286,12 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_connector: Optional[pulumi.Input[Union['WorkspacePropertiesAccessConnectorArgs', 'WorkspacePropertiesAccessConnectorArgsDict']]] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceProviderAuthorizationArgs', 'WorkspaceProviderAuthorizationArgsDict']]]]] = None,
+                 default_catalog: Optional[pulumi.Input[Union['DefaultCatalogPropertiesArgs', 'DefaultCatalogPropertiesArgsDict']]] = None,
+                 default_storage_firewall: Optional[pulumi.Input[Union[str, 'DefaultStorageFirewall']]] = None,
                  encryption: Optional[pulumi.Input[Union['WorkspacePropertiesEncryptionArgs', 'WorkspacePropertiesEncryptionArgsDict']]] = None,
+                 enhanced_security_compliance: Optional[pulumi.Input[Union['EnhancedSecurityComplianceDefinitionArgs', 'EnhancedSecurityComplianceDefinitionArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']]] = None,
@@ -237,14 +305,18 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         Information about workspace.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview.
+        Other available API versions: 2023-02-01, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['WorkspacePropertiesAccessConnectorArgs', 'WorkspacePropertiesAccessConnectorArgsDict']] access_connector: Access Connector Resource that is going to be associated with Databricks Workspace
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceProviderAuthorizationArgs', 'WorkspaceProviderAuthorizationArgsDict']]]] authorizations: The workspace provider authorizations.
+        :param pulumi.Input[Union['DefaultCatalogPropertiesArgs', 'DefaultCatalogPropertiesArgsDict']] default_catalog: Properties for Default Catalog configuration during workspace creation.
+        :param pulumi.Input[Union[str, 'DefaultStorageFirewall']] default_storage_firewall: Gets or Sets Default Storage Firewall configuration information
         :param pulumi.Input[Union['WorkspacePropertiesEncryptionArgs', 'WorkspacePropertiesEncryptionArgsDict']] encryption: Encryption properties for databricks workspace
+        :param pulumi.Input[Union['EnhancedSecurityComplianceDefinitionArgs', 'EnhancedSecurityComplianceDefinitionArgsDict']] enhanced_security_compliance: Contains settings related to the Enhanced Security and Compliance Add-On.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
         :param pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']] parameters: The workspace's custom parameters.
@@ -264,9 +336,9 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about workspace.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2023-09-15-preview, 2024-05-01, 2024-09-01-preview.
+        Other available API versions: 2023-02-01, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -283,8 +355,12 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_connector: Optional[pulumi.Input[Union['WorkspacePropertiesAccessConnectorArgs', 'WorkspacePropertiesAccessConnectorArgsDict']]] = None,
                  authorizations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceProviderAuthorizationArgs', 'WorkspaceProviderAuthorizationArgsDict']]]]] = None,
+                 default_catalog: Optional[pulumi.Input[Union['DefaultCatalogPropertiesArgs', 'DefaultCatalogPropertiesArgsDict']]] = None,
+                 default_storage_firewall: Optional[pulumi.Input[Union[str, 'DefaultStorageFirewall']]] = None,
                  encryption: Optional[pulumi.Input[Union['WorkspacePropertiesEncryptionArgs', 'WorkspacePropertiesEncryptionArgsDict']]] = None,
+                 enhanced_security_compliance: Optional[pulumi.Input[Union['EnhancedSecurityComplianceDefinitionArgs', 'EnhancedSecurityComplianceDefinitionArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_resource_group_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']]] = None,
@@ -304,8 +380,12 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+            __props__.__dict__["access_connector"] = access_connector
             __props__.__dict__["authorizations"] = authorizations
+            __props__.__dict__["default_catalog"] = default_catalog
+            __props__.__dict__["default_storage_firewall"] = default_storage_firewall
             __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["enhanced_security_compliance"] = enhanced_security_compliance
             __props__.__dict__["location"] = location
             if managed_resource_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_resource_group_id'")
@@ -323,6 +403,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["created_by"] = None
             __props__.__dict__["created_date_time"] = None
             __props__.__dict__["disk_encryption_set_id"] = None
+            __props__.__dict__["is_uc_enabled"] = None
             __props__.__dict__["managed_disk_identity"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
@@ -357,11 +438,16 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+        __props__.__dict__["access_connector"] = None
         __props__.__dict__["authorizations"] = None
         __props__.__dict__["created_by"] = None
         __props__.__dict__["created_date_time"] = None
+        __props__.__dict__["default_catalog"] = None
+        __props__.__dict__["default_storage_firewall"] = None
         __props__.__dict__["disk_encryption_set_id"] = None
         __props__.__dict__["encryption"] = None
+        __props__.__dict__["enhanced_security_compliance"] = None
+        __props__.__dict__["is_uc_enabled"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["managed_disk_identity"] = None
         __props__.__dict__["managed_resource_group_id"] = None
@@ -381,6 +467,14 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["workspace_id"] = None
         __props__.__dict__["workspace_url"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessConnector")
+    def access_connector(self) -> pulumi.Output[Optional['outputs.WorkspacePropertiesResponseAccessConnector']]:
+        """
+        Access Connector Resource that is going to be associated with Databricks Workspace
+        """
+        return pulumi.get(self, "access_connector")
 
     @property
     @pulumi.getter
@@ -407,6 +501,22 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "created_date_time")
 
     @property
+    @pulumi.getter(name="defaultCatalog")
+    def default_catalog(self) -> pulumi.Output[Optional['outputs.DefaultCatalogPropertiesResponse']]:
+        """
+        Properties for Default Catalog configuration during workspace creation.
+        """
+        return pulumi.get(self, "default_catalog")
+
+    @property
+    @pulumi.getter(name="defaultStorageFirewall")
+    def default_storage_firewall(self) -> pulumi.Output[Optional[str]]:
+        """
+        Gets or Sets Default Storage Firewall configuration information
+        """
+        return pulumi.get(self, "default_storage_firewall")
+
+    @property
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> pulumi.Output[str]:
         """
@@ -421,6 +531,22 @@ class Workspace(pulumi.CustomResource):
         Encryption properties for databricks workspace
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="enhancedSecurityCompliance")
+    def enhanced_security_compliance(self) -> pulumi.Output[Optional['outputs.EnhancedSecurityComplianceDefinitionResponse']]:
+        """
+        Contains settings related to the Enhanced Security and Compliance Add-On.
+        """
+        return pulumi.get(self, "enhanced_security_compliance")
+
+    @property
+    @pulumi.getter(name="isUcEnabled")
+    def is_uc_enabled(self) -> pulumi.Output[bool]:
+        """
+        Indicates whether unity catalog enabled for the workspace or not.
+        """
+        return pulumi.get(self, "is_uc_enabled")
 
     @property
     @pulumi.getter

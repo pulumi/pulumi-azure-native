@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ActionGroupInitArgs', 'ActionGroup']
@@ -31,6 +32,8 @@ class ActionGroupInitArgs:
                  azure_function_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['AzureFunctionReceiverArgs']]]] = None,
                  email_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['EmailReceiverArgs']]]] = None,
                  event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubReceiverArgs']]]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentReceiverArgs']]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['ItsmReceiverArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input['LogicAppReceiverArgs']]]] = None,
@@ -50,6 +53,8 @@ class ActionGroupInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AzureFunctionReceiverArgs']]] azure_function_receivers: The list of azure function receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['EmailReceiverArgs']]] email_receivers: The list of email receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['EventHubReceiverArgs']]] event_hub_receivers: The list of event hub receivers that are part of this action group.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Sequence[pulumi.Input['IncidentReceiverArgs']]] incident_receivers: The list of incident receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input['ItsmReceiverArgs']]] itsm_receivers: The list of ITSM receivers that are part of this action group.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Sequence[pulumi.Input['LogicAppReceiverArgs']]] logic_app_receivers: The list of logic app receivers that are part of this action group.
@@ -77,6 +82,10 @@ class ActionGroupInitArgs:
             pulumi.set(__self__, "email_receivers", email_receivers)
         if event_hub_receivers is not None:
             pulumi.set(__self__, "event_hub_receivers", event_hub_receivers)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if incident_receivers is not None:
+            pulumi.set(__self__, "incident_receivers", incident_receivers)
         if itsm_receivers is not None:
             pulumi.set(__self__, "itsm_receivers", itsm_receivers)
         if location is not None:
@@ -213,6 +222,30 @@ class ActionGroupInitArgs:
         pulumi.set(self, "event_hub_receivers", value)
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="incidentReceivers")
+    def incident_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncidentReceiverArgs']]]]:
+        """
+        The list of incident receivers that are part of this action group.
+        """
+        return pulumi.get(self, "incident_receivers")
+
+    @incident_receivers.setter
+    def incident_receivers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncidentReceiverArgs']]]]):
+        pulumi.set(self, "incident_receivers", value)
+
+    @property
     @pulumi.getter(name="itsmReceivers")
     def itsm_receivers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ItsmReceiverArgs']]]]:
         """
@@ -311,6 +344,8 @@ class ActionGroup(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventHubReceiverArgs', 'EventHubReceiverArgsDict']]]]] = None,
                  group_short_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentReceiverArgs', 'IncidentReceiverArgsDict']]]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ItsmReceiverArgs', 'ItsmReceiverArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogicAppReceiverArgs', 'LogicAppReceiverArgsDict']]]]] = None,
@@ -322,9 +357,9 @@ class ActionGroup(pulumi.CustomResource):
                  __props__=None):
         """
         An action group resource.
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2019-06-01.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 1.x: 2023-01-01.
 
-        Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,6 +372,8 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventHubReceiverArgs', 'EventHubReceiverArgsDict']]]] event_hub_receivers: The list of event hub receivers that are part of this action group.
         :param pulumi.Input[str] group_short_name: The short name of the action group. This will be used in SMS messages.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IncidentReceiverArgs', 'IncidentReceiverArgsDict']]]] incident_receivers: The list of incident receivers that are part of this action group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ItsmReceiverArgs', 'ItsmReceiverArgsDict']]]] itsm_receivers: The list of ITSM receivers that are part of this action group.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogicAppReceiverArgs', 'LogicAppReceiverArgsDict']]]] logic_app_receivers: The list of logic app receivers that are part of this action group.
@@ -354,9 +391,9 @@ class ActionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An action group resource.
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2019-06-01.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 1.x: 2023-01-01.
 
-        Other available API versions: 2023-09-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param ActionGroupInitArgs args: The arguments to use to populate this resource's properties.
@@ -382,6 +419,8 @@ class ActionGroup(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_hub_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventHubReceiverArgs', 'EventHubReceiverArgsDict']]]]] = None,
                  group_short_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 incident_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IncidentReceiverArgs', 'IncidentReceiverArgsDict']]]]] = None,
                  itsm_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ItsmReceiverArgs', 'ItsmReceiverArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logic_app_receivers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogicAppReceiverArgs', 'LogicAppReceiverArgsDict']]]]] = None,
@@ -414,6 +453,8 @@ class ActionGroup(pulumi.CustomResource):
             if group_short_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_short_name'")
             __props__.__dict__["group_short_name"] = group_short_name
+            __props__.__dict__["identity"] = identity
+            __props__.__dict__["incident_receivers"] = incident_receivers
             __props__.__dict__["itsm_receivers"] = itsm_receivers
             __props__.__dict__["location"] = location
             __props__.__dict__["logic_app_receivers"] = logic_app_receivers
@@ -458,6 +499,8 @@ class ActionGroup(pulumi.CustomResource):
         __props__.__dict__["enabled"] = None
         __props__.__dict__["event_hub_receivers"] = None
         __props__.__dict__["group_short_name"] = None
+        __props__.__dict__["identity"] = None
+        __props__.__dict__["incident_receivers"] = None
         __props__.__dict__["itsm_receivers"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["logic_app_receivers"] = None
@@ -532,6 +575,22 @@ class ActionGroup(pulumi.CustomResource):
         The short name of the action group. This will be used in SMS messages.
         """
         return pulumi.get(self, "group_short_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="incidentReceivers")
+    def incident_receivers(self) -> pulumi.Output[Optional[Sequence['outputs.IncidentReceiverResponse']]]:
+        """
+        The list of incident receivers that are part of this action group.
+        """
+        return pulumi.get(self, "incident_receivers")
 
     @property
     @pulumi.getter(name="itsmReceivers")

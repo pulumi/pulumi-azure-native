@@ -335,7 +335,7 @@ class Account(pulumi.CustomResource):
                  __props__=None):
         """
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-        Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2016-11-01.
+        Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2019-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -365,7 +365,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-        Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2016-11-01.
+        Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2019-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

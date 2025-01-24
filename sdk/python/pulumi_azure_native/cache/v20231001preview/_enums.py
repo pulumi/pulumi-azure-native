@@ -5,33 +5,12 @@
 from enum import Enum
 
 __all__ = [
-    'AofFrequency',
-    'ClusteringPolicy',
     'CmkIdentityType',
-    'EvictionPolicy',
     'ManagedServiceIdentityType',
     'PrivateEndpointServiceConnectionStatus',
-    'Protocol',
-    'RdbFrequency',
     'SkuName',
     'TlsVersion',
 ]
-
-
-class AofFrequency(str, Enum):
-    """
-    Sets the frequency at which data is written to disk.
-    """
-    AOF_FREQUENCY_1S = "1s"
-    ALWAYS = "always"
-
-
-class ClusteringPolicy(str, Enum):
-    """
-    Clustering policy - default is OSSCluster. Specified at create time.
-    """
-    ENTERPRISE_CLUSTER = "EnterpriseCluster"
-    OSS_CLUSTER = "OSSCluster"
 
 
 class CmkIdentityType(str, Enum):
@@ -40,20 +19,6 @@ class CmkIdentityType(str, Enum):
     """
     SYSTEM_ASSIGNED_IDENTITY = "systemAssignedIdentity"
     USER_ASSIGNED_IDENTITY = "userAssignedIdentity"
-
-
-class EvictionPolicy(str, Enum):
-    """
-    Redis eviction policy - default is VolatileLRU
-    """
-    ALL_KEYS_LFU = "AllKeysLFU"
-    ALL_KEYS_LRU = "AllKeysLRU"
-    ALL_KEYS_RANDOM = "AllKeysRandom"
-    VOLATILE_LRU = "VolatileLRU"
-    VOLATILE_LFU = "VolatileLFU"
-    VOLATILE_TTL = "VolatileTTL"
-    VOLATILE_RANDOM = "VolatileRandom"
-    NO_EVICTION = "NoEviction"
 
 
 class ManagedServiceIdentityType(str, Enum):
@@ -73,23 +38,6 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
-
-
-class Protocol(str, Enum):
-    """
-    Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
-    """
-    ENCRYPTED = "Encrypted"
-    PLAINTEXT = "Plaintext"
-
-
-class RdbFrequency(str, Enum):
-    """
-    Sets the frequency at which a snapshot of the database is created.
-    """
-    RDB_FREQUENCY_1H = "1h"
-    RDB_FREQUENCY_6H = "6h"
-    RDB_FREQUENCY_12H = "12h"
 
 
 class SkuName(str, Enum):

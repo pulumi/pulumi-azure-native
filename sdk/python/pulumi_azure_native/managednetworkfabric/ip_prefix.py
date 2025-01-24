@@ -22,7 +22,7 @@ __all__ = ['IpPrefixArgs', 'IpPrefix']
 @pulumi.input_type
 class IpPrefixArgs:
     def __init__(__self__, *,
-                 ip_prefix_rules: pulumi.Input[Sequence[pulumi.Input['IpPrefixPropertiesIpPrefixRulesArgs']]],
+                 ip_prefix_rules: pulumi.Input[Sequence[pulumi.Input['IpPrefixRuleArgs']]],
                  resource_group_name: pulumi.Input[str],
                  annotation: Optional[pulumi.Input[str]] = None,
                  ip_prefix_name: Optional[pulumi.Input[str]] = None,
@@ -30,10 +30,10 @@ class IpPrefixArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IpPrefix resource.
-        :param pulumi.Input[Sequence[pulumi.Input['IpPrefixPropertiesIpPrefixRulesArgs']]] ip_prefix_rules: IpPrefix contains the list of IP PrefixRules objects.
+        :param pulumi.Input[Sequence[pulumi.Input['IpPrefixRuleArgs']]] ip_prefix_rules: The list of IP Prefix Rules.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[str] ip_prefix_name: Name of the IP Prefix
+        :param pulumi.Input[str] ip_prefix_name: Name of the IP Prefix.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -50,14 +50,14 @@ class IpPrefixArgs:
 
     @property
     @pulumi.getter(name="ipPrefixRules")
-    def ip_prefix_rules(self) -> pulumi.Input[Sequence[pulumi.Input['IpPrefixPropertiesIpPrefixRulesArgs']]]:
+    def ip_prefix_rules(self) -> pulumi.Input[Sequence[pulumi.Input['IpPrefixRuleArgs']]]:
         """
-        IpPrefix contains the list of IP PrefixRules objects.
+        The list of IP Prefix Rules.
         """
         return pulumi.get(self, "ip_prefix_rules")
 
     @ip_prefix_rules.setter
-    def ip_prefix_rules(self, value: pulumi.Input[Sequence[pulumi.Input['IpPrefixPropertiesIpPrefixRulesArgs']]]):
+    def ip_prefix_rules(self, value: pulumi.Input[Sequence[pulumi.Input['IpPrefixRuleArgs']]]):
         pulumi.set(self, "ip_prefix_rules", value)
 
     @property
@@ -88,7 +88,7 @@ class IpPrefixArgs:
     @pulumi.getter(name="ipPrefixName")
     def ip_prefix_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the IP Prefix
+        Name of the IP Prefix.
         """
         return pulumi.get(self, "ip_prefix_name")
 
@@ -128,22 +128,22 @@ class IpPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
                  ip_prefix_name: Optional[pulumi.Input[str]] = None,
-                 ip_prefix_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpPrefixPropertiesIpPrefixRulesArgs', 'IpPrefixPropertiesIpPrefixRulesArgsDict']]]]] = None,
+                 ip_prefix_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpPrefixRuleArgs', 'IpPrefixRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        The IPPrefix resource definition.
-        Azure REST API version: 2023-02-01-preview.
+        The IP Prefix resource definition.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-02-01-preview.
 
-        Other available API versions: 2023-06-15.
+        Other available API versions: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[str] ip_prefix_name: Name of the IP Prefix
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IpPrefixPropertiesIpPrefixRulesArgs', 'IpPrefixPropertiesIpPrefixRulesArgsDict']]]] ip_prefix_rules: IpPrefix contains the list of IP PrefixRules objects.
+        :param pulumi.Input[str] ip_prefix_name: Name of the IP Prefix.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpPrefixRuleArgs', 'IpPrefixRuleArgsDict']]]] ip_prefix_rules: The list of IP Prefix Rules.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -155,10 +155,10 @@ class IpPrefix(pulumi.CustomResource):
                  args: IpPrefixArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The IPPrefix resource definition.
-        Azure REST API version: 2023-02-01-preview.
+        The IP Prefix resource definition.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-02-01-preview.
 
-        Other available API versions: 2023-06-15.
+        Other available API versions: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IpPrefixArgs args: The arguments to use to populate this resource's properties.
@@ -177,7 +177,7 @@ class IpPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  annotation: Optional[pulumi.Input[str]] = None,
                  ip_prefix_name: Optional[pulumi.Input[str]] = None,
-                 ip_prefix_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpPrefixPropertiesIpPrefixRulesArgs', 'IpPrefixPropertiesIpPrefixRulesArgsDict']]]]] = None,
+                 ip_prefix_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpPrefixRuleArgs', 'IpPrefixRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -200,6 +200,8 @@ class IpPrefix(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["administrative_state"] = None
+            __props__.__dict__["configuration_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -228,7 +230,9 @@ class IpPrefix(pulumi.CustomResource):
 
         __props__ = IpPrefixArgs.__new__(IpPrefixArgs)
 
+        __props__.__dict__["administrative_state"] = None
         __props__.__dict__["annotation"] = None
+        __props__.__dict__["configuration_state"] = None
         __props__.__dict__["ip_prefix_rules"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -239,6 +243,14 @@ class IpPrefix(pulumi.CustomResource):
         return IpPrefix(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> pulumi.Output[str]:
+        """
+        Administrative state of the resource.
+        """
+        return pulumi.get(self, "administrative_state")
+
+    @property
     @pulumi.getter
     def annotation(self) -> pulumi.Output[Optional[str]]:
         """
@@ -247,10 +259,18 @@ class IpPrefix(pulumi.CustomResource):
         return pulumi.get(self, "annotation")
 
     @property
-    @pulumi.getter(name="ipPrefixRules")
-    def ip_prefix_rules(self) -> pulumi.Output[Sequence['outputs.IpPrefixPropertiesResponseIpPrefixRules']]:
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> pulumi.Output[str]:
         """
-        IpPrefix contains the list of IP PrefixRules objects.
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
+    @pulumi.getter(name="ipPrefixRules")
+    def ip_prefix_rules(self) -> pulumi.Output[Sequence['outputs.IpPrefixRuleResponse']]:
+        """
+        The list of IP Prefix Rules.
         """
         return pulumi.get(self, "ip_prefix_rules")
 
@@ -274,7 +294,7 @@ class IpPrefix(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 

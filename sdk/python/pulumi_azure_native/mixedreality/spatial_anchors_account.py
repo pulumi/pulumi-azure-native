@@ -187,9 +187,9 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
                  __props__=None):
         """
         SpatialAnchorsAccount Response.
-        Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2021-03-01-preview.
+        Other available API versions: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,9 +211,9 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SpatialAnchorsAccount Response.
-        Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 1.x: 2021-01-01.
 
-        Other available API versions: 2021-03-01-preview.
+        Other available API versions: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param SpatialAnchorsAccountArgs args: The arguments to use to populate this resource's properties.

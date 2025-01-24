@@ -184,9 +184,9 @@ class ServerlessEndpoint(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-08-01-preview.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 1.x: 2023-08-01-preview.
 
-        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Other available API versions: 2023-08-01-preview, 2024-10-01-preview.
 
         A Serverless Endpoint requires a Marketplace subscription. You can create one via the [MarketplaceSubscription resource](https://www.pulumi.com/registry/packages/azure-native/api-docs/machinelearningservices/marketplacesubscription/) and then making your endpoint [depend](https://www.pulumi.com/docs/iac/concepts/options/dependson/) on it.
 
@@ -209,9 +209,9 @@ class ServerlessEndpoint(pulumi.CustomResource):
                  args: ServerlessEndpointInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-08-01-preview.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 1.x: 2023-08-01-preview.
 
-        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Other available API versions: 2023-08-01-preview, 2024-10-01-preview.
 
         A Serverless Endpoint requires a Marketplace subscription. You can create one via the [MarketplaceSubscription resource](https://www.pulumi.com/registry/packages/azure-native/api-docs/machinelearningservices/marketplacesubscription/) and then making your endpoint [depend](https://www.pulumi.com/docs/iac/concepts/options/dependson/) on it.
 

@@ -253,9 +253,9 @@ class Runbook(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the runbook type.
-        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
+        Azure REST API version: 2023-11-01. Prior API version in Azure Native 1.x: 2022-08-08.
 
-        Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        Other available API versions: 2022-08-08, 2024-10-23.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,9 +281,9 @@ class Runbook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the runbook type.
-        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01.
+        Azure REST API version: 2023-11-01. Prior API version in Azure Native 1.x: 2022-08-08.
 
-        Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        Other available API versions: 2022-08-08, 2024-10-23.
 
         :param str resource_name: The name of the resource.
         :param RunbookArgs args: The arguments to use to populate this resource's properties.
@@ -390,7 +390,6 @@ class Runbook(pulumi.CustomResource):
         __props__.__dict__["output_types"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["publish_content_link"] = None
         __props__.__dict__["runbook_type"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
@@ -516,14 +515,6 @@ class Runbook(pulumi.CustomResource):
         Gets or sets the provisioning state of the runbook.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publishContentLink")
-    def publish_content_link(self) -> pulumi.Output[Optional['outputs.ContentLinkResponse']]:
-        """
-        Gets or sets the published runbook content link.
-        """
-        return pulumi.get(self, "publish_content_link")
 
     @property
     @pulumi.getter(name="runbookType")

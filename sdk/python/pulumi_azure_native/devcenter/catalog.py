@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['CatalogArgs', 'Catalog']
@@ -25,7 +26,9 @@ class CatalogArgs:
                  resource_group_name: pulumi.Input[str],
                  ado_git: Optional[pulumi.Input['GitCatalogArgs']] = None,
                  catalog_name: Optional[pulumi.Input[str]] = None,
-                 git_hub: Optional[pulumi.Input['GitCatalogArgs']] = None):
+                 git_hub: Optional[pulumi.Input['GitCatalogArgs']] = None,
+                 sync_type: Optional[pulumi.Input[Union[str, 'CatalogSyncType']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Catalog resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
@@ -33,6 +36,8 @@ class CatalogArgs:
         :param pulumi.Input['GitCatalogArgs'] ado_git: Properties for an Azure DevOps catalog type.
         :param pulumi.Input[str] catalog_name: The name of the Catalog.
         :param pulumi.Input['GitCatalogArgs'] git_hub: Properties for a GitHub catalog type.
+        :param pulumi.Input[Union[str, 'CatalogSyncType']] sync_type: Indicates the type of sync that is configured for the catalog.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dev_center_name", dev_center_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -42,6 +47,10 @@ class CatalogArgs:
             pulumi.set(__self__, "catalog_name", catalog_name)
         if git_hub is not None:
             pulumi.set(__self__, "git_hub", git_hub)
+        if sync_type is not None:
+            pulumi.set(__self__, "sync_type", sync_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="devCenterName")
@@ -103,6 +112,30 @@ class CatalogArgs:
     def git_hub(self, value: Optional[pulumi.Input['GitCatalogArgs']]):
         pulumi.set(self, "git_hub", value)
 
+    @property
+    @pulumi.getter(name="syncType")
+    def sync_type(self) -> Optional[pulumi.Input[Union[str, 'CatalogSyncType']]]:
+        """
+        Indicates the type of sync that is configured for the catalog.
+        """
+        return pulumi.get(self, "sync_type")
+
+    @sync_type.setter
+    def sync_type(self, value: Optional[pulumi.Input[Union[str, 'CatalogSyncType']]]):
+        pulumi.set(self, "sync_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Catalog(pulumi.CustomResource):
     @overload
@@ -114,12 +147,14 @@ class Catalog(pulumi.CustomResource):
                  dev_center_name: Optional[pulumi.Input[str]] = None,
                  git_hub: Optional[pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sync_type: Optional[pulumi.Input[Union[str, 'CatalogSyncType']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents a catalog.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 1.x: 2023-04-01.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-04-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,6 +163,8 @@ class Catalog(pulumi.CustomResource):
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']] git_hub: Properties for a GitHub catalog type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union[str, 'CatalogSyncType']] sync_type: Indicates the type of sync that is configured for the catalog.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -137,9 +174,9 @@ class Catalog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a catalog.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 1.x: 2023-04-01.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2023-04-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CatalogArgs args: The arguments to use to populate this resource's properties.
@@ -161,6 +198,8 @@ class Catalog(pulumi.CustomResource):
                  dev_center_name: Optional[pulumi.Input[str]] = None,
                  git_hub: Optional[pulumi.Input[Union['GitCatalogArgs', 'GitCatalogArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sync_type: Optional[pulumi.Input[Union[str, 'CatalogSyncType']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -179,6 +218,11 @@ class Catalog(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sync_type"] = sync_type
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["connection_state"] = None
+            __props__.__dict__["last_connection_time"] = None
+            __props__.__dict__["last_sync_stats"] = None
             __props__.__dict__["last_sync_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -210,12 +254,17 @@ class Catalog(pulumi.CustomResource):
         __props__ = CatalogArgs.__new__(CatalogArgs)
 
         __props__.__dict__["ado_git"] = None
+        __props__.__dict__["connection_state"] = None
         __props__.__dict__["git_hub"] = None
+        __props__.__dict__["last_connection_time"] = None
+        __props__.__dict__["last_sync_stats"] = None
         __props__.__dict__["last_sync_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sync_state"] = None
+        __props__.__dict__["sync_type"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Catalog(resource_name, opts=opts, __props__=__props__)
 
@@ -228,12 +277,36 @@ class Catalog(pulumi.CustomResource):
         return pulumi.get(self, "ado_git")
 
     @property
+    @pulumi.getter(name="connectionState")
+    def connection_state(self) -> pulumi.Output[str]:
+        """
+        The connection state of the catalog.
+        """
+        return pulumi.get(self, "connection_state")
+
+    @property
     @pulumi.getter(name="gitHub")
     def git_hub(self) -> pulumi.Output[Optional['outputs.GitCatalogResponse']]:
         """
         Properties for a GitHub catalog type.
         """
         return pulumi.get(self, "git_hub")
+
+    @property
+    @pulumi.getter(name="lastConnectionTime")
+    def last_connection_time(self) -> pulumi.Output[str]:
+        """
+        When the catalog was last connected.
+        """
+        return pulumi.get(self, "last_connection_time")
+
+    @property
+    @pulumi.getter(name="lastSyncStats")
+    def last_sync_stats(self) -> pulumi.Output['outputs.SyncStatsResponse']:
+        """
+        Stats of the latest synchronization.
+        """
+        return pulumi.get(self, "last_sync_stats")
 
     @property
     @pulumi.getter(name="lastSyncTime")
@@ -268,12 +341,28 @@ class Catalog(pulumi.CustomResource):
         return pulumi.get(self, "sync_state")
 
     @property
+    @pulumi.getter(name="syncType")
+    def sync_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates the type of sync that is configured for the catalog.
+        """
+        return pulumi.get(self, "sync_type")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

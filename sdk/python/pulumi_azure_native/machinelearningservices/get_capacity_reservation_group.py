@@ -159,11 +159,12 @@ def get_capacity_reservation_group(group_id: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationGroupResult:
     """
-    Azure REST API version: 2023-08-01-preview.
+    Azure REST API version: 2024-01-01-preview.
 
-    Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+    Other available API versions: 2023-08-01-preview.
 
 
+    :param str group_id: Group ID
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -187,11 +188,12 @@ def get_capacity_reservation_group_output(group_id: Optional[pulumi.Input[str]] 
                                           resource_group_name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationGroupResult]:
     """
-    Azure REST API version: 2023-08-01-preview.
+    Azure REST API version: 2024-01-01-preview.
 
-    Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+    Other available API versions: 2023-08-01-preview.
 
 
+    :param str group_id: Group ID
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

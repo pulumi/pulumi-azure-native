@@ -24,8 +24,6 @@ __all__ = [
     'SoftwareAssuranceIntent',
     'SoftwareAssuranceStatus',
     'State',
-    'UpdateRunPropertiesState',
-    'UpdateSummariesPropertiesState',
     'VmSizeEnum',
     'WindowsServerSubscription',
 ]
@@ -209,30 +207,6 @@ class State(str, Enum):
     READY_TO_INSTALL = "ReadyToInstall"
     SCAN_IN_PROGRESS = "ScanInProgress"
     SCAN_FAILED = "ScanFailed"
-
-
-class UpdateRunPropertiesState(str, Enum):
-    """
-    State of the update run.
-    """
-    UNKNOWN = "Unknown"
-    SUCCEEDED = "Succeeded"
-    IN_PROGRESS = "InProgress"
-    FAILED = "Failed"
-
-
-class UpdateSummariesPropertiesState(str, Enum):
-    """
-    Overall update state of the stamp.
-    """
-    UNKNOWN = "Unknown"
-    APPLIED_SUCCESSFULLY = "AppliedSuccessfully"
-    UPDATE_AVAILABLE = "UpdateAvailable"
-    UPDATE_IN_PROGRESS = "UpdateInProgress"
-    UPDATE_FAILED = "UpdateFailed"
-    NEEDS_ATTENTION = "NeedsAttention"
-    PREPARATION_IN_PROGRESS = "PreparationInProgress"
-    PREPARATION_FAILED = "PreparationFailed"
 
 
 class VmSizeEnum(str, Enum):

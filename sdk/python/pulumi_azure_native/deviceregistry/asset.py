@@ -22,16 +22,17 @@ __all__ = ['AssetArgs', 'Asset']
 @pulumi.input_type
 class AssetArgs:
     def __init__(__self__, *,
-                 asset_endpoint_profile_uri: pulumi.Input[str],
+                 asset_endpoint_profile_ref: pulumi.Input[str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[str],
                  asset_name: Optional[pulumi.Input[str]] = None,
-                 asset_type: Optional[pulumi.Input[str]] = None,
                  attributes: Optional[Any] = None,
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]]] = None,
-                 default_data_points_configuration: Optional[pulumi.Input[str]] = None,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetArgs']]]] = None,
+                 default_datasets_configuration: Optional[pulumi.Input[str]] = None,
                  default_events_configuration: Optional[pulumi.Input[str]] = None,
+                 default_topic: Optional[pulumi.Input['TopicArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 discovered_asset_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  documentation_uri: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -48,16 +49,17 @@ class AssetArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Asset resource.
-        :param pulumi.Input[str] asset_endpoint_profile_uri: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
+        :param pulumi.Input[str] asset_endpoint_profile_ref: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] asset_name: Asset name parameter.
-        :param pulumi.Input[str] asset_type: Resource path to asset type (model) definition.
         :param Any attributes: A set of key-value pairs that contain custom attributes set by the customer.
-        :param pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]] data_points: Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
-        :param pulumi.Input[str] default_data_points_configuration: Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetArgs']]] datasets: Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
+        :param pulumi.Input[str] default_datasets_configuration: Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
         :param pulumi.Input[str] default_events_configuration: Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
+        :param pulumi.Input['TopicArgs'] default_topic: Object that describes the default topic information for the asset.
         :param pulumi.Input[str] description: Human-readable description of the asset.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] discovered_asset_refs: Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
         :param pulumi.Input[str] display_name: Human-readable display name.
         :param pulumi.Input[str] documentation_uri: Reference to the documentation.
         :param pulumi.Input[bool] enabled: Enabled/Disabled status of the asset.
@@ -73,23 +75,25 @@ class AssetArgs:
         :param pulumi.Input[str] software_revision: Revision number of the software.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "asset_endpoint_profile_uri", asset_endpoint_profile_uri)
+        pulumi.set(__self__, "asset_endpoint_profile_ref", asset_endpoint_profile_ref)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if asset_name is not None:
             pulumi.set(__self__, "asset_name", asset_name)
-        if asset_type is not None:
-            pulumi.set(__self__, "asset_type", asset_type)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
-        if data_points is not None:
-            pulumi.set(__self__, "data_points", data_points)
-        if default_data_points_configuration is not None:
-            pulumi.set(__self__, "default_data_points_configuration", default_data_points_configuration)
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
+        if default_datasets_configuration is not None:
+            pulumi.set(__self__, "default_datasets_configuration", default_datasets_configuration)
         if default_events_configuration is not None:
             pulumi.set(__self__, "default_events_configuration", default_events_configuration)
+        if default_topic is not None:
+            pulumi.set(__self__, "default_topic", default_topic)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if discovered_asset_refs is not None:
+            pulumi.set(__self__, "discovered_asset_refs", discovered_asset_refs)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if documentation_uri is not None:
@@ -120,16 +124,16 @@ class AssetArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="assetEndpointProfileUri")
-    def asset_endpoint_profile_uri(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="assetEndpointProfileRef")
+    def asset_endpoint_profile_ref(self) -> pulumi.Input[str]:
         """
-        A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
+        A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         """
-        return pulumi.get(self, "asset_endpoint_profile_uri")
+        return pulumi.get(self, "asset_endpoint_profile_ref")
 
-    @asset_endpoint_profile_uri.setter
-    def asset_endpoint_profile_uri(self, value: pulumi.Input[str]):
-        pulumi.set(self, "asset_endpoint_profile_uri", value)
+    @asset_endpoint_profile_ref.setter
+    def asset_endpoint_profile_ref(self, value: pulumi.Input[str]):
+        pulumi.set(self, "asset_endpoint_profile_ref", value)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -168,18 +172,6 @@ class AssetArgs:
         pulumi.set(self, "asset_name", value)
 
     @property
-    @pulumi.getter(name="assetType")
-    def asset_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource path to asset type (model) definition.
-        """
-        return pulumi.get(self, "asset_type")
-
-    @asset_type.setter
-    def asset_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "asset_type", value)
-
-    @property
     @pulumi.getter
     def attributes(self) -> Optional[Any]:
         """
@@ -192,28 +184,28 @@ class AssetArgs:
         pulumi.set(self, "attributes", value)
 
     @property
-    @pulumi.getter(name="dataPoints")
-    def data_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]]]:
+    @pulumi.getter
+    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetArgs']]]]:
         """
-        Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+        Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
         """
-        return pulumi.get(self, "data_points")
+        return pulumi.get(self, "datasets")
 
-    @data_points.setter
-    def data_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataPointArgs']]]]):
-        pulumi.set(self, "data_points", value)
+    @datasets.setter
+    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetArgs']]]]):
+        pulumi.set(self, "datasets", value)
 
     @property
-    @pulumi.getter(name="defaultDataPointsConfiguration")
-    def default_data_points_configuration(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="defaultDatasetsConfiguration")
+    def default_datasets_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+        Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
         """
-        return pulumi.get(self, "default_data_points_configuration")
+        return pulumi.get(self, "default_datasets_configuration")
 
-    @default_data_points_configuration.setter
-    def default_data_points_configuration(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "default_data_points_configuration", value)
+    @default_datasets_configuration.setter
+    def default_datasets_configuration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_datasets_configuration", value)
 
     @property
     @pulumi.getter(name="defaultEventsConfiguration")
@@ -228,6 +220,18 @@ class AssetArgs:
         pulumi.set(self, "default_events_configuration", value)
 
     @property
+    @pulumi.getter(name="defaultTopic")
+    def default_topic(self) -> Optional[pulumi.Input['TopicArgs']]:
+        """
+        Object that describes the default topic information for the asset.
+        """
+        return pulumi.get(self, "default_topic")
+
+    @default_topic.setter
+    def default_topic(self, value: Optional[pulumi.Input['TopicArgs']]):
+        pulumi.set(self, "default_topic", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -238,6 +242,18 @@ class AssetArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="discoveredAssetRefs")
+    def discovered_asset_refs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
+        """
+        return pulumi.get(self, "discovered_asset_refs")
+
+    @discovered_asset_refs.setter
+    def discovered_asset_refs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "discovered_asset_refs", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -413,14 +429,15 @@ class Asset(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asset_endpoint_profile_uri: Optional[pulumi.Input[str]] = None,
+                 asset_endpoint_profile_ref: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
-                 asset_type: Optional[pulumi.Input[str]] = None,
                  attributes: Optional[Any] = None,
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataPointArgs', 'DataPointArgsDict']]]]] = None,
-                 default_data_points_configuration: Optional[pulumi.Input[str]] = None,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetArgs', 'DatasetArgsDict']]]]] = None,
+                 default_datasets_configuration: Optional[pulumi.Input[str]] = None,
                  default_events_configuration: Optional[pulumi.Input[str]] = None,
+                 default_topic: Optional[pulumi.Input[Union['TopicArgs', 'TopicArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 discovered_asset_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  documentation_uri: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -440,20 +457,21 @@ class Asset(pulumi.CustomResource):
                  __props__=None):
         """
         Asset definition.
-        Azure REST API version: 2023-11-01-preview.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 1.x: 2023-11-01-preview.
 
-        Other available API versions: 2024-09-01-preview, 2024-11-01.
+        Other available API versions: 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] asset_endpoint_profile_uri: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
+        :param pulumi.Input[str] asset_endpoint_profile_ref: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         :param pulumi.Input[str] asset_name: Asset name parameter.
-        :param pulumi.Input[str] asset_type: Resource path to asset type (model) definition.
         :param Any attributes: A set of key-value pairs that contain custom attributes set by the customer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataPointArgs', 'DataPointArgsDict']]]] data_points: Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
-        :param pulumi.Input[str] default_data_points_configuration: Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetArgs', 'DatasetArgsDict']]]] datasets: Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
+        :param pulumi.Input[str] default_datasets_configuration: Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
         :param pulumi.Input[str] default_events_configuration: Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
+        :param pulumi.Input[Union['TopicArgs', 'TopicArgsDict']] default_topic: Object that describes the default topic information for the asset.
         :param pulumi.Input[str] description: Human-readable description of the asset.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] discovered_asset_refs: Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
         :param pulumi.Input[str] display_name: Human-readable display name.
         :param pulumi.Input[str] documentation_uri: Reference to the documentation.
         :param pulumi.Input[bool] enabled: Enabled/Disabled status of the asset.
@@ -479,9 +497,9 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Asset definition.
-        Azure REST API version: 2023-11-01-preview.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 1.x: 2023-11-01-preview.
 
-        Other available API versions: 2024-09-01-preview, 2024-11-01.
+        Other available API versions: 2023-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AssetArgs args: The arguments to use to populate this resource's properties.
@@ -498,14 +516,15 @@ class Asset(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 asset_endpoint_profile_uri: Optional[pulumi.Input[str]] = None,
+                 asset_endpoint_profile_ref: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
-                 asset_type: Optional[pulumi.Input[str]] = None,
                  attributes: Optional[Any] = None,
-                 data_points: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataPointArgs', 'DataPointArgsDict']]]]] = None,
-                 default_data_points_configuration: Optional[pulumi.Input[str]] = None,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetArgs', 'DatasetArgsDict']]]]] = None,
+                 default_datasets_configuration: Optional[pulumi.Input[str]] = None,
                  default_events_configuration: Optional[pulumi.Input[str]] = None,
+                 default_topic: Optional[pulumi.Input[Union['TopicArgs', 'TopicArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 discovered_asset_refs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  documentation_uri: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -531,16 +550,17 @@ class Asset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssetArgs.__new__(AssetArgs)
 
-            if asset_endpoint_profile_uri is None and not opts.urn:
-                raise TypeError("Missing required property 'asset_endpoint_profile_uri'")
-            __props__.__dict__["asset_endpoint_profile_uri"] = asset_endpoint_profile_uri
+            if asset_endpoint_profile_ref is None and not opts.urn:
+                raise TypeError("Missing required property 'asset_endpoint_profile_ref'")
+            __props__.__dict__["asset_endpoint_profile_ref"] = asset_endpoint_profile_ref
             __props__.__dict__["asset_name"] = asset_name
-            __props__.__dict__["asset_type"] = asset_type
             __props__.__dict__["attributes"] = attributes
-            __props__.__dict__["data_points"] = data_points
-            __props__.__dict__["default_data_points_configuration"] = default_data_points_configuration
+            __props__.__dict__["datasets"] = datasets
+            __props__.__dict__["default_datasets_configuration"] = default_datasets_configuration
             __props__.__dict__["default_events_configuration"] = default_events_configuration
+            __props__.__dict__["default_topic"] = default_topic
             __props__.__dict__["description"] = description
+            __props__.__dict__["discovered_asset_refs"] = discovered_asset_refs
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["documentation_uri"] = documentation_uri
             __props__.__dict__["enabled"] = enabled
@@ -592,13 +612,14 @@ class Asset(pulumi.CustomResource):
 
         __props__ = AssetArgs.__new__(AssetArgs)
 
-        __props__.__dict__["asset_endpoint_profile_uri"] = None
-        __props__.__dict__["asset_type"] = None
+        __props__.__dict__["asset_endpoint_profile_ref"] = None
         __props__.__dict__["attributes"] = None
-        __props__.__dict__["data_points"] = None
-        __props__.__dict__["default_data_points_configuration"] = None
+        __props__.__dict__["datasets"] = None
+        __props__.__dict__["default_datasets_configuration"] = None
         __props__.__dict__["default_events_configuration"] = None
+        __props__.__dict__["default_topic"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["discovered_asset_refs"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["documentation_uri"] = None
         __props__.__dict__["enabled"] = None
@@ -624,20 +645,12 @@ class Asset(pulumi.CustomResource):
         return Asset(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="assetEndpointProfileUri")
-    def asset_endpoint_profile_uri(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="assetEndpointProfileRef")
+    def asset_endpoint_profile_ref(self) -> pulumi.Output[str]:
         """
-        A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
+        A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         """
-        return pulumi.get(self, "asset_endpoint_profile_uri")
-
-    @property
-    @pulumi.getter(name="assetType")
-    def asset_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        Resource path to asset type (model) definition.
-        """
-        return pulumi.get(self, "asset_type")
+        return pulumi.get(self, "asset_endpoint_profile_ref")
 
     @property
     @pulumi.getter
@@ -648,20 +661,20 @@ class Asset(pulumi.CustomResource):
         return pulumi.get(self, "attributes")
 
     @property
-    @pulumi.getter(name="dataPoints")
-    def data_points(self) -> pulumi.Output[Optional[Sequence['outputs.DataPointResponse']]]:
+    @pulumi.getter
+    def datasets(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetResponse']]]:
         """
-        Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+        Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
         """
-        return pulumi.get(self, "data_points")
+        return pulumi.get(self, "datasets")
 
     @property
-    @pulumi.getter(name="defaultDataPointsConfiguration")
-    def default_data_points_configuration(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="defaultDatasetsConfiguration")
+    def default_datasets_configuration(self) -> pulumi.Output[Optional[str]]:
         """
-        Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+        Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
         """
-        return pulumi.get(self, "default_data_points_configuration")
+        return pulumi.get(self, "default_datasets_configuration")
 
     @property
     @pulumi.getter(name="defaultEventsConfiguration")
@@ -672,12 +685,28 @@ class Asset(pulumi.CustomResource):
         return pulumi.get(self, "default_events_configuration")
 
     @property
+    @pulumi.getter(name="defaultTopic")
+    def default_topic(self) -> pulumi.Output[Optional['outputs.TopicResponse']]:
+        """
+        Object that describes the default topic information for the asset.
+        """
+        return pulumi.get(self, "default_topic")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
         Human-readable description of the asset.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="discoveredAssetRefs")
+    def discovered_asset_refs(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
+        """
+        return pulumi.get(self, "discovered_asset_refs")
 
     @property
     @pulumi.getter(name="displayName")
@@ -849,7 +878,7 @@ class Asset(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[int]:
+    def version(self) -> pulumi.Output[float]:
         """
         An integer that is incremented each time the resource is modified.
         """

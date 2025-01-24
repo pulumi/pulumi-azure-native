@@ -33,7 +33,7 @@ class AppServiceCertificateOrderCertificateArgs:
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] key_vault_id: Key Vault resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -105,7 +105,7 @@ class AppServiceCertificateOrderCertificateArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -166,16 +166,16 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         Key Vault container ARM resource for a certificate that is purchased through Azure.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2020-10-01, 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_order_name: Name of the certificate order.
         :param pulumi.Input[str] key_vault_id: Key Vault resource Id.
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the certificate.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
@@ -189,9 +189,9 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Key Vault container ARM resource for a certificate that is purchased through Azure.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2022-09-01.
 
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Other available API versions: 2020-10-01, 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param AppServiceCertificateOrderCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -293,7 +293,7 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

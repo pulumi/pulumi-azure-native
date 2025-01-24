@@ -27,7 +27,7 @@ class GetMachineResult:
     """
     Describes a hybrid machine.
     """
-    def __init__(__self__, ad_fqdn=None, agent_configuration=None, agent_upgrade=None, agent_version=None, client_public_key=None, cloud_metadata=None, detected_properties=None, display_name=None, dns_fqdn=None, domain_name=None, error_details=None, extensions=None, id=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, mssql_discovered=None, name=None, os_name=None, os_profile=None, os_sku=None, os_type=None, os_version=None, parent_cluster_resource_id=None, private_link_scope_resource_id=None, provisioning_state=None, resources=None, service_statuses=None, status=None, system_data=None, tags=None, type=None, vm_id=None, vm_uuid=None):
+    def __init__(__self__, ad_fqdn=None, agent_configuration=None, agent_upgrade=None, agent_version=None, client_public_key=None, cloud_metadata=None, detected_properties=None, display_name=None, dns_fqdn=None, domain_name=None, error_details=None, extensions=None, id=None, identity=None, kind=None, last_status_change=None, license_profile=None, location=None, location_data=None, machine_fqdn=None, mssql_discovered=None, name=None, network_profile=None, os_edition=None, os_name=None, os_profile=None, os_sku=None, os_type=None, os_version=None, parent_cluster_resource_id=None, private_link_scope_resource_id=None, provisioning_state=None, resources=None, service_statuses=None, status=None, system_data=None, tags=None, type=None, vm_id=None, vm_uuid=None):
         if ad_fqdn and not isinstance(ad_fqdn, str):
             raise TypeError("Expected argument 'ad_fqdn' to be a str")
         pulumi.set(__self__, "ad_fqdn", ad_fqdn)
@@ -70,9 +70,15 @@ class GetMachineResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if last_status_change and not isinstance(last_status_change, str):
             raise TypeError("Expected argument 'last_status_change' to be a str")
         pulumi.set(__self__, "last_status_change", last_status_change)
+        if license_profile and not isinstance(license_profile, dict):
+            raise TypeError("Expected argument 'license_profile' to be a dict")
+        pulumi.set(__self__, "license_profile", license_profile)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -88,6 +94,12 @@ class GetMachineResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        pulumi.set(__self__, "network_profile", network_profile)
+        if os_edition and not isinstance(os_edition, str):
+            raise TypeError("Expected argument 'os_edition' to be a str")
+        pulumi.set(__self__, "os_edition", os_edition)
         if os_name and not isinstance(os_name, str):
             raise TypeError("Expected argument 'os_name' to be a str")
         pulumi.set(__self__, "os_name", os_name)
@@ -250,12 +262,28 @@ class GetMachineResult:
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
     @pulumi.getter(name="lastStatusChange")
     def last_status_change(self) -> str:
         """
         The time of the last status change.
         """
         return pulumi.get(self, "last_status_change")
+
+    @property
+    @pulumi.getter(name="licenseProfile")
+    def license_profile(self) -> Optional['outputs.LicenseProfileMachineInstanceViewResponse']:
+        """
+        Specifies the License related properties for a machine.
+        """
+        return pulumi.get(self, "license_profile")
 
     @property
     @pulumi.getter
@@ -296,6 +324,22 @@ class GetMachineResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> 'outputs.NetworkProfileResponse':
+        """
+        Information about the network the machine is on.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="osEdition")
+    def os_edition(self) -> str:
+        """
+        The edition of the Operating System.
+        """
+        return pulumi.get(self, "os_edition")
 
     @property
     @pulumi.getter(name="osName")
@@ -446,12 +490,16 @@ class AwaitableGetMachineResult(GetMachineResult):
             extensions=self.extensions,
             id=self.id,
             identity=self.identity,
+            kind=self.kind,
             last_status_change=self.last_status_change,
+            license_profile=self.license_profile,
             location=self.location,
             location_data=self.location_data,
             machine_fqdn=self.machine_fqdn,
             mssql_discovered=self.mssql_discovered,
             name=self.name,
+            network_profile=self.network_profile,
+            os_edition=self.os_edition,
             os_name=self.os_name,
             os_profile=self.os_profile,
             os_sku=self.os_sku,
@@ -476,9 +524,9 @@ def get_machine(expand: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineResult:
     """
     Retrieves information about the model view or the instance view of a hybrid machine.
-    Azure REST API version: 2022-12-27.
+    Azure REST API version: 2024-07-10.
 
-    Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2022-12-27, 2024-11-10-preview.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -507,12 +555,16 @@ def get_machine(expand: Optional[str] = None,
         extensions=pulumi.get(__ret__, 'extensions'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        kind=pulumi.get(__ret__, 'kind'),
         last_status_change=pulumi.get(__ret__, 'last_status_change'),
+        license_profile=pulumi.get(__ret__, 'license_profile'),
         location=pulumi.get(__ret__, 'location'),
         location_data=pulumi.get(__ret__, 'location_data'),
         machine_fqdn=pulumi.get(__ret__, 'machine_fqdn'),
         mssql_discovered=pulumi.get(__ret__, 'mssql_discovered'),
         name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
+        os_edition=pulumi.get(__ret__, 'os_edition'),
         os_name=pulumi.get(__ret__, 'os_name'),
         os_profile=pulumi.get(__ret__, 'os_profile'),
         os_sku=pulumi.get(__ret__, 'os_sku'),
@@ -535,9 +587,9 @@ def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineResult]:
     """
     Retrieves information about the model view or the instance view of a hybrid machine.
-    Azure REST API version: 2022-12-27.
+    Azure REST API version: 2024-07-10.
 
-    Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2022-12-27, 2024-11-10-preview.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -565,12 +617,16 @@ def get_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
         extensions=pulumi.get(__response__, 'extensions'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        kind=pulumi.get(__response__, 'kind'),
         last_status_change=pulumi.get(__response__, 'last_status_change'),
+        license_profile=pulumi.get(__response__, 'license_profile'),
         location=pulumi.get(__response__, 'location'),
         location_data=pulumi.get(__response__, 'location_data'),
         machine_fqdn=pulumi.get(__response__, 'machine_fqdn'),
         mssql_discovered=pulumi.get(__response__, 'mssql_discovered'),
         name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
+        os_edition=pulumi.get(__response__, 'os_edition'),
         os_name=pulumi.get(__response__, 'os_name'),
         os_profile=pulumi.get(__response__, 'os_profile'),
         os_sku=pulumi.get(__response__, 'os_sku'),

@@ -16,11 +16,137 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AadProfileResponse',
+    'ArcAgentProfileResponse',
     'ConnectedClusterIdentityResponse',
     'CredentialResultResponse',
     'HybridConnectionConfigResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class AadProfileResponse(dict):
+    """
+    AAD Profile specifies attributes for Azure Active Directory integration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminGroupObjectIDs":
+            suggest = "admin_group_object_ids"
+        elif key == "enableAzureRBAC":
+            suggest = "enable_azure_rbac"
+        elif key == "tenantID":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AadProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AadProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AadProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_group_object_ids: Optional[Sequence[str]] = None,
+                 enable_azure_rbac: Optional[bool] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        AAD Profile specifies attributes for Azure Active Directory integration.
+        :param Sequence[str] admin_group_object_ids: The list of AAD group object IDs that will have admin role of the cluster.
+        :param bool enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
+        :param str tenant_id: The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+        if admin_group_object_ids is not None:
+            pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+        if enable_azure_rbac is not None:
+            pulumi.set(__self__, "enable_azure_rbac", enable_azure_rbac)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="adminGroupObjectIDs")
+    def admin_group_object_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of AAD group object IDs that will have admin role of the cluster.
+        """
+        return pulumi.get(self, "admin_group_object_ids")
+
+    @property
+    @pulumi.getter(name="enableAzureRBAC")
+    def enable_azure_rbac(self) -> Optional[bool]:
+        """
+        Whether to enable Azure RBAC for Kubernetes authorization.
+        """
+        return pulumi.get(self, "enable_azure_rbac")
+
+    @property
+    @pulumi.getter(name="tenantID")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ArcAgentProfileResponse(dict):
+    """
+    Defines the Arc Agent properties for the clusters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentAutoUpgrade":
+            suggest = "agent_auto_upgrade"
+        elif key == "desiredAgentVersion":
+            suggest = "desired_agent_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArcAgentProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArcAgentProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArcAgentProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_auto_upgrade: Optional[str] = None,
+                 desired_agent_version: Optional[str] = None):
+        """
+        Defines the Arc Agent properties for the clusters.
+        :param str agent_auto_upgrade: Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
+        :param str desired_agent_version: Version of the Arc agents to be installed on the cluster resource
+        """
+        if agent_auto_upgrade is None:
+            agent_auto_upgrade = 'Enabled'
+        if agent_auto_upgrade is not None:
+            pulumi.set(__self__, "agent_auto_upgrade", agent_auto_upgrade)
+        if desired_agent_version is not None:
+            pulumi.set(__self__, "desired_agent_version", desired_agent_version)
+
+    @property
+    @pulumi.getter(name="agentAutoUpgrade")
+    def agent_auto_upgrade(self) -> Optional[str]:
+        """
+        Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
+        """
+        return pulumi.get(self, "agent_auto_upgrade")
+
+    @property
+    @pulumi.getter(name="desiredAgentVersion")
+    def desired_agent_version(self) -> Optional[str]:
+        """
+        Version of the Arc agents to be installed on the cluster resource
+        """
+        return pulumi.get(self, "desired_agent_version")
+
 
 @pulumi.output_type
 class ConnectedClusterIdentityResponse(dict):

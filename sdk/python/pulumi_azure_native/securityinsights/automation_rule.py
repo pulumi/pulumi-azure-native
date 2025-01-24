@@ -22,7 +22,7 @@ __all__ = ['AutomationRuleArgs', 'AutomationRule']
 @pulumi.input_type
 class AutomationRuleArgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]],
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]],
                  display_name: pulumi.Input[str],
                  order: pulumi.Input[int],
                  resource_group_name: pulumi.Input[str],
@@ -31,7 +31,7 @@ class AutomationRuleArgs:
                  automation_rule_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]] actions: The actions to execute when the automation rule is triggered.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]] actions: The actions to execute when the automation rule is triggered.
         :param pulumi.Input[str] display_name: The display name of the automation rule.
         :param pulumi.Input[int] order: The order of execution of the automation rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -50,14 +50,14 @@ class AutomationRuleArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]:
         """
         The actions to execute when the automation rule is triggered.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleRunPlaybookActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property
@@ -138,7 +138,7 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleAddIncidentTaskActionArgsDict'], Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]]] = None,
                  automation_rule_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
@@ -147,13 +147,13 @@ class AutomationRule(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-01-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        Other available API versions: 2019-01-01-preview, 2023-02-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]] actions: The actions to execute when the automation rule is triggered.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleAddIncidentTaskActionArgsDict'], Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]] actions: The actions to execute when the automation rule is triggered.
         :param pulumi.Input[str] automation_rule_id: Automation rule ID
         :param pulumi.Input[str] display_name: The display name of the automation rule.
         :param pulumi.Input[int] order: The order of execution of the automation rule.
@@ -168,9 +168,9 @@ class AutomationRule(pulumi.CustomResource):
                  args: AutomationRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-01-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        Other available API versions: 2019-01-01-preview, 2023-02-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +187,7 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[Union['AutomationRuleAddIncidentTaskActionArgs', 'AutomationRuleAddIncidentTaskActionArgsDict'], Union['AutomationRuleModifyPropertiesActionArgs', 'AutomationRuleModifyPropertiesActionArgsDict'], Union['AutomationRuleRunPlaybookActionArgs', 'AutomationRuleRunPlaybookActionArgsDict']]]]]] = None,
                  automation_rule_id: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,

@@ -27,7 +27,7 @@ class GetRunbookResult:
     """
     Definition of the runbook type.
     """
-    def __init__(__self__, creation_time=None, description=None, draft=None, etag=None, id=None, job_count=None, last_modified_by=None, last_modified_time=None, location=None, log_activity_trace=None, log_progress=None, log_verbose=None, name=None, output_types=None, parameters=None, provisioning_state=None, publish_content_link=None, runbook_type=None, state=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, draft=None, etag=None, id=None, job_count=None, last_modified_by=None, last_modified_time=None, location=None, log_activity_trace=None, log_progress=None, log_verbose=None, name=None, output_types=None, parameters=None, provisioning_state=None, runbook_type=None, state=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -76,9 +76,6 @@ class GetRunbookResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if publish_content_link and not isinstance(publish_content_link, dict):
-            raise TypeError("Expected argument 'publish_content_link' to be a dict")
-        pulumi.set(__self__, "publish_content_link", publish_content_link)
         if runbook_type and not isinstance(runbook_type, str):
             raise TypeError("Expected argument 'runbook_type' to be a str")
         pulumi.set(__self__, "runbook_type", runbook_type)
@@ -221,14 +218,6 @@ class GetRunbookResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="publishContentLink")
-    def publish_content_link(self) -> Optional['outputs.ContentLinkResponse']:
-        """
-        Gets or sets the published runbook content link.
-        """
-        return pulumi.get(self, "publish_content_link")
-
-    @property
     @pulumi.getter(name="runbookType")
     def runbook_type(self) -> Optional[str]:
         """
@@ -283,7 +272,6 @@ class AwaitableGetRunbookResult(GetRunbookResult):
             output_types=self.output_types,
             parameters=self.parameters,
             provisioning_state=self.provisioning_state,
-            publish_content_link=self.publish_content_link,
             runbook_type=self.runbook_type,
             state=self.state,
             tags=self.tags,
@@ -296,9 +284,9 @@ def get_runbook(automation_account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRunbookResult:
     """
     Retrieve the runbook identified by runbook name.
-    Azure REST API version: 2022-08-08.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2022-08-08, 2024-10-23.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -329,7 +317,6 @@ def get_runbook(automation_account_name: Optional[str] = None,
         output_types=pulumi.get(__ret__, 'output_types'),
         parameters=pulumi.get(__ret__, 'parameters'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        publish_content_link=pulumi.get(__ret__, 'publish_content_link'),
         runbook_type=pulumi.get(__ret__, 'runbook_type'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -340,9 +327,9 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = No
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRunbookResult]:
     """
     Retrieve the runbook identified by runbook name.
-    Azure REST API version: 2022-08-08.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Other available API versions: 2022-08-08, 2024-10-23.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -372,7 +359,6 @@ def get_runbook_output(automation_account_name: Optional[pulumi.Input[str]] = No
         output_types=pulumi.get(__response__, 'output_types'),
         parameters=pulumi.get(__response__, 'parameters'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        publish_content_link=pulumi.get(__response__, 'publish_content_link'),
         runbook_type=pulumi.get(__response__, 'runbook_type'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),

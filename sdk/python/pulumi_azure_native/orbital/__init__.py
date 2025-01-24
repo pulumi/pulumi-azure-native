@@ -30,13 +30,10 @@ if typing.TYPE_CHECKING:
     v20220301 = __v20220301
     import pulumi_azure_native.orbital.v20221101 as __v20221101
     v20221101 = __v20221101
-    import pulumi_azure_native.orbital.v20240301 as __v20240301
-    v20240301 = __v20240301
     import pulumi_azure_native.orbital.v20240301preview as __v20240301preview
     v20240301preview = __v20240301preview
 else:
     v20220301 = _utilities.lazy_import('pulumi_azure_native.orbital.v20220301')
     v20221101 = _utilities.lazy_import('pulumi_azure_native.orbital.v20221101')
-    v20240301 = _utilities.lazy_import('pulumi_azure_native.orbital.v20240301')
     v20240301preview = _utilities.lazy_import('pulumi_azure_native.orbital.v20240301preview')
 

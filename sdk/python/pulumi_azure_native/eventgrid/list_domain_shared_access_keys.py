@@ -66,9 +66,9 @@ def list_domain_shared_access_keys(domain_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDomainSharedAccessKeysResult:
     """
     List the two keys used to publish to a domain.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2020-04-01-preview, 2022-06-15.
 
 
     :param str domain_name: Name of the domain.
@@ -88,9 +88,9 @@ def list_domain_shared_access_keys_output(domain_name: Optional[pulumi.Input[str
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDomainSharedAccessKeysResult]:
     """
     List the two keys used to publish to a domain.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2020-04-01-preview, 2022-06-15.
 
 
     :param str domain_name: Name of the domain.

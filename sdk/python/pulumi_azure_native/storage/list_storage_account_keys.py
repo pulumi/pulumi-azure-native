@@ -56,9 +56,9 @@ def list_storage_account_keys(account_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStorageAccountKeysResult:
     """
     Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+    Other available API versions: 2022-09-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -80,9 +80,9 @@ def list_storage_account_keys_output(account_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListStorageAccountKeysResult]:
     """
     Lists the access keys or Kerberos keys (if active directory enabled) for the specified storage account.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+    Other available API versions: 2022-09-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

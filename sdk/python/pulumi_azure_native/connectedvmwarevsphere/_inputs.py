@@ -56,6 +56,8 @@ __all__ = [
     'VICredentialArgsDict',
     'VirtualDiskArgs',
     'VirtualDiskArgsDict',
+    'WindowsConfigurationArgs',
+    'WindowsConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -161,6 +163,10 @@ if not MYPY:
         """
         Gets or sets the password to connect with the guest.
         """
+        private_key: NotRequired[pulumi.Input[str]]
+        """
+        Private key used to authenticate to a virtual machine through ssh.
+        """
         username: NotRequired[pulumi.Input[str]]
         """
         Gets or sets username to connect with the guest.
@@ -172,14 +178,18 @@ elif False:
 class GuestCredentialArgs:
     def __init__(__self__, *,
                  password: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Username / Password Credentials to connect to guest.
         :param pulumi.Input[str] password: Gets or sets the password to connect with the guest.
+        :param pulumi.Input[str] private_key: Private key used to authenticate to a virtual machine through ssh.
         :param pulumi.Input[str] username: Gets or sets username to connect with the guest.
         """
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -194,6 +204,18 @@ class GuestCredentialArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Private key used to authenticate to a virtual machine through ssh.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_key", value)
 
     @property
     @pulumi.getter
@@ -784,6 +806,10 @@ if not MYPY:
         """
         Gets or sets the type of the os.
         """
+        windows_configuration: NotRequired[pulumi.Input['WindowsConfigurationArgsDict']]
+        """
+        Windows Configuration.
+        """
 elif False:
     OsProfileForVMInstanceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -794,7 +820,8 @@ class OsProfileForVMInstanceArgs:
                  admin_username: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  guest_id: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None):
+                 os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
+                 windows_configuration: Optional[pulumi.Input['WindowsConfigurationArgs']] = None):
         """
         Specifies the operating system settings for the virtual machine.
         :param pulumi.Input[str] admin_password: Sets administrator password.
@@ -802,6 +829,7 @@ class OsProfileForVMInstanceArgs:
         :param pulumi.Input[str] computer_name: Gets or sets computer name.
         :param pulumi.Input[str] guest_id: Gets or sets the guestId.
         :param pulumi.Input[Union[str, 'OsType']] os_type: Gets or sets the type of the os.
+        :param pulumi.Input['WindowsConfigurationArgs'] windows_configuration: Windows Configuration.
         """
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
@@ -813,6 +841,8 @@ class OsProfileForVMInstanceArgs:
             pulumi.set(__self__, "guest_id", guest_id)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if windows_configuration is not None:
+            pulumi.set(__self__, "windows_configuration", windows_configuration)
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -873,6 +903,18 @@ class OsProfileForVMInstanceArgs:
     @os_type.setter
     def os_type(self, value: Optional[pulumi.Input[Union[str, 'OsType']]]):
         pulumi.set(self, "os_type", value)
+
+    @property
+    @pulumi.getter(name="windowsConfiguration")
+    def windows_configuration(self) -> Optional[pulumi.Input['WindowsConfigurationArgs']]:
+        """
+        Windows Configuration.
+        """
+        return pulumi.get(self, "windows_configuration")
+
+    @windows_configuration.setter
+    def windows_configuration(self, value: Optional[pulumi.Input['WindowsConfigurationArgs']]):
+        pulumi.set(self, "windows_configuration", value)
 
 
 if not MYPY:
@@ -1577,5 +1619,241 @@ class VirtualDiskArgs:
     @unit_number.setter
     def unit_number(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "unit_number", value)
+
+
+if not MYPY:
+    class WindowsConfigurationArgsDict(TypedDict):
+        """
+        Specifies the Windows Configuration settings for the virtual machine.
+        """
+        auto_logon: NotRequired[pulumi.Input[bool]]
+        """
+        Sets a value indicating whether auto logon is enabled.
+        """
+        auto_logon_count: NotRequired[pulumi.Input[int]]
+        """
+        Sets auto logon count.
+        """
+        domain_name: NotRequired[pulumi.Input[str]]
+        """
+        Sets domain name that vm should join.
+        """
+        domain_user_password: NotRequired[pulumi.Input[str]]
+        """
+        Sets domain user password.
+        """
+        domain_username: NotRequired[pulumi.Input[str]]
+        """
+        Sets domain username.
+        """
+        first_logon_commands: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Sets first logon commands
+        """
+        full_name: NotRequired[pulumi.Input[str]]
+        """
+        Sets full name of the owner of the vm.
+        """
+        org_name: NotRequired[pulumi.Input[str]]
+        """
+        Sets org name to which the owner of the vm belongs.
+        """
+        product_id: NotRequired[pulumi.Input[str]]
+        """
+        Sets product id of the vm.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". Time zone name correspond to time zones listed at Microsoft Time Zone name values(https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        """
+        work_group_name: NotRequired[pulumi.Input[str]]
+        """
+        Sets work group name that vm should join.
+        """
+elif False:
+    WindowsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WindowsConfigurationArgs:
+    def __init__(__self__, *,
+                 auto_logon: Optional[pulumi.Input[bool]] = None,
+                 auto_logon_count: Optional[pulumi.Input[int]] = None,
+                 domain_name: Optional[pulumi.Input[str]] = None,
+                 domain_user_password: Optional[pulumi.Input[str]] = None,
+                 domain_username: Optional[pulumi.Input[str]] = None,
+                 first_logon_commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 full_name: Optional[pulumi.Input[str]] = None,
+                 org_name: Optional[pulumi.Input[str]] = None,
+                 product_id: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
+                 work_group_name: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies the Windows Configuration settings for the virtual machine.
+        :param pulumi.Input[bool] auto_logon: Sets a value indicating whether auto logon is enabled.
+        :param pulumi.Input[int] auto_logon_count: Sets auto logon count.
+        :param pulumi.Input[str] domain_name: Sets domain name that vm should join.
+        :param pulumi.Input[str] domain_user_password: Sets domain user password.
+        :param pulumi.Input[str] domain_username: Sets domain username.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] first_logon_commands: Sets first logon commands
+        :param pulumi.Input[str] full_name: Sets full name of the owner of the vm.
+        :param pulumi.Input[str] org_name: Sets org name to which the owner of the vm belongs.
+        :param pulumi.Input[str] product_id: Sets product id of the vm.
+        :param pulumi.Input[str] time_zone: Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". Time zone name correspond to time zones listed at Microsoft Time Zone name values(https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        :param pulumi.Input[str] work_group_name: Sets work group name that vm should join.
+        """
+        if auto_logon is not None:
+            pulumi.set(__self__, "auto_logon", auto_logon)
+        if auto_logon_count is not None:
+            pulumi.set(__self__, "auto_logon_count", auto_logon_count)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
+        if domain_user_password is not None:
+            pulumi.set(__self__, "domain_user_password", domain_user_password)
+        if domain_username is not None:
+            pulumi.set(__self__, "domain_username", domain_username)
+        if first_logon_commands is not None:
+            pulumi.set(__self__, "first_logon_commands", first_logon_commands)
+        if full_name is not None:
+            pulumi.set(__self__, "full_name", full_name)
+        if org_name is not None:
+            pulumi.set(__self__, "org_name", org_name)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+        if work_group_name is not None:
+            pulumi.set(__self__, "work_group_name", work_group_name)
+
+    @property
+    @pulumi.getter(name="autoLogon")
+    def auto_logon(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Sets a value indicating whether auto logon is enabled.
+        """
+        return pulumi.get(self, "auto_logon")
+
+    @auto_logon.setter
+    def auto_logon(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_logon", value)
+
+    @property
+    @pulumi.getter(name="autoLogonCount")
+    def auto_logon_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets auto logon count.
+        """
+        return pulumi.get(self, "auto_logon_count")
+
+    @auto_logon_count.setter
+    def auto_logon_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "auto_logon_count", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets domain name that vm should join.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="domainUserPassword")
+    def domain_user_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets domain user password.
+        """
+        return pulumi.get(self, "domain_user_password")
+
+    @domain_user_password.setter
+    def domain_user_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_user_password", value)
+
+    @property
+    @pulumi.getter(name="domainUsername")
+    def domain_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets domain username.
+        """
+        return pulumi.get(self, "domain_username")
+
+    @domain_username.setter
+    def domain_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain_username", value)
+
+    @property
+    @pulumi.getter(name="firstLogonCommands")
+    def first_logon_commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Sets first logon commands
+        """
+        return pulumi.get(self, "first_logon_commands")
+
+    @first_logon_commands.setter
+    def first_logon_commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "first_logon_commands", value)
+
+    @property
+    @pulumi.getter(name="fullName")
+    def full_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets full name of the owner of the vm.
+        """
+        return pulumi.get(self, "full_name")
+
+    @full_name.setter
+    def full_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "full_name", value)
+
+    @property
+    @pulumi.getter(name="orgName")
+    def org_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets org name to which the owner of the vm belongs.
+        """
+        return pulumi.get(self, "org_name")
+
+    @org_name.setter
+    def org_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "org_name", value)
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets product id of the vm.
+        """
+        return pulumi.get(self, "product_id")
+
+    @product_id.setter
+    def product_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product_id", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". Time zone name correspond to time zones listed at Microsoft Time Zone name values(https://learn.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+    @property
+    @pulumi.getter(name="workGroupName")
+    def work_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets work group name that vm should join.
+        """
+        return pulumi.get(self, "work_group_name")
+
+    @work_group_name.setter
+    def work_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "work_group_name", value)
 
 

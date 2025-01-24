@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ApiPortalArgs', 'ApiPortal']
@@ -117,9 +118,9 @@ class ApiPortal(pulumi.CustomResource):
                  __props__=None):
         """
         API portal resource
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
+        Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 1.x: 2023-05-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,9 +138,9 @@ class ApiPortal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         API portal resource
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
+        Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 1.x: 2023-05-01-preview.
 
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ApiPortalArgs args: The arguments to use to populate this resource's properties.

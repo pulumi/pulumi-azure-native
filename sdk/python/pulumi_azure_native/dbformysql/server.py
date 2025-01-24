@@ -30,14 +30,15 @@ class ServerArgs:
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  data_encryption: Optional[pulumi.Input['DataEncryptionArgs']] = None,
                  high_availability: Optional[pulumi.Input['HighAvailabilityArgs']] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['MySQLServerIdentityArgs']] = None,
+                 import_source_properties: Optional[pulumi.Input['ImportSourcePropertiesArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
                  network: Optional[pulumi.Input['NetworkArgs']] = None,
                  replication_role: Optional[pulumi.Input[Union[str, 'ReplicationRole']]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 sku: Optional[pulumi.Input['MySQLServerSkuArgs']] = None,
                  source_server_resource_id: Optional[pulumi.Input[str]] = None,
                  storage: Optional[pulumi.Input['StorageArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -52,14 +53,15 @@ class ServerArgs:
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new MySQL server.
         :param pulumi.Input['DataEncryptionArgs'] data_encryption: The Data Encryption for CMK.
         :param pulumi.Input['HighAvailabilityArgs'] high_availability: High availability related properties of a server.
-        :param pulumi.Input['IdentityArgs'] identity: The cmk identity for the server.
+        :param pulumi.Input['MySQLServerIdentityArgs'] identity: The cmk identity for the server.
+        :param pulumi.Input['ImportSourcePropertiesArgs'] import_source_properties: Source properties for import from storage.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window of a server.
         :param pulumi.Input['NetworkArgs'] network: Network related properties of a server.
         :param pulumi.Input[Union[str, 'ReplicationRole']] replication_role: The replication role.
         :param pulumi.Input[str] restore_point_in_time: Restore point creation time (ISO8601 format), specifying the time to restore from.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input['SkuArgs'] sku: The SKU (pricing tier) of the server.
+        :param pulumi.Input['MySQLServerSkuArgs'] sku: The SKU (pricing tier) of the server.
         :param pulumi.Input[str] source_server_resource_id: The source MySQL server id.
         :param pulumi.Input['StorageArgs'] storage: Storage related properties of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -82,6 +84,8 @@ class ServerArgs:
             pulumi.set(__self__, "high_availability", high_availability)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if import_source_properties is not None:
+            pulumi.set(__self__, "import_source_properties", import_source_properties)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
@@ -203,15 +207,27 @@ class ServerArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['MySQLServerIdentityArgs']]:
         """
         The cmk identity for the server.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['MySQLServerIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="importSourceProperties")
+    def import_source_properties(self) -> Optional[pulumi.Input['ImportSourcePropertiesArgs']]:
+        """
+        Source properties for import from storage.
+        """
+        return pulumi.get(self, "import_source_properties")
+
+    @import_source_properties.setter
+    def import_source_properties(self, value: Optional[pulumi.Input['ImportSourcePropertiesArgs']]):
+        pulumi.set(self, "import_source_properties", value)
 
     @property
     @pulumi.getter
@@ -287,14 +303,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['MySQLServerSkuArgs']]:
         """
         The SKU (pricing tier) of the server.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['MySQLServerSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @property
@@ -358,7 +374,8 @@ class Server(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
                  high_availability: Optional[pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['MySQLServerIdentityArgs', 'MySQLServerIdentityArgsDict']]] = None,
+                 import_source_properties: Optional[pulumi.Input[Union['ImportSourcePropertiesArgs', 'ImportSourcePropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  network: Optional[pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
@@ -366,7 +383,7 @@ class Server(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['MySQLServerSkuArgs', 'MySQLServerSkuArgsDict']]] = None,
                  source_server_resource_id: Optional[pulumi.Input[str]] = None,
                  storage: Optional[pulumi.Input[Union['StorageArgs', 'StorageArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -374,9 +391,9 @@ class Server(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a server.
-        Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
+        Azure REST API version: 2023-12-30. Prior API version in Azure Native 1.x: 2022-01-01.
 
-        Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+        Other available API versions: 2020-07-01-preview, 2020-07-01-privatepreview, 2022-01-01, 2022-09-30-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,7 +404,8 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new MySQL server.
         :param pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']] data_encryption: The Data Encryption for CMK.
         :param pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']] high_availability: High availability related properties of a server.
-        :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The cmk identity for the server.
+        :param pulumi.Input[Union['MySQLServerIdentityArgs', 'MySQLServerIdentityArgsDict']] identity: The cmk identity for the server.
+        :param pulumi.Input[Union['ImportSourcePropertiesArgs', 'ImportSourcePropertiesArgsDict']] import_source_properties: Source properties for import from storage.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']] maintenance_window: Maintenance window of a server.
         :param pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']] network: Network related properties of a server.
@@ -395,7 +413,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] restore_point_in_time: Restore point creation time (ISO8601 format), specifying the time to restore from.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (pricing tier) of the server.
+        :param pulumi.Input[Union['MySQLServerSkuArgs', 'MySQLServerSkuArgsDict']] sku: The SKU (pricing tier) of the server.
         :param pulumi.Input[str] source_server_resource_id: The source MySQL server id.
         :param pulumi.Input[Union['StorageArgs', 'StorageArgsDict']] storage: Storage related properties of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -409,9 +427,9 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
-        Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
+        Azure REST API version: 2023-12-30. Prior API version in Azure Native 1.x: 2022-01-01.
 
-        Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+        Other available API versions: 2020-07-01-preview, 2020-07-01-privatepreview, 2022-01-01, 2022-09-30-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.
@@ -435,7 +453,8 @@ class Server(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
                  high_availability: Optional[pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['MySQLServerIdentityArgs', 'MySQLServerIdentityArgsDict']]] = None,
+                 import_source_properties: Optional[pulumi.Input[Union['ImportSourcePropertiesArgs', 'ImportSourcePropertiesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']]] = None,
                  network: Optional[pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']]] = None,
@@ -443,7 +462,7 @@ class Server(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 sku: Optional[pulumi.Input[Union['MySQLServerSkuArgs', 'MySQLServerSkuArgsDict']]] = None,
                  source_server_resource_id: Optional[pulumi.Input[str]] = None,
                  storage: Optional[pulumi.Input[Union['StorageArgs', 'StorageArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -465,6 +484,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["data_encryption"] = data_encryption
             __props__.__dict__["high_availability"] = high_availability
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["import_source_properties"] = import_source_properties
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["network"] = network
@@ -481,6 +501,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["fully_qualified_domain_name"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["replica_capacity"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
@@ -516,10 +537,12 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["fully_qualified_domain_name"] = None
         __props__.__dict__["high_availability"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["import_source_properties"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["maintenance_window"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["replica_capacity"] = None
         __props__.__dict__["replication_role"] = None
         __props__.__dict__["sku"] = None
@@ -582,11 +605,19 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.MySQLServerIdentityResponse']]:
         """
         The cmk identity for the server.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="importSourceProperties")
+    def import_source_properties(self) -> pulumi.Output[Optional['outputs.ImportSourcePropertiesResponse']]:
+        """
+        Source properties for import from storage.
+        """
+        return pulumi.get(self, "import_source_properties")
 
     @property
     @pulumi.getter
@@ -621,6 +652,14 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "network")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        PrivateEndpointConnections related properties of a server.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="replicaCapacity")
     def replica_capacity(self) -> pulumi.Output[int]:
         """
@@ -638,7 +677,7 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+    def sku(self) -> pulumi.Output[Optional['outputs.MySQLServerSkuResponse']]:
         """
         The SKU (pricing tier) of the server.
         """
@@ -672,7 +711,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

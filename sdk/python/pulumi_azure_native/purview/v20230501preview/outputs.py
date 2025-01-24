@@ -23,7 +23,6 @@ __all__ = [
     'AccountResponseSku',
     'AccountStatusResponseErrorDetails',
     'CloudConnectorsResponse',
-    'CredentialsResponse',
     'ErrorModelResponse',
     'IdentityResponse',
     'IngestionStorageResponse',
@@ -314,58 +313,6 @@ class CloudConnectorsResponse(dict):
         Configured in AWS to allow use of the role arn used for scanning
         """
         return pulumi.get(self, "aws_external_id")
-
-
-@pulumi.output_type
-class CredentialsResponse(dict):
-    """
-    Credentials to access the event streaming service attached to the purview account.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "identityId":
-            suggest = "identity_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CredentialsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        CredentialsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        CredentialsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 identity_id: Optional[str] = None,
-                 type: Optional[str] = None):
-        """
-        Credentials to access the event streaming service attached to the purview account.
-        :param str identity_id: Identity identifier for UserAssign type.
-        :param str type: Identity Type.
-        """
-        if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="identityId")
-    def identity_id(self) -> Optional[str]:
-        """
-        Identity identifier for UserAssign type.
-        """
-        return pulumi.get(self, "identity_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Identity Type.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

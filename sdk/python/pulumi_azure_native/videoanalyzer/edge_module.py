@@ -82,7 +82,7 @@ class EdgeModule(pulumi.CustomResource):
                  __props__=None):
         """
         The representation of an edge module.
-        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,7 +98,7 @@ class EdgeModule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The representation of an edge module.
-        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EdgeModuleArgs args: The arguments to use to populate this resource's properties.

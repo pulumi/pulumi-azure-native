@@ -114,9 +114,9 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSshPublicKeyResult:
     """
     Retrieves information about an SSH public key.
-    Azure REST API version: 2023-03-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-03-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -140,9 +140,9 @@ def get_ssh_public_key_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSshPublicKeyResult]:
     """
     Retrieves information about an SSH public key.
-    Azure REST API version: 2023-03-01.
+    Azure REST API version: 2024-07-01.
 
-    Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    Other available API versions: 2023-03-01.
 
 
     :param str resource_group_name: The name of the resource group.

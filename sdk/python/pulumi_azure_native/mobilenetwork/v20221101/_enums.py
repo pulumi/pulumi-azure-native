@@ -9,13 +9,7 @@ __all__ = [
     'BillingSku',
     'CoreNetworkType',
     'ManagedServiceIdentityType',
-    'NaptEnabled',
-    'PduSessionType',
     'PlatformType',
-    'PreemptionCapability',
-    'PreemptionVulnerability',
-    'SdfDirection',
-    'TrafficControlPermission',
 ]
 
 
@@ -83,28 +77,6 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
-class NaptEnabled(str, Enum):
-    """
-    Whether NAPT is enabled for connections to this attached data network.
-    """
-    ENABLED = "Enabled"
-    """
-    NAPT is enabled
-    """
-    DISABLED = "Disabled"
-    """
-    NAPT is disabled
-    """
-
-
-class PduSessionType(str, Enum):
-    """
-    The default PDU session type, which is used if the UE does not request a specific session type.
-    """
-    I_PV4 = "IPv4"
-    I_PV6 = "IPv6"
-
-
 class PlatformType(str, Enum):
     """
     The platform type where packet core is deployed.
@@ -116,64 +88,4 @@ class PlatformType(str, Enum):
     PLATFORM_TYPE_3_P_AZUR_E_STAC_K_HCI = "3P-AZURE-STACK-HCI"
     """
     If this option is chosen, you must set one of "azureStackHciCluster", "connectedCluster" or "customLocation". If multiple are set, they must be consistent with each other.
-    """
-
-
-class PreemptionCapability(str, Enum):
-    """
-    Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-    """
-    NOT_PREEMPT = "NotPreempt"
-    """
-    Cannot preempt
-    """
-    MAY_PREEMPT = "MayPreempt"
-    """
-    May preempt
-    """
-
-
-class PreemptionVulnerability(str, Enum):
-    """
-    Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-    """
-    NOT_PREEMPTABLE = "NotPreemptable"
-    """
-    Cannot be preempted
-    """
-    PREEMPTABLE = "Preemptable"
-    """
-    May be preempted
-    """
-
-
-class SdfDirection(str, Enum):
-    """
-    The direction of this flow.
-    """
-    UPLINK = "Uplink"
-    """
-    Traffic flowing from the UE to the data network.
-    """
-    DOWNLINK = "Downlink"
-    """
-    Traffic flowing from the data network to the UE.
-    """
-    BIDIRECTIONAL = "Bidirectional"
-    """
-    Traffic flowing both to and from the UE.
-    """
-
-
-class TrafficControlPermission(str, Enum):
-    """
-    Determines whether flows that match this data flow policy rule are permitted.
-    """
-    ENABLED = "Enabled"
-    """
-    Traffic matching this rule is allowed to flow.
-    """
-    BLOCKED = "Blocked"
-    """
-    Traffic matching this rule is not allowed to flow.
     """

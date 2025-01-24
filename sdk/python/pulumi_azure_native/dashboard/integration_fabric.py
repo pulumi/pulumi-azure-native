@@ -130,9 +130,7 @@ class IntegrationFabric(pulumi.CustomResource):
                  __props__=None):
         """
         The integration fabric resource type.
-        Azure REST API version: 2023-10-01-preview.
-
-        Other available API versions: 2024-10-01.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,9 +148,7 @@ class IntegrationFabric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration fabric resource type.
-        Azure REST API version: 2023-10-01-preview.
-
-        Other available API versions: 2024-10-01.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IntegrationFabricArgs args: The arguments to use to populate this resource's properties.
@@ -197,7 +193,7 @@ class IntegrationFabric(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dashboard/v20231001preview:IntegrationFabric"), pulumi.Alias(type_="azure-native:dashboard/v20241001:IntegrationFabric")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dashboard/v20231001preview:IntegrationFabric")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationFabric, __self__).__init__(
             'azure-native:dashboard:IntegrationFabric',

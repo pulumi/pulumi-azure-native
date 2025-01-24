@@ -16,18 +16,18 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetSAPVirtualInstanceResult',
-    'AwaitableGetSAPVirtualInstanceResult',
+    'GetSapVirtualInstanceResult',
+    'AwaitableGetSapVirtualInstanceResult',
     'get_sap_virtual_instance',
     'get_sap_virtual_instance_output',
 ]
 
 @pulumi.output_type
-class GetSAPVirtualInstanceResult:
+class GetSapVirtualInstanceResult:
     """
     Define the Virtual Instance for SAP solutions resource.
     """
-    def __init__(__self__, configuration=None, environment=None, errors=None, health=None, id=None, identity=None, location=None, managed_resource_group_configuration=None, name=None, provisioning_state=None, sap_product=None, state=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, configuration=None, environment=None, errors=None, health=None, id=None, identity=None, location=None, managed_resource_group_configuration=None, managed_resources_network_access_type=None, name=None, provisioning_state=None, sap_product=None, state=None, status=None, system_data=None, tags=None, type=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -52,6 +52,9 @@ class GetSAPVirtualInstanceResult:
         if managed_resource_group_configuration and not isinstance(managed_resource_group_configuration, dict):
             raise TypeError("Expected argument 'managed_resource_group_configuration' to be a dict")
         pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+        if managed_resources_network_access_type and not isinstance(managed_resources_network_access_type, str):
+            raise TypeError("Expected argument 'managed_resources_network_access_type' to be a str")
+        pulumi.set(__self__, "managed_resources_network_access_type", managed_resources_network_access_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -113,15 +116,15 @@ class GetSAPVirtualInstanceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.UserAssignedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.SAPVirtualInstanceIdentityResponse']:
         """
-        A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -140,6 +143,14 @@ class GetSAPVirtualInstanceResult:
         Managed resource group configuration
         """
         return pulumi.get(self, "managed_resource_group_configuration")
+
+    @property
+    @pulumi.getter(name="managedResourcesNetworkAccessType")
+    def managed_resources_network_access_type(self) -> Optional[str]:
+        """
+        Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
+        """
+        return pulumi.get(self, "managed_resources_network_access_type")
 
     @property
     @pulumi.getter
@@ -206,12 +217,12 @@ class GetSAPVirtualInstanceResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetSAPVirtualInstanceResult(GetSAPVirtualInstanceResult):
+class AwaitableGetSapVirtualInstanceResult(GetSapVirtualInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSAPVirtualInstanceResult(
+        return GetSapVirtualInstanceResult(
             configuration=self.configuration,
             environment=self.environment,
             errors=self.errors,
@@ -220,6 +231,7 @@ class AwaitableGetSAPVirtualInstanceResult(GetSAPVirtualInstanceResult):
             identity=self.identity,
             location=self.location,
             managed_resource_group_configuration=self.managed_resource_group_configuration,
+            managed_resources_network_access_type=self.managed_resources_network_access_type,
             name=self.name,
             provisioning_state=self.provisioning_state,
             sap_product=self.sap_product,
@@ -232,12 +244,10 @@ class AwaitableGetSAPVirtualInstanceResult(GetSAPVirtualInstanceResult):
 
 def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
                              sap_virtual_instance_name: Optional[str] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPVirtualInstanceResult:
+                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapVirtualInstanceResult:
     """
     Gets a Virtual Instance for SAP solutions resource
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-10-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -247,9 +257,9 @@ def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('azure-native:workloads:getSAPVirtualInstance', __args__, opts=opts, typ=GetSAPVirtualInstanceResult).value
+    __ret__ = pulumi.runtime.invoke('azure-native:workloads:getSapVirtualInstance', __args__, opts=opts, typ=GetSapVirtualInstanceResult).value
 
-    return AwaitableGetSAPVirtualInstanceResult(
+    return AwaitableGetSapVirtualInstanceResult(
         configuration=pulumi.get(__ret__, 'configuration'),
         environment=pulumi.get(__ret__, 'environment'),
         errors=pulumi.get(__ret__, 'errors'),
@@ -258,6 +268,7 @@ def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         managed_resource_group_configuration=pulumi.get(__ret__, 'managed_resource_group_configuration'),
+        managed_resources_network_access_type=pulumi.get(__ret__, 'managed_resources_network_access_type'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         sap_product=pulumi.get(__ret__, 'sap_product'),
@@ -268,12 +279,10 @@ def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_sap_virtual_instance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPVirtualInstanceResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapVirtualInstanceResult]:
     """
     Gets a Virtual Instance for SAP solutions resource
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-10-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -283,8 +292,8 @@ def get_sap_virtual_instance_output(resource_group_name: Optional[pulumi.Input[s
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSAPVirtualInstance', __args__, opts=opts, typ=GetSAPVirtualInstanceResult)
-    return __ret__.apply(lambda __response__: GetSAPVirtualInstanceResult(
+    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSapVirtualInstance', __args__, opts=opts, typ=GetSapVirtualInstanceResult)
+    return __ret__.apply(lambda __response__: GetSapVirtualInstanceResult(
         configuration=pulumi.get(__response__, 'configuration'),
         environment=pulumi.get(__response__, 'environment'),
         errors=pulumi.get(__response__, 'errors'),
@@ -293,6 +302,7 @@ def get_sap_virtual_instance_output(resource_group_name: Optional[pulumi.Input[s
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
+        managed_resources_network_access_type=pulumi.get(__response__, 'managed_resources_network_access_type'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         sap_product=pulumi.get(__response__, 'sap_product'),

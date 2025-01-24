@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AccessPolicyAssignmentPropertiesUserArgs',
+    'AccessPolicyAssignmentPropertiesUserArgsDict',
     'ClusterPropertiesCustomerManagedKeyEncryptionArgs',
     'ClusterPropertiesCustomerManagedKeyEncryptionArgsDict',
     'ClusterPropertiesEncryptionArgs',
@@ -45,6 +47,42 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AccessPolicyAssignmentPropertiesUserArgsDict(TypedDict):
+        """
+        The user associated with the access policy.
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        The object ID of the user.
+        """
+elif False:
+    AccessPolicyAssignmentPropertiesUserArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessPolicyAssignmentPropertiesUserArgs:
+    def __init__(__self__, *,
+                 object_id: Optional[pulumi.Input[str]] = None):
+        """
+        The user associated with the access policy.
+        :param pulumi.Input[str] object_id: The object ID of the user.
+        """
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object ID of the user.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
 
 if not MYPY:
     class ClusterPropertiesCustomerManagedKeyEncryptionArgsDict(TypedDict):
@@ -253,15 +291,15 @@ class DatabasePropertiesGeoReplicationArgs:
 if not MYPY:
     class EnterpriseSkuArgsDict(TypedDict):
         """
-        SKU parameters supplied to the create RedisEnterprise operation.
+        SKU parameters supplied to the create Redis Enterprise cluster operation.
         """
         name: pulumi.Input[Union[str, 'SkuName']]
         """
-        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
         """
         capacity: NotRequired[pulumi.Input[int]]
         """
-        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
 elif False:
     EnterpriseSkuArgsDict: TypeAlias = Mapping[str, Any]
@@ -272,9 +310,9 @@ class EnterpriseSkuArgs:
                  name: pulumi.Input[Union[str, 'SkuName']],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
-        SKU parameters supplied to the create RedisEnterprise operation.
-        :param pulumi.Input[Union[str, 'SkuName']] name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-        :param pulumi.Input[int] capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        SKU parameters supplied to the create Redis Enterprise cluster operation.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
+        :param pulumi.Input[int] capacity: This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -284,7 +322,7 @@ class EnterpriseSkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
-        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
         """
         return pulumi.get(self, "name")
 
@@ -296,7 +334,7 @@ class EnterpriseSkuArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
         return pulumi.get(self, "capacity")
 
@@ -454,19 +492,19 @@ class ModuleArgs:
 if not MYPY:
     class PersistenceArgsDict(TypedDict):
         """
-        Persistence-related configuration for the RedisEnterprise database
+        Persistence-related configuration for the Redis Enterprise database
         """
         aof_enabled: NotRequired[pulumi.Input[bool]]
         """
-        Sets whether AOF is enabled.
+        Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         aof_frequency: NotRequired[pulumi.Input[Union[str, 'AofFrequency']]]
         """
-        Sets the frequency at which data is written to disk.
+        Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
         """
         rdb_enabled: NotRequired[pulumi.Input[bool]]
         """
-        Sets whether RDB is enabled.
+        Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         rdb_frequency: NotRequired[pulumi.Input[Union[str, 'RdbFrequency']]]
         """
@@ -483,10 +521,10 @@ class PersistenceArgs:
                  rdb_enabled: Optional[pulumi.Input[bool]] = None,
                  rdb_frequency: Optional[pulumi.Input[Union[str, 'RdbFrequency']]] = None):
         """
-        Persistence-related configuration for the RedisEnterprise database
-        :param pulumi.Input[bool] aof_enabled: Sets whether AOF is enabled.
-        :param pulumi.Input[Union[str, 'AofFrequency']] aof_frequency: Sets the frequency at which data is written to disk.
-        :param pulumi.Input[bool] rdb_enabled: Sets whether RDB is enabled.
+        Persistence-related configuration for the Redis Enterprise database
+        :param pulumi.Input[bool] aof_enabled: Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
+        :param pulumi.Input[Union[str, 'AofFrequency']] aof_frequency: Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
+        :param pulumi.Input[bool] rdb_enabled: Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         :param pulumi.Input[Union[str, 'RdbFrequency']] rdb_frequency: Sets the frequency at which a snapshot of the database is created.
         """
         if aof_enabled is not None:
@@ -502,7 +540,7 @@ class PersistenceArgs:
     @pulumi.getter(name="aofEnabled")
     def aof_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Sets whether AOF is enabled.
+        Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         return pulumi.get(self, "aof_enabled")
 
@@ -514,7 +552,7 @@ class PersistenceArgs:
     @pulumi.getter(name="aofFrequency")
     def aof_frequency(self) -> Optional[pulumi.Input[Union[str, 'AofFrequency']]]:
         """
-        Sets the frequency at which data is written to disk.
+        Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
         """
         return pulumi.get(self, "aof_frequency")
 
@@ -526,7 +564,7 @@ class PersistenceArgs:
     @pulumi.getter(name="rdbEnabled")
     def rdb_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Sets whether RDB is enabled.
+        Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         return pulumi.get(self, "rdb_enabled")
 
@@ -626,7 +664,11 @@ class PrivateLinkServiceConnectionStateArgs:
 if not MYPY:
     class RedisCommonPropertiesRedisConfigurationArgsDict(TypedDict):
         """
-        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
+        """
+        aad_enabled: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether AAD based authentication has been enabled or disabled for the cache
         """
         aof_backup_enabled: NotRequired[pulumi.Input[str]]
         """
@@ -660,6 +702,10 @@ if not MYPY:
         """
         Value in megabytes reserved for non-cache usage per shard e.g. failover.
         """
+        notify_keyspace_events: NotRequired[pulumi.Input[str]]
+        """
+        The keyspace events which should be monitored.
+        """
         preferred_data_persistence_auth_method: NotRequired[pulumi.Input[str]]
         """
         Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
@@ -690,6 +736,7 @@ elif False:
 @pulumi.input_type
 class RedisCommonPropertiesRedisConfigurationArgs:
     def __init__(__self__, *,
+                 aad_enabled: Optional[pulumi.Input[str]] = None,
                  aof_backup_enabled: Optional[pulumi.Input[str]] = None,
                  aof_storage_connection_string0: Optional[pulumi.Input[str]] = None,
                  aof_storage_connection_string1: Optional[pulumi.Input[str]] = None,
@@ -698,6 +745,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
                  maxmemory_delta: Optional[pulumi.Input[str]] = None,
                  maxmemory_policy: Optional[pulumi.Input[str]] = None,
                  maxmemory_reserved: Optional[pulumi.Input[str]] = None,
+                 notify_keyspace_events: Optional[pulumi.Input[str]] = None,
                  preferred_data_persistence_auth_method: Optional[pulumi.Input[str]] = None,
                  rdb_backup_enabled: Optional[pulumi.Input[str]] = None,
                  rdb_backup_frequency: Optional[pulumi.Input[str]] = None,
@@ -705,7 +753,8 @@ class RedisCommonPropertiesRedisConfigurationArgs:
                  rdb_storage_connection_string: Optional[pulumi.Input[str]] = None,
                  storage_subscription_id: Optional[pulumi.Input[str]] = None):
         """
-        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
+        :param pulumi.Input[str] aad_enabled: Specifies whether AAD based authentication has been enabled or disabled for the cache
         :param pulumi.Input[str] aof_backup_enabled: Specifies whether the aof backup is enabled
         :param pulumi.Input[str] aof_storage_connection_string0: First storage account connection string
         :param pulumi.Input[str] aof_storage_connection_string1: Second storage account connection string
@@ -714,6 +763,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         :param pulumi.Input[str] maxmemory_delta: Value in megabytes reserved for non-cache usage per shard e.g. failover.
         :param pulumi.Input[str] maxmemory_policy: The eviction strategy used when your data won't fit within its memory limit.
         :param pulumi.Input[str] maxmemory_reserved: Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        :param pulumi.Input[str] notify_keyspace_events: The keyspace events which should be monitored.
         :param pulumi.Input[str] preferred_data_persistence_auth_method: Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
         :param pulumi.Input[str] rdb_backup_enabled: Specifies whether the rdb backup is enabled
         :param pulumi.Input[str] rdb_backup_frequency: Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
@@ -721,6 +771,8 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         :param pulumi.Input[str] rdb_storage_connection_string: The storage account connection string for storing rdb file
         :param pulumi.Input[str] storage_subscription_id: SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
         """
+        if aad_enabled is not None:
+            pulumi.set(__self__, "aad_enabled", aad_enabled)
         if aof_backup_enabled is not None:
             pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
@@ -737,6 +789,8 @@ class RedisCommonPropertiesRedisConfigurationArgs:
             pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
         if maxmemory_reserved is not None:
             pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
+        if notify_keyspace_events is not None:
+            pulumi.set(__self__, "notify_keyspace_events", notify_keyspace_events)
         if preferred_data_persistence_auth_method is not None:
             pulumi.set(__self__, "preferred_data_persistence_auth_method", preferred_data_persistence_auth_method)
         if rdb_backup_enabled is not None:
@@ -749,6 +803,18 @@ class RedisCommonPropertiesRedisConfigurationArgs:
             pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
         if storage_subscription_id is not None:
             pulumi.set(__self__, "storage_subscription_id", storage_subscription_id)
+
+    @property
+    @pulumi.getter(name="aadEnabled")
+    def aad_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether AAD based authentication has been enabled or disabled for the cache
+        """
+        return pulumi.get(self, "aad_enabled")
+
+    @aad_enabled.setter
+    def aad_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aad_enabled", value)
 
     @property
     @pulumi.getter(name="aofBackupEnabled")
@@ -845,6 +911,18 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     @maxmemory_reserved.setter
     def maxmemory_reserved(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "maxmemory_reserved", value)
+
+    @property
+    @pulumi.getter(name="notifyKeyspaceEvents")
+    def notify_keyspace_events(self) -> Optional[pulumi.Input[str]]:
+        """
+        The keyspace events which should be monitored.
+        """
+        return pulumi.get(self, "notify_keyspace_events")
+
+    @notify_keyspace_events.setter
+    def notify_keyspace_events(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notify_keyspace_events", value)
 
     @property
     @pulumi.getter(name="preferredDataPersistenceAuthMethod")

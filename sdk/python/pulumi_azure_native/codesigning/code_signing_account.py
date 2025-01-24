@@ -119,9 +119,9 @@ class CodeSigningAccount(pulumi.CustomResource):
                  __props__=None):
         """
         Trusted signing account resource.
-        Azure REST API version: 2024-02-05-preview.
+        Azure REST API version: 2024-09-30-preview. Prior API version in Azure Native 1.x: 2024-02-05-preview.
 
-        Other available API versions: 2024-09-30-preview.
+        Other available API versions: 2024-02-05-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,9 +139,9 @@ class CodeSigningAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Trusted signing account resource.
-        Azure REST API version: 2024-02-05-preview.
+        Azure REST API version: 2024-09-30-preview. Prior API version in Azure Native 1.x: 2024-02-05-preview.
 
-        Other available API versions: 2024-09-30-preview.
+        Other available API versions: 2024-02-05-preview.
 
         :param str resource_name: The name of the resource.
         :param CodeSigningAccountArgs args: The arguments to use to populate this resource's properties.

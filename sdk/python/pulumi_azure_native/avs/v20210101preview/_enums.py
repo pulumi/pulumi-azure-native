@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AddonType',
-    'DhcpTypeEnum',
 ]
 
 
@@ -16,10 +15,3 @@ class AddonType(str, Enum):
     """
     SRM = "SRM"
     VR = "VR"
-
-
-class DhcpTypeEnum(str, Enum):
-    """
-    Type of DHCP: SERVER or RELAY.
-    """
-    SERVE_R_RELAY = "SERVER, RELAY"

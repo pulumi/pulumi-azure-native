@@ -13,11 +13,172 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from ... import _utilities
+from . import outputs
 
 __all__ = [
+    'BackupPolicyPropertiesResponse',
     'SystemDataResponse',
     'VolumeBackupsResponse',
 ]
+
+@pulumi.output_type
+class BackupPolicyPropertiesResponse(dict):
+    """
+    Backup policy properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupPolicyId":
+            suggest = "backup_policy_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "dailyBackupsToKeep":
+            suggest = "daily_backups_to_keep"
+        elif key == "monthlyBackupsToKeep":
+            suggest = "monthly_backups_to_keep"
+        elif key == "volumeBackups":
+            suggest = "volume_backups"
+        elif key == "volumesAssigned":
+            suggest = "volumes_assigned"
+        elif key == "weeklyBackupsToKeep":
+            suggest = "weekly_backups_to_keep"
+        elif key == "yearlyBackupsToKeep":
+            suggest = "yearly_backups_to_keep"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_policy_id: str,
+                 name: str,
+                 provisioning_state: str,
+                 daily_backups_to_keep: Optional[int] = None,
+                 enabled: Optional[bool] = None,
+                 monthly_backups_to_keep: Optional[int] = None,
+                 volume_backups: Optional[Sequence['outputs.VolumeBackupsResponse']] = None,
+                 volumes_assigned: Optional[int] = None,
+                 weekly_backups_to_keep: Optional[int] = None,
+                 yearly_backups_to_keep: Optional[int] = None):
+        """
+        Backup policy properties
+        :param str backup_policy_id: Backup Policy Resource ID
+        :param str name: Name of backup policy
+        :param str provisioning_state: Azure lifecycle management
+        :param int daily_backups_to_keep: Daily backups count to keep
+        :param bool enabled: The property to decide policy is enabled or not
+        :param int monthly_backups_to_keep: Monthly backups count to keep
+        :param Sequence['VolumeBackupsResponse'] volume_backups: A list of volumes assigned to this policy
+        :param int volumes_assigned: Volumes using current backup policy
+        :param int weekly_backups_to_keep: Weekly backups count to keep
+        :param int yearly_backups_to_keep: Yearly backups count to keep
+        """
+        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if daily_backups_to_keep is not None:
+            pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if monthly_backups_to_keep is not None:
+            pulumi.set(__self__, "monthly_backups_to_keep", monthly_backups_to_keep)
+        if volume_backups is not None:
+            pulumi.set(__self__, "volume_backups", volume_backups)
+        if volumes_assigned is not None:
+            pulumi.set(__self__, "volumes_assigned", volumes_assigned)
+        if weekly_backups_to_keep is not None:
+            pulumi.set(__self__, "weekly_backups_to_keep", weekly_backups_to_keep)
+        if yearly_backups_to_keep is not None:
+            pulumi.set(__self__, "yearly_backups_to_keep", yearly_backups_to_keep)
+
+    @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> str:
+        """
+        Backup Policy Resource ID
+        """
+        return pulumi.get(self, "backup_policy_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of backup policy
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Azure lifecycle management
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="dailyBackupsToKeep")
+    def daily_backups_to_keep(self) -> Optional[int]:
+        """
+        Daily backups count to keep
+        """
+        return pulumi.get(self, "daily_backups_to_keep")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        The property to decide policy is enabled or not
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="monthlyBackupsToKeep")
+    def monthly_backups_to_keep(self) -> Optional[int]:
+        """
+        Monthly backups count to keep
+        """
+        return pulumi.get(self, "monthly_backups_to_keep")
+
+    @property
+    @pulumi.getter(name="volumeBackups")
+    def volume_backups(self) -> Optional[Sequence['outputs.VolumeBackupsResponse']]:
+        """
+        A list of volumes assigned to this policy
+        """
+        return pulumi.get(self, "volume_backups")
+
+    @property
+    @pulumi.getter(name="volumesAssigned")
+    def volumes_assigned(self) -> Optional[int]:
+        """
+        Volumes using current backup policy
+        """
+        return pulumi.get(self, "volumes_assigned")
+
+    @property
+    @pulumi.getter(name="weeklyBackupsToKeep")
+    def weekly_backups_to_keep(self) -> Optional[int]:
+        """
+        Weekly backups count to keep
+        """
+        return pulumi.get(self, "weekly_backups_to_keep")
+
+    @property
+    @pulumi.getter(name="yearlyBackupsToKeep")
+    def yearly_backups_to_keep(self) -> Optional[int]:
+        """
+        Yearly backups count to keep
+        """
+        return pulumi.get(self, "yearly_backups_to_keep")
+
 
 @pulumi.output_type
 class SystemDataResponse(dict):

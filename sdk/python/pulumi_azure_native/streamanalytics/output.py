@@ -169,7 +169,7 @@ class Output(pulumi.CustomResource):
                  __props__=None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2020-03-01.
 
         Other available API versions: 2021-10-01-preview.
 
@@ -192,7 +192,7 @@ class Output(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2020-03-01.
 
         Other available API versions: 2021-10-01-preview.
 

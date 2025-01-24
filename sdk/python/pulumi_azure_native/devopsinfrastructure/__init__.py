@@ -15,18 +15,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.devopsinfrastructure.v20231030preview as __v20231030preview
     v20231030preview = __v20231030preview
-    import pulumi_azure_native.devopsinfrastructure.v20231213preview as __v20231213preview
-    v20231213preview = __v20231213preview
-    import pulumi_azure_native.devopsinfrastructure.v20240326preview as __v20240326preview
-    v20240326preview = __v20240326preview
-    import pulumi_azure_native.devopsinfrastructure.v20240404preview as __v20240404preview
-    v20240404preview = __v20240404preview
     import pulumi_azure_native.devopsinfrastructure.v20241019 as __v20241019
     v20241019 = __v20241019
 else:
     v20231030preview = _utilities.lazy_import('pulumi_azure_native.devopsinfrastructure.v20231030preview')
-    v20231213preview = _utilities.lazy_import('pulumi_azure_native.devopsinfrastructure.v20231213preview')
-    v20240326preview = _utilities.lazy_import('pulumi_azure_native.devopsinfrastructure.v20240326preview')
-    v20240404preview = _utilities.lazy_import('pulumi_azure_native.devopsinfrastructure.v20240404preview')
     v20241019 = _utilities.lazy_import('pulumi_azure_native.devopsinfrastructure.v20241019')
 

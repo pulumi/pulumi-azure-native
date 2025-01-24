@@ -187,9 +187,9 @@ class VirtualNetwork(pulumi.CustomResource):
                  __props__=None):
         """
         The virtual network resource definition.
-        Azure REST API version: 2022-12-15-preview.
+        Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview.
+        Other available API versions: 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -211,9 +211,9 @@ class VirtualNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The virtual network resource definition.
-        Azure REST API version: 2022-12-15-preview.
+        Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2022-12-15-preview.
 
-        Other available API versions: 2023-07-01-preview.
+        Other available API versions: 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.

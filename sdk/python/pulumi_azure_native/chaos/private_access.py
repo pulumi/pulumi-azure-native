@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = ['PrivateAccessArgs', 'PrivateAccess']
 
@@ -23,12 +24,14 @@ class PrivateAccessArgs:
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  private_access_name: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOption']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PrivateAccess resource.
         :param pulumi.Input[str] resource_group_name: String that represents an Azure resource group.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] private_access_name: The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessOption']] public_network_access: Public Network Access Control for PrivateAccess resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -36,6 +39,8 @@ class PrivateAccessArgs:
             pulumi.set(__self__, "location", location)
         if private_access_name is not None:
             pulumi.set(__self__, "private_access_name", private_access_name)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -76,6 +81,18 @@ class PrivateAccessArgs:
         pulumi.set(self, "private_access_name", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOption']]]:
+        """
+        Public Network Access Control for PrivateAccess resource.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOption']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -95,19 +112,21 @@ class PrivateAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_access_name: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOption']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         PrivateAccesses tracked resource.
-        Azure REST API version: 2023-10-27-preview.
+        Azure REST API version: 2024-03-22-preview. Prior API version in Azure Native 1.x: 2023-10-27-preview.
 
-        Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+        Other available API versions: 2023-10-27-preview, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] private_access_name: The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessOption']] public_network_access: Public Network Access Control for PrivateAccess resource.
         :param pulumi.Input[str] resource_group_name: String that represents an Azure resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -119,9 +138,9 @@ class PrivateAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         PrivateAccesses tracked resource.
-        Azure REST API version: 2023-10-27-preview.
+        Azure REST API version: 2024-03-22-preview. Prior API version in Azure Native 1.x: 2023-10-27-preview.
 
-        Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+        Other available API versions: 2023-10-27-preview, 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateAccessArgs args: The arguments to use to populate this resource's properties.
@@ -140,6 +159,7 @@ class PrivateAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_access_name: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOption']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -153,12 +173,14 @@ class PrivateAccess(pulumi.CustomResource):
 
             __props__.__dict__["location"] = location
             __props__.__dict__["private_access_name"] = private_access_name
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:chaos/v20231027preview:PrivateAccess"), pulumi.Alias(type_="azure-native:chaos/v20240322preview:PrivateAccess"), pulumi.Alias(type_="azure-native:chaos/v20241101preview:PrivateAccess")])
@@ -188,6 +210,8 @@ class PrivateAccess(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -216,6 +240,22 @@ class PrivateAccess(pulumi.CustomResource):
         A readonly collection of private endpoint connection. Currently only one endpoint connection is supported.
         """
         return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Most recent provisioning state for the given privateAccess resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Public Network Access Control for PrivateAccess resource.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="systemData")

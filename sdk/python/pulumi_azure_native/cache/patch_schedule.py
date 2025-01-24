@@ -29,7 +29,7 @@ class PatchScheduleArgs:
         """
         The set of arguments for constructing a PatchSchedule resource.
         :param pulumi.Input[str] name: The name of the Redis cache.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]] schedule_entries: List of patch schedules for a Redis cache.
         :param pulumi.Input[str] default: Default string modeled as parameter for auto generation to work correctly.
         """
@@ -55,7 +55,7 @@ class PatchScheduleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -100,15 +100,15 @@ class PatchSchedule(pulumi.CustomResource):
                  __props__=None):
         """
         Response to put/get patch schedules for Redis cache.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 1.x: 2023-04-01.
 
-        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+        Other available API versions: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default: Default string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[str] name: The name of the Redis cache.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]] schedule_entries: List of patch schedules for a Redis cache.
         """
         ...
@@ -119,9 +119,9 @@ class PatchSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response to put/get patch schedules for Redis cache.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 1.x: 2023-04-01.
 
-        Other available API versions: 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+        Other available API versions: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param PatchScheduleArgs args: The arguments to use to populate this resource's properties.

@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'AccessReviewHistoryInstanceResponse',
     'AccessReviewInstanceResponse',
+    'AccessReviewRecurrenceRangeResponse',
     'AccessReviewReviewerResponse',
     'AccessReviewScopeResponse',
 ]
@@ -323,6 +324,86 @@ class AccessReviewInstanceResponse(dict):
         The DateTime when the review instance is scheduled to be start.
         """
         return pulumi.get(self, "start_date_time")
+
+
+@pulumi.output_type
+class AccessReviewRecurrenceRangeResponse(dict):
+    """
+    Recurrence Range of an Access Review Schedule Definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endDate":
+            suggest = "end_date"
+        elif key == "numberOfOccurrences":
+            suggest = "number_of_occurrences"
+        elif key == "startDate":
+            suggest = "start_date"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessReviewRecurrenceRangeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessReviewRecurrenceRangeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessReviewRecurrenceRangeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_date: Optional[str] = None,
+                 number_of_occurrences: Optional[int] = None,
+                 start_date: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Recurrence Range of an Access Review Schedule Definition.
+        :param str end_date: The DateTime when the review is scheduled to end. Required if type is endDate
+        :param int number_of_occurrences: The number of times to repeat the access review. Required and must be positive if type is numbered.
+        :param str start_date: The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+        :param str type: The recurrence range type. The possible values are: endDate, noEnd, numbered.
+        """
+        if end_date is not None:
+            pulumi.set(__self__, "end_date", end_date)
+        if number_of_occurrences is not None:
+            pulumi.set(__self__, "number_of_occurrences", number_of_occurrences)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> Optional[str]:
+        """
+        The DateTime when the review is scheduled to end. Required if type is endDate
+        """
+        return pulumi.get(self, "end_date")
+
+    @property
+    @pulumi.getter(name="numberOfOccurrences")
+    def number_of_occurrences(self) -> Optional[int]:
+        """
+        The number of times to repeat the access review. Required and must be positive if type is numbered.
+        """
+        return pulumi.get(self, "number_of_occurrences")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[str]:
+        """
+        The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
+        """
+        return pulumi.get(self, "start_date")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The recurrence range type. The possible values are: endDate, noEnd, numbered.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

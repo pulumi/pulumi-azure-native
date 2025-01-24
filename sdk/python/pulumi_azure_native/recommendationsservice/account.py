@@ -24,6 +24,7 @@ class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  account_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['AccountResourcePropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -31,6 +32,7 @@ class AccountArgs:
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] account_name: The name of the RecommendationsService Account resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['AccountResourcePropertiesArgs'] properties: Account resource properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -38,6 +40,8 @@ class AccountArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -68,6 +72,18 @@ class AccountArgs:
     @account_name.setter
     def account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        The identity used for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -112,6 +128,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['AccountResourcePropertiesArgs', 'AccountResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -119,13 +136,14 @@ class Account(pulumi.CustomResource):
                  __props__=None):
         """
         Account resource details.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
+        Azure REST API version: 2022-03-01-preview. Prior API version in Azure Native 1.x: 2022-02-01.
 
-        Other available API versions: 2022-03-01-preview.
+        Other available API versions: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the RecommendationsService Account resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['AccountResourcePropertiesArgs', 'AccountResourcePropertiesArgsDict']] properties: Account resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -139,9 +157,9 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Account resource details.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
+        Azure REST API version: 2022-03-01-preview. Prior API version in Azure Native 1.x: 2022-02-01.
 
-        Other available API versions: 2022-03-01-preview.
+        Other available API versions: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -159,6 +177,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['AccountResourcePropertiesArgs', 'AccountResourcePropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -173,6 +192,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
@@ -206,6 +226,7 @@ class Account(pulumi.CustomResource):
 
         __props__ = AccountArgs.__new__(AccountArgs)
 
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -213,6 +234,14 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        The identity used for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

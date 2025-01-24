@@ -67,7 +67,7 @@ class GetLogicalNetworkResult:
 
     @property
     @pulumi.getter(name="dhcpOptions")
-    def dhcp_options(self) -> Optional['outputs.LogicalNetworkPropertiesResponseDhcpOptions']:
+    def dhcp_options(self) -> Optional['outputs.LogicalNetworkPropertiesDhcpOptionsResponse']:
         """
         DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
         """
@@ -85,7 +85,7 @@ class GetLogicalNetworkResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -186,10 +186,10 @@ def get_logical_network(logical_network_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogicalNetworkResult:
     """
-    The logical network resource definition.
-    Azure REST API version: 2023-09-01-preview.
+    The operation to get a logical network.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-01-01.
 
 
     :param str logical_network_name: Name of the logical network
@@ -218,10 +218,10 @@ def get_logical_network_output(logical_network_name: Optional[pulumi.Input[str]]
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogicalNetworkResult]:
     """
-    The logical network resource definition.
-    Azure REST API version: 2023-09-01-preview.
+    The operation to get a logical network.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2023-09-01-preview, 2024-01-01.
 
 
     :param str logical_network_name: Name of the logical network

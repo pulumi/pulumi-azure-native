@@ -6,7 +6,6 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_policy_assignment import *
 from .get_policy_definition import *
 from .get_policy_definition_at_management_group import *
 from .get_policy_definition_version import *
@@ -21,7 +20,6 @@ from .list_policy_definition_version_all_builtins import *
 from .list_policy_set_definition_version_all import *
 from .list_policy_set_definition_version_all_at_management_group import *
 from .list_policy_set_definition_version_all_builtins import *
-from .policy_assignment import *
 from .policy_definition import *
 from .policy_definition_at_management_group import *
 from .policy_definition_version import *

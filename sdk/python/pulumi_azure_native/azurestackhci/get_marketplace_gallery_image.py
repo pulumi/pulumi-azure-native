@@ -27,13 +27,13 @@ class GetMarketplaceGalleryImageResult:
     """
     The marketplace gallery image resource definition.
     """
-    def __init__(__self__, cloud_init_data_source=None, container_name=None, extended_location=None, hyper_v_generation=None, id=None, identifier=None, location=None, name=None, os_type=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, cloud_init_data_source=None, container_id=None, extended_location=None, hyper_v_generation=None, id=None, identifier=None, location=None, name=None, os_type=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None, version=None):
         if cloud_init_data_source and not isinstance(cloud_init_data_source, str):
             raise TypeError("Expected argument 'cloud_init_data_source' to be a str")
         pulumi.set(__self__, "cloud_init_data_source", cloud_init_data_source)
-        if container_name and not isinstance(container_name, str):
-            raise TypeError("Expected argument 'container_name' to be a str")
-        pulumi.set(__self__, "container_name", container_name)
+        if container_id and not isinstance(container_id, str):
+            raise TypeError("Expected argument 'container_id' to be a str")
+        pulumi.set(__self__, "container_id", container_id)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -83,12 +83,12 @@ class GetMarketplaceGalleryImageResult:
         return pulumi.get(self, "cloud_init_data_source")
 
     @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[str]:
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> Optional[str]:
         """
-        Container Name for storage container
+        Storage ContainerID of the storage container to be used for marketplace gallery image
         """
-        return pulumi.get(self, "container_name")
+        return pulumi.get(self, "container_id")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -110,7 +110,7 @@ class GetMarketplaceGalleryImageResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -140,7 +140,7 @@ class GetMarketplaceGalleryImageResult:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> str:
         """
         Operating system type that the gallery image uses [Windows, Linux]
         """
@@ -202,7 +202,7 @@ class AwaitableGetMarketplaceGalleryImageResult(GetMarketplaceGalleryImageResult
             yield self
         return GetMarketplaceGalleryImageResult(
             cloud_init_data_source=self.cloud_init_data_source,
-            container_name=self.container_name,
+            container_id=self.container_id,
             extended_location=self.extended_location,
             hyper_v_generation=self.hyper_v_generation,
             id=self.id,
@@ -223,9 +223,9 @@ def get_marketplace_gallery_image(marketplace_gallery_image_name: Optional[str] 
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMarketplaceGalleryImageResult:
     """
     Gets a marketplace gallery image
-    Azure REST API version: 2022-12-15-preview.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-12-15-preview, 2024-01-01.
 
 
     :param str marketplace_gallery_image_name: Name of the marketplace gallery image
@@ -239,7 +239,7 @@ def get_marketplace_gallery_image(marketplace_gallery_image_name: Optional[str] 
 
     return AwaitableGetMarketplaceGalleryImageResult(
         cloud_init_data_source=pulumi.get(__ret__, 'cloud_init_data_source'),
-        container_name=pulumi.get(__ret__, 'container_name'),
+        container_id=pulumi.get(__ret__, 'container_id'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         hyper_v_generation=pulumi.get(__ret__, 'hyper_v_generation'),
         id=pulumi.get(__ret__, 'id'),
@@ -258,9 +258,9 @@ def get_marketplace_gallery_image_output(marketplace_gallery_image_name: Optiona
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMarketplaceGalleryImageResult]:
     """
     Gets a marketplace gallery image
-    Azure REST API version: 2022-12-15-preview.
+    Azure REST API version: 2024-08-01-preview.
 
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Other available API versions: 2022-12-15-preview, 2024-01-01.
 
 
     :param str marketplace_gallery_image_name: Name of the marketplace gallery image
@@ -273,7 +273,7 @@ def get_marketplace_gallery_image_output(marketplace_gallery_image_name: Optiona
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getMarketplaceGalleryImage', __args__, opts=opts, typ=GetMarketplaceGalleryImageResult)
     return __ret__.apply(lambda __response__: GetMarketplaceGalleryImageResult(
         cloud_init_data_source=pulumi.get(__response__, 'cloud_init_data_source'),
-        container_name=pulumi.get(__response__, 'container_name'),
+        container_id=pulumi.get(__response__, 'container_id'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         hyper_v_generation=pulumi.get(__response__, 'hyper_v_generation'),
         id=pulumi.get(__response__, 'id'),

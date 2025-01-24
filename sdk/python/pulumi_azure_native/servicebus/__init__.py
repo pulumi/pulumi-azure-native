@@ -47,8 +47,6 @@ if typing.TYPE_CHECKING:
     v20180101preview = __v20180101preview
     import pulumi_azure_native.servicebus.v20220101preview as __v20220101preview
     v20220101preview = __v20220101preview
-    import pulumi_azure_native.servicebus.v20221001preview as __v20221001preview
-    v20221001preview = __v20221001preview
     import pulumi_azure_native.servicebus.v20230101preview as __v20230101preview
     v20230101preview = __v20230101preview
     import pulumi_azure_native.servicebus.v20240101 as __v20240101
@@ -56,7 +54,6 @@ if typing.TYPE_CHECKING:
 else:
     v20180101preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20180101preview')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20220101preview')
-    v20221001preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20221001preview')
     v20230101preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20230101preview')
     v20240101 = _utilities.lazy_import('pulumi_azure_native.servicebus.v20240101')
 

@@ -5,7 +5,6 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
-from ._enums import *
 from .get_group_quota import *
 from .get_group_quota_subscription import *
 from .group_quota import *

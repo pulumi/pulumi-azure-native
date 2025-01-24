@@ -24,8 +24,8 @@ __all__ = [
     'ServerPropertiesForReplicaArgsDict',
     'ServerPropertiesForRestoreArgs',
     'ServerPropertiesForRestoreArgsDict',
-    'SkuArgs',
-    'SkuArgsDict',
+    'SingleServerSkuArgs',
+    'SingleServerSkuArgsDict',
     'StorageProfileArgs',
     'StorageProfileArgsDict',
 ]
@@ -619,7 +619,7 @@ class ServerPropertiesForRestoreArgs:
 
 
 if not MYPY:
-    class SkuArgsDict(TypedDict):
+    class SingleServerSkuArgsDict(TypedDict):
         """
         Billing information related properties of a server.
         """
@@ -644,10 +644,10 @@ if not MYPY:
         The tier of the particular SKU, e.g. Basic.
         """
 elif False:
-    SkuArgsDict: TypeAlias = Mapping[str, Any]
+    SingleServerSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class SkuArgs:
+class SingleServerSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  capacity: Optional[pulumi.Input[int]] = None,

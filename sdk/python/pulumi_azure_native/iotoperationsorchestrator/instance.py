@@ -203,7 +203,7 @@ class Instance(pulumi.CustomResource):
                  __props__=None):
         """
         A Instance resource belonging to an Instance resource.
-        Azure REST API version: 2023-10-04-preview.
+        Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 1.x: 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,7 +226,7 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Instance resource belonging to an Instance resource.
-        Azure REST API version: 2023-10-04-preview.
+        Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 1.x: 2023-10-04-preview.
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

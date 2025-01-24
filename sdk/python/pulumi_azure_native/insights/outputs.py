@@ -22,6 +22,8 @@ __all__ = [
     'ActionGroupResponse',
     'ActionListResponse',
     'ActionsResponse',
+    'AdxDestinationResponse',
+    'AgentSettingResponse',
     'AlertRuleAllOfConditionResponse',
     'AlertRuleAnyOfOrLeafConditionResponse',
     'AlertRuleLeafConditionResponse',
@@ -49,9 +51,12 @@ __all__ = [
     'DataCollectionRuleAssociationResponseMetadata',
     'DataCollectionRuleResourceResponseIdentity',
     'DataCollectionRuleResourceResponseSystemData',
+    'DataCollectionRuleResponseAgentSettings',
     'DataCollectionRuleResponseDataSources',
     'DataCollectionRuleResponseDestinations',
+    'DataCollectionRuleResponseEndpoints',
     'DataCollectionRuleResponseMetadata',
+    'DataCollectionRuleResponseReferences',
     'DataFlowResponse',
     'DataImportSourcesResponseEventHub',
     'DataSourceConfigurationResponse',
@@ -74,6 +79,8 @@ __all__ = [
     'HeaderFieldResponse',
     'IdentityResponse',
     'IisLogsDataSourceResponse',
+    'IncidentReceiverResponse',
+    'IncidentServiceConnectionResponse',
     'ItsmReceiverResponse',
     'LocationSpecResponse',
     'LogAnalyticsDestinationResponse',
@@ -82,6 +89,7 @@ __all__ = [
     'LogFilesDataSourceResponseSettings',
     'LogSettingsResponse',
     'LogicAppReceiverResponse',
+    'ManagedServiceIdentityResponse',
     'ManagementGroupLogSettingsResponse',
     'MetricAlertActionResponse',
     'MetricAlertMultipleResourceMultipleMetricCriteriaResponse',
@@ -90,6 +98,7 @@ __all__ = [
     'MetricDimensionResponse',
     'MetricSettingsResponse',
     'MetricTriggerResponse',
+    'MicrosoftFabricDestinationResponse',
     'MonitoringAccountDestinationResponse',
     'MyWorkbookManagedIdentityResponse',
     'MyWorkbookUserAssignedIdentitiesResponse',
@@ -104,6 +113,7 @@ __all__ = [
     'PrometheusForwarderDataSourceResponse',
     'RecurrenceResponse',
     'RecurrentScheduleResponse',
+    'ReferencesSpecResponseEnrichmentData',
     'RetentionPolicyResponse',
     'RuleResolveConfigurationResponse',
     'ScaleActionResponse',
@@ -114,6 +124,7 @@ __all__ = [
     'SinkConfigurationResponse',
     'SmsReceiverResponse',
     'StorageBlobDestinationResponse',
+    'StorageBlobResponse',
     'StorageTableDestinationResponse',
     'StreamDeclarationResponse',
     'SubscriptionLogSettingsResponse',
@@ -280,6 +291,8 @@ class ActionGroupResponse(dict):
         suggest = None
         if key == "actionGroupId":
             suggest = "action_group_id"
+        elif key == "actionProperties":
+            suggest = "action_properties"
         elif key == "webhookProperties":
             suggest = "webhook_properties"
 
@@ -296,13 +309,17 @@ class ActionGroupResponse(dict):
 
     def __init__(__self__, *,
                  action_group_id: str,
+                 action_properties: Optional[Mapping[str, str]] = None,
                  webhook_properties: Optional[Mapping[str, str]] = None):
         """
         A pointer to an Azure Action Group.
         :param str action_group_id: The resource ID of the Action Group. This cannot be null or empty.
+        :param Mapping[str, str] action_properties: Predefined list of properties and configuration items for the action group.
         :param Mapping[str, str] webhook_properties: the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
+        if action_properties is not None:
+            pulumi.set(__self__, "action_properties", action_properties)
         if webhook_properties is not None:
             pulumi.set(__self__, "webhook_properties", webhook_properties)
 
@@ -313,6 +330,14 @@ class ActionGroupResponse(dict):
         The resource ID of the Action Group. This cannot be null or empty.
         """
         return pulumi.get(self, "action_group_id")
+
+    @property
+    @pulumi.getter(name="actionProperties")
+    def action_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Predefined list of properties and configuration items for the action group.
+        """
+        return pulumi.get(self, "action_properties")
 
     @property
     @pulumi.getter(name="webhookProperties")
@@ -429,6 +454,124 @@ class ActionsResponse(dict):
         The properties of an alert payload.
         """
         return pulumi.get(self, "custom_properties")
+
+
+@pulumi.output_type
+class AdxDestinationResponse(dict):
+    """
+    Azure Data Explorer (Adx) destination.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ingestionUri":
+            suggest = "ingestion_uri"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdxDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdxDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdxDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ingestion_uri: str,
+                 database_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        Azure Data Explorer (Adx) destination.
+        :param str ingestion_uri: The ingestion uri of the Adx resource.
+        :param str database_name: The name of the database to which data will be ingested.
+        :param str name: A friendly name for the destination. 
+               This name should be unique across all destinations (regardless of type) within the data collection rule.
+        :param str resource_id: The ARM resource id of the Adx resource.
+        """
+        pulumi.set(__self__, "ingestion_uri", ingestion_uri)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="ingestionUri")
+    def ingestion_uri(self) -> str:
+        """
+        The ingestion uri of the Adx resource.
+        """
+        return pulumi.get(self, "ingestion_uri")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The name of the database to which data will be ingested.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The ARM resource id of the Adx resource.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class AgentSettingResponse(dict):
+    """
+    A setting used to control an agent behavior on a host machine
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        A setting used to control an agent behavior on a host machine
+        :param str name: The name of the setting. 
+               Must be part of the list of supported settings
+        :param str value: The value of the setting
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the setting. 
+        Must be part of the list of supported settings
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the setting
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -993,6 +1136,8 @@ class AutomationRunbookReceiverResponse(dict):
             suggest = "runbook_name"
         elif key == "webhookResourceId":
             suggest = "webhook_resource_id"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
         elif key == "serviceUri":
             suggest = "service_uri"
         elif key == "useCommonAlertSchema":
@@ -1014,6 +1159,7 @@ class AutomationRunbookReceiverResponse(dict):
                  is_global_runbook: bool,
                  runbook_name: str,
                  webhook_resource_id: str,
+                 managed_identity: Optional[str] = None,
                  name: Optional[str] = None,
                  service_uri: Optional[str] = None,
                  use_common_alert_schema: Optional[bool] = None):
@@ -1023,6 +1169,7 @@ class AutomationRunbookReceiverResponse(dict):
         :param bool is_global_runbook: Indicates whether this instance is global runbook.
         :param str runbook_name: The name for this runbook.
         :param str webhook_resource_id: The resource id for webhook linked to this runbook.
+        :param str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
         :param str name: Indicates name of the webhook.
         :param str service_uri: The URI where webhooks should be sent.
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
@@ -1031,6 +1178,8 @@ class AutomationRunbookReceiverResponse(dict):
         pulumi.set(__self__, "is_global_runbook", is_global_runbook)
         pulumi.set(__self__, "runbook_name", runbook_name)
         pulumi.set(__self__, "webhook_resource_id", webhook_resource_id)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if service_uri is not None:
@@ -1071,6 +1220,14 @@ class AutomationRunbookReceiverResponse(dict):
         The resource id for webhook linked to this runbook.
         """
         return pulumi.get(self, "webhook_resource_id")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
 
     @property
     @pulumi.getter
@@ -1292,6 +1449,8 @@ class AzureFunctionReceiverResponse(dict):
             suggest = "function_name"
         elif key == "httpTriggerUrl":
             suggest = "http_trigger_url"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
         elif key == "useCommonAlertSchema":
             suggest = "use_common_alert_schema"
 
@@ -1311,6 +1470,7 @@ class AzureFunctionReceiverResponse(dict):
                  function_name: str,
                  http_trigger_url: str,
                  name: str,
+                 managed_identity: Optional[str] = None,
                  use_common_alert_schema: Optional[bool] = None):
         """
         An azure function receiver.
@@ -1318,12 +1478,15 @@ class AzureFunctionReceiverResponse(dict):
         :param str function_name: The function name in the function app.
         :param str http_trigger_url: The http trigger url where http request sent to.
         :param str name: The name of the azure function receiver. Names must be unique across all receivers within an action group.
+        :param str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
         pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "http_trigger_url", http_trigger_url)
         pulumi.set(__self__, "name", name)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
@@ -1360,6 +1523,14 @@ class AzureFunctionReceiverResponse(dict):
         The name of the azure function receiver. Names must be unique across all receivers within an action group.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
 
     @property
     @pulumi.getter(name="useCommonAlertSchema")
@@ -1413,8 +1584,14 @@ class ConditionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "failingPeriods":
+        if key == "alertSensitivity":
+            suggest = "alert_sensitivity"
+        elif key == "criterionType":
+            suggest = "criterion_type"
+        elif key == "failingPeriods":
             suggest = "failing_periods"
+        elif key == "ignoreDataBefore":
+            suggest = "ignore_data_before"
         elif key == "metricMeasureColumn":
             suggest = "metric_measure_column"
         elif key == "metricName":
@@ -1436,8 +1613,11 @@ class ConditionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 alert_sensitivity: Optional[str] = None,
+                 criterion_type: Optional[str] = None,
                  dimensions: Optional[Sequence['outputs.DimensionResponse']] = None,
                  failing_periods: Optional['outputs.ConditionResponseFailingPeriods'] = None,
+                 ignore_data_before: Optional[str] = None,
                  metric_measure_column: Optional[str] = None,
                  metric_name: Optional[str] = None,
                  operator: Optional[str] = None,
@@ -1447,20 +1627,29 @@ class ConditionResponse(dict):
                  time_aggregation: Optional[str] = None):
         """
         A condition of the scheduled query rule.
+        :param str alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        :param str criterion_type: Specifies the type of threshold criteria
         :param Sequence['DimensionResponse'] dimensions: List of Dimensions conditions
         :param 'ConditionResponseFailingPeriods' failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param str ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
         :param str metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
         :param str metric_name: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
         :param str operator: The criteria operator. Relevant and required only for rules of the kind LogAlert.
         :param str query: Log query alert
         :param str resource_id_column: The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
-        :param float threshold: the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
+        :param float threshold: the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
         :param str time_aggregation: Aggregation type. Relevant and required only for rules of the kind LogAlert.
         """
+        if alert_sensitivity is not None:
+            pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
+        if criterion_type is not None:
+            pulumi.set(__self__, "criterion_type", criterion_type)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
         if failing_periods is not None:
             pulumi.set(__self__, "failing_periods", failing_periods)
+        if ignore_data_before is not None:
+            pulumi.set(__self__, "ignore_data_before", ignore_data_before)
         if metric_measure_column is not None:
             pulumi.set(__self__, "metric_measure_column", metric_measure_column)
         if metric_name is not None:
@@ -1477,6 +1666,22 @@ class ConditionResponse(dict):
             pulumi.set(__self__, "time_aggregation", time_aggregation)
 
     @property
+    @pulumi.getter(name="alertSensitivity")
+    def alert_sensitivity(self) -> Optional[str]:
+        """
+        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "alert_sensitivity")
+
+    @property
+    @pulumi.getter(name="criterionType")
+    def criterion_type(self) -> Optional[str]:
+        """
+        Specifies the type of threshold criteria
+        """
+        return pulumi.get(self, "criterion_type")
+
+    @property
     @pulumi.getter
     def dimensions(self) -> Optional[Sequence['outputs.DimensionResponse']]:
         """
@@ -1491,6 +1696,14 @@ class ConditionResponse(dict):
         The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         """
         return pulumi.get(self, "failing_periods")
+
+    @property
+    @pulumi.getter(name="ignoreDataBefore")
+    def ignore_data_before(self) -> Optional[str]:
+        """
+        Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "ignore_data_before")
 
     @property
     @pulumi.getter(name="metricMeasureColumn")
@@ -1536,7 +1749,7 @@ class ConditionResponse(dict):
     @pulumi.getter
     def threshold(self) -> Optional[float]:
         """
-        the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
+        the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
         """
         return pulumi.get(self, "threshold")
 
@@ -1900,6 +2113,8 @@ class DataCollectionEndpointResponseMetadata(dict):
         suggest = None
         if key == "provisionedBy":
             suggest = "provisioned_by"
+        elif key == "provisionedByImmutableId":
+            suggest = "provisioned_by_immutable_id"
         elif key == "provisionedByResourceId":
             suggest = "provisioned_by_resource_id"
 
@@ -1916,13 +2131,16 @@ class DataCollectionEndpointResponseMetadata(dict):
 
     def __init__(__self__, *,
                  provisioned_by: str,
+                 provisioned_by_immutable_id: str,
                  provisioned_by_resource_id: str):
         """
         Metadata for the resource. This property is READ-ONLY.
         :param str provisioned_by: Azure offering managing this resource on-behalf-of customer.
+        :param str provisioned_by_immutable_id: Immutable Id of azure offering managing this resource on-behalf-of customer.
         :param str provisioned_by_resource_id: Resource Id of azure offering managing this resource on-behalf-of customer.
         """
         pulumi.set(__self__, "provisioned_by", provisioned_by)
+        pulumi.set(__self__, "provisioned_by_immutable_id", provisioned_by_immutable_id)
         pulumi.set(__self__, "provisioned_by_resource_id", provisioned_by_resource_id)
 
     @property
@@ -1932,6 +2150,14 @@ class DataCollectionEndpointResponseMetadata(dict):
         Azure offering managing this resource on-behalf-of customer.
         """
         return pulumi.get(self, "provisioned_by")
+
+    @property
+    @pulumi.getter(name="provisionedByImmutableId")
+    def provisioned_by_immutable_id(self) -> str:
+        """
+        Immutable Id of azure offering managing this resource on-behalf-of customer.
+        """
+        return pulumi.get(self, "provisioned_by_immutable_id")
 
     @property
     @pulumi.getter(name="provisionedByResourceId")
@@ -2124,6 +2350,8 @@ class DataCollectionRuleAssociationResponseMetadata(dict):
         suggest = None
         if key == "provisionedBy":
             suggest = "provisioned_by"
+        elif key == "provisionedByImmutableId":
+            suggest = "provisioned_by_immutable_id"
         elif key == "provisionedByResourceId":
             suggest = "provisioned_by_resource_id"
 
@@ -2140,13 +2368,16 @@ class DataCollectionRuleAssociationResponseMetadata(dict):
 
     def __init__(__self__, *,
                  provisioned_by: str,
+                 provisioned_by_immutable_id: str,
                  provisioned_by_resource_id: str):
         """
         Metadata about the resource
         :param str provisioned_by: Azure offering managing this resource on-behalf-of customer.
+        :param str provisioned_by_immutable_id: Immutable Id of azure offering managing this resource on-behalf-of customer.
         :param str provisioned_by_resource_id: Resource Id of azure offering managing this resource on-behalf-of customer.
         """
         pulumi.set(__self__, "provisioned_by", provisioned_by)
+        pulumi.set(__self__, "provisioned_by_immutable_id", provisioned_by_immutable_id)
         pulumi.set(__self__, "provisioned_by_resource_id", provisioned_by_resource_id)
 
     @property
@@ -2156,6 +2387,14 @@ class DataCollectionRuleAssociationResponseMetadata(dict):
         Azure offering managing this resource on-behalf-of customer.
         """
         return pulumi.get(self, "provisioned_by")
+
+    @property
+    @pulumi.getter(name="provisionedByImmutableId")
+    def provisioned_by_immutable_id(self) -> str:
+        """
+        Immutable Id of azure offering managing this resource on-behalf-of customer.
+        """
+        return pulumi.get(self, "provisioned_by_immutable_id")
 
     @property
     @pulumi.getter(name="provisionedByResourceId")
@@ -2354,6 +2593,29 @@ class DataCollectionRuleResourceResponseSystemData(dict):
 
 
 @pulumi.output_type
+class DataCollectionRuleResponseAgentSettings(dict):
+    """
+    Agent settings used to modify agent behavior on a given host
+    """
+    def __init__(__self__, *,
+                 logs: Optional[Sequence['outputs.AgentSettingResponse']] = None):
+        """
+        Agent settings used to modify agent behavior on a given host
+        :param Sequence['AgentSettingResponse'] logs: All the settings that are applicable to the logs agent (AMA)
+        """
+        if logs is not None:
+            pulumi.set(__self__, "logs", logs)
+
+    @property
+    @pulumi.getter
+    def logs(self) -> Optional[Sequence['outputs.AgentSettingResponse']]:
+        """
+        All the settings that are applicable to the logs agent (AMA)
+        """
+        return pulumi.get(self, "logs")
+
+
+@pulumi.output_type
 class DataCollectionRuleResponseDataSources(dict):
     """
     The specification of data sources. 
@@ -2525,7 +2787,9 @@ class DataCollectionRuleResponseDestinations(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "azureMonitorMetrics":
+        if key == "azureDataExplorer":
+            suggest = "azure_data_explorer"
+        elif key == "azureMonitorMetrics":
             suggest = "azure_monitor_metrics"
         elif key == "eventHubs":
             suggest = "event_hubs"
@@ -2533,6 +2797,8 @@ class DataCollectionRuleResponseDestinations(dict):
             suggest = "event_hubs_direct"
         elif key == "logAnalytics":
             suggest = "log_analytics"
+        elif key == "microsoftFabric":
+            suggest = "microsoft_fabric"
         elif key == "monitoringAccounts":
             suggest = "monitoring_accounts"
         elif key == "storageAccounts":
@@ -2554,25 +2820,31 @@ class DataCollectionRuleResponseDestinations(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 azure_data_explorer: Optional[Sequence['outputs.AdxDestinationResponse']] = None,
                  azure_monitor_metrics: Optional['outputs.DestinationsSpecResponseAzureMonitorMetrics'] = None,
                  event_hubs: Optional[Sequence['outputs.EventHubDestinationResponse']] = None,
                  event_hubs_direct: Optional[Sequence['outputs.EventHubDirectDestinationResponse']] = None,
                  log_analytics: Optional[Sequence['outputs.LogAnalyticsDestinationResponse']] = None,
+                 microsoft_fabric: Optional[Sequence['outputs.MicrosoftFabricDestinationResponse']] = None,
                  monitoring_accounts: Optional[Sequence['outputs.MonitoringAccountDestinationResponse']] = None,
                  storage_accounts: Optional[Sequence['outputs.StorageBlobDestinationResponse']] = None,
                  storage_blobs_direct: Optional[Sequence['outputs.StorageBlobDestinationResponse']] = None,
                  storage_tables_direct: Optional[Sequence['outputs.StorageTableDestinationResponse']] = None):
         """
         The specification of destinations.
+        :param Sequence['AdxDestinationResponse'] azure_data_explorer: List of Azure Data Explorer destinations.
         :param 'DestinationsSpecResponseAzureMonitorMetrics' azure_monitor_metrics: Azure Monitor Metrics destination.
         :param Sequence['EventHubDestinationResponse'] event_hubs: List of Event Hubs destinations.
         :param Sequence['EventHubDirectDestinationResponse'] event_hubs_direct: List of Event Hubs Direct destinations.
         :param Sequence['LogAnalyticsDestinationResponse'] log_analytics: List of Log Analytics destinations.
+        :param Sequence['MicrosoftFabricDestinationResponse'] microsoft_fabric: List of Microsoft Fabric destinations.
         :param Sequence['MonitoringAccountDestinationResponse'] monitoring_accounts: List of monitoring account destinations.
         :param Sequence['StorageBlobDestinationResponse'] storage_accounts: List of storage accounts destinations.
         :param Sequence['StorageBlobDestinationResponse'] storage_blobs_direct: List of Storage Blob Direct destinations. To be used only for sending data directly to store from the agent.
         :param Sequence['StorageTableDestinationResponse'] storage_tables_direct: List of Storage Table Direct destinations.
         """
+        if azure_data_explorer is not None:
+            pulumi.set(__self__, "azure_data_explorer", azure_data_explorer)
         if azure_monitor_metrics is not None:
             pulumi.set(__self__, "azure_monitor_metrics", azure_monitor_metrics)
         if event_hubs is not None:
@@ -2581,6 +2853,8 @@ class DataCollectionRuleResponseDestinations(dict):
             pulumi.set(__self__, "event_hubs_direct", event_hubs_direct)
         if log_analytics is not None:
             pulumi.set(__self__, "log_analytics", log_analytics)
+        if microsoft_fabric is not None:
+            pulumi.set(__self__, "microsoft_fabric", microsoft_fabric)
         if monitoring_accounts is not None:
             pulumi.set(__self__, "monitoring_accounts", monitoring_accounts)
         if storage_accounts is not None:
@@ -2589,6 +2863,14 @@ class DataCollectionRuleResponseDestinations(dict):
             pulumi.set(__self__, "storage_blobs_direct", storage_blobs_direct)
         if storage_tables_direct is not None:
             pulumi.set(__self__, "storage_tables_direct", storage_tables_direct)
+
+    @property
+    @pulumi.getter(name="azureDataExplorer")
+    def azure_data_explorer(self) -> Optional[Sequence['outputs.AdxDestinationResponse']]:
+        """
+        List of Azure Data Explorer destinations.
+        """
+        return pulumi.get(self, "azure_data_explorer")
 
     @property
     @pulumi.getter(name="azureMonitorMetrics")
@@ -2621,6 +2903,14 @@ class DataCollectionRuleResponseDestinations(dict):
         List of Log Analytics destinations.
         """
         return pulumi.get(self, "log_analytics")
+
+    @property
+    @pulumi.getter(name="microsoftFabric")
+    def microsoft_fabric(self) -> Optional[Sequence['outputs.MicrosoftFabricDestinationResponse']]:
+        """
+        List of Microsoft Fabric destinations.
+        """
+        return pulumi.get(self, "microsoft_fabric")
 
     @property
     @pulumi.getter(name="monitoringAccounts")
@@ -2656,6 +2946,58 @@ class DataCollectionRuleResponseDestinations(dict):
 
 
 @pulumi.output_type
+class DataCollectionRuleResponseEndpoints(dict):
+    """
+    Defines the ingestion endpoints to send data to via this rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logsIngestion":
+            suggest = "logs_ingestion"
+        elif key == "metricsIngestion":
+            suggest = "metrics_ingestion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleResponseEndpoints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleResponseEndpoints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleResponseEndpoints.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 logs_ingestion: str,
+                 metrics_ingestion: str):
+        """
+        Defines the ingestion endpoints to send data to via this rule.
+        :param str logs_ingestion: The ingestion endpoint for logs
+        :param str metrics_ingestion: The ingestion endpoint for metrics
+        """
+        pulumi.set(__self__, "logs_ingestion", logs_ingestion)
+        pulumi.set(__self__, "metrics_ingestion", metrics_ingestion)
+
+    @property
+    @pulumi.getter(name="logsIngestion")
+    def logs_ingestion(self) -> str:
+        """
+        The ingestion endpoint for logs
+        """
+        return pulumi.get(self, "logs_ingestion")
+
+    @property
+    @pulumi.getter(name="metricsIngestion")
+    def metrics_ingestion(self) -> str:
+        """
+        The ingestion endpoint for metrics
+        """
+        return pulumi.get(self, "metrics_ingestion")
+
+
+@pulumi.output_type
 class DataCollectionRuleResponseMetadata(dict):
     """
     Metadata about the resource
@@ -2665,6 +3007,8 @@ class DataCollectionRuleResponseMetadata(dict):
         suggest = None
         if key == "provisionedBy":
             suggest = "provisioned_by"
+        elif key == "provisionedByImmutableId":
+            suggest = "provisioned_by_immutable_id"
         elif key == "provisionedByResourceId":
             suggest = "provisioned_by_resource_id"
 
@@ -2681,13 +3025,16 @@ class DataCollectionRuleResponseMetadata(dict):
 
     def __init__(__self__, *,
                  provisioned_by: str,
+                 provisioned_by_immutable_id: str,
                  provisioned_by_resource_id: str):
         """
         Metadata about the resource
         :param str provisioned_by: Azure offering managing this resource on-behalf-of customer.
+        :param str provisioned_by_immutable_id: Immutable Id of azure offering managing this resource on-behalf-of customer.
         :param str provisioned_by_resource_id: Resource Id of azure offering managing this resource on-behalf-of customer.
         """
         pulumi.set(__self__, "provisioned_by", provisioned_by)
+        pulumi.set(__self__, "provisioned_by_immutable_id", provisioned_by_immutable_id)
         pulumi.set(__self__, "provisioned_by_resource_id", provisioned_by_resource_id)
 
     @property
@@ -2699,12 +3046,60 @@ class DataCollectionRuleResponseMetadata(dict):
         return pulumi.get(self, "provisioned_by")
 
     @property
+    @pulumi.getter(name="provisionedByImmutableId")
+    def provisioned_by_immutable_id(self) -> str:
+        """
+        Immutable Id of azure offering managing this resource on-behalf-of customer.
+        """
+        return pulumi.get(self, "provisioned_by_immutable_id")
+
+    @property
     @pulumi.getter(name="provisionedByResourceId")
     def provisioned_by_resource_id(self) -> str:
         """
         Resource Id of azure offering managing this resource on-behalf-of customer.
         """
         return pulumi.get(self, "provisioned_by_resource_id")
+
+
+@pulumi.output_type
+class DataCollectionRuleResponseReferences(dict):
+    """
+    Defines all the references that may be used in other sections of the DCR
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enrichmentData":
+            suggest = "enrichment_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectionRuleResponseReferences. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectionRuleResponseReferences.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectionRuleResponseReferences.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enrichment_data: Optional['outputs.ReferencesSpecResponseEnrichmentData'] = None):
+        """
+        Defines all the references that may be used in other sections of the DCR
+        :param 'ReferencesSpecResponseEnrichmentData' enrichment_data: All the enrichment data sources referenced in data flows
+        """
+        if enrichment_data is not None:
+            pulumi.set(__self__, "enrichment_data", enrichment_data)
+
+    @property
+    @pulumi.getter(name="enrichmentData")
+    def enrichment_data(self) -> Optional['outputs.ReferencesSpecResponseEnrichmentData']:
+        """
+        All the enrichment data sources referenced in data flows
+        """
+        return pulumi.get(self, "enrichment_data")
 
 
 @pulumi.output_type
@@ -2717,6 +3112,8 @@ class DataFlowResponse(dict):
         suggest = None
         if key == "builtInTransform":
             suggest = "built_in_transform"
+        elif key == "captureOverflow":
+            suggest = "capture_overflow"
         elif key == "outputStream":
             suggest = "output_stream"
         elif key == "transformKql":
@@ -2735,6 +3132,7 @@ class DataFlowResponse(dict):
 
     def __init__(__self__, *,
                  built_in_transform: Optional[str] = None,
+                 capture_overflow: Optional[bool] = None,
                  destinations: Optional[Sequence[str]] = None,
                  output_stream: Optional[str] = None,
                  streams: Optional[Sequence[str]] = None,
@@ -2742,6 +3140,7 @@ class DataFlowResponse(dict):
         """
         Definition of which streams are sent to which destinations.
         :param str built_in_transform: The builtIn transform to transform stream data
+        :param bool capture_overflow: Flag to enable overflow column in LA destinations
         :param Sequence[str] destinations: List of destinations for this data flow.
         :param str output_stream: The output stream of the transform. Only required if the transform changes data to a different stream.
         :param Sequence[str] streams: List of streams for this data flow.
@@ -2749,6 +3148,8 @@ class DataFlowResponse(dict):
         """
         if built_in_transform is not None:
             pulumi.set(__self__, "built_in_transform", built_in_transform)
+        if capture_overflow is not None:
+            pulumi.set(__self__, "capture_overflow", capture_overflow)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
         if output_stream is not None:
@@ -2765,6 +3166,14 @@ class DataFlowResponse(dict):
         The builtIn transform to transform stream data
         """
         return pulumi.get(self, "built_in_transform")
+
+    @property
+    @pulumi.getter(name="captureOverflow")
+    def capture_overflow(self) -> Optional[bool]:
+        """
+        Flag to enable overflow column in LA destinations
+        """
+        return pulumi.get(self, "capture_overflow")
 
     @property
     @pulumi.getter
@@ -3681,6 +4090,8 @@ class EventHubReceiverResponse(dict):
             suggest = "event_hub_name_space"
         elif key == "subscriptionId":
             suggest = "subscription_id"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
         elif key == "tenantId":
             suggest = "tenant_id"
         elif key == "useCommonAlertSchema":
@@ -3702,6 +4113,7 @@ class EventHubReceiverResponse(dict):
                  event_hub_name_space: str,
                  name: str,
                  subscription_id: str,
+                 managed_identity: Optional[str] = None,
                  tenant_id: Optional[str] = None,
                  use_common_alert_schema: Optional[bool] = None):
         """
@@ -3710,6 +4122,7 @@ class EventHubReceiverResponse(dict):
         :param str event_hub_name_space: The Event Hub namespace
         :param str name: The name of the Event hub receiver. Names must be unique across all receivers within an action group.
         :param str subscription_id: The Id for the subscription containing this event hub
+        :param str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
         :param str tenant_id: The tenant Id for the subscription containing this event hub
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
@@ -3717,6 +4130,8 @@ class EventHubReceiverResponse(dict):
         pulumi.set(__self__, "event_hub_name_space", event_hub_name_space)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "subscription_id", subscription_id)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
         if use_common_alert_schema is None:
@@ -3755,6 +4170,14 @@ class EventHubReceiverResponse(dict):
         The Id for the subscription containing this event hub
         """
         return pulumi.get(self, "subscription_id")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
 
     @property
     @pulumi.getter(name="tenantId")
@@ -3849,7 +4272,7 @@ class ExtensionDataSourceResponse(dict):
         :param str extension_name: The name of the VM extension.
         :param Any extension_settings: The extension settings. The format is specific for particular extension.
         :param Sequence[str] input_data_sources: The list of data sources this extension needs data from.
-        :param str name: A friendly name for the data source. 
+        :param str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -3892,7 +4315,7 @@ class ExtensionDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -4048,6 +4471,8 @@ class IisLogsDataSourceResponse(dict):
         suggest = None
         if key == "logDirectories":
             suggest = "log_directories"
+        elif key == "transformKql":
+            suggest = "transform_kql"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IisLogsDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -4063,19 +4488,23 @@ class IisLogsDataSourceResponse(dict):
     def __init__(__self__, *,
                  streams: Sequence[str],
                  log_directories: Optional[Sequence[str]] = None,
-                 name: Optional[str] = None):
+                 name: Optional[str] = None,
+                 transform_kql: Optional[str] = None):
         """
         Enables IIS logs to be collected by this data collection rule.
         :param Sequence[str] streams: IIS streams
         :param Sequence[str] log_directories: Absolute paths file location
-        :param str name: A friendly name for the data source. 
+        :param str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
+        :param str transform_kql: The KQL query to transform the data source.
         """
         pulumi.set(__self__, "streams", streams)
         if log_directories is not None:
             pulumi.set(__self__, "log_directories", log_directories)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if transform_kql is not None:
+            pulumi.set(__self__, "transform_kql", transform_kql)
 
     @property
     @pulumi.getter
@@ -4097,8 +4526,121 @@ class IisLogsDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="transformKql")
+    def transform_kql(self) -> Optional[str]:
+        """
+        The KQL query to transform the data source.
+        """
+        return pulumi.get(self, "transform_kql")
+
+
+@pulumi.output_type
+class IncidentReceiverResponse(dict):
+    """
+    An Incident receiver.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incidentManagementService":
+            suggest = "incident_management_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IncidentReceiverResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IncidentReceiverResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IncidentReceiverResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection: 'outputs.IncidentServiceConnectionResponse',
+                 incident_management_service: str,
+                 mappings: Mapping[str, str],
+                 name: str):
+        """
+        An Incident receiver.
+        :param 'IncidentServiceConnectionResponse' connection: The incident service connection
+        :param str incident_management_service: The incident management service type
+        :param Mapping[str, str] mappings: Field mappings for the incident service
+        :param str name: The name of the Incident receiver. Names must be unique across all receivers within an action group.
+        """
+        pulumi.set(__self__, "connection", connection)
+        pulumi.set(__self__, "incident_management_service", incident_management_service)
+        pulumi.set(__self__, "mappings", mappings)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def connection(self) -> 'outputs.IncidentServiceConnectionResponse':
+        """
+        The incident service connection
+        """
+        return pulumi.get(self, "connection")
+
+    @property
+    @pulumi.getter(name="incidentManagementService")
+    def incident_management_service(self) -> str:
+        """
+        The incident management service type
+        """
+        return pulumi.get(self, "incident_management_service")
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> Mapping[str, str]:
+        """
+        Field mappings for the incident service
+        """
+        return pulumi.get(self, "mappings")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Incident receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class IncidentServiceConnectionResponse(dict):
+    """
+    The connection info for Incident Receiver.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        The connection info for Incident Receiver.
+        :param str id: GUID value representing the connection ID for the incident management service.
+        :param str name: The name of the connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        GUID value representing the connection ID for the incident management service.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the connection.
         """
         return pulumi.get(self, "name")
 
@@ -4354,6 +4896,8 @@ class LogFilesDataSourceResponse(dict):
         suggest = None
         if key == "filePatterns":
             suggest = "file_patterns"
+        elif key == "transformKql":
+            suggest = "transform_kql"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LogFilesDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -4371,16 +4915,18 @@ class LogFilesDataSourceResponse(dict):
                  format: str,
                  streams: Sequence[str],
                  name: Optional[str] = None,
-                 settings: Optional['outputs.LogFilesDataSourceResponseSettings'] = None):
+                 settings: Optional['outputs.LogFilesDataSourceResponseSettings'] = None,
+                 transform_kql: Optional[str] = None):
         """
         Definition of which custom log files will be collected by this data collection rule
         :param Sequence[str] file_patterns: File Patterns where the log files are located
         :param str format: The data format of the log files
         :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data source
-        :param str name: A friendly name for the data source. 
+        :param str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param 'LogFilesDataSourceResponseSettings' settings: The log files specific settings.
+        :param str transform_kql: The KQL query to transform the data source.
         """
         pulumi.set(__self__, "file_patterns", file_patterns)
         pulumi.set(__self__, "format", format)
@@ -4389,6 +4935,8 @@ class LogFilesDataSourceResponse(dict):
             pulumi.set(__self__, "name", name)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
+        if transform_kql is not None:
+            pulumi.set(__self__, "transform_kql", transform_kql)
 
     @property
     @pulumi.getter(name="filePatterns")
@@ -4419,7 +4967,7 @@ class LogFilesDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -4431,6 +4979,14 @@ class LogFilesDataSourceResponse(dict):
         The log files specific settings.
         """
         return pulumi.get(self, "settings")
+
+    @property
+    @pulumi.getter(name="transformKql")
+    def transform_kql(self) -> Optional[str]:
+        """
+        The KQL query to transform the data source.
+        """
+        return pulumi.get(self, "transform_kql")
 
 
 @pulumi.output_type
@@ -4545,6 +5101,8 @@ class LogicAppReceiverResponse(dict):
             suggest = "callback_url"
         elif key == "resourceId":
             suggest = "resource_id"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
         elif key == "useCommonAlertSchema":
             suggest = "use_common_alert_schema"
 
@@ -4563,17 +5121,21 @@ class LogicAppReceiverResponse(dict):
                  callback_url: str,
                  name: str,
                  resource_id: str,
+                 managed_identity: Optional[str] = None,
                  use_common_alert_schema: Optional[bool] = None):
         """
         A logic app receiver.
         :param str callback_url: The callback url where http request sent to.
         :param str name: The name of the logic app receiver. Names must be unique across all receivers within an action group.
         :param str resource_id: The azure resource id of the logic app receiver.
+        :param str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
         :param bool use_common_alert_schema: Indicates whether to use common alert schema.
         """
         pulumi.set(__self__, "callback_url", callback_url)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_id", resource_id)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
         if use_common_alert_schema is None:
             use_common_alert_schema = False
         if use_common_alert_schema is not None:
@@ -4604,12 +5166,97 @@ class LogicAppReceiverResponse(dict):
         return pulumi.get(self, "resource_id")
 
     @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
     @pulumi.getter(name="useCommonAlertSchema")
     def use_common_alert_schema(self) -> Optional[bool]:
         """
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -5279,6 +5926,102 @@ class MetricTriggerResponse(dict):
 
 
 @pulumi.output_type
+class MicrosoftFabricDestinationResponse(dict):
+    """
+    Microsoft Fabric destination (non-Azure).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactId":
+            suggest = "artifact_id"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ingestionUri":
+            suggest = "ingestion_uri"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MicrosoftFabricDestinationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MicrosoftFabricDestinationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MicrosoftFabricDestinationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact_id: Optional[str] = None,
+                 database_name: Optional[str] = None,
+                 ingestion_uri: Optional[str] = None,
+                 name: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Microsoft Fabric destination (non-Azure).
+        :param str artifact_id: The artifact id of the Microsoft Fabric resource.
+        :param str database_name: The name of the database to which data will be ingested.
+        :param str ingestion_uri: The ingestion uri of the Microsoft Fabric resource.
+        :param str name: A friendly name for the destination. 
+               This name should be unique across all destinations (regardless of type) within the data collection rule.
+        :param str tenant_id: The tenant id of the Microsoft Fabric resource.
+        """
+        if artifact_id is not None:
+            pulumi.set(__self__, "artifact_id", artifact_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if ingestion_uri is not None:
+            pulumi.set(__self__, "ingestion_uri", ingestion_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="artifactId")
+    def artifact_id(self) -> Optional[str]:
+        """
+        The artifact id of the Microsoft Fabric resource.
+        """
+        return pulumi.get(self, "artifact_id")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        The name of the database to which data will be ingested.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="ingestionUri")
+    def ingestion_uri(self) -> Optional[str]:
+        """
+        The ingestion uri of the Microsoft Fabric resource.
+        """
+        return pulumi.get(self, "ingestion_uri")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        A friendly name for the destination. 
+        This name should be unique across all destinations (regardless of type) within the data collection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of the Microsoft Fabric resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
 class MonitoringAccountDestinationResponse(dict):
     """
     Monitoring account destination.
@@ -5462,6 +6205,8 @@ class PerfCounterDataSourceResponse(dict):
             suggest = "counter_specifiers"
         elif key == "samplingFrequencyInSeconds":
             suggest = "sampling_frequency_in_seconds"
+        elif key == "transformKql":
+            suggest = "transform_kql"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PerfCounterDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -5478,18 +6223,20 @@ class PerfCounterDataSourceResponse(dict):
                  counter_specifiers: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
                  sampling_frequency_in_seconds: Optional[int] = None,
-                 streams: Optional[Sequence[str]] = None):
+                 streams: Optional[Sequence[str]] = None,
+                 transform_kql: Optional[str] = None):
         """
         Definition of which performance counters will be collected and how they will be collected by this data collection rule.
         Collected from both Windows and Linux machines where the counter is present.
         :param Sequence[str] counter_specifiers: A list of specifier names of the performance counters you want to collect.
                Use a wildcard (*) to collect a counter for all instances.
                To get a list of performance counters on Windows, run the command 'typeperf'.
-        :param str name: A friendly name for the data source. 
+        :param str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param int sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples).
         :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        :param str transform_kql: The KQL query to transform the data source.
         """
         if counter_specifiers is not None:
             pulumi.set(__self__, "counter_specifiers", counter_specifiers)
@@ -5499,6 +6246,8 @@ class PerfCounterDataSourceResponse(dict):
             pulumi.set(__self__, "sampling_frequency_in_seconds", sampling_frequency_in_seconds)
         if streams is not None:
             pulumi.set(__self__, "streams", streams)
+        if transform_kql is not None:
+            pulumi.set(__self__, "transform_kql", transform_kql)
 
     @property
     @pulumi.getter(name="counterSpecifiers")
@@ -5514,7 +6263,7 @@ class PerfCounterDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -5535,6 +6284,14 @@ class PerfCounterDataSourceResponse(dict):
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="transformKql")
+    def transform_kql(self) -> Optional[str]:
+        """
+        The KQL query to transform the data source.
+        """
+        return pulumi.get(self, "transform_kql")
 
 
 @pulumi.output_type
@@ -5592,7 +6349,7 @@ class PlatformTelemetryDataSourceResponse(dict):
         """
         Definition of platform telemetry data source configuration
         :param Sequence[str] streams: List of platform telemetry streams to collect
-        :param str name: A friendly name for the data source. 
+        :param str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         pulumi.set(__self__, "streams", streams)
@@ -5611,7 +6368,7 @@ class PlatformTelemetryDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -5936,7 +6693,7 @@ class PrometheusForwarderDataSourceResponse(dict):
         :param Mapping[str, str] label_include_filter: The list of label inclusion filters in the form of label "name-value" pairs.
                Currently only one label is supported: 'microsoft_metrics_include_label'.
                Label values are matched case-insensitively.
-        :param str name: A friendly name for the data source. 
+        :param str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[str] streams: List of streams that this data source will be sent to.
         """
@@ -5961,7 +6718,7 @@ class PrometheusForwarderDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -6078,6 +6835,46 @@ class RecurrentScheduleResponse(dict):
         the timezone for the hours of the profile. Some examples of valid time zones are: Dateline Standard Time, UTC-11, Hawaiian Standard Time, Alaskan Standard Time, Pacific Standard Time (Mexico), Pacific Standard Time, US Mountain Standard Time, Mountain Standard Time (Mexico), Mountain Standard Time, Central America Standard Time, Central Standard Time, Central Standard Time (Mexico), Canada Central Standard Time, SA Pacific Standard Time, Eastern Standard Time, US Eastern Standard Time, Venezuela Standard Time, Paraguay Standard Time, Atlantic Standard Time, Central Brazilian Standard Time, SA Western Standard Time, Pacific SA Standard Time, Newfoundland Standard Time, E. South America Standard Time, Argentina Standard Time, SA Eastern Standard Time, Greenland Standard Time, Montevideo Standard Time, Bahia Standard Time, UTC-02, Mid-Atlantic Standard Time, Azores Standard Time, Cape Verde Standard Time, Morocco Standard Time, UTC, GMT Standard Time, Greenwich Standard Time, W. Europe Standard Time, Central Europe Standard Time, Romance Standard Time, Central European Standard Time, W. Central Africa Standard Time, Namibia Standard Time, Jordan Standard Time, GTB Standard Time, Middle East Standard Time, Egypt Standard Time, Syria Standard Time, E. Europe Standard Time, South Africa Standard Time, FLE Standard Time, Turkey Standard Time, Israel Standard Time, Kaliningrad Standard Time, Libya Standard Time, Arabic Standard Time, Arab Standard Time, Belarus Standard Time, Russian Standard Time, E. Africa Standard Time, Iran Standard Time, Arabian Standard Time, Azerbaijan Standard Time, Russia Time Zone 3, Mauritius Standard Time, Georgian Standard Time, Caucasus Standard Time, Afghanistan Standard Time, West Asia Standard Time, Ekaterinburg Standard Time, Pakistan Standard Time, India Standard Time, Sri Lanka Standard Time, Nepal Standard Time, Central Asia Standard Time, Bangladesh Standard Time, N. Central Asia Standard Time, Myanmar Standard Time, SE Asia Standard Time, North Asia Standard Time, China Standard Time, North Asia East Standard Time, Singapore Standard Time, W. Australia Standard Time, Taipei Standard Time, Ulaanbaatar Standard Time, Tokyo Standard Time, Korea Standard Time, Yakutsk Standard Time, Cen. Australia Standard Time, AUS Central Standard Time, E. Australia Standard Time, AUS Eastern Standard Time, West Pacific Standard Time, Tasmania Standard Time, Magadan Standard Time, Vladivostok Standard Time, Russia Time Zone 10, Central Pacific Standard Time, Russia Time Zone 11, New Zealand Standard Time, UTC+12, Fiji Standard Time, Kamchatka Standard Time, Tonga Standard Time, Samoa Standard Time, Line Islands Standard Time
         """
         return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class ReferencesSpecResponseEnrichmentData(dict):
+    """
+    All the enrichment data sources referenced in data flows
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageBlobs":
+            suggest = "storage_blobs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReferencesSpecResponseEnrichmentData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReferencesSpecResponseEnrichmentData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReferencesSpecResponseEnrichmentData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_blobs: Optional[Sequence['outputs.StorageBlobResponse']] = None):
+        """
+        All the enrichment data sources referenced in data flows
+        :param Sequence['StorageBlobResponse'] storage_blobs: All the storage blobs used as enrichment data sources
+        """
+        if storage_blobs is not None:
+            pulumi.set(__self__, "storage_blobs", storage_blobs)
+
+    @property
+    @pulumi.getter(name="storageBlobs")
+    def storage_blobs(self) -> Optional[Sequence['outputs.StorageBlobResponse']]:
+        """
+        All the storage blobs used as enrichment data sources
+        """
+        return pulumi.get(self, "storage_blobs")
 
 
 @pulumi.output_type
@@ -6573,6 +7370,82 @@ class StorageBlobDestinationResponse(dict):
 
 
 @pulumi.output_type
+class StorageBlobResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blobUrl":
+            suggest = "blob_url"
+        elif key == "lookupType":
+            suggest = "lookup_type"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageBlobResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageBlobResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageBlobResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blob_url: Optional[str] = None,
+                 lookup_type: Optional[str] = None,
+                 name: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        :param str blob_url: Url of the storage blob
+        :param str lookup_type: The type of lookup to perform on the blob
+        :param str name: The name of the enrichment data source used as an alias when referencing this data source in data flows
+        :param str resource_id: Resource Id of the storage account that hosts the blob
+        """
+        if blob_url is not None:
+            pulumi.set(__self__, "blob_url", blob_url)
+        if lookup_type is not None:
+            pulumi.set(__self__, "lookup_type", lookup_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="blobUrl")
+    def blob_url(self) -> Optional[str]:
+        """
+        Url of the storage blob
+        """
+        return pulumi.get(self, "blob_url")
+
+    @property
+    @pulumi.getter(name="lookupType")
+    def lookup_type(self) -> Optional[str]:
+        """
+        The type of lookup to perform on the blob
+        """
+        return pulumi.get(self, "lookup_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the enrichment data source used as an alias when referencing this data source in data flows
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        Resource Id of the storage account that hosts the blob
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class StorageTableDestinationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -6735,6 +7608,8 @@ class SyslogDataSourceResponse(dict):
             suggest = "facility_names"
         elif key == "logLevels":
             suggest = "log_levels"
+        elif key == "transformKql":
+            suggest = "transform_kql"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SyslogDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6751,16 +7626,18 @@ class SyslogDataSourceResponse(dict):
                  facility_names: Optional[Sequence[str]] = None,
                  log_levels: Optional[Sequence[str]] = None,
                  name: Optional[str] = None,
-                 streams: Optional[Sequence[str]] = None):
+                 streams: Optional[Sequence[str]] = None,
+                 transform_kql: Optional[str] = None):
         """
         Definition of which syslog data will be collected and how it will be collected.
         Only collected from Linux machines.
         :param Sequence[str] facility_names: The list of facility names.
         :param Sequence[str] log_levels: The log levels to collect.
-        :param str name: A friendly name for the data source. 
+        :param str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        :param str transform_kql: The KQL query to transform the data source.
         """
         if facility_names is not None:
             pulumi.set(__self__, "facility_names", facility_names)
@@ -6770,6 +7647,8 @@ class SyslogDataSourceResponse(dict):
             pulumi.set(__self__, "name", name)
         if streams is not None:
             pulumi.set(__self__, "streams", streams)
+        if transform_kql is not None:
+            pulumi.set(__self__, "transform_kql", transform_kql)
 
     @property
     @pulumi.getter(name="facilityNames")
@@ -6791,7 +7670,7 @@ class SyslogDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -6804,6 +7683,14 @@ class SyslogDataSourceResponse(dict):
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="transformKql")
+    def transform_kql(self) -> Optional[str]:
+        """
+        The KQL query to transform the data source.
+        """
+        return pulumi.get(self, "transform_kql")
 
 
 @pulumi.output_type
@@ -7544,6 +8431,8 @@ class WebhookReceiverResponse(dict):
             suggest = "service_uri"
         elif key == "identifierUri":
             suggest = "identifier_uri"
+        elif key == "managedIdentity":
+            suggest = "managed_identity"
         elif key == "objectId":
             suggest = "object_id"
         elif key == "tenantId":
@@ -7568,6 +8457,7 @@ class WebhookReceiverResponse(dict):
                  name: str,
                  service_uri: str,
                  identifier_uri: Optional[str] = None,
+                 managed_identity: Optional[str] = None,
                  object_id: Optional[str] = None,
                  tenant_id: Optional[str] = None,
                  use_aad_auth: Optional[bool] = None,
@@ -7577,6 +8467,7 @@ class WebhookReceiverResponse(dict):
         :param str name: The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
         :param str service_uri: The URI where webhooks should be sent.
         :param str identifier_uri: Indicates the identifier uri for aad auth.
+        :param str managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
         :param str object_id: Indicates the webhook app object Id for aad auth.
         :param str tenant_id: Indicates the tenant id for aad auth.
         :param bool use_aad_auth: Indicates whether or not use AAD authentication.
@@ -7586,6 +8477,8 @@ class WebhookReceiverResponse(dict):
         pulumi.set(__self__, "service_uri", service_uri)
         if identifier_uri is not None:
             pulumi.set(__self__, "identifier_uri", identifier_uri)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
         if object_id is not None:
             pulumi.set(__self__, "object_id", object_id)
         if tenant_id is not None:
@@ -7622,6 +8515,14 @@ class WebhookReceiverResponse(dict):
         Indicates the identifier uri for aad auth.
         """
         return pulumi.get(self, "identifier_uri")
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[str]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
 
     @property
     @pulumi.getter(name="objectId")
@@ -7745,7 +8646,9 @@ class WindowsEventLogDataSourceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "xPathQueries":
+        if key == "transformKql":
+            suggest = "transform_kql"
+        elif key == "xPathQueries":
             suggest = "x_path_queries"
 
         if suggest:
@@ -7762,20 +8665,24 @@ class WindowsEventLogDataSourceResponse(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  streams: Optional[Sequence[str]] = None,
+                 transform_kql: Optional[str] = None,
                  x_path_queries: Optional[Sequence[str]] = None):
         """
         Definition of which Windows Event Log events will be collected and how they will be collected.
         Only collected from Windows machines.
-        :param str name: A friendly name for the data source. 
+        :param str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param Sequence[str] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        :param str transform_kql: The KQL query to transform the data source.
         :param Sequence[str] x_path_queries: A list of Windows Event Log queries in XPATH format.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if streams is not None:
             pulumi.set(__self__, "streams", streams)
+        if transform_kql is not None:
+            pulumi.set(__self__, "transform_kql", transform_kql)
         if x_path_queries is not None:
             pulumi.set(__self__, "x_path_queries", x_path_queries)
 
@@ -7783,7 +8690,7 @@ class WindowsEventLogDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
@@ -7796,6 +8703,14 @@ class WindowsEventLogDataSourceResponse(dict):
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
+
+    @property
+    @pulumi.getter(name="transformKql")
+    def transform_kql(self) -> Optional[str]:
+        """
+        The KQL query to transform the data source.
+        """
+        return pulumi.get(self, "transform_kql")
 
     @property
     @pulumi.getter(name="xPathQueries")
@@ -7811,18 +8726,39 @@ class WindowsFirewallLogsDataSourceResponse(dict):
     """
     Enables Firewall logs to be collected by this data collection rule.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "profileFilter":
+            suggest = "profile_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsFirewallLogsDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsFirewallLogsDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsFirewallLogsDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  streams: Sequence[str],
-                 name: Optional[str] = None):
+                 name: Optional[str] = None,
+                 profile_filter: Optional[Sequence[str]] = None):
         """
         Enables Firewall logs to be collected by this data collection rule.
         :param Sequence[str] streams: Firewall logs streams
-        :param str name: A friendly name for the data source. 
+        :param str name: A friendly name for the data source.
                This name should be unique across all data sources (regardless of type) within the data collection rule.
+        :param Sequence[str] profile_filter: Firewall logs profile filter
         """
         pulumi.set(__self__, "streams", streams)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if profile_filter is not None:
+            pulumi.set(__self__, "profile_filter", profile_filter)
 
     @property
     @pulumi.getter
@@ -7836,10 +8772,18 @@ class WindowsFirewallLogsDataSourceResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        A friendly name for the data source. 
+        A friendly name for the data source.
         This name should be unique across all data sources (regardless of type) within the data collection rule.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="profileFilter")
+    def profile_filter(self) -> Optional[Sequence[str]]:
+        """
+        Firewall logs profile filter
+        """
+        return pulumi.get(self, "profile_filter")
 
 
 @pulumi.output_type

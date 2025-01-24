@@ -27,6 +27,7 @@ class VirtualNetworkGatewayInitArgs:
                  admin_state: Optional[pulumi.Input[Union[str, 'AdminState']]] = None,
                  allow_remote_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
+                 auto_scale_configuration: Optional[pulumi.Input['VirtualNetworkGatewayAutoScaleConfigurationArgs']] = None,
                  bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
                  custom_routes: Optional[pulumi.Input['AddressSpaceArgs']] = None,
                  disable_ip_sec_replay_protection: Optional[pulumi.Input[bool]] = None,
@@ -38,9 +39,11 @@ class VirtualNetworkGatewayInitArgs:
                  gateway_default_site: Optional[pulumi.Input['SubResourceArgs']] = None,
                  gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIPConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleArgs']]]] = None,
+                 resiliency_model: Optional[pulumi.Input[Union[str, 'ResiliencyModel']]] = None,
                  sku: Optional[pulumi.Input['VirtualNetworkGatewaySkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  v_net_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
@@ -56,6 +59,7 @@ class VirtualNetworkGatewayInitArgs:
         :param pulumi.Input[Union[str, 'AdminState']] admin_state: Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
         :param pulumi.Input[bool] allow_remote_vnet_traffic: Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
         :param pulumi.Input[bool] allow_virtual_wan_traffic: Configures this gateway to accept traffic from remote Virtual WAN networks.
+        :param pulumi.Input['VirtualNetworkGatewayAutoScaleConfigurationArgs'] auto_scale_configuration: Autoscale configuration for virutal network gateway
         :param pulumi.Input['BgpSettingsArgs'] bgp_settings: Virtual network gateway's BGP speaker settings.
         :param pulumi.Input['AddressSpaceArgs'] custom_routes: The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param pulumi.Input[bool] disable_ip_sec_replay_protection: disableIPSecReplayProtection flag.
@@ -67,10 +71,12 @@ class VirtualNetworkGatewayInitArgs:
         :param pulumi.Input['SubResourceArgs'] gateway_default_site: The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayType']] gateway_type: The type of this virtual network gateway.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the virtual network gateway, if configured.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIPConfigurationArgs']]] ip_configurations: IP configurations for virtual network gateway.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleArgs']]] nat_rules: NatRules for virtual network gateway.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
+        :param pulumi.Input[Union[str, 'ResiliencyModel']] resiliency_model: Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
         :param pulumi.Input['VirtualNetworkGatewaySkuArgs'] sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] v_net_extended_location_resource_id: Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
@@ -89,6 +95,8 @@ class VirtualNetworkGatewayInitArgs:
             pulumi.set(__self__, "allow_remote_vnet_traffic", allow_remote_vnet_traffic)
         if allow_virtual_wan_traffic is not None:
             pulumi.set(__self__, "allow_virtual_wan_traffic", allow_virtual_wan_traffic)
+        if auto_scale_configuration is not None:
+            pulumi.set(__self__, "auto_scale_configuration", auto_scale_configuration)
         if bgp_settings is not None:
             pulumi.set(__self__, "bgp_settings", bgp_settings)
         if custom_routes is not None:
@@ -111,12 +119,16 @@ class VirtualNetworkGatewayInitArgs:
             pulumi.set(__self__, "gateway_type", gateway_type)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if nat_rules is not None:
             pulumi.set(__self__, "nat_rules", nat_rules)
+        if resiliency_model is not None:
+            pulumi.set(__self__, "resiliency_model", resiliency_model)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -193,6 +205,18 @@ class VirtualNetworkGatewayInitArgs:
     @allow_virtual_wan_traffic.setter
     def allow_virtual_wan_traffic(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_virtual_wan_traffic", value)
+
+    @property
+    @pulumi.getter(name="autoScaleConfiguration")
+    def auto_scale_configuration(self) -> Optional[pulumi.Input['VirtualNetworkGatewayAutoScaleConfigurationArgs']]:
+        """
+        Autoscale configuration for virutal network gateway
+        """
+        return pulumi.get(self, "auto_scale_configuration")
+
+    @auto_scale_configuration.setter
+    def auto_scale_configuration(self, value: Optional[pulumi.Input['VirtualNetworkGatewayAutoScaleConfigurationArgs']]):
+        pulumi.set(self, "auto_scale_configuration", value)
 
     @property
     @pulumi.getter(name="bgpSettings")
@@ -327,6 +351,18 @@ class VirtualNetworkGatewayInitArgs:
         pulumi.set(self, "id", value)
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        The identity of the virtual network gateway, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
     @pulumi.getter(name="ipConfigurations")
     def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIPConfigurationArgs']]]]:
         """
@@ -362,6 +398,18 @@ class VirtualNetworkGatewayInitArgs:
     @nat_rules.setter
     def nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayNatRuleArgs']]]]):
         pulumi.set(self, "nat_rules", value)
+
+    @property
+    @pulumi.getter(name="resiliencyModel")
+    def resiliency_model(self) -> Optional[pulumi.Input[Union[str, 'ResiliencyModel']]]:
+        """
+        Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+        """
+        return pulumi.get(self, "resiliency_model")
+
+    @resiliency_model.setter
+    def resiliency_model(self, value: Optional[pulumi.Input[Union[str, 'ResiliencyModel']]]):
+        pulumi.set(self, "resiliency_model", value)
 
     @property
     @pulumi.getter
@@ -469,6 +517,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  admin_state: Optional[pulumi.Input[Union[str, 'AdminState']]] = None,
                  allow_remote_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
+                 auto_scale_configuration: Optional[pulumi.Input[Union['VirtualNetworkGatewayAutoScaleConfigurationArgs', 'VirtualNetworkGatewayAutoScaleConfigurationArgsDict']]] = None,
                  bgp_settings: Optional[pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
                  custom_routes: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
                  disable_ip_sec_replay_protection: Optional[pulumi.Input[bool]] = None,
@@ -480,9 +529,11 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  gateway_default_site: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIPConfigurationArgs', 'VirtualNetworkGatewayIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleArgs', 'VirtualNetworkGatewayNatRuleArgsDict']]]]] = None,
+                 resiliency_model: Optional[pulumi.Input[Union[str, 'ResiliencyModel']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['VirtualNetworkGatewaySkuArgs', 'VirtualNetworkGatewaySkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -495,9 +546,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  __props__=None):
         """
         A common class for general resource information.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-08-01, 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -505,6 +556,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'AdminState']] admin_state: Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
         :param pulumi.Input[bool] allow_remote_vnet_traffic: Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
         :param pulumi.Input[bool] allow_virtual_wan_traffic: Configures this gateway to accept traffic from remote Virtual WAN networks.
+        :param pulumi.Input[Union['VirtualNetworkGatewayAutoScaleConfigurationArgs', 'VirtualNetworkGatewayAutoScaleConfigurationArgsDict']] auto_scale_configuration: Autoscale configuration for virutal network gateway
         :param pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']] bgp_settings: Virtual network gateway's BGP speaker settings.
         :param pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']] custom_routes: The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
         :param pulumi.Input[bool] disable_ip_sec_replay_protection: disableIPSecReplayProtection flag.
@@ -516,10 +568,12 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] gateway_default_site: The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
         :param pulumi.Input[Union[str, 'VirtualNetworkGatewayType']] gateway_type: The type of this virtual network gateway.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the virtual network gateway, if configured.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIPConfigurationArgs', 'VirtualNetworkGatewayIPConfigurationArgsDict']]]] ip_configurations: IP configurations for virtual network gateway.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleArgs', 'VirtualNetworkGatewayNatRuleArgsDict']]]] nat_rules: NatRules for virtual network gateway.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
+        :param pulumi.Input[Union[str, 'ResiliencyModel']] resiliency_model: Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union['VirtualNetworkGatewaySkuArgs', 'VirtualNetworkGatewaySkuArgsDict']] sku: The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -538,9 +592,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2019-08-01, 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayInitArgs args: The arguments to use to populate this resource's properties.
@@ -561,6 +615,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  admin_state: Optional[pulumi.Input[Union[str, 'AdminState']]] = None,
                  allow_remote_vnet_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_wan_traffic: Optional[pulumi.Input[bool]] = None,
+                 auto_scale_configuration: Optional[pulumi.Input[Union['VirtualNetworkGatewayAutoScaleConfigurationArgs', 'VirtualNetworkGatewayAutoScaleConfigurationArgsDict']]] = None,
                  bgp_settings: Optional[pulumi.Input[Union['BgpSettingsArgs', 'BgpSettingsArgsDict']]] = None,
                  custom_routes: Optional[pulumi.Input[Union['AddressSpaceArgs', 'AddressSpaceArgsDict']]] = None,
                  disable_ip_sec_replay_protection: Optional[pulumi.Input[bool]] = None,
@@ -572,9 +627,11 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  gateway_default_site: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIPConfigurationArgs', 'VirtualNetworkGatewayIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayNatRuleArgs', 'VirtualNetworkGatewayNatRuleArgsDict']]]]] = None,
+                 resiliency_model: Optional[pulumi.Input[Union[str, 'ResiliencyModel']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['VirtualNetworkGatewaySkuArgs', 'VirtualNetworkGatewaySkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -597,6 +654,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["admin_state"] = admin_state
             __props__.__dict__["allow_remote_vnet_traffic"] = allow_remote_vnet_traffic
             __props__.__dict__["allow_virtual_wan_traffic"] = allow_virtual_wan_traffic
+            __props__.__dict__["auto_scale_configuration"] = auto_scale_configuration
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["custom_routes"] = custom_routes
             __props__.__dict__["disable_ip_sec_replay_protection"] = disable_ip_sec_replay_protection
@@ -608,9 +666,11 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["gateway_default_site"] = gateway_default_site
             __props__.__dict__["gateway_type"] = gateway_type
             __props__.__dict__["id"] = id
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["nat_rules"] = nat_rules
+            __props__.__dict__["resiliency_model"] = resiliency_model
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -656,6 +716,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         __props__.__dict__["admin_state"] = None
         __props__.__dict__["allow_remote_vnet_traffic"] = None
         __props__.__dict__["allow_virtual_wan_traffic"] = None
+        __props__.__dict__["auto_scale_configuration"] = None
         __props__.__dict__["bgp_settings"] = None
         __props__.__dict__["custom_routes"] = None
         __props__.__dict__["disable_ip_sec_replay_protection"] = None
@@ -667,12 +728,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["gateway_default_site"] = None
         __props__.__dict__["gateway_type"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["inbound_dns_forwarding_endpoint"] = None
         __props__.__dict__["ip_configurations"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["nat_rules"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resiliency_model"] = None
         __props__.__dict__["resource_guid"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
@@ -715,6 +778,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         Configures this gateway to accept traffic from remote Virtual WAN networks.
         """
         return pulumi.get(self, "allow_virtual_wan_traffic")
+
+    @property
+    @pulumi.getter(name="autoScaleConfiguration")
+    def auto_scale_configuration(self) -> pulumi.Output[Optional['outputs.VirtualNetworkGatewayAutoScaleConfigurationResponse']]:
+        """
+        Autoscale configuration for virutal network gateway
+        """
+        return pulumi.get(self, "auto_scale_configuration")
 
     @property
     @pulumi.getter(name="bgpSettings")
@@ -805,6 +876,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         return pulumi.get(self, "gateway_type")
 
     @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        The identity of the virtual network gateway, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="inboundDnsForwardingEndpoint")
     def inbound_dns_forwarding_endpoint(self) -> pulumi.Output[str]:
         """
@@ -851,6 +930,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         The provisioning state of the virtual network gateway resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resiliencyModel")
+    def resiliency_model(self) -> pulumi.Output[Optional[str]]:
+        """
+        Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+        """
+        return pulumi.get(self, "resiliency_model")
 
     @property
     @pulumi.getter(name="resourceGuid")

@@ -150,7 +150,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a read only following database.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class ReadOnlyFollowingDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a read only following database.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ReadOnlyFollowingDatabaseArgs args: The arguments to use to populate this resource's properties.

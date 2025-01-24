@@ -14,36 +14,31 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = ['NetworkDeviceArgs', 'NetworkDevice']
 
 @pulumi.input_type
 class NetworkDeviceArgs:
     def __init__(__self__, *,
-                 network_device_role: pulumi.Input[Union[str, 'NetworkDeviceRoleTypes']],
-                 network_device_sku: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  serial_number: pulumi.Input[str],
                  annotation: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_device_name: Optional[pulumi.Input[str]] = None,
+                 network_device_sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkDevice resource.
-        :param pulumi.Input[Union[str, 'NetworkDeviceRoleTypes']] network_device_role: networkDeviceRole is the device role: Example: CE | ToR.
-        :param pulumi.Input[str] network_device_sku: Network Device SKU name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] serial_number: serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+        :param pulumi.Input[str] serial_number: Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[str] host_name: The host Name of the device.
+        :param pulumi.Input[str] host_name: The host name of the device.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] network_device_name: Name of the Network Device
+        :param pulumi.Input[str] network_device_name: Name of the Network Device.
+        :param pulumi.Input[str] network_device_sku: Network Device SKU name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_device_role", network_device_role)
-        pulumi.set(__self__, "network_device_sku", network_device_sku)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "serial_number", serial_number)
         if annotation is not None:
@@ -54,32 +49,10 @@ class NetworkDeviceArgs:
             pulumi.set(__self__, "location", location)
         if network_device_name is not None:
             pulumi.set(__self__, "network_device_name", network_device_name)
+        if network_device_sku is not None:
+            pulumi.set(__self__, "network_device_sku", network_device_sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="networkDeviceRole")
-    def network_device_role(self) -> pulumi.Input[Union[str, 'NetworkDeviceRoleTypes']]:
-        """
-        networkDeviceRole is the device role: Example: CE | ToR.
-        """
-        return pulumi.get(self, "network_device_role")
-
-    @network_device_role.setter
-    def network_device_role(self, value: pulumi.Input[Union[str, 'NetworkDeviceRoleTypes']]):
-        pulumi.set(self, "network_device_role", value)
-
-    @property
-    @pulumi.getter(name="networkDeviceSku")
-    def network_device_sku(self) -> pulumi.Input[str]:
-        """
-        Network Device SKU name.
-        """
-        return pulumi.get(self, "network_device_sku")
-
-    @network_device_sku.setter
-    def network_device_sku(self, value: pulumi.Input[str]):
-        pulumi.set(self, "network_device_sku", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -97,7 +70,7 @@ class NetworkDeviceArgs:
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> pulumi.Input[str]:
         """
-        serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+        Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         """
         return pulumi.get(self, "serial_number")
 
@@ -121,7 +94,7 @@ class NetworkDeviceArgs:
     @pulumi.getter(name="hostName")
     def host_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The host Name of the device.
+        The host name of the device.
         """
         return pulumi.get(self, "host_name")
 
@@ -145,13 +118,25 @@ class NetworkDeviceArgs:
     @pulumi.getter(name="networkDeviceName")
     def network_device_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Network Device
+        Name of the Network Device.
         """
         return pulumi.get(self, "network_device_name")
 
     @network_device_name.setter
     def network_device_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_device_name", value)
+
+    @property
+    @pulumi.getter(name="networkDeviceSku")
+    def network_device_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        Network Device SKU name.
+        """
+        return pulumi.get(self, "network_device_sku")
+
+    @network_device_sku.setter
+    def network_device_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_device_sku", value)
 
     @property
     @pulumi.getter
@@ -175,28 +160,26 @@ class NetworkDevice(pulumi.CustomResource):
                  host_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_device_name: Optional[pulumi.Input[str]] = None,
-                 network_device_role: Optional[pulumi.Input[Union[str, 'NetworkDeviceRoleTypes']]] = None,
                  network_device_sku: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        The NetworkDevice resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+        The Network Device resource definition.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-02-01-preview.
 
-        Other available API versions: 2023-06-15.
+        Other available API versions: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[str] host_name: The host Name of the device.
+        :param pulumi.Input[str] host_name: The host name of the device.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] network_device_name: Name of the Network Device
-        :param pulumi.Input[Union[str, 'NetworkDeviceRoleTypes']] network_device_role: networkDeviceRole is the device role: Example: CE | ToR.
+        :param pulumi.Input[str] network_device_name: Name of the Network Device.
         :param pulumi.Input[str] network_device_sku: Network Device SKU name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] serial_number: serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+        :param pulumi.Input[str] serial_number: Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -206,10 +189,10 @@ class NetworkDevice(pulumi.CustomResource):
                  args: NetworkDeviceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The NetworkDevice resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+        The Network Device resource definition.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-02-01-preview.
 
-        Other available API versions: 2023-06-15.
+        Other available API versions: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkDeviceArgs args: The arguments to use to populate this resource's properties.
@@ -230,7 +213,6 @@ class NetworkDevice(pulumi.CustomResource):
                  host_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_device_name: Optional[pulumi.Input[str]] = None,
-                 network_device_role: Optional[pulumi.Input[Union[str, 'NetworkDeviceRoleTypes']]] = None,
                  network_device_sku: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
@@ -248,11 +230,6 @@ class NetworkDevice(pulumi.CustomResource):
             __props__.__dict__["host_name"] = host_name
             __props__.__dict__["location"] = location
             __props__.__dict__["network_device_name"] = network_device_name
-            if network_device_role is None and not opts.urn:
-                raise TypeError("Missing required property 'network_device_role'")
-            __props__.__dict__["network_device_role"] = network_device_role
-            if network_device_sku is None and not opts.urn:
-                raise TypeError("Missing required property 'network_device_sku'")
             __props__.__dict__["network_device_sku"] = network_device_sku
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -261,7 +238,12 @@ class NetworkDevice(pulumi.CustomResource):
                 raise TypeError("Missing required property 'serial_number'")
             __props__.__dict__["serial_number"] = serial_number
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["administrative_state"] = None
+            __props__.__dict__["configuration_state"] = None
+            __props__.__dict__["management_ipv4_address"] = None
+            __props__.__dict__["management_ipv6_address"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["network_device_role"] = None
             __props__.__dict__["network_rack_id"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -291,9 +273,13 @@ class NetworkDevice(pulumi.CustomResource):
 
         __props__ = NetworkDeviceArgs.__new__(NetworkDeviceArgs)
 
+        __props__.__dict__["administrative_state"] = None
         __props__.__dict__["annotation"] = None
+        __props__.__dict__["configuration_state"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["management_ipv4_address"] = None
+        __props__.__dict__["management_ipv6_address"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_device_role"] = None
         __props__.__dict__["network_device_sku"] = None
@@ -307,6 +293,14 @@ class NetworkDevice(pulumi.CustomResource):
         return NetworkDevice(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> pulumi.Output[str]:
+        """
+        Administrative state of the resource.
+        """
+        return pulumi.get(self, "administrative_state")
+
+    @property
     @pulumi.getter
     def annotation(self) -> pulumi.Output[Optional[str]]:
         """
@@ -315,10 +309,18 @@ class NetworkDevice(pulumi.CustomResource):
         return pulumi.get(self, "annotation")
 
     @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> pulumi.Output[str]:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
     @pulumi.getter(name="hostName")
     def host_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The host Name of the device.
+        The host name of the device.
         """
         return pulumi.get(self, "host_name")
 
@@ -329,6 +331,22 @@ class NetworkDevice(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managementIpv4Address")
+    def management_ipv4_address(self) -> pulumi.Output[str]:
+        """
+        Management IPv4 Address.
+        """
+        return pulumi.get(self, "management_ipv4_address")
+
+    @property
+    @pulumi.getter(name="managementIpv6Address")
+    def management_ipv6_address(self) -> pulumi.Output[str]:
+        """
+        Management IPv6 Address.
+        """
+        return pulumi.get(self, "management_ipv6_address")
 
     @property
     @pulumi.getter
@@ -342,13 +360,13 @@ class NetworkDevice(pulumi.CustomResource):
     @pulumi.getter(name="networkDeviceRole")
     def network_device_role(self) -> pulumi.Output[str]:
         """
-        networkDeviceRole is the device role: Example: CE | ToR.
+        NetworkDeviceRole is the device role: Example: CE | ToR.
         """
         return pulumi.get(self, "network_device_role")
 
     @property
     @pulumi.getter(name="networkDeviceSku")
-    def network_device_sku(self) -> pulumi.Output[str]:
+    def network_device_sku(self) -> pulumi.Output[Optional[str]]:
         """
         Network Device SKU name.
         """
@@ -366,7 +384,7 @@ class NetworkDevice(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -374,7 +392,7 @@ class NetworkDevice(pulumi.CustomResource):
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> pulumi.Output[str]:
         """
-        serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+        Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         """
         return pulumi.get(self, "serial_number")
 

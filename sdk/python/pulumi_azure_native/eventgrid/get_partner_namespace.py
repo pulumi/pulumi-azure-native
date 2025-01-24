@@ -27,7 +27,7 @@ class GetPartnerNamespaceResult:
     """
     EventGrid Partner Namespace.
     """
-    def __init__(__self__, disable_local_auth=None, endpoint=None, id=None, inbound_ip_rules=None, location=None, name=None, partner_registration_fully_qualified_id=None, partner_topic_routing_mode=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, disable_local_auth=None, endpoint=None, id=None, inbound_ip_rules=None, location=None, minimum_tls_version_allowed=None, name=None, partner_registration_fully_qualified_id=None, partner_topic_routing_mode=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if disable_local_auth and not isinstance(disable_local_auth, bool):
             raise TypeError("Expected argument 'disable_local_auth' to be a bool")
         pulumi.set(__self__, "disable_local_auth", disable_local_auth)
@@ -43,6 +43,9 @@ class GetPartnerNamespaceResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if minimum_tls_version_allowed and not isinstance(minimum_tls_version_allowed, str):
+            raise TypeError("Expected argument 'minimum_tls_version_allowed' to be a str")
+        pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -112,6 +115,14 @@ class GetPartnerNamespaceResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="minimumTlsVersionAllowed")
+    def minimum_tls_version_allowed(self) -> Optional[str]:
+        """
+        Minimum TLS version of the publisher allowed to publish to this partner namespace
+        """
+        return pulumi.get(self, "minimum_tls_version_allowed")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -140,6 +151,9 @@ class GetPartnerNamespaceResult:
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
@@ -163,7 +177,7 @@ class GetPartnerNamespaceResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to Partner Namespace resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -195,6 +209,7 @@ class AwaitableGetPartnerNamespaceResult(GetPartnerNamespaceResult):
             id=self.id,
             inbound_ip_rules=self.inbound_ip_rules,
             location=self.location,
+            minimum_tls_version_allowed=self.minimum_tls_version_allowed,
             name=self.name,
             partner_registration_fully_qualified_id=self.partner_registration_fully_qualified_id,
             partner_topic_routing_mode=self.partner_topic_routing_mode,
@@ -211,9 +226,9 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerNamespaceResult:
     """
     Get properties of a partner namespace.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2022-06-15.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -231,6 +246,7 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         inbound_ip_rules=pulumi.get(__ret__, 'inbound_ip_rules'),
         location=pulumi.get(__ret__, 'location'),
+        minimum_tls_version_allowed=pulumi.get(__ret__, 'minimum_tls_version_allowed'),
         name=pulumi.get(__ret__, 'name'),
         partner_registration_fully_qualified_id=pulumi.get(__ret__, 'partner_registration_fully_qualified_id'),
         partner_topic_routing_mode=pulumi.get(__ret__, 'partner_topic_routing_mode'),
@@ -245,9 +261,9 @@ def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[s
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerNamespaceResult]:
     """
     Get properties of a partner namespace.
-    Azure REST API version: 2022-06-15.
+    Azure REST API version: 2024-12-15-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    Other available API versions: 2022-06-15.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -264,6 +280,7 @@ def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[s
         id=pulumi.get(__response__, 'id'),
         inbound_ip_rules=pulumi.get(__response__, 'inbound_ip_rules'),
         location=pulumi.get(__response__, 'location'),
+        minimum_tls_version_allowed=pulumi.get(__response__, 'minimum_tls_version_allowed'),
         name=pulumi.get(__response__, 'name'),
         partner_registration_fully_qualified_id=pulumi.get(__response__, 'partner_registration_fully_qualified_id'),
         partner_topic_routing_mode=pulumi.get(__response__, 'partner_topic_routing_mode'),

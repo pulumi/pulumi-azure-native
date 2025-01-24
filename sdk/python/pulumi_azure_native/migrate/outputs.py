@@ -34,6 +34,12 @@ __all__ = [
     'AutomaticResolutionPropertiesResponse',
     'AutomationArtifactResponse',
     'AvailabilitySetResourceSettingsResponse',
+    'AvsEstimatedExternalStorageResponse',
+    'AvsEstimatedNetworkResponse',
+    'AvsEstimatedNodeResponse',
+    'AzureArcManagementSettingsResponse',
+    'AzureArcMonitoringSettingsResponse',
+    'AzureArcSettingsResponse',
     'AzureFileShareHydrationProfileResponse',
     'AzureSettingsResponse',
     'BindingResponse',
@@ -55,7 +61,6 @@ __all__ = [
     'EntityUptimeResponse',
     'FacilitySettingsResponse',
     'GmsaAuthenticationPropertiesResponse',
-    'GroupConnectivityInformationResponse',
     'GroupPropertiesResponse',
     'HealthErrorModelResponse',
     'HypervLicenseResponse',
@@ -71,7 +76,6 @@ __all__ = [
     'IdentityResponse',
     'ImportCollectorPropertiesResponse',
     'InnerHealthErrorModelResponse',
-    'IpConfigurationResponse',
     'JobStatusResponse',
     'KeyVaultResourceSettingsResponse',
     'KeyVaultSecretStorePropertiesResponse',
@@ -113,13 +117,9 @@ __all__ = [
     'PerfDataSettingsResponse',
     'PortMappingResponse',
     'PrivateEndpointConnectionPropertiesResponse',
-    'PrivateEndpointConnectionProxyPropertiesResponse',
     'PrivateEndpointConnectionResponse',
-    'PrivateEndpointDetailsResponse',
     'PrivateEndpointResponse',
-    'PrivateLinkServiceConnectionResponse',
     'PrivateLinkServiceConnectionStateResponse',
-    'PrivateLinkServiceProxyResponse',
     'ProjectPropertiesResponse',
     'ProjectSummaryResponse',
     'PublicIPAddressResourceSettingsResponse',
@@ -137,7 +137,6 @@ __all__ = [
     'SettingsResponse',
     'SolutionDetailsResponse',
     'SolutionPropertiesResponse',
-    'SolutionSummaryResponse',
     'SqlDatabaseResourceSettingsResponse',
     'SqlDbSettingsResponse',
     'SqlElasticPoolResourceSettingsResponse',
@@ -157,9 +156,6 @@ __all__ = [
     'VirtualNetworkResourceSettingsResponse',
     'VirtualizationSoftwareSettingsResponse',
     'VmUptimeResponse',
-    'VsphereLicenseResponse',
-    'VsphereManagementLicenseResponse',
-    'VsphereManagementSettingsResponse',
     'WebApplicationConfigurationResponse',
     'WebApplicationDirectoryResponse',
     'WebApplicationFrameworkResponse',
@@ -2031,12 +2027,12 @@ class AvailabilitySetResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "faultDomain":
             suggest = "fault_domain"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
         elif key == "updateDomain":
             suggest = "update_domain"
 
@@ -2053,29 +2049,30 @@ class AvailabilitySetResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
                  fault_domain: Optional[int] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None,
                  update_domain: Optional[int] = None):
         """
         Gets or sets the availability set resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Compute/availabilitySets'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param int fault_domain: Gets or sets the target fault domain.
         :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         :param int update_domain: Gets or sets the target update domain.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/availabilitySets')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if fault_domain is not None:
             pulumi.set(__self__, "fault_domain", fault_domain)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
         if update_domain is not None:
             pulumi.set(__self__, "update_domain", update_domain)
 
@@ -2087,14 +2084,6 @@ class AvailabilitySetResourceSettingsResponse(dict):
         Expected value is 'Microsoft.Compute/availabilitySets'.
         """
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter(name="faultDomain")
@@ -2121,12 +2110,494 @@ class AvailabilitySetResourceSettingsResponse(dict):
         return pulumi.get(self, "target_resource_group_name")
 
     @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
     @pulumi.getter(name="updateDomain")
     def update_domain(self) -> Optional[int]:
         """
         Gets or sets the target update domain.
         """
         return pulumi.get(self, "update_domain")
+
+
+@pulumi.output_type
+class AvsEstimatedExternalStorageResponse(dict):
+    """
+    Details on the Estimated External Storage for AVS Assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monthlyPrice":
+            suggest = "monthly_price"
+        elif key == "storageType":
+            suggest = "storage_type"
+        elif key == "storageUtilization":
+            suggest = "storage_utilization"
+        elif key == "totalStorageInGB":
+            suggest = "total_storage_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AvsEstimatedExternalStorageResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AvsEstimatedExternalStorageResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AvsEstimatedExternalStorageResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monthly_price: Optional[float] = None,
+                 storage_type: Optional[str] = None,
+                 storage_utilization: Optional[float] = None,
+                 total_storage_in_gb: Optional[float] = None):
+        """
+        Details on the Estimated External Storage for AVS Assessment.
+        :param float monthly_price: Total monthly cost for type of storage.
+        :param str storage_type: Recommended External Storage.
+        :param float storage_utilization: Predicted storage utilization.
+        :param float total_storage_in_gb: Predicted total Storage used in GB.
+        """
+        if monthly_price is not None:
+            pulumi.set(__self__, "monthly_price", monthly_price)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+        if storage_utilization is not None:
+            pulumi.set(__self__, "storage_utilization", storage_utilization)
+        if total_storage_in_gb is not None:
+            pulumi.set(__self__, "total_storage_in_gb", total_storage_in_gb)
+
+    @property
+    @pulumi.getter(name="monthlyPrice")
+    def monthly_price(self) -> Optional[float]:
+        """
+        Total monthly cost for type of storage.
+        """
+        return pulumi.get(self, "monthly_price")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[str]:
+        """
+        Recommended External Storage.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @property
+    @pulumi.getter(name="storageUtilization")
+    def storage_utilization(self) -> Optional[float]:
+        """
+        Predicted storage utilization.
+        """
+        return pulumi.get(self, "storage_utilization")
+
+    @property
+    @pulumi.getter(name="totalStorageInGB")
+    def total_storage_in_gb(self) -> Optional[float]:
+        """
+        Predicted total Storage used in GB.
+        """
+        return pulumi.get(self, "total_storage_in_gb")
+
+
+@pulumi.output_type
+class AvsEstimatedNetworkResponse(dict):
+    """
+    Details on the Estimated Network Costs for AVS Assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monthlyPrice":
+            suggest = "monthly_price"
+        elif key == "networkType":
+            suggest = "network_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AvsEstimatedNetworkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AvsEstimatedNetworkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AvsEstimatedNetworkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monthly_price: Optional[float] = None,
+                 network_type: Optional[str] = None):
+        """
+        Details on the Estimated Network Costs for AVS Assessment.
+        :param float monthly_price: Monthly cost for network type.
+        :param str network_type: Recommended Network Sku.
+        """
+        if monthly_price is not None:
+            pulumi.set(__self__, "monthly_price", monthly_price)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
+
+    @property
+    @pulumi.getter(name="monthlyPrice")
+    def monthly_price(self) -> Optional[float]:
+        """
+        Monthly cost for network type.
+        """
+        return pulumi.get(self, "monthly_price")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[str]:
+        """
+        Recommended Network Sku.
+        """
+        return pulumi.get(self, "network_type")
+
+
+@pulumi.output_type
+class AvsEstimatedNodeResponse(dict):
+    """
+    Details on the Estimated nodes for AVS Assessment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuUtilization":
+            suggest = "cpu_utilization"
+        elif key == "fttRaidLevel":
+            suggest = "ftt_raid_level"
+        elif key == "monthlyPrice":
+            suggest = "monthly_price"
+        elif key == "nodeNumber":
+            suggest = "node_number"
+        elif key == "nodeType":
+            suggest = "node_type"
+        elif key == "pricingModel":
+            suggest = "pricing_model"
+        elif key == "ramUtilization":
+            suggest = "ram_utilization"
+        elif key == "storageUtilization":
+            suggest = "storage_utilization"
+        elif key == "totalCpu":
+            suggest = "total_cpu"
+        elif key == "totalRam":
+            suggest = "total_ram"
+        elif key == "totalStorage":
+            suggest = "total_storage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AvsEstimatedNodeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AvsEstimatedNodeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AvsEstimatedNodeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu_utilization: Optional[float] = None,
+                 ftt_raid_level: Optional[str] = None,
+                 monthly_price: Optional[float] = None,
+                 node_number: Optional[int] = None,
+                 node_type: Optional[str] = None,
+                 pricing_model: Optional[str] = None,
+                 ram_utilization: Optional[float] = None,
+                 storage_utilization: Optional[float] = None,
+                 total_cpu: Optional[float] = None,
+                 total_ram: Optional[float] = None,
+                 total_storage: Optional[float] = None):
+        """
+        Details on the Estimated nodes for AVS Assessment.
+        :param float cpu_utilization: Predicted CPU utilization.
+        :param str ftt_raid_level: FttRaidLevel recommended for Node.
+        :param float monthly_price: Total monthly cost for type and number of nodes.
+        :param int node_number: Number of nodes that will be needed.
+        :param str node_type: Recommended SKU.
+        :param str pricing_model: Pricing model indicates what hour multiplier to use while estimating the Nodes cost.
+        :param float ram_utilization: Predicted RAM utilization.
+        :param float storage_utilization: Predicted storage utilization.
+        :param float total_cpu: Predicted total CPU cores across the set of nodes.
+        :param float total_ram: Predicted total RAM used in GB.
+        :param float total_storage: Predicted total Storage used in GB.
+        """
+        if cpu_utilization is not None:
+            pulumi.set(__self__, "cpu_utilization", cpu_utilization)
+        if ftt_raid_level is not None:
+            pulumi.set(__self__, "ftt_raid_level", ftt_raid_level)
+        if monthly_price is not None:
+            pulumi.set(__self__, "monthly_price", monthly_price)
+        if node_number is not None:
+            pulumi.set(__self__, "node_number", node_number)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+        if pricing_model is not None:
+            pulumi.set(__self__, "pricing_model", pricing_model)
+        if ram_utilization is not None:
+            pulumi.set(__self__, "ram_utilization", ram_utilization)
+        if storage_utilization is not None:
+            pulumi.set(__self__, "storage_utilization", storage_utilization)
+        if total_cpu is not None:
+            pulumi.set(__self__, "total_cpu", total_cpu)
+        if total_ram is not None:
+            pulumi.set(__self__, "total_ram", total_ram)
+        if total_storage is not None:
+            pulumi.set(__self__, "total_storage", total_storage)
+
+    @property
+    @pulumi.getter(name="cpuUtilization")
+    def cpu_utilization(self) -> Optional[float]:
+        """
+        Predicted CPU utilization.
+        """
+        return pulumi.get(self, "cpu_utilization")
+
+    @property
+    @pulumi.getter(name="fttRaidLevel")
+    def ftt_raid_level(self) -> Optional[str]:
+        """
+        FttRaidLevel recommended for Node.
+        """
+        return pulumi.get(self, "ftt_raid_level")
+
+    @property
+    @pulumi.getter(name="monthlyPrice")
+    def monthly_price(self) -> Optional[float]:
+        """
+        Total monthly cost for type and number of nodes.
+        """
+        return pulumi.get(self, "monthly_price")
+
+    @property
+    @pulumi.getter(name="nodeNumber")
+    def node_number(self) -> Optional[int]:
+        """
+        Number of nodes that will be needed.
+        """
+        return pulumi.get(self, "node_number")
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> Optional[str]:
+        """
+        Recommended SKU.
+        """
+        return pulumi.get(self, "node_type")
+
+    @property
+    @pulumi.getter(name="pricingModel")
+    def pricing_model(self) -> Optional[str]:
+        """
+        Pricing model indicates what hour multiplier to use while estimating the Nodes cost.
+        """
+        return pulumi.get(self, "pricing_model")
+
+    @property
+    @pulumi.getter(name="ramUtilization")
+    def ram_utilization(self) -> Optional[float]:
+        """
+        Predicted RAM utilization.
+        """
+        return pulumi.get(self, "ram_utilization")
+
+    @property
+    @pulumi.getter(name="storageUtilization")
+    def storage_utilization(self) -> Optional[float]:
+        """
+        Predicted storage utilization.
+        """
+        return pulumi.get(self, "storage_utilization")
+
+    @property
+    @pulumi.getter(name="totalCpu")
+    def total_cpu(self) -> Optional[float]:
+        """
+        Predicted total CPU cores across the set of nodes.
+        """
+        return pulumi.get(self, "total_cpu")
+
+    @property
+    @pulumi.getter(name="totalRam")
+    def total_ram(self) -> Optional[float]:
+        """
+        Predicted total RAM used in GB.
+        """
+        return pulumi.get(self, "total_ram")
+
+    @property
+    @pulumi.getter(name="totalStorage")
+    def total_storage(self) -> Optional[float]:
+        """
+        Predicted total Storage used in GB.
+        """
+        return pulumi.get(self, "total_storage")
+
+
+@pulumi.output_type
+class AzureArcManagementSettingsResponse(dict):
+    """
+    Azure Arc Management settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringSettings":
+            suggest = "monitoring_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureArcManagementSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureArcManagementSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureArcManagementSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monitoring_settings: 'outputs.AzureArcMonitoringSettingsResponse'):
+        """
+        Azure Arc Management settings.
+        :param 'AzureArcMonitoringSettingsResponse' monitoring_settings: Gets the azure arc monitoring settings.
+        """
+        pulumi.set(__self__, "monitoring_settings", monitoring_settings)
+
+    @property
+    @pulumi.getter(name="monitoringSettings")
+    def monitoring_settings(self) -> 'outputs.AzureArcMonitoringSettingsResponse':
+        """
+        Gets the azure arc monitoring settings.
+        """
+        return pulumi.get(self, "monitoring_settings")
+
+
+@pulumi.output_type
+class AzureArcMonitoringSettingsResponse(dict):
+    """
+    Azure Arc Monitoring settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertRulesCount":
+            suggest = "alert_rules_count"
+        elif key == "logsVolumeInGB":
+            suggest = "logs_volume_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureArcMonitoringSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureArcMonitoringSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureArcMonitoringSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alert_rules_count: int,
+                 logs_volume_in_gb: float):
+        """
+        Azure Arc Monitoring settings.
+        :param int alert_rules_count: Number of alert rules settings.
+        :param float logs_volume_in_gb: Logs volume settings.
+        """
+        pulumi.set(__self__, "alert_rules_count", alert_rules_count)
+        pulumi.set(__self__, "logs_volume_in_gb", logs_volume_in_gb)
+
+    @property
+    @pulumi.getter(name="alertRulesCount")
+    def alert_rules_count(self) -> int:
+        """
+        Number of alert rules settings.
+        """
+        return pulumi.get(self, "alert_rules_count")
+
+    @property
+    @pulumi.getter(name="logsVolumeInGB")
+    def logs_volume_in_gb(self) -> float:
+        """
+        Logs volume settings.
+        """
+        return pulumi.get(self, "logs_volume_in_gb")
+
+
+@pulumi.output_type
+class AzureArcSettingsResponse(dict):
+    """
+    Azure arc settings for a business case.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureArcState":
+            suggest = "azure_arc_state"
+        elif key == "laborCostPercentage":
+            suggest = "labor_cost_percentage"
+        elif key == "managementSettings":
+            suggest = "management_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureArcSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureArcSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureArcSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_arc_state: str,
+                 labor_cost_percentage: Optional[float] = None,
+                 management_settings: Optional['outputs.AzureArcManagementSettingsResponse'] = None):
+        """
+        Azure arc settings for a business case.
+        :param str azure_arc_state: AzureArc state indicates whether to include azure arc related costs in on-premises or not.
+        :param float labor_cost_percentage: Gets Azure arc labour cost percentage.
+        :param 'AzureArcManagementSettingsResponse' management_settings: Management settings.
+        """
+        pulumi.set(__self__, "azure_arc_state", azure_arc_state)
+        if labor_cost_percentage is not None:
+            pulumi.set(__self__, "labor_cost_percentage", labor_cost_percentage)
+        if management_settings is not None:
+            pulumi.set(__self__, "management_settings", management_settings)
+
+    @property
+    @pulumi.getter(name="azureArcState")
+    def azure_arc_state(self) -> str:
+        """
+        AzureArc state indicates whether to include azure arc related costs in on-premises or not.
+        """
+        return pulumi.get(self, "azure_arc_state")
+
+    @property
+    @pulumi.getter(name="laborCostPercentage")
+    def labor_cost_percentage(self) -> Optional[float]:
+        """
+        Gets Azure arc labour cost percentage.
+        """
+        return pulumi.get(self, "labor_cost_percentage")
+
+    @property
+    @pulumi.getter(name="managementSettings")
+    def management_settings(self) -> Optional['outputs.AzureArcManagementSettingsResponse']:
+        """
+        Management settings.
+        """
+        return pulumi.get(self, "management_settings")
 
 
 @pulumi.output_type
@@ -3789,10 +4260,10 @@ class DiskEncryptionSetResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DiskEncryptionSetResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3807,19 +4278,20 @@ class DiskEncryptionSetResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
-                 target_resource_group_name: Optional[str] = None):
+                 target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None):
         """
         Defines the disk encryption set resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Compute/diskEncryptionSets'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/diskEncryptionSets')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -3831,20 +4303,20 @@ class DiskEncryptionSetResourceSettingsResponse(dict):
         return pulumi.get(self, "resource_type")
 
     @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
-
-    @property
     @pulumi.getter(name="targetResourceGroupName")
     def target_resource_group_name(self) -> Optional[str]:
         """
         Gets or sets the target resource group name.
         """
         return pulumi.get(self, "target_resource_group_name")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
 
 
 @pulumi.output_type
@@ -3909,8 +4381,8 @@ class FacilitySettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "facilitiesCost":
-            suggest = "facilities_cost"
+        if key == "facilitiesCostPerKwh":
+            suggest = "facilities_cost_per_kwh"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FacilitySettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3924,20 +4396,21 @@ class FacilitySettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 facilities_cost: float):
+                 facilities_cost_per_kwh: Optional[float] = None):
         """
         Facility settings.
-        :param float facilities_cost: The facilities cost.
+        :param float facilities_cost_per_kwh: The facilities cost.
         """
-        pulumi.set(__self__, "facilities_cost", facilities_cost)
+        if facilities_cost_per_kwh is not None:
+            pulumi.set(__self__, "facilities_cost_per_kwh", facilities_cost_per_kwh)
 
     @property
-    @pulumi.getter(name="facilitiesCost")
-    def facilities_cost(self) -> float:
+    @pulumi.getter(name="facilitiesCostPerKwh")
+    def facilities_cost_per_kwh(self) -> Optional[float]:
         """
         The facilities cost.
         """
-        return pulumi.get(self, "facilities_cost")
+        return pulumi.get(self, "facilities_cost_per_kwh")
 
 
 @pulumi.output_type
@@ -4125,100 +4598,6 @@ class GmsaAuthenticationPropertiesResponse(dict):
         Gets or sets username of the user having authorization to access GMSA on Active Directory.
         """
         return pulumi.get(self, "gmsa_username")
-
-
-@pulumi.output_type
-class GroupConnectivityInformationResponse(dict):
-    """
-    Defines Private link service group connectivity.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "customerVisibleFqdns":
-            suggest = "customer_visible_fqdns"
-        elif key == "groupId":
-            suggest = "group_id"
-        elif key == "internalFqdn":
-            suggest = "internal_fqdn"
-        elif key == "memberName":
-            suggest = "member_name"
-        elif key == "privateLinkServiceArmRegion":
-            suggest = "private_link_service_arm_region"
-        elif key == "redirectMapId":
-            suggest = "redirect_map_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in GroupConnectivityInformationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        GroupConnectivityInformationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        GroupConnectivityInformationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 customer_visible_fqdns: Optional[Sequence[str]] = None,
-                 group_id: Optional[str] = None,
-                 id: Optional[str] = None,
-                 internal_fqdn: Optional[str] = None,
-                 member_name: Optional[str] = None,
-                 private_link_service_arm_region: Optional[str] = None,
-                 redirect_map_id: Optional[str] = None):
-        """
-        Defines Private link service group connectivity.
-        """
-        if customer_visible_fqdns is not None:
-            pulumi.set(__self__, "customer_visible_fqdns", customer_visible_fqdns)
-        if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if internal_fqdn is not None:
-            pulumi.set(__self__, "internal_fqdn", internal_fqdn)
-        if member_name is not None:
-            pulumi.set(__self__, "member_name", member_name)
-        if private_link_service_arm_region is not None:
-            pulumi.set(__self__, "private_link_service_arm_region", private_link_service_arm_region)
-        if redirect_map_id is not None:
-            pulumi.set(__self__, "redirect_map_id", redirect_map_id)
-
-    @property
-    @pulumi.getter(name="customerVisibleFqdns")
-    def customer_visible_fqdns(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "customer_visible_fqdns")
-
-    @property
-    @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[str]:
-        return pulumi.get(self, "group_id")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="internalFqdn")
-    def internal_fqdn(self) -> Optional[str]:
-        return pulumi.get(self, "internal_fqdn")
-
-    @property
-    @pulumi.getter(name="memberName")
-    def member_name(self) -> Optional[str]:
-        return pulumi.get(self, "member_name")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceArmRegion")
-    def private_link_service_arm_region(self) -> Optional[str]:
-        return pulumi.get(self, "private_link_service_arm_region")
-
-    @property
-    @pulumi.getter(name="redirectMapId")
-    def redirect_map_id(self) -> Optional[str]:
-        return pulumi.get(self, "redirect_map_id")
 
 
 @pulumi.output_type
@@ -6043,80 +6422,6 @@ class InnerHealthErrorModelResponse(dict):
 
 
 @pulumi.output_type
-class IpConfigurationResponse(dict):
-    """
-    Defines Private link IP configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupId":
-            suggest = "group_id"
-        elif key == "linkIdentifier":
-            suggest = "link_identifier"
-        elif key == "memberName":
-            suggest = "member_name"
-        elif key == "privateIpAddress":
-            suggest = "private_ip_address"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IpConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IpConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 group_id: Optional[str] = None,
-                 id: Optional[str] = None,
-                 link_identifier: Optional[str] = None,
-                 member_name: Optional[str] = None,
-                 private_ip_address: Optional[str] = None):
-        """
-        Defines Private link IP configuration.
-        """
-        if group_id is not None:
-            pulumi.set(__self__, "group_id", group_id)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if link_identifier is not None:
-            pulumi.set(__self__, "link_identifier", link_identifier)
-        if member_name is not None:
-            pulumi.set(__self__, "member_name", member_name)
-        if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
-
-    @property
-    @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[str]:
-        return pulumi.get(self, "group_id")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="linkIdentifier")
-    def link_identifier(self) -> Optional[str]:
-        return pulumi.get(self, "link_identifier")
-
-    @property
-    @pulumi.getter(name="memberName")
-    def member_name(self) -> Optional[str]:
-        return pulumi.get(self, "member_name")
-
-    @property
-    @pulumi.getter(name="privateIpAddress")
-    def private_ip_address(self) -> Optional[str]:
-        return pulumi.get(self, "private_ip_address")
-
-
-@pulumi.output_type
 class JobStatusResponse(dict):
     """
     Defines the job status.
@@ -6178,10 +6483,10 @@ class KeyVaultResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KeyVaultResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6196,19 +6501,20 @@ class KeyVaultResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
-                 target_resource_group_name: Optional[str] = None):
+                 target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None):
         """
         Defines the key vault resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.KeyVault/vaults'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.KeyVault/vaults')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -6220,20 +6526,20 @@ class KeyVaultResourceSettingsResponse(dict):
         return pulumi.get(self, "resource_type")
 
     @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
-
-    @property
     @pulumi.getter(name="targetResourceGroupName")
     def target_resource_group_name(self) -> Optional[str]:
         """
         Gets or sets the target resource group name.
         """
         return pulumi.get(self, "target_resource_group_name")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
 
 
 @pulumi.output_type
@@ -6656,14 +6962,14 @@ class LoadBalancerResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "backendAddressPools":
             suggest = "backend_address_pools"
         elif key == "frontendIPConfigurations":
             suggest = "frontend_ip_configurations"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LoadBalancerResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6678,28 +6984,27 @@ class LoadBalancerResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
                  backend_address_pools: Optional[Sequence['outputs.LBBackendAddressPoolResourceSettingsResponse']] = None,
                  frontend_ip_configurations: Optional[Sequence['outputs.LBFrontendIPConfigurationResourceSettingsResponse']] = None,
                  sku: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None,
                  zones: Optional[str] = None):
         """
         Defines the load balancer resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/loadBalancers'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param Sequence['LBBackendAddressPoolResourceSettingsResponse'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
         :param Sequence['LBFrontendIPConfigurationResourceSettingsResponse'] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
         :param str sku: Gets or sets load balancer sku (Basic/Standard).
         :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         :param str zones: Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
                 precedence only if frontend IP configurations settings are not present.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/loadBalancers')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if backend_address_pools is not None:
             pulumi.set(__self__, "backend_address_pools", backend_address_pools)
         if frontend_ip_configurations is not None:
@@ -6710,6 +7015,8 @@ class LoadBalancerResourceSettingsResponse(dict):
             pulumi.set(__self__, "tags", tags)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -6721,14 +7028,6 @@ class LoadBalancerResourceSettingsResponse(dict):
         Expected value is 'Microsoft.Network/loadBalancers'.
         """
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter(name="backendAddressPools")
@@ -6769,6 +7068,14 @@ class LoadBalancerResourceSettingsResponse(dict):
         Gets or sets the target resource group name.
         """
         return pulumi.get(self, "target_resource_group_name")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter
@@ -6874,8 +7181,6 @@ class ManagementSettingsResponse(dict):
             suggest = "other_management_costs_settings"
         elif key == "thirdPartyManagementSettings":
             suggest = "third_party_management_settings"
-        elif key == "vsphereManagementSettings":
-            suggest = "vsphere_management_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagementSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6891,19 +7196,16 @@ class ManagementSettingsResponse(dict):
     def __init__(__self__, *,
                  hyperv_virtualization_management_settings: 'outputs.HypervVirtualizationManagementSettingsResponse',
                  other_management_costs_settings: 'outputs.OtherManagementCostsSettingsResponse',
-                 third_party_management_settings: 'outputs.ThirdPartyManagementSettingsResponse',
-                 vsphere_management_settings: 'outputs.VsphereManagementSettingsResponse'):
+                 third_party_management_settings: 'outputs.ThirdPartyManagementSettingsResponse'):
         """
         Management settings.
         :param 'HypervVirtualizationManagementSettingsResponse' hyperv_virtualization_management_settings: HyperV Virtualization Management Settings.
         :param 'OtherManagementCostsSettingsResponse' other_management_costs_settings: Other Management Costs Settings.
         :param 'ThirdPartyManagementSettingsResponse' third_party_management_settings: Third Party Management Settings.
-        :param 'VsphereManagementSettingsResponse' vsphere_management_settings: vSphere Management Settings.
         """
         pulumi.set(__self__, "hyperv_virtualization_management_settings", hyperv_virtualization_management_settings)
         pulumi.set(__self__, "other_management_costs_settings", other_management_costs_settings)
         pulumi.set(__self__, "third_party_management_settings", third_party_management_settings)
-        pulumi.set(__self__, "vsphere_management_settings", vsphere_management_settings)
 
     @property
     @pulumi.getter(name="hypervVirtualizationManagementSettings")
@@ -6928,14 +7230,6 @@ class ManagementSettingsResponse(dict):
         Third Party Management Settings.
         """
         return pulumi.get(self, "third_party_management_settings")
-
-    @property
-    @pulumi.getter(name="vsphereManagementSettings")
-    def vsphere_management_settings(self) -> 'outputs.VsphereManagementSettingsResponse':
-        """
-        vSphere Management Settings.
-        """
-        return pulumi.get(self, "vsphere_management_settings")
 
 
 @pulumi.output_type
@@ -7696,6 +7990,10 @@ class MoveCollectionPropertiesResponse(dict):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "moveRegion":
+            suggest = "move_region"
+        elif key == "moveType":
+            suggest = "move_type"
         elif key == "sourceRegion":
             suggest = "source_region"
         elif key == "targetRegion":
@@ -7715,21 +8013,31 @@ class MoveCollectionPropertiesResponse(dict):
     def __init__(__self__, *,
                  errors: 'outputs.MoveCollectionPropertiesResponseErrors',
                  provisioning_state: str,
-                 source_region: str,
-                 target_region: str,
+                 move_region: Optional[str] = None,
+                 move_type: Optional[str] = None,
+                 source_region: Optional[str] = None,
+                 target_region: Optional[str] = None,
                  version: Optional[str] = None):
         """
         Defines the move collection properties.
         :param 'MoveCollectionPropertiesResponseErrors' errors: Defines the move collection errors.
         :param str provisioning_state: Defines the provisioning states.
+        :param str move_region: Gets or sets the move region which indicates the region where the VM Regional to Zonal move will be conducted.
+        :param str move_type: Defines the MoveType.
         :param str source_region: Gets or sets the source region.
         :param str target_region: Gets or sets the target region.
         :param str version: Gets or sets the version of move collection.
         """
         pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        pulumi.set(__self__, "source_region", source_region)
-        pulumi.set(__self__, "target_region", target_region)
+        if move_region is not None:
+            pulumi.set(__self__, "move_region", move_region)
+        if move_type is not None:
+            pulumi.set(__self__, "move_type", move_type)
+        if source_region is not None:
+            pulumi.set(__self__, "source_region", source_region)
+        if target_region is not None:
+            pulumi.set(__self__, "target_region", target_region)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -7750,8 +8058,24 @@ class MoveCollectionPropertiesResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="moveRegion")
+    def move_region(self) -> Optional[str]:
+        """
+        Gets or sets the move region which indicates the region where the VM Regional to Zonal move will be conducted.
+        """
+        return pulumi.get(self, "move_region")
+
+    @property
+    @pulumi.getter(name="moveType")
+    def move_type(self) -> Optional[str]:
+        """
+        Defines the MoveType.
+        """
+        return pulumi.get(self, "move_type")
+
+    @property
     @pulumi.getter(name="sourceRegion")
-    def source_region(self) -> str:
+    def source_region(self) -> Optional[str]:
         """
         Gets or sets the source region.
         """
@@ -7759,7 +8083,7 @@ class MoveCollectionPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="targetRegion")
-    def target_region(self) -> str:
+    def target_region(self) -> Optional[str]:
         """
         Gets or sets the target region.
         """
@@ -8319,14 +8643,14 @@ class NetworkInterfaceResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "enableAcceleratedNetworking":
             suggest = "enable_accelerated_networking"
         elif key == "ipConfigurations":
             suggest = "ip_configurations"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8341,23 +8665,22 @@ class NetworkInterfaceResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
                  enable_accelerated_networking: Optional[bool] = None,
                  ip_configurations: Optional[Sequence['outputs.NicIpConfigurationResourceSettingsResponse']] = None,
                  tags: Optional[Mapping[str, str]] = None,
-                 target_resource_group_name: Optional[str] = None):
+                 target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None):
         """
         Defines the network interface resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/networkInterfaces'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param bool enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
         :param Sequence['NicIpConfigurationResourceSettingsResponse'] ip_configurations: Gets or sets the IP configurations of the NIC.
         :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkInterfaces')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if enable_accelerated_networking is not None:
             pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
         if ip_configurations is not None:
@@ -8366,6 +8689,8 @@ class NetworkInterfaceResourceSettingsResponse(dict):
             pulumi.set(__self__, "tags", tags)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -8375,14 +8700,6 @@ class NetworkInterfaceResourceSettingsResponse(dict):
         Expected value is 'Microsoft.Network/networkInterfaces'.
         """
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworking")
@@ -8416,6 +8733,14 @@ class NetworkInterfaceResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "target_resource_group_name")
 
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
 
 @pulumi.output_type
 class NetworkSecurityGroupResourceSettingsResponse(dict):
@@ -8427,12 +8752,12 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "securityRules":
             suggest = "security_rules"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkSecurityGroupResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8447,27 +8772,28 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
                  security_rules: Optional[Sequence['outputs.NsgSecurityRuleResponse']] = None,
                  tags: Optional[Mapping[str, str]] = None,
-                 target_resource_group_name: Optional[str] = None):
+                 target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None):
         """
         Defines the NSG resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/networkSecurityGroups'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param Sequence['NsgSecurityRuleResponse'] security_rules: Gets or sets Security rules of network security group.
         :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkSecurityGroups')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if security_rules is not None:
             pulumi.set(__self__, "security_rules", security_rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -8477,14 +8803,6 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
         Expected value is 'Microsoft.Network/networkSecurityGroups'.
         """
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter(name="securityRules")
@@ -8509,6 +8827,14 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
         Gets or sets the target resource group name.
         """
         return pulumi.get(self, "target_resource_group_name")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
 
 
 @pulumi.output_type
@@ -9286,7 +9612,7 @@ class PortMappingResponse(dict):
 @pulumi.output_type
 class PrivateEndpointConnectionPropertiesResponse(dict):
     """
-    Private endpoint connection properties.
+    Properties of a private endpoint connection.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -9314,10 +9640,9 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  provisioning_state: str,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
         """
-        Private endpoint connection properties.
-        :param 'ResourceIdResponse' private_endpoint: ARM id for the private endpoint resource corresponding to the connection.
-        :param str provisioning_state: Indicates whether there is an ongoing operation on the private endpoint.
-        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: State of the private endpoint connection.
+        Properties of a private endpoint connection.
+        :param str provisioning_state: Provisioning state.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets the properties of the object.
         """
         pulumi.set(__self__, "private_endpoint", private_endpoint)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -9327,16 +9652,13 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
     @property
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> 'outputs.ResourceIdResponse':
-        """
-        ARM id for the private endpoint resource corresponding to the connection.
-        """
         return pulumi.get(self, "private_endpoint")
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Indicates whether there is an ongoing operation on the private endpoint.
+        Provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -9344,67 +9666,23 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
-        State of the private endpoint connection.
+        Gets the properties of the object.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
 
 @pulumi.output_type
-class PrivateEndpointConnectionProxyPropertiesResponse(dict):
-    """
-    Properties of a private endpoint connection proxy.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "remotePrivateEndpoint":
-            suggest = "remote_private_endpoint"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionProxyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointConnectionProxyPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointConnectionProxyPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 remote_private_endpoint: 'outputs.PrivateEndpointDetailsResponse',
-                 status: str):
-        """
-        Properties of a private endpoint connection proxy.
-        :param 'PrivateEndpointDetailsResponse' remote_private_endpoint: Defines Private endpoint additional details.
-        """
-        pulumi.set(__self__, "remote_private_endpoint", remote_private_endpoint)
-        pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="remotePrivateEndpoint")
-    def remote_private_endpoint(self) -> 'outputs.PrivateEndpointDetailsResponse':
-        """
-        Defines Private endpoint additional details.
-        """
-        return pulumi.get(self, "remote_private_endpoint")
-
-    @property
-    @pulumi.getter
-    def status(self) -> str:
-        return pulumi.get(self, "status")
-
-
-@pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
-    A private endpoint connection for a project.
+    REST model used to encapsulate the user visible state of a PrivateEndpoint.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "eTag":
             suggest = "e_tag"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "groupIds":
             suggest = "group_ids"
         elif key == "privateEndpoint":
@@ -9413,8 +9691,6 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "systemData":
-            suggest = "system_data"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -9428,35 +9704,35 @@ class PrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 e_tag: str,
                  id: str,
                  name: str,
                  properties: 'outputs.PrivateEndpointConnectionPropertiesResponse',
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
-                 e_tag: Optional[str] = None,
                  group_ids: Optional[Sequence[str]] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
-                 provisioning_state: Optional[str] = None,
-                 system_data: Optional['outputs.SystemDataResponse'] = None):
+                 provisioning_state: Optional[str] = None):
         """
-        A private endpoint connection for a project.
-        :param str id: Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
-        :param str name: Name of the private endpoint endpoint connection.
-        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Properties of the private endpoint endpoint connection.
-        :param str type: Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
-        :param str e_tag: For optimistic concurrency control.
+        REST model used to encapsulate the user visible state of a PrivateEndpoint.
+        :param str e_tag: Gets the tag for optimistic concurrency control.
+        :param str id: Relative URL to get this Sites.
+        :param str name: Gets the name of the resource.
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Gets the properties of the object.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param str type: Gets the resource type.
         :param Sequence[str] group_ids: The group ids for the private endpoint resource.
         :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
-        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         """
+        pulumi.set(__self__, "e_tag", e_tag)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
-        if e_tag is not None:
-            pulumi.set(__self__, "e_tag", e_tag)
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
         if private_endpoint is not None:
@@ -9465,14 +9741,20 @@ class PrivateEndpointConnectionResponse(dict):
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if system_data is not None:
-            pulumi.set(__self__, "system_data", system_data)
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> str:
+        """
+        Gets the tag for optimistic concurrency control.
+        """
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Path reference to this private endpoint endpoint connection. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/privateEndpointConnections/{privateEndpointConnectionName}
+        Relative URL to get this Sites.
         """
         return pulumi.get(self, "id")
 
@@ -9480,7 +9762,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the private endpoint endpoint connection.
+        Gets the name of the resource.
         """
         return pulumi.get(self, "name")
 
@@ -9488,25 +9770,25 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
         """
-        Properties of the private endpoint endpoint connection.
+        Gets the properties of the object.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
+        Gets the resource type.
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="eTag")
-    def e_tag(self) -> Optional[str]:
-        """
-        For optimistic concurrency control.
-        """
-        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter(name="groupIds")
@@ -9540,88 +9822,6 @@ class PrivateEndpointConnectionResponse(dict):
         """
         return pulumi.get(self, "provisioning_state")
 
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> Optional['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-
-@pulumi.output_type
-class PrivateEndpointDetailsResponse(dict):
-    """
-    Defines Private endpoint additional details.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "connectionDetails":
-            suggest = "connection_details"
-        elif key == "manualPrivateLinkServiceConnections":
-            suggest = "manual_private_link_service_connections"
-        elif key == "privateLinkServiceConnections":
-            suggest = "private_link_service_connections"
-        elif key == "privateLinkServiceProxies":
-            suggest = "private_link_service_proxies"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateEndpointDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateEndpointDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 connection_details: Optional[Sequence['outputs.IpConfigurationResponse']] = None,
-                 id: Optional[str] = None,
-                 manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
-                 private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
-                 private_link_service_proxies: Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']] = None):
-        """
-        Defines Private endpoint additional details.
-        """
-        if connection_details is not None:
-            pulumi.set(__self__, "connection_details", connection_details)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if manual_private_link_service_connections is not None:
-            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
-        if private_link_service_connections is not None:
-            pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
-        if private_link_service_proxies is not None:
-            pulumi.set(__self__, "private_link_service_proxies", private_link_service_proxies)
-
-    @property
-    @pulumi.getter(name="connectionDetails")
-    def connection_details(self) -> Optional[Sequence['outputs.IpConfigurationResponse']]:
-        return pulumi.get(self, "connection_details")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="manualPrivateLinkServiceConnections")
-    def manual_private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
-        return pulumi.get(self, "manual_private_link_service_connections")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnections")
-    def private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
-        return pulumi.get(self, "private_link_service_connections")
-
-    @property
-    @pulumi.getter(name="privateLinkServiceProxies")
-    def private_link_service_proxies(self) -> Optional[Sequence['outputs.PrivateLinkServiceProxyResponse']]:
-        return pulumi.get(self, "private_link_service_proxies")
-
 
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
@@ -9646,71 +9846,9 @@ class PrivateEndpointResponse(dict):
 
 
 @pulumi.output_type
-class PrivateLinkServiceConnectionResponse(dict):
-    """
-    Defines Private link service connection.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupIds":
-            suggest = "group_ids"
-        elif key == "requestMessage":
-            suggest = "request_message"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateLinkServiceConnectionResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateLinkServiceConnectionResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 group_ids: Optional[Sequence[str]] = None,
-                 id: Optional[str] = None,
-                 name: Optional[str] = None,
-                 request_message: Optional[str] = None):
-        """
-        Defines Private link service connection.
-        """
-        if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
-
-    @property
-    @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "group_ids")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="requestMessage")
-    def request_message(self) -> Optional[str]:
-        return pulumi.get(self, "request_message")
-
-
-@pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
     """
-    State of a private endpoint connection.
+    Private endpoint connection state.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -9734,10 +9872,10 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  description: Optional[str] = None,
                  status: Optional[str] = None):
         """
-        State of a private endpoint connection.
-        :param str actions_required: Actions required on the private endpoint connection.
-        :param str description: Description of the private endpoint connection.
-        :param str status: Connection status of the private endpoint connection.
+        Private endpoint connection state.
+        :param str actions_required: Action required.
+        :param str description: Description of the object.
+        :param str status: Private link connection state.
         """
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
@@ -9750,7 +9888,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     @pulumi.getter(name="actionsRequired")
     def actions_required(self) -> Optional[str]:
         """
-        Actions required on the private endpoint connection.
+        Action required.
         """
         return pulumi.get(self, "actions_required")
 
@@ -9758,7 +9896,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        Description of the private endpoint connection.
+        Description of the object.
         """
         return pulumi.get(self, "description")
 
@@ -9766,81 +9904,9 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        Connection status of the private endpoint connection.
+        Private link connection state.
         """
         return pulumi.get(self, "status")
-
-
-@pulumi.output_type
-class PrivateLinkServiceProxyResponse(dict):
-    """
-    Defines Private link service proxy.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "groupConnectivityInformation":
-            suggest = "group_connectivity_information"
-        elif key == "remotePrivateEndpointConnection":
-            suggest = "remote_private_endpoint_connection"
-        elif key == "remotePrivateLinkServiceConnectionState":
-            suggest = "remote_private_link_service_connection_state"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceProxyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrivateLinkServiceProxyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrivateLinkServiceProxyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 group_connectivity_information: Optional[Sequence['outputs.GroupConnectivityInformationResponse']] = None,
-                 id: Optional[str] = None,
-                 remote_private_endpoint_connection: Optional['outputs.ResourceIdResponse'] = None,
-                 remote_private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
-        """
-        Defines Private link service proxy.
-        :param 'ResourceIdResponse' remote_private_endpoint_connection: Defines resource ID of a private endpoint connection.
-        :param 'PrivateLinkServiceConnectionStateResponse' remote_private_link_service_connection_state: Private endpoint connection state.
-        """
-        if group_connectivity_information is not None:
-            pulumi.set(__self__, "group_connectivity_information", group_connectivity_information)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if remote_private_endpoint_connection is not None:
-            pulumi.set(__self__, "remote_private_endpoint_connection", remote_private_endpoint_connection)
-        if remote_private_link_service_connection_state is not None:
-            pulumi.set(__self__, "remote_private_link_service_connection_state", remote_private_link_service_connection_state)
-
-    @property
-    @pulumi.getter(name="groupConnectivityInformation")
-    def group_connectivity_information(self) -> Optional[Sequence['outputs.GroupConnectivityInformationResponse']]:
-        return pulumi.get(self, "group_connectivity_information")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="remotePrivateEndpointConnection")
-    def remote_private_endpoint_connection(self) -> Optional['outputs.ResourceIdResponse']:
-        """
-        Defines resource ID of a private endpoint connection.
-        """
-        return pulumi.get(self, "remote_private_endpoint_connection")
-
-    @property
-    @pulumi.getter(name="remotePrivateLinkServiceConnectionState")
-    def remote_private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
-        """
-        Private endpoint connection state.
-        """
-        return pulumi.get(self, "remote_private_link_service_connection_state")
 
 
 @pulumi.output_type
@@ -10161,14 +10227,14 @@ class PublicIPAddressResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "domainNameLabel":
             suggest = "domain_name_label"
         elif key == "publicIpAllocationMethod":
             suggest = "public_ip_allocation_method"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PublicIPAddressResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -10183,29 +10249,28 @@ class PublicIPAddressResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
                  domain_name_label: Optional[str] = None,
                  fqdn: Optional[str] = None,
                  public_ip_allocation_method: Optional[str] = None,
                  sku: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None,
                  zones: Optional[str] = None):
         """
         Defines the public IP address resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/publicIPAddresses'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param str domain_name_label: Gets or sets the domain name label.
         :param str fqdn: Gets or sets the fully qualified domain name.
         :param str public_ip_allocation_method: Gets or sets public IP allocation method.
         :param str sku: Gets or sets public IP sku.
         :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         :param str zones: Gets or sets public IP zones.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/publicIPAddresses')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if domain_name_label is not None:
             pulumi.set(__self__, "domain_name_label", domain_name_label)
         if fqdn is not None:
@@ -10218,6 +10283,8 @@ class PublicIPAddressResourceSettingsResponse(dict):
             pulumi.set(__self__, "tags", tags)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -10229,14 +10296,6 @@ class PublicIPAddressResourceSettingsResponse(dict):
         Expected value is 'Microsoft.Network/publicIPAddresses'.
         """
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter(name="domainNameLabel")
@@ -10285,6 +10344,14 @@ class PublicIPAddressResourceSettingsResponse(dict):
         Gets or sets the target resource group name.
         """
         return pulumi.get(self, "target_resource_group_name")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter
@@ -10396,10 +10463,10 @@ class ResourceGroupResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ResourceGroupResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -10414,19 +10481,20 @@ class ResourceGroupResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
-                 target_resource_group_name: Optional[str] = None):
+                 target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None):
         """
         Defines the resource group resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'resourceGroups'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         """
         pulumi.set(__self__, "resource_type", 'resourceGroups')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -10438,14 +10506,6 @@ class ResourceGroupResourceSettingsResponse(dict):
         return pulumi.get(self, "resource_type")
 
     @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
-
-    @property
     @pulumi.getter(name="targetResourceGroupName")
     def target_resource_group_name(self) -> Optional[str]:
         """
@@ -10453,17 +10513,19 @@ class ResourceGroupResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "target_resource_group_name")
 
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
 
 @pulumi.output_type
 class ResourceIdResponse(dict):
-    """
-    ARM id for a resource.
-    """
     def __init__(__self__, *,
                  id: str):
-        """
-        ARM id for a resource.
-        """
         pulumi.set(__self__, "id", id)
 
     @property
@@ -10970,6 +11032,8 @@ class SettingsResponse(dict):
         suggest = None
         if key == "azureSettings":
             suggest = "azure_settings"
+        elif key == "azureArcSettings":
+            suggest = "azure_arc_settings"
         elif key == "onPremiseSettings":
             suggest = "on_premise_settings"
 
@@ -10986,13 +11050,17 @@ class SettingsResponse(dict):
 
     def __init__(__self__, *,
                  azure_settings: 'outputs.AzureSettingsResponse',
+                 azure_arc_settings: Optional['outputs.AzureArcSettingsResponse'] = None,
                  on_premise_settings: Optional['outputs.OnPremiseSettingsResponse'] = None):
         """
         Business case settings.
         :param 'AzureSettingsResponse' azure_settings: Azure settings for a business case.
+        :param 'AzureArcSettingsResponse' azure_arc_settings: Azure arc settings.
         :param 'OnPremiseSettingsResponse' on_premise_settings: On-premise settings.
         """
         pulumi.set(__self__, "azure_settings", azure_settings)
+        if azure_arc_settings is not None:
+            pulumi.set(__self__, "azure_arc_settings", azure_arc_settings)
         if on_premise_settings is not None:
             pulumi.set(__self__, "on_premise_settings", on_premise_settings)
 
@@ -11003,6 +11071,14 @@ class SettingsResponse(dict):
         Azure settings for a business case.
         """
         return pulumi.get(self, "azure_settings")
+
+    @property
+    @pulumi.getter(name="azureArcSettings")
+    def azure_arc_settings(self) -> Optional['outputs.AzureArcSettingsResponse']:
+        """
+        Azure arc settings.
+        """
+        return pulumi.get(self, "azure_arc_settings")
 
     @property
     @pulumi.getter(name="onPremiseSettings")
@@ -11118,7 +11194,7 @@ class SolutionPropertiesResponse(dict):
         :param str goal: Gets or sets the goal of the solution.
         :param str purpose: Gets or sets the purpose of the solution.
         :param str status: Gets or sets the current status of the solution.
-        :param Union['DatabasesSolutionSummaryResponse', 'ServersSolutionSummaryResponse', 'SolutionSummaryResponse'] summary: Gets or sets the summary of the solution.
+        :param Union['DatabasesSolutionSummaryResponse', 'ServersSolutionSummaryResponse'] summary: Gets or sets the summary of the solution.
         :param str tool: Gets or sets the tool being used in the solution.
         """
         if cleanup_state is not None:
@@ -11194,45 +11270,6 @@ class SolutionPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class SolutionSummaryResponse(dict):
-    """
-    The solution summary class.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceType":
-            suggest = "instance_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SolutionSummaryResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SolutionSummaryResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SolutionSummaryResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instance_type: str):
-        """
-        The solution summary class.
-        :param str instance_type: Gets the Instance type.
-        """
-        pulumi.set(__self__, "instance_type", instance_type)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
-        """
-        Gets the Instance type.
-        """
-        return pulumi.get(self, "instance_type")
-
-
-@pulumi.output_type
 class SqlDatabaseResourceSettingsResponse(dict):
     """
     Defines the Sql Database resource settings.
@@ -11242,10 +11279,10 @@ class SqlDatabaseResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
         elif key == "zoneRedundant":
             suggest = "zone_redundant"
 
@@ -11262,25 +11299,26 @@ class SqlDatabaseResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
                  tags: Optional[Mapping[str, str]] = None,
                  target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None,
                  zone_redundant: Optional[str] = None):
         """
         Defines the Sql Database resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers/databases'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         :param str zone_redundant: Defines the zone redundant resource setting.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/databases')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -11292,14 +11330,6 @@ class SqlDatabaseResourceSettingsResponse(dict):
         Expected value is 'Microsoft.Sql/servers/databases'.
         """
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter
@@ -11316,6 +11346,14 @@ class SqlDatabaseResourceSettingsResponse(dict):
         Gets or sets the target resource group name.
         """
         return pulumi.get(self, "target_resource_group_name")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter(name="zoneRedundant")
@@ -11418,10 +11456,10 @@ class SqlElasticPoolResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
         elif key == "zoneRedundant":
             suggest = "zone_redundant"
 
@@ -11438,25 +11476,26 @@ class SqlElasticPoolResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
                  tags: Optional[Mapping[str, str]] = None,
                  target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None,
                  zone_redundant: Optional[str] = None):
         """
         Defines the Sql ElasticPool resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers/elasticPools'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         :param str zone_redundant: Defines the zone redundant resource setting.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/elasticPools')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -11468,14 +11507,6 @@ class SqlElasticPoolResourceSettingsResponse(dict):
         Expected value is 'Microsoft.Sql/servers/elasticPools'.
         """
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter
@@ -11492,6 +11523,14 @@ class SqlElasticPoolResourceSettingsResponse(dict):
         Gets or sets the target resource group name.
         """
         return pulumi.get(self, "target_resource_group_name")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter(name="zoneRedundant")
@@ -11629,10 +11668,10 @@ class SqlServerResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SqlServerResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -11647,19 +11686,20 @@ class SqlServerResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
-                 target_resource_group_name: Optional[str] = None):
+                 target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None):
         """
         Defines the SQL Server resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -11671,20 +11711,20 @@ class SqlServerResourceSettingsResponse(dict):
         return pulumi.get(self, "resource_type")
 
     @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
-
-    @property
     @pulumi.getter(name="targetResourceGroupName")
     def target_resource_group_name(self) -> Optional[str]:
         """
         Gets or sets the target resource group name.
         """
         return pulumi.get(self, "target_resource_group_name")
+
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
 
 
 @pulumi.output_type
@@ -11942,7 +11982,7 @@ class SystemDataResponse(dict):
         :param str created_at: The timestamp of resource creation (UTC).
         :param str created_by: The identity that created the resource.
         :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_at: The type of identity that last modified the resource.
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -11987,7 +12027,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The timestamp of resource last modification (UTC)
+        The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_at")
 
@@ -12315,14 +12355,14 @@ class VirtualMachineResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "targetAvailabilitySetId":
             suggest = "target_availability_set_id"
         elif key == "targetAvailabilityZone":
             suggest = "target_availability_zone"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
         elif key == "targetVmSize":
             suggest = "target_vm_size"
         elif key == "userManagedIdentities":
@@ -12341,27 +12381,26 @@ class VirtualMachineResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
                  tags: Optional[Mapping[str, str]] = None,
                  target_availability_set_id: Optional[str] = None,
                  target_availability_zone: Optional[str] = None,
                  target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None,
                  target_vm_size: Optional[str] = None,
                  user_managed_identities: Optional[Sequence[str]] = None):
         """
         Gets or sets the virtual machine resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Compute/virtualMachines'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_availability_set_id: Gets or sets the target availability set id for virtual machines not in an availability set at source.
         :param str target_availability_zone: Gets or sets the target availability zone.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         :param str target_vm_size: Gets or sets the target virtual machine size.
         :param Sequence[str] user_managed_identities: Gets or sets user-managed identities
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/virtualMachines')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_availability_set_id is not None:
@@ -12370,6 +12409,8 @@ class VirtualMachineResourceSettingsResponse(dict):
             pulumi.set(__self__, "target_availability_zone", target_availability_zone)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
         if target_vm_size is not None:
             pulumi.set(__self__, "target_vm_size", target_vm_size)
         if user_managed_identities is not None:
@@ -12383,14 +12424,6 @@ class VirtualMachineResourceSettingsResponse(dict):
         Expected value is 'Microsoft.Compute/virtualMachines'.
         """
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter
@@ -12425,6 +12458,14 @@ class VirtualMachineResourceSettingsResponse(dict):
         return pulumi.get(self, "target_resource_group_name")
 
     @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
+    @property
     @pulumi.getter(name="targetVmSize")
     def target_vm_size(self) -> Optional[str]:
         """
@@ -12451,8 +12492,6 @@ class VirtualNetworkResourceSettingsResponse(dict):
         suggest = None
         if key == "resourceType":
             suggest = "resource_type"
-        elif key == "targetResourceName":
-            suggest = "target_resource_name"
         elif key == "addressSpace":
             suggest = "address_space"
         elif key == "dnsServers":
@@ -12461,6 +12500,8 @@ class VirtualNetworkResourceSettingsResponse(dict):
             suggest = "enable_ddos_protection"
         elif key == "targetResourceGroupName":
             suggest = "target_resource_group_name"
+        elif key == "targetResourceName":
+            suggest = "target_resource_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -12475,18 +12516,17 @@ class VirtualNetworkResourceSettingsResponse(dict):
 
     def __init__(__self__, *,
                  resource_type: str,
-                 target_resource_name: str,
                  address_space: Optional[Sequence[str]] = None,
                  dns_servers: Optional[Sequence[str]] = None,
                  enable_ddos_protection: Optional[bool] = None,
                  subnets: Optional[Sequence['outputs.SubnetResourceSettingsResponse']] = None,
                  tags: Optional[Mapping[str, str]] = None,
-                 target_resource_group_name: Optional[str] = None):
+                 target_resource_group_name: Optional[str] = None,
+                 target_resource_name: Optional[str] = None):
         """
         Defines the virtual network resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/virtualNetworks'.
-        :param str target_resource_name: Gets or sets the target Resource name.
         :param Sequence[str] address_space: Gets or sets the address prefixes for the virtual network.
         :param Sequence[str] dns_servers: Gets or sets DHCPOptions that contains an array of DNS servers available to VMs
                deployed in the virtual network.
@@ -12495,9 +12535,9 @@ class VirtualNetworkResourceSettingsResponse(dict):
         :param Sequence['SubnetResourceSettingsResponse'] subnets: Gets or sets List of subnets in a VirtualNetwork.
         :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_resource_group_name: Gets or sets the target resource group name.
+        :param str target_resource_name: Gets or sets the target Resource name.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/virtualNetworks')
-        pulumi.set(__self__, "target_resource_name", target_resource_name)
         if address_space is not None:
             pulumi.set(__self__, "address_space", address_space)
         if dns_servers is not None:
@@ -12510,6 +12550,8 @@ class VirtualNetworkResourceSettingsResponse(dict):
             pulumi.set(__self__, "tags", tags)
         if target_resource_group_name is not None:
             pulumi.set(__self__, "target_resource_group_name", target_resource_group_name)
+        if target_resource_name is not None:
+            pulumi.set(__self__, "target_resource_name", target_resource_name)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -12519,14 +12561,6 @@ class VirtualNetworkResourceSettingsResponse(dict):
         Expected value is 'Microsoft.Network/virtualNetworks'.
         """
         return pulumi.get(self, "resource_type")
-
-    @property
-    @pulumi.getter(name="targetResourceName")
-    def target_resource_name(self) -> str:
-        """
-        Gets or sets the target Resource name.
-        """
-        return pulumi.get(self, "target_resource_name")
 
     @property
     @pulumi.getter(name="addressSpace")
@@ -12578,6 +12612,14 @@ class VirtualNetworkResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "target_resource_group_name")
 
+    @property
+    @pulumi.getter(name="targetResourceName")
+    def target_resource_name(self) -> Optional[str]:
+        """
+        Gets or sets the target Resource name.
+        """
+        return pulumi.get(self, "target_resource_name")
+
 
 @pulumi.output_type
 class VirtualizationSoftwareSettingsResponse(dict):
@@ -12587,12 +12629,8 @@ class VirtualizationSoftwareSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "licenseAndSupportList":
-            suggest = "license_and_support_list"
-        elif key == "numberOfPhysicalCoresPerLicense":
-            suggest = "number_of_physical_cores_per_license"
-        elif key == "softwareAssuranceCost":
-            suggest = "software_assurance_cost"
+        if key == "vMwareCloudFoundationLicenseCost":
+            suggest = "v_mware_cloud_foundation_license_cost"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VirtualizationSoftwareSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -12606,42 +12644,20 @@ class VirtualizationSoftwareSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 license_and_support_list: Sequence['outputs.VsphereLicenseResponse'],
-                 number_of_physical_cores_per_license: int,
-                 software_assurance_cost: float):
+                 v_mware_cloud_foundation_license_cost: float):
         """
         Virtualization software settings.
-        :param Sequence['VsphereLicenseResponse'] license_and_support_list: Licence and support list.
-        :param int number_of_physical_cores_per_license: Number of physical cores per licence.
-        :param float software_assurance_cost: Software Assurance cost.
+        :param float v_mware_cloud_foundation_license_cost: VMware cloud foundation license cost.
         """
-        pulumi.set(__self__, "license_and_support_list", license_and_support_list)
-        pulumi.set(__self__, "number_of_physical_cores_per_license", number_of_physical_cores_per_license)
-        pulumi.set(__self__, "software_assurance_cost", software_assurance_cost)
+        pulumi.set(__self__, "v_mware_cloud_foundation_license_cost", v_mware_cloud_foundation_license_cost)
 
     @property
-    @pulumi.getter(name="licenseAndSupportList")
-    def license_and_support_list(self) -> Sequence['outputs.VsphereLicenseResponse']:
+    @pulumi.getter(name="vMwareCloudFoundationLicenseCost")
+    def v_mware_cloud_foundation_license_cost(self) -> float:
         """
-        Licence and support list.
+        VMware cloud foundation license cost.
         """
-        return pulumi.get(self, "license_and_support_list")
-
-    @property
-    @pulumi.getter(name="numberOfPhysicalCoresPerLicense")
-    def number_of_physical_cores_per_license(self) -> int:
-        """
-        Number of physical cores per licence.
-        """
-        return pulumi.get(self, "number_of_physical_cores_per_license")
-
-    @property
-    @pulumi.getter(name="softwareAssuranceCost")
-    def software_assurance_cost(self) -> float:
-        """
-        Software Assurance cost.
-        """
-        return pulumi.get(self, "software_assurance_cost")
+        return pulumi.get(self, "v_mware_cloud_foundation_license_cost")
 
 
 @pulumi.output_type
@@ -12696,201 +12712,6 @@ class VmUptimeResponse(dict):
         Number of hours per day for VM uptime.
         """
         return pulumi.get(self, "hours_per_day")
-
-
-@pulumi.output_type
-class VsphereLicenseResponse(dict):
-    """
-    Representation of a vsphere licence.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "basicSupportCost":
-            suggest = "basic_support_cost"
-        elif key == "licenseCost":
-            suggest = "license_cost"
-        elif key == "licenseType":
-            suggest = "license_type"
-        elif key == "productionSupportCost":
-            suggest = "production_support_cost"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VsphereLicenseResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VsphereLicenseResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VsphereLicenseResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 basic_support_cost: float,
-                 license_cost: float,
-                 license_type: str,
-                 production_support_cost: float):
-        """
-        Representation of a vsphere licence.
-        :param float basic_support_cost: Basic support cost.
-        :param float license_cost: Cost of a licence.
-        :param str license_type: VSphere licence type.
-        :param float production_support_cost: Production support cost.
-        """
-        pulumi.set(__self__, "basic_support_cost", basic_support_cost)
-        pulumi.set(__self__, "license_cost", license_cost)
-        pulumi.set(__self__, "license_type", license_type)
-        pulumi.set(__self__, "production_support_cost", production_support_cost)
-
-    @property
-    @pulumi.getter(name="basicSupportCost")
-    def basic_support_cost(self) -> float:
-        """
-        Basic support cost.
-        """
-        return pulumi.get(self, "basic_support_cost")
-
-    @property
-    @pulumi.getter(name="licenseCost")
-    def license_cost(self) -> float:
-        """
-        Cost of a licence.
-        """
-        return pulumi.get(self, "license_cost")
-
-    @property
-    @pulumi.getter(name="licenseType")
-    def license_type(self) -> str:
-        """
-        VSphere licence type.
-        """
-        return pulumi.get(self, "license_type")
-
-    @property
-    @pulumi.getter(name="productionSupportCost")
-    def production_support_cost(self) -> float:
-        """
-        Production support cost.
-        """
-        return pulumi.get(self, "production_support_cost")
-
-
-@pulumi.output_type
-class VsphereManagementLicenseResponse(dict):
-    """
-    Representation of a vsphere management licence.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "basicSupportCost":
-            suggest = "basic_support_cost"
-        elif key == "licenseCost":
-            suggest = "license_cost"
-        elif key == "licenseType":
-            suggest = "license_type"
-        elif key == "productionSupportCost":
-            suggest = "production_support_cost"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VsphereManagementLicenseResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VsphereManagementLicenseResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VsphereManagementLicenseResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 basic_support_cost: float,
-                 license_cost: float,
-                 license_type: str,
-                 production_support_cost: float):
-        """
-        Representation of a vsphere management licence.
-        :param float basic_support_cost: Basic support cost.
-        :param float license_cost: Cost of a licence.
-        :param str license_type: VSphere licence type.
-        :param float production_support_cost: Production support cost.
-        """
-        pulumi.set(__self__, "basic_support_cost", basic_support_cost)
-        pulumi.set(__self__, "license_cost", license_cost)
-        pulumi.set(__self__, "license_type", license_type)
-        pulumi.set(__self__, "production_support_cost", production_support_cost)
-
-    @property
-    @pulumi.getter(name="basicSupportCost")
-    def basic_support_cost(self) -> float:
-        """
-        Basic support cost.
-        """
-        return pulumi.get(self, "basic_support_cost")
-
-    @property
-    @pulumi.getter(name="licenseCost")
-    def license_cost(self) -> float:
-        """
-        Cost of a licence.
-        """
-        return pulumi.get(self, "license_cost")
-
-    @property
-    @pulumi.getter(name="licenseType")
-    def license_type(self) -> str:
-        """
-        VSphere licence type.
-        """
-        return pulumi.get(self, "license_type")
-
-    @property
-    @pulumi.getter(name="productionSupportCost")
-    def production_support_cost(self) -> float:
-        """
-        Production support cost.
-        """
-        return pulumi.get(self, "production_support_cost")
-
-
-@pulumi.output_type
-class VsphereManagementSettingsResponse(dict):
-    """
-    Vsphere management settings.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "licenseAndSupportList":
-            suggest = "license_and_support_list"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VsphereManagementSettingsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VsphereManagementSettingsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VsphereManagementSettingsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 license_and_support_list: Sequence['outputs.VsphereManagementLicenseResponse']):
-        """
-        Vsphere management settings.
-        :param Sequence['VsphereManagementLicenseResponse'] license_and_support_list: Licence and support list.
-        """
-        pulumi.set(__self__, "license_and_support_list", license_and_support_list)
-
-    @property
-    @pulumi.getter(name="licenseAndSupportList")
-    def license_and_support_list(self) -> Sequence['outputs.VsphereManagementLicenseResponse']:
-        """
-        Licence and support list.
-        """
-        return pulumi.get(self, "license_and_support_list")
 
 
 @pulumi.output_type

@@ -128,9 +128,9 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get Private Endpoint Connection. This call is made by Backup Admin.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+    Other available API versions: 2023-04-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
@@ -158,9 +158,9 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get Private Endpoint Connection. This call is made by Backup Admin.
-    Azure REST API version: 2023-04-01.
+    Azure REST API version: 2024-10-01.
 
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+    Other available API versions: 2023-04-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.

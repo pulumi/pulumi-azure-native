@@ -36,7 +36,6 @@ __all__ = [
     'GoogleAdWordsAuthenticationType',
     'GoogleBigQueryAuthenticationType',
     'GoogleBigQueryV2AuthenticationType',
-    'GreenplumAuthenticationType',
     'HBaseAuthenticationType',
     'HDInsightActivityDebugInfoOption',
     'HiveAuthenticationType',
@@ -374,13 +373,6 @@ class GoogleBigQueryV2AuthenticationType(str, Enum):
     """
     SERVICE_AUTHENTICATION = "ServiceAuthentication"
     USER_AUTHENTICATION = "UserAuthentication"
-
-
-class GreenplumAuthenticationType(str, Enum):
-    """
-    The authentication type to use. Type: string. Only used for V2.
-    """
-    BASIC = "Basic"
 
 
 class HBaseAuthenticationType(str, Enum):

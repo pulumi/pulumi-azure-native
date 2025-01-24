@@ -25,6 +25,7 @@ class IotDpsResourceArgs:
                  properties: pulumi.Input['IotDpsPropertiesDescriptionArgs'],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['IotDpsSkuInfoArgs'],
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
                  resourcegroup: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class IotDpsResourceArgs:
         :param pulumi.Input['IotDpsPropertiesDescriptionArgs'] properties: Service specific properties for a provisioning service
         :param pulumi.Input[str] resource_group_name: Resource group identifier.
         :param pulumi.Input['IotDpsSkuInfoArgs'] sku: Sku info for a provisioning Service.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identities for a provisioning service.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] provisioning_service_name: Name of provisioning service to create or update.
         :param pulumi.Input[str] resourcegroup: The resource group of the resource.
@@ -44,6 +46,8 @@ class IotDpsResourceArgs:
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if provisioning_service_name is not None:
@@ -90,6 +94,18 @@ class IotDpsResourceArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['IotDpsSkuInfoArgs']):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        The managed identities for a provisioning service.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -157,6 +173,7 @@ class IotDpsResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['IotDpsPropertiesDescriptionArgs', 'IotDpsPropertiesDescriptionArgsDict']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
@@ -168,12 +185,13 @@ class IotDpsResource(pulumi.CustomResource):
                  __props__=None):
         """
         The description of the provisioning service.
-        Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01.
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2022-12-12.
 
-        Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
+        Other available API versions: 2020-09-01-preview, 2022-12-12, 2025-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed identities for a provisioning service.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Union['IotDpsPropertiesDescriptionArgs', 'IotDpsPropertiesDescriptionArgsDict']] properties: Service specific properties for a provisioning service
         :param pulumi.Input[str] provisioning_service_name: Name of provisioning service to create or update.
@@ -191,9 +209,9 @@ class IotDpsResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the provisioning service.
-        Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01.
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2022-12-12.
 
-        Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
+        Other available API versions: 2020-09-01-preview, 2022-12-12, 2025-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IotDpsResourceArgs args: The arguments to use to populate this resource's properties.
@@ -210,6 +228,7 @@ class IotDpsResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['IotDpsPropertiesDescriptionArgs', 'IotDpsPropertiesDescriptionArgsDict']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
@@ -227,6 +246,7 @@ class IotDpsResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IotDpsResourceArgs.__new__(IotDpsResourceArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
@@ -270,6 +290,7 @@ class IotDpsResource(pulumi.CustomResource):
         __props__ = IotDpsResourceArgs.__new__(IotDpsResourceArgs)
 
         __props__.__dict__["etag"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -288,6 +309,14 @@ class IotDpsResource(pulumi.CustomResource):
         The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        The managed identities for a provisioning service.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

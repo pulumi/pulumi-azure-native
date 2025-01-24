@@ -45,14 +45,11 @@ if typing.TYPE_CHECKING:
     v20220715preview = __v20220715preview
     import pulumi_azure_native.connectedvmwarevsphere.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
-    import pulumi_azure_native.connectedvmwarevsphere.v20231001 as __v20231001
-    v20231001 = __v20231001
     import pulumi_azure_native.connectedvmwarevsphere.v20231201 as __v20231201
     v20231201 = __v20231201
 else:
     v20220110preview = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere.v20220110preview')
     v20220715preview = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere.v20220715preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere.v20230301preview')
-    v20231001 = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere.v20231001')
     v20231201 = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere.v20231201')
 

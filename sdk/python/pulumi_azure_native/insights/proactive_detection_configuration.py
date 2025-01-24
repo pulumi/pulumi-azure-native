@@ -185,7 +185,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         A ProactiveDetection configuration definition.
-        Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 1.x: 2015-05-01.
+        Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 1.x: 2018-05-01-preview.
 
         Other available API versions: 2015-05-01.
 
@@ -209,7 +209,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A ProactiveDetection configuration definition.
-        Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 1.x: 2015-05-01.
+        Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 1.x: 2018-05-01-preview.
 
         Other available API versions: 2015-05-01.
 

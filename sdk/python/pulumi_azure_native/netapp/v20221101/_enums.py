@@ -10,18 +10,15 @@ __all__ = [
     'ChownMode',
     'EnableSubvolumes',
     'EncryptionKeySource',
-    'EncryptionType',
     'EndpointType',
     'KeySource',
     'ManagedServiceIdentityType',
     'NetworkFeatures',
-    'QosType',
     'ReplicationSchedule',
     'SecurityStyle',
     'ServiceLevel',
     'SmbAccessBasedEnumeration',
     'SmbNonBrowsable',
-    'Type',
 ]
 
 
@@ -82,20 +79,6 @@ class EncryptionKeySource(str, Enum):
     """
 
 
-class EncryptionType(str, Enum):
-    """
-    Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
-    """
-    SINGLE = "Single"
-    """
-    EncryptionType Single, volumes will use single encryption at rest
-    """
-    DOUBLE = "Double"
-    """
-    EncryptionType Double, volumes will use double encryption at rest
-    """
-
-
 class EndpointType(str, Enum):
     """
     Indicates whether the local volume is the source or destination for the Volume Replication
@@ -139,20 +122,6 @@ class NetworkFeatures(str, Enum):
     STANDARD = "Standard"
     """
     Standard network feature.
-    """
-
-
-class QosType(str, Enum):
-    """
-    The qos type of the pool
-    """
-    AUTO = "Auto"
-    """
-    qos type Auto
-    """
-    MANUAL = "Manual"
-    """
-    qos type Manual
     """
 
 
@@ -220,26 +189,4 @@ class SmbNonBrowsable(str, Enum):
     ENABLED = "Enabled"
     """
     smbNonBrowsable share setting is enabled
-    """
-
-
-class Type(str, Enum):
-    """
-    Type of quota
-    """
-    DEFAULT_USER_QUOTA = "DefaultUserQuota"
-    """
-    Default user quota
-    """
-    DEFAULT_GROUP_QUOTA = "DefaultGroupQuota"
-    """
-    Default group quota
-    """
-    INDIVIDUAL_USER_QUOTA = "IndividualUserQuota"
-    """
-    Individual user quota
-    """
-    INDIVIDUAL_GROUP_QUOTA = "IndividualGroupQuota"
-    """
-    Individual group quota
     """

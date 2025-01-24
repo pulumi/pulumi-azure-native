@@ -128,7 +128,9 @@ def get_extension(account_resource_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
     Gets the details of an extension associated with a Visual Studio Team Services account resource.
-    Azure REST API version: 2017-11-01-preview.
+    Azure REST API version: 2014-04-01-preview.
+
+    Other available API versions: 2017-11-01-preview.
 
 
     :param str account_resource_name: The name of the Visual Studio Team Services account resource.
@@ -156,7 +158,9 @@ def get_extension_output(account_resource_name: Optional[pulumi.Input[str]] = No
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Gets the details of an extension associated with a Visual Studio Team Services account resource.
-    Azure REST API version: 2017-11-01-preview.
+    Azure REST API version: 2014-04-01-preview.
+
+    Other available API versions: 2017-11-01-preview.
 
 
     :param str account_resource_name: The name of the Visual Studio Team Services account resource.

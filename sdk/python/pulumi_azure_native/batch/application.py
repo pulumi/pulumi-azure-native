@@ -24,7 +24,8 @@ class ApplicationArgs:
                  allow_updates: Optional[pulumi.Input[bool]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  default_version: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None):
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
@@ -33,6 +34,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] application_name: The name of the application. This must be unique within the account.
         :param pulumi.Input[str] default_version: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
         :param pulumi.Input[str] display_name: The display name for the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -44,6 +46,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "default_version", default_version)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accountName")
@@ -117,6 +121,18 @@ class ApplicationArgs:
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Application(pulumi.CustomResource):
     @overload
@@ -129,12 +145,13 @@ class Application(pulumi.CustomResource):
                  default_version: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Contains information about an application in a Batch account.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2023-05-01.
 
-        Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        Other available API versions: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,6 +161,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] default_version: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
         :param pulumi.Input[str] display_name: The display name for the application.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         """
         ...
     @overload
@@ -153,9 +171,9 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about an application in a Batch account.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2023-05-01.
 
-        Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+        Other available API versions: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +196,7 @@ class Application(pulumi.CustomResource):
                  default_version: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -197,6 +216,7 @@ class Application(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -229,6 +249,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
@@ -271,6 +292,14 @@ class Application(pulumi.CustomResource):
         The name of the resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

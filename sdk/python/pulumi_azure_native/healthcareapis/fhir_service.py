@@ -24,10 +24,10 @@ class FhirServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceAccessPolicyEntryArgs']]]] = None,
                  acr_configuration: Optional[pulumi.Input['FhirServiceAcrConfigurationArgs']] = None,
                  authentication_configuration: Optional[pulumi.Input['FhirServiceAuthenticationConfigurationArgs']] = None,
                  cors_configuration: Optional[pulumi.Input['FhirServiceCorsConfigurationArgs']] = None,
+                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
                  export_configuration: Optional[pulumi.Input['FhirServiceExportConfigurationArgs']] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']] = None,
@@ -41,10 +41,10 @@ class FhirServiceArgs:
         The set of arguments for constructing a FhirService resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[str] workspace_name: The name of workspace resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FhirServiceAccessPolicyEntryArgs']]] access_policies: Fhir Service access policies.
         :param pulumi.Input['FhirServiceAcrConfigurationArgs'] acr_configuration: Fhir Service Azure container registry configuration.
         :param pulumi.Input['FhirServiceAuthenticationConfigurationArgs'] authentication_configuration: Fhir Service authentication configuration.
         :param pulumi.Input['FhirServiceCorsConfigurationArgs'] cors_configuration: Fhir Service Cors configuration.
+        :param pulumi.Input['EncryptionArgs'] encryption: The encryption settings of the FHIR service
         :param pulumi.Input['FhirServiceExportConfigurationArgs'] export_configuration: Fhir Service export configuration.
         :param pulumi.Input[str] fhir_service_name: The name of FHIR Service resource.
         :param pulumi.Input['ServiceManagedIdentityIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
@@ -57,14 +57,14 @@ class FhirServiceArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if access_policies is not None:
-            pulumi.set(__self__, "access_policies", access_policies)
         if acr_configuration is not None:
             pulumi.set(__self__, "acr_configuration", acr_configuration)
         if authentication_configuration is not None:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
         if cors_configuration is not None:
             pulumi.set(__self__, "cors_configuration", cors_configuration)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if export_configuration is not None:
             pulumi.set(__self__, "export_configuration", export_configuration)
         if fhir_service_name is not None:
@@ -109,18 +109,6 @@ class FhirServiceArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceAccessPolicyEntryArgs']]]]:
-        """
-        Fhir Service access policies.
-        """
-        return pulumi.get(self, "access_policies")
-
-    @access_policies.setter
-    def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceAccessPolicyEntryArgs']]]]):
-        pulumi.set(self, "access_policies", value)
-
-    @property
     @pulumi.getter(name="acrConfiguration")
     def acr_configuration(self) -> Optional[pulumi.Input['FhirServiceAcrConfigurationArgs']]:
         """
@@ -155,6 +143,18 @@ class FhirServiceArgs:
     @cors_configuration.setter
     def cors_configuration(self, value: Optional[pulumi.Input['FhirServiceCorsConfigurationArgs']]):
         pulumi.set(self, "cors_configuration", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+        """
+        The encryption settings of the FHIR service
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter(name="exportConfiguration")
@@ -270,10 +270,10 @@ class FhirService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FhirServiceAccessPolicyEntryArgs', 'FhirServiceAccessPolicyEntryArgsDict']]]]] = None,
                  acr_configuration: Optional[pulumi.Input[Union['FhirServiceAcrConfigurationArgs', 'FhirServiceAcrConfigurationArgsDict']]] = None,
                  authentication_configuration: Optional[pulumi.Input[Union['FhirServiceAuthenticationConfigurationArgs', 'FhirServiceAuthenticationConfigurationArgsDict']]] = None,
                  cors_configuration: Optional[pulumi.Input[Union['FhirServiceCorsConfigurationArgs', 'FhirServiceCorsConfigurationArgsDict']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
                  export_configuration: Optional[pulumi.Input[Union['FhirServiceExportConfigurationArgs', 'FhirServiceExportConfigurationArgsDict']]] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
@@ -288,16 +288,16 @@ class FhirService(pulumi.CustomResource):
                  __props__=None):
         """
         The description of Fhir Service
-        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
+        Azure REST API version: 2024-03-31. Prior API version in Azure Native 1.x: 2023-02-28.
 
-        Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        Other available API versions: 2023-02-28.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FhirServiceAccessPolicyEntryArgs', 'FhirServiceAccessPolicyEntryArgsDict']]]] access_policies: Fhir Service access policies.
         :param pulumi.Input[Union['FhirServiceAcrConfigurationArgs', 'FhirServiceAcrConfigurationArgsDict']] acr_configuration: Fhir Service Azure container registry configuration.
         :param pulumi.Input[Union['FhirServiceAuthenticationConfigurationArgs', 'FhirServiceAuthenticationConfigurationArgsDict']] authentication_configuration: Fhir Service authentication configuration.
         :param pulumi.Input[Union['FhirServiceCorsConfigurationArgs', 'FhirServiceCorsConfigurationArgsDict']] cors_configuration: Fhir Service Cors configuration.
+        :param pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']] encryption: The encryption settings of the FHIR service
         :param pulumi.Input[Union['FhirServiceExportConfigurationArgs', 'FhirServiceExportConfigurationArgsDict']] export_configuration: Fhir Service export configuration.
         :param pulumi.Input[str] fhir_service_name: The name of FHIR Service resource.
         :param pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']] identity: Setting indicating whether the service has a managed identity associated with it.
@@ -318,9 +318,9 @@ class FhirService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of Fhir Service
-        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
+        Azure REST API version: 2024-03-31. Prior API version in Azure Native 1.x: 2023-02-28.
 
-        Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        Other available API versions: 2023-02-28.
 
         :param str resource_name: The name of the resource.
         :param FhirServiceArgs args: The arguments to use to populate this resource's properties.
@@ -337,10 +337,10 @@ class FhirService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FhirServiceAccessPolicyEntryArgs', 'FhirServiceAccessPolicyEntryArgsDict']]]]] = None,
                  acr_configuration: Optional[pulumi.Input[Union['FhirServiceAcrConfigurationArgs', 'FhirServiceAcrConfigurationArgsDict']]] = None,
                  authentication_configuration: Optional[pulumi.Input[Union['FhirServiceAuthenticationConfigurationArgs', 'FhirServiceAuthenticationConfigurationArgsDict']]] = None,
                  cors_configuration: Optional[pulumi.Input[Union['FhirServiceCorsConfigurationArgs', 'FhirServiceCorsConfigurationArgsDict']]] = None,
+                 encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
                  export_configuration: Optional[pulumi.Input[Union['FhirServiceExportConfigurationArgs', 'FhirServiceExportConfigurationArgsDict']]] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ServiceManagedIdentityIdentityArgs', 'ServiceManagedIdentityIdentityArgsDict']]] = None,
@@ -361,10 +361,10 @@ class FhirService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FhirServiceArgs.__new__(FhirServiceArgs)
 
-            __props__.__dict__["access_policies"] = access_policies
             __props__.__dict__["acr_configuration"] = acr_configuration
             __props__.__dict__["authentication_configuration"] = authentication_configuration
             __props__.__dict__["cors_configuration"] = cors_configuration
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["export_configuration"] = export_configuration
             __props__.__dict__["fhir_service_name"] = fhir_service_name
             __props__.__dict__["identity"] = identity
@@ -412,10 +412,10 @@ class FhirService(pulumi.CustomResource):
 
         __props__ = FhirServiceArgs.__new__(FhirServiceArgs)
 
-        __props__.__dict__["access_policies"] = None
         __props__.__dict__["acr_configuration"] = None
         __props__.__dict__["authentication_configuration"] = None
         __props__.__dict__["cors_configuration"] = None
+        __props__.__dict__["encryption"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["event_state"] = None
         __props__.__dict__["export_configuration"] = None
@@ -433,14 +433,6 @@ class FhirService(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return FhirService(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="accessPolicies")
-    def access_policies(self) -> pulumi.Output[Optional[Sequence['outputs.FhirServiceAccessPolicyEntryResponse']]]:
-        """
-        Fhir Service access policies.
-        """
-        return pulumi.get(self, "access_policies")
 
     @property
     @pulumi.getter(name="acrConfiguration")
@@ -465,6 +457,14 @@ class FhirService(pulumi.CustomResource):
         Fhir Service Cors configuration.
         """
         return pulumi.get(self, "cors_configuration")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionResponse']]:
+        """
+        The encryption settings of the FHIR service
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter

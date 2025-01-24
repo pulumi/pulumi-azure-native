@@ -287,7 +287,7 @@ class LiveEvent(pulumi.CustomResource):
                  __props__=None):
         """
         The live event.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-11-01.
 
         Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
 
@@ -317,7 +317,7 @@ class LiveEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The live event.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-11-01.
 
         Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
 

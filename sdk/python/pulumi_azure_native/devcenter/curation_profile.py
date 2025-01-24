@@ -117,9 +117,9 @@ class CurationProfile(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an curation profile resource.
-        Azure REST API version: 2024-08-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 1.x: 2024-08-01-preview.
 
-        Other available API versions: 2024-10-01-preview.
+        Other available API versions: 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,9 +137,9 @@ class CurationProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an curation profile resource.
-        Azure REST API version: 2024-08-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 1.x: 2024-08-01-preview.
 
-        Other available API versions: 2024-10-01-preview.
+        Other available API versions: 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CurationProfileArgs args: The arguments to use to populate this resource's properties.

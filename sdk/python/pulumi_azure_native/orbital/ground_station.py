@@ -219,9 +219,7 @@ class GroundStation(pulumi.CustomResource):
                  __props__=None):
         """
         Ground Station contains one or more antennas.
-        Azure REST API version: 2024-03-01-preview.
-
-        Other available API versions: 2024-03-01.
+        Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 1.x: 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,9 +243,7 @@ class GroundStation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Ground Station contains one or more antennas.
-        Azure REST API version: 2024-03-01-preview.
-
-        Other available API versions: 2024-03-01.
+        Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 1.x: 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param GroundStationArgs args: The arguments to use to populate this resource's properties.

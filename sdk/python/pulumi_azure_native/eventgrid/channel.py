@@ -28,6 +28,7 @@ class ChannelArgs:
                  channel_type: Optional[pulumi.Input[Union[str, 'ChannelType']]] = None,
                  expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
                  message_for_activation: Optional[pulumi.Input[str]] = None,
+                 partner_destination_info: Optional[pulumi.Input['WebhookPartnerDestinationInfoArgs']] = None,
                  partner_topic_info: Optional[pulumi.Input['PartnerTopicInfoArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ChannelProvisioningState']]] = None,
                  readiness_state: Optional[pulumi.Input[Union[str, 'ReadinessState']]] = None):
@@ -40,6 +41,7 @@ class ChannelArgs:
         :param pulumi.Input[str] expiration_time_if_not_activated_utc: Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
                the channel and corresponding partner topic are deleted.
         :param pulumi.Input[str] message_for_activation: Context or helpful message that can be used during the approval process by the subscriber.
+        :param pulumi.Input['WebhookPartnerDestinationInfoArgs'] partner_destination_info: This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
         :param pulumi.Input['PartnerTopicInfoArgs'] partner_topic_info: This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
         :param pulumi.Input[Union[str, 'ChannelProvisioningState']] provisioning_state: Provisioning state of the channel.
         :param pulumi.Input[Union[str, 'ReadinessState']] readiness_state: The readiness state of the corresponding partner topic.
@@ -54,6 +56,8 @@ class ChannelArgs:
             pulumi.set(__self__, "expiration_time_if_not_activated_utc", expiration_time_if_not_activated_utc)
         if message_for_activation is not None:
             pulumi.set(__self__, "message_for_activation", message_for_activation)
+        if partner_destination_info is not None:
+            pulumi.set(__self__, "partner_destination_info", partner_destination_info)
         if partner_topic_info is not None:
             pulumi.set(__self__, "partner_topic_info", partner_topic_info)
         if provisioning_state is not None:
@@ -135,6 +139,18 @@ class ChannelArgs:
         pulumi.set(self, "message_for_activation", value)
 
     @property
+    @pulumi.getter(name="partnerDestinationInfo")
+    def partner_destination_info(self) -> Optional[pulumi.Input['WebhookPartnerDestinationInfoArgs']]:
+        """
+        This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
+        """
+        return pulumi.get(self, "partner_destination_info")
+
+    @partner_destination_info.setter
+    def partner_destination_info(self, value: Optional[pulumi.Input['WebhookPartnerDestinationInfoArgs']]):
+        pulumi.set(self, "partner_destination_info", value)
+
+    @property
     @pulumi.getter(name="partnerTopicInfo")
     def partner_topic_info(self) -> Optional[pulumi.Input['PartnerTopicInfoArgs']]:
         """
@@ -180,6 +196,7 @@ class Channel(pulumi.CustomResource):
                  channel_type: Optional[pulumi.Input[Union[str, 'ChannelType']]] = None,
                  expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
                  message_for_activation: Optional[pulumi.Input[str]] = None,
+                 partner_destination_info: Optional[pulumi.Input[Union['WebhookPartnerDestinationInfoArgs', 'WebhookPartnerDestinationInfoArgsDict']]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_topic_info: Optional[pulumi.Input[Union['PartnerTopicInfoArgs', 'PartnerTopicInfoArgsDict']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ChannelProvisioningState']]] = None,
@@ -188,9 +205,9 @@ class Channel(pulumi.CustomResource):
                  __props__=None):
         """
         Channel info.
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2022-06-15.
 
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,6 +216,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_time_if_not_activated_utc: Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
                the channel and corresponding partner topic are deleted.
         :param pulumi.Input[str] message_for_activation: Context or helpful message that can be used during the approval process by the subscriber.
+        :param pulumi.Input[Union['WebhookPartnerDestinationInfoArgs', 'WebhookPartnerDestinationInfoArgsDict']] partner_destination_info: This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
         :param pulumi.Input[str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[Union['PartnerTopicInfoArgs', 'PartnerTopicInfoArgsDict']] partner_topic_info: This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
         :param pulumi.Input[Union[str, 'ChannelProvisioningState']] provisioning_state: Provisioning state of the channel.
@@ -213,9 +231,9 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Channel info.
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2022-06-15.
 
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.
@@ -236,6 +254,7 @@ class Channel(pulumi.CustomResource):
                  channel_type: Optional[pulumi.Input[Union[str, 'ChannelType']]] = None,
                  expiration_time_if_not_activated_utc: Optional[pulumi.Input[str]] = None,
                  message_for_activation: Optional[pulumi.Input[str]] = None,
+                 partner_destination_info: Optional[pulumi.Input[Union['WebhookPartnerDestinationInfoArgs', 'WebhookPartnerDestinationInfoArgsDict']]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_topic_info: Optional[pulumi.Input[Union['PartnerTopicInfoArgs', 'PartnerTopicInfoArgsDict']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ChannelProvisioningState']]] = None,
@@ -254,6 +273,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["channel_type"] = channel_type
             __props__.__dict__["expiration_time_if_not_activated_utc"] = expiration_time_if_not_activated_utc
             __props__.__dict__["message_for_activation"] = message_for_activation
+            __props__.__dict__["partner_destination_info"] = partner_destination_info
             if partner_namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_namespace_name'")
             __props__.__dict__["partner_namespace_name"] = partner_namespace_name
@@ -294,6 +314,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["expiration_time_if_not_activated_utc"] = None
         __props__.__dict__["message_for_activation"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["partner_destination_info"] = None
         __props__.__dict__["partner_topic_info"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["readiness_state"] = None
@@ -335,6 +356,14 @@ class Channel(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="partnerDestinationInfo")
+    def partner_destination_info(self) -> pulumi.Output[Optional['outputs.WebhookPartnerDestinationInfoResponse']]:
+        """
+        This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
+        """
+        return pulumi.get(self, "partner_destination_info")
+
+    @property
     @pulumi.getter(name="partnerTopicInfo")
     def partner_topic_info(self) -> pulumi.Output[Optional['outputs.PartnerTopicInfoResponse']]:
         """
@@ -362,7 +391,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to Channel resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

@@ -22,27 +22,28 @@ __all__ = ['ConnectionRaiBlocklistArgs', 'ConnectionRaiBlocklist']
 class ConnectionRaiBlocklistArgs:
     def __init__(__self__, *,
                  connection_name: pulumi.Input[str],
-                 properties: pulumi.Input['RaiBlocklistItemPropertiesArgs'],
-                 rai_blocklist_name: pulumi.Input[str],
+                 properties: pulumi.Input['RaiBlocklistPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 rai_blocklist_item_name: Optional[pulumi.Input[str]] = None):
+                 proxy_api_version: Optional[pulumi.Input[str]] = None,
+                 rai_blocklist_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectionRaiBlocklist resource.
         :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
-        :param pulumi.Input['RaiBlocklistItemPropertiesArgs'] properties: RAI Custom Blocklist Item properties.
-        :param pulumi.Input[str] rai_blocklist_name: The name of the RaiBlocklist.
+        :param pulumi.Input['RaiBlocklistPropertiesArgs'] properties: RAI Custom Blocklist properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Azure Machine Learning Workspace Name
-        :param pulumi.Input[str] rai_blocklist_item_name: Name of the RaiBlocklist Item
+        :param pulumi.Input[str] proxy_api_version: Api version used by proxy call
+        :param pulumi.Input[str] rai_blocklist_name: The name of the RaiBlocklist.
         """
         pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "rai_blocklist_name", rai_blocklist_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if rai_blocklist_item_name is not None:
-            pulumi.set(__self__, "rai_blocklist_item_name", rai_blocklist_item_name)
+        if proxy_api_version is not None:
+            pulumi.set(__self__, "proxy_api_version", proxy_api_version)
+        if rai_blocklist_name is not None:
+            pulumi.set(__self__, "rai_blocklist_name", rai_blocklist_name)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -58,27 +59,15 @@ class ConnectionRaiBlocklistArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Input['RaiBlocklistItemPropertiesArgs']:
+    def properties(self) -> pulumi.Input['RaiBlocklistPropertiesArgs']:
         """
-        RAI Custom Blocklist Item properties.
+        RAI Custom Blocklist properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input['RaiBlocklistItemPropertiesArgs']):
+    def properties(self, value: pulumi.Input['RaiBlocklistPropertiesArgs']):
         pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="raiBlocklistName")
-    def rai_blocklist_name(self) -> pulumi.Input[str]:
-        """
-        The name of the RaiBlocklist.
-        """
-        return pulumi.get(self, "rai_blocklist_name")
-
-    @rai_blocklist_name.setter
-    def rai_blocklist_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "rai_blocklist_name", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -105,16 +94,28 @@ class ConnectionRaiBlocklistArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter(name="raiBlocklistItemName")
-    def rai_blocklist_item_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="proxyApiVersion")
+    def proxy_api_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the RaiBlocklist Item
+        Api version used by proxy call
         """
-        return pulumi.get(self, "rai_blocklist_item_name")
+        return pulumi.get(self, "proxy_api_version")
 
-    @rai_blocklist_item_name.setter
-    def rai_blocklist_item_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "rai_blocklist_item_name", value)
+    @proxy_api_version.setter
+    def proxy_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy_api_version", value)
+
+    @property
+    @pulumi.getter(name="raiBlocklistName")
+    def rai_blocklist_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the RaiBlocklist.
+        """
+        return pulumi.get(self, "rai_blocklist_name")
+
+    @rai_blocklist_name.setter
+    def rai_blocklist_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rai_blocklist_name", value)
 
 
 class ConnectionRaiBlocklist(pulumi.CustomResource):
@@ -123,22 +124,20 @@ class ConnectionRaiBlocklist(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['RaiBlocklistItemPropertiesArgs', 'RaiBlocklistItemPropertiesArgsDict']]] = None,
-                 rai_blocklist_item_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union['RaiBlocklistPropertiesArgs', 'RaiBlocklistPropertiesArgsDict']]] = None,
+                 proxy_api_version: Optional[pulumi.Input[str]] = None,
                  rai_blocklist_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2024-04-01-preview.
-
-        Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 1.x: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
-        :param pulumi.Input[Union['RaiBlocklistItemPropertiesArgs', 'RaiBlocklistItemPropertiesArgsDict']] properties: RAI Custom Blocklist Item properties.
-        :param pulumi.Input[str] rai_blocklist_item_name: Name of the RaiBlocklist Item
+        :param pulumi.Input[Union['RaiBlocklistPropertiesArgs', 'RaiBlocklistPropertiesArgsDict']] properties: RAI Custom Blocklist properties.
+        :param pulumi.Input[str] proxy_api_version: Api version used by proxy call
         :param pulumi.Input[str] rai_blocklist_name: The name of the RaiBlocklist.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Azure Machine Learning Workspace Name
@@ -150,9 +149,7 @@ class ConnectionRaiBlocklist(pulumi.CustomResource):
                  args: ConnectionRaiBlocklistArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2024-04-01-preview.
-
-        Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 1.x: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ConnectionRaiBlocklistArgs args: The arguments to use to populate this resource's properties.
@@ -170,8 +167,8 @@ class ConnectionRaiBlocklist(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['RaiBlocklistItemPropertiesArgs', 'RaiBlocklistItemPropertiesArgsDict']]] = None,
-                 rai_blocklist_item_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Union['RaiBlocklistPropertiesArgs', 'RaiBlocklistPropertiesArgsDict']]] = None,
+                 proxy_api_version: Optional[pulumi.Input[str]] = None,
                  rai_blocklist_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -190,9 +187,7 @@ class ConnectionRaiBlocklist(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
-            __props__.__dict__["rai_blocklist_item_name"] = rai_blocklist_item_name
-            if rai_blocklist_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rai_blocklist_name'")
+            __props__.__dict__["proxy_api_version"] = proxy_api_version
             __props__.__dict__["rai_blocklist_name"] = rai_blocklist_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -243,9 +238,9 @@ class ConnectionRaiBlocklist(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.RaiBlocklistItemPropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.RaiBlocklistPropertiesResponse']:
         """
-        RAI Custom Blocklist Item properties.
+        RAI Custom Blocklist properties.
         """
         return pulumi.get(self, "properties")
 

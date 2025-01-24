@@ -20,8 +20,6 @@ __all__ = [
     'AddressArgsDict',
     'AsymmetricEncryptedSecretArgs',
     'AsymmetricEncryptedSecretArgsDict',
-    'AuthenticationArgs',
-    'AuthenticationArgsDict',
     'AzureContainerInfoArgs',
     'AzureContainerInfoArgsDict',
     'ClientAccessRightArgs',
@@ -30,8 +28,6 @@ __all__ = [
     'ContactDetailsArgsDict',
     'DataResidencyArgs',
     'DataResidencyArgsDict',
-    'IoTDeviceInfoArgs',
-    'IoTDeviceInfoArgsDict',
     'MetricConfigurationArgs',
     'MetricConfigurationArgsDict',
     'MetricCounterSetArgs',
@@ -46,8 +42,6 @@ __all__ = [
     'ResourceIdentityArgsDict',
     'SkuArgs',
     'SkuArgsDict',
-    'SymmetricKeyArgs',
-    'SymmetricKeyArgsDict',
     'UserAccessRightArgs',
     'UserAccessRightArgsDict',
 ]
@@ -281,42 +275,6 @@ class AsymmetricEncryptedSecretArgs:
     @encryption_cert_thumbprint.setter
     def encryption_cert_thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "encryption_cert_thumbprint", value)
-
-
-if not MYPY:
-    class AuthenticationArgsDict(TypedDict):
-        """
-        Authentication mechanism for IoT devices.
-        """
-        symmetric_key: NotRequired[pulumi.Input['SymmetricKeyArgsDict']]
-        """
-        Symmetric key for authentication.
-        """
-elif False:
-    AuthenticationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AuthenticationArgs:
-    def __init__(__self__, *,
-                 symmetric_key: Optional[pulumi.Input['SymmetricKeyArgs']] = None):
-        """
-        Authentication mechanism for IoT devices.
-        :param pulumi.Input['SymmetricKeyArgs'] symmetric_key: Symmetric key for authentication.
-        """
-        if symmetric_key is not None:
-            pulumi.set(__self__, "symmetric_key", symmetric_key)
-
-    @property
-    @pulumi.getter(name="symmetricKey")
-    def symmetric_key(self) -> Optional[pulumi.Input['SymmetricKeyArgs']]:
-        """
-        Symmetric key for authentication.
-        """
-        return pulumi.get(self, "symmetric_key")
-
-    @symmetric_key.setter
-    def symmetric_key(self, value: Optional[pulumi.Input['SymmetricKeyArgs']]):
-        pulumi.set(self, "symmetric_key", value)
 
 
 if not MYPY:
@@ -572,100 +530,6 @@ class DataResidencyArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'DataResidencyType']]]):
         pulumi.set(self, "type", value)
-
-
-if not MYPY:
-    class IoTDeviceInfoArgsDict(TypedDict):
-        """
-        Metadata of IoT device/IoT Edge device to be configured.
-        """
-        device_id: pulumi.Input[str]
-        """
-        ID of the IoT device/edge device.
-        """
-        io_t_host_hub: pulumi.Input[str]
-        """
-        Host name for the IoT hub associated to the device.
-        """
-        authentication: NotRequired[pulumi.Input['AuthenticationArgsDict']]
-        """
-        Encrypted IoT device/IoT edge device connection string.
-        """
-        io_t_host_hub_id: NotRequired[pulumi.Input[str]]
-        """
-        Id for the IoT hub associated to the device.
-        """
-elif False:
-    IoTDeviceInfoArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class IoTDeviceInfoArgs:
-    def __init__(__self__, *,
-                 device_id: pulumi.Input[str],
-                 io_t_host_hub: pulumi.Input[str],
-                 authentication: Optional[pulumi.Input['AuthenticationArgs']] = None,
-                 io_t_host_hub_id: Optional[pulumi.Input[str]] = None):
-        """
-        Metadata of IoT device/IoT Edge device to be configured.
-        :param pulumi.Input[str] device_id: ID of the IoT device/edge device.
-        :param pulumi.Input[str] io_t_host_hub: Host name for the IoT hub associated to the device.
-        :param pulumi.Input['AuthenticationArgs'] authentication: Encrypted IoT device/IoT edge device connection string.
-        :param pulumi.Input[str] io_t_host_hub_id: Id for the IoT hub associated to the device.
-        """
-        pulumi.set(__self__, "device_id", device_id)
-        pulumi.set(__self__, "io_t_host_hub", io_t_host_hub)
-        if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
-        if io_t_host_hub_id is not None:
-            pulumi.set(__self__, "io_t_host_hub_id", io_t_host_hub_id)
-
-    @property
-    @pulumi.getter(name="deviceId")
-    def device_id(self) -> pulumi.Input[str]:
-        """
-        ID of the IoT device/edge device.
-        """
-        return pulumi.get(self, "device_id")
-
-    @device_id.setter
-    def device_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "device_id", value)
-
-    @property
-    @pulumi.getter(name="ioTHostHub")
-    def io_t_host_hub(self) -> pulumi.Input[str]:
-        """
-        Host name for the IoT hub associated to the device.
-        """
-        return pulumi.get(self, "io_t_host_hub")
-
-    @io_t_host_hub.setter
-    def io_t_host_hub(self, value: pulumi.Input[str]):
-        pulumi.set(self, "io_t_host_hub", value)
-
-    @property
-    @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['AuthenticationArgs']]:
-        """
-        Encrypted IoT device/IoT edge device connection string.
-        """
-        return pulumi.get(self, "authentication")
-
-    @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['AuthenticationArgs']]):
-        pulumi.set(self, "authentication", value)
-
-    @property
-    @pulumi.getter(name="ioTHostHubId")
-    def io_t_host_hub_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Id for the IoT hub associated to the device.
-        """
-        return pulumi.get(self, "io_t_host_hub_id")
-
-    @io_t_host_hub_id.setter
-    def io_t_host_hub_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "io_t_host_hub_id", value)
 
 
 if not MYPY:
@@ -1132,42 +996,6 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
-
-
-if not MYPY:
-    class SymmetricKeyArgsDict(TypedDict):
-        """
-        Symmetric key for authentication.
-        """
-        connection_string: NotRequired[pulumi.Input['AsymmetricEncryptedSecretArgsDict']]
-        """
-        Connection string based on the symmetric key.
-        """
-elif False:
-    SymmetricKeyArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class SymmetricKeyArgs:
-    def __init__(__self__, *,
-                 connection_string: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None):
-        """
-        Symmetric key for authentication.
-        :param pulumi.Input['AsymmetricEncryptedSecretArgs'] connection_string: Connection string based on the symmetric key.
-        """
-        if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
-        """
-        Connection string based on the symmetric key.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
-        pulumi.set(self, "connection_string", value)
 
 
 if not MYPY:

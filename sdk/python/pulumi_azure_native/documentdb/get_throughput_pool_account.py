@@ -140,9 +140,9 @@ def get_throughput_pool_account(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThroughputPoolAccountResult:
     """
     Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
-    Azure REST API version: 2023-11-15-preview.
+    Azure REST API version: 2024-12-01-preview.
 
-    Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+    Other available API versions: 2023-11-15-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -171,9 +171,9 @@ def get_throughput_pool_account_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThroughputPoolAccountResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB Throughput Pool
-    Azure REST API version: 2023-11-15-preview.
+    Azure REST API version: 2024-12-01-preview.
 
-    Other available API versions: 2024-02-15-preview, 2024-05-15-preview, 2024-09-01-preview, 2024-12-01-preview.
+    Other available API versions: 2023-11-15-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

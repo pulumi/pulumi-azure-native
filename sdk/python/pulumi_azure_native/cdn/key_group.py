@@ -28,7 +28,7 @@ class KeyGroupArgs:
         """
         The set of arguments for constructing a KeyGroup resource.
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] key_group_name: Name of the KeyGroup under the profile.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] key_references: Names of UrlSigningKey type secret objects
         """
@@ -55,7 +55,7 @@ class KeyGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -100,16 +100,16 @@ class KeyGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Contains a list of references of UrlSigningKey type secret objects.
-        Azure REST API version: 2023-07-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 1.x: 2023-07-01-preview.
 
-        Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+        Other available API versions: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_group_name: Name of the KeyGroup under the profile.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]] key_references: Names of UrlSigningKey type secret objects
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -119,9 +119,9 @@ class KeyGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains a list of references of UrlSigningKey type secret objects.
-        Azure REST API version: 2023-07-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 1.x: 2023-07-01-preview.
 
-        Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+        Other available API versions: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KeyGroupArgs args: The arguments to use to populate this resource's properties.

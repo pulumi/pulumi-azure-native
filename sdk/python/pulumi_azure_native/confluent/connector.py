@@ -167,7 +167,7 @@ class Connector(pulumi.CustomResource):
                  __props__=None):
         """
         Details of connector record
-        Azure REST API version: 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,7 +188,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Details of connector record
-        Azure REST API version: 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2024-07-01.
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

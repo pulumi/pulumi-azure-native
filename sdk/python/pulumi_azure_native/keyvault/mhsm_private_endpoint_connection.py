@@ -24,6 +24,7 @@ class MHSMPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input['MHSMPrivateLinkServiceConnectionStateArgs']] = None,
@@ -33,6 +34,7 @@ class MHSMPrivateEndpointConnectionArgs:
         The set of arguments for constructing a MHSMPrivateEndpointConnection resource.
         :param pulumi.Input[str] name: Name of the managed HSM Pool
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the managed HSM pool.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The supported Azure location where the managed HSM Pool should be created.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection associated with the managed hsm pool.
         :param pulumi.Input['MHSMPrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Approval state of the private link connection.
@@ -41,6 +43,8 @@ class MHSMPrivateEndpointConnectionArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if private_endpoint_connection_name is not None:
@@ -75,6 +79,18 @@ class MHSMPrivateEndpointConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -142,6 +158,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
@@ -152,12 +169,13 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Private endpoint connection resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        Other available API versions: 2023-02-01, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The supported Azure location where the managed HSM Pool should be created.
         :param pulumi.Input[str] name: Name of the managed HSM Pool
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection associated with the managed hsm pool.
@@ -174,9 +192,9 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private endpoint connection resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+        Azure REST API version: 2024-11-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        Other available API versions: 2023-02-01, 2024-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MHSMPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -193,6 +211,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
@@ -209,6 +228,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MHSMPrivateEndpointConnectionArgs.__new__(MHSMPrivateEndpointConnectionArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -250,6 +270,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
         __props__ = MHSMPrivateEndpointConnectionArgs.__new__(MHSMPrivateEndpointConnectionArgs)
 
         __props__.__dict__["etag"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
@@ -268,6 +289,14 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
         Modified whenever there is a change in the state of private endpoint connection.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

@@ -27,10 +27,13 @@ class GetAccountResult:
     """
     Account resource details.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -57,6 +60,14 @@ class GetAccountResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity used for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -114,6 +125,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -127,9 +139,9 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Returns RecommendationsService Account resource for a given name.
-    Azure REST API version: 2022-02-01.
+    Azure REST API version: 2022-03-01-preview.
 
-    Other available API versions: 2022-03-01-preview.
+    Other available API versions: 2022-02-01.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.
@@ -143,6 +155,7 @@ def get_account(account_name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
@@ -154,9 +167,9 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Returns RecommendationsService Account resource for a given name.
-    Azure REST API version: 2022-02-01.
+    Azure REST API version: 2022-03-01-preview.
 
-    Other available API versions: 2022-03-01-preview.
+    Other available API versions: 2022-02-01.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.
@@ -169,6 +182,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:recommendationsservice:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

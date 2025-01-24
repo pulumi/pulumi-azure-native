@@ -163,9 +163,9 @@ def get_bot(resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
     Returns a BotService specified by the parameters.
-    Azure REST API version: 2022-09-15.
+    Azure REST API version: 2023-09-15-preview.
 
-    Other available API versions: 2023-09-15-preview.
+    Other available API versions: 2022-09-15.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.
@@ -193,9 +193,9 @@ def get_bot_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotResult]:
     """
     Returns a BotService specified by the parameters.
-    Azure REST API version: 2022-09-15.
+    Azure REST API version: 2023-09-15-preview.
 
-    Other available API versions: 2023-09-15-preview.
+    Other available API versions: 2022-09-15.
 
 
     :param str resource_group_name: The name of the Bot resource group in the user subscription.

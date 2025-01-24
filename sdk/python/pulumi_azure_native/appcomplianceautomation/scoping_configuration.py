@@ -84,7 +84,7 @@ class ScopingConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         A class represent an AppComplianceAutomation scoping configuration resource.
-        Azure REST API version: 2024-06-27.
+        Azure REST API version: 2024-06-27. Prior API version in Azure Native 1.x: 2024-06-27.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,7 +100,7 @@ class ScopingConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent an AppComplianceAutomation scoping configuration resource.
-        Azure REST API version: 2024-06-27.
+        Azure REST API version: 2024-06-27. Prior API version in Azure Native 1.x: 2024-06-27.
 
         :param str resource_name: The name of the resource.
         :param ScopingConfigurationArgs args: The arguments to use to populate this resource's properties.

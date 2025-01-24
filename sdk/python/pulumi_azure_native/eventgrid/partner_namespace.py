@@ -26,6 +26,7 @@ class PartnerNamespaceArgs:
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_fully_qualified_id: Optional[pulumi.Input[str]] = None,
                  partner_topic_routing_mode: Optional[pulumi.Input[Union[str, 'PartnerTopicRoutingMode']]] = None,
@@ -37,6 +38,7 @@ class PartnerNamespaceArgs:
         :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
         :param pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[str] location: Location of the resource.
+        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version_allowed: Minimum TLS version of the publisher allowed to publish to this partner namespace
         :param pulumi.Input[str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[str] partner_registration_fully_qualified_id: The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
                /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
@@ -55,6 +57,8 @@ class PartnerNamespaceArgs:
             pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimum_tls_version_allowed is not None:
+            pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
         if partner_namespace_name is not None:
             pulumi.set(__self__, "partner_namespace_name", partner_namespace_name)
         if partner_registration_fully_qualified_id is not None:
@@ -117,6 +121,18 @@ class PartnerNamespaceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersionAllowed")
+    def minimum_tls_version_allowed(self) -> Optional[pulumi.Input[Union[str, 'TlsVersion']]]:
+        """
+        Minimum TLS version of the publisher allowed to publish to this partner namespace
+        """
+        return pulumi.get(self, "minimum_tls_version_allowed")
+
+    @minimum_tls_version_allowed.setter
+    def minimum_tls_version_allowed(self, value: Optional[pulumi.Input[Union[str, 'TlsVersion']]]):
+        pulumi.set(self, "minimum_tls_version_allowed", value)
 
     @property
     @pulumi.getter(name="partnerNamespaceName")
@@ -190,6 +206,7 @@ class PartnerNamespace(pulumi.CustomResource):
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_fully_qualified_id: Optional[pulumi.Input[str]] = None,
                  partner_topic_routing_mode: Optional[pulumi.Input[Union[str, 'PartnerTopicRoutingMode']]] = None,
@@ -199,15 +216,16 @@ class PartnerNamespace(pulumi.CustomResource):
                  __props__=None):
         """
         EventGrid Partner Namespace.
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2022-06-15.
 
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[str] location: Location of the resource.
+        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version_allowed: Minimum TLS version of the publisher allowed to publish to this partner namespace
         :param pulumi.Input[str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[str] partner_registration_fully_qualified_id: The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
                /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
@@ -226,9 +244,9 @@ class PartnerNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid Partner Namespace.
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2022-06-15.
 
-        Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Other available API versions: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param PartnerNamespaceArgs args: The arguments to use to populate this resource's properties.
@@ -248,6 +266,7 @@ class PartnerNamespace(pulumi.CustomResource):
                  disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InboundIpRuleArgs', 'InboundIpRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_fully_qualified_id: Optional[pulumi.Input[str]] = None,
                  partner_topic_routing_mode: Optional[pulumi.Input[Union[str, 'PartnerTopicRoutingMode']]] = None,
@@ -268,6 +287,7 @@ class PartnerNamespace(pulumi.CustomResource):
             __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             __props__.__dict__["location"] = location
+            __props__.__dict__["minimum_tls_version_allowed"] = minimum_tls_version_allowed
             __props__.__dict__["partner_namespace_name"] = partner_namespace_name
             __props__.__dict__["partner_registration_fully_qualified_id"] = partner_registration_fully_qualified_id
             if partner_topic_routing_mode is None:
@@ -314,6 +334,7 @@ class PartnerNamespace(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = None
         __props__.__dict__["inbound_ip_rules"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["minimum_tls_version_allowed"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["partner_registration_fully_qualified_id"] = None
         __props__.__dict__["partner_topic_routing_mode"] = None
@@ -358,6 +379,14 @@ class PartnerNamespace(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="minimumTlsVersionAllowed")
+    def minimum_tls_version_allowed(self) -> pulumi.Output[Optional[str]]:
+        """
+        Minimum TLS version of the publisher allowed to publish to this partner namespace
+        """
+        return pulumi.get(self, "minimum_tls_version_allowed")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -386,6 +415,9 @@ class PartnerNamespace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
@@ -409,7 +441,7 @@ class PartnerNamespace(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to Partner Namespace resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

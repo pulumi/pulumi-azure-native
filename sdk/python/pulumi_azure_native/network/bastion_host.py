@@ -29,14 +29,19 @@ class BastionHostArgs:
                  enable_file_copy: Optional[pulumi.Input[bool]] = None,
                  enable_ip_connect: Optional[pulumi.Input[bool]] = None,
                  enable_kerberos: Optional[pulumi.Input[bool]] = None,
+                 enable_private_only_bastion: Optional[pulumi.Input[bool]] = None,
+                 enable_session_recording: Optional[pulumi.Input[bool]] = None,
                  enable_shareable_link: Optional[pulumi.Input[bool]] = None,
                  enable_tunneling: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BastionHostIPConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input['BastionHostPropertiesFormatNetworkAclsArgs']] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BastionHost resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -46,6 +51,8 @@ class BastionHostArgs:
         :param pulumi.Input[bool] enable_file_copy: Enable/Disable File Copy feature of the Bastion Host resource.
         :param pulumi.Input[bool] enable_ip_connect: Enable/Disable IP Connect feature of the Bastion Host resource.
         :param pulumi.Input[bool] enable_kerberos: Enable/Disable Kerberos feature of the Bastion Host resource.
+        :param pulumi.Input[bool] enable_private_only_bastion: Enable/Disable Private Only feature of the Bastion Host resource.
+        :param pulumi.Input[bool] enable_session_recording: Enable/Disable Session Recording feature of the Bastion Host resource.
         :param pulumi.Input[bool] enable_shareable_link: Enable/Disable Shareable Link of the Bastion Host resource.
         :param pulumi.Input[bool] enable_tunneling: Enable/Disable Tunneling feature of the Bastion Host resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -54,6 +61,8 @@ class BastionHostArgs:
         :param pulumi.Input[int] scale_units: The scale units for the Bastion Host resource.
         :param pulumi.Input['SkuArgs'] sku: The sku of this Bastion Host.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['SubResourceArgs'] virtual_network: Reference to an existing virtual network required for Developer Bastion Host only.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bastion_host_name is not None:
@@ -76,6 +85,14 @@ class BastionHostArgs:
             enable_kerberos = False
         if enable_kerberos is not None:
             pulumi.set(__self__, "enable_kerberos", enable_kerberos)
+        if enable_private_only_bastion is None:
+            enable_private_only_bastion = False
+        if enable_private_only_bastion is not None:
+            pulumi.set(__self__, "enable_private_only_bastion", enable_private_only_bastion)
+        if enable_session_recording is None:
+            enable_session_recording = False
+        if enable_session_recording is not None:
+            pulumi.set(__self__, "enable_session_recording", enable_session_recording)
         if enable_shareable_link is None:
             enable_shareable_link = False
         if enable_shareable_link is not None:
@@ -90,12 +107,18 @@ class BastionHostArgs:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_acls is not None:
+            pulumi.set(__self__, "network_acls", network_acls)
         if scale_units is not None:
             pulumi.set(__self__, "scale_units", scale_units)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network is not None:
+            pulumi.set(__self__, "virtual_network", virtual_network)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -182,6 +205,30 @@ class BastionHostArgs:
         pulumi.set(self, "enable_kerberos", value)
 
     @property
+    @pulumi.getter(name="enablePrivateOnlyBastion")
+    def enable_private_only_bastion(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable Private Only feature of the Bastion Host resource.
+        """
+        return pulumi.get(self, "enable_private_only_bastion")
+
+    @enable_private_only_bastion.setter
+    def enable_private_only_bastion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_private_only_bastion", value)
+
+    @property
+    @pulumi.getter(name="enableSessionRecording")
+    def enable_session_recording(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable/Disable Session Recording feature of the Bastion Host resource.
+        """
+        return pulumi.get(self, "enable_session_recording")
+
+    @enable_session_recording.setter
+    def enable_session_recording(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_session_recording", value)
+
+    @property
     @pulumi.getter(name="enableShareableLink")
     def enable_shareable_link(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -242,6 +289,15 @@ class BastionHostArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Optional[pulumi.Input['BastionHostPropertiesFormatNetworkAclsArgs']]:
+        return pulumi.get(self, "network_acls")
+
+    @network_acls.setter
+    def network_acls(self, value: Optional[pulumi.Input['BastionHostPropertiesFormatNetworkAclsArgs']]):
+        pulumi.set(self, "network_acls", value)
+
+    @property
     @pulumi.getter(name="scaleUnits")
     def scale_units(self) -> Optional[pulumi.Input[int]]:
         """
@@ -277,6 +333,30 @@ class BastionHostArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        Reference to an existing virtual network required for Developer Bastion Host only.
+        """
+        return pulumi.get(self, "virtual_network")
+
+    @virtual_network.setter
+    def virtual_network(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "virtual_network", value)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of availability zones denoting where the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
 
 class BastionHost(pulumi.CustomResource):
     @overload
@@ -289,21 +369,26 @@ class BastionHost(pulumi.CustomResource):
                  enable_file_copy: Optional[pulumi.Input[bool]] = None,
                  enable_ip_connect: Optional[pulumi.Input[bool]] = None,
                  enable_kerberos: Optional[pulumi.Input[bool]] = None,
+                 enable_private_only_bastion: Optional[pulumi.Input[bool]] = None,
+                 enable_session_recording: Optional[pulumi.Input[bool]] = None,
                  enable_shareable_link: Optional[pulumi.Input[bool]] = None,
                  enable_tunneling: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BastionHostIPConfigurationArgs', 'BastionHostIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input[Union['BastionHostPropertiesFormatNetworkAclsArgs', 'BastionHostPropertiesFormatNetworkAclsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Bastion Host resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,6 +398,8 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_file_copy: Enable/Disable File Copy feature of the Bastion Host resource.
         :param pulumi.Input[bool] enable_ip_connect: Enable/Disable IP Connect feature of the Bastion Host resource.
         :param pulumi.Input[bool] enable_kerberos: Enable/Disable Kerberos feature of the Bastion Host resource.
+        :param pulumi.Input[bool] enable_private_only_bastion: Enable/Disable Private Only feature of the Bastion Host resource.
+        :param pulumi.Input[bool] enable_session_recording: Enable/Disable Session Recording feature of the Bastion Host resource.
         :param pulumi.Input[bool] enable_shareable_link: Enable/Disable Shareable Link of the Bastion Host resource.
         :param pulumi.Input[bool] enable_tunneling: Enable/Disable Tunneling feature of the Bastion Host resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -322,6 +409,8 @@ class BastionHost(pulumi.CustomResource):
         :param pulumi.Input[int] scale_units: The scale units for the Bastion Host resource.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of this Bastion Host.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_network: Reference to an existing virtual network required for Developer Bastion Host only.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
         ...
     @overload
@@ -331,9 +420,9 @@ class BastionHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Bastion Host resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
 
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Other available API versions: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param BastionHostArgs args: The arguments to use to populate this resource's properties.
@@ -356,15 +445,20 @@ class BastionHost(pulumi.CustomResource):
                  enable_file_copy: Optional[pulumi.Input[bool]] = None,
                  enable_ip_connect: Optional[pulumi.Input[bool]] = None,
                  enable_kerberos: Optional[pulumi.Input[bool]] = None,
+                 enable_private_only_bastion: Optional[pulumi.Input[bool]] = None,
+                 enable_session_recording: Optional[pulumi.Input[bool]] = None,
                  enable_shareable_link: Optional[pulumi.Input[bool]] = None,
                  enable_tunneling: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BastionHostIPConfigurationArgs', 'BastionHostIPConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input[Union['BastionHostPropertiesFormatNetworkAclsArgs', 'BastionHostPropertiesFormatNetworkAclsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_units: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -388,6 +482,12 @@ class BastionHost(pulumi.CustomResource):
             if enable_kerberos is None:
                 enable_kerberos = False
             __props__.__dict__["enable_kerberos"] = enable_kerberos
+            if enable_private_only_bastion is None:
+                enable_private_only_bastion = False
+            __props__.__dict__["enable_private_only_bastion"] = enable_private_only_bastion
+            if enable_session_recording is None:
+                enable_session_recording = False
+            __props__.__dict__["enable_session_recording"] = enable_session_recording
             if enable_shareable_link is None:
                 enable_shareable_link = False
             __props__.__dict__["enable_shareable_link"] = enable_shareable_link
@@ -397,12 +497,15 @@ class BastionHost(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
+            __props__.__dict__["network_acls"] = network_acls
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scale_units"] = scale_units
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network"] = virtual_network
+            __props__.__dict__["zones"] = zones
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -436,17 +539,22 @@ class BastionHost(pulumi.CustomResource):
         __props__.__dict__["enable_file_copy"] = None
         __props__.__dict__["enable_ip_connect"] = None
         __props__.__dict__["enable_kerberos"] = None
+        __props__.__dict__["enable_private_only_bastion"] = None
+        __props__.__dict__["enable_session_recording"] = None
         __props__.__dict__["enable_shareable_link"] = None
         __props__.__dict__["enable_tunneling"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["ip_configurations"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_acls"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["scale_units"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["virtual_network"] = None
+        __props__.__dict__["zones"] = None
         return BastionHost(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -488,6 +596,22 @@ class BastionHost(pulumi.CustomResource):
         Enable/Disable Kerberos feature of the Bastion Host resource.
         """
         return pulumi.get(self, "enable_kerberos")
+
+    @property
+    @pulumi.getter(name="enablePrivateOnlyBastion")
+    def enable_private_only_bastion(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable/Disable Private Only feature of the Bastion Host resource.
+        """
+        return pulumi.get(self, "enable_private_only_bastion")
+
+    @property
+    @pulumi.getter(name="enableSessionRecording")
+    def enable_session_recording(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable/Disable Session Recording feature of the Bastion Host resource.
+        """
+        return pulumi.get(self, "enable_session_recording")
 
     @property
     @pulumi.getter(name="enableShareableLink")
@@ -538,6 +662,11 @@ class BastionHost(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> pulumi.Output[Optional['outputs.BastionHostPropertiesFormatResponseNetworkAcls']]:
+        return pulumi.get(self, "network_acls")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
@@ -576,4 +705,20 @@ class BastionHost(pulumi.CustomResource):
         Resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
+        """
+        Reference to an existing virtual network required for Developer Bastion Host only.
+        """
+        return pulumi.get(self, "virtual_network")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of availability zones denoting where the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
 

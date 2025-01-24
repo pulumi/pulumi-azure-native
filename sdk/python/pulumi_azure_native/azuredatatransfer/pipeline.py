@@ -119,9 +119,9 @@ class Pipeline(pulumi.CustomResource):
                  __props__=None):
         """
         The pipeline resource definition.
-        Azure REST API version: 2023-10-11-preview.
+        Azure REST API version: 2024-09-27. Prior API version in Azure Native 1.x: 2023-10-11-preview.
 
-        Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+        Other available API versions: 2023-10-11-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,9 +139,9 @@ class Pipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The pipeline resource definition.
-        Azure REST API version: 2023-10-11-preview.
+        Azure REST API version: 2024-09-27. Prior API version in Azure Native 1.x: 2023-10-11-preview.
 
-        Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+        Other available API versions: 2023-10-11-preview.
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

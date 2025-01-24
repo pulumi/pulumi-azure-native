@@ -100,9 +100,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
 
-        Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
+        Other available API versions: 2019-10-17-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +119,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
+        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
 
-        Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
+        Other available API versions: 2019-10-17-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -165,7 +165,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20191017preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:insights/v20210701preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:insights/v20210901:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:insights/v20230601preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20191017preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:insights/v20210701preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:insights:PrivateEndpointConnection',

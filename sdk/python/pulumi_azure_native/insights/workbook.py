@@ -45,7 +45,7 @@ class WorkbookArgs:
         :param pulumi.Input['WorkbookResourceIdentityArgs'] identity: Identity used for BYOS
         :param pulumi.Input[Union[str, 'WorkbookSharedTypeKind']] kind: The kind of workbook. Only valid value is shared.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] resource_name: The name of the resource.
+        :param pulumi.Input[str] resource_name: The name of the workbook resource. The value must be an UUID.
         :param pulumi.Input[str] source_id: ResourceId for a source resource.
         :param pulumi.Input[str] storage_uri: The resourceId to the storage account when bring your own storage is used
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -174,7 +174,7 @@ class WorkbookArgs:
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource.
+        The name of the workbook resource. The value must be an UUID.
         """
         return pulumi.get(self, "resource_name")
 
@@ -252,9 +252,9 @@ class Workbook(pulumi.CustomResource):
                  __props__=None):
         """
         A workbook definition.
-        Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2020-10-20.
+        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01.
 
-        Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+        Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2022-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,7 +265,7 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'WorkbookSharedTypeKind']] kind: The kind of workbook. Only valid value is shared.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] resource_name_: The name of the resource.
+        :param pulumi.Input[str] resource_name_: The name of the workbook resource. The value must be an UUID.
         :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[str] source_id: ResourceId for a source resource.
         :param pulumi.Input[str] storage_uri: The resourceId to the storage account when bring your own storage is used
@@ -280,9 +280,9 @@ class Workbook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A workbook definition.
-        Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2020-10-20.
+        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01.
 
-        Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2023-06-01.
+        Other available API versions: 2015-05-01, 2021-03-08, 2021-08-01, 2022-04-01.
 
         :param str resource_name: The name of the resource.
         :param WorkbookArgs args: The arguments to use to populate this resource's properties.

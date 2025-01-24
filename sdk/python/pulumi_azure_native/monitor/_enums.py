@@ -8,9 +8,9 @@ __all__ = [
     'ExporterType',
     'ExtendedLocationType',
     'ExternalNetworkingMode',
+    'JsonMapperElement',
     'PipelineType',
     'ProcessorType',
-    'PublicNetworkAccess',
     'ReceiverType',
     'StreamEncodingType',
     'SyslogProtocol',
@@ -55,11 +55,25 @@ class ExternalNetworkingMode(str, Enum):
     """
 
 
+class JsonMapperElement(str, Enum):
+    """
+    Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+    """
+    BODY = "body"
+    """
+    Read or write the json array from or to the body of the message.
+    """
+    ATTRIBUTES = "attributes"
+    """
+    Read or write the json array from or to the attributes of the message.
+    """
+
+
 class PipelineType(str, Enum):
     """
     The type of pipeline
     """
-    LOGS = "logs"
+    LOGS = "Logs"
     """
     Pipeline for logs telemetry.
     """
@@ -73,14 +87,6 @@ class ProcessorType(str, Enum):
     """
     Batch processor.
     """
-
-
-class PublicNetworkAccess(str, Enum):
-    """
-    Gets or sets allow or disallow public network access to Azure Monitor Workspace
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class ReceiverType(str, Enum):

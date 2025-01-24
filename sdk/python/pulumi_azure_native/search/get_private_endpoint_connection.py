@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
-    Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+    Describes an existing private endpoint connection to the search service.
     """
     def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
@@ -61,7 +61,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter
     def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
         """
-        Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        Describes the properties of an existing private endpoint connection to the search service.
         """
         return pulumi.get(self, "properties")
 
@@ -92,14 +92,14 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the details of the private endpoint connection to the search service in the given resource group.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+    Other available API versions: 2022-09-01, 2024-06-01-preview.
 
 
-    :param str private_endpoint_connection_name: The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection to the search service with the specified resource group.
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+    :param str search_service_name: The name of the search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -119,14 +119,14 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the details of the private endpoint connection to the search service in the given resource group.
-    Azure REST API version: 2022-09-01.
+    Azure REST API version: 2023-11-01.
 
-    Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+    Other available API versions: 2022-09-01, 2024-06-01-preview.
 
 
-    :param str private_endpoint_connection_name: The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection to the search service with the specified resource group.
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+    :param str search_service_name: The name of the search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name

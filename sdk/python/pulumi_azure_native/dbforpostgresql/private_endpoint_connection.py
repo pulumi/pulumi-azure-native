@@ -22,34 +22,22 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 cluster_name: pulumi.Input[str],
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  resource_group_name: pulumi.Input[str],
+                 server_name: pulumi.Input[str],
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
-        :param pulumi.Input[str] cluster_name: The name of the cluster.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the cluster.
+        :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "server_name", server_name)
         if private_endpoint_connection_name is not None:
             pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
-
-    @property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[str]:
-        """
-        The name of the cluster.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "cluster_name", value)
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -76,10 +64,22 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        """
+        The name of the server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the private endpoint connection associated with the cluster.
+        The name of the private endpoint connection.
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
@@ -93,23 +93,23 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The private endpoint connection resource.
-        Azure REST API version: 2022-11-08. Prior API version in Azure Native 1.x: 2018-06-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 1.x: 2022-11-08.
 
-        Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        Other available API versions: 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the cluster.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] server_name: The name of the server.
         """
         ...
     @overload
@@ -119,9 +119,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection resource.
-        Azure REST API version: 2022-11-08. Prior API version in Azure Native 1.x: 2018-06-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 1.x: 2022-11-08.
 
-        Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        Other available API versions: 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -138,10 +138,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -151,9 +151,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
-            __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             if private_link_service_connection_state is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")
@@ -161,13 +158,16 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if server_name is None and not opts.urn:
+                raise TypeError("Missing required property 'server_name'")
+            __props__.__dict__["server_name"] = server_name
             __props__.__dict__["group_ids"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20230601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20231201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:dbforpostgresql:PrivateEndpointConnection',

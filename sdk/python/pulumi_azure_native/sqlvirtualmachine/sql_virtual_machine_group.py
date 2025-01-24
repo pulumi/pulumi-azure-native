@@ -153,9 +153,9 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                  __props__=None):
         """
         A SQL virtual machine group.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
+        Azure REST API version: 2023-10-01. Prior API version in Azure Native 1.x: 2022-02-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-10-01.
+        Other available API versions: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,9 +175,9 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL virtual machine group.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
+        Azure REST API version: 2023-10-01. Prior API version in Azure Native 1.x: 2022-02-01.
 
-        Other available API versions: 2023-01-01-preview, 2023-10-01.
+        Other available API versions: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param SqlVirtualMachineGroupArgs args: The arguments to use to populate this resource's properties.

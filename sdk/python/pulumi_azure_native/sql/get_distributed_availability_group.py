@@ -201,7 +201,7 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
     Gets a distributed availability group info.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2024-05-01-preview.
 
 
     :param str distributed_availability_group_name: The distributed availability group name.
@@ -237,7 +237,7 @@ def get_distributed_availability_group_output(distributed_availability_group_nam
     Gets a distributed availability group info.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2024-05-01-preview.
 
 
     :param str distributed_availability_group_name: The distributed availability group name.

@@ -38,19 +38,24 @@ class ManagedClusterArgs:
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_upgrade_cadence: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
                  cluster_upgrade_mode: Optional[pulumi.Input[Union[str, 'ClusterUpgradeMode']]] = None,
+                 ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
                  enable_auto_os_upgrade: Optional[pulumi.Input[bool]] = None,
+                 enable_http_gateway_exclusive_auth_mode: Optional[pulumi.Input[bool]] = None,
                  enable_ipv6: Optional[pulumi.Input[bool]] = None,
                  enable_service_public_ip: Optional[pulumi.Input[bool]] = None,
                  fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]]] = None,
+                 http_gateway_token_auth_connection_port: Optional[pulumi.Input[int]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]]] = None,
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+                 public_i_pv6_prefix_id: Optional[pulumi.Input[str]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointArgs']]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_description: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
                  use_custom_vnet: Optional[pulumi.Input[bool]] = None,
                  zonal_resiliency: Optional[pulumi.Input[bool]] = None,
                  zonal_update_mode: Optional[pulumi.Input[Union[str, 'ZonalUpdateMode']]] = None):
@@ -72,19 +77,24 @@ class ManagedClusterArgs:
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[Union[str, 'ClusterUpgradeCadence']] cluster_upgrade_cadence: Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
         :param pulumi.Input[Union[str, 'ClusterUpgradeMode']] cluster_upgrade_mode: The upgrade mode of the cluster when new Service Fabric runtime version is available.
+        :param pulumi.Input[str] ddos_protection_plan_id: Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
         :param pulumi.Input[bool] enable_auto_os_upgrade: Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+        :param pulumi.Input[bool] enable_http_gateway_exclusive_auth_mode: If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
         :param pulumi.Input[bool] enable_ipv6: Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
         :param pulumi.Input[bool] enable_service_public_ip: Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]] fabric_settings: The list of custom fabric settings to configure the cluster.
         :param pulumi.Input[int] http_gateway_connection_port: The port used for HTTP connections to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]] ip_tags: The list of IP tags associated with the default public IP address of the cluster.
+        :param pulumi.Input[int] http_gateway_token_auth_connection_port: The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: The list of IP tags associated with the default public IP address of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancingRuleArgs']]] load_balancing_rules: Load balancing rules that are applied to the public load balancer of the cluster.
         :param pulumi.Input[str] location: Azure resource location.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityRuleArgs']]] network_security_rules: Custom Network Security Rules that are applied to the Virtual Network of the cluster.
-        :param pulumi.Input[str] public_ip_prefix_id: Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        :param pulumi.Input[str] public_ip_prefix_id: Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
+        :param pulumi.Input[str] public_i_pv6_prefix_id: Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointArgs']]] service_endpoints: Service endpoints for subnets in the cluster.
         :param pulumi.Input[str] subnet_id: If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_description: The policy to use when upgrading the cluster.
         :param pulumi.Input[bool] use_custom_vnet: For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
         :param pulumi.Input[bool] zonal_resiliency: Indicates if the cluster has zone resiliency.
         :param pulumi.Input[Union[str, 'ZonalUpdateMode']] zonal_update_mode: Indicates the update mode for Cross Az clusters.
@@ -119,8 +129,12 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "cluster_upgrade_cadence", cluster_upgrade_cadence)
         if cluster_upgrade_mode is not None:
             pulumi.set(__self__, "cluster_upgrade_mode", cluster_upgrade_mode)
+        if ddos_protection_plan_id is not None:
+            pulumi.set(__self__, "ddos_protection_plan_id", ddos_protection_plan_id)
         if enable_auto_os_upgrade is not None:
             pulumi.set(__self__, "enable_auto_os_upgrade", enable_auto_os_upgrade)
+        if enable_http_gateway_exclusive_auth_mode is not None:
+            pulumi.set(__self__, "enable_http_gateway_exclusive_auth_mode", enable_http_gateway_exclusive_auth_mode)
         if enable_ipv6 is not None:
             pulumi.set(__self__, "enable_ipv6", enable_ipv6)
         if enable_service_public_ip is not None:
@@ -131,6 +145,8 @@ class ManagedClusterArgs:
             http_gateway_connection_port = 19080
         if http_gateway_connection_port is not None:
             pulumi.set(__self__, "http_gateway_connection_port", http_gateway_connection_port)
+        if http_gateway_token_auth_connection_port is not None:
+            pulumi.set(__self__, "http_gateway_token_auth_connection_port", http_gateway_token_auth_connection_port)
         if ip_tags is not None:
             pulumi.set(__self__, "ip_tags", ip_tags)
         if load_balancing_rules is not None:
@@ -141,12 +157,16 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "network_security_rules", network_security_rules)
         if public_ip_prefix_id is not None:
             pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
+        if public_i_pv6_prefix_id is not None:
+            pulumi.set(__self__, "public_i_pv6_prefix_id", public_i_pv6_prefix_id)
         if service_endpoints is not None:
             pulumi.set(__self__, "service_endpoints", service_endpoints)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if upgrade_description is not None:
+            pulumi.set(__self__, "upgrade_description", upgrade_description)
         if use_custom_vnet is not None:
             pulumi.set(__self__, "use_custom_vnet", use_custom_vnet)
         if zonal_resiliency is None:
@@ -349,6 +369,18 @@ class ManagedClusterArgs:
         pulumi.set(self, "cluster_upgrade_mode", value)
 
     @property
+    @pulumi.getter(name="ddosProtectionPlanId")
+    def ddos_protection_plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
+        """
+        return pulumi.get(self, "ddos_protection_plan_id")
+
+    @ddos_protection_plan_id.setter
+    def ddos_protection_plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ddos_protection_plan_id", value)
+
+    @property
     @pulumi.getter(name="enableAutoOSUpgrade")
     def enable_auto_os_upgrade(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -359,6 +391,18 @@ class ManagedClusterArgs:
     @enable_auto_os_upgrade.setter
     def enable_auto_os_upgrade(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_auto_os_upgrade", value)
+
+    @property
+    @pulumi.getter(name="enableHttpGatewayExclusiveAuthMode")
+    def enable_http_gateway_exclusive_auth_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
+        """
+        return pulumi.get(self, "enable_http_gateway_exclusive_auth_mode")
+
+    @enable_http_gateway_exclusive_auth_mode.setter
+    def enable_http_gateway_exclusive_auth_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_http_gateway_exclusive_auth_mode", value)
 
     @property
     @pulumi.getter(name="enableIpv6")
@@ -409,15 +453,27 @@ class ManagedClusterArgs:
         pulumi.set(self, "http_gateway_connection_port", value)
 
     @property
+    @pulumi.getter(name="httpGatewayTokenAuthConnectionPort")
+    def http_gateway_token_auth_connection_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
+        """
+        return pulumi.get(self, "http_gateway_token_auth_connection_port")
+
+    @http_gateway_token_auth_connection_port.setter
+    def http_gateway_token_auth_connection_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_gateway_token_auth_connection_port", value)
+
+    @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]]]:
+    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]:
         """
         The list of IP tags associated with the default public IP address of the cluster.
         """
         return pulumi.get(self, "ip_tags")
 
     @ip_tags.setter
-    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]]]):
+    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]):
         pulumi.set(self, "ip_tags", value)
 
     @property
@@ -460,13 +516,25 @@ class ManagedClusterArgs:
     @pulumi.getter(name="publicIPPrefixId")
     def public_ip_prefix_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
     @public_ip_prefix_id.setter
     def public_ip_prefix_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "public_ip_prefix_id", value)
+
+    @property
+    @pulumi.getter(name="publicIPv6PrefixId")
+    def public_i_pv6_prefix_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
+        """
+        return pulumi.get(self, "public_i_pv6_prefix_id")
+
+    @public_i_pv6_prefix_id.setter
+    def public_i_pv6_prefix_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_i_pv6_prefix_id", value)
 
     @property
     @pulumi.getter(name="serviceEndpoints")
@@ -503,6 +571,18 @@ class ManagedClusterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="upgradeDescription")
+    def upgrade_description(self) -> Optional[pulumi.Input['ClusterUpgradePolicyArgs']]:
+        """
+        The policy to use when upgrading the cluster.
+        """
+        return pulumi.get(self, "upgrade_description")
+
+    @upgrade_description.setter
+    def upgrade_description(self, value: Optional[pulumi.Input['ClusterUpgradePolicyArgs']]):
+        pulumi.set(self, "upgrade_description", value)
 
     @property
     @pulumi.getter(name="useCustomVnet")
@@ -559,22 +639,27 @@ class ManagedCluster(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_upgrade_cadence: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
                  cluster_upgrade_mode: Optional[pulumi.Input[Union[str, 'ClusterUpgradeMode']]] = None,
+                 ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_os_upgrade: Optional[pulumi.Input[bool]] = None,
+                 enable_http_gateway_exclusive_auth_mode: Optional[pulumi.Input[bool]] = None,
                  enable_ipv6: Optional[pulumi.Input[bool]] = None,
                  enable_service_public_ip: Optional[pulumi.Input[bool]] = None,
                  fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IPTagArgs', 'IPTagArgsDict']]]]] = None,
+                 http_gateway_token_auth_connection_port: Optional[pulumi.Input[int]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpTagArgs', 'IpTagArgsDict']]]]] = None,
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+                 public_i_pv6_prefix_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_description: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  use_custom_vnet: Optional[pulumi.Input[bool]] = None,
                  zonal_resiliency: Optional[pulumi.Input[bool]] = None,
                  zonal_update_mode: Optional[pulumi.Input[Union[str, 'ZonalUpdateMode']]] = None,
@@ -582,9 +667,9 @@ class ManagedCluster(pulumi.CustomResource):
         """
         The managed cluster resource
 
-        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2023-03-01-preview.
 
-        Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -601,22 +686,27 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[Union[str, 'ClusterUpgradeCadence']] cluster_upgrade_cadence: Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
         :param pulumi.Input[Union[str, 'ClusterUpgradeMode']] cluster_upgrade_mode: The upgrade mode of the cluster when new Service Fabric runtime version is available.
+        :param pulumi.Input[str] ddos_protection_plan_id: Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
         :param pulumi.Input[str] dns_name: The cluster dns name.
         :param pulumi.Input[bool] enable_auto_os_upgrade: Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+        :param pulumi.Input[bool] enable_http_gateway_exclusive_auth_mode: If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
         :param pulumi.Input[bool] enable_ipv6: Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
         :param pulumi.Input[bool] enable_service_public_ip: Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
         :param pulumi.Input[int] http_gateway_connection_port: The port used for HTTP connections to the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IPTagArgs', 'IPTagArgsDict']]]] ip_tags: The list of IP tags associated with the default public IP address of the cluster.
+        :param pulumi.Input[int] http_gateway_token_auth_connection_port: The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IpTagArgs', 'IpTagArgsDict']]]] ip_tags: The list of IP tags associated with the default public IP address of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]] load_balancing_rules: Load balancing rules that are applied to the public load balancer of the cluster.
         :param pulumi.Input[str] location: Azure resource location.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]] network_security_rules: Custom Network Security Rules that are applied to the Virtual Network of the cluster.
-        :param pulumi.Input[str] public_ip_prefix_id: Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        :param pulumi.Input[str] public_ip_prefix_id: Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
+        :param pulumi.Input[str] public_i_pv6_prefix_id: Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]] service_endpoints: Service endpoints for subnets in the cluster.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the managed cluster
         :param pulumi.Input[str] subnet_id: If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
+        :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']] upgrade_description: The policy to use when upgrading the cluster.
         :param pulumi.Input[bool] use_custom_vnet: For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
         :param pulumi.Input[bool] zonal_resiliency: Indicates if the cluster has zone resiliency.
         :param pulumi.Input[Union[str, 'ZonalUpdateMode']] zonal_update_mode: Indicates the update mode for Cross Az clusters.
@@ -630,9 +720,9 @@ class ManagedCluster(pulumi.CustomResource):
         """
         The managed cluster resource
 
-        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2023-03-01-preview.
 
-        Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+        Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-03-01-preview, 2024-02-01-preview, 2024-06-01-preview, 2024-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.
@@ -662,22 +752,27 @@ class ManagedCluster(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_upgrade_cadence: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
                  cluster_upgrade_mode: Optional[pulumi.Input[Union[str, 'ClusterUpgradeMode']]] = None,
+                 ddos_protection_plan_id: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_os_upgrade: Optional[pulumi.Input[bool]] = None,
+                 enable_http_gateway_exclusive_auth_mode: Optional[pulumi.Input[bool]] = None,
                  enable_ipv6: Optional[pulumi.Input[bool]] = None,
                  enable_service_public_ip: Optional[pulumi.Input[bool]] = None,
                  fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SettingsSectionDescriptionArgs', 'SettingsSectionDescriptionArgsDict']]]]] = None,
                  http_gateway_connection_port: Optional[pulumi.Input[int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IPTagArgs', 'IPTagArgsDict']]]]] = None,
+                 http_gateway_token_auth_connection_port: Optional[pulumi.Input[int]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpTagArgs', 'IpTagArgsDict']]]]] = None,
                  load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancingRuleArgs', 'LoadBalancingRuleArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityRuleArgs', 'NetworkSecurityRuleArgsDict']]]]] = None,
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+                 public_i_pv6_prefix_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceEndpointArgs', 'ServiceEndpointArgsDict']]]]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 upgrade_description: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  use_custom_vnet: Optional[pulumi.Input[bool]] = None,
                  zonal_resiliency: Optional[pulumi.Input[bool]] = None,
                  zonal_update_mode: Optional[pulumi.Input[Union[str, 'ZonalUpdateMode']]] = None,
@@ -707,21 +802,25 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["cluster_upgrade_cadence"] = cluster_upgrade_cadence
             __props__.__dict__["cluster_upgrade_mode"] = cluster_upgrade_mode
+            __props__.__dict__["ddos_protection_plan_id"] = ddos_protection_plan_id
             if dns_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_name'")
             __props__.__dict__["dns_name"] = dns_name
             __props__.__dict__["enable_auto_os_upgrade"] = enable_auto_os_upgrade
+            __props__.__dict__["enable_http_gateway_exclusive_auth_mode"] = enable_http_gateway_exclusive_auth_mode
             __props__.__dict__["enable_ipv6"] = enable_ipv6
             __props__.__dict__["enable_service_public_ip"] = enable_service_public_ip
             __props__.__dict__["fabric_settings"] = fabric_settings
             if http_gateway_connection_port is None:
                 http_gateway_connection_port = 19080
             __props__.__dict__["http_gateway_connection_port"] = http_gateway_connection_port
+            __props__.__dict__["http_gateway_token_auth_connection_port"] = http_gateway_token_auth_connection_port
             __props__.__dict__["ip_tags"] = ip_tags
             __props__.__dict__["load_balancing_rules"] = load_balancing_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["network_security_rules"] = network_security_rules
             __props__.__dict__["public_ip_prefix_id"] = public_ip_prefix_id
+            __props__.__dict__["public_i_pv6_prefix_id"] = public_i_pv6_prefix_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -731,6 +830,7 @@ class ManagedCluster(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["upgrade_description"] = upgrade_description
             __props__.__dict__["use_custom_vnet"] = use_custom_vnet
             if zonal_resiliency is None:
                 zonal_resiliency = False
@@ -786,14 +886,17 @@ class ManagedCluster(pulumi.CustomResource):
         __props__.__dict__["cluster_state"] = None
         __props__.__dict__["cluster_upgrade_cadence"] = None
         __props__.__dict__["cluster_upgrade_mode"] = None
+        __props__.__dict__["ddos_protection_plan_id"] = None
         __props__.__dict__["dns_name"] = None
         __props__.__dict__["enable_auto_os_upgrade"] = None
+        __props__.__dict__["enable_http_gateway_exclusive_auth_mode"] = None
         __props__.__dict__["enable_ipv6"] = None
         __props__.__dict__["enable_service_public_ip"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["fabric_settings"] = None
         __props__.__dict__["fqdn"] = None
         __props__.__dict__["http_gateway_connection_port"] = None
+        __props__.__dict__["http_gateway_token_auth_connection_port"] = None
         __props__.__dict__["ip_tags"] = None
         __props__.__dict__["ipv4_address"] = None
         __props__.__dict__["ipv6_address"] = None
@@ -803,12 +906,14 @@ class ManagedCluster(pulumi.CustomResource):
         __props__.__dict__["network_security_rules"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_ip_prefix_id"] = None
+        __props__.__dict__["public_i_pv6_prefix_id"] = None
         __props__.__dict__["service_endpoints"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["upgrade_description"] = None
         __props__.__dict__["use_custom_vnet"] = None
         __props__.__dict__["zonal_resiliency"] = None
         __props__.__dict__["zonal_update_mode"] = None
@@ -935,6 +1040,14 @@ class ManagedCluster(pulumi.CustomResource):
         return pulumi.get(self, "cluster_upgrade_mode")
 
     @property
+    @pulumi.getter(name="ddosProtectionPlanId")
+    def ddos_protection_plan_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
+        """
+        return pulumi.get(self, "ddos_protection_plan_id")
+
+    @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
         """
@@ -949,6 +1062,14 @@ class ManagedCluster(pulumi.CustomResource):
         Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
         """
         return pulumi.get(self, "enable_auto_os_upgrade")
+
+    @property
+    @pulumi.getter(name="enableHttpGatewayExclusiveAuthMode")
+    def enable_http_gateway_exclusive_auth_mode(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
+        """
+        return pulumi.get(self, "enable_http_gateway_exclusive_auth_mode")
 
     @property
     @pulumi.getter(name="enableIpv6")
@@ -999,8 +1120,16 @@ class ManagedCluster(pulumi.CustomResource):
         return pulumi.get(self, "http_gateway_connection_port")
 
     @property
+    @pulumi.getter(name="httpGatewayTokenAuthConnectionPort")
+    def http_gateway_token_auth_connection_port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
+        """
+        return pulumi.get(self, "http_gateway_token_auth_connection_port")
+
+    @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> pulumi.Output[Optional[Sequence['outputs.IPTagResponse']]]:
+    def ip_tags(self) -> pulumi.Output[Optional[Sequence['outputs.IpTagResponse']]]:
         """
         The list of IP tags associated with the default public IP address of the cluster.
         """
@@ -1066,9 +1195,17 @@ class ManagedCluster(pulumi.CustomResource):
     @pulumi.getter(name="publicIPPrefixId")
     def public_ip_prefix_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+        Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
         """
         return pulumi.get(self, "public_ip_prefix_id")
+
+    @property
+    @pulumi.getter(name="publicIPv6PrefixId")
+    def public_i_pv6_prefix_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
+        """
+        return pulumi.get(self, "public_i_pv6_prefix_id")
 
     @property
     @pulumi.getter(name="serviceEndpoints")
@@ -1117,6 +1254,14 @@ class ManagedCluster(pulumi.CustomResource):
         Azure resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="upgradeDescription")
+    def upgrade_description(self) -> pulumi.Output[Optional['outputs.ClusterUpgradePolicyResponse']]:
+        """
+        The policy to use when upgrading the cluster.
+        """
+        return pulumi.get(self, "upgrade_description")
 
     @property
     @pulumi.getter(name="useCustomVnet")

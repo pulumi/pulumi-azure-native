@@ -27,7 +27,7 @@ class AccountArgs:
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 media_services: Optional[pulumi.Input['MediaServicesForPutRequestArgs']] = None,
+                 storage_services: Optional[pulumi.Input['StorageServicesForPutRequestArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
@@ -36,7 +36,7 @@ class AccountArgs:
         :param pulumi.Input[str] account_name: The name of the Azure Video Indexer account.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['MediaServicesForPutRequestArgs'] media_services: The media services details
+        :param pulumi.Input['StorageServicesForPutRequestArgs'] storage_services: The storage services details
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -50,8 +50,8 @@ class AccountArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if media_services is not None:
-            pulumi.set(__self__, "media_services", media_services)
+        if storage_services is not None:
+            pulumi.set(__self__, "storage_services", storage_services)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -116,16 +116,16 @@ class AccountArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="mediaServices")
-    def media_services(self) -> Optional[pulumi.Input['MediaServicesForPutRequestArgs']]:
+    @pulumi.getter(name="storageServices")
+    def storage_services(self) -> Optional[pulumi.Input['StorageServicesForPutRequestArgs']]:
         """
-        The media services details
+        The storage services details
         """
-        return pulumi.get(self, "media_services")
+        return pulumi.get(self, "storage_services")
 
-    @media_services.setter
-    def media_services(self, value: Optional[pulumi.Input['MediaServicesForPutRequestArgs']]):
-        pulumi.set(self, "media_services", value)
+    @storage_services.setter
+    def storage_services(self, value: Optional[pulumi.Input['StorageServicesForPutRequestArgs']]):
+        pulumi.set(self, "storage_services", value)
 
     @property
     @pulumi.getter
@@ -149,15 +149,15 @@ class Account(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 media_services: Optional[pulumi.Input[Union['MediaServicesForPutRequestArgs', 'MediaServicesForPutRequestArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_services: Optional[pulumi.Input[Union['StorageServicesForPutRequestArgs', 'StorageServicesForPutRequestArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         An Azure Video Indexer account.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-18-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 1.x: 2022-08-01.
 
-        Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview.
+        Other available API versions: 2022-08-01, 2024-06-01-preview, 2024-09-23-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,8 +165,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the Azure Video Indexer account.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['MediaServicesForPutRequestArgs', 'MediaServicesForPutRequestArgsDict']] media_services: The media services details
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union['StorageServicesForPutRequestArgs', 'StorageServicesForPutRequestArgsDict']] storage_services: The storage services details
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -177,9 +177,9 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Video Indexer account.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-18-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 1.x: 2022-08-01.
 
-        Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview.
+        Other available API versions: 2022-08-01, 2024-06-01-preview, 2024-09-23-preview.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -200,8 +200,8 @@ class Account(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 media_services: Optional[pulumi.Input[Union['MediaServicesForPutRequestArgs', 'MediaServicesForPutRequestArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_services: Optional[pulumi.Input[Union['StorageServicesForPutRequestArgs', 'StorageServicesForPutRequestArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -218,10 +218,10 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            __props__.__dict__["media_services"] = media_services
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["storage_services"] = storage_services
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -257,9 +257,9 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["account_name"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["media_services"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["storage_services"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_id"] = None
@@ -300,14 +300,6 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="mediaServices")
-    def media_services(self) -> pulumi.Output[Optional['outputs.MediaServicesForPutRequestResponse']]:
-        """
-        The media services details
-        """
-        return pulumi.get(self, "media_services")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -322,6 +314,14 @@ class Account(pulumi.CustomResource):
         Gets the status of the account at the time the operation was called.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageServices")
+    def storage_services(self) -> pulumi.Output[Optional['outputs.StorageServicesForPutRequestResponse']]:
+        """
+        The storage services details
+        """
+        return pulumi.get(self, "storage_services")
 
     @property
     @pulumi.getter(name="systemData")

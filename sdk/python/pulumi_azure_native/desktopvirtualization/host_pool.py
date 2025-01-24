@@ -38,6 +38,7 @@ class HostPoolArgs:
                  max_session_limit: Optional[pulumi.Input[int]] = None,
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
                  plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]] = None,
                  registration_info: Optional[pulumi.Input['RegistrationInfoArgs']] = None,
                  ring: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
@@ -60,11 +61,12 @@ class HostPoolArgs:
         :param pulumi.Input[str] description: Description of HostPool.
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
         :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
         :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
+        :param pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         :param pulumi.Input['RegistrationInfoArgs'] registration_info: The registration info of HostPool.
         :param pulumi.Input[int] ring: The ring number of HostPool.
         :param pulumi.Input[str] sso_client_id: ClientId for the registered Relying Party used to issue WVD SSO certificates.
@@ -104,6 +106,8 @@ class HostPoolArgs:
             pulumi.set(__self__, "personal_desktop_assignment_type", personal_desktop_assignment_type)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if registration_info is not None:
             pulumi.set(__self__, "registration_info", registration_info)
         if ring is not None:
@@ -248,7 +252,7 @@ class HostPoolArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -312,6 +316,18 @@ class HostPoolArgs:
     @plan.setter
     def plan(self, value: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']]):
         pulumi.set(self, "plan", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]]:
+        """
+        Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="registrationInfo")
@@ -463,6 +479,7 @@ class HostPool(pulumi.CustomResource):
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
                  plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]] = None,
                  registration_info: Optional[pulumi.Input[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ring: Optional[pulumi.Input[int]] = None,
@@ -478,9 +495,9 @@ class HostPool(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a HostPool definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 1.x: 2022-09-09.
 
-        Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Other available API versions: 2022-04-01-preview, 2022-09-09, 2024-03-06-preview, 2024-08-08-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -490,13 +507,14 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
         :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
         :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for desktop.
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: The type of the load balancer.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
         :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
         :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
+        :param pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']] public_network_access: Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
         :param pulumi.Input[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']] registration_info: The registration info of HostPool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] ring: The ring number of HostPool.
@@ -517,9 +535,9 @@ class HostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a HostPool definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 1.x: 2022-09-09.
 
-        Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Other available API versions: 2022-04-01-preview, 2022-09-09, 2024-03-06-preview, 2024-08-08-preview.
 
         :param str resource_name: The name of the resource.
         :param HostPoolArgs args: The arguments to use to populate this resource's properties.
@@ -551,6 +569,7 @@ class HostPool(pulumi.CustomResource):
                  personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
                  plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
                  preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'HostpoolPublicNetworkAccess']]] = None,
                  registration_info: Optional[pulumi.Input[Union['RegistrationInfoArgs', 'RegistrationInfoArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ring: Optional[pulumi.Input[int]] = None,
@@ -593,6 +612,7 @@ class HostPool(pulumi.CustomResource):
             if preferred_app_group_type is None and not opts.urn:
                 raise TypeError("Missing required property 'preferred_app_group_type'")
             __props__.__dict__["preferred_app_group_type"] = preferred_app_group_type
+            __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["registration_info"] = registration_info
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -607,11 +627,13 @@ class HostPool(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["validation_environment"] = validation_environment
             __props__.__dict__["vm_template"] = vm_template
+            __props__.__dict__["app_attach_package_references"] = None
             __props__.__dict__["application_group_references"] = None
             __props__.__dict__["cloud_pc_resource"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["object_id"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20190123preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20190924preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20191210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20200921preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201019preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201102preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20201110preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210114preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210201preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210309preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210712:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220909:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:HostPool"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:HostPool")])
@@ -639,6 +661,7 @@ class HostPool(pulumi.CustomResource):
         __props__ = HostPoolArgs.__new__(HostPoolArgs)
 
         __props__.__dict__["agent_update"] = None
+        __props__.__dict__["app_attach_package_references"] = None
         __props__.__dict__["application_group_references"] = None
         __props__.__dict__["cloud_pc_resource"] = None
         __props__.__dict__["custom_rdp_property"] = None
@@ -657,6 +680,8 @@ class HostPool(pulumi.CustomResource):
         __props__.__dict__["personal_desktop_assignment_type"] = None
         __props__.__dict__["plan"] = None
         __props__.__dict__["preferred_app_group_type"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["registration_info"] = None
         __props__.__dict__["ring"] = None
         __props__.__dict__["sku"] = None
@@ -679,6 +704,14 @@ class HostPool(pulumi.CustomResource):
         The session host configuration for updating agent, monitoring agent, and stack component.
         """
         return pulumi.get(self, "agent_update")
+
+    @property
+    @pulumi.getter(name="appAttachPackageReferences")
+    def app_attach_package_references(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of App Attach Package links.
+        """
+        return pulumi.get(self, "app_attach_package_references")
 
     @property
     @pulumi.getter(name="applicationGroupReferences")
@@ -745,7 +778,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -759,7 +792,7 @@ class HostPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -817,6 +850,22 @@ class HostPool(pulumi.CustomResource):
         The type of preferred application group type, default to Desktop Application Group
         """
         return pulumi.get(self, "preferred_app_group_type")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connection associated with the specified resource
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="registrationInfo")
@@ -883,7 +932,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

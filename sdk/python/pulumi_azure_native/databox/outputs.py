@@ -56,6 +56,7 @@ __all__ = [
     'FilterFileDetailsResponse',
     'IdentityPropertiesResponse',
     'ImportDiskDetailsResponse',
+    'JobDelayDetailsResponse',
     'JobDeliveryInfoResponse',
     'JobStagesResponse',
     'KeyEncryptionKeyResponse',
@@ -4523,6 +4524,93 @@ class ImportDiskDetailsResponse(dict):
 
 
 @pulumi.output_type
+class JobDelayDetailsResponse(dict):
+    """
+    Job Delay Notification details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "resolutionTime":
+            suggest = "resolution_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobDelayDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobDelayDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobDelayDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 error_code: str,
+                 resolution_time: str,
+                 start_time: str,
+                 status: str):
+        """
+        Job Delay Notification details
+        :param str description: Description of the delay.
+        :param str error_code: Delay Error code
+        :param str resolution_time: Timestamp when the delay notification was resolved.
+        :param str start_time: Timestamp when the delay notification was created.
+        :param str status: Status of notification
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "resolution_time", resolution_time)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        Description of the delay.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        Delay Error code
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="resolutionTime")
+    def resolution_time(self) -> str:
+        """
+        Timestamp when the delay notification was resolved.
+        """
+        return pulumi.get(self, "resolution_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Timestamp when the delay notification was created.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of notification
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class JobDeliveryInfoResponse(dict):
     """
     Additional delivery info.
@@ -4570,7 +4658,9 @@ class JobStagesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "displayName":
+        if key == "delayInformation":
+            suggest = "delay_information"
+        elif key == "displayName":
             suggest = "display_name"
         elif key == "jobStageDetails":
             suggest = "job_stage_details"
@@ -4593,6 +4683,7 @@ class JobStagesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 delay_information: Sequence['outputs.JobDelayDetailsResponse'],
                  display_name: str,
                  job_stage_details: Any,
                  stage_name: str,
@@ -4600,17 +4691,27 @@ class JobStagesResponse(dict):
                  stage_time: str):
         """
         Job stages.
+        :param Sequence['JobDelayDetailsResponse'] delay_information: Delay information for the job stages.
         :param str display_name: Display name of the job stage.
         :param Any job_stage_details: Job Stage Details
         :param str stage_name: Name of the job stage.
         :param str stage_status: Status of the job stage.
         :param str stage_time: Time for the job stage in UTC ISO 8601 format.
         """
+        pulumi.set(__self__, "delay_information", delay_information)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "job_stage_details", job_stage_details)
         pulumi.set(__self__, "stage_name", stage_name)
         pulumi.set(__self__, "stage_status", stage_status)
         pulumi.set(__self__, "stage_time", stage_time)
+
+    @property
+    @pulumi.getter(name="delayInformation")
+    def delay_information(self) -> Sequence['outputs.JobDelayDetailsResponse']:
+        """
+        Delay information for the job stages.
+        """
+        return pulumi.get(self, "delay_information")
 
     @property
     @pulumi.getter(name="displayName")

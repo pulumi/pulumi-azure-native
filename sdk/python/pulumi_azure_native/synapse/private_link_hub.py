@@ -117,7 +117,7 @@ class PrivateLinkHub(pulumi.CustomResource):
                  __props__=None):
         """
         A privateLinkHub
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-06-01.
 
         Other available API versions: 2021-06-01-preview.
 
@@ -137,7 +137,7 @@ class PrivateLinkHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A privateLinkHub
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-06-01.
 
         Other available API versions: 2021-06-01-preview.
 

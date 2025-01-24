@@ -170,7 +170,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
                  __props__=None):
         """
         The subscription diagnostic setting resource.
-        Azure REST API version: 2021-05-01-preview. Prior API version in Azure Native 1.x: 2017-05-01-preview.
+        Azure REST API version: 2021-05-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview.
 
         Other available API versions: 2017-05-01-preview.
 
@@ -193,7 +193,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The subscription diagnostic setting resource.
-        Azure REST API version: 2021-05-01-preview. Prior API version in Azure Native 1.x: 2017-05-01-preview.
+        Azure REST API version: 2021-05-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview.
 
         Other available API versions: 2017-05-01-preview.
 
