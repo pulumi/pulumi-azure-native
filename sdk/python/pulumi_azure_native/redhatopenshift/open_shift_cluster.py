@@ -257,7 +257,7 @@ class OpenShiftCluster(pulumi.CustomResource):
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
         Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,7 +285,7 @@ class OpenShiftCluster(pulumi.CustomResource):
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
         Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30.
 
-        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
 
         :param str resource_name: The name of the resource.
         :param OpenShiftClusterArgs args: The arguments to use to populate this resource's properties.
@@ -342,7 +342,7 @@ class OpenShiftCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20200430:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20210901preview:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220401:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20231122:OpenShiftCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20200430:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20210901preview:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220401:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220904:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230401:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230701preview:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20230904:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20231122:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20240812preview:OpenShiftCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenShiftCluster, __self__).__init__(
             'azure-native:redhatopenshift:OpenShiftCluster',

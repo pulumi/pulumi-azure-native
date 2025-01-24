@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     /// Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30.
     /// 
-    /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+    /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:OpenShiftCluster")]
     public partial class OpenShiftCluster : global::Pulumi.CustomResource
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230701preview:OpenShiftCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230904:OpenShiftCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20231122:OpenShiftCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20240812preview:OpenShiftCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

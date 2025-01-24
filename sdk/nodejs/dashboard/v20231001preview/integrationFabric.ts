@@ -94,7 +94,7 @@ export class IntegrationFabric extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dashboard:IntegrationFabric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dashboard:IntegrationFabric" }, { type: "azure-native:dashboard/v20241001:IntegrationFabric" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationFabric.__pulumiType, name, resourceInputs, opts);
     }

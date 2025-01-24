@@ -6914,6 +6914,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dashboard/v20241001",
+  "fqn": "pulumi_azure_native.dashboard.v20241001",
+  "classes": {
+   "azure-native:dashboard/v20241001:Grafana": "Grafana",
+   "azure-native:dashboard/v20241001:IntegrationFabric": "IntegrationFabric",
+   "azure-native:dashboard/v20241001:ManagedPrivateEndpoint": "ManagedPrivateEndpoint",
+   "azure-native:dashboard/v20241001:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databasewatcher",
   "fqn": "pulumi_azure_native.databasewatcher",
   "classes": {
@@ -11261,6 +11272,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "insights/v20210901",
+  "fqn": "pulumi_azure_native.insights.v20210901",
+  "classes": {
+   "azure-native:insights/v20210901:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:insights/v20210901:PrivateLinkScope": "PrivateLinkScope",
+   "azure-native:insights/v20210901:PrivateLinkScopedResource": "PrivateLinkScopedResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "insights/v20220401",
   "fqn": "pulumi_azure_native.insights.v20220401",
   "classes": {
@@ -11349,6 +11370,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.insights.v20230601",
   "classes": {
    "azure-native:insights/v20230601:Workbook": "Workbook"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "insights/v20230601preview",
+  "fqn": "pulumi_azure_native.insights.v20230601preview",
+  "classes": {
+   "azure-native:insights/v20230601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:insights/v20230601preview:PrivateLinkScope": "PrivateLinkScope",
+   "azure-native:insights/v20230601preview:PrivateLinkScopedResource": "PrivateLinkScopedResource"
   }
  },
  {
@@ -16986,6 +17017,14 @@ _utilities.register(
    "azure-native:redhatopenshift/v20231122:Secret": "Secret",
    "azure-native:redhatopenshift/v20231122:SyncIdentityProvider": "SyncIdentityProvider",
    "azure-native:redhatopenshift/v20231122:SyncSet": "SyncSet"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "redhatopenshift/v20240812preview",
+  "fqn": "pulumi_azure_native.redhatopenshift.v20240812preview",
+  "classes": {
+   "azure-native:redhatopenshift/v20240812preview:OpenShiftCluster": "OpenShiftCluster"
   }
  },
  {

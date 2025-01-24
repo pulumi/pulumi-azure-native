@@ -72,6 +72,8 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:insights:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210701preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20210901:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20230601preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

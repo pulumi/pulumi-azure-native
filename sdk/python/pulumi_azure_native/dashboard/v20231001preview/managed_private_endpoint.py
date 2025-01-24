@@ -278,7 +278,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dashboard:ManagedPrivateEndpoint"), pulumi.Alias(type_="azure-native:dashboard/v20221001preview:ManagedPrivateEndpoint"), pulumi.Alias(type_="azure-native:dashboard/v20230901:ManagedPrivateEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dashboard:ManagedPrivateEndpoint"), pulumi.Alias(type_="azure-native:dashboard/v20221001preview:ManagedPrivateEndpoint"), pulumi.Alias(type_="azure-native:dashboard/v20230901:ManagedPrivateEndpoint"), pulumi.Alias(type_="azure-native:dashboard/v20241001:ManagedPrivateEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedPrivateEndpoint, __self__).__init__(
             'azure-native:dashboard/v20231001preview:ManagedPrivateEndpoint',

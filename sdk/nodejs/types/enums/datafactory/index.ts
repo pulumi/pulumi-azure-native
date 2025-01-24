@@ -349,6 +349,15 @@ export const GoogleBigQueryV2AuthenticationType = {
  */
 export type GoogleBigQueryV2AuthenticationType = (typeof GoogleBigQueryV2AuthenticationType)[keyof typeof GoogleBigQueryV2AuthenticationType];
 
+export const GreenplumAuthenticationType = {
+    Basic: "Basic",
+} as const;
+
+/**
+ * The authentication type to use. Type: string. Only used for V2.
+ */
+export type GreenplumAuthenticationType = (typeof GreenplumAuthenticationType)[keyof typeof GreenplumAuthenticationType];
+
 export const HBaseAuthenticationType = {
     Anonymous: "Anonymous",
     Basic: "Basic",

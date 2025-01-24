@@ -37929,12 +37929,20 @@ class GreenplumLinkedServiceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "connectVia":
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "commandTimeout":
+            suggest = "command_timeout"
+        elif key == "connectVia":
             suggest = "connect_via"
         elif key == "connectionString":
             suggest = "connection_string"
+        elif key == "connectionTimeout":
+            suggest = "connection_timeout"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "sslMode":
+            suggest = "ssl_mode"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GreenplumLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -37950,41 +37958,77 @@ class GreenplumLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
+                 authentication_type: Optional[str] = None,
+                 command_timeout: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
+                 connection_timeout: Optional[Any] = None,
+                 database: Optional[Any] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
+                 host: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 password: Optional[Any] = None,
+                 port: Optional[Any] = None,
                  pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 ssl_mode: Optional[Any] = None,
+                 username: Optional[Any] = None,
                  version: Optional[str] = None):
         """
         Greenplum Database linked service.
         :param str type: Type of linked service.
                Expected value is 'Greenplum'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param str authentication_type: The authentication type to use. Type: string. Only used for V2.
+        :param Any command_timeout: The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer. Only used for V2.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_timeout: The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer. Only used for V2.
+        :param Any database: Database name for connection. Type: string. Only used for V2.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any host: Host name for connection. Type: string. Only used for V2.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The Azure key vault secret reference of password in connection string. Type: string. Only used for V2.
+        :param Any port: The port for the connection. Type: integer. Only used for V2.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
+        :param Any ssl_mode: SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer. Only used for V2.
+        :param Any username: Username for authentication. Type: string. Only used for V2.
         :param str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Greenplum')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
+        if command_timeout is not None:
+            pulumi.set(__self__, "command_timeout", command_timeout)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if connection_timeout is not None:
+            pulumi.set(__self__, "connection_timeout", connection_timeout)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if pwd is not None:
             pulumi.set(__self__, "pwd", pwd)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -38006,6 +38050,22 @@ class GreenplumLinkedServiceResponse(dict):
         return pulumi.get(self, "annotations")
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[str]:
+        """
+        The authentication type to use. Type: string. Only used for V2.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="commandTimeout")
+    def command_timeout(self) -> Optional[Any]:
+        """
+        The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer. Only used for V2.
+        """
+        return pulumi.get(self, "command_timeout")
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
         """
@@ -38020,6 +38080,22 @@ class GreenplumLinkedServiceResponse(dict):
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
+
+    @property
+    @pulumi.getter(name="connectionTimeout")
+    def connection_timeout(self) -> Optional[Any]:
+        """
+        The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer. Only used for V2.
+        """
+        return pulumi.get(self, "connection_timeout")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        Database name for connection. Type: string. Only used for V2.
+        """
+        return pulumi.get(self, "database")
 
     @property
     @pulumi.getter
@@ -38039,6 +38115,14 @@ class GreenplumLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
+    def host(self) -> Optional[Any]:
+        """
+        Host name for connection. Type: string. Only used for V2.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
         """
         Parameters for linked service.
@@ -38047,11 +38131,43 @@ class GreenplumLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
+    def password(self) -> Optional[Any]:
+        """
+        The Azure key vault secret reference of password in connection string. Type: string. Only used for V2.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[Any]:
+        """
+        The port for the connection. Type: integer. Only used for V2.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
     def pwd(self) -> Optional['outputs.AzureKeyVaultSecretReferenceResponse']:
         """
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "pwd")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[Any]:
+        """
+        SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer. Only used for V2.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[Any]:
+        """
+        Username for authentication. Type: string. Only used for V2.
+        """
+        return pulumi.get(self, "username")
 
     @property
     @pulumi.getter

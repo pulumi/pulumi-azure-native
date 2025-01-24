@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * An Azure Monitor PrivateLinkScope definition.
  * Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview.
  *
- * Other available API versions: 2019-10-17-preview.
+ * Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
  */
 export class PrivateLinkScope extends pulumi.CustomResource {
     /**
@@ -111,7 +111,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20191017preview:PrivateLinkScope" }, { type: "azure-native:insights/v20210701preview:PrivateLinkScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20191017preview:PrivateLinkScope" }, { type: "azure-native:insights/v20210701preview:PrivateLinkScope" }, { type: "azure-native:insights/v20210901:PrivateLinkScope" }, { type: "azure-native:insights/v20230601preview:PrivateLinkScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkScope.__pulumiType, name, resourceInputs, opts);
     }

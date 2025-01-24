@@ -8161,22 +8161,26 @@
       "2022-08-01",
       "2022-10-01-preview",
       "2023-09-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-10-01"
     ],
     "IntegrationFabric": [
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-10-01"
     ],
     "ManagedPrivateEndpoint": [
       "2022-10-01-preview",
       "2023-09-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-10-01"
     ],
     "PrivateEndpointConnection": [
       "2022-05-01-preview",
       "2022-08-01",
       "2022-10-01-preview",
       "2023-09-01",
-      "2023-10-01-preview"
+      "2023-10-01-preview",
+      "2024-10-01"
     ]
   },
   "DataBox": {
@@ -13057,15 +13061,21 @@
     ],
     "PrivateEndpointConnection": [
       "2019-10-17-preview",
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01",
+      "2023-06-01-preview"
     ],
     "PrivateLinkScope": [
       "2019-10-17-preview",
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01",
+      "2023-06-01-preview"
     ],
     "PrivateLinkScopedResource": [
       "2019-10-17-preview",
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01",
+      "2023-06-01-preview"
     ],
     "ProactiveDetectionConfiguration": [
       "2015-05-01",
@@ -22144,7 +22154,8 @@
       "2023-04-01",
       "2023-07-01-preview",
       "2023-09-04",
-      "2023-11-22"
+      "2023-11-22",
+      "2024-08-12-preview"
     ],
     "Secret": [
       "2022-09-04",
@@ -22174,7 +22185,8 @@
       "2023-04-01",
       "2023-07-01-preview",
       "2023-09-04",
-      "2023-11-22"
+      "2023-11-22",
+      "2024-08-12-preview"
     ],
     "listOpenShiftClusterCredentials": [
       "2020-04-30",
@@ -22184,7 +22196,8 @@
       "2023-04-01",
       "2023-07-01-preview",
       "2023-09-04",
-      "2023-11-22"
+      "2023-11-22",
+      "2024-08-12-preview"
     ]
   },
   "Relay": {

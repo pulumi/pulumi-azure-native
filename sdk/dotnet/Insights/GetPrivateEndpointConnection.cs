@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.Insights
         /// Gets a private endpoint connection.
         /// Azure REST API version: 2021-07-01-preview.
         /// 
-        /// Other available API versions: 2019-10-17-preview.
+        /// Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:insights:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Insights
         /// Gets a private endpoint connection.
         /// Azure REST API version: 2021-07-01-preview.
         /// 
-        /// Other available API versions: 2019-10-17-preview.
+        /// Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:insights:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Insights
         /// Gets a private endpoint connection.
         /// Azure REST API version: 2021-07-01-preview.
         /// 
-        /// Other available API versions: 2019-10-17-preview.
+        /// Other available API versions: 2019-10-17-preview, 2021-09-01, 2023-06-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:insights:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

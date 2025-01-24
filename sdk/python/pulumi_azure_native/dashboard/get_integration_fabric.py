@@ -127,6 +127,8 @@ def get_integration_fabric(integration_fabric_name: Optional[str] = None,
     The integration fabric resource type.
     Azure REST API version: 2023-10-01-preview.
 
+    Other available API versions: 2024-10-01.
+
 
     :param str integration_fabric_name: The integration fabric name of Azure Managed Grafana.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -154,6 +156,8 @@ def get_integration_fabric_output(integration_fabric_name: Optional[pulumi.Input
     """
     The integration fabric resource type.
     Azure REST API version: 2023-10-01-preview.
+
+    Other available API versions: 2024-10-01.
 
 
     :param str integration_fabric_name: The integration fabric name of Azure Managed Grafana.

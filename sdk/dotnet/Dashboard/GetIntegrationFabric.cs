@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The integration fabric resource type.
         /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2024-10-01.
         /// </summary>
         public static Task<GetIntegrationFabricResult> InvokeAsync(GetIntegrationFabricArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationFabricResult>("azure-native:dashboard:getIntegrationFabric", args ?? new GetIntegrationFabricArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The integration fabric resource type.
         /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2024-10-01.
         /// </summary>
         public static Output<GetIntegrationFabricResult> Invoke(GetIntegrationFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationFabricResult>("azure-native:dashboard:getIntegrationFabric", args ?? new GetIntegrationFabricInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The integration fabric resource type.
         /// Azure REST API version: 2023-10-01-preview.
+        /// 
+        /// Other available API versions: 2024-10-01.
         /// </summary>
         public static Output<GetIntegrationFabricResult> Invoke(GetIntegrationFabricInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationFabricResult>("azure-native:dashboard:getIntegrationFabric", args ?? new GetIntegrationFabricInvokeArgs(), options.WithDefaults());

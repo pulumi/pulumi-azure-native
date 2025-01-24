@@ -142,7 +142,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     The Private Endpoint Connection resource.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview.
+    Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-10-01.
 
 
     :param str private_endpoint_connection_name: The private endpoint connection name of Azure Managed Grafana.
@@ -173,7 +173,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     The Private Endpoint Connection resource.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview.
+    Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-10-01.
 
 
     :param str private_endpoint_connection_name: The private endpoint connection name of Azure Managed Grafana.

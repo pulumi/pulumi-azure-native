@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The managed private endpoint resource type.
  * Azure REST API version: 2022-10-01-preview.
  *
- * Other available API versions: 2023-09-01, 2023-10-01-preview.
+ * Other available API versions: 2023-09-01, 2023-10-01-preview, 2024-10-01.
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
@@ -142,7 +142,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dashboard/v20221001preview:ManagedPrivateEndpoint" }, { type: "azure-native:dashboard/v20230901:ManagedPrivateEndpoint" }, { type: "azure-native:dashboard/v20231001preview:ManagedPrivateEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dashboard/v20221001preview:ManagedPrivateEndpoint" }, { type: "azure-native:dashboard/v20230901:ManagedPrivateEndpoint" }, { type: "azure-native:dashboard/v20231001preview:ManagedPrivateEndpoint" }, { type: "azure-native:dashboard/v20241001:ManagedPrivateEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);
     }

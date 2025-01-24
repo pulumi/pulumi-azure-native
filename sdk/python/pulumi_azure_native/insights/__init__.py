@@ -125,6 +125,8 @@ if typing.TYPE_CHECKING:
     v20210701preview = __v20210701preview
     import pulumi_azure_native.insights.v20210801 as __v20210801
     v20210801 = __v20210801
+    import pulumi_azure_native.insights.v20210901 as __v20210901
+    v20210901 = __v20210901
     import pulumi_azure_native.insights.v20211014 as __v20211014
     v20211014 = __v20211014
     import pulumi_azure_native.insights.v20220401 as __v20220401
@@ -149,6 +151,8 @@ if typing.TYPE_CHECKING:
     v20230501preview = __v20230501preview
     import pulumi_azure_native.insights.v20230601 as __v20230601
     v20230601 = __v20230601
+    import pulumi_azure_native.insights.v20230601preview as __v20230601preview
+    v20230601preview = __v20230601preview
     import pulumi_azure_native.insights.v20230901preview as __v20230901preview
     v20230901preview = __v20230901preview
     import pulumi_azure_native.insights.v20231201 as __v20231201
@@ -183,6 +187,7 @@ else:
     v20210501preview = _utilities.lazy_import('pulumi_azure_native.insights.v20210501preview')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.insights.v20210701preview')
     v20210801 = _utilities.lazy_import('pulumi_azure_native.insights.v20210801')
+    v20210901 = _utilities.lazy_import('pulumi_azure_native.insights.v20210901')
     v20211014 = _utilities.lazy_import('pulumi_azure_native.insights.v20211014')
     v20220401 = _utilities.lazy_import('pulumi_azure_native.insights.v20220401')
     v20220601 = _utilities.lazy_import('pulumi_azure_native.insights.v20220601')
@@ -195,6 +200,7 @@ else:
     v20230315preview = _utilities.lazy_import('pulumi_azure_native.insights.v20230315preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.insights.v20230501preview')
     v20230601 = _utilities.lazy_import('pulumi_azure_native.insights.v20230601')
+    v20230601preview = _utilities.lazy_import('pulumi_azure_native.insights.v20230601preview')
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.insights.v20230901preview')
     v20231201 = _utilities.lazy_import('pulumi_azure_native.insights.v20231201')
     v20240101preview = _utilities.lazy_import('pulumi_azure_native.insights.v20240101preview')

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * The integration fabric resource type.
  * Azure REST API version: 2023-10-01-preview.
+ *
+ * Other available API versions: 2024-10-01.
  */
 export class IntegrationFabric extends pulumi.CustomResource {
     /**
@@ -95,7 +97,7 @@ export class IntegrationFabric extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dashboard/v20231001preview:IntegrationFabric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dashboard/v20231001preview:IntegrationFabric" }, { type: "azure-native:dashboard/v20241001:IntegrationFabric" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationFabric.__pulumiType, name, resourceInputs, opts);
     }

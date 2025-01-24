@@ -28,6 +28,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// The authentication type to use. Type: string. Only used for V2.
+        /// </summary>
+        [Input("authenticationType")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.GreenplumAuthenticationType>? AuthenticationType { get; set; }
+
+        /// <summary>
+        /// The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer. Only used for V2.
+        /// </summary>
+        [Input("commandTimeout")]
+        public Input<object>? CommandTimeout { get; set; }
+
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -40,6 +52,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
+        /// The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer. Only used for V2.
+        /// </summary>
+        [Input("connectionTimeout")]
+        public Input<object>? ConnectionTimeout { get; set; }
+
+        /// <summary>
+        /// Database name for connection. Type: string. Only used for V2.
+        /// </summary>
+        [Input("database")]
+        public Input<object>? Database { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
@@ -50,6 +74,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("encryptedCredential")]
         public Input<string>? EncryptedCredential { get; set; }
+
+        /// <summary>
+        /// Host name for connection. Type: string. Only used for V2.
+        /// </summary>
+        [Input("host")]
+        public Input<object>? Host { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
@@ -64,10 +94,28 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// The Azure key vault secret reference of password in connection string. Type: string. Only used for V2.
+        /// </summary>
+        [Input("password")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
+
+        /// <summary>
+        /// The port for the connection. Type: integer. Only used for V2.
+        /// </summary>
+        [Input("port")]
+        public Input<object>? Port { get; set; }
+
+        /// <summary>
         /// The Azure key vault secret reference of password in connection string.
         /// </summary>
         [Input("pwd")]
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? Pwd { get; set; }
+
+        /// <summary>
+        /// SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer. Only used for V2.
+        /// </summary>
+        [Input("sslMode")]
+        public Input<object>? SslMode { get; set; }
 
         /// <summary>
         /// Type of linked service.
@@ -75,6 +123,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Username for authentication. Type: string. Only used for V2.
+        /// </summary>
+        [Input("username")]
+        public Input<object>? Username { get; set; }
 
         /// <summary>
         /// Version of the linked service.
