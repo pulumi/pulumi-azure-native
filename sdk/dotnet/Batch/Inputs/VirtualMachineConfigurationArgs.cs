@@ -79,6 +79,18 @@ namespace Pulumi.AzureNative.Batch.Inputs
         public Input<Inputs.OSDiskArgs>? OsDisk { get; set; }
 
         /// <summary>
+        /// Specifies the security profile settings for the virtual machine or virtual machine scale set.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.SecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
+        /// The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
+        /// </summary>
+        [Input("serviceArtifactReference")]
+        public Input<Inputs.ServiceArtifactReferenceArgs>? ServiceArtifactReference { get; set; }
+
+        /// <summary>
         /// This property must not be specified if the imageReference specifies a Linux OS image.
         /// </summary>
         [Input("windowsConfiguration")]

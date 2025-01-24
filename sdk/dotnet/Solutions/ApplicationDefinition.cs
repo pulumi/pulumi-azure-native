@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about managed application definition.
-    /// Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
+    /// Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2021-07-01.
     /// 
     /// Other available API versions: 2023-12-01-preview.
     /// </summary>

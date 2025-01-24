@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a container registry.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2022-12-01.
     /// 
-    /// Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    /// Other available API versions: 2017-03-01, 2019-05-01, 2022-12-01, 2024-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Registry")]
     public partial class Registry : global::Pulumi.CustomResource
@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("adminUserEnabled")]
         public Output<bool?> AdminUserEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables registry-wide pull from unauthenticated clients.
+        /// </summary>
+        [Output("anonymousPullEnabled")]
+        public Output<bool?> AnonymousPullEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The creation date of the container registry in ISO8601 format.
@@ -216,6 +222,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<bool>? AdminUserEnabled { get; set; }
 
         /// <summary>
+        /// Enables registry-wide pull from unauthenticated clients.
+        /// </summary>
+        [Input("anonymousPullEnabled")]
+        public Input<bool>? AnonymousPullEnabled { get; set; }
+
+        /// <summary>
         /// Enable a single data endpoint per region for serving data.
         /// </summary>
         [Input("dataEndpointEnabled")]
@@ -302,6 +314,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public RegistryArgs()
         {
             AdminUserEnabled = false;
+            AnonymousPullEnabled = false;
             NetworkRuleBypassOptions = "AzureServices";
             PublicNetworkAccess = "Enabled";
             ZoneRedundancy = "Disabled";

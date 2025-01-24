@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     public sealed class ImageReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the ARM resource ID of the Azure Compute Gallery image version used for creating ACSS VMs. You will need to provide this input when you choose to deploy virtual machines in ACSS with OS image from the Azure Compute gallery.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// Specifies the offer of the platform image or marketplace image used to create the virtual machine.
         /// </summary>
         [Input("offer")]

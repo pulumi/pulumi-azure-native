@@ -1000,36 +1000,6 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
     /// <summary>
-    /// The authentication type to use. Type: string. Only used for V2.
-    /// </summary>
-    [EnumType]
-    public readonly struct GreenplumAuthenticationType : IEquatable<GreenplumAuthenticationType>
-    {
-        private readonly string _value;
-
-        private GreenplumAuthenticationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static GreenplumAuthenticationType Basic { get; } = new GreenplumAuthenticationType("Basic");
-
-        public static bool operator ==(GreenplumAuthenticationType left, GreenplumAuthenticationType right) => left.Equals(right);
-        public static bool operator !=(GreenplumAuthenticationType left, GreenplumAuthenticationType right) => !left.Equals(right);
-
-        public static explicit operator string(GreenplumAuthenticationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GreenplumAuthenticationType other && Equals(other);
-        public bool Equals(GreenplumAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The authentication mechanism to use to connect to the HBase server.
     /// </summary>
     [EnumType]

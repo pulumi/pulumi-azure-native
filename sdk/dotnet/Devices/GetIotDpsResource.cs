@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Devices
     {
         /// <summary>
         /// Get the metadata of the provisioning service without SAS keys.
-        /// Azure REST API version: 2022-12-12.
+        /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
+        /// Other available API versions: 2020-09-01-preview, 2022-12-12, 2025-02-01-preview.
         /// </summary>
         public static Task<GetIotDpsResourceResult> InvokeAsync(GetIotDpsResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of the provisioning service without SAS keys.
-        /// Azure REST API version: 2022-12-12.
+        /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
+        /// Other available API versions: 2020-09-01-preview, 2022-12-12, 2025-02-01-preview.
         /// </summary>
         public static Output<GetIotDpsResourceResult> Invoke(GetIotDpsResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of the provisioning service without SAS keys.
-        /// Azure REST API version: 2022-12-12.
+        /// Azure REST API version: 2023-03-01-preview.
         /// 
-        /// Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
+        /// Other available API versions: 2020-09-01-preview, 2022-12-12, 2025-02-01-preview.
         /// </summary>
         public static Output<GetIotDpsResourceResult> Invoke(GetIotDpsResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotDpsResourceResult>("azure-native:devices:getIotDpsResource", args ?? new GetIotDpsResourceInvokeArgs(), options.WithDefaults());
@@ -93,6 +93,10 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed identities for a provisioning service.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string Location;
@@ -135,6 +139,8 @@ namespace Pulumi.AzureNative.Devices
 
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             string location,
 
             string name,
@@ -155,6 +161,7 @@ namespace Pulumi.AzureNative.Devices
         {
             Etag = etag;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

@@ -12,6 +12,18 @@ namespace Pulumi.AzureNative.Batch.Inputs
 
     public sealed class TaskContainerSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("containerHostBatchBindMounts")]
+        private InputList<Inputs.ContainerHostBatchBindMountEntryArgs>? _containerHostBatchBindMounts;
+
+        /// <summary>
+        /// If this array is null or be not present, container task will mount entire temporary disk drive in windows (or AZ_BATCH_NODE_ROOT_DIR in Linux). It won't' mount any data paths into container if this array is set as empty.
+        /// </summary>
+        public InputList<Inputs.ContainerHostBatchBindMountEntryArgs> ContainerHostBatchBindMounts
+        {
+            get => _containerHostBatchBindMounts ?? (_containerHostBatchBindMounts = new InputList<Inputs.ContainerHostBatchBindMountEntryArgs>());
+            set => _containerHostBatchBindMounts = value;
+        }
+
         /// <summary>
         /// These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
         /// </summary>

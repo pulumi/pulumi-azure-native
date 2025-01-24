@@ -33,10 +33,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? MlFlowRegistryUri;
         /// <summary>
-        /// Private endpoint connections info used for pending connections in private link portal
-        /// </summary>
-        public readonly ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> PrivateEndpointConnections;
-        /// <summary>
         /// Is the Registry accessible from the internet?
         /// Possible values: "Enabled" or "Disabled"
         /// </summary>
@@ -45,6 +41,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Details of each region the registry is in
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryRegionArmDetailsResponse> RegionDetails;
+        /// <summary>
+        /// Private endpoint connections info used for pending connections in private link portal
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> RegistryPrivateEndpointConnections;
 
         [OutputConstructor]
         private RegistryResponse(
@@ -56,19 +56,19 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? mlFlowRegistryUri,
 
-            ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> privateEndpointConnections,
-
             string? publicNetworkAccess,
 
-            ImmutableArray<Outputs.RegistryRegionArmDetailsResponse> regionDetails)
+            ImmutableArray<Outputs.RegistryRegionArmDetailsResponse> regionDetails,
+
+            ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> registryPrivateEndpointConnections)
         {
             DiscoveryUrl = discoveryUrl;
             IntellectualPropertyPublisher = intellectualPropertyPublisher;
             ManagedResourceGroup = managedResourceGroup;
             MlFlowRegistryUri = mlFlowRegistryUri;
-            PrivateEndpointConnections = privateEndpointConnections;
             PublicNetworkAccess = publicNetworkAccess;
             RegionDetails = regionDetails;
+            RegistryPrivateEndpointConnections = registryPrivateEndpointConnections;
         }
     }
 }

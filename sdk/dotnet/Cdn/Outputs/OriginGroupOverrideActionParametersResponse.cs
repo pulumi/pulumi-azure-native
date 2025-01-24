@@ -20,6 +20,10 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// defines the OriginGroup that would override the DefaultOriginGroup.
         /// </summary>
         public readonly Outputs.ResourceReferenceResponse OriginGroup;
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleOriginGroupOverrideActionParameters'.
+        /// </summary>
         public readonly string TypeName;
 
         [OutputConstructor]

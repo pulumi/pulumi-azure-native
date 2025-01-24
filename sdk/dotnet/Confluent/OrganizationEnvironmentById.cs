@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Confluent
 {
     /// <summary>
     /// Details about environment name, metadata and environment id of an environment
-    /// Azure REST API version: 2024-07-01.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2024-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent:OrganizationEnvironmentById")]
     public partial class OrganizationEnvironmentById : global::Pulumi.CustomResource

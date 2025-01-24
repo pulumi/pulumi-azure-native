@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
 {
     /// <summary>
     /// The description of the service.
-    /// Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2021-03-08.
+    /// Azure REST API version: 2021-03-08.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance:PrivateLinkServicesForMIPPolicySync")]
     public partial class PrivateLinkServicesForMIPPolicySync : global::Pulumi.CustomResource
@@ -95,9 +95,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForMIPPolicySync" },
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForMIPPolicySync" },
-                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

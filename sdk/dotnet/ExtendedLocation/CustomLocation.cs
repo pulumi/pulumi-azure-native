@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ExtendedLocation
 {
     /// <summary>
     /// Custom Locations definition.
-    /// Azure REST API version: 2021-08-15. Prior API version in Azure Native 1.x: 2021-03-15-preview.
+    /// Azure REST API version: 2021-08-31-preview. Prior API version in Azure Native 1.x: 2021-08-15.
     /// 
-    /// Other available API versions: 2021-08-31-preview.
+    /// Other available API versions: 2021-08-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:extendedlocation:CustomLocation")]
     public partial class CustomLocation : global::Pulumi.CustomResource

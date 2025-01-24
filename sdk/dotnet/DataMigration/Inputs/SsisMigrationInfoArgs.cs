@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public InputUnion<string, Pulumi.AzureNative.DataMigration.SsisMigrationOverwriteOption>? ProjectOverwriteOption { get; set; }
 
         /// <summary>
-        /// The SSIS store type of source, only SSIS catalog is supported now in DMS
+        /// The SSIS store type of source, only SSIS catalog is supported now in DMS (classic)
         /// </summary>
         [Input("ssisStoreType")]
         public InputUnion<string, Pulumi.AzureNative.DataMigration.SsisStoreType>? SsisStoreType { get; set; }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataReplication
 {
     /// <summary>
     /// Dra model.
-    /// Azure REST API version: 2021-02-16-preview.
+    /// Azure REST API version: 2021-02-16-preview. Prior API version in Azure Native 1.x: 2021-02-16-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:Dra")]
     public partial class Dra : global::Pulumi.CustomResource

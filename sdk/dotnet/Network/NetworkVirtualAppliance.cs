@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// NetworkVirtualAppliance Resource.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
     /// 
-    /// Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2020-04-01, 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkVirtualAppliance")]
     public partial class NetworkVirtualAppliance : global::Pulumi.CustomResource
@@ -79,6 +79,12 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.SubResourceResponse>> InboundSecurityRules { get; private set; } = null!;
 
         /// <summary>
+        /// List of Resource Uri of Public IPs for Internet Ingress Scenario.
+        /// </summary>
+        [Output("internetIngressPublicIps")]
+        public Output<ImmutableArray<Outputs.InternetIngressPublicIpsPropertiesResponse>> InternetIngressPublicIps { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -89,6 +95,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Network Profile containing configurations for Public and Private NIC.
+        /// </summary>
+        [Output("networkProfile")]
+        public Output<Outputs.NetworkVirtualAppliancePropertiesFormatResponseNetworkProfile?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
         /// Network Virtual Appliance SKU.
@@ -131,6 +143,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("virtualApplianceAsn")]
         public Output<double?> VirtualApplianceAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// List of references to VirtualApplianceConnections.
+        /// </summary>
+        [Output("virtualApplianceConnections")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> VirtualApplianceConnections { get; private set; } = null!;
 
         /// <summary>
         /// List of Virtual Appliance Network Interfaces.
@@ -284,11 +302,29 @@ namespace Pulumi.AzureNative.Network
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
+        [Input("internetIngressPublicIps")]
+        private InputList<Inputs.InternetIngressPublicIpsPropertiesArgs>? _internetIngressPublicIps;
+
+        /// <summary>
+        /// List of Resource Uri of Public IPs for Internet Ingress Scenario.
+        /// </summary>
+        public InputList<Inputs.InternetIngressPublicIpsPropertiesArgs> InternetIngressPublicIps
+        {
+            get => _internetIngressPublicIps ?? (_internetIngressPublicIps = new InputList<Inputs.InternetIngressPublicIpsPropertiesArgs>());
+            set => _internetIngressPublicIps = value;
+        }
+
         /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Network Profile containing configurations for Public and Private NIC.
+        /// </summary>
+        [Input("networkProfile")]
+        public Input<Inputs.NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
         /// The name of Network Virtual Appliance.

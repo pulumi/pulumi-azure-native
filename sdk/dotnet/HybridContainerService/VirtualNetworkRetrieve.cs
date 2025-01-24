@@ -11,7 +11,9 @@ namespace Pulumi.AzureNative.HybridContainerService
 {
     /// <summary>
     /// The virtualNetworks resource definition.
-    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview.
+    /// Azure REST API version: 2022-09-01-preview.
+    /// 
+    /// Other available API versions: 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:VirtualNetworkRetrieve")]
     public partial class VirtualNetworkRetrieve : global::Pulumi.CustomResource
@@ -80,15 +82,10 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:virtualNetworkRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:virtualNetworkRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:virtualNetworkRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:virtualNetworkRetrieve" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VerifiedId
 {
     /// <summary>
     /// A VerifiedId authority resource
-    /// Azure REST API version: 2024-01-26-preview.
+    /// Azure REST API version: 2024-01-26-preview. Prior API version in Azure Native 1.x: 2024-01-26-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:verifiedid:Authority")]
     public partial class Authority : global::Pulumi.CustomResource

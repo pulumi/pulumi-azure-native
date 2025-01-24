@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Subnet in a virtual network resource.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
     /// 
-    /// Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2019-02-01, 2019-06-01, 2019-08-01, 2020-06-01, 2022-07-01, 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Subnet")]
     public partial class Subnet : global::Pulumi.CustomResource
@@ -35,6 +35,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("applicationGatewayIPConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse>> ApplicationGatewayIPConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+        /// </summary>
+        [Output("defaultOutboundAccess")]
+        public Output<bool?> DefaultOutboundAccess { get; private set; } = null!;
 
         /// <summary>
         /// An array of references to the delegations on the subnet.
@@ -65,6 +71,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.IPConfigurationResponse>> IpConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of IPAM Pools for allocating IP address prefixes.
+        /// </summary>
+        [Output("ipamPoolPrefixAllocations")]
+        public Output<ImmutableArray<Outputs.IpamPoolPrefixAllocationResponse>> IpamPoolPrefixAllocations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -143,6 +155,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("serviceEndpoints")]
         public Output<ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse>> ServiceEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        /// </summary>
+        [Output("sharingScope")]
+        public Output<string?> SharingScope { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -282,6 +300,12 @@ namespace Pulumi.AzureNative.Network
             set => _applicationGatewayIPConfigurations = value;
         }
 
+        /// <summary>
+        /// Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+        /// </summary>
+        [Input("defaultOutboundAccess")]
+        public Input<bool>? DefaultOutboundAccess { get; set; }
+
         [Input("delegations")]
         private InputList<Inputs.DelegationArgs>? _delegations;
 
@@ -310,6 +334,18 @@ namespace Pulumi.AzureNative.Network
         {
             get => _ipAllocations ?? (_ipAllocations = new InputList<Inputs.SubResourceArgs>());
             set => _ipAllocations = value;
+        }
+
+        [Input("ipamPoolPrefixAllocations")]
+        private InputList<Inputs.IpamPoolPrefixAllocationArgs>? _ipamPoolPrefixAllocations;
+
+        /// <summary>
+        /// A list of IPAM Pools for allocating IP address prefixes.
+        /// </summary>
+        public InputList<Inputs.IpamPoolPrefixAllocationArgs> IpamPoolPrefixAllocations
+        {
+            get => _ipamPoolPrefixAllocations ?? (_ipamPoolPrefixAllocations = new InputList<Inputs.IpamPoolPrefixAllocationArgs>());
+            set => _ipamPoolPrefixAllocations = value;
         }
 
         /// <summary>
@@ -377,6 +413,12 @@ namespace Pulumi.AzureNative.Network
             get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<Inputs.ServiceEndpointPropertiesFormatArgs>());
             set => _serviceEndpoints = value;
         }
+
+        /// <summary>
+        /// Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        /// </summary>
+        [Input("sharingScope")]
+        public InputUnion<string, Pulumi.AzureNative.Network.SharingScope>? SharingScope { get; set; }
 
         /// <summary>
         /// The name of the subnet.

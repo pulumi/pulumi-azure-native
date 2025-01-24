@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// Define the SAP Instance resource.
-    /// Azure REST API version: 2023-10-01-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SapInstance")]
     public partial class SapInstance : global::Pulumi.CustomResource

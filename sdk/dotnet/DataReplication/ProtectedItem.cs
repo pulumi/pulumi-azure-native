@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataReplication
 {
     /// <summary>
     /// Protected item model.
-    /// Azure REST API version: 2021-02-16-preview.
+    /// Azure REST API version: 2021-02-16-preview. Prior API version in Azure Native 1.x: 2021-02-16-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:ProtectedItem")]
     public partial class ProtectedItem : global::Pulumi.CustomResource

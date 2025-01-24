@@ -28,10 +28,22 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Deployment model publisher.
+        /// </summary>
+        [Input("publisher")]
+        public Input<string>? Publisher { get; set; }
+
+        /// <summary>
         /// Optional. Deployment model source ARM resource ID.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
+
+        /// <summary>
+        /// Optional. Source of the model, another Microsoft.CognitiveServices accounts ARM resource ID.
+        /// </summary>
+        [Input("sourceAccount")]
+        public Input<string>? SourceAccount { get; set; }
 
         /// <summary>
         /// Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.

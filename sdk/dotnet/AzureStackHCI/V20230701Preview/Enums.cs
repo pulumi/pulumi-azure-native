@@ -8,68 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.AzureStackHCI.V20230701Preview
 {
     /// <summary>
-    /// Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
-    /// </summary>
-    [EnumType]
-    public readonly struct CloudInitDataSource : IEquatable<CloudInitDataSource>
-    {
-        private readonly string _value;
-
-        private CloudInitDataSource(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static CloudInitDataSource NoCloud { get; } = new CloudInitDataSource("NoCloud");
-        public static CloudInitDataSource Azure { get; } = new CloudInitDataSource("Azure");
-
-        public static bool operator ==(CloudInitDataSource left, CloudInitDataSource right) => left.Equals(right);
-        public static bool operator !=(CloudInitDataSource left, CloudInitDataSource right) => !left.Equals(right);
-
-        public static explicit operator string(CloudInitDataSource value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is CloudInitDataSource other && Equals(other);
-        public bool Equals(CloudInitDataSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The format of the actual VHD file [vhd, vhdx]
-    /// </summary>
-    [EnumType]
-    public readonly struct DiskFileFormat : IEquatable<DiskFileFormat>
-    {
-        private readonly string _value;
-
-        private DiskFileFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DiskFileFormat Vhdx { get; } = new DiskFileFormat("vhdx");
-        public static DiskFileFormat Vhd { get; } = new DiskFileFormat("vhd");
-
-        public static bool operator ==(DiskFileFormat left, DiskFileFormat right) => left.Equals(right);
-        public static bool operator !=(DiskFileFormat left, DiskFileFormat right) => !left.Equals(right);
-
-        public static explicit operator string(DiskFileFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DiskFileFormat other && Equals(other);
-        public bool Equals(DiskFileFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The type of the extended location.
     /// </summary>
     [EnumType]
@@ -92,37 +30,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230701Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
         public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The hypervisor generation of the Virtual Machine [V1, V2]
-    /// </summary>
-    [EnumType]
-    public readonly struct HyperVGeneration : IEquatable<HyperVGeneration>
-    {
-        private readonly string _value;
-
-        private HyperVGeneration(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static HyperVGeneration V1 { get; } = new HyperVGeneration("V1");
-        public static HyperVGeneration V2 { get; } = new HyperVGeneration("V2");
-
-        public static bool operator ==(HyperVGeneration left, HyperVGeneration right) => left.Equals(right);
-        public static bool operator !=(HyperVGeneration left, HyperVGeneration right) => !left.Equals(right);
-
-        public static explicit operator string(HyperVGeneration value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is HyperVGeneration other && Equals(other);
-        public bool Equals(HyperVGeneration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

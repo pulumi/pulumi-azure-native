@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
     public sealed class AutoPatchingSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Additional Patch to be enable or enabled on the SQL Virtual Machine.
+        /// </summary>
+        [Input("additionalVmPatch")]
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.AdditionalVmPatch>? AdditionalVmPatch { get; set; }
+
+        /// <summary>
         /// Day of week to apply the patch on.
         /// </summary>
         [Input("dayOfWeek")]
@@ -41,6 +47,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
 
         public AutoPatchingSettingsArgs()
         {
+            AdditionalVmPatch = "NotSet";
         }
         public static new AutoPatchingSettingsArgs Empty => new AutoPatchingSettingsArgs();
     }

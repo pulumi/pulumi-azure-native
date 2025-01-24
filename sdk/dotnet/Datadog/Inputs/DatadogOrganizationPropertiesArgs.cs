@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Datadog.Inputs
 {
 
     /// <summary>
-    /// Datadog organization properties
+    /// Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
     /// </summary>
     public sealed class DatadogOrganizationPropertiesArgs : global::Pulumi.ResourceArgs
     {
@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Datadog.Inputs
         public Input<string>? ApplicationKey { get; set; }
 
         /// <summary>
+        /// The configuration which describes the state of cloud security posture management. This collects configuration information for all resources in a subscription and track conformance to industry benchmarks.
+        /// </summary>
+        [Input("cspm")]
+        public Input<bool>? Cspm { get; set; }
+
+        /// <summary>
         /// The Id of the Enterprise App used for Single sign on.
         /// </summary>
         [Input("enterpriseAppId")]
@@ -40,7 +46,7 @@ namespace Pulumi.AzureNative.Datadog.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The auth code used to linking to an existing datadog organization.
+        /// The auth code used to linking to an existing Datadog organization.
         /// </summary>
         [Input("linkingAuthCode")]
         public Input<string>? LinkingAuthCode { get; set; }
@@ -58,7 +64,7 @@ namespace Pulumi.AzureNative.Datadog.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The redirect uri for linking.
+        /// The redirect URI for linking.
         /// </summary>
         [Input("redirectUri")]
         public Input<string>? RedirectUri { get; set; }

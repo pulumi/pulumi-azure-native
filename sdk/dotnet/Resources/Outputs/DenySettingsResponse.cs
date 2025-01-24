@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Resources.Outputs
 {
 
     /// <summary>
-    /// Defines how resources deployed by the deployment stack are locked.
+    /// Defines how resources deployed by the Deployment stack are locked.
     /// </summary>
     [OutputType]
     public sealed class DenySettingsResponse
     {
         /// <summary>
-        /// DenySettings will be applied to child scopes.
+        /// DenySettings will be applied to child resource scopes of every managed resource with a deny assignment.
         /// </summary>
         public readonly bool? ApplyToChildScopes;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ExcludedPrincipals;
         /// <summary>
-        /// denySettings Mode.
+        /// denySettings Mode that defines denied actions.
         /// </summary>
         public readonly string Mode;
 

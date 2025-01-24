@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
     }
 
     /// <summary>
-    /// The managed service identity for all identities.
+    /// Type of manage identity
     /// </summary>
     [EnumType]
     public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
@@ -218,7 +218,6 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
 
         public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
         public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
-        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
 
         public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
         public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);

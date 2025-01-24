@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// Defines the network configuration type for SAP system infrastructure that is being deployed 
+    /// Defines the network configuration type for SAP system infrastructure that is being deployed
     /// </summary>
     [OutputType]
     public sealed class NetworkConfigurationResponse

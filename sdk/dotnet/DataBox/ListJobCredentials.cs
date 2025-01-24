@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DataBox
     {
         /// <summary>
         /// This method gets the unencrypted secrets related to the job.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-03-01-preview.
         /// </summary>
         public static Task<ListJobCredentialsResult> InvokeAsync(ListJobCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListJobCredentialsResult>("azure-native:databox:listJobCredentials", args ?? new ListJobCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This method gets the unencrypted secrets related to the job.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-03-01-preview.
         /// </summary>
         public static Output<ListJobCredentialsResult> Invoke(ListJobCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobCredentialsResult>("azure-native:databox:listJobCredentials", args ?? new ListJobCredentialsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// This method gets the unencrypted secrets related to the job.
-        /// Azure REST API version: 2022-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-12-01, 2024-02-01-preview, 2024-03-01-preview.
+        /// Other available API versions: 2022-12-01, 2024-03-01-preview.
         /// </summary>
         public static Output<ListJobCredentialsResult> Invoke(ListJobCredentialsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobCredentialsResult>("azure-native:databox:listJobCredentials", args ?? new ListJobCredentialsInvokeArgs(), options.WithDefaults());

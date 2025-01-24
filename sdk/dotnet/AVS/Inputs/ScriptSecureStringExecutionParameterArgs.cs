@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.AVS.Inputs
         public Input<string>? SecureValue { get; set; }
 
         /// <summary>
-        /// The type of execution parameter
+        /// script execution parameter type
         /// Expected value is 'SecureValue'.
         /// </summary>
         [Input("type", required: true)]

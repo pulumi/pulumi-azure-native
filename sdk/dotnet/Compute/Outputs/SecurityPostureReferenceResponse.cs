@@ -11,28 +11,35 @@ namespace Pulumi.AzureNative.Compute.Outputs
 {
 
     /// <summary>
-    /// Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+    /// Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01
     /// </summary>
     [OutputType]
     public sealed class SecurityPostureReferenceResponse
     {
         /// <summary>
-        /// List of virtual machine extensions to exclude when applying the Security Posture.
+        /// The list of virtual machine extension names to exclude when applying the security posture.
         /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualMachineExtensionResponse> ExcludeExtensions;
+        public readonly ImmutableArray<string> ExcludeExtensions;
         /// <summary>
-        /// The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|{major.*}|latest
+        /// The security posture reference id in the form of /CommunityGalleries/{communityGalleryName}/securityPostures/{securityPostureName}/versions/{major.minor.patch}|latest
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
+        /// <summary>
+        /// Whether the security posture can be overridden by the user.
+        /// </summary>
+        public readonly bool? IsOverridable;
 
         [OutputConstructor]
         private SecurityPostureReferenceResponse(
-            ImmutableArray<Outputs.VirtualMachineExtensionResponse> excludeExtensions,
+            ImmutableArray<string> excludeExtensions,
 
-            string? id)
+            string id,
+
+            bool? isOverridable)
         {
             ExcludeExtensions = excludeExtensions;
             Id = id;
+            IsOverridable = isOverridable;
         }
     }
 }

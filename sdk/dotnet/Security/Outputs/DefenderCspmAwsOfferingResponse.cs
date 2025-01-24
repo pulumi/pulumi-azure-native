@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Security.Outputs
     public sealed class DefenderCspmAwsOfferingResponse
     {
         /// <summary>
+        /// Defenders CSPM Permissions Management offering configurations
+        /// </summary>
+        public readonly Outputs.DefenderCspmAwsOfferingResponseCiem? Ciem;
+        /// <summary>
         /// The Microsoft Defender Data Sensitivity discovery configuration
         /// </summary>
         public readonly Outputs.DefenderCspmAwsOfferingResponseDataSensitivityDiscovery? DataSensitivityDiscovery;
@@ -29,30 +33,47 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// The Microsoft Defender container agentless discovery K8s configuration
+        /// </summary>
+        public readonly Outputs.DefenderCspmAwsOfferingResponseMdcContainersAgentlessDiscoveryK8s? MdcContainersAgentlessDiscoveryK8s;
+        /// <summary>
+        /// The Microsoft Defender container image assessment configuration
+        /// </summary>
+        public readonly Outputs.DefenderCspmAwsOfferingResponseMdcContainersImageAssessment? MdcContainersImageAssessment;
+        /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderCspmAws'.
         /// </summary>
         public readonly string OfferingType;
         /// <summary>
-        /// The Microsoft Defender for Server VM scanning configuration
+        /// The Microsoft Defender for CSPM offering VM scanning configuration
         /// </summary>
         public readonly Outputs.DefenderCspmAwsOfferingResponseVmScanners? VmScanners;
 
         [OutputConstructor]
         private DefenderCspmAwsOfferingResponse(
+            Outputs.DefenderCspmAwsOfferingResponseCiem? ciem,
+
             Outputs.DefenderCspmAwsOfferingResponseDataSensitivityDiscovery? dataSensitivityDiscovery,
 
             Outputs.DefenderCspmAwsOfferingResponseDatabasesDspm? databasesDspm,
 
             string description,
 
+            Outputs.DefenderCspmAwsOfferingResponseMdcContainersAgentlessDiscoveryK8s? mdcContainersAgentlessDiscoveryK8s,
+
+            Outputs.DefenderCspmAwsOfferingResponseMdcContainersImageAssessment? mdcContainersImageAssessment,
+
             string offeringType,
 
             Outputs.DefenderCspmAwsOfferingResponseVmScanners? vmScanners)
         {
+            Ciem = ciem;
             DataSensitivityDiscovery = dataSensitivityDiscovery;
             DatabasesDspm = databasesDspm;
             Description = description;
+            MdcContainersAgentlessDiscoveryK8s = mdcContainersAgentlessDiscoveryK8s;
+            MdcContainersImageAssessment = mdcContainersImageAssessment;
             OfferingType = offeringType;
             VmScanners = vmScanners;
         }

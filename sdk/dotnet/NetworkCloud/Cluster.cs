@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    /// Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -90,6 +90,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> ClusterVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+        /// </summary>
+        [Output("commandOutputSettings")]
+        public Output<Outputs.CommandOutputSettingsResponse?> CommandOutputSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
         /// </summary>
         [Output("computeDeploymentThreshold")]
@@ -125,6 +131,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("hybridAksExtendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> HybridAksExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -306,6 +318,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string> ClusterVersion { get; set; } = null!;
 
         /// <summary>
+        /// The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+        /// </summary>
+        [Input("commandOutputSettings")]
+        public Input<Inputs.CommandOutputSettingsArgs>? CommandOutputSettings { get; set; }
+
+        /// <summary>
         /// The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
         /// </summary>
         [Input("computeDeploymentThreshold")]
@@ -329,6 +347,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Input("extendedLocation", required: true)]
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
+
+        /// <summary>
+        /// The identity for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

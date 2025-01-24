@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Role definition.
-    /// Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+    /// Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:RoleDefinition")]
     public partial class RoleDefinition : global::Pulumi.CustomResource

@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
     public partial class Workbook : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Workbook category, as defined by the user at creation time.
-        /// </summary>
-        [Output("category")]
-        public Output<string> Category { get; private set; } = null!;
-
-        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Output("kind")]
@@ -40,22 +34,10 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
+        /// Metadata describing a web test for an Azure resource.
         /// </summary>
-        [Output("serializedData")]
-        public Output<string> SerializedData { get; private set; } = null!;
-
-        /// <summary>
-        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-        /// </summary>
-        [Output("sharedTypeKind")]
-        public Output<string> SharedTypeKind { get; private set; } = null!;
-
-        /// <summary>
-        /// Optional resourceId for a source resource.
-        /// </summary>
-        [Output("sourceResourceId")]
-        public Output<string?> SourceResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.WorkbookPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -64,34 +46,10 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Date and time in UTC of the last modification that was made to this workbook definition.
-        /// </summary>
-        [Output("timeModified")]
-        public Output<string> TimeModified { get; private set; } = null!;
-
-        /// <summary>
         /// Azure resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique user id of the specific user that owns this workbook.
-        /// </summary>
-        [Output("userId")]
-        public Output<string> UserId { get; private set; } = null!;
-
-        /// <summary>
-        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
-        /// </summary>
-        [Output("version")]
-        public Output<string?> Version { get; private set; } = null!;
-
-        /// <summary>
-        /// Internally assigned unique id of the workbook definition.
-        /// </summary>
-        [Output("workbookId")]
-        public Output<string> WorkbookId { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,12 +107,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
     public sealed class WorkbookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Workbook category, as defined by the user at creation time.
-        /// </summary>
-        [Input("category", required: true)]
-        public Input<string> Category { get; set; } = null!;
-
-        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind")]
@@ -167,10 +119,10 @@ namespace Pulumi.AzureNative.Insights.V20150501
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The user-defined name of the workbook.
+        /// Metadata describing a web test for an Azure resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("properties")]
+        public Input<Inputs.WorkbookPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -184,24 +136,6 @@ namespace Pulumi.AzureNative.Insights.V20150501
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
 
-        /// <summary>
-        /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
-        /// </summary>
-        [Input("serializedData", required: true)]
-        public Input<string> SerializedData { get; set; } = null!;
-
-        /// <summary>
-        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-        /// </summary>
-        [Input("sharedTypeKind", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Insights.V20150501.SharedTypeKind> SharedTypeKind { get; set; } = null!;
-
-        /// <summary>
-        /// Optional resourceId for a source resource.
-        /// </summary>
-        [Input("sourceResourceId")]
-        public Input<string>? SourceResourceId { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -214,27 +148,8 @@ namespace Pulumi.AzureNative.Insights.V20150501
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Unique user id of the specific user that owns this workbook.
-        /// </summary>
-        [Input("userId", required: true)]
-        public Input<string> UserId { get; set; } = null!;
-
-        /// <summary>
-        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
-        /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
-
-        /// <summary>
-        /// Internally assigned unique id of the workbook definition.
-        /// </summary>
-        [Input("workbookId", required: true)]
-        public Input<string> WorkbookId { get; set; } = null!;
-
         public WorkbookArgs()
         {
-            SharedTypeKind = "shared";
         }
         public static new WorkbookArgs Empty => new WorkbookArgs();
     }

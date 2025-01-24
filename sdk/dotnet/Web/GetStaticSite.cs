@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets the details of a static site.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2020-10-01, 2021-02-01, 2022-09-01.
         /// </summary>
         public static Task<GetStaticSiteResult> InvokeAsync(GetStaticSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the details of a static site.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2020-10-01, 2021-02-01, 2022-09-01.
         /// </summary>
         public static Output<GetStaticSiteResult> Invoke(GetStaticSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets the details of a static site.
-        /// Azure REST API version: 2022-09-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Other available API versions: 2020-10-01, 2021-02-01, 2022-09-01.
         /// </summary>
         public static Output<GetStaticSiteResult> Invoke(GetStaticSiteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteResult>("azure-native:web:getStaticSite", args ?? new GetStaticSiteInvokeArgs(), options.WithDefaults());
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string KeyVaultReferenceIdentity;
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         public readonly string? Kind;
         /// <summary>

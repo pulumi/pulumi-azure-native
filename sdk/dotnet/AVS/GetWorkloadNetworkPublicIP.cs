@@ -12,28 +12,28 @@ namespace Pulumi.AzureNative.AVS
     public static class GetWorkloadNetworkPublicIP
     {
         /// <summary>
-        /// NSX Public IP Block
-        /// Azure REST API version: 2022-05-01.
+        /// Get a WorkloadNetworkPublicIP
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01.
         /// </summary>
         public static Task<GetWorkloadNetworkPublicIPResult> InvokeAsync(GetWorkloadNetworkPublicIPArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX Public IP Block
-        /// Azure REST API version: 2022-05-01.
+        /// Get a WorkloadNetworkPublicIP
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01.
         /// </summary>
         public static Output<GetWorkloadNetworkPublicIPResult> Invoke(GetWorkloadNetworkPublicIPInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX Public IP Block
-        /// Azure REST API version: 2022-05-01.
+        /// Get a WorkloadNetworkPublicIP
+        /// Azure REST API version: 2023-09-01.
         /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Other available API versions: 2022-05-01.
         /// </summary>
         public static Output<GetWorkloadNetworkPublicIPResult> Invoke(GetWorkloadNetworkPublicIPInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPublicIPResult>("azure-native:avs:getWorkloadNetworkPublicIP", args ?? new GetWorkloadNetworkPublicIPInvokeArgs(), options.WithDefaults());
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.AVS
         public string PrivateCloudName { get; set; } = null!;
 
         /// <summary>
-        /// NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
+        /// ID of the DNS zone.
         /// </summary>
         [Input("publicIPId", required: true)]
         public string PublicIPId { get; set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.AVS
         public Input<string> PrivateCloudName { get; set; } = null!;
 
         /// <summary>
-        /// NSX Public IP Block identifier. Generally the same as the Public IP Block's display name
+        /// ID of the DNS zone.
         /// </summary>
         [Input("publicIPId", required: true)]
         public Input<string> PublicIPId { get; set; } = null!;
@@ -101,11 +101,11 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -121,7 +121,11 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string PublicIPBlock;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -139,6 +143,8 @@ namespace Pulumi.AzureNative.AVS
 
             string publicIPBlock,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             DisplayName = displayName;
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.AVS
             NumberOfPublicIPs = numberOfPublicIPs;
             ProvisioningState = provisioningState;
             PublicIPBlock = publicIPBlock;
+            SystemData = systemData;
             Type = type;
         }
     }

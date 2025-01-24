@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.TestBase
 {
     /// <summary>
     /// The Test Base Account resource.
-    /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+    /// Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
     /// 
-    /// Other available API versions: 2023-11-01-preview.
+    /// Other available API versions: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:TestBaseAccount")]
     public partial class TestBaseAccount : global::Pulumi.CustomResource
@@ -25,10 +25,10 @@ namespace Pulumi.AzureNative.TestBase
         public Output<string> AccessLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Resource Etag.
+        /// The identity of the testBaseAccount.
         /// </summary>
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
+        [Output("identity")]
+        public Output<Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.TestBase
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -55,19 +55,19 @@ namespace Pulumi.AzureNative.TestBase
         public Output<Outputs.TestBaseAccountSKUResponse> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The tags of the resource.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -124,13 +124,19 @@ namespace Pulumi.AzureNative.TestBase
     public sealed class TestBaseAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The identity of the testBaseAccount.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -151,7 +157,7 @@ namespace Pulumi.AzureNative.TestBase
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags of the resource.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

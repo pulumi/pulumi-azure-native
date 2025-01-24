@@ -70,9 +70,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20240101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:provisionedClusterInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:ProvisionedClusterInstance" },
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:provisionedClusterInstance" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

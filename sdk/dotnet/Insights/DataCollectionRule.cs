@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Definition of ARM tracked top level resource.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
+    /// Azure REST API version: 2023-03-11. Prior API version in Azure Native 1.x: 2022-06-01.
     /// 
-    /// Other available API versions: 2023-03-11.
+    /// Other available API versions: 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionRule")]
     public partial class DataCollectionRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Agent settings used to modify agent behavior on a given host
+        /// </summary>
+        [Output("agentSettings")]
+        public Output<Outputs.DataCollectionRuleResponseAgentSettings?> AgentSettings { get; private set; } = null!;
+
         /// <summary>
         /// The resource ID of the data collection endpoint that this rule can be used with.
         /// </summary>
@@ -48,6 +54,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("destinations")]
         public Output<Outputs.DataCollectionRuleResponseDestinations?> Destinations { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines the ingestion endpoints to send data to via this rule.
+        /// </summary>
+        [Output("endpoints")]
+        public Output<Outputs.DataCollectionRuleResponseEndpoints> Endpoints { get; private set; } = null!;
 
         /// <summary>
         /// Resource entity tag (ETag).
@@ -96,6 +108,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines all the references that may be used in other sections of the DCR
+        /// </summary>
+        [Output("references")]
+        public Output<Outputs.DataCollectionRuleResponseReferences?> References { get; private set; } = null!;
 
         /// <summary>
         /// Declaration of custom streams used in this rule.
@@ -175,6 +193,12 @@ namespace Pulumi.AzureNative.Insights
     public sealed class DataCollectionRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Agent settings used to modify agent behavior on a given host
+        /// </summary>
+        [Input("agentSettings")]
+        public Input<Inputs.DataCollectionRuleAgentSettingsArgs>? AgentSettings { get; set; }
+
+        /// <summary>
         /// The resource ID of the data collection endpoint that this rule can be used with.
         /// </summary>
         [Input("dataCollectionEndpointId")]
@@ -234,6 +258,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Defines all the references that may be used in other sections of the DCR
+        /// </summary>
+        [Input("references")]
+        public Input<Inputs.DataCollectionRuleReferencesArgs>? References { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

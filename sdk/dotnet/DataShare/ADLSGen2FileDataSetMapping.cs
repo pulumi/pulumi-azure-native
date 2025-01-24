@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// An ADLS Gen2 file data set mapping.
-    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:ADLSGen2FileDataSetMapping")]
     public partial class ADLSGen2FileDataSetMapping : global::Pulumi.CustomResource

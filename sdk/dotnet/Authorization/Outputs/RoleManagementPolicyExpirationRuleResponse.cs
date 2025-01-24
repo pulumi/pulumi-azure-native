@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Authorization.Outputs
     public sealed class RoleManagementPolicyExpirationRuleResponse
     {
         /// <summary>
+        /// The members not restricted by expiration rule.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserSetResponse> ExceptionMembers;
+        /// <summary>
         /// The id of the rule.
         /// </summary>
         public readonly string? Id;
@@ -40,6 +44,8 @@ namespace Pulumi.AzureNative.Authorization.Outputs
 
         [OutputConstructor]
         private RoleManagementPolicyExpirationRuleResponse(
+            ImmutableArray<Outputs.UserSetResponse> exceptionMembers,
+
             string? id,
 
             bool? isExpirationRequired,
@@ -50,6 +56,7 @@ namespace Pulumi.AzureNative.Authorization.Outputs
 
             Outputs.RoleManagementPolicyRuleTargetResponse? target)
         {
+            ExceptionMembers = exceptionMembers;
             Id = id;
             IsExpirationRequired = isExpirationRequired;
             MaximumDuration = maximumDuration;

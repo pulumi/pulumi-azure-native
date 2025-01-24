@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         [Input("restoreTimestampInUtc")]
         public Input<string>? RestoreTimestampInUtc { get; set; }
 
+        /// <summary>
+        /// Specifies whether the restored account will have Time-To-Live disabled upon the successful restore.
+        /// </summary>
+        [Input("restoreWithTtlDisabled")]
+        public Input<bool>? RestoreWithTtlDisabled { get; set; }
+
         [Input("tablesToRestore")]
         private InputList<string>? _tablesToRestore;
 

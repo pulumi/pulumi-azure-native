@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? AvsDataStore;
         /// <summary>
-        /// UUID v4 or resource identifier used to identify the Backup.
+        /// Resource identifier used to identify the Backup.
         /// </summary>
         public readonly string? BackupId;
         /// <summary>
@@ -44,6 +44,13 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// Specifies whether Cool Access(tiering) is enabled for the volume.
         /// </summary>
         public readonly bool? CoolAccess;
+        /// <summary>
+        /// coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        ///  Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
+        ///  OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
+        ///  Never - No client-driven data is pulled from cool tier to standard storage.
+        /// </summary>
+        public readonly string? CoolAccessRetrievalPolicy;
         /// <summary>
         /// Specifies the number of days after which data that is not accessed by clients will be tiered.
         /// </summary>
@@ -72,6 +79,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
         /// </summary>
         public readonly bool? DeleteBaseSnapshot;
+        /// <summary>
+        /// The effective value of the network features type available to the volume, or current effective state of update.
+        /// </summary>
+        public readonly string EffectiveNetworkFeatures;
         /// <summary>
         /// Flag indicating whether subvolume operations are enabled on the volume
         /// </summary>
@@ -137,7 +148,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Basic network, or Standard features available to the volume.
+        /// The original value of the network features type available to the volume at the time it was created.
         /// </summary>
         public readonly string? NetworkFeatures;
         /// <summary>
@@ -177,7 +188,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? ServiceLevel;
         /// <summary>
-        /// Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        /// Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         /// </summary>
         public readonly string? SmbAccessBasedEnumeration;
         /// <summary>
@@ -189,7 +200,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly bool? SmbEncryption;
         /// <summary>
-        /// Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        /// Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
         /// </summary>
         public readonly string? SmbNonBrowsable;
         /// <summary>
@@ -197,7 +208,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly bool? SnapshotDirectoryVisible;
         /// <summary>
-        /// UUID v4 or resource identifier used to identify the Snapshot.
+        /// Resource identifier used to identify the Snapshot.
         /// </summary>
         public readonly string? SnapshotId;
         /// <summary>
@@ -226,7 +237,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? UnixPermissions;
         /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. For regular volumes, valid values are in the range 50GiB to 100TiB. For large volumes, valid values are in the range 100TiB to 500TiB, and on an exceptional basis, from to 2400GiB to 2400TiB. Values expressed in bytes as multiples of 1 GiB.
         /// </summary>
         public readonly double UsageThreshold;
         /// <summary>
@@ -241,6 +252,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
         /// </summary>
         public readonly string? VolumeType;
+        /// <summary>
+        /// Availability Zone
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private VolumeGroupVolumePropertiesResponse(
@@ -258,6 +273,8 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             bool? coolAccess,
 
+            string? coolAccessRetrievalPolicy,
+
             int? coolnessPeriod,
 
             string creationToken,
@@ -271,6 +288,8 @@ namespace Pulumi.AzureNative.NetApp.Outputs
             double? defaultUserQuotaInKiBs,
 
             bool? deleteBaseSnapshot,
+
+            string effectiveNetworkFeatures,
 
             string? enableSubvolumes,
 
@@ -356,7 +375,9 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? volumeSpecName,
 
-            string? volumeType)
+            string? volumeType,
+
+            ImmutableArray<string> zones)
         {
             ActualThroughputMibps = actualThroughputMibps;
             AvsDataStore = avsDataStore;
@@ -365,6 +386,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
             CapacityPoolResourceId = capacityPoolResourceId;
             CloneProgress = cloneProgress;
             CoolAccess = coolAccess;
+            CoolAccessRetrievalPolicy = coolAccessRetrievalPolicy;
             CoolnessPeriod = coolnessPeriod;
             CreationToken = creationToken;
             DataProtection = dataProtection;
@@ -372,6 +394,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
             DefaultGroupQuotaInKiBs = defaultGroupQuotaInKiBs;
             DefaultUserQuotaInKiBs = defaultUserQuotaInKiBs;
             DeleteBaseSnapshot = deleteBaseSnapshot;
+            EffectiveNetworkFeatures = effectiveNetworkFeatures;
             EnableSubvolumes = enableSubvolumes;
             Encrypted = encrypted;
             EncryptionKeySource = encryptionKeySource;
@@ -415,6 +438,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
             VolumeGroupName = volumeGroupName;
             VolumeSpecName = volumeSpecName;
             VolumeType = volumeType;
+            Zones = zones;
         }
     }
 }

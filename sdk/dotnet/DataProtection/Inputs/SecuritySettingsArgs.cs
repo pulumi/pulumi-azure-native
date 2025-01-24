@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
     public sealed class SecuritySettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Customer Managed Key details of the resource.
+        /// </summary>
+        [Input("encryptionSettings")]
+        public Input<Inputs.EncryptionSettingsArgs>? EncryptionSettings { get; set; }
+
+        /// <summary>
         /// Immutability Settings at vault level
         /// </summary>
         [Input("immutabilitySettings")]

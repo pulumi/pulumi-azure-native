@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     {
         /// <summary>
         /// The operation returns the credentials.
-        /// Azure REST API version: 2022-09-04.
+        /// Azure REST API version: 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        /// Other available API versions: 2022-09-04, 2023-07-01-preview, 2023-09-04.
         /// </summary>
         public static Task<ListOpenShiftClusterCredentialsResult> InvokeAsync(ListOpenShiftClusterCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns the credentials.
-        /// Azure REST API version: 2022-09-04.
+        /// Azure REST API version: 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        /// Other available API versions: 2022-09-04, 2023-07-01-preview, 2023-09-04.
         /// </summary>
         public static Output<ListOpenShiftClusterCredentialsResult> Invoke(ListOpenShiftClusterCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns the credentials.
-        /// Azure REST API version: 2022-09-04.
+        /// Azure REST API version: 2023-11-22.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+        /// Other available API versions: 2022-09-04, 2023-07-01-preview, 2023-09-04.
         /// </summary>
         public static Output<ListOpenShiftClusterCredentialsResult> Invoke(ListOpenShiftClusterCredentialsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListOpenShiftClusterCredentialsResult>("azure-native:redhatopenshift:listOpenShiftClusterCredentials", args ?? new ListOpenShiftClusterCredentialsInvokeArgs(), options.WithDefaults());

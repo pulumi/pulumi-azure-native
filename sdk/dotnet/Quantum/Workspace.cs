@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.Quantum
 {
     /// <summary>
     /// The resource proxy definition object for quantum workspace.
-    /// Azure REST API version: 2022-01-10-preview. Prior API version in Azure Native 1.x: 2019-11-04-preview.
+    /// Azure REST API version: 2023-11-13-preview. Prior API version in Azure Native 1.x: 2022-01-10-preview.
     /// 
-    /// Other available API versions: 2023-11-13-preview.
+    /// Other available API versions: 2022-01-10-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:quantum:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicator of enablement of the Quantum workspace Api keys.
+        /// </summary>
+        [Output("apiKeyEnabled")]
+        public Output<bool?> ApiKeyEnabled { get; private set; } = null!;
+
         /// <summary>
         /// The URI of the workspace endpoint.
         /// </summary>
@@ -61,7 +67,7 @@ namespace Pulumi.AzureNative.Quantum
         public Output<string?> StorageAccount { get; private set; } = null!;
 
         /// <summary>
-        /// System metadata
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -136,6 +142,12 @@ namespace Pulumi.AzureNative.Quantum
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicator of enablement of the Quantum workspace Api keys.
+        /// </summary>
+        [Input("apiKeyEnabled")]
+        public Input<bool>? ApiKeyEnabled { get; set; }
+
+        /// <summary>
         /// Managed Identity information.
         /// </summary>
         [Input("identity")]
@@ -160,7 +172,7 @@ namespace Pulumi.AzureNative.Quantum
         }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

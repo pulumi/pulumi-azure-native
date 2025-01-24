@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
-    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01.
+    /// Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2022-06-15.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+    /// Other available API versions: 2022-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -125,13 +125,13 @@ namespace Pulumi.AzureNative.EventGrid
         }
 
         /// <summary>
-        /// The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
+        /// The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name or namespace name).
         /// </summary>
         [Input("parentName", required: true)]
         public Input<string> ParentName { get; set; } = null!;
 
         /// <summary>
-        /// The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
+        /// The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\' or \'namespaces\'.
         /// </summary>
         [Input("parentType", required: true)]
         public Input<string> ParentType { get; set; } = null!;

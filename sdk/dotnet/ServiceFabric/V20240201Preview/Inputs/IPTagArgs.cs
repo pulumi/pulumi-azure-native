@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.ServiceFabric.V20240201Preview.Inputs
 {
 
     /// <summary>
-    /// The IP tag associated with the public IP address.
+    /// IPTag associated with the object.
     /// </summary>
     public sealed class IPTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// IP tag type. Example: FirstPartyUsage.
+        /// The IP tag type.
         /// </summary>
         [Input("ipTagType", required: true)]
         public Input<string> IpTagType { get; set; } = null!;
 
         /// <summary>
-        /// IP tag associated with the public IP. Example: SQL, Storage etc.
+        /// The value of the IP tag.
         /// </summary>
         [Input("tag", required: true)]
         public Input<string> Tag { get; set; } = null!;

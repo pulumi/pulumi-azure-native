@@ -37,12 +37,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GraphQueryResponse> GraphQueries;
         /// <summary>
-        /// Gets or sets the name of the table the connector will insert the data to.
-        /// This name can be used in other queries by specifying {{graphQueriesTableName}} placeholder
-        ///  in Query and LastDataReceivedQuery values.
-        /// </summary>
-        public readonly string? GraphQueriesTableName;
-        /// <summary>
         /// Gets or sets custom connector id. optional field.
         /// </summary>
         public readonly string? Id;
@@ -68,10 +62,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// </summary>
         public readonly string Publisher;
         /// <summary>
-        /// Gets or sets the sample queries for the connector.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SampleQueryResponse> SampleQueries;
-        /// <summary>
         /// Gets or sets the connector blade title.
         /// </summary>
         public readonly string Title;
@@ -88,8 +78,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 
             ImmutableArray<Outputs.GraphQueryResponse> graphQueries,
 
-            string? graphQueriesTableName,
-
             string? id,
 
             ImmutableArray<Outputs.InstructionStepResponse> instructionSteps,
@@ -102,8 +90,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 
             string publisher,
 
-            ImmutableArray<Outputs.SampleQueryResponse> sampleQueries,
-
             string title)
         {
             Availability = availability;
@@ -111,14 +97,12 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
             DataTypes = dataTypes;
             DescriptionMarkdown = descriptionMarkdown;
             GraphQueries = graphQueries;
-            GraphQueriesTableName = graphQueriesTableName;
             Id = id;
             InstructionSteps = instructionSteps;
             IsConnectivityCriteriasMatchSome = isConnectivityCriteriasMatchSome;
             Logo = logo;
             Permissions = permissions;
             Publisher = publisher;
-            SampleQueries = sampleQueries;
             Title = title;
         }
     }

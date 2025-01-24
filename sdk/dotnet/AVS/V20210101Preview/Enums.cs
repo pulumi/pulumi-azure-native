@@ -37,34 +37,4 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
 
         public override string ToString() => _value;
     }
-
-    /// <summary>
-    /// Type of DHCP: SERVER or RELAY.
-    /// </summary>
-    [EnumType]
-    public readonly struct DhcpTypeEnum : IEquatable<DhcpTypeEnum>
-    {
-        private readonly string _value;
-
-        private DhcpTypeEnum(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DhcpTypeEnum SERVER_RELAY { get; } = new DhcpTypeEnum("SERVER, RELAY");
-
-        public static bool operator ==(DhcpTypeEnum left, DhcpTypeEnum right) => left.Equals(right);
-        public static bool operator !=(DhcpTypeEnum left, DhcpTypeEnum right) => !left.Equals(right);
-
-        public static explicit operator string(DhcpTypeEnum value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DhcpTypeEnum other && Equals(other);
-        public bool Equals(DhcpTypeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
 }

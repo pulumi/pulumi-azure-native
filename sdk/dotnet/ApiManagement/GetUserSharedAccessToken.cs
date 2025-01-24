@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the Shared Access Authorization Token for the User.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetUserSharedAccessTokenResult> InvokeAsync(GetUserSharedAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserSharedAccessTokenResult>("azure-native:apimanagement:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Shared Access Authorization Token for the User.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetUserSharedAccessTokenResult> Invoke(GetUserSharedAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSharedAccessTokenResult>("azure-native:apimanagement:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Shared Access Authorization Token for the User.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2022-09-01-preview.
         /// 
-        /// Other available API versions: 2016-10-10, 2017-03-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Other available API versions: 2017-03-01, 2022-08-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetUserSharedAccessTokenResult> Invoke(GetUserSharedAccessTokenInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSharedAccessTokenResult>("azure-native:apimanagement:getUserSharedAccessToken", args ?? new GetUserSharedAccessTokenInvokeArgs(), options.WithDefaults());

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-04-01.
         /// </summary>
         public static Task<GetSAPSizingRecommendationsResult> InvokeAsync(GetSAPSizingRecommendationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPSizingRecommendationsResult>("azure-native:workloads:getSAPSizingRecommendations", args ?? new GetSAPSizingRecommendationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-04-01.
         /// </summary>
         public static Output<GetSAPSizingRecommendationsResult> Invoke(GetSAPSizingRecommendationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPSizingRecommendationsResult>("azure-native:workloads:getSAPSizingRecommendations", args ?? new GetSAPSizingRecommendationsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get SAP sizing recommendations by providing input SAPS for application tier and memory required for database tier
-        /// Azure REST API version: 2023-04-01.
+        /// Azure REST API version: 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-10-01-preview.
+        /// Other available API versions: 2021-12-01-preview, 2022-11-01-preview, 2023-04-01.
         /// </summary>
         public static Output<GetSAPSizingRecommendationsResult> Invoke(GetSAPSizingRecommendationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPSizingRecommendationsResult>("azure-native:workloads:getSAPSizingRecommendations", args ?? new GetSAPSizingRecommendationsInvokeArgs(), options.WithDefaults());

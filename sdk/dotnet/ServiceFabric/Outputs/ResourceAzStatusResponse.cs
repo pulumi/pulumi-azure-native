@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
     public sealed class ResourceAzStatusResponse
     {
         /// <summary>
+        /// Zone resiliency status details for the resource.
+        /// </summary>
+        public readonly string Details;
+        /// <summary>
         /// VM Size name.
         /// </summary>
         public readonly bool IsZoneResilient;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
 
         [OutputConstructor]
         private ResourceAzStatusResponse(
+            string details,
+
             bool isZoneResilient,
 
             string resourceName,
 
             string resourceType)
         {
+            Details = details;
             IsZoneResilient = isZoneResilient;
             ResourceName = resourceName;
             ResourceType = resourceType;

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided volume.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:networkcloud:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided volume.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:networkcloud:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided volume.
-        /// Azure REST API version: 2023-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:networkcloud:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());

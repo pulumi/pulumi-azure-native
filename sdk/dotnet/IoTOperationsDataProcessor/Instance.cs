@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
 {
     /// <summary>
     /// A Instance resource is a logical container for a set of child resources.
-    /// Azure REST API version: 2023-10-04-preview.
+    /// Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 1.x: 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsdataprocessor:Instance")]
     public partial class Instance : global::Pulumi.CustomResource

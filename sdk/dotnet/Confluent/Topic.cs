@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Confluent
 {
     /// <summary>
     /// Details of topic record
-    /// Azure REST API version: 2024-07-01.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2024-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent:Topic")]
     public partial class Topic : global::Pulumi.CustomResource

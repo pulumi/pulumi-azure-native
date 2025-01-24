@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Portal
     {
         /// <summary>
         /// Gets the tenant configuration.
-        /// Azure REST API version: 2020-09-01-preview.
+        /// Azure REST API version: 2022-12-01-preview.
         /// 
-        /// Other available API versions: 2022-12-01-preview.
+        /// Other available API versions: 2019-01-01-preview, 2020-09-01-preview.
         /// </summary>
         public static Task<GetTenantConfigurationResult> InvokeAsync(GetTenantConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTenantConfigurationResult>("azure-native:portal:getTenantConfiguration", args ?? new GetTenantConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the tenant configuration.
-        /// Azure REST API version: 2020-09-01-preview.
+        /// Azure REST API version: 2022-12-01-preview.
         /// 
-        /// Other available API versions: 2022-12-01-preview.
+        /// Other available API versions: 2019-01-01-preview, 2020-09-01-preview.
         /// </summary>
         public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantConfigurationResult>("azure-native:portal:getTenantConfiguration", args ?? new GetTenantConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the tenant configuration.
-        /// Azure REST API version: 2020-09-01-preview.
+        /// Azure REST API version: 2022-12-01-preview.
         /// 
-        /// Other available API versions: 2022-12-01-preview.
+        /// Other available API versions: 2019-01-01-preview, 2020-09-01-preview.
         /// </summary>
         public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantConfigurationResult>("azure-native:portal:getTenantConfiguration", args ?? new GetTenantConfigurationInvokeArgs(), options.WithDefaults());

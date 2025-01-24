@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
 {
 
     /// <summary>
-    /// A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
+    /// Managed service identity (user assigned identities)
     /// </summary>
     public sealed class UserAssignedServiceIdentityArgs : global::Pulumi.ResourceArgs
     {

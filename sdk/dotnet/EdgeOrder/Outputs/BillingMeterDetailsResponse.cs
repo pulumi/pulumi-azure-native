@@ -32,6 +32,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// Represents Billing type name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Represent Term Type details.
+        /// </summary>
+        public readonly Outputs.TermTypeDetailsResponse TermTypeDetails;
 
         [OutputConstructor]
         private BillingMeterDetailsResponse(
@@ -41,12 +45,15 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             string meteringType,
 
-            string name)
+            string name,
+
+            Outputs.TermTypeDetailsResponse termTypeDetails)
         {
             Frequency = frequency;
             MeterDetails = meterDetails;
             MeteringType = meteringType;
             Name = name;
+            TermTypeDetails = termTypeDetails;
         }
     }
 }

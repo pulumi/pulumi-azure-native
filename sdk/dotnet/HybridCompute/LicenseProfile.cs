@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// Describes a license profile in a hybrid machine.
-    /// Azure REST API version: 2023-06-20-preview.
+    /// Azure REST API version: 2024-07-10. Prior API version in Azure Native 1.x: 2023-06-20-preview.
     /// 
-    /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+    /// Other available API versions: 2023-06-20-preview, 2024-11-10-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:LicenseProfile")]
     public partial class LicenseProfile : global::Pulumi.CustomResource
@@ -29,6 +29,36 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         [Output("assignedLicenseImmutableId")]
         public Output<string> AssignedLicenseImmutableId { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp in UTC when the billing ends.
+        /// </summary>
+        [Output("billingEndDate")]
+        public Output<string> BillingEndDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp in UTC when the billing starts.
+        /// </summary>
+        [Output("billingStartDate")]
+        public Output<string> BillingStartDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp in UTC when the user disenrolled the feature.
+        /// </summary>
+        [Output("disenrollmentDate")]
+        public Output<string> DisenrollmentDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp in UTC when the user enrolls the feature.
+        /// </summary>
+        [Output("enrollmentDate")]
+        public Output<string> EnrollmentDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The errors that were encountered during the feature enrollment or disenrollment.
+        /// </summary>
+        [Output("error")]
+        public Output<Outputs.ErrorDetailResponse> Error { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the eligibility state of Esu.
@@ -61,6 +91,18 @@ namespace Pulumi.AzureNative.HybridCompute
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The list of product features.
+        /// </summary>
+        [Output("productFeatures")]
+        public Output<ImmutableArray<Outputs.ProductFeatureResponse>> ProductFeatures { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the product type of the license.
+        /// </summary>
+        [Output("productType")]
+        public Output<string?> ProductType { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         [Output("provisioningState")]
@@ -71,6 +113,18 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         [Output("serverType")]
         public Output<string> ServerType { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies if this machine is licensed as part of a Software Assurance agreement.
+        /// </summary>
+        [Output("softwareAssuranceCustomer")]
+        public Output<bool?> SoftwareAssuranceCustomer { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the subscription status of the product.
+        /// </summary>
+        [Output("subscriptionStatus")]
+        public Output<string?> SubscriptionStatus { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -170,11 +224,41 @@ namespace Pulumi.AzureNative.HybridCompute
         [Input("machineName", required: true)]
         public Input<string> MachineName { get; set; } = null!;
 
+        [Input("productFeatures")]
+        private InputList<Inputs.ProductFeatureArgs>? _productFeatures;
+
+        /// <summary>
+        /// The list of product features.
+        /// </summary>
+        public InputList<Inputs.ProductFeatureArgs> ProductFeatures
+        {
+            get => _productFeatures ?? (_productFeatures = new InputList<Inputs.ProductFeatureArgs>());
+            set => _productFeatures = value;
+        }
+
+        /// <summary>
+        /// Indicates the product type of the license.
+        /// </summary>
+        [Input("productType")]
+        public InputUnion<string, Pulumi.AzureNative.HybridCompute.LicenseProfileProductType>? ProductType { get; set; }
+
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies if this machine is licensed as part of a Software Assurance agreement.
+        /// </summary>
+        [Input("softwareAssuranceCustomer")]
+        public Input<bool>? SoftwareAssuranceCustomer { get; set; }
+
+        /// <summary>
+        /// Indicates the subscription status of the product.
+        /// </summary>
+        [Input("subscriptionStatus")]
+        public InputUnion<string, Pulumi.AzureNative.HybridCompute.LicenseProfileSubscriptionStatus>? SubscriptionStatus { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

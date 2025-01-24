@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
 {
     /// <summary>
     /// The private endpoint connection resource.
-    /// Azure REST API version: 2022-08-31-preview.
+    /// Azure REST API version: 2024-06-30-preview. Prior API version in Azure Native 1.x: 2022-08-31-preview.
     /// 
-    /// Other available API versions: 2023-12-10-preview, 2024-06-30-preview.
+    /// Other available API versions: 2022-08-31-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection")]
     public partial class CloudHsmClusterPrivateEndpointConnection : global::Pulumi.CustomResource
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     public sealed class CloudHsmClusterPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 24 characters in length.
+        /// The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
         /// </summary>
         [Input("cloudHsmClusterName", required: true)]
         public Input<string> CloudHsmClusterName { get; set; } = null!;

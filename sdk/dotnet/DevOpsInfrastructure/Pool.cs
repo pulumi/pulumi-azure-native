@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
 {
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
-    /// Azure REST API version: 2023-10-30-preview.
+    /// Azure REST API version: 2024-10-19. Prior API version in Azure Native 1.x: 2023-10-30-preview.
     /// 
-    /// Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19.
+    /// Other available API versions: 2023-10-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devopsinfrastructure:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// Defines the organization in which the pool will be used.
         /// </summary>
         [Output("organizationProfile")]
-        public Output<Outputs.AzureDevOpsOrganizationProfileResponse> OrganizationProfile { get; private set; } = null!;
+        public Output<Union<Outputs.AzureDevOpsOrganizationProfileResponse, Outputs.GitHubOrganizationProfileResponse>> OrganizationProfile { get; private set; } = null!;
 
         /// <summary>
         /// The status of the current operation.
@@ -183,7 +183,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// Defines the organization in which the pool will be used.
         /// </summary>
         [Input("organizationProfile", required: true)]
-        public Input<Inputs.AzureDevOpsOrganizationProfileArgs> OrganizationProfile { get; set; } = null!;
+        public InputUnion<Inputs.AzureDevOpsOrganizationProfileArgs, Inputs.GitHubOrganizationProfileArgs> OrganizationProfile { get; set; } = null!;
 
         /// <summary>
         /// Name of the pool. It needs to be globally unique.

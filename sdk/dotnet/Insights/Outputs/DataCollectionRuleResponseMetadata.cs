@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string ProvisionedBy;
         /// <summary>
+        /// Immutable Id of azure offering managing this resource on-behalf-of customer.
+        /// </summary>
+        public readonly string ProvisionedByImmutableId;
+        /// <summary>
         /// Resource Id of azure offering managing this resource on-behalf-of customer.
         /// </summary>
         public readonly string ProvisionedByResourceId;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.Insights.Outputs
         private DataCollectionRuleResponseMetadata(
             string provisionedBy,
 
+            string provisionedByImmutableId,
+
             string provisionedByResourceId)
         {
             ProvisionedBy = provisionedBy;
+            ProvisionedByImmutableId = provisionedByImmutableId;
             ProvisionedByResourceId = provisionedByResourceId;
         }
     }

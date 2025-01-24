@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public Input<Inputs.AdditionalFeaturesServerConfigurationsArgs>? AdditionalFeaturesServerConfigurations { get; set; }
 
         /// <summary>
+        /// Azure AD authentication Settings.
+        /// </summary>
+        [Input("azureAdAuthenticationSettings")]
+        public Input<Inputs.AADAuthenticationSettingsArgs>? AzureAdAuthenticationSettings { get; set; }
+
+        /// <summary>
         /// SQL connectivity type settings.
         /// </summary>
         [Input("sqlConnectivityUpdateSettings")]

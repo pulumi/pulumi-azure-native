@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing a read only following database.
-    /// Azure REST API version: 2021-06-01-preview.
+    /// Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:ReadOnlyFollowingDatabase")]
     public partial class ReadOnlyFollowingDatabase : global::Pulumi.CustomResource

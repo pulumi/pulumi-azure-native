@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Scom
 {
     /// <summary>
     /// A gateway resource.
-    /// Azure REST API version: 2023-07-07-preview.
+    /// Azure REST API version: 2023-07-07-preview. Prior API version in Azure Native 1.x: 2023-07-07-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scom:ManagedGateway")]
     public partial class ManagedGateway : global::Pulumi.CustomResource

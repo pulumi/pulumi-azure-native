@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.Network.Inputs
             set => _addressPrefixes = value;
         }
 
+        [Input("ipamPoolPrefixAllocations")]
+        private InputList<Inputs.IpamPoolPrefixAllocationArgs>? _ipamPoolPrefixAllocations;
+
+        /// <summary>
+        /// A list of IPAM Pools allocating IP address prefixes.
+        /// </summary>
+        public InputList<Inputs.IpamPoolPrefixAllocationArgs> IpamPoolPrefixAllocations
+        {
+            get => _ipamPoolPrefixAllocations ?? (_ipamPoolPrefixAllocations = new InputList<Inputs.IpamPoolPrefixAllocationArgs>());
+            set => _ipamPoolPrefixAllocations = value;
+        }
+
         public AddressSpaceArgs()
         {
         }

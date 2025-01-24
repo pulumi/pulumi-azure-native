@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// NSX Segment
-    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 1.x: 2022-05-01.
     /// 
-    /// Other available API versions: 2023-03-01, 2023-09-01.
+    /// Other available API versions: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkSegment")]
     public partial class WorkloadNetworkSegment : global::Pulumi.CustomResource
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.AVS
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -67,7 +67,13 @@ namespace Pulumi.AzureNative.AVS
         public Output<Outputs.WorkloadNetworkSegmentSubnetResponse?> Subnet { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -158,7 +164,7 @@ namespace Pulumi.AzureNative.AVS
         public Input<double>? Revision { get; set; }
 
         /// <summary>
-        /// NSX Segment identifier. Generally the same as the Segment's display name
+        /// The ID of the NSX Segment
         /// </summary>
         [Input("segmentId")]
         public Input<string>? SegmentId { get; set; }

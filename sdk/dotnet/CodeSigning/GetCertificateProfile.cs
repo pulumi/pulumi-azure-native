@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.CodeSigning
     {
         /// <summary>
         /// Get details of a certificate profile.
-        /// Azure REST API version: 2024-02-05-preview.
+        /// Azure REST API version: 2024-09-30-preview.
         /// 
-        /// Other available API versions: 2024-09-30-preview.
+        /// Other available API versions: 2024-02-05-preview.
         /// </summary>
         public static Task<GetCertificateProfileResult> InvokeAsync(GetCertificateProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateProfileResult>("azure-native:codesigning:getCertificateProfile", args ?? new GetCertificateProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get details of a certificate profile.
-        /// Azure REST API version: 2024-02-05-preview.
+        /// Azure REST API version: 2024-09-30-preview.
         /// 
-        /// Other available API versions: 2024-09-30-preview.
+        /// Other available API versions: 2024-02-05-preview.
         /// </summary>
         public static Output<GetCertificateProfileResult> Invoke(GetCertificateProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateProfileResult>("azure-native:codesigning:getCertificateProfile", args ?? new GetCertificateProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get details of a certificate profile.
-        /// Azure REST API version: 2024-02-05-preview.
+        /// Azure REST API version: 2024-09-30-preview.
         /// 
-        /// Other available API versions: 2024-09-30-preview.
+        /// Other available API versions: 2024-02-05-preview.
         /// </summary>
         public static Output<GetCertificateProfileResult> Invoke(GetCertificateProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateProfileResult>("azure-native:codesigning:getCertificateProfile", args ?? new GetCertificateProfileInvokeArgs(), options.WithDefaults());
@@ -97,29 +97,13 @@ namespace Pulumi.AzureNative.CodeSigning
     public sealed class GetCertificateProfileResult
     {
         /// <summary>
-        /// Used as L in the certificate subject name.
-        /// </summary>
-        public readonly string City;
-        /// <summary>
-        /// Used as CN in the certificate subject name.
-        /// </summary>
-        public readonly string CommonName;
-        /// <summary>
-        /// Used as C in the certificate subject name.
-        /// </summary>
-        public readonly string Country;
-        /// <summary>
-        /// Enhanced key usage of the certificate.
-        /// </summary>
-        public readonly string EnhancedKeyUsage;
-        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// Identity validation id used for the certificate subject name.
         /// </summary>
-        public readonly string? IdentityValidationId;
+        public readonly string IdentityValidationId;
         /// <summary>
         /// Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
         /// </summary>
@@ -145,18 +129,6 @@ namespace Pulumi.AzureNative.CodeSigning
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Used as O in the certificate subject name.
-        /// </summary>
-        public readonly string Organization;
-        /// <summary>
-        /// Used as OU in the private trust certificate subject name.
-        /// </summary>
-        public readonly string OrganizationUnit;
-        /// <summary>
-        /// Used as PC in the certificate subject name.
-        /// </summary>
-        public readonly string PostalCode;
-        /// <summary>
         /// Profile type of the certificate.
         /// </summary>
         public readonly string ProfileType;
@@ -165,17 +137,9 @@ namespace Pulumi.AzureNative.CodeSigning
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Used as S in the certificate subject name.
-        /// </summary>
-        public readonly string State;
-        /// <summary>
         /// Status of the certificate profile.
         /// </summary>
         public readonly string Status;
-        /// <summary>
-        /// Used as STREET in the certificate subject name.
-        /// </summary>
-        public readonly string StreetAddress;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -187,17 +151,9 @@ namespace Pulumi.AzureNative.CodeSigning
 
         [OutputConstructor]
         private GetCertificateProfileResult(
-            string city,
-
-            string commonName,
-
-            string country,
-
-            string enhancedKeyUsage,
-
             string id,
 
-            string? identityValidationId,
+            string identityValidationId,
 
             bool? includeCity,
 
@@ -211,30 +167,16 @@ namespace Pulumi.AzureNative.CodeSigning
 
             string name,
 
-            string organization,
-
-            string organizationUnit,
-
-            string postalCode,
-
             string profileType,
 
             string provisioningState,
 
-            string state,
-
             string status,
-
-            string streetAddress,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            City = city;
-            CommonName = commonName;
-            Country = country;
-            EnhancedKeyUsage = enhancedKeyUsage;
             Id = id;
             IdentityValidationId = identityValidationId;
             IncludeCity = includeCity;
@@ -243,14 +185,9 @@ namespace Pulumi.AzureNative.CodeSigning
             IncludeState = includeState;
             IncludeStreetAddress = includeStreetAddress;
             Name = name;
-            Organization = organization;
-            OrganizationUnit = organizationUnit;
-            PostalCode = postalCode;
             ProfileType = profileType;
             ProvisioningState = provisioningState;
-            State = state;
             Status = status;
-            StreetAddress = streetAddress;
             SystemData = systemData;
             Type = type;
         }

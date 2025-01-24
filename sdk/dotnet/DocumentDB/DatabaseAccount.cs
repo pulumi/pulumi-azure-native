@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
-    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15.
+    /// Azure REST API version: 2024-11-15. Prior API version in Azure Native 1.x: 2023-04-15.
     /// 
-    /// Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+    /// Other available API versions: 2023-04-15, 2023-09-15-preview, 2024-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:DatabaseAccount")]
     public partial class DatabaseAccount : global::Pulumi.CustomResource
@@ -73,6 +73,12 @@ namespace Pulumi.AzureNative.DocumentDB
         public Output<string?> CreateMode { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
+        /// </summary>
+        [Output("customerManagedKeyStatus")]
+        public Output<string?> CustomerManagedKeyStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The offer type for the Cosmos DB database account. Default value: Standard.
         /// </summary>
         [Output("databaseAccountOfferType")]
@@ -115,6 +121,12 @@ namespace Pulumi.AzureNative.DocumentDB
         public Output<bool?> EnableAutomaticFailover { get; private set; } = null!;
 
         /// <summary>
+        /// Flag to indicate enabling/disabling of Burst Capacity feature on the account
+        /// </summary>
+        [Output("enableBurstCapacity")]
+        public Output<bool?> EnableBurstCapacity { get; private set; } = null!;
+
+        /// <summary>
         /// Enables the cassandra connector on the Cosmos DB C* account
         /// </summary>
         [Output("enableCassandraConnector")]
@@ -137,6 +149,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Output("enablePartitionMerge")]
         public Output<bool?> EnablePartitionMerge { get; private set; } = null!;
+
+        /// <summary>
+        /// Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+        /// </summary>
+        [Output("enablePerRegionPerPartitionAutoscale")]
+        public Output<bool?> EnablePerRegionPerPartitionAutoscale { get; private set; } = null!;
 
         /// <summary>
         /// An array that contains the regions ordered by their failover priorities.
@@ -447,6 +465,12 @@ namespace Pulumi.AzureNative.DocumentDB
         public InputUnion<string, Pulumi.AzureNative.DocumentDB.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
+        /// Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
+        /// </summary>
+        [Input("customerManagedKeyStatus")]
+        public Input<string>? CustomerManagedKeyStatus { get; set; }
+
+        /// <summary>
         /// The offer type for the database
         /// </summary>
         [Input("databaseAccountOfferType", required: true)]
@@ -483,6 +507,12 @@ namespace Pulumi.AzureNative.DocumentDB
         public Input<bool>? EnableAutomaticFailover { get; set; }
 
         /// <summary>
+        /// Flag to indicate enabling/disabling of Burst Capacity feature on the account
+        /// </summary>
+        [Input("enableBurstCapacity")]
+        public Input<bool>? EnableBurstCapacity { get; set; }
+
+        /// <summary>
         /// Enables the cassandra connector on the Cosmos DB C* account
         /// </summary>
         [Input("enableCassandraConnector")]
@@ -505,6 +535,12 @@ namespace Pulumi.AzureNative.DocumentDB
         /// </summary>
         [Input("enablePartitionMerge")]
         public Input<bool>? EnablePartitionMerge { get; set; }
+
+        /// <summary>
+        /// Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+        /// </summary>
+        [Input("enablePerRegionPerPartitionAutoscale")]
+        public Input<bool>? EnablePerRegionPerPartitionAutoscale { get; set; }
 
         /// <summary>
         /// Identity for the resource.

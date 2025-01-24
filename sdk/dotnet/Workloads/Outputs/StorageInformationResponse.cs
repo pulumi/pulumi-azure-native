@@ -11,11 +11,14 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// Storage details of all the Storage accounts attached to the VM. For e.g. NFS on AFS Shared Storage. 
+    /// Storage details of all the Storage accounts attached to the VM. For e.g. NFS on AFS Shared Storage.
     /// </summary>
     [OutputType]
     public sealed class StorageInformationResponse
     {
+        /// <summary>
+        /// Fully qualified resource ID for the storage account.
+        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

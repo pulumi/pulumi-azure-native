@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Update details
-    /// Azure REST API version: 2023-03-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2023-03-01.
     /// 
-    /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-03-01, 2024-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Update")]
     public partial class Update : global::Pulumi.CustomResource
@@ -59,6 +59,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Minimum Sbe Version of the update.
+        /// </summary>
+        [Output("minSbeVersionRequired")]
+        public Output<string?> MinSbeVersionRequired { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -252,6 +258,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Minimum Sbe Version of the update.
+        /// </summary>
+        [Input("minSbeVersionRequired")]
+        public Input<string>? MinSbeVersionRequired { get; set; }
 
         /// <summary>
         /// Brief message with instructions for updates of AvailabilityType Notify.

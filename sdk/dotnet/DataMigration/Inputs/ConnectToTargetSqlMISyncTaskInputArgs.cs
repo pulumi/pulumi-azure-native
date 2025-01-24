@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class ConnectToTargetSqlMISyncTaskInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        /// Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         /// </summary>
         [Input("azureApp", required: true)]
         public Input<Inputs.AzureActiveDirectoryAppArgs> AzureApp { get; set; } = null!;

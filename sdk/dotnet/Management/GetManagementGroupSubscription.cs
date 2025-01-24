@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Retrieves details about given subscription which is associated with the management group.
         /// 
-        /// Azure REST API version: 2021-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-04-01.
+        /// Other available API versions: 2021-04-01.
         /// </summary>
         public static Task<GetManagementGroupSubscriptionResult> InvokeAsync(GetManagementGroupSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupSubscriptionResult>("azure-native:management:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Retrieves details about given subscription which is associated with the management group.
         /// 
-        /// Azure REST API version: 2021-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-04-01.
+        /// Other available API versions: 2021-04-01.
         /// </summary>
         public static Output<GetManagementGroupSubscriptionResult> Invoke(GetManagementGroupSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupSubscriptionResult>("azure-native:management:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Retrieves details about given subscription which is associated with the management group.
         /// 
-        /// Azure REST API version: 2021-04-01.
+        /// Azure REST API version: 2023-04-01.
         /// 
-        /// Other available API versions: 2023-04-01.
+        /// Other available API versions: 2021-04-01.
         /// </summary>
         public static Output<GetManagementGroupSubscriptionResult> Invoke(GetManagementGroupSubscriptionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupSubscriptionResult>("azure-native:management:getManagementGroupSubscription", args ?? new GetManagementGroupSubscriptionInvokeArgs(), options.WithDefaults());

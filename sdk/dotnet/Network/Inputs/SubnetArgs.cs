@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.Network.Inputs
             set => _applicationGatewayIPConfigurations = value;
         }
 
+        /// <summary>
+        /// Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+        /// </summary>
+        [Input("defaultOutboundAccess")]
+        public Input<bool>? DefaultOutboundAccess { get; set; }
+
         [Input("delegations")]
         private InputList<Inputs.DelegationArgs>? _delegations;
 
@@ -79,6 +85,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         {
             get => _ipAllocations ?? (_ipAllocations = new InputList<Inputs.SubResourceArgs>());
             set => _ipAllocations = value;
+        }
+
+        [Input("ipamPoolPrefixAllocations")]
+        private InputList<Inputs.IpamPoolPrefixAllocationArgs>? _ipamPoolPrefixAllocations;
+
+        /// <summary>
+        /// A list of IPAM Pools for allocating IP address prefixes.
+        /// </summary>
+        public InputList<Inputs.IpamPoolPrefixAllocationArgs> IpamPoolPrefixAllocations
+        {
+            get => _ipamPoolPrefixAllocations ?? (_ipamPoolPrefixAllocations = new InputList<Inputs.IpamPoolPrefixAllocationArgs>());
+            set => _ipamPoolPrefixAllocations = value;
         }
 
         /// <summary>
@@ -170,6 +188,12 @@ namespace Pulumi.AzureNative.Network.Inputs
             get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<Inputs.ServiceEndpointPropertiesFormatArgs>());
             set => _serviceEndpoints = value;
         }
+
+        /// <summary>
+        /// Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        /// </summary>
+        [Input("sharingScope")]
+        public InputUnion<string, Pulumi.AzureNative.Network.SharingScope>? SharingScope { get; set; }
 
         /// <summary>
         /// Resource type.

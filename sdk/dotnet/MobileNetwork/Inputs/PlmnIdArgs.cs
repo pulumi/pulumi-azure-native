@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// Public land mobile network (PLMN) ID.
+    /// Public land mobile network (PLMN) ID. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
     /// </summary>
     public sealed class PlmnIdArgs : global::Pulumi.ResourceArgs
     {

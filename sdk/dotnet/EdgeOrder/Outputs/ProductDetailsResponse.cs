@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Represents product details
+    /// Represents product details.
     /// </summary>
     [OutputType]
     public sealed class ProductDetailsResponse
@@ -21,25 +21,17 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationDeviceDetailsResponse> ChildConfigurationDeviceDetails;
         /// <summary>
-        /// Quantity of the product
-        /// </summary>
-        public readonly int Count;
-        /// <summary>
-        /// list of device details
-        /// </summary>
-        public readonly ImmutableArray<Outputs.DeviceDetailsResponse> DeviceDetails;
-        /// <summary>
-        /// Display details of the product
+        /// Display details of the product.
         /// </summary>
         public readonly Outputs.DisplayInfoResponse? DisplayInfo;
         /// <summary>
-        /// Hierarchy of the product which uniquely identifies the product
+        /// Hierarchy of the product which uniquely identifies the product.
         /// </summary>
         public readonly Outputs.HierarchyInformationResponse HierarchyInformation;
         /// <summary>
         /// Identification type of the configuration.
         /// </summary>
-        public readonly string? IdentificationType;
+        public readonly string IdentificationType;
         /// <summary>
         /// List of additional configurations customer wants in the order item apart from the ones included in the base configuration.
         /// </summary>
@@ -47,41 +39,49 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// <summary>
         /// Device details of the parent configuration.
         /// </summary>
-        public readonly Outputs.DeviceDetailsResponse? ParentDeviceDetails;
+        public readonly Outputs.DeviceDetailsResponse ParentDeviceDetails;
+        /// <summary>
+        /// Device Provisioning Details for Parent.
+        /// </summary>
+        public readonly Outputs.ProvisioningDetailsResponse? ParentProvisioningDetails;
         /// <summary>
         /// Double encryption status of the configuration. Read-only field.
         /// </summary>
         public readonly string ProductDoubleEncryptionStatus;
+        /// <summary>
+        /// Term Commitment Information of the Device.
+        /// </summary>
+        public readonly Outputs.TermCommitmentInformationResponse TermCommitmentInformation;
 
         [OutputConstructor]
         private ProductDetailsResponse(
             ImmutableArray<Outputs.ConfigurationDeviceDetailsResponse> childConfigurationDeviceDetails,
 
-            int count,
-
-            ImmutableArray<Outputs.DeviceDetailsResponse> deviceDetails,
-
             Outputs.DisplayInfoResponse? displayInfo,
 
             Outputs.HierarchyInformationResponse hierarchyInformation,
 
-            string? identificationType,
+            string identificationType,
 
             ImmutableArray<Outputs.AdditionalConfigurationResponse> optInAdditionalConfigurations,
 
-            Outputs.DeviceDetailsResponse? parentDeviceDetails,
+            Outputs.DeviceDetailsResponse parentDeviceDetails,
 
-            string productDoubleEncryptionStatus)
+            Outputs.ProvisioningDetailsResponse? parentProvisioningDetails,
+
+            string productDoubleEncryptionStatus,
+
+            Outputs.TermCommitmentInformationResponse termCommitmentInformation)
         {
             ChildConfigurationDeviceDetails = childConfigurationDeviceDetails;
-            Count = count;
-            DeviceDetails = deviceDetails;
             DisplayInfo = displayInfo;
             HierarchyInformation = hierarchyInformation;
             IdentificationType = identificationType;
             OptInAdditionalConfigurations = optInAdditionalConfigurations;
             ParentDeviceDetails = parentDeviceDetails;
+            ParentProvisioningDetails = parentProvisioningDetails;
             ProductDoubleEncryptionStatus = productDoubleEncryptionStatus;
+            TermCommitmentInformation = termCommitmentInformation;
         }
     }
 }

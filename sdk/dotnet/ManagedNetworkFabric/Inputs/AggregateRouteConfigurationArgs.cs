@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
 {
 
     /// <summary>
-    /// List of IPv4 and IPv6 route configurations.
+    /// List of IPv4 and IPv6 aggregate routes.
     /// </summary>
     public sealed class AggregateRouteConfigurationArgs : global::Pulumi.ResourceArgs
     {
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
         private InputList<Inputs.AggregateRouteArgs>? _ipv6Routes;
 
         /// <summary>
-        /// List of IPv6 Routes prefixes.
+        /// List of Ipv6Routes prefixes.
         /// </summary>
         public InputList<Inputs.AggregateRouteArgs> Ipv6Routes
         {

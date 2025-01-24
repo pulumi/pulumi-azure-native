@@ -23,10 +23,16 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
-        /// Defines pool buffer.
+        /// Defines pool buffer/stand-by agents.
         /// </summary>
         [Input("resourcePredictions")]
         public Input<object>? ResourcePredictions { get; set; }
+
+        /// <summary>
+        /// Defines how the pool buffer/stand-by agents is provided.
+        /// </summary>
+        [Input("resourcePredictionsProfile")]
+        public InputUnion<Inputs.AutomaticResourcePredictionsProfileArgs, Inputs.ManualResourcePredictionsProfileArgs>? ResourcePredictionsProfile { get; set; }
 
         public StatelessAgentProfileArgs()
         {

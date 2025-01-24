@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets information about the specified virtual network tap.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2023-02-01.
         /// </summary>
         public static Task<GetVirtualNetworkTapResult> InvokeAsync(GetVirtualNetworkTapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkTapResult>("azure-native:network:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified virtual network tap.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2023-02-01.
         /// </summary>
         public static Output<GetVirtualNetworkTapResult> Invoke(GetVirtualNetworkTapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkTapResult>("azure-native:network:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified virtual network tap.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2023-02-01.
         /// </summary>
         public static Output<GetVirtualNetworkTapResult> Invoke(GetVirtualNetworkTapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkTapResult>("azure-native:network:getVirtualNetworkTap", args ?? new GetVirtualNetworkTapInvokeArgs(), options.WithDefaults());

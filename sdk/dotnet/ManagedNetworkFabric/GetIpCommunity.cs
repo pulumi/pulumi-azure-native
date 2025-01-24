@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Implements an IP Community GET method.
-        /// Azure REST API version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview.
         /// </summary>
         public static Task<GetIpCommunityResult> InvokeAsync(GetIpCommunityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpCommunityResult>("azure-native:managednetworkfabric:getIpCommunity", args ?? new GetIpCommunityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements an IP Community GET method.
-        /// Azure REST API version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview.
         /// </summary>
         public static Output<GetIpCommunityResult> Invoke(GetIpCommunityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpCommunityResult>("azure-native:managednetworkfabric:getIpCommunity", args ?? new GetIpCommunityInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements an IP Community GET method.
-        /// Azure REST API version: 2023-02-01-preview.
+        /// Azure REST API version: 2023-06-15.
         /// 
-        /// Other available API versions: 2023-06-15.
+        /// Other available API versions: 2023-02-01-preview.
         /// </summary>
         public static Output<GetIpCommunityResult> Invoke(GetIpCommunityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpCommunityResult>("azure-native:managednetworkfabric:getIpCommunity", args ?? new GetIpCommunityInvokeArgs(), options.WithDefaults());
@@ -85,21 +85,25 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetIpCommunityResult
     {
         /// <summary>
-        /// Action to be taken on the configuration. Example: Permit | Deny.
+        /// Administrative state of the resource.
         /// </summary>
-        public readonly string Action;
+        public readonly string AdministrativeState;
         /// <summary>
         /// Switch configuration description.
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// List the communityMembers of IP Community .
+        /// Configuration state of the resource.
         /// </summary>
-        public readonly ImmutableArray<string> CommunityMembers;
+        public readonly string ConfigurationState;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of IP Community Rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpCommunityRuleResponse> IpCommunityRules;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -109,7 +113,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -124,20 +128,18 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Supported well known Community List.
-        /// </summary>
-        public readonly ImmutableArray<string> WellKnownCommunities;
 
         [OutputConstructor]
         private GetIpCommunityResult(
-            string action,
+            string administrativeState,
 
             string? annotation,
 
-            ImmutableArray<string> communityMembers,
+            string configurationState,
 
             string id,
+
+            ImmutableArray<Outputs.IpCommunityRuleResponse> ipCommunityRules,
 
             string location,
 
@@ -149,21 +151,19 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            ImmutableArray<string> wellKnownCommunities)
+            string type)
         {
-            Action = action;
+            AdministrativeState = administrativeState;
             Annotation = annotation;
-            CommunityMembers = communityMembers;
+            ConfigurationState = configurationState;
             Id = id;
+            IpCommunityRules = ipCommunityRules;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;
             Type = type;
-            WellKnownCommunities = wellKnownCommunities;
         }
     }
 }

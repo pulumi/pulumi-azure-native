@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Insights.Inputs
         }
 
         /// <summary>
-        /// A friendly name for the data source. 
+        /// A friendly name for the data source.
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
         [Input("name")]
@@ -55,6 +55,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
             get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNative.Insights.KnownPerfCounterDataSourceStreams>>());
             set => _streams = value;
         }
+
+        /// <summary>
+        /// The KQL query to transform the data source.
+        /// </summary>
+        [Input("transformKql")]
+        public Input<string>? TransformKql { get; set; }
 
         public PerfCounterDataSourceArgs()
         {

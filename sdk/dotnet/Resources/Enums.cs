@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Resources
     }
 
     /// <summary>
-    /// denySettings Mode.
+    /// denySettings Mode that defines denied actions.
     /// </summary>
     [EnumType]
     public readonly struct DenySettingsMode : IEquatable<DenySettingsMode>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public static DenySettingsMode DenyDelete { get; } = new DenySettingsMode("denyDelete");
         /// <summary>
-        /// Authorized users can only read from a resource, but cannot modify or delete it.
+        /// Authorized users can read from a resource, but cannot modify or delete it.
         /// </summary>
         public static DenySettingsMode DenyWriteAndDelete { get; } = new DenySettingsMode("denyWriteAndDelete");
         /// <summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Resources
     }
 
     /// <summary>
-    /// Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+    /// Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
     /// </summary>
     [EnumType]
     public readonly struct DeploymentStacksDeleteDetachEnum : IEquatable<DeploymentStacksDeleteDetachEnum>

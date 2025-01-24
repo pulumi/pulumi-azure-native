@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get the full endpoint URL of a partner destination channel.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Task<GetChannelFullUrlResult> InvokeAsync(GetChannelFullUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetChannelFullUrlResult>("azure-native:eventgrid:getChannelFullUrl", args ?? new GetChannelFullUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the full endpoint URL of a partner destination channel.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetChannelFullUrlResult> Invoke(GetChannelFullUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelFullUrlResult>("azure-native:eventgrid:getChannelFullUrl", args ?? new GetChannelFullUrlInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the full endpoint URL of a partner destination channel.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetChannelFullUrlResult> Invoke(GetChannelFullUrlInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelFullUrlResult>("azure-native:eventgrid:getChannelFullUrl", args ?? new GetChannelFullUrlInvokeArgs(), options.WithDefaults());

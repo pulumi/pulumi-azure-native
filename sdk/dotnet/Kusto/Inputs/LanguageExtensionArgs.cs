@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Kusto.Inputs
     public sealed class LanguageExtensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The language extension custom image name.
+        /// </summary>
+        [Input("languageExtensionCustomImageName")]
+        public Input<string>? LanguageExtensionCustomImageName { get; set; }
+
+        /// <summary>
         /// The language extension image name.
         /// </summary>
         [Input("languageExtensionImageName")]

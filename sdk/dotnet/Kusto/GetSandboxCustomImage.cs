@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Returns a sandbox custom image
-        /// Azure REST API version: 2023-08-15.
+        /// Azure REST API version: 2024-04-13.
         /// 
-        /// Other available API versions: 2024-04-13.
+        /// Other available API versions: 2023-08-15.
         /// </summary>
         public static Task<GetSandboxCustomImageResult> InvokeAsync(GetSandboxCustomImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSandboxCustomImageResult>("azure-native:kusto:getSandboxCustomImage", args ?? new GetSandboxCustomImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a sandbox custom image
-        /// Azure REST API version: 2023-08-15.
+        /// Azure REST API version: 2024-04-13.
         /// 
-        /// Other available API versions: 2024-04-13.
+        /// Other available API versions: 2023-08-15.
         /// </summary>
         public static Output<GetSandboxCustomImageResult> Invoke(GetSandboxCustomImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSandboxCustomImageResult>("azure-native:kusto:getSandboxCustomImage", args ?? new GetSandboxCustomImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a sandbox custom image
-        /// Azure REST API version: 2023-08-15.
+        /// Azure REST API version: 2024-04-13.
         /// 
-        /// Other available API versions: 2024-04-13.
+        /// Other available API versions: 2023-08-15.
         /// </summary>
         public static Output<GetSandboxCustomImageResult> Invoke(GetSandboxCustomImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSandboxCustomImageResult>("azure-native:kusto:getSandboxCustomImage", args ?? new GetSandboxCustomImageInvokeArgs(), options.WithDefaults());
@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.Kusto
     public sealed class GetSandboxCustomImageResult
     {
         /// <summary>
+        /// The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
+        /// </summary>
+        public readonly string? BaseImageName;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -105,9 +109,9 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string Language;
         /// <summary>
-        /// The version of the language.
+        /// The version of the language. Either this property or baseImageName should be specified.
         /// </summary>
-        public readonly string LanguageVersion;
+        public readonly string? LanguageVersion;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -127,11 +131,13 @@ namespace Pulumi.AzureNative.Kusto
 
         [OutputConstructor]
         private GetSandboxCustomImageResult(
+            string? baseImageName,
+
             string id,
 
             string language,
 
-            string languageVersion,
+            string? languageVersion,
 
             string name,
 
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.Kusto
 
             string type)
         {
+            BaseImageName = baseImageName;
             Id = id;
             Language = language;
             LanguageVersion = languageVersion;

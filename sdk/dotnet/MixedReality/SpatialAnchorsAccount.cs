@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.MixedReality
 {
     /// <summary>
     /// SpatialAnchorsAccount Response.
-    /// Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 1.x: 2021-01-01.
     /// 
-    /// Other available API versions: 2021-03-01-preview.
+    /// Other available API versions: 2021-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:mixedreality:SpatialAnchorsAccount")]
     public partial class SpatialAnchorsAccount : global::Pulumi.CustomResource

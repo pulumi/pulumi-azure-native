@@ -12,28 +12,28 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public static class GetLogicalNetwork
     {
         /// <summary>
-        /// The logical network resource definition.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// The operation to get a logical network.
+        /// Azure REST API version: 2024-08-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-01-01.
         /// </summary>
         public static Task<GetLogicalNetworkResult> InvokeAsync(GetLogicalNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogicalNetworkResult>("azure-native:azurestackhci:getLogicalNetwork", args ?? new GetLogicalNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The logical network resource definition.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// The operation to get a logical network.
+        /// Azure REST API version: 2024-08-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-01-01.
         /// </summary>
         public static Output<GetLogicalNetworkResult> Invoke(GetLogicalNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogicalNetworkResult>("azure-native:azurestackhci:getLogicalNetwork", args ?? new GetLogicalNetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The logical network resource definition.
-        /// Azure REST API version: 2023-09-01-preview.
+        /// The operation to get a logical network.
+        /// Azure REST API version: 2024-08-01-preview.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2023-09-01-preview, 2024-01-01.
         /// </summary>
         public static Output<GetLogicalNetworkResult> Invoke(GetLogicalNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogicalNetworkResult>("azure-native:azurestackhci:getLogicalNetwork", args ?? new GetLogicalNetworkInvokeArgs(), options.WithDefaults());
@@ -87,13 +87,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
         /// </summary>
-        public readonly Outputs.LogicalNetworkPropertiesResponseDhcpOptions? DhcpOptions;
+        public readonly Outputs.LogicalNetworkPropertiesDhcpOptionsResponse? DhcpOptions;
         /// <summary>
         /// The extendedLocation of the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetLogicalNetworkResult(
-            Outputs.LogicalNetworkPropertiesResponseDhcpOptions? dhcpOptions,
+            Outputs.LogicalNetworkPropertiesDhcpOptionsResponse? dhcpOptions,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 

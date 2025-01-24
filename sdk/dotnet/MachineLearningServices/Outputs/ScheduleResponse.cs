@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// [Required] Specifies the action of the schedule
         /// </summary>
-        public readonly Union<Outputs.EndpointScheduleActionResponse, Outputs.JobScheduleActionResponse> Action;
+        public readonly object Action;
         /// <summary>
         /// The asset description text.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private ScheduleResponse(
-            Union<Outputs.EndpointScheduleActionResponse, Outputs.JobScheduleActionResponse> action,
+            object action,
 
             string? description,
 

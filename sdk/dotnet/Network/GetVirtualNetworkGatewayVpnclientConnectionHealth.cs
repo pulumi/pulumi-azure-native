@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2019-08-01, 2023-02-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> InvokeAsync(GetVirtualNetworkGatewayVpnclientConnectionHealthArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayVpnclientConnectionHealthResult>("azure-native:network:getVirtualNetworkGatewayVpnclientConnectionHealth", args ?? new GetVirtualNetworkGatewayVpnclientConnectionHealthArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2019-08-01, 2023-02-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> Invoke(GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayVpnclientConnectionHealthResult>("azure-native:network:getVirtualNetworkGatewayVpnclientConnectionHealth", args ?? new GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2019-08-01, 2023-02-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayVpnclientConnectionHealthResult> Invoke(GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayVpnclientConnectionHealthResult>("azure-native:network:getVirtualNetworkGatewayVpnclientConnectionHealth", args ?? new GetVirtualNetworkGatewayVpnclientConnectionHealthInvokeArgs(), options.WithDefaults());

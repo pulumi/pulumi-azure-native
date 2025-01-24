@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Information about packet capture session.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
     /// 
-    /// Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Other available API versions: 2020-06-01, 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PacketCapture")]
     public partial class PacketCapture : global::Pulumi.CustomResource
@@ -23,6 +23,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("bytesToCapturePerPacket")]
         public Output<double?> BytesToCapturePerPacket { get; private set; } = null!;
+
+        /// <summary>
+        /// The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+        /// </summary>
+        [Output("captureSettings")]
+        public Output<Outputs.PacketCaptureSettingsResponse?> CaptureSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
+        /// </summary>
+        [Output("continuousCapture")]
+        public Output<bool?> ContinuousCapture { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -187,6 +199,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("bytesToCapturePerPacket")]
         public Input<double>? BytesToCapturePerPacket { get; set; }
+
+        /// <summary>
+        /// The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+        /// </summary>
+        [Input("captureSettings")]
+        public Input<Inputs.PacketCaptureSettingsArgs>? CaptureSettings { get; set; }
+
+        /// <summary>
+        /// This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
+        /// </summary>
+        [Input("continuousCapture")]
+        public Input<bool>? ContinuousCapture { get; set; }
 
         [Input("filters")]
         private InputList<Inputs.PacketCaptureFilterArgs>? _filters;

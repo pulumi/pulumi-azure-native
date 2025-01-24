@@ -19,11 +19,19 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// Name of the storage network.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// Name of the storage network adapter.
         /// </summary>
-        public readonly string? NetworkAdapterName;
+        public readonly string NetworkAdapterName;
+        /// <summary>
+        /// List of Storage adapter physical nodes config to deploy AzureStackHCI Cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.StorageAdapterIPInfoResponse> StorageAdapterIPInfo;
+        /// <summary>
+        /// ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
+        /// </summary>
+        public readonly string StorageVlanId;
         /// <summary>
         /// ID specified for the VLAN storage network. This setting is applied to the network interfaces that route the storage and VM migration traffic. 
         /// </summary>
@@ -31,14 +39,20 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
         [OutputConstructor]
         private StorageNetworksResponse(
-            string? name,
+            string name,
 
-            string? networkAdapterName,
+            string networkAdapterName,
+
+            ImmutableArray<Outputs.StorageAdapterIPInfoResponse> storageAdapterIPInfo,
+
+            string storageVlanId,
 
             string? vlanId)
         {
             Name = name;
             NetworkAdapterName = networkAdapterName;
+            StorageAdapterIPInfo = storageAdapterIPInfo;
+            StorageVlanId = storageVlanId;
             VlanId = vlanId;
         }
     }

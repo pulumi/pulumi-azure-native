@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a partner namespace.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Task<GetPartnerNamespaceResult> InvokeAsync(GetPartnerNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerNamespaceResult>("azure-native:eventgrid:getPartnerNamespace", args ?? new GetPartnerNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a partner namespace.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetPartnerNamespaceResult> Invoke(GetPartnerNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerNamespaceResult>("azure-native:eventgrid:getPartnerNamespace", args ?? new GetPartnerNamespaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a partner namespace.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetPartnerNamespaceResult> Invoke(GetPartnerNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerNamespaceResult>("azure-native:eventgrid:getPartnerNamespace", args ?? new GetPartnerNamespaceInvokeArgs(), options.WithDefaults());
@@ -105,6 +105,10 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this partner namespace
+        /// </summary>
+        public readonly string? MinimumTlsVersionAllowed;
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
@@ -118,6 +122,9 @@ namespace Pulumi.AzureNative.EventGrid
         /// or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
         /// </summary>
         public readonly string? PartnerTopicRoutingMode;
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the partner namespace.
@@ -129,7 +136,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
-        /// The system metadata relating to Partner Namespace resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -152,6 +159,8 @@ namespace Pulumi.AzureNative.EventGrid
             ImmutableArray<Outputs.InboundIpRuleResponse> inboundIpRules,
 
             string location,
+
+            string? minimumTlsVersionAllowed,
 
             string name,
 
@@ -176,6 +185,7 @@ namespace Pulumi.AzureNative.EventGrid
             Id = id;
             InboundIpRules = inboundIpRules;
             Location = location;
+            MinimumTlsVersionAllowed = minimumTlsVersionAllowed;
             Name = name;
             PartnerRegistrationFullyQualifiedId = partnerRegistrationFullyQualifiedId;
             PartnerTopicRoutingMode = partnerTopicRoutingMode;

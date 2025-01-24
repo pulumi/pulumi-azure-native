@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         /// </summary>
         public readonly string? Type;
         public readonly ImmutableDictionary<string, Outputs.ArmUserIdentityResponse>? UserAssignedIdentities;

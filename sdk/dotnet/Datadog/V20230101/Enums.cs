@@ -8,68 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Datadog.V20230101
 {
     /// <summary>
-    /// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
-    /// </summary>
-    [EnumType]
-    public readonly struct ManagedIdentityTypes : IEquatable<ManagedIdentityTypes>
-    {
-        private readonly string _value;
-
-        private ManagedIdentityTypes(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ManagedIdentityTypes SystemAssigned { get; } = new ManagedIdentityTypes("SystemAssigned");
-        public static ManagedIdentityTypes UserAssigned { get; } = new ManagedIdentityTypes("UserAssigned");
-
-        public static bool operator ==(ManagedIdentityTypes left, ManagedIdentityTypes right) => left.Equals(right);
-        public static bool operator !=(ManagedIdentityTypes left, ManagedIdentityTypes right) => !left.Equals(right);
-
-        public static explicit operator string(ManagedIdentityTypes value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ManagedIdentityTypes other && Equals(other);
-        public bool Equals(ManagedIdentityTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Flag specifying if the resource monitoring is enabled or disabled.
-    /// </summary>
-    [EnumType]
-    public readonly struct MonitoringStatus : IEquatable<MonitoringStatus>
-    {
-        private readonly string _value;
-
-        private MonitoringStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MonitoringStatus Enabled { get; } = new MonitoringStatus("Enabled");
-        public static MonitoringStatus Disabled { get; } = new MonitoringStatus("Disabled");
-
-        public static bool operator ==(MonitoringStatus left, MonitoringStatus right) => left.Equals(right);
-        public static bool operator !=(MonitoringStatus left, MonitoringStatus right) => !left.Equals(right);
-
-        public static explicit operator string(MonitoringStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MonitoringStatus other && Equals(other);
-        public bool Equals(MonitoringStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The operation for the patch on the resource.
     /// </summary>
     [EnumType]

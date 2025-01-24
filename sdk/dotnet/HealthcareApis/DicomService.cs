@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The description of Dicom Service
-    /// Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
+    /// Azure REST API version: 2024-03-31. Prior API version in Azure Native 1.x: 2023-02-28.
     /// 
-    /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    /// Other available API versions: 2023-02-28.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:DicomService")]
     public partial class DicomService : global::Pulumi.CustomResource
@@ -29,6 +29,18 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Output("corsConfiguration")]
         public Output<Outputs.CorsConfigurationResponse?> CorsConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// If data partitions is enabled or not.
+        /// </summary>
+        [Output("enableDataPartitions")]
+        public Output<bool?> EnableDataPartitions { get; private set; } = null!;
+
+        /// <summary>
+        /// The encryption settings of the DICOM service
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -83,6 +95,12 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Output("serviceUrl")]
         public Output<string> ServiceUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The configuration of external storage account
+        /// </summary>
+        [Output("storageConfiguration")]
+        public Output<Outputs.StorageConfigurationResponse?> StorageConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -176,6 +194,18 @@ namespace Pulumi.AzureNative.HealthcareApis
         public Input<string>? DicomServiceName { get; set; }
 
         /// <summary>
+        /// If data partitions is enabled or not.
+        /// </summary>
+        [Input("enableDataPartitions")]
+        public Input<bool>? EnableDataPartitions { get; set; }
+
+        /// <summary>
+        /// The encryption settings of the DICOM service
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
         [Input("identity")]
@@ -192,6 +222,12 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The configuration of external storage account
+        /// </summary>
+        [Input("storageConfiguration")]
+        public Input<Inputs.StorageConfigurationArgs>? StorageConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

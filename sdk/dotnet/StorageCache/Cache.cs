@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.StorageCache
 {
     /// <summary>
     /// A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 1.x: 2023-05-01.
     /// 
-    /// Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01.
+    /// Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:Cache")]
     public partial class Cache : global::Pulumi.CustomResource

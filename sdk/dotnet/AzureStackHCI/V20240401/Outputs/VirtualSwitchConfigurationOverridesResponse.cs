@@ -19,17 +19,17 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240401.Outputs
         /// <summary>
         /// Enable IoV for Virtual Switch
         /// </summary>
-        public readonly string EnableIov;
+        public readonly string? EnableIov;
         /// <summary>
         /// Load Balancing Algorithm for Virtual Switch
         /// </summary>
-        public readonly string LoadBalancingAlgorithm;
+        public readonly string? LoadBalancingAlgorithm;
 
         [OutputConstructor]
         private VirtualSwitchConfigurationOverridesResponse(
-            string enableIov,
+            string? enableIov,
 
-            string loadBalancingAlgorithm)
+            string? loadBalancingAlgorithm)
         {
             EnableIov = enableIov;
             LoadBalancingAlgorithm = loadBalancingAlgorithm;

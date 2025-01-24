@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly int? NodeCount;
         /// <summary>
+        /// Ip of the VPN Endpoint for this data center.
+        /// </summary>
+        public readonly string? PrivateEndpointIpAddress;
+        /// <summary>
         /// Error related to resource provisioning.
         /// </summary>
         public readonly Outputs.CassandraErrorResponse? ProvisionError;
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             int? nodeCount,
 
+            string? privateEndpointIpAddress,
+
             Outputs.CassandraErrorResponse? provisionError,
 
             string? provisioningState,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             DiskSku = diskSku;
             ManagedDiskCustomerKeyUri = managedDiskCustomerKeyUri;
             NodeCount = nodeCount;
+            PrivateEndpointIpAddress = privateEndpointIpAddress;
             ProvisionError = provisionError;
             ProvisioningState = provisioningState;
             SeedNodes = seedNodes;

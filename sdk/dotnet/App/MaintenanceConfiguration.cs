@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Information about the Maintenance Configuration resource.
-    /// Azure REST API version: 2024-10-02-preview.
+    /// Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 1.x: 2024-10-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource

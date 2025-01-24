@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Get a watchlist item.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2021-04-01, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        /// Other available API versions: 2021-04-01, 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetWatchlistItemResult> InvokeAsync(GetWatchlistItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistItemResult>("azure-native:securityinsights:getWatchlistItem", args ?? new GetWatchlistItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a watchlist item.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2021-04-01, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        /// Other available API versions: 2021-04-01, 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetWatchlistItemResult> Invoke(GetWatchlistItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatchlistItemResult>("azure-native:securityinsights:getWatchlistItem", args ?? new GetWatchlistItemInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a watchlist item.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2021-04-01, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+        /// Other available API versions: 2021-04-01, 2023-02-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetWatchlistItemResult> Invoke(GetWatchlistItemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatchlistItemResult>("azure-native:securityinsights:getWatchlistItem", args ?? new GetWatchlistItemInvokeArgs(), options.WithDefaults());

@@ -11,19 +11,19 @@ namespace Pulumi.AzureNative.Devices.Outputs
 {
 
     /// <summary>
-    /// The properties related to a cosmos DB sql collection endpoint.
+    /// The properties related to a cosmos DB sql container endpoint.
     /// </summary>
     [OutputType]
     public sealed class RoutingCosmosDBSqlApiPropertiesResponse
     {
         /// <summary>
-        /// Method used to authenticate against the cosmos DB sql collection endpoint
+        /// Method used to authenticate against the cosmos DB sql container endpoint
         /// </summary>
         public readonly string? AuthenticationType;
         /// <summary>
-        /// The name of the cosmos DB sql collection in the cosmos DB database.
+        /// The name of the cosmos DB sql container in the cosmos DB database.
         /// </summary>
-        public readonly string CollectionName;
+        public readonly string ContainerName;
         /// <summary>
         /// The name of the cosmos DB database in the cosmos DB account.
         /// </summary>
@@ -33,11 +33,11 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string EndpointUri;
         /// <summary>
-        /// Id of the cosmos DB sql collection endpoint
+        /// Id of the cosmos DB sql container endpoint
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
-        /// Managed identity properties of routing cosmos DB collection endpoint.
+        /// Managed identity properties of routing cosmos DB container endpoint.
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
         /// <summary>
@@ -45,11 +45,11 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The name of the partition key associated with this cosmos DB sql collection if one exists. This is an optional parameter.
+        /// The name of the partition key associated with this cosmos DB sql container if one exists. This is an optional parameter.
         /// </summary>
         public readonly string? PartitionKeyName;
         /// <summary>
-        /// The template for generating a synthetic partition key value for use with this cosmos DB sql collection. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
+        /// The template for generating a synthetic partition key value for use with this cosmos DB sql container. The template must include at least one of the following placeholders: {iothub}, {deviceid}, {DD}, {MM}, and {YYYY}. Any one placeholder may be specified at most once, but order and non-placeholder components are arbitrary. This parameter is only required if PartitionKeyName is specified.
         /// </summary>
         public readonly string? PartitionKeyTemplate;
         /// <summary>
@@ -73,13 +73,13 @@ namespace Pulumi.AzureNative.Devices.Outputs
         private RoutingCosmosDBSqlApiPropertiesResponse(
             string? authenticationType,
 
-            string collectionName,
+            string containerName,
 
             string databaseName,
 
             string endpointUri,
 
-            string? id,
+            string id,
 
             Outputs.ManagedIdentityResponse? identity,
 
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
             string? subscriptionId)
         {
             AuthenticationType = authenticationType;
-            CollectionName = collectionName;
+            ContainerName = containerName;
             DatabaseName = databaseName;
             EndpointUri = endpointUri;
             Id = id;

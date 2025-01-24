@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.CommunityGalleryInfoArgs>? CommunityGalleryInfo { get; set; }
 
         /// <summary>
-        /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups** &lt;br&gt;&lt;br&gt; **Community**
+        /// This property allows you to specify the permission of sharing gallery. Possible values are: **Private,** **Groups,** **Community.**
         /// </summary>
         [Input("permissions")]
         public InputUnion<string, Pulumi.AzureNative.Compute.GallerySharingPermissionTypes>? Permissions { get; set; }

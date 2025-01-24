@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Billing
     {
         /// <summary>
         /// Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
-        /// Azure REST API version: 2019-10-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2019-10-01-preview.
         /// </summary>
         public static Task<GetBillingRoleAssignmentByBillingAccountResult> InvokeAsync(GetBillingRoleAssignmentByBillingAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
-        /// Azure REST API version: 2019-10-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2019-10-01-preview.
         /// </summary>
         public static Output<GetBillingRoleAssignmentByBillingAccountResult> Invoke(GetBillingRoleAssignmentByBillingAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
-        /// Azure REST API version: 2019-10-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2019-10-01-preview.
         /// </summary>
         public static Output<GetBillingRoleAssignmentByBillingAccountResult> Invoke(GetBillingRoleAssignmentByBillingAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingRoleAssignmentByBillingAccountResult>("azure-native:billing:getBillingRoleAssignmentByBillingAccount", args ?? new GetBillingRoleAssignmentByBillingAccountInvokeArgs(), options.WithDefaults());
@@ -85,99 +85,50 @@ namespace Pulumi.AzureNative.Billing
     public sealed class GetBillingRoleAssignmentByBillingAccountResult
     {
         /// <summary>
-        /// The principal Id of the user who created the role assignment.
-        /// </summary>
-        public readonly string CreatedByPrincipalId;
-        /// <summary>
-        /// The tenant Id of the user who created the role assignment.
-        /// </summary>
-        public readonly string CreatedByPrincipalTenantId;
-        /// <summary>
-        /// The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        /// </summary>
-        public readonly string CreatedByUserEmailAddress;
-        /// <summary>
-        /// The date the role assignment was created.
-        /// </summary>
-        public readonly string CreatedOn;
-        /// <summary>
-        /// Resource Id.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The principal id of the user to whom the role was assigned.
+        /// The properties of the billing role assignment.
         /// </summary>
-        public readonly string? PrincipalId;
+        public readonly Outputs.BillingRoleAssignmentPropertiesResponse Properties;
         /// <summary>
-        /// The principal tenant id of the user to whom the role was assigned.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly string? PrincipalTenantId;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The ID of the role definition.
+        /// Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain &lt; &gt; % &amp; \ ? /
         /// </summary>
-        public readonly string? RoleDefinitionId;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The scope at which the role was assigned.
-        /// </summary>
-        public readonly string Scope;
-        /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        /// </summary>
-        public readonly string? UserAuthenticationType;
-        /// <summary>
-        /// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        /// </summary>
-        public readonly string? UserEmailAddress;
 
         [OutputConstructor]
         private GetBillingRoleAssignmentByBillingAccountResult(
-            string createdByPrincipalId,
-
-            string createdByPrincipalTenantId,
-
-            string createdByUserEmailAddress,
-
-            string createdOn,
-
             string id,
 
             string name,
 
-            string? principalId,
+            Outputs.BillingRoleAssignmentPropertiesResponse properties,
 
-            string? principalTenantId,
+            Outputs.SystemDataResponse systemData,
 
-            string? roleDefinitionId,
+            ImmutableDictionary<string, string>? tags,
 
-            string scope,
-
-            string type,
-
-            string? userAuthenticationType,
-
-            string? userEmailAddress)
+            string type)
         {
-            CreatedByPrincipalId = createdByPrincipalId;
-            CreatedByPrincipalTenantId = createdByPrincipalTenantId;
-            CreatedByUserEmailAddress = createdByUserEmailAddress;
-            CreatedOn = createdOn;
             Id = id;
             Name = name;
-            PrincipalId = principalId;
-            PrincipalTenantId = principalTenantId;
-            RoleDefinitionId = roleDefinitionId;
-            Scope = scope;
+            Properties = properties;
+            SystemData = systemData;
+            Tags = tags;
             Type = type;
-            UserAuthenticationType = userAuthenticationType;
-            UserEmailAddress = userEmailAddress;
         }
     }
 }

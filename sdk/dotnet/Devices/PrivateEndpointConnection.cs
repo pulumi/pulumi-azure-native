@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The private endpoint connection of an IotHub
-    /// Azure REST API version: 2022-04-30-preview. Prior API version in Azure Native 1.x: 2020-08-31.
+    /// Azure REST API version: 2023-06-30. Prior API version in Azure Native 1.x: 2022-04-30-preview.
     /// 
-    /// Other available API versions: 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+    /// Other available API versions: 2022-04-30-preview, 2023-06-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

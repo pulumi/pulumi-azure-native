@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2023-10-01-preview.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2023-10-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    /// Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:KubernetesCluster")]
     public partial class KubernetesCluster : global::Pulumi.CustomResource
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<ImmutableArray<Outputs.InitialAgentPoolConfigurationResponse>> InitialAgentPoolConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+        /// The Kubernetes version for this cluster.
         /// </summary>
         [Output("kubernetesVersion")]
         public Output<string> KubernetesVersion { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<string>? KubernetesClusterName { get; set; }
 
         /// <summary>
-        /// The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+        /// The Kubernetes version for this cluster.
         /// </summary>
         [Input("kubernetesVersion", required: true)]
         public Input<string> KubernetesVersion { get; set; } = null!;

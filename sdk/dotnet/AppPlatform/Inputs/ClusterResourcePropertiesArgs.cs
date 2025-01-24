@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public Input<string>? InfraResourceGroup { get; set; }
 
         /// <summary>
+        /// Additional Service settings for planned maintenance
+        /// </summary>
+        [Input("maintenanceScheduleConfiguration")]
+        public Input<Inputs.WeeklyMaintenanceScheduleConfigurationArgs>? MaintenanceScheduleConfiguration { get; set; }
+
+        /// <summary>
         /// The resource Id of the Managed Environment that the Spring Apps instance builds on
         /// </summary>
         [Input("managedEnvironmentId")]

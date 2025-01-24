@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AzureSphere
     {
         /// <summary>
         /// Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
-        /// Azure REST API version: 2022-09-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview.
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure-native:azuresphere:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
-        /// Azure REST API version: 2022-09-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:azuresphere:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
-        /// Azure REST API version: 2022-09-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2024-04-01.
+        /// Other available API versions: 2022-09-01-preview.
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure-native:azuresphere:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
@@ -99,7 +99,7 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Description of the product
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.AzureSphere
 
         [OutputConstructor]
         private GetProductResult(
-            string description,
+            string? description,
 
             string id,
 

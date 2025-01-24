@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         }
 
         /// <summary>
+        /// The user owned AML workspace properties.
+        /// </summary>
+        [Input("amlWorkspace")]
+        public Input<Inputs.UserOwnedAmlWorkspaceArgs>? AmlWorkspace { get; set; }
+
+        /// <summary>
         /// The api properties for special APIs.
         /// </summary>
         [Input("apiProperties")]
@@ -73,6 +79,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.CognitiveServices.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// Cognitive Services Rai Monitor Config.
+        /// </summary>
+        [Input("raiMonitorConfig")]
+        public Input<Inputs.RaiMonitorConfigArgs>? RaiMonitorConfig { get; set; }
 
         [Input("restore")]
         public Input<bool>? Restore { get; set; }

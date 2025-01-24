@@ -23,9 +23,9 @@ namespace Pulumi.AzureNative.Billing.Outputs
         /// <summary>
         /// The sku description.
         /// </summary>
-        public readonly string SkuDescription;
+        public readonly string? SkuDescription;
         /// <summary>
-        /// The sku id.
+        /// The ID that uniquely identifies a sku.
         /// </summary>
         public readonly string? SkuId;
 
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Billing.Outputs
         private AzurePlanResponse(
             string? productId,
 
-            string skuDescription,
+            string? skuDescription,
 
             string? skuId)
         {

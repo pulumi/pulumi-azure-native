@@ -11,15 +11,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
     /// Defines the NetworkInterface resource.
-    /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+    /// Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-02-01-preview.
     /// 
-    /// Other available API versions: 2023-06-15.
+    /// Other available API versions: 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// administrativeState of the network interface. Example: Enabled | Disabled.
+        /// Administrative state of the resource.
         /// </summary>
         [Output("administrativeState")]
         public Output<string> AdministrativeState { get; private set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
-        /// The arm resource id of the interface or compute server its connected to.
+        /// The ARM resource id of the interface or compute server its connected to.
         /// </summary>
         [Output("connectedTo")]
         public Output<string> ConnectedTo { get; private set; } = null!;
@@ -43,13 +43,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> InterfaceType { get; private set; } = null!;
 
         /// <summary>
-        /// ipv4Address.
+        /// IPv4Address of the interface.
         /// </summary>
         [Output("ipv4Address")]
         public Output<string> Ipv4Address { get; private set; } = null!;
 
         /// <summary>
-        /// ipv6Address.
+        /// IPv6Address of the interface.
         /// </summary>
         [Output("ipv6Address")]
         public Output<string> Ipv6Address { get; private set; } = null!;
@@ -61,13 +61,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// physicalIdentifier of the network interface.
+        /// Physical Identifier of the network interface.
         /// </summary>
         [Output("physicalIdentifier")]
         public Output<string> PhysicalIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -141,13 +141,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Annotation { get; set; }
 
         /// <summary>
-        /// Name of the NetworkDevice
+        /// Name of the Network Device.
         /// </summary>
         [Input("networkDeviceName", required: true)]
         public Input<string> NetworkDeviceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the NetworkInterface
+        /// Name of the Network Interface.
         /// </summary>
         [Input("networkInterfaceName")]
         public Input<string>? NetworkInterfaceName { get; set; }

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// The virtual network resource definition.
-        /// Azure REST API version: 2022-12-15-preview.
+        /// Azure REST API version: 2023-07-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview.
+        /// Other available API versions: 2022-12-15-preview.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:azurestackhci:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The virtual network resource definition.
-        /// Azure REST API version: 2022-12-15-preview.
+        /// Azure REST API version: 2023-07-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview.
+        /// Other available API versions: 2022-12-15-preview.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:azurestackhci:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The virtual network resource definition.
-        /// Azure REST API version: 2022-12-15-preview.
+        /// Azure REST API version: 2023-07-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview.
+        /// Other available API versions: 2022-12-15-preview.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:azurestackhci:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());

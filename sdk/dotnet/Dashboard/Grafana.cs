@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Dashboard
 {
     /// <summary>
     /// The grafana resource type.
-    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2022-05-01-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-08-01.
     /// 
-    /// Other available API versions: 2021-09-01-preview, 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-10-01.
+    /// Other available API versions: 2021-09-01-preview, 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:Grafana")]
     public partial class Grafana : global::Pulumi.CustomResource
@@ -97,7 +97,6 @@ namespace Pulumi.AzureNative.Dashboard
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20221001preview:Grafana" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20230901:Grafana" },
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20231001preview:Grafana" },
-                    new global::Pulumi.Alias { Type = "azure-native:dashboard/v20241001:Grafana" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

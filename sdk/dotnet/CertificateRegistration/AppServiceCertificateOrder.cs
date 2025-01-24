@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.CertificateRegistration
 {
     /// <summary>
     /// SSL certificate purchase order.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2022-09-01.
     /// 
-    /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    /// Other available API versions: 2020-10-01, 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration:AppServiceCertificateOrder")]
     public partial class AppServiceCertificateOrder : global::Pulumi.CustomResource
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
         public Output<int?> KeySize { get; private set; } = null!;
 
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -275,7 +275,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
         public Input<int>? KeySize { get; set; }
 
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }

@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.Datadog
 {
     /// <summary>
-    /// Identity type
+    /// Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
     /// </summary>
     [EnumType]
     public readonly struct ManagedIdentityTypes : IEquatable<ManagedIdentityTypes>

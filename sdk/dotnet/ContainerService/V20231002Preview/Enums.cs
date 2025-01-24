@@ -234,39 +234,6 @@ namespace Pulumi.AzureNative.ContainerService.V20231002Preview
     }
 
     /// <summary>
-    /// The private link service connection status.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConnectionStatus : IEquatable<ConnectionStatus>
-    {
-        private readonly string _value;
-
-        private ConnectionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConnectionStatus Pending { get; } = new ConnectionStatus("Pending");
-        public static ConnectionStatus Approved { get; } = new ConnectionStatus("Approved");
-        public static ConnectionStatus Rejected { get; } = new ConnectionStatus("Rejected");
-        public static ConnectionStatus Disconnected { get; } = new ConnectionStatus("Disconnected");
-
-        public static bool operator ==(ConnectionStatus left, ConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(ConnectionStatus left, ConnectionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(ConnectionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConnectionStatus other && Equals(other);
-        public bool Equals(ConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Available values are: 'least-waste', 'most-pods', 'priority', 'random'.
     /// </summary>
     [EnumType]
@@ -1564,92 +1531,6 @@ namespace Pulumi.AzureNative.ContainerService.V20231002Preview
     }
 
     /// <summary>
-    /// The type of a snapshot. The default is NodePool.
-    /// </summary>
-    [EnumType]
-    public readonly struct SnapshotType : IEquatable<SnapshotType>
-    {
-        private readonly string _value;
-
-        private SnapshotType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// The snapshot is a snapshot of a node pool.
-        /// </summary>
-        public static SnapshotType NodePool { get; } = new SnapshotType("NodePool");
-        /// <summary>
-        /// The snapshot is a snapshot of a managed cluster.
-        /// </summary>
-        public static SnapshotType ManagedCluster { get; } = new SnapshotType("ManagedCluster");
-
-        public static bool operator ==(SnapshotType left, SnapshotType right) => left.Equals(right);
-        public static bool operator !=(SnapshotType left, SnapshotType right) => !left.Equals(right);
-
-        public static explicit operator string(SnapshotType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SnapshotType other && Equals(other);
-        public bool Equals(SnapshotType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies on which instance of the allowed days specified in daysOfWeek the maintenance occurs.
-    /// </summary>
-    [EnumType]
-    public readonly struct Type : IEquatable<Type>
-    {
-        private readonly string _value;
-
-        private Type(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        /// <summary>
-        /// First.
-        /// </summary>
-        public static Type First { get; } = new Type("First");
-        /// <summary>
-        /// Second.
-        /// </summary>
-        public static Type Second { get; } = new Type("Second");
-        /// <summary>
-        /// Third.
-        /// </summary>
-        public static Type Third { get; } = new Type("Third");
-        /// <summary>
-        /// Fourth.
-        /// </summary>
-        public static Type Fourth { get; } = new Type("Fourth");
-        /// <summary>
-        /// Last.
-        /// </summary>
-        public static Type Last { get; } = new Type("Last");
-
-        public static bool operator ==(Type left, Type right) => left.Equals(right);
-        public static bool operator !=(Type left, Type right) => !left.Equals(right);
-
-        public static explicit operator string(Type value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Type other && Equals(other);
-        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
     /// </summary>
     [EnumType]
@@ -1691,42 +1572,6 @@ namespace Pulumi.AzureNative.ContainerService.V20231002Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UpgradeChannel other && Equals(other);
         public bool Equals(UpgradeChannel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The day of the week.
-    /// </summary>
-    [EnumType]
-    public readonly struct WeekDay : IEquatable<WeekDay>
-    {
-        private readonly string _value;
-
-        private WeekDay(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WeekDay Sunday { get; } = new WeekDay("Sunday");
-        public static WeekDay Monday { get; } = new WeekDay("Monday");
-        public static WeekDay Tuesday { get; } = new WeekDay("Tuesday");
-        public static WeekDay Wednesday { get; } = new WeekDay("Wednesday");
-        public static WeekDay Thursday { get; } = new WeekDay("Thursday");
-        public static WeekDay Friday { get; } = new WeekDay("Friday");
-        public static WeekDay Saturday { get; } = new WeekDay("Saturday");
-
-        public static bool operator ==(WeekDay left, WeekDay right) => left.Equals(right);
-        public static bool operator !=(WeekDay left, WeekDay right) => !left.Equals(right);
-
-        public static explicit operator string(WeekDay value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WeekDay other && Equals(other);
-        public bool Equals(WeekDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

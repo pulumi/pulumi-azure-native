@@ -54,6 +54,10 @@ namespace Pulumi.AzureNative.ElasticSan
         /// Volume is encrypted at rest with Platform managed key. It is the default encryption type.
         /// </summary>
         public static EncryptionType EncryptionAtRestWithPlatformKey { get; } = new EncryptionType("EncryptionAtRestWithPlatformKey");
+        /// <summary>
+        /// Volume is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
+        /// </summary>
+        public static EncryptionType EncryptionAtRestWithCustomerManagedKey { get; } = new EncryptionType("EncryptionAtRestWithCustomerManagedKey");
 
         public static bool operator ==(EncryptionType left, EncryptionType right) => left.Equals(right);
         public static bool operator !=(EncryptionType left, EncryptionType right) => !left.Equals(right);
@@ -63,6 +67,38 @@ namespace Pulumi.AzureNative.ElasticSan
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EncryptionType other && Equals(other);
         public bool Equals(EncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The identity type.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType None { get; } = new IdentityType("None");
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -96,6 +132,37 @@ namespace Pulumi.AzureNative.ElasticSan
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
         public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -218,6 +285,10 @@ namespace Pulumi.AzureNative.ElasticSan
         }
 
         public static VolumeCreateOption None { get; } = new VolumeCreateOption("None");
+        public static VolumeCreateOption VolumeSnapshot { get; } = new VolumeCreateOption("VolumeSnapshot");
+        public static VolumeCreateOption DiskSnapshot { get; } = new VolumeCreateOption("DiskSnapshot");
+        public static VolumeCreateOption Disk { get; } = new VolumeCreateOption("Disk");
+        public static VolumeCreateOption DiskRestorePoint { get; } = new VolumeCreateOption("DiskRestorePoint");
 
         public static bool operator ==(VolumeCreateOption left, VolumeCreateOption right) => left.Equals(right);
         public static bool operator !=(VolumeCreateOption left, VolumeCreateOption right) => !left.Equals(right);

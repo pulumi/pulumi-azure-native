@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The description of the provisioning service.
-    /// Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01.
+    /// Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2022-12-12.
     /// 
-    /// Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
+    /// Other available API versions: 2020-09-01-preview, 2022-12-12, 2025-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotDpsResource")]
     public partial class IotDpsResource : global::Pulumi.CustomResource
@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.Devices
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed identities for a provisioning service.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -137,6 +143,12 @@ namespace Pulumi.AzureNative.Devices
 
     public sealed class IotDpsResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The managed identities for a provisioning service.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
         /// <summary>
         /// The resource location.
         /// </summary>

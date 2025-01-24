@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
         [Input("clusterPoolVersion", required: true)]
         public Input<string> ClusterPoolVersion { get; set; } = null!;
 
+        /// <summary>
+        /// Gets or sets the IP tag for the public IPs created along with the HDInsightOnAks ClusterPools and Clusters. 
+        /// </summary>
+        [Input("publicIpTag")]
+        public Input<Inputs.IpTagArgs>? PublicIpTag { get; set; }
+
         public ClusterPoolResourcePropertiesClusterPoolProfileArgs()
         {
         }

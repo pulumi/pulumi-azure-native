@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.Insights.Inputs
     /// </summary>
     public sealed class DataCollectionRuleDestinationsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("azureDataExplorer")]
+        private InputList<Inputs.AdxDestinationArgs>? _azureDataExplorer;
+
+        /// <summary>
+        /// List of Azure Data Explorer destinations.
+        /// </summary>
+        public InputList<Inputs.AdxDestinationArgs> AzureDataExplorer
+        {
+            get => _azureDataExplorer ?? (_azureDataExplorer = new InputList<Inputs.AdxDestinationArgs>());
+            set => _azureDataExplorer = value;
+        }
+
         /// <summary>
         /// Azure Monitor Metrics destination.
         /// </summary>
@@ -55,6 +67,18 @@ namespace Pulumi.AzureNative.Insights.Inputs
         {
             get => _logAnalytics ?? (_logAnalytics = new InputList<Inputs.LogAnalyticsDestinationArgs>());
             set => _logAnalytics = value;
+        }
+
+        [Input("microsoftFabric")]
+        private InputList<Inputs.MicrosoftFabricDestinationArgs>? _microsoftFabric;
+
+        /// <summary>
+        /// List of Microsoft Fabric destinations.
+        /// </summary>
+        public InputList<Inputs.MicrosoftFabricDestinationArgs> MicrosoftFabric
+        {
+            get => _microsoftFabric ?? (_microsoftFabric = new InputList<Inputs.MicrosoftFabricDestinationArgs>());
+            set => _microsoftFabric = value;
         }
 
         [Input("monitoringAccounts")]

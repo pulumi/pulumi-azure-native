@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the container registries resource.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetContainerRegistryResult> InvokeAsync(GetContainerRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerRegistryResult>("azure-native:appplatform:getContainerRegistry", args ?? new GetContainerRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the container registries resource.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetContainerRegistryResult> Invoke(GetContainerRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerRegistryResult>("azure-native:appplatform:getContainerRegistry", args ?? new GetContainerRegistryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the container registries resource.
-        /// Azure REST API version: 2023-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Other available API versions: 2023-05-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetContainerRegistryResult> Invoke(GetContainerRegistryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerRegistryResult>("azure-native:appplatform:getContainerRegistry", args ?? new GetContainerRegistryInvokeArgs(), options.WithDefaults());

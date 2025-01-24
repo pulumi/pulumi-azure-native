@@ -11,18 +11,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Authentication configuration properties of a server
+    /// Authentication configuration of a cluster.
     /// </summary>
     [OutputType]
     public sealed class AuthConfigResponse
     {
-        /// <summary>
-        /// If Enabled, Azure Active Directory authentication is enabled.
-        /// </summary>
         public readonly string? ActiveDirectoryAuth;
-        /// <summary>
-        /// If Enabled, Password authentication is enabled.
-        /// </summary>
         public readonly string? PasswordAuth;
         /// <summary>
         /// Tenant id of the server.

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ElasticSan
 {
     /// <summary>
     /// Response for Volume Group request.
-    /// Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2021-11-20-preview.
     /// 
-    /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+    /// Other available API versions: 2021-11-20-preview, 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:VolumeGroup")]
     public partial class VolumeGroup : global::Pulumi.CustomResource
@@ -25,7 +25,25 @@ namespace Pulumi.AzureNative.ElasticSan
         public Output<string?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name.
+        /// Encryption Properties describing Key Vault and Identity information
+        /// </summary>
+        [Output("encryptionProperties")]
+        public Output<Outputs.EncryptionPropertiesResponse?> EncryptionProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean indicating whether or not Data Integrity Check is enabled
+        /// </summary>
+        [Output("enforceDataIntegrityCheckForIscsi")]
+        public Output<bool?> EnforceDataIntegrityCheckForIscsi { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -35,6 +53,12 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         [Output("networkAcls")]
         public Output<Outputs.NetworkRuleSetResponse?> NetworkAcls { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of Private Endpoint Connections.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Type of storage target
@@ -49,19 +73,13 @@ namespace Pulumi.AzureNative.ElasticSan
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource metadata required by ARM RPC
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource tags.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -132,6 +150,24 @@ namespace Pulumi.AzureNative.ElasticSan
         public InputUnion<string, Pulumi.AzureNative.ElasticSan.EncryptionType>? Encryption { get; set; }
 
         /// <summary>
+        /// Encryption Properties describing Key Vault and Identity information
+        /// </summary>
+        [Input("encryptionProperties")]
+        public Input<Inputs.EncryptionPropertiesArgs>? EncryptionProperties { get; set; }
+
+        /// <summary>
+        /// A boolean indicating whether or not Data Integrity Check is enabled
+        /// </summary>
+        [Input("enforceDataIntegrityCheckForIscsi")]
+        public Input<bool>? EnforceDataIntegrityCheckForIscsi { get; set; }
+
+        /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// A collection of rules governing the accessibility from specific network locations.
         /// </summary>
         [Input("networkAcls")]
@@ -148,18 +184,6 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Azure resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         /// <summary>
         /// The name of the VolumeGroup.

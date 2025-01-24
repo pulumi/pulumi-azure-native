@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// The device Configuration of a device.
+    /// The device Configuration for edge device.
     /// </summary>
     [OutputType]
     public sealed class DeviceConfigurationResponse
     {
         /// <summary>
-        /// device metadata details.
+        /// Device metadata details.
         /// </summary>
         public readonly string? DeviceMetadata;
         /// <summary>

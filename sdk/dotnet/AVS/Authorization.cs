@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// ExpressRoute Circuit Authorization
-    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 1.x: 2022-05-01.
     /// 
-    /// Other available API versions: 2023-03-01, 2023-09-01.
+    /// Other available API versions: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Authorization")]
     public partial class Authorization : global::Pulumi.CustomResource
@@ -37,19 +37,25 @@ namespace Pulumi.AzureNative.AVS
         public Output<string?> ExpressRouteId { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the  ExpressRoute Circuit Authorization provisioning
+        /// The state of the ExpressRoute Circuit Authorization provisioning
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -111,7 +117,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class AuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the ExpressRoute Circuit Authorization in the private cloud
+        /// Name of the ExpressRoute Circuit Authorization
         /// </summary>
         [Input("authorizationName")]
         public Input<string>? AuthorizationName { get; set; }
@@ -123,7 +129,7 @@ namespace Pulumi.AzureNative.AVS
         public Input<string>? ExpressRouteId { get; set; }
 
         /// <summary>
-        /// The name of the private cloud.
+        /// Name of the private cloud
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;

@@ -37,10 +37,6 @@ namespace Pulumi.AzureNative.Cache.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -57,8 +53,6 @@ namespace Pulumi.AzureNative.Cache.Outputs
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
@@ -66,7 +60,6 @@ namespace Pulumi.AzureNative.Cache.Outputs
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
-            SystemData = systemData;
             Type = type;
         }
     }

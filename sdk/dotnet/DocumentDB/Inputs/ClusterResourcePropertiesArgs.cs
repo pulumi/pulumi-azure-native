@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public InputUnion<string, Pulumi.AzureNative.DocumentDB.AuthenticationMethod>? AuthenticationMethod { get; set; }
 
         /// <summary>
+        /// How to connect to the azure services needed for running the cluster
+        /// </summary>
+        [Input("azureConnectionMethod")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.AzureConnectionType>? AzureConnectionMethod { get; set; }
+
+        /// <summary>
         /// Whether Cassandra audit logging is enabled
         /// </summary>
         [Input("cassandraAuditLoggingEnabled")]

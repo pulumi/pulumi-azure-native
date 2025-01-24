@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a ScalingPlanPersonalSchedule.
-        /// Azure REST API version: 2023-07-07-preview.
+        /// Azure REST API version: 2024-04-03.
         /// 
-        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Other available API versions: 2023-07-07-preview, 2024-04-08-preview, 2024-08-08-preview.
         /// </summary>
         public static Task<GetScalingPlanPersonalScheduleResult> InvokeAsync(GetScalingPlanPersonalScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanPersonalScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPersonalSchedule", args ?? new GetScalingPlanPersonalScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ScalingPlanPersonalSchedule.
-        /// Azure REST API version: 2023-07-07-preview.
+        /// Azure REST API version: 2024-04-03.
         /// 
-        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Other available API versions: 2023-07-07-preview, 2024-04-08-preview, 2024-08-08-preview.
         /// </summary>
         public static Output<GetScalingPlanPersonalScheduleResult> Invoke(GetScalingPlanPersonalScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPersonalScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPersonalSchedule", args ?? new GetScalingPlanPersonalScheduleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ScalingPlanPersonalSchedule.
-        /// Azure REST API version: 2023-07-07-preview.
+        /// Azure REST API version: 2024-04-03.
         /// 
-        /// Other available API versions: 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Other available API versions: 2023-07-07-preview, 2024-04-08-preview, 2024-08-08-preview.
         /// </summary>
         public static Output<GetScalingPlanPersonalScheduleResult> Invoke(GetScalingPlanPersonalScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanPersonalScheduleResult>("azure-native:desktopvirtualization:getScalingPlanPersonalSchedule", args ?? new GetScalingPlanPersonalScheduleInvokeArgs(), options.WithDefaults());
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly ImmutableArray<string> DaysOfWeek;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -209,7 +209,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string? RampUpStartVMOnConnect;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Container of a site
-    /// Azure REST API version: 2023-12-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2023-12-01.
     /// 
-    /// Other available API versions: 2024-04-01.
+    /// Other available API versions: 2023-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSiteContainerSlot")]
     public partial class WebAppSiteContainerSlot : global::Pulumi.CustomResource

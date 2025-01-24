@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the module type.
-    /// Azure REST API version: 2023-11-01.
+    /// Azure REST API version: 2023-11-01. Prior API version in Azure Native 1.x: 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:PowerShell72Module")]
     public partial class PowerShell72Module : global::Pulumi.CustomResource

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Definition of ARM tracked top level resource.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2021-09-01-preview.
+    /// Azure REST API version: 2023-03-11. Prior API version in Azure Native 1.x: 2022-06-01.
     /// 
-    /// Other available API versions: 2023-03-11.
+    /// Other available API versions: 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionEndpoint")]
     public partial class DataCollectionEndpoint : global::Pulumi.CustomResource

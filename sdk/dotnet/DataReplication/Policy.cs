@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataReplication
 {
     /// <summary>
     /// Policy model.
-    /// Azure REST API version: 2021-02-16-preview.
+    /// Azure REST API version: 2021-02-16-preview. Prior API version in Azure Native 1.x: 2021-02-16-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

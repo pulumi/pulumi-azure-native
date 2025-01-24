@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a domain topic.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Task<GetDomainTopicResult> InvokeAsync(GetDomainTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainTopicResult>("azure-native:eventgrid:getDomainTopic", args ?? new GetDomainTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a domain topic.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetDomainTopicResult> Invoke(GetDomainTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicResult>("azure-native:eventgrid:getDomainTopic", args ?? new GetDomainTopicInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a domain topic.
-        /// Azure REST API version: 2022-06-15.
+        /// Azure REST API version: 2024-12-15-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        /// Other available API versions: 2022-06-15.
         /// </summary>
         public static Output<GetDomainTopicResult> Invoke(GetDomainTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainTopicResult>("azure-native:eventgrid:getDomainTopic", args ?? new GetDomainTopicInvokeArgs(), options.WithDefaults());
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system metadata relating to Domain Topic resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

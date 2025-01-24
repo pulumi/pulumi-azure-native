@@ -173,42 +173,6 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20230301Preview
     }
 
     /// <summary>
-    /// They inventory type.
-    /// </summary>
-    [EnumType]
-    public readonly struct InventoryType : IEquatable<InventoryType>
-    {
-        private readonly string _value;
-
-        private InventoryType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static InventoryType ResourcePool { get; } = new InventoryType("ResourcePool");
-        public static InventoryType VirtualMachine { get; } = new InventoryType("VirtualMachine");
-        public static InventoryType VirtualMachineTemplate { get; } = new InventoryType("VirtualMachineTemplate");
-        public static InventoryType VirtualNetwork { get; } = new InventoryType("VirtualNetwork");
-        public static InventoryType Cluster { get; } = new InventoryType("Cluster");
-        public static InventoryType Datastore { get; } = new InventoryType("Datastore");
-        public static InventoryType Host { get; } = new InventoryType("Host");
-
-        public static bool operator ==(InventoryType left, InventoryType right) => left.Equals(right);
-        public static bool operator !=(InventoryType left, InventoryType right) => !left.Equals(right);
-
-        public static explicit operator string(InventoryType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is InventoryType other && Equals(other);
-        public bool Equals(InventoryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// NIC type
     /// </summary>
     [EnumType]

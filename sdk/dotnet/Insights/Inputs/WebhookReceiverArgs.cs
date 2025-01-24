@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public Input<string>? IdentifierUri { get; set; }
 
         /// <summary>
+        /// The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        /// </summary>
+        [Input("managedIdentity")]
+        public Input<string>? ManagedIdentity { get; set; }
+
+        /// <summary>
         /// The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
         /// </summary>
         [Input("name", required: true)]

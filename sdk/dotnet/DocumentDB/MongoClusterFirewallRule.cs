@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// Represents a mongo cluster firewall rule.
-    /// Azure REST API version: 2023-03-15-preview.
+    /// Azure REST API version: 2024-02-15-preview. Prior API version in Azure Native 1.x: 2023-03-15-preview.
     /// 
-    /// Other available API versions: 2023-09-15-preview, 2023-11-15-preview, 2024-02-15-preview.
+    /// Other available API versions: 2023-03-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:MongoClusterFirewallRule")]
     public partial class MongoClusterFirewallRule : global::Pulumi.CustomResource
@@ -84,10 +84,6 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20231115preview:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240215preview:MongoClusterFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240301preview:MongoClusterFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240601preview:MongoClusterFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240701:MongoClusterFirewallRule" },
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241001preview:MongoClusterFirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

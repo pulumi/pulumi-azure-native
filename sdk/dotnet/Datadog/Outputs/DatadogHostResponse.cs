@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Datadog.Outputs
     public sealed class DatadogHostResponse
     {
         /// <summary>
-        /// The aliases for the host.
+        /// The aliases for the host installed via the Datadog agent.
         /// </summary>
         public readonly ImmutableArray<string> Aliases;
         /// <summary>

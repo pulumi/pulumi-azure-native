@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the capacity reservation group that the capacity reservations should be assigned to. Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-04-01.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2023-03-01.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    /// Other available API versions: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CapacityReservationGroup")]
     public partial class CapacityReservationGroup : global::Pulumi.CustomResource
@@ -41,6 +41,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        /// </summary>
+        [Output("sharingProfile")]
+        public Output<Outputs.ResourceSharingProfileResponse?> SharingProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -142,6 +148,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        /// </summary>
+        [Input("sharingProfile")]
+        public Input<Inputs.ResourceSharingProfileArgs>? SharingProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

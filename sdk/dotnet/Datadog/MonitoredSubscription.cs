@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Datadog
 {
     /// <summary>
     /// The request to update subscriptions needed to be monitored by the Datadog monitor resource.
-    /// Azure REST API version: 2023-01-01.
+    /// Azure REST API version: 2023-10-20. Prior API version in Azure Native 1.x: 2023-01-01.
     /// 
-    /// Other available API versions: 2023-07-07, 2023-10-20.
+    /// Other available API versions: 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datadog:MonitoredSubscription")]
     public partial class MonitoredSubscription : global::Pulumi.CustomResource

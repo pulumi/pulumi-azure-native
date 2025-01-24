@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string HttpTriggerUrl;
         /// <summary>
+        /// The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        /// </summary>
+        public readonly string? ManagedIdentity;
+        /// <summary>
         /// The name of the azure function receiver. Names must be unique across all receivers within an action group.
         /// </summary>
         public readonly string Name;
@@ -45,6 +49,8 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
             string httpTriggerUrl,
 
+            string? managedIdentity,
+
             string name,
 
             bool? useCommonAlertSchema)
@@ -52,6 +58,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
             FunctionAppResourceId = functionAppResourceId;
             FunctionName = functionName;
             HttpTriggerUrl = httpTriggerUrl;
+            ManagedIdentity = managedIdentity;
             Name = name;
             UseCommonAlertSchema = useCommonAlertSchema;
         }

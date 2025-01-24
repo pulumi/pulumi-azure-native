@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// Gets the properties of the export pipeline.
         /// Azure REST API version: 2023-01-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2024-11-01-preview.
         /// </summary>
         public static Task<GetExportPipelineResult> InvokeAsync(GetExportPipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportPipelineResult>("azure-native:containerregistry:getExportPipeline", args ?? new GetExportPipelineArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// Gets the properties of the export pipeline.
         /// Azure REST API version: 2023-01-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2024-11-01-preview.
         /// </summary>
         public static Output<GetExportPipelineResult> Invoke(GetExportPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportPipelineResult>("azure-native:containerregistry:getExportPipeline", args ?? new GetExportPipelineInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// Gets the properties of the export pipeline.
         /// Azure REST API version: 2023-01-01-preview.
         /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Other available API versions: 2024-11-01-preview.
         /// </summary>
         public static Output<GetExportPipelineResult> Invoke(GetExportPipelineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportPipelineResult>("azure-native:containerregistry:getExportPipeline", args ?? new GetExportPipelineInvokeArgs(), options.WithDefaults());

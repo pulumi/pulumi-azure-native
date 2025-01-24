@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// A private endpoint connection
-    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-08-27.
+    /// Azure REST API version: 2024-04-13. Prior API version in Azure Native 1.x: 2022-12-29.
     /// 
-    /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+    /// Other available API versions: 2022-12-29.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<Inputs.PrivateLinkServiceConnectionStatePropertyArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

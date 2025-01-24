@@ -19,12 +19,12 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// <summary>
         /// The facilities cost.
         /// </summary>
-        public readonly double FacilitiesCost;
+        public readonly double? FacilitiesCostPerKwh;
 
         [OutputConstructor]
-        private FacilitySettingsResponse(double facilitiesCost)
+        private FacilitySettingsResponse(double? facilitiesCostPerKwh)
         {
-            FacilitiesCost = facilitiesCost;
+            FacilitiesCostPerKwh = facilitiesCostPerKwh;
         }
     }
 }

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A replication link.
-    /// Azure REST API version: 2023-05-01-preview.
+    /// Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 1.x: 2023-05-01-preview.
     /// 
-    /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+    /// Other available API versions: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ReplicationLink")]
     public partial class ReplicationLink : global::Pulumi.CustomResource

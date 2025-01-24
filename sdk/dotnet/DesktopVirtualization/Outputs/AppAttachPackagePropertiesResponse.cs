@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
         /// </summary>
         public readonly Outputs.AppAttachPackageInfoPropertiesResponse? Image;
         /// <summary>
-        /// URL of keyvault location to store certificate
+        /// URL path to certificate name located in keyVault
         /// </summary>
         public readonly string? KeyVaultURL;
         /// <summary>

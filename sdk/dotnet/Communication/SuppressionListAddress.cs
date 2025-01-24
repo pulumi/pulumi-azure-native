@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Communication
 {
     /// <summary>
     /// A object that represents a SuppressionList record.
-    /// Azure REST API version: 2023-06-01-preview.
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:SuppressionListAddress")]
     public partial class SuppressionListAddress : global::Pulumi.CustomResource

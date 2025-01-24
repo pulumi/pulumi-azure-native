@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.ApiCenter
 {
     /// <summary>
     /// Environment entity.
-    /// Azure REST API version: 2024-03-01.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 1.x: 2024-03-01.
     /// 
-    /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    /// Other available API versions: 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apicenter:Environment")]
     public partial class Environment : global::Pulumi.CustomResource

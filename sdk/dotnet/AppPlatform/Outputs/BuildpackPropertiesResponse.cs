@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// Id of the buildpack
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Version of the buildpack
+        /// </summary>
+        public readonly string Version;
 
         [OutputConstructor]
-        private BuildpackPropertiesResponse(string? id)
+        private BuildpackPropertiesResponse(
+            string? id,
+
+            string version)
         {
             Id = id;
+            Version = version;
         }
     }
 }

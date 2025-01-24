@@ -17,10 +17,14 @@ namespace Pulumi.AzureNative.Insights.Outputs
     public sealed class WindowsFirewallLogsDataSourceResponse
     {
         /// <summary>
-        /// A friendly name for the data source. 
+        /// A friendly name for the data source.
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Firewall logs profile filter
+        /// </summary>
+        public readonly ImmutableArray<string> ProfileFilter;
         /// <summary>
         /// Firewall logs streams
         /// </summary>
@@ -30,9 +34,12 @@ namespace Pulumi.AzureNative.Insights.Outputs
         private WindowsFirewallLogsDataSourceResponse(
             string? name,
 
+            ImmutableArray<string> profileFilter,
+
             ImmutableArray<string> streams)
         {
             Name = name;
+            ProfileFilter = profileFilter;
             Streams = streams;
         }
     }

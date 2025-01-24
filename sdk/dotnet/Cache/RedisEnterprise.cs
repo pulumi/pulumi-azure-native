@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
-    /// Describes the RedisEnterprise cluster
-    /// Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01.
+    /// Describes the Redis Enterprise cluster
+    /// Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 1.x: 2023-03-01-preview.
     /// 
-    /// Other available API versions: 2020-10-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+    /// Other available API versions: 2020-10-01-preview, 2023-03-01-preview, 2023-10-01-preview, 2024-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:RedisEnterprise")]
     public partial class RedisEnterprise : global::Pulumi.CustomResource
@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.ClusterPropertiesResponseEncryption?> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+        /// </summary>
+        [Output("highAvailability")]
+        public Output<string?> HighAvailability { get; private set; } = null!;
 
         /// <summary>
         /// DNS name of the cluster endpoint
@@ -37,13 +43,19 @@ namespace Pulumi.AzureNative.Cache
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Distinguishes the kind of cluster. Read-only.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
         /// </summary>
         [Output("minimumTlsVersion")]
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
@@ -55,7 +67,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of private endpoint connections associated with the specified RedisEnterprise cluster
+        /// List of private endpoint connections associated with the specified Redis Enterprise cluster
         /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
@@ -73,6 +85,12 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> RedisVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Explains the current redundancy strategy of the cluster, which affects the expected SLA.
+        /// </summary>
+        [Output("redundancyMode")]
+        public Output<string> RedundancyMode { get; private set; } = null!;
+
+        /// <summary>
         /// Current resource status of the cluster
         /// </summary>
         [Output("resourceState")]
@@ -83,12 +101,6 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("sku")]
         public Output<Outputs.EnterpriseSkuResponse> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -173,7 +185,7 @@ namespace Pulumi.AzureNative.Cache
     public sealed class RedisEnterpriseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the RedisEnterprise cluster.
+        /// The name of the Redis Enterprise cluster.
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
@@ -183,6 +195,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.ClusterPropertiesEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+        /// </summary>
+        [Input("highAvailability")]
+        public InputUnion<string, Pulumi.AzureNative.Cache.HighAvailability>? HighAvailability { get; set; }
 
         /// <summary>
         /// The identity of the resource.
@@ -197,7 +215,7 @@ namespace Pulumi.AzureNative.Cache
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
         /// </summary>
         [Input("minimumTlsVersion")]
         public InputUnion<string, Pulumi.AzureNative.Cache.TlsVersion>? MinimumTlsVersion { get; set; }

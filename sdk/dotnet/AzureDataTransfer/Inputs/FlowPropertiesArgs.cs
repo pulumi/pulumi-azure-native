@@ -22,10 +22,40 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Inputs
         public Input<Inputs.SelectedResourceArgs>? Connection { get; set; }
 
         /// <summary>
+        /// The URI to the customer managed key for this flow
+        /// </summary>
+        [Input("customerManagedKeyVaultUri")]
+        public Input<string>? CustomerManagedKeyVaultUri { get; set; }
+
+        /// <summary>
         /// Transfer Storage Blobs or Tables
         /// </summary>
         [Input("dataType")]
         public InputUnion<string, Pulumi.AzureNative.AzureDataTransfer.DataType>? DataType { get; set; }
+
+        [Input("destinationEndpointPorts")]
+        private InputList<double>? _destinationEndpointPorts;
+
+        /// <summary>
+        /// The destination endpoint ports of the stream
+        /// </summary>
+        public InputList<double> DestinationEndpointPorts
+        {
+            get => _destinationEndpointPorts ?? (_destinationEndpointPorts = new InputList<double>());
+            set => _destinationEndpointPorts = value;
+        }
+
+        [Input("destinationEndpoints")]
+        private InputList<string>? _destinationEndpoints;
+
+        /// <summary>
+        /// The destination endpoints of the stream
+        /// </summary>
+        public InputList<string> DestinationEndpoints
+        {
+            get => _destinationEndpoints ?? (_destinationEndpoints = new InputList<string>());
+            set => _destinationEndpoints = value;
+        }
 
         /// <summary>
         /// The flow type for this flow
@@ -38,6 +68,18 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Inputs
         /// </summary>
         [Input("keyVaultUri")]
         public Input<string>? KeyVaultUri { get; set; }
+
+        /// <summary>
+        /// The messaging options for this flow
+        /// </summary>
+        [Input("messagingOptions")]
+        public Input<Inputs.MessagingOptionsArgs>? MessagingOptions { get; set; }
+
+        /// <summary>
+        /// The passphrase used for SRT streams
+        /// </summary>
+        [Input("passphrase")]
+        public Input<string>? Passphrase { get; set; }
 
         [Input("policies")]
         private InputList<string>? _policies;
@@ -64,6 +106,12 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Inputs
         public Input<string>? ServiceBusQueueId { get; set; }
 
         /// <summary>
+        /// The source IP address and CIDR ranges of the stream
+        /// </summary>
+        [Input("sourceAddresses")]
+        public Input<Inputs.StreamSourceAddressesArgs>? SourceAddresses { get; set; }
+
+        /// <summary>
         /// Status of the current flow
         /// </summary>
         [Input("status")]
@@ -86,6 +134,24 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Inputs
         /// </summary>
         [Input("storageContainerName")]
         public Input<string>? StorageContainerName { get; set; }
+
+        /// <summary>
+        /// The flow stream identifier
+        /// </summary>
+        [Input("streamId")]
+        public Input<string>? StreamId { get; set; }
+
+        /// <summary>
+        /// The latency of the stream in milliseconds
+        /// </summary>
+        [Input("streamLatency")]
+        public Input<double>? StreamLatency { get; set; }
+
+        /// <summary>
+        /// The protocol of the stream
+        /// </summary>
+        [Input("streamProtocol")]
+        public InputUnion<string, Pulumi.AzureNative.AzureDataTransfer.StreamProtocol>? StreamProtocol { get; set; }
 
         public FlowPropertiesArgs()
         {

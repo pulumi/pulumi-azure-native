@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConnectedCache
 {
     /// <summary>
     /// Represents the high level Nodes needed to provision customer resources
-    /// Azure REST API version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedcache:EnterpriseMccCustomer")]
     public partial class EnterpriseMccCustomer : global::Pulumi.CustomResource
