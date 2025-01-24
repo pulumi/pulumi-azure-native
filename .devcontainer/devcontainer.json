@@ -1,0 +1,47 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
+{
+	"name": "pulumi-azure-native",
+	"image": "mcr.microsoft.com/devcontainers/dotnet:6.0",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+        // "ghcr.io/devcontainers/features/common-utils:2": {},
+        "ghcr.io/devcontainers/features/azure-cli:1": {},
+        // "ghcr.io/devcontainers/features/dotnet:2": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/go:1": {
+            "version": "1.23"
+        }
+    },
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {},
+			"extensions": []
+		}
+	},
+
+	// Use 'portsAttributes' to set default properties for specific forwarded ports. 
+	// More info: https://containers.dev/implementors/json_reference/#port-attributes
+	"portsAttributes": {
+		// "5000": {
+		// 	"label": "Hello Remote World",
+		// 	"onAutoForward": "notify"
+		// },
+		// "5001": {
+		// 	"protocol": "https"
+		// }
+	}
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [5000, 5001],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "dotnet restore",
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
