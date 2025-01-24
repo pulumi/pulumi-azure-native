@@ -286,9 +286,9 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	for moduleName, moduleVersions := range util.MapOrdered(modules) {
 		resourcePaths := map[openapi.ResourceName]map[string][]openapi.ApiVersion{}
 
-		versions := util.SortedKeys(moduleVersions)
+		allVersions := util.SortedKeys(moduleVersions)
 		// The version in the parsed module is "" for the default version.
-		for _, moduleVersion := range versions {
+		for moduleVersion, versionResources := range util.MapOrdered(moduleVersions) {
 			var sdkVersion openapi.SdkVersion
 			var apiVersion *openapi.ApiVersion
 			if moduleVersion.IsDefault() {
@@ -305,7 +305,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 				moduleName:                 moduleName,
 				apiVersion:                 apiVersion,
 				sdkVersion:                 sdkVersion,
-				allVersions:                versions,
+				allVersions:                allVersions,
 				examples:                   exampleMap,
 				versioning:                 versioning,
 				caseSensitiveTypes:         caseSensitiveTypes,
@@ -328,16 +328,8 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 			golangImportAliases[goModuleName(gen.moduleName, gen.sdkVersion)] = moduleName.Lowered()
 
 			// Populate resources and get invokes.
-			items := moduleVersions[moduleVersion]
-			var resources []string
-			for resource := range items.Resources {
-				resources = append(resources, resource)
-			}
-			sort.Strings(resources)
-
-			for _, typeName := range resources {
-				resource := items.Resources[typeName]
-				nestedResourceBodyRefs := findNestedResourceBodyRefs(resource, items.Resources)
+			for typeName, resource := range util.MapOrdered(versionResources.Resources) {
+				nestedResourceBodyRefs := findNestedResourceBodyRefs(resource, versionResources.Resources)
 				err := gen.genResources(typeName, resource, nestedResourceBodyRefs)
 				if err != nil {
 					return nil, err
@@ -345,7 +337,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 			}
 
 			// Populate invokes.
-			gen.genInvokes(items.Invokes)
+			gen.genInvokes(versionResources.Invokes)
 
 			forceNewTypes = append(forceNewTypes, gen.forceNewTypes...)
 			gen.mergeResourcePathsInto(resourcePaths)
