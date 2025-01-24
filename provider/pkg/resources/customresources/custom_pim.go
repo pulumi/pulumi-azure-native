@@ -12,16 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
+// OriginalStateKey is an internal key in the state of a PIM Role Management Policy that contains the original state of the policy.
 const OriginalStateKey = "__orig_state"
 
-type Rule struct {
-	Id string
-}
-
-type PolicyWithRules struct {
-	Rules []Rule
-}
-
+// pimRoleManagementPolicy returns a custom resource for
+// [PIM Role Management Policies](https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-add-role-to-user#next-steps).
+// The custom resource uses the existing schema and metadata for the resource
+// azure-native:authorization:RoleManagementPolicy from the Azure spec. The CRUD methods are custom because Role
+// Management Policies cannot be created or deleted, just modified resp. restored to their default state. Azure doesn't
+// provide a way to get the default state of a policy, so we need to store it in the state of the resource.
+//
+// Note also the [license requirements](https://learn.microsoft.com/en-us/entra/id-governance/licensing-fundamentals#valid-licenses-for-pim).
 func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudClientFactory crud.ResourceCrudClientFactory) (*CustomResource, error) {
 	// A bit of a hack to initialize some resource. This func's parameters are all nil when the
 	// function is called for the first time, for customresources.featureLookup, which is ok but
@@ -43,7 +44,8 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 	}
 
 	return &CustomResource{
-		path: "/{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}",
+		isSingleton: true,
+		path:        "/{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}",
 
 		// PIM Role Management Policies cannot be created. Instead, each resource has a default policy.
 		// But we need to allow the user to create the Pulumi resource, so we return true here and then
@@ -74,15 +76,13 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 				return nil, err
 			}
 
-			// TODO sort rules?
-
 			outputs := client.ResponseBodyToSdkOutputs(resp)
 			outputs[OriginalStateKey] = originalState
 			return outputs, nil
 		},
 
-		// Tricky because rules can be removed from the list of rules of the policy, but simply removing them from the
-		// request will leave them in their current state, not the default state.
+		// When rules are removed from the PIM policy, simply removing them from the rules in the update request will
+		// leave them in their current state. Therefore, we need to restore deleted rules to their original values.
 		Update: func(ctx context.Context, id string, news, olds resource.PropertyMap) (map[string]any, error) {
 			if !olds.HasValue(OriginalStateKey) {
 				logging.V(3).Infof("Warning: no original state found for %s, cannot reset deleted rules", id)
@@ -109,46 +109,55 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 		},
 
 		// PIM Role Management Policies cannot be deleted. Instead, we reset the policy to its default.
-		Delete: func(ctx context.Context, id string, properties, state resource.PropertyMap) error {
+		Delete: func(ctx context.Context, id string, previousInputs, state resource.PropertyMap) error {
+			req, err := prepareUpdateRequestForDelete(client, id, res.Path, state)
+			if err != nil {
+				return err
+			}
+
 			queryParams := map[string]any{"api-version": client.ApiVersion()}
-			if !state.HasValue(OriginalStateKey) {
-				logging.V(3).Infof("Warning: no original state found for %s, cannot reset", id)
-				return nil
-			}
 
-			origState := state[OriginalStateKey].Mappable().(map[string]any)
-			pathItems, err := resources.ParseResourceID(id, res.Path)
-			if err != nil {
-				return err
-			}
-			origSdkInputs := client.ResponseToSdkInputs(pathItems, origState)
-			origRequest, err := client.SdkInputsToRequestBody(origSdkInputs, id)
-			if err != nil {
-				return err
-			}
-
-			_, _, err = client.CreateOrUpdate(ctx, id, origRequest, queryParams)
+			_, _, err = client.CreateOrUpdate(ctx, id, req, queryParams)
 			return err
 		},
 	}, nil
 }
 
+func prepareUpdateRequestForDelete(client crud.ResourceCrudClient, id, resourcePath string, state resource.PropertyMap) (map[string]any, error) {
+	origState, err := getOriginalState(state)
+	if err != nil {
+		return nil, err
+	}
+	pathItems, err := resources.ParseResourceID(id, resourcePath)
+	if err != nil {
+		return nil, err
+	}
+	sdkInputs := client.ResponseToSdkInputs(pathItems, origState.Mappable())
+	req, err := client.SdkInputsToRequestBody(sdkInputs, id)
+	if err != nil {
+		return nil, err
+	}
+	return req, nil
+}
+
 // restoreDefaultsForDeletedRules restores the original values for rules that were deleted from the policy.
 // For each rule in olds that's not in news, it looks up the original rule in olds and adds it to news.
-func restoreDefaultsForDeletedRules(olds, news resource.PropertyMap) {
+func restoreDefaultsForDeletedRules(olds, news resource.PropertyMap) error {
 	oldRules := mapRulesById(olds)
 	if len(oldRules) == 0 {
-		return
+		return nil
 	}
 
 	newRules := mapRulesById(news)
 
-	origState := olds[OriginalStateKey].ObjectValue()
-	if !origState.HasValue("properties") {
-		logging.V(3).Infof("Warning: restoreDefaultsForDeletedRules: no 'properties' in original state")
-		return
+	origState, err := getOriginalState(olds)
+	if err != nil {
+		return err
 	}
-	origRules := mapRulesById(origState["properties"].ObjectValue())
+	if !origState.HasValue("properties") {
+		return fmt.Errorf("[PIM] restoreDefaultsForDeletedRules: original state to restore has no 'properties'")
+	}
+	origProperties := mapRulesById(origState["properties"].ObjectValue())
 
 	newRulesList := []resource.PropertyValue{}
 	if len(newRules) > 0 {
@@ -157,7 +166,7 @@ func restoreDefaultsForDeletedRules(olds, news resource.PropertyMap) {
 
 	for id := range oldRules {
 		if _, ok := newRules[id]; !ok {
-			if origRule, ok := origRules[id]; ok {
+			if origRule, ok := origProperties[id]; ok {
 				newRulesList = append(newRulesList, origRule)
 			} else {
 				logging.V(3).Infof("Warning: restoreDefaultsForDeletedRules: rule %s not found in original state", id)
@@ -167,6 +176,15 @@ func restoreDefaultsForDeletedRules(olds, news resource.PropertyMap) {
 
 	sortRules(newRulesList)
 	news["rules"] = resource.NewArrayProperty(newRulesList)
+	return nil
+}
+
+func getOriginalState(state resource.PropertyMap) (resource.PropertyMap, error) {
+	origStateRaw, ok := state[OriginalStateKey]
+	if !ok {
+		return nil, fmt.Errorf("[PIM] restoreDefaultsForDeletedRules: no original state to restore")
+	}
+	return origStateRaw.ObjectValue(), nil
 }
 
 func sortRules(rules []resource.PropertyValue) {
@@ -177,6 +195,7 @@ func sortRules(rules []resource.PropertyValue) {
 	})
 }
 
+// Put each rule $r in `managementPolicy["rules"]` into a `map[$r.id]$r`.
 func mapRulesById(managementPolicy resource.PropertyMap) map[string]resource.PropertyValue {
 	if !managementPolicy.HasValue("rules") {
 		return nil

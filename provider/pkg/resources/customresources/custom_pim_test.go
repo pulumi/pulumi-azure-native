@@ -1,8 +1,13 @@
 package customresources
 
 import (
+	"encoding/json"
 	"testing"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/deepcopy"
 	"github.com/stretchr/testify/assert"
@@ -111,5 +116,100 @@ func TestRestoreDefaultsForDeletedRules(t *testing.T) {
 			},
 			newsPropertyMap["rules"].ArrayValue(),
 		)
+	})
+}
+
+func TestPrepareDeleteRequest(t *testing.T) {
+	// A minimal copy of the actual resource metadata, reduced to what's needed for the test.
+	roleManagementPolicyResourceMetadata := &resources.AzureAPIResource{
+		APIVersion:   "2024-09-01-preview",
+		Path:         "/{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}",
+		UpdateMethod: "PATCH",
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Name:     "scope",
+				Location: "path",
+			},
+			{
+				Name:     "roleManagementPolicyName",
+				Location: "path",
+			},
+			{
+				Name:     "parameters",
+				Location: "body",
+				// IsRequired: true,
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"description": {
+							Type:       "string",
+							Containers: []string{"properties"},
+						},
+						"displayName": {
+							Type:       "string",
+							Containers: []string{"properties"},
+						},
+						"isOrganizationDefault": {
+							Type:       "boolean",
+							Containers: []string{"properties"},
+						},
+						"rules": {
+							Type: "array",
+							Items: &resources.AzureAPIProperty{
+								OneOf: []string{"#/types/azure-native:authorization:RoleManagementPolicyExpirationRule"},
+							},
+							Containers: []string{"properties"},
+						},
+						"scope": {
+							Type:       "string",
+							Containers: []string{"properties"},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	sdkShapeConverter := convert.NewSdkShapeConverterFull(nil)
+	client := crud.NewResourceCrudClient(&azure.MockAzureClient{}, nil, &sdkShapeConverter, "123", roleManagementPolicyResourceMetadata)
+
+	id := "/subscriptions/123/providers/Microsoft.Authorization/roleManagementPolicies/policy1"
+	resourcePath := "/{scope}/providers/Microsoft.Authorization/roleManagementPolicies/{roleManagementPolicyName}"
+
+	t.Run("happy path", func(t *testing.T) {
+		state := resource.NewPropertyMapFromMap(map[string]any{
+			OriginalStateKey: map[string]any{
+				"properties": map[string]any{
+					"rules": []map[string]any{
+						{"id": "rule1", "isExpirationRequired": false},
+						{"id": "rule2"},
+					},
+				},
+			},
+		})
+
+		req, err := prepareUpdateRequestForDelete(client, id, resourcePath, state)
+		require.NoError(t, err)
+
+		jsonReq, err := json.Marshal(req)
+		require.NoError(t, err)
+
+		expectedJson, err := json.Marshal(map[string]any{
+			"properties": map[string]any{
+				"rules": []map[string]any{
+					{"id": "rule1", "isExpirationRequired": false},
+					{"id": "rule2"},
+				},
+				"scope": "subscriptions/123",
+			},
+		})
+		require.NoError(t, err)
+
+		assert.JSONEq(t, string(expectedJson), string(jsonReq))
+	})
+
+	t.Run("no saved state", func(t *testing.T) {
+		state := resource.PropertyMap{}
+		_, err := prepareUpdateRequestForDelete(client, id, resourcePath, state)
+		require.Error(t, err)
 	})
 }
