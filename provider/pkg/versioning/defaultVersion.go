@@ -57,8 +57,7 @@ type CurationViolation struct {
 
 func ValidateDefaultConfig(config Spec, curations Curations) []CurationViolation {
 	var violations []CurationViolation
-	for _, moduleName := range util.SortedKeys(config) {
-		moduleSpec := config[moduleName]
+	for moduleName, moduleSpec := range util.MapOrdered(config) {
 		moduleCuration := curations[moduleName]
 		expectedTracking := moduleCuration.ExpectTracking
 		if expectedTracking == "" {
@@ -150,8 +149,7 @@ func DefaultVersionsFromConfig(spec ModuleVersionResources, defaultConfig Spec) 
 
 		if moduleConfig.Tracking != nil {
 			trackingDefinitions := versionResources[*moduleConfig.Tracking]
-			for _, definitionName := range util.SortedKeys(trackingDefinitions) {
-				definition := trackingDefinitions[definitionName]
+			for definitionName, definition := range util.MapOrdered(trackingDefinitions) {
 				definitions[definitionName] = definition
 			}
 		}
@@ -200,7 +198,7 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 	var trackingResources codegen.StringSet
 	if existing.Tracking != nil {
 		trackingPtr = existing.Tracking
-		trackingResources = codegen.NewStringSet(util.SortedKeys(versions[*trackingPtr])...)
+		trackingResources = codegen.NewStringSet(util.UnsortedKeys(versions[*trackingPtr])...)
 	} else if !moduleCuration.Explicit {
 		// Take the latest version as the new tracking version
 		maxVersion := maxKey(latestVersions)
@@ -226,8 +224,7 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 		if !moduleCuration.Explicit && (trackingPtr == nil || apiVersion == *trackingPtr) {
 			continue
 		}
-		for _, definitionName := range util.SortedKeys(definitions) {
-			definition := definitions[definitionName]
+		for definitionName, definition := range util.MapOrdered(definitions) {
 			isExcluded, exclusionErr := moduleCuration.IsExcluded(definitionName, apiVersion)
 			if exclusionErr != nil {
 				exclusionErrors = append(exclusionErrors, ExclusionError{
@@ -419,8 +416,9 @@ func findMinimalVersionSet(versions VersionResources) *collections.OrderableSet[
 	for _, version := range orderedVersions {
 		definitions := versions[version]
 		for _, definitionName := range util.SortedKeys(definitions) {
-			latestVersion := latestResourceVersions[definitionName]
-			if openapi.CompareApiVersions(version, latestVersion) > 0 {
+			latestVersion, hasLatestVersion := latestResourceVersions[definitionName]
+			// Insert or update if newer
+			if !hasLatestVersion || openapi.CompareApiVersions(version, latestVersion) > 0 {
 				latestResourceVersions[definitionName] = version
 			}
 		}

@@ -283,9 +283,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	resourcesPathTracker := newResourcesPathConflictsTracker()
 
-	for _, moduleName := range util.SortedKeys(modules) {
-		moduleVersions := modules[moduleName]
-
+	for moduleName, moduleVersions := range util.MapOrdered(modules) {
 		resourcePaths := map[openapi.ResourceName]map[string][]openapi.ApiVersion{}
 
 		versions := util.SortedKeys(moduleVersions)

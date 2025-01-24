@@ -190,8 +190,7 @@ func findPathChanges(modules openapi.AzureModules,
 	result := []PathChange{}
 	missingPreviousDefaultVersions := []MissingExpectedResourceVersion{}
 
-	for _, moduleName := range util.SortedKeys(defaultVersions) {
-		resources := defaultVersions[moduleName]
+	for moduleName, resources := range util.MapOrdered(defaultVersions) {
 		previousResources, ok := previousDefaultVersions[moduleName]
 		if !ok {
 			continue

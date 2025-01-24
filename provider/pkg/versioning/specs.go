@@ -19,8 +19,7 @@ func FindAllResources(moduleVersions openapi.AzureModules) ModuleVersionResource
 		for version, resources := range versions {
 			specResources := map[openapi.DefinitionName]openapi.DefinitionVersion{}
 			definitions := resources.All()
-			for _, definitionName := range util.SortedKeys(definitions) {
-				spec := definitions[definitionName]
+			for definitionName, spec := range util.MapOrdered(definitions) {
 				specResources[definitionName] = openapi.DefinitionVersion{
 					ApiVersion:   version,
 					SpecFilePath: spec.FileLocation,
