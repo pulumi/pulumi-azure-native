@@ -499,10 +499,8 @@ func findResourcePutBodyTypeRef(resource *openapi.ResourceSpec) (string, bool) {
 }
 
 func findNestedResources(resource *openapi.ResourceSpec, resourceSpecs map[string]*openapi.ResourceSpec) []*openapi.ResourceSpec {
-	orderedNames := codegen.SortedKeys(resourceSpecs)
 	var nestedResourceSpecs []*openapi.ResourceSpec
-	for _, otherResourceName := range orderedNames {
-		otherResource := resourceSpecs[otherResourceName]
+	for _, otherResource := range util.MapOrdered(resourceSpecs) {
 		// Ignore self
 		if otherResource.Path == resource.Path {
 			continue
@@ -632,10 +630,8 @@ func normalizePackage(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMeta
 	resources.VisitPackageSpecTypes(pkg, visitor)
 
 	// Elide unused types.
-	allTypeNames := codegen.SortedKeys(pkg.Types)
-	for _, typeName := range allTypeNames {
+	for typeName, t := range util.MapOrdered(pkg.Types) {
 		if !usedTypes[typeName] {
-			t := pkg.Types[typeName]
 			if len(t.Enum) > 0 {
 				continue
 			}
@@ -1104,11 +1100,9 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 	}
 
 	examples := raw.(map[string]interface{})
-	sortedExampleKeys := codegen.SortedKeys(examples)
 
 	result := make([]resources.AzureAPIExample, 0, len(examples))
-	for _, k := range sortedExampleKeys {
-		v := examples[k]
+	for k, v := range util.MapOrdered(examples) {
 		resolved := v.(map[string]interface{})
 		if _, ok := resolved["$ref"]; !ok {
 			continue

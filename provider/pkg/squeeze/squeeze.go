@@ -8,7 +8,7 @@ import (
 
 	mapset "github.com/deckarep/golang-set/v2"
 
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
@@ -28,10 +28,8 @@ func CompareAll(sch *schema.PackageSpec) (map[string]string, error) {
 		}
 	}
 
-	sortedKeys := codegen.SortedKeys(resourceMap)
 	replacements := map[string]string{}
-	for _, name := range sortedKeys {
-		group := resourceMap[name]
+	for _, group := range util.MapOrdered(resourceMap) {
 		unique := calculateUniqueVersions(sch, group)
 		reduced := group.Difference(unique)
 		for k := range reduced.Iter() {

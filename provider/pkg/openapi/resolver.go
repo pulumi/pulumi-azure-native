@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/go-openapi/swag"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 )
 
 // ReferenceContext contains a pointer to a swagger schema and can navigate references from that schema.
@@ -191,8 +191,7 @@ func (ctx *ReferenceContext) ResolveSchema(s *spec.Schema) (*Schema, error) {
 // - The search is applied recursively and all types along `allOf` hiereachy are returned.
 func (ctx *ReferenceContext) FindSubtypes() ([]*spec.Schema, error) {
 	var schemas []*spec.Schema
-	for _, name := range codegen.SortedKeys(ctx.swagger.Definitions) {
-		def := ctx.swagger.Definitions[name]
+	for name, def := range util.MapOrdered(ctx.swagger.Definitions) {
 		subTypes, err := ctx.recursiveAllOf(&def)
 		if err != nil {
 			return nil, err

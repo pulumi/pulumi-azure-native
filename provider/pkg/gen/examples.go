@@ -56,7 +56,7 @@ type resourceImportRenderData struct {
 // Examples renders Azure API examples to the pkgSpec for the specified list of languages.
 func Examples(rootDir string, pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 	resExamples map[string][]resources.AzureAPIExample, languages []string) error {
-	sortedKeys := codegen.SortedKeys(pkgSpec.Resources) // To generate in deterministic order
+	sortedKeys := util.SortedKeys(pkgSpec.Resources) // To generate in deterministic order
 
 	// Use a progress bar to show progress since this can be a long running process
 	bar := progressbar.Default(int64(len(sortedKeys)), "Resources processed:")
@@ -155,9 +155,7 @@ func Examples(rootDir string, pkgSpec *schema.PackageSpec, metadata *resources.A
 					continue
 				}
 
-				keys := codegen.SortedKeys(flattened)
-				for _, k := range keys {
-					v := flattened[k]
+				for k, v := range util.MapOrdered(flattened) {
 					val, err := pcl.RenderValue(v)
 					if err != nil {
 						return err
@@ -215,11 +213,11 @@ func extractExampleResponseNameId(exampleJSON map[string]interface{}) (string, s
 	if exampleResponses, ok := exampleJSON["responses"].(map[string]interface{}); ok {
 		responseBodies := make([]map[string]interface{}, len(exampleResponses))
 		// Sort to deterministically pick the same response for reproducable schemas.
-		statusCodes := codegen.SortedKeys(exampleResponses)
-		for _, statusCode := range statusCodes {
-			responseMap := exampleResponses[statusCode].(map[string]interface{})
-			if body, ok := responseMap["body"].(map[string]interface{}); ok {
-				responseBodies = append(responseBodies, body)
+		for _, response := range util.MapOrdered(exampleResponses) {
+			if responseMap, ok := response.(map[string]interface{}); ok {
+				if body, ok := responseMap["body"].(map[string]interface{}); ok {
+					responseBodies = append(responseBodies, body)
+				}
 			}
 		}
 
