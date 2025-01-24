@@ -15,7 +15,6 @@ import * as v20220601 from "./v20220601";
 import * as v20220701preview from "./v20220701preview";
 import * as v20230401 from "./v20230401";
 import * as v20240401 from "./v20240401";
-import * as v20240501 from "./v20240501";
 import * as v20250101 from "./v20250101";
 
 export {
@@ -32,7 +31,6 @@ export {
     v20220701preview,
     v20230401,
     v20240401,
-    v20240501,
     v20250101,
 };
 
@@ -85,6 +83,18 @@ export const AssignmentScopeValidation = {
  * The option whether validate the exemption is at or under the assignment scope.
  */
 export type AssignmentScopeValidation = (typeof AssignmentScopeValidation)[keyof typeof AssignmentScopeValidation];
+
+export const AssignmentType = {
+    NotSpecified: "NotSpecified",
+    System: "System",
+    SystemHidden: "SystemHidden",
+    Custom: "Custom",
+} as const;
+
+/**
+ * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
+ */
+export type AssignmentType = (typeof AssignmentType)[keyof typeof AssignmentType];
 
 export const DefaultDecisionType = {
     Approve: "Approve",

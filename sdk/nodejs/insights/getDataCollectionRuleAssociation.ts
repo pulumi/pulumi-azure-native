@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of generic ARM proxy resource.
- * Azure REST API version: 2022-06-01.
+ * Azure REST API version: 2023-03-11.
  *
- * Other available API versions: 2023-03-11.
+ * Other available API versions: 2022-06-01.
  */
 export function getDataCollectionRuleAssociation(args: GetDataCollectionRuleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -79,9 +79,9 @@ export interface GetDataCollectionRuleAssociationResult {
 }
 /**
  * Definition of generic ARM proxy resource.
- * Azure REST API version: 2022-06-01.
+ * Azure REST API version: 2023-03-11.
  *
- * Other available API versions: 2023-03-11.
+ * Other available API versions: 2022-06-01.
  */
 export function getDataCollectionRuleAssociationOutput(args: GetDataCollectionRuleAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCollectionRuleAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

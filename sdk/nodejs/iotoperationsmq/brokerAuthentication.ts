@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * MQ broker/authentication resource
- * Azure REST API version: 2023-10-04-preview.
+ * Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 1.x: 2023-10-04-preview.
  */
 export class BrokerAuthentication extends pulumi.CustomResource {
     /**

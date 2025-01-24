@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
- * Azure REST API version: 2023-04-15.
+ * Azure REST API version: 2024-11-15.
  *
- * Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+ * Other available API versions: 2023-04-15, 2023-09-15-preview, 2024-12-01-preview.
  */
 export function getDatabaseAccount(args: GetDatabaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,6 +73,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly createMode?: string;
     /**
+     * Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
+     */
+    readonly customerManagedKeyStatus?: string;
+    /**
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
     readonly databaseAccountOfferType: string;
@@ -101,6 +105,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly enableAutomaticFailover?: boolean;
     /**
+     * Flag to indicate enabling/disabling of Burst Capacity feature on the account
+     */
+    readonly enableBurstCapacity?: boolean;
+    /**
      * Enables the cassandra connector on the Cosmos DB C* account
      */
     readonly enableCassandraConnector?: boolean;
@@ -116,6 +124,10 @@ export interface GetDatabaseAccountResult {
      * Flag to indicate enabling/disabling of Partition Merge feature on the account
      */
     readonly enablePartitionMerge?: boolean;
+    /**
+     * Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+     */
+    readonly enablePerRegionPerPartitionAutoscale?: boolean;
     /**
      * An array that contains the regions ordered by their failover priorities.
      */
@@ -219,9 +231,9 @@ export interface GetDatabaseAccountResult {
 }
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
- * Azure REST API version: 2023-04-15.
+ * Azure REST API version: 2024-11-15.
  *
- * Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+ * Other available API versions: 2023-04-15, 2023-09-15-preview, 2024-12-01-preview.
  */
 export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

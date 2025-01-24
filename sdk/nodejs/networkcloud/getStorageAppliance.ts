@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided storage appliance.
- * Azure REST API version: 2023-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
  */
 export function getStorageAppliance(args: GetStorageApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +74,14 @@ export interface GetStorageApplianceResult {
      */
     readonly managementIpv4Address: string;
     /**
+     * The manufacturer of the storage appliance.
+     */
+    readonly manufacturer: string;
+    /**
+     * The model of the storage appliance.
+     */
+    readonly model: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -98,6 +106,10 @@ export interface GetStorageApplianceResult {
      */
     readonly remoteVendorManagementStatus: string;
     /**
+     * The list of statuses that represent secret rotation activity.
+     */
+    readonly secretRotationStatus: outputs.networkcloud.SecretRotationStatusResponse[];
+    /**
      * The serial number for the storage appliance.
      */
     readonly serialNumber: string;
@@ -117,12 +129,16 @@ export interface GetStorageApplianceResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The version of the storage appliance.
+     */
+    readonly version: string;
 }
 /**
  * Get properties of the provided storage appliance.
- * Azure REST API version: 2023-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
  */
 export function getStorageApplianceOutput(args: GetStorageApplianceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

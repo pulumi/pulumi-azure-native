@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Application Insights private workbook definition.
- * Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2020-10-20.
+ * Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2021-03-08.
  */
 export class MyWorkbook extends pulumi.CustomResource {
     /**

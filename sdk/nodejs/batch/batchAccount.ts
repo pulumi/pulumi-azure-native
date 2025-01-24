@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about an Azure Batch account.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2023-05-01.
  *
- * Other available API versions: 2022-01-01, 2023-11-01, 2024-02-01, 2024-07-01.
+ * Other available API versions: 2022-01-01, 2023-05-01.
  */
 export class BatchAccount extends pulumi.CustomResource {
     /**
@@ -229,7 +229,7 @@ export interface BatchAccountArgs {
      */
     networkProfile?: pulumi.Input<inputs.batch.NetworkProfileArgs>;
     /**
-     * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+     * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
      */
     poolAllocationMode?: pulumi.Input<enums.batch.PoolAllocationMode>;
     /**

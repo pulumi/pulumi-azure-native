@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * Azure REST API version: 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 1.x: 2024-10-01-preview.
  */
 export class CapabilityHost extends pulumi.CustomResource {
     /**

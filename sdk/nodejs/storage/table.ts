@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the table, including Id, resource name, resource type.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2022-09-01.
  */
 export class Table extends pulumi.CustomResource {
     /**

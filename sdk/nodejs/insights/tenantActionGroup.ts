@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A tenant action group resource.
- * Azure REST API version: 2023-05-01-preview.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2023-05-01-preview.
  */
 export class TenantActionGroup extends pulumi.CustomResource {
     /**

@@ -40,11 +40,6 @@ export const getDeviceExtendedInformation: typeof import("./getDeviceExtendedInf
 export const getDeviceExtendedInformationOutput: typeof import("./getDeviceExtendedInformation").getDeviceExtendedInformationOutput = null as any;
 utilities.lazyLoad(exports, ["getDeviceExtendedInformation","getDeviceExtendedInformationOutput"], () => require("./getDeviceExtendedInformation"));
 
-export { GetIoTAddonArgs, GetIoTAddonResult, GetIoTAddonOutputArgs } from "./getIoTAddon";
-export const getIoTAddon: typeof import("./getIoTAddon").getIoTAddon = null as any;
-export const getIoTAddonOutput: typeof import("./getIoTAddon").getIoTAddonOutput = null as any;
-utilities.lazyLoad(exports, ["getIoTAddon","getIoTAddonOutput"], () => require("./getIoTAddon"));
-
 export { GetMonitoringConfigArgs, GetMonitoringConfigResult, GetMonitoringConfigOutputArgs } from "./getMonitoringConfig";
 export const getMonitoringConfig: typeof import("./getMonitoringConfig").getMonitoringConfig = null as any;
 export const getMonitoringConfigOutput: typeof import("./getMonitoringConfig").getMonitoringConfigOutput = null as any;
@@ -74,11 +69,6 @@ export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
-
-export { IoTAddonArgs } from "./ioTAddon";
-export type IoTAddon = import("./ioTAddon").IoTAddon;
-export const IoTAddon: typeof import("./ioTAddon").IoTAddon = null as any;
-utilities.lazyLoad(exports, ["IoTAddon"], () => require("./ioTAddon"));
 
 export { ListOrderDCAccessCodeArgs, ListOrderDCAccessCodeResult, ListOrderDCAccessCodeOutputArgs } from "./listOrderDCAccessCode";
 export const listOrderDCAccessCode: typeof import("./listOrderDCAccessCode").listOrderDCAccessCode = null as any;
@@ -129,8 +119,6 @@ const _module = {
                 return new Container(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20220301:Device":
                 return new Device(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20220301:IoTAddon":
-                return new IoTAddon(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20220301:MonitoringConfig":
                 return new MonitoringConfig(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20220301:Order":

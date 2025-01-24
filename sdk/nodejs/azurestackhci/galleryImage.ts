@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The gallery images resource definition.
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 1.x: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2024-01-01.
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**
@@ -45,9 +45,9 @@ export class GalleryImage extends pulumi.CustomResource {
      */
     public readonly cloudInitDataSource!: pulumi.Output<string | undefined>;
     /**
-     * Container Name for storage container
+     * Storage ContainerID of the storage container to be used for gallery image
      */
-    public readonly containerName!: pulumi.Output<string | undefined>;
+    public readonly containerId!: pulumi.Output<string | undefined>;
     /**
      * The extendedLocation of the resource.
      */
@@ -75,11 +75,15 @@ export class GalleryImage extends pulumi.CustomResource {
     /**
      * Operating system type that the gallery image uses [Windows, Linux]
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    public readonly osType!: pulumi.Output<string>;
     /**
      * Provisioning state of the gallery image.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource ID of the source virtual machine from whose OS disk the gallery image is created.
+     */
+    public readonly sourceVirtualMachineId!: pulumi.Output<string | undefined>;
     /**
      * The observed state of gallery images
      */
@@ -100,6 +104,10 @@ export class GalleryImage extends pulumi.CustomResource {
      * Specifies information about the gallery image version that you want to create or update.
      */
     public readonly version!: pulumi.Output<outputs.azurestackhci.GalleryImageVersionResponse | undefined>;
+    /**
+     * The credentials used to login to the image repository that has access to the specified image
+     */
+    public readonly vmImageRepositoryCredentials!: pulumi.Output<outputs.azurestackhci.VmImageRepositoryCredentialsResponse | undefined>;
 
     /**
      * Create a GalleryImage resource with the given unique name, arguments, and options.
@@ -112,11 +120,14 @@ export class GalleryImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.osType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'osType'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["cloudInitDataSource"] = args ? args.cloudInitDataSource : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["containerId"] = args ? args.containerId : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["galleryImageName"] = args ? args.galleryImageName : undefined;
             resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
@@ -125,8 +136,10 @@ export class GalleryImage extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceVirtualMachineId"] = args ? args.sourceVirtualMachineId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["vmImageRepositoryCredentials"] = args ? args.vmImageRepositoryCredentials : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -134,7 +147,7 @@ export class GalleryImage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["cloudInitDataSource"] = undefined /*out*/;
-            resourceInputs["containerName"] = undefined /*out*/;
+            resourceInputs["containerId"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hyperVGeneration"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
@@ -143,14 +156,16 @@ export class GalleryImage extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["osType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourceVirtualMachineId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["vmImageRepositoryCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20210901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20221215preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240101:GalleryImage" }, { type: "azure-native:azurestackhci/v20240201preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240501preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240715preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240801preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20241001preview:GalleryImage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20210901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20221215preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230701preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20230901preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240101:GalleryImage" }, { type: "azure-native:azurestackhci/v20240201preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240501preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240715preview:GalleryImage" }, { type: "azure-native:azurestackhci/v20240801preview:GalleryImage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GalleryImage.__pulumiType, name, resourceInputs, opts);
     }
@@ -165,9 +180,9 @@ export interface GalleryImageArgs {
      */
     cloudInitDataSource?: pulumi.Input<string | enums.azurestackhci.CloudInitDataSource>;
     /**
-     * Container Name for storage container
+     * Storage ContainerID of the storage container to be used for gallery image
      */
-    containerName?: pulumi.Input<string>;
+    containerId?: pulumi.Input<string>;
     /**
      * The extendedLocation of the resource.
      */
@@ -195,11 +210,15 @@ export interface GalleryImageArgs {
     /**
      * Operating system type that the gallery image uses [Windows, Linux]
      */
-    osType?: pulumi.Input<enums.azurestackhci.OperatingSystemTypes>;
+    osType: pulumi.Input<string | enums.azurestackhci.OperatingSystemTypes>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource ID of the source virtual machine from whose OS disk the gallery image is created.
+     */
+    sourceVirtualMachineId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
@@ -208,4 +227,8 @@ export interface GalleryImageArgs {
      * Specifies information about the gallery image version that you want to create or update.
      */
     version?: pulumi.Input<inputs.azurestackhci.GalleryImageVersionArgs>;
+    /**
+     * The credentials used to login to the image repository that has access to the specified image
+     */
+    vmImageRepositoryCredentials?: pulumi.Input<inputs.azurestackhci.VmImageRepositoryCredentialsArgs>;
 }

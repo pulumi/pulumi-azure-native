@@ -85,8 +85,6 @@ export class DevOpsPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security:DevOpsPolicyAssignment" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevOpsPolicyAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }

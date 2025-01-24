@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Returns a list of L2 Connections attached to an ground station.
  * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-03-01.
  */
 export function listGroundStationL2Connections(args: ListGroundStationL2ConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<ListGroundStationL2ConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,8 +46,6 @@ export interface ListGroundStationL2ConnectionsResult {
 /**
  * Returns a list of L2 Connections attached to an ground station.
  * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-03-01.
  */
 export function listGroundStationL2ConnectionsOutput(args: ListGroundStationL2ConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListGroundStationL2ConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

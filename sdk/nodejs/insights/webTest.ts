@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Application Insights WebTest definition.
- * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2015-05-01.
+ * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2022-06-15.
  *
  * Other available API versions: 2020-10-05-preview.
  */

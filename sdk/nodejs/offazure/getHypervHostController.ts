@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Get a HypervHost
- * Azure REST API version: 2023-06-06.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-06-06, 2024-05-01-preview.
  */
 export function getHypervHostController(args: GetHypervHostControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetHypervHostControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -88,9 +88,9 @@ export interface GetHypervHostControllerResult {
 }
 /**
  * Get a HypervHost
- * Azure REST API version: 2023-06-06.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Other available API versions: 2023-06-06, 2024-05-01-preview.
  */
 export function getHypervHostControllerOutput(args: GetHypervHostControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHypervHostControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

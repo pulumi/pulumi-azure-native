@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A gateway resource.
- * Azure REST API version: 2023-07-07-preview.
+ * Azure REST API version: 2023-07-07-preview. Prior API version in Azure Native 1.x: 2023-07-07-preview.
  */
 export class ManagedGateway extends pulumi.CustomResource {
     /**

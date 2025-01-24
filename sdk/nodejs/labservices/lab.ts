@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The lab resource.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
+ * Azure REST API version: 2023-06-07. Prior API version in Azure Native 1.x: 2022-08-01.
  *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Other available API versions: 2022-08-01.
  */
 export class Lab extends pulumi.CustomResource {
     /**
@@ -72,6 +72,10 @@ export class Lab extends pulumi.CustomResource {
      * Current provisioning state of the lab.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Error details of last operation done on lab.
+     */
+    public /*out*/ readonly resourceOperationError!: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
     /**
      * The lab user list management profile.
      */
@@ -146,6 +150,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["virtualMachineProfile"] = args ? (args.virtualMachineProfile ? pulumi.output(args.virtualMachineProfile).apply(inputs.labservices.virtualMachineProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -158,6 +163,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["rosterProfile"] = undefined /*out*/;
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

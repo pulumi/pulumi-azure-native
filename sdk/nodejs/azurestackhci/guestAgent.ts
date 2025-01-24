@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the GuestAgent.
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 1.x: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview.
  */
 export class GuestAgent extends pulumi.CustomResource {
     /**
@@ -45,19 +45,15 @@ export class GuestAgent extends pulumi.CustomResource {
      */
     public readonly credentials!: pulumi.Output<outputs.azurestackhci.GuestCredentialResponse | undefined>;
     /**
-     * HTTP Proxy configuration for the VM.
-     */
-    public readonly httpProxyConfig!: pulumi.Output<outputs.azurestackhci.HttpProxyConfigurationResponse | undefined>;
-    /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The guest agent provisioning action.
      */
     public readonly provisioningAction!: pulumi.Output<string | undefined>;
     /**
-     * The provisioning state.
+     * Provisioning state of the virtual machine instance.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -84,25 +80,19 @@ export class GuestAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'virtualMachineName'");
+            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'resourceUri'");
             }
             resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["credentials"] = undefined /*out*/;
-            resourceInputs["httpProxyConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningAction"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -111,7 +101,7 @@ export class GuestAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20221215preview:GuestAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20230701preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20230901preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240101:GuestAgent" }, { type: "azure-native:azurestackhci/v20240201preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240501preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240715preview:GuestAgent" }, { type: "azure-native:azurestackhci/v20240801preview:GuestAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestAgent.__pulumiType, name, resourceInputs, opts);
     }
@@ -126,23 +116,11 @@ export interface GuestAgentArgs {
      */
     credentials?: pulumi.Input<inputs.azurestackhci.GuestCredentialArgs>;
     /**
-     * HTTP Proxy configuration for the VM.
-     */
-    httpProxyConfig?: pulumi.Input<inputs.azurestackhci.HttpProxyConfigurationArgs>;
-    /**
-     * Name of the guestAgents.
-     */
-    name?: pulumi.Input<string>;
-    /**
      * The guest agent provisioning action.
      */
     provisioningAction?: pulumi.Input<string | enums.azurestackhci.ProvisioningAction>;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
-    resourceGroupName: pulumi.Input<string>;
-    /**
-     * Name of the vm.
-     */
-    virtualMachineName: pulumi.Input<string>;
+    resourceUri: pulumi.Input<string>;
 }

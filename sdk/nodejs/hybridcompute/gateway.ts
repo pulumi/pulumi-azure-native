@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Describes an Arc Gateway.
- * Azure REST API version: 2024-03-31-preview.
+ * Azure REST API version: 2024-07-31-preview. Prior API version in Azure Native 1.x: 2024-03-31-preview.
  *
- * Other available API versions: 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+ * Other available API versions: 2024-03-31-preview, 2024-11-10-preview.
  */
 export class Gateway extends pulumi.CustomResource {
     /**

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Run Command
- * Azure REST API version: 2023-10-03-preview.
+ * Azure REST API version: 2024-07-31-preview. Prior API version in Azure Native 1.x: 2023-10-03-preview.
  *
- * Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+ * Other available API versions: 2023-10-03-preview, 2024-11-10-preview.
  */
 export class MachineRunCommand extends pulumi.CustomResource {
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a springbootsites resource.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2024-04-01-preview.
  */
 export function getSpringbootsite(args: GetSpringbootsiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSpringbootsiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,7 +69,7 @@ export interface GetSpringbootsiteResult {
 }
 /**
  * Get a springbootsites resource.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2024-04-01-preview.
  */
 export function getSpringbootsiteOutput(args: GetSpringbootsiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpringbootsiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

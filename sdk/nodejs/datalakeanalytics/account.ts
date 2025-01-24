@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
- * Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2016-11-01.
+ * Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2019-11-01-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**

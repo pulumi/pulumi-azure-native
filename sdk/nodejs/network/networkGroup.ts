@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The network group resource
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 1.x: 2023-02-01.
  *
- * Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2021-02-01-preview, 2022-04-01-preview, 2023-02-01.
  */
 export class NetworkGroup extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class NetworkGroup extends pulumi.CustomResource {
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The type of the group member.
+     */
+    public readonly memberType!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -87,6 +91,7 @@ export class NetworkGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["memberType"] = args ? args.memberType : undefined;
             resourceInputs["networkGroupName"] = args ? args.networkGroupName : undefined;
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -99,6 +104,7 @@ export class NetworkGroup extends pulumi.CustomResource {
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["memberType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
@@ -120,6 +126,10 @@ export interface NetworkGroupArgs {
      * A description of the network group.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The type of the group member.
+     */
+    memberType?: pulumi.Input<string | enums.network.GroupMemberType>;
     /**
      * The name of the network group.
      */

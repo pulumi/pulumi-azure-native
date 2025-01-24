@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Returns Connector resource for a given name.
- * Azure REST API version: 2022-11-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
  */
 export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,7 +49,7 @@ export interface GetConnectorResult {
     /**
      * The authentication type.
      */
-    readonly authInfo?: outputs.servicelinker.AccessKeyInfoBaseResponse | outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAccountAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse;
+    readonly authInfo?: outputs.servicelinker.AccessKeyInfoBaseResponse | outputs.servicelinker.EasyAuthMicrosoftEntraIDAuthInfoResponse | outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAccountAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse;
     /**
      * The application client type
      */
@@ -101,9 +101,9 @@ export interface GetConnectorResult {
 }
 /**
  * Returns Connector resource for a given name.
- * Azure REST API version: 2022-11-01-preview.
+ * Azure REST API version: 2024-04-01.
  *
- * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
  */
 export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

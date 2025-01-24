@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid System Topic.
- * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2022-06-15.
  */
 export class SystemTopic extends pulumi.CustomResource {
     /**
@@ -65,7 +65,7 @@ export class SystemTopic extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to System Topic resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**

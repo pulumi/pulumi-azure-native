@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Instance broker authentication resource
- * Azure REST API version: 2024-07-01-preview.
+ * Azure REST API version: 2024-11-01. Prior API version in Azure Native 1.x: 2024-07-01-preview.
  *
- * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+ * Other available API versions: 2024-07-01-preview.
  */
 export class BrokerAuthentication extends pulumi.CustomResource {
     /**

@@ -2,22 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const CloudInitDataSource = {
-    /**
-     * NoCloud is used as the datasource
-     */
-    NoCloud: "NoCloud",
-    /**
-     * Azure is used as the datasource
-     */
-    Azure: "Azure",
-} as const;
-
-/**
- * Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
- */
-export type CloudInitDataSource = (typeof CloudInitDataSource)[keyof typeof CloudInitDataSource];
-
 export const DiskFileFormat = {
     /**
      * VHDX file format
@@ -78,38 +62,6 @@ export const HyperVGeneration = {
  */
 export type HyperVGeneration = (typeof HyperVGeneration)[keyof typeof HyperVGeneration];
 
-export const IPPoolTypeEnum = {
-    /**
-     * Virtual Machine IP Pool
-     */
-    Vm: "vm",
-    /**
-     * VIP Pool
-     */
-    Vippool: "vippool",
-} as const;
-
-/**
- * Type of the IP Pool [vm, vippool]
- */
-export type IPPoolTypeEnum = (typeof IPPoolTypeEnum)[keyof typeof IPPoolTypeEnum];
-
-export const IpAllocationMethodEnum = {
-    /**
-     * Dynamic IP allocation method
-     */
-    Dynamic: "Dynamic",
-    /**
-     * Static IP allocation method
-     */
-    Static: "Static",
-} as const;
-
-/**
- * IPAllocationMethod - The IP address allocation method. Possible values include: 'Static', 'Dynamic'
- */
-export type IpAllocationMethodEnum = (typeof IpAllocationMethodEnum)[keyof typeof IpAllocationMethodEnum];
-
 export const ManagedServiceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
@@ -137,82 +89,6 @@ export const OperatingSystemTypes = {
  * This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
  */
 export type OperatingSystemTypes = (typeof OperatingSystemTypes)[keyof typeof OperatingSystemTypes];
-
-export const ProvisioningAction = {
-    /**
-     * Install guest agent
-     */
-    Install: "install",
-    /**
-     * Uninstall guest agent
-     */
-    Uninstall: "uninstall",
-    /**
-     * Repair guest agent
-     */
-    Repair: "repair",
-} as const;
-
-/**
- * The guest agent provisioning action.
- */
-export type ProvisioningAction = (typeof ProvisioningAction)[keyof typeof ProvisioningAction];
-
-export const SecurityRuleAccess = {
-    /**
-     * Network traffic is allowed
-     */
-    Allow: "Allow",
-    /**
-     * Network traffic is denied
-     */
-    Deny: "Deny",
-} as const;
-
-/**
- * The network traffic is allowed or denied.
- */
-export type SecurityRuleAccess = (typeof SecurityRuleAccess)[keyof typeof SecurityRuleAccess];
-
-export const SecurityRuleDirection = {
-    /**
-     * Rule is evaluated on incoming traffic
-     */
-    Inbound: "Inbound",
-    /**
-     * Rule is evaluated on outgoing traffic
-     */
-    Outbound: "Outbound",
-} as const;
-
-/**
- * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
- */
-export type SecurityRuleDirection = (typeof SecurityRuleDirection)[keyof typeof SecurityRuleDirection];
-
-export const SecurityRuleProtocol = {
-    /**
-     * Transmission Control Protocol
-     */
-    Tcp: "Tcp",
-    /**
-     * User Datagram Protocol
-     */
-    Udp: "Udp",
-    /**
-     * Internet Control Message Protocol
-     */
-    Icmp: "Icmp",
-    /**
-     * Wildcard rule for all protocols
-     */
-    Asterisk: "*",
-} as const;
-
-/**
- * Network protocol this rule applies to.
- */
-export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
 
 export const SecurityTypes = {
     /**

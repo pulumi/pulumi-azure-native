@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Namespace resource.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2023-06-01-preview.
  *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2023-06-01-preview.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -49,7 +49,10 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.InboundIpRuleResponse[] | undefined>;
     /**
-     * Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+     * This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+     * property is not specified explicitly by the user, its default value depends on the following conditions:
+     *   a. For Availability Zones enabled regions - The default property value would be true.
+     *   b. For non-Availability Zones enabled regions - The default property value would be false.
      * Once specified, this property cannot be updated.
      */
     public readonly isZoneRedundant!: pulumi.Output<boolean | undefined>;
@@ -65,6 +68,9 @@ export class Namespace extends pulumi.CustomResource {
      * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * List of private endpoint connections.
+     */
     public readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * Provisioning state of the namespace resource.
@@ -80,7 +86,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.eventgrid.NamespaceSkuResponse | undefined>;
     /**
-     * The system metadata relating to the namespace resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -94,7 +100,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Topics configuration information for the namespace resource
      */
-    public /*out*/ readonly topicsConfiguration!: pulumi.Output<outputs.eventgrid.TopicsConfigurationResponse | undefined>;
+    public readonly topicsConfiguration!: pulumi.Output<outputs.eventgrid.TopicsConfigurationResponse | undefined>;
     /**
      * Type of the resource.
      */
@@ -126,10 +132,10 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["topicSpacesConfiguration"] = args ? (args.topicSpacesConfiguration ? pulumi.output(args.topicSpacesConfiguration).apply(inputs.eventgrid.topicSpacesConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["topicsConfiguration"] = args ? args.topicsConfiguration : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["topicsConfiguration"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["identity"] = undefined /*out*/;
@@ -168,7 +174,10 @@ export interface NamespaceArgs {
      */
     inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[]>;
     /**
-     * Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+     * This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+     * property is not specified explicitly by the user, its default value depends on the following conditions:
+     *   a. For Availability Zones enabled regions - The default property value would be true.
+     *   b. For non-Availability Zones enabled regions - The default property value would be false.
      * Once specified, this property cannot be updated.
      */
     isZoneRedundant?: pulumi.Input<boolean>;
@@ -184,6 +193,9 @@ export interface NamespaceArgs {
      * Name of the namespace.
      */
     namespaceName?: pulumi.Input<string>;
+    /**
+     * List of private endpoint connections.
+     */
     privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.PrivateEndpointConnectionArgs>[]>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
@@ -206,4 +218,8 @@ export interface NamespaceArgs {
      * Topic spaces configuration information for the namespace resource
      */
     topicSpacesConfiguration?: pulumi.Input<inputs.eventgrid.TopicSpacesConfigurationArgs>;
+    /**
+     * Topics configuration information for the namespace resource
+     */
+    topicsConfiguration?: pulumi.Input<inputs.eventgrid.TopicsConfigurationArgs>;
 }

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB database account.
- * Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15.
+ * Azure REST API version: 2024-11-15. Prior API version in Azure Native 1.x: 2023-04-15.
  *
- * Other available API versions: 2021-04-01-preview, 2023-03-15-preview, 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+ * Other available API versions: 2023-04-15, 2023-09-15-preview, 2024-12-01-preview.
  */
 export class DatabaseAccount extends pulumi.CustomResource {
     /**
@@ -77,6 +77,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
+     * Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
+     */
+    public readonly customerManagedKeyStatus!: pulumi.Output<string | undefined>;
+    /**
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
     public readonly databaseAccountOfferType!: pulumi.Output<string>;
@@ -105,6 +109,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      */
     public readonly enableAutomaticFailover!: pulumi.Output<boolean | undefined>;
     /**
+     * Flag to indicate enabling/disabling of Burst Capacity feature on the account
+     */
+    public readonly enableBurstCapacity!: pulumi.Output<boolean | undefined>;
+    /**
      * Enables the cassandra connector on the Cosmos DB C* account
      */
     public readonly enableCassandraConnector!: pulumi.Output<boolean | undefined>;
@@ -120,6 +128,10 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * Flag to indicate enabling/disabling of Partition Merge feature on the account
      */
     public readonly enablePartitionMerge!: pulumi.Output<boolean | undefined>;
+    /**
+     * Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+     */
+    public readonly enablePerRegionPerPartitionAutoscale!: pulumi.Output<boolean | undefined>;
     /**
      * An array that contains the regions ordered by their failover priorities.
      */
@@ -247,16 +259,19 @@ export class DatabaseAccount extends pulumi.CustomResource {
             resourceInputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
             resourceInputs["cors"] = args ? args.cors : undefined;
             resourceInputs["createMode"] = (args ? args.createMode : undefined) ?? "Default";
+            resourceInputs["customerManagedKeyStatus"] = args ? args.customerManagedKeyStatus : undefined;
             resourceInputs["databaseAccountOfferType"] = args ? args.databaseAccountOfferType : undefined;
             resourceInputs["defaultIdentity"] = args ? args.defaultIdentity : undefined;
             resourceInputs["disableKeyBasedMetadataWriteAccess"] = args ? args.disableKeyBasedMetadataWriteAccess : undefined;
             resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
             resourceInputs["enableAnalyticalStorage"] = args ? args.enableAnalyticalStorage : undefined;
             resourceInputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
+            resourceInputs["enableBurstCapacity"] = args ? args.enableBurstCapacity : undefined;
             resourceInputs["enableCassandraConnector"] = args ? args.enableCassandraConnector : undefined;
             resourceInputs["enableFreeTier"] = args ? args.enableFreeTier : undefined;
             resourceInputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
             resourceInputs["enablePartitionMerge"] = args ? args.enablePartitionMerge : undefined;
+            resourceInputs["enablePerRegionPerPartitionAutoscale"] = args ? args.enablePerRegionPerPartitionAutoscale : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["ipRules"] = args ? args.ipRules : undefined;
             resourceInputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
@@ -293,6 +308,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
             resourceInputs["consistencyPolicy"] = undefined /*out*/;
             resourceInputs["cors"] = undefined /*out*/;
             resourceInputs["createMode"] = undefined /*out*/;
+            resourceInputs["customerManagedKeyStatus"] = undefined /*out*/;
             resourceInputs["databaseAccountOfferType"] = undefined /*out*/;
             resourceInputs["defaultIdentity"] = undefined /*out*/;
             resourceInputs["disableKeyBasedMetadataWriteAccess"] = undefined /*out*/;
@@ -300,10 +316,12 @@ export class DatabaseAccount extends pulumi.CustomResource {
             resourceInputs["documentEndpoint"] = undefined /*out*/;
             resourceInputs["enableAnalyticalStorage"] = undefined /*out*/;
             resourceInputs["enableAutomaticFailover"] = undefined /*out*/;
+            resourceInputs["enableBurstCapacity"] = undefined /*out*/;
             resourceInputs["enableCassandraConnector"] = undefined /*out*/;
             resourceInputs["enableFreeTier"] = undefined /*out*/;
             resourceInputs["enableMultipleWriteLocations"] = undefined /*out*/;
             resourceInputs["enablePartitionMerge"] = undefined /*out*/;
+            resourceInputs["enablePerRegionPerPartitionAutoscale"] = undefined /*out*/;
             resourceInputs["failoverPolicies"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
@@ -381,6 +399,10 @@ export interface DatabaseAccountArgs {
      */
     createMode?: pulumi.Input<string | enums.documentdb.CreateMode>;
     /**
+     * Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
+     */
+    customerManagedKeyStatus?: pulumi.Input<string>;
+    /**
      * The offer type for the database
      */
     databaseAccountOfferType: pulumi.Input<enums.documentdb.DatabaseAccountOfferType>;
@@ -405,6 +427,10 @@ export interface DatabaseAccountArgs {
      */
     enableAutomaticFailover?: pulumi.Input<boolean>;
     /**
+     * Flag to indicate enabling/disabling of Burst Capacity feature on the account
+     */
+    enableBurstCapacity?: pulumi.Input<boolean>;
+    /**
      * Enables the cassandra connector on the Cosmos DB C* account
      */
     enableCassandraConnector?: pulumi.Input<boolean>;
@@ -420,6 +446,10 @@ export interface DatabaseAccountArgs {
      * Flag to indicate enabling/disabling of Partition Merge feature on the account
      */
     enablePartitionMerge?: pulumi.Input<boolean>;
+    /**
+     * Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
+     */
+    enablePerRegionPerPartitionAutoscale?: pulumi.Input<boolean>;
     /**
      * Identity for the resource.
      */

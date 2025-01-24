@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview.
+ * Azure REST API version: 2023-03-11. Prior API version in Azure Native 1.x: 2022-06-01.
  *
- * Other available API versions: 2023-03-11.
+ * Other available API versions: 2022-06-01.
  */
 export class DataCollectionRule extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class DataCollectionRule extends pulumi.CustomResource {
     }
 
     /**
+     * Agent settings used to modify agent behavior on a given host
+     */
+    public readonly agentSettings!: pulumi.Output<outputs.insights.DataCollectionRuleResponseAgentSettings | undefined>;
+    /**
      * The resource ID of the data collection endpoint that this rule can be used with.
      */
     public readonly dataCollectionEndpointId!: pulumi.Output<string | undefined>;
@@ -61,6 +65,10 @@ export class DataCollectionRule extends pulumi.CustomResource {
      * The specification of destinations.
      */
     public readonly destinations!: pulumi.Output<outputs.insights.DataCollectionRuleResponseDestinations | undefined>;
+    /**
+     * Defines the ingestion endpoints to send data to via this rule.
+     */
+    public /*out*/ readonly endpoints!: pulumi.Output<outputs.insights.DataCollectionRuleResponseEndpoints>;
     /**
      * Resource entity tag (ETag).
      */
@@ -94,6 +102,10 @@ export class DataCollectionRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Defines all the references that may be used in other sections of the DCR
+     */
+    public readonly references!: pulumi.Output<outputs.insights.DataCollectionRuleResponseReferences | undefined>;
+    /**
      * Declaration of custom streams used in this rule.
      */
     public readonly streamDeclarations!: pulumi.Output<{[key: string]: outputs.insights.StreamDeclarationResponse} | undefined>;
@@ -124,6 +136,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["agentSettings"] = args ? args.agentSettings : undefined;
             resourceInputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
             resourceInputs["dataCollectionRuleName"] = args ? args.dataCollectionRuleName : undefined;
             resourceInputs["dataFlows"] = args ? args.dataFlows : undefined;
@@ -133,9 +146,11 @@ export class DataCollectionRule extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["references"] = args ? args.references : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["streamDeclarations"] = args ? args.streamDeclarations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["immutableId"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
@@ -144,11 +159,13 @@ export class DataCollectionRule extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["agentSettings"] = undefined /*out*/;
             resourceInputs["dataCollectionEndpointId"] = undefined /*out*/;
             resourceInputs["dataFlows"] = undefined /*out*/;
             resourceInputs["dataSources"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["immutableId"] = undefined /*out*/;
@@ -157,6 +174,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["references"] = undefined /*out*/;
             resourceInputs["streamDeclarations"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -173,6 +191,10 @@ export class DataCollectionRule extends pulumi.CustomResource {
  * The set of arguments for constructing a DataCollectionRule resource.
  */
 export interface DataCollectionRuleArgs {
+    /**
+     * Agent settings used to modify agent behavior on a given host
+     */
+    agentSettings?: pulumi.Input<inputs.insights.DataCollectionRuleAgentSettingsArgs>;
     /**
      * The resource ID of the data collection endpoint that this rule can be used with.
      */
@@ -210,6 +232,10 @@ export interface DataCollectionRuleArgs {
      * The geo-location where the resource lives.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Defines all the references that may be used in other sections of the DCR
+     */
+    references?: pulumi.Input<inputs.insights.DataCollectionRuleReferencesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

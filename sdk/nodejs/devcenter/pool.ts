@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A pool of Virtual Machines.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 1.x: 2023-04-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-04-01, 2024-10-01-preview.
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -41,9 +41,17 @@ export class Pool extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates the number of provisioned Dev Boxes in this pool.
+     */
+    public /*out*/ readonly devBoxCount!: pulumi.Output<number>;
+    /**
      * Name of a Dev Box definition in parent Project of this Pool
      */
     public readonly devBoxDefinitionName!: pulumi.Output<string>;
+    /**
+     * The display name of the pool.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes.
      */
@@ -65,6 +73,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The regions of the managed virtual network (required when managedNetworkType is Managed).
+     */
+    public readonly managedVirtualNetworkRegions!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -76,6 +88,10 @@ export class Pool extends pulumi.CustomResource {
      * The provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
+     */
+    public readonly singleSignOnStatus!: pulumi.Output<string | undefined>;
     /**
      * Stop on disconnect configuration settings for Dev Boxes created in this pool.
      */
@@ -92,6 +108,10 @@ export class Pool extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
+     */
+    public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -123,15 +143,20 @@ export class Pool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["devBoxDefinitionName"] = args ? args.devBoxDefinitionName : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["localAdministrator"] = args ? args.localAdministrator : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedVirtualNetworkRegions"] = args ? args.managedVirtualNetworkRegions : undefined;
             resourceInputs["networkConnectionName"] = args ? args.networkConnectionName : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["singleSignOnStatus"] = args ? args.singleSignOnStatus : undefined;
             resourceInputs["stopOnDisconnect"] = args ? args.stopOnDisconnect : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            resourceInputs["devBoxCount"] = undefined /*out*/;
             resourceInputs["healthStatus"] = undefined /*out*/;
             resourceInputs["healthStatusDetails"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -139,19 +164,24 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["devBoxCount"] = undefined /*out*/;
             resourceInputs["devBoxDefinitionName"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["healthStatus"] = undefined /*out*/;
             resourceInputs["healthStatusDetails"] = undefined /*out*/;
             resourceInputs["licenseType"] = undefined /*out*/;
             resourceInputs["localAdministrator"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedVirtualNetworkRegions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkConnectionName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["singleSignOnStatus"] = undefined /*out*/;
             resourceInputs["stopOnDisconnect"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworkType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Pool" }, { type: "azure-native:devcenter/v20220901preview:Pool" }, { type: "azure-native:devcenter/v20221012preview:Pool" }, { type: "azure-native:devcenter/v20221111preview:Pool" }, { type: "azure-native:devcenter/v20230101preview:Pool" }, { type: "azure-native:devcenter/v20230401:Pool" }, { type: "azure-native:devcenter/v20230801preview:Pool" }, { type: "azure-native:devcenter/v20231001preview:Pool" }, { type: "azure-native:devcenter/v20240201:Pool" }, { type: "azure-native:devcenter/v20240501preview:Pool" }, { type: "azure-native:devcenter/v20240601preview:Pool" }, { type: "azure-native:devcenter/v20240701preview:Pool" }, { type: "azure-native:devcenter/v20240801preview:Pool" }, { type: "azure-native:devcenter/v20241001preview:Pool" }] };
@@ -169,6 +199,10 @@ export interface PoolArgs {
      */
     devBoxDefinitionName: pulumi.Input<string>;
     /**
+     * The display name of the pool.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
      * Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
      */
     licenseType: pulumi.Input<string | enums.devcenter.LicenseType>;
@@ -180,6 +214,10 @@ export interface PoolArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The regions of the managed virtual network (required when managedNetworkType is Managed).
+     */
+    managedVirtualNetworkRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of a Network Connection in parent Project of this Pool
      */
@@ -197,6 +235,10 @@ export interface PoolArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
+     */
+    singleSignOnStatus?: pulumi.Input<string | enums.devcenter.SingleSignOnStatus>;
+    /**
      * Stop on disconnect configuration settings for Dev Boxes created in this pool.
      */
     stopOnDisconnect?: pulumi.Input<inputs.devcenter.StopOnDisconnectConfigurationArgs>;
@@ -204,4 +246,8 @@ export interface PoolArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
+     */
+    virtualNetworkType?: pulumi.Input<string | enums.devcenter.VirtualNetworkType>;
 }

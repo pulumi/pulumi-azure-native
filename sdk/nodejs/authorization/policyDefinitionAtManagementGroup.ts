@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The policy definition.
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-06-01.
  *
- * Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+ * Other available API versions: 2018-05-01, 2019-06-01, 2021-06-01, 2025-01-01.
  */
 export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     /**
@@ -80,6 +80,14 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The policy definition version in #.#.# format.
+     */
+    public readonly version!: pulumi.Output<string | undefined>;
+    /**
+     * A list of available versions for this policy definition.
+     */
+    public readonly versions!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PolicyDefinitionAtManagementGroup resource with the given unique name, arguments, and options.
@@ -104,6 +112,8 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
             resourceInputs["policyDefinitionName"] = args ? args.policyDefinitionName : undefined;
             resourceInputs["policyRule"] = args ? args.policyRule : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["versions"] = args ? args.versions : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -118,6 +128,8 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
             resourceInputs["policyType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["versions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20161201:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180301:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20180501:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190101:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190601:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20190901:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200301:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20200901:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20210601:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20230401:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20240501:PolicyDefinitionAtManagementGroup" }, { type: "azure-native:authorization/v20250101:PolicyDefinitionAtManagementGroup" }] };
@@ -166,4 +178,12 @@ export interface PolicyDefinitionAtManagementGroupArgs {
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
     policyType?: pulumi.Input<string | enums.authorization.PolicyType>;
+    /**
+     * The policy definition version in #.#.# format.
+     */
+    version?: pulumi.Input<string>;
+    /**
+     * A list of available versions for this policy definition.
+     */
+    versions?: pulumi.Input<pulumi.Input<string>[]>;
 }

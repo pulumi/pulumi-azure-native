@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Advanced Ingress routing for path/header based routing for a Container App Environment
- * Azure REST API version: 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 1.x: 2024-10-02-preview.
  */
 export class HttpRouteConfig extends pulumi.CustomResource {
     /**

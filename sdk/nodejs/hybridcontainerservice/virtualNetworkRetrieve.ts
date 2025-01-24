@@ -9,7 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The virtualNetworks resource definition.
- * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
+ *
+ * Other available API versions: 2024-01-01.
  */
 export class VirtualNetworkRetrieve extends pulumi.CustomResource {
     /**
@@ -97,7 +99,7 @@ export class VirtualNetworkRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice:virtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220501preview:virtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220901preview:virtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20231115preview:virtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20240101:virtualNetworkRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve" }, { type: "azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkRetrieve.__pulumiType, name, resourceInputs, opts);
     }

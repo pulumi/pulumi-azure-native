@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified private link service by resource group.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2019-08-01, 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2019-08-01, 2021-02-01, 2023-02-01.
  */
 export function getPrivateLinkService(args: GetPrivateLinkServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +49,10 @@ export interface GetPrivateLinkServiceResult {
      * The auto-approval list of the private link service.
      */
     readonly autoApproval?: outputs.network.PrivateLinkServicePropertiesResponseAutoApproval;
+    /**
+     * The destination IP address of the private link service.
+     */
+    readonly destinationIPAddress?: string;
     /**
      * Whether the private link service is enabled for proxy protocol or not.
      */
@@ -112,9 +116,9 @@ export interface GetPrivateLinkServiceResult {
 }
 /**
  * Gets the specified private link service by resource group.
- * Azure REST API version: 2023-02-01.
+ * Azure REST API version: 2024-05-01.
  *
- * Other available API versions: 2019-08-01, 2021-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Other available API versions: 2019-08-01, 2021-02-01, 2023-02-01.
  */
 export function getPrivateLinkServiceOutput(args: GetPrivateLinkServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Live Output.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-11-01.
  */
 export class LiveOutput extends pulumi.CustomResource {
     /**

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the runbook identified by runbook name.
- * Azure REST API version: 2022-08-08.
+ * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Other available API versions: 2022-08-08, 2024-10-23.
  */
 export function getRunbook(args: GetRunbookArgs, opts?: pulumi.InvokeOptions): Promise<GetRunbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -106,10 +106,6 @@ export interface GetRunbookResult {
      */
     readonly provisioningState?: string;
     /**
-     * Gets or sets the published runbook content link.
-     */
-    readonly publishContentLink?: outputs.automation.ContentLinkResponse;
-    /**
      * Gets or sets the type of the runbook.
      */
     readonly runbookType?: string;
@@ -128,9 +124,9 @@ export interface GetRunbookResult {
 }
 /**
  * Retrieve the runbook identified by runbook name.
- * Azure REST API version: 2022-08-08.
+ * Azure REST API version: 2023-11-01.
  *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Other available API versions: 2022-08-08, 2024-10-23.
  */
 export function getRunbookOutput(args: GetRunbookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRunbookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

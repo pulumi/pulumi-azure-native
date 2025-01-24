@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Channel info.
- * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview.
+ * Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 1.x: 2022-06-15.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Other available API versions: 2022-06-15.
  */
 export class Channel extends pulumi.CustomResource {
     /**
@@ -58,6 +58,10 @@ export class Channel extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
+     */
+    public readonly partnerDestinationInfo!: pulumi.Output<outputs.eventgrid.WebhookPartnerDestinationInfoResponse | undefined>;
+    /**
      * This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
      */
     public readonly partnerTopicInfo!: pulumi.Output<outputs.eventgrid.PartnerTopicInfoResponse | undefined>;
@@ -70,7 +74,7 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly readinessState!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to Channel resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -99,6 +103,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["channelType"] = args ? args.channelType : undefined;
             resourceInputs["expirationTimeIfNotActivatedUtc"] = args ? args.expirationTimeIfNotActivatedUtc : undefined;
             resourceInputs["messageForActivation"] = args ? args.messageForActivation : undefined;
+            resourceInputs["partnerDestinationInfo"] = args ? (args.partnerDestinationInfo ? pulumi.output(args.partnerDestinationInfo).apply(inputs.eventgrid.webhookPartnerDestinationInfoArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
             resourceInputs["partnerTopicInfo"] = args ? args.partnerTopicInfo : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -112,6 +117,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["expirationTimeIfNotActivatedUtc"] = undefined /*out*/;
             resourceInputs["messageForActivation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerDestinationInfo"] = undefined /*out*/;
             resourceInputs["partnerTopicInfo"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readinessState"] = undefined /*out*/;
@@ -146,6 +152,10 @@ export interface ChannelArgs {
      * Context or helpful message that can be used during the approval process by the subscriber.
      */
     messageForActivation?: pulumi.Input<string>;
+    /**
+     * This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
+     */
+    partnerDestinationInfo?: pulumi.Input<inputs.eventgrid.WebhookPartnerDestinationInfoArgs>;
     /**
      * Name of the partner namespace.
      */

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Azure REST API version: 2022-08-01.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-10-01.
+ * Other available API versions: 2022-08-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,9 +76,9 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * The Private Endpoint Connection resource.
- * Azure REST API version: 2022-08-01.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-10-01.
+ * Other available API versions: 2022-08-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

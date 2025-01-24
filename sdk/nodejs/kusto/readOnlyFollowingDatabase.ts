@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a read only following database.
- * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+ * Azure REST API version: 2024-04-13. Prior API version in Azure Native 1.x: 2022-12-29.
  */
 export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
     /**
@@ -88,6 +88,10 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly statistics!: pulumi.Output<outputs.kusto.DatabaseStatisticsResponse>;
     /**
+     * The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+     */
+    public /*out*/ readonly suspensionDetails!: pulumi.Output<outputs.kusto.SuspensionDetailsResponse>;
+    /**
      * Table level sharing specifications
      */
     public /*out*/ readonly tableLevelSharingProperties!: pulumi.Output<outputs.kusto.TableLevelSharingPropertiesResponse>;
@@ -132,6 +136,7 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["softDeletePeriod"] = undefined /*out*/;
             resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["suspensionDetails"] = undefined /*out*/;
             resourceInputs["tableLevelSharingProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -147,6 +152,7 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["softDeletePeriod"] = undefined /*out*/;
             resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["suspensionDetails"] = undefined /*out*/;
             resourceInputs["tableLevelSharingProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -187,7 +193,7 @@ export interface ReadOnlyFollowingDatabaseArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

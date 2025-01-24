@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of the EventHubConsumerGroupInfo object.
- * Azure REST API version: 2022-04-30-preview. Prior API version in Azure Native 1.x: 2020-08-31.
+ * Azure REST API version: 2023-06-30. Prior API version in Azure Native 1.x: 2022-04-30-preview.
  *
- * Other available API versions: 2021-03-03-preview, 2022-11-15-preview, 2023-06-30, 2023-06-30-preview.
+ * Other available API versions: 2021-03-03-preview, 2022-04-30-preview, 2023-06-30-preview.
  */
 export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
     /**

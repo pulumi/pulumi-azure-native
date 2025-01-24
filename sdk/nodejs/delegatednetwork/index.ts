@@ -41,12 +41,10 @@ export * from "../types/enums/delegatednetwork";
 
 // Export sub-modules:
 import * as v20210315 from "./v20210315";
-import * as v20230518preview from "./v20230518preview";
 import * as v20230627preview from "./v20230627preview";
 
 export {
     v20210315,
-    v20230518preview,
     v20230627preview,
 };
 

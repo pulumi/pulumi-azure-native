@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workspace details.
- * Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
+ * Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2023-04-01-preview.
  */
 export class Workspace extends pulumi.CustomResource {
     /**

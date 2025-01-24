@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const AmlFilesystemIdentityType = {
-    UserAssigned: "UserAssigned",
-    None: "None",
-} as const;
-
-/**
- * The type of identity used for the resource.
- */
-export type AmlFilesystemIdentityType = (typeof AmlFilesystemIdentityType)[keyof typeof AmlFilesystemIdentityType];
-
 export const CacheIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
@@ -23,21 +13,6 @@ export const CacheIdentityType = {
  * The type of identity used for the cache
  */
 export type CacheIdentityType = (typeof CacheIdentityType)[keyof typeof CacheIdentityType];
-
-export const MaintenanceDayOfWeekType = {
-    Monday: "Monday",
-    Tuesday: "Tuesday",
-    Wednesday: "Wednesday",
-    Thursday: "Thursday",
-    Friday: "Friday",
-    Saturday: "Saturday",
-    Sunday: "Sunday",
-} as const;
-
-/**
- * Day of the week on which the maintenance window will occur.
- */
-export type MaintenanceDayOfWeekType = (typeof MaintenanceDayOfWeekType)[keyof typeof MaintenanceDayOfWeekType];
 
 export const NfsAccessRuleAccess = {
     No: "no",

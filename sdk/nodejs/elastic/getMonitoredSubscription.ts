@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The request to update subscriptions needed to be monitored by the Elastic monitor resource.
- * Azure REST API version: 2024-05-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  *
- * Other available API versions: 2024-06-15-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-05-01-preview.
  */
 export function getMonitoredSubscription(args: GetMonitoredSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoredSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,9 +60,9 @@ export interface GetMonitoredSubscriptionResult {
 }
 /**
  * The request to update subscriptions needed to be monitored by the Elastic monitor resource.
- * Azure REST API version: 2024-05-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  *
- * Other available API versions: 2024-06-15-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-05-01-preview.
  */
 export function getMonitoredSubscriptionOutput(args: GetMonitoredSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoredSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

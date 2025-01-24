@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The IoT Central application.
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-06-01.
+ * Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-06-01.
  *
- * Other available API versions: 2021-11-01-preview.
+ * Other available API versions: 2021-06-01.
  */
 export class App extends pulumi.CustomResource {
     /**
@@ -53,13 +53,29 @@ export class App extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.iotcentral.SystemAssignedServiceIdentityResponse | undefined>;
     /**
-     * The resource location.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The ARM resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Network Rule Set Properties of this IoT Central application.
+     */
+    public readonly networkRuleSets!: pulumi.Output<outputs.iotcentral.NetworkRuleSetsResponse | undefined>;
+    /**
+     * Private endpoint connections created on this IoT Central application.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.iotcentral.PrivateEndpointConnectionResponse[]>;
+    /**
+     * The provisioning state of the application.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Whether requests from the public network are allowed.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * A valid instance SKU.
      */
@@ -73,7 +89,11 @@ export class App extends pulumi.CustomResource {
      */
     public readonly subdomain!: pulumi.Output<string | undefined>;
     /**
-     * The resource tags.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotcentral.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -81,7 +101,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly template!: pulumi.Output<string | undefined>;
     /**
-     * The resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -105,6 +125,8 @@ export class App extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkRuleSets"] = args ? (args.networkRuleSets ? pulumi.output(args.networkRuleSets).apply(inputs.iotcentral.networkRuleSetsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -113,7 +135,10 @@ export class App extends pulumi.CustomResource {
             resourceInputs["template"] = args ? args.template : undefined;
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
@@ -121,9 +146,14 @@ export class App extends pulumi.CustomResource {
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkRuleSets"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["subdomain"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["template"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -148,9 +178,17 @@ export interface AppArgs {
      */
     identity?: pulumi.Input<inputs.iotcentral.SystemAssignedServiceIdentityArgs>;
     /**
-     * The resource location.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Network Rule Set Properties of this IoT Central application.
+     */
+    networkRuleSets?: pulumi.Input<inputs.iotcentral.NetworkRuleSetsArgs>;
+    /**
+     * Whether requests from the public network are allowed.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.iotcentral.PublicNetworkAccess>;
     /**
      * The name of the resource group that contains the IoT Central application.
      */
@@ -168,7 +206,7 @@ export interface AppArgs {
      */
     subdomain?: pulumi.Input<string>;
     /**
-     * The resource tags.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

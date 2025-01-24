@@ -26,9 +26,6 @@ export const GroupQuotaSubscription: typeof import("./groupQuotaSubscription").G
 utilities.lazyLoad(exports, ["GroupQuotaSubscription"], () => require("./groupQuotaSubscription"));
 
 
-// Export enums:
-export * from "../types/enums/quota";
-
 // Export sub-modules:
 import * as v20230601preview from "./v20230601preview";
 import * as v20241015preview from "./v20241015preview";

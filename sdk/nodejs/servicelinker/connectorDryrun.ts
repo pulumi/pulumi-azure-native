@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * a dryrun job resource
- * Azure REST API version: 2022-11-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2022-11-01-preview.
  *
- * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+ * Other available API versions: 2022-11-01-preview, 2024-07-01-preview.
  */
 export class ConnectorDryrun extends pulumi.CustomResource {
     /**

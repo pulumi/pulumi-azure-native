@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the service.
- * Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2021-03-08.
+ * Azure REST API version: 2021-03-08.
  */
 export class PrivateLinkServicesForEDMUpload extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class PrivateLinkServicesForEDMUpload extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance:privateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForEDMUpload" }, { type: "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForEDMUpload" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForEDMUpload.__pulumiType, name, resourceInputs, opts);
     }

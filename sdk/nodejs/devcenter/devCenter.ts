@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a devcenter resource.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 1.x: 2023-04-01.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2023-04-01, 2024-10-01-preview.
  */
 export class DevCenter extends pulumi.CustomResource {
     /**
@@ -45,6 +45,14 @@ export class DevCenter extends pulumi.CustomResource {
      */
     public /*out*/ readonly devCenterUri!: pulumi.Output<string>;
     /**
+     * The display name of the devcenter.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
+     */
+    public readonly encryption!: pulumi.Output<outputs.devcenter.EncryptionResponse | undefined>;
+    /**
      * Managed identity properties
      */
     public readonly identity!: pulumi.Output<outputs.devcenter.ManagedServiceIdentityResponse | undefined>;
@@ -56,6 +64,10 @@ export class DevCenter extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Dev Center settings to be used when associating a project with a catalog.
+     */
+    public readonly projectCatalogSettings!: pulumi.Output<outputs.devcenter.DevCenterProjectCatalogSettingsResponse | undefined>;
     /**
      * The provisioning state of the resource.
      */
@@ -88,8 +100,11 @@ export class DevCenter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["projectCatalogSettings"] = args ? args.projectCatalogSettings : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["devCenterUri"] = undefined /*out*/;
@@ -99,9 +114,12 @@ export class DevCenter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["devCenterUri"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["projectCatalogSettings"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -123,6 +141,14 @@ export interface DevCenterArgs {
      */
     devCenterName?: pulumi.Input<string>;
     /**
+     * The display name of the devcenter.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
+     * Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
+     */
+    encryption?: pulumi.Input<inputs.devcenter.EncryptionArgs>;
+    /**
      * Managed identity properties
      */
     identity?: pulumi.Input<inputs.devcenter.ManagedServiceIdentityArgs>;
@@ -130,6 +156,10 @@ export interface DevCenterArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Dev Center settings to be used when associating a project with a catalog.
+     */
+    projectCatalogSettings?: pulumi.Input<inputs.devcenter.DevCenterProjectCatalogSettingsArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

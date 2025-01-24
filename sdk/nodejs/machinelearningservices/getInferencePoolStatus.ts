@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-08-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+ * Other available API versions: 2023-08-01-preview.
  */
 export function getInferencePoolStatus(args: GetInferencePoolStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetInferencePoolStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,9 +52,9 @@ export interface GetInferencePoolStatusResult {
     readonly reservedCapacity?: number;
 }
 /**
- * Azure REST API version: 2023-08-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+ * Other available API versions: 2023-08-01-preview.
  */
 export function getInferencePoolStatusOutput(args: GetInferencePoolStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferencePoolStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

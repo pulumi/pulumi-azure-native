@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Database Migration Resource for Mongo to CosmosDb.
- * Azure REST API version: 2023-07-15-preview.
+ * Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 1.x: 2023-07-15-preview.
  */
 export class DatabaseMigrationsMongoToCosmosDbRUMongo extends pulumi.CustomResource {
     /**

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Capture properties of Open AI resource Integration.
- * Azure REST API version: 2024-03-01.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 1.x: 2024-03-01.
  *
- * Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-10-01-preview.
  */
 export class OpenAI extends pulumi.CustomResource {
     /**

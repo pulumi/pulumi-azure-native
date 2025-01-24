@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Connection Monitor Test class.
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-06-01.
+ * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-10-01.
  */
 export class ConnectionMonitorTest extends pulumi.CustomResource {
     /**

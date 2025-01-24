@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The application type name resource
- * Azure REST API version: 2023-03-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 1.x: 2023-03-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview.
+ * Other available API versions: 2023-03-01-preview, 2024-09-01-preview.
  */
 export class ManagedClusterApplicationType extends pulumi.CustomResource {
     /**

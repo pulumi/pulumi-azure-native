@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * An addon resource
- * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 1.x: 2022-05-01.
  *
- * Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+ * Other available API versions: 2021-01-01-preview, 2022-05-01, 2023-03-01.
  */
 export class Addon extends pulumi.CustomResource {
     /**
@@ -41,15 +41,23 @@ export class Addon extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name.
+     * Addon type
+     */
+    public readonly addonType!: pulumi.Output<string>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The properties of an addon resource
+     * The state of the addon provisioning
      */
-    public readonly properties!: pulumi.Output<outputs.avs.AddonArcPropertiesResponse | outputs.avs.AddonHcxPropertiesResponse | outputs.avs.AddonSrmPropertiesResponse | outputs.avs.AddonVrPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -64,6 +72,9 @@ export class Addon extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.addonType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'addonType'");
+            }
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -71,14 +82,18 @@ export class Addon extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["addonName"] = args ? args.addonName : undefined;
+            resourceInputs["addonType"] = args ? args.addonType : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["addonType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -93,17 +108,17 @@ export class Addon extends pulumi.CustomResource {
  */
 export interface AddonArgs {
     /**
-     * Name of the addon for the private cloud
+     * Name of the addon.
      */
     addonName?: pulumi.Input<string>;
     /**
-     * The name of the private cloud.
+     * Addon type
+     */
+    addonType: pulumi.Input<string | enums.avs.AddonType>;
+    /**
+     * Name of the private cloud
      */
     privateCloudName: pulumi.Input<string>;
-    /**
-     * The properties of an addon resource
-     */
-    properties?: pulumi.Input<inputs.avs.AddonArcPropertiesArgs | inputs.avs.AddonHcxPropertiesArgs | inputs.avs.AddonSrmPropertiesArgs | inputs.avs.AddonVrPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

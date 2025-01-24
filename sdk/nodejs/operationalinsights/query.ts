@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A Log Analytics QueryPack-Query definition.
- * Azure REST API version: 2019-09-01. Prior API version in Azure Native 1.x: 2019-09-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 1.x: 2019-09-01.
  *
- * Other available API versions: 2019-09-01-preview, 2023-09-01.
+ * Other available API versions: 2019-09-01.
  */
 export class Query extends pulumi.CustomResource {
     /**
@@ -57,7 +57,7 @@ export class Query extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -69,7 +69,7 @@ export class Query extends pulumi.CustomResource {
      */
     public readonly related!: pulumi.Output<outputs.operationalinsights.LogAnalyticsQueryPackQueryPropertiesResponseRelated | undefined>;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.operationalinsights.SystemDataResponse>;
     /**
@@ -85,7 +85,7 @@ export class Query extends pulumi.CustomResource {
      */
     public /*out*/ readonly timeModified!: pulumi.Output<string>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

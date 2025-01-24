@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the notebook workspace for a Cosmos DB account.
- * Azure REST API version: 2023-04-15.
+ * Azure REST API version: 2024-11-15.
  *
- * Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+ * Other available API versions: 2023-04-15, 2024-12-01-preview.
  */
 export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,9 +61,9 @@ export interface GetNotebookWorkspaceResult {
 }
 /**
  * Gets the notebook workspace for a Cosmos DB account.
- * Azure REST API version: 2023-04-15.
+ * Azure REST API version: 2024-11-15.
  *
- * Other available API versions: 2023-09-15, 2023-09-15-preview, 2023-11-15, 2023-11-15-preview, 2024-02-15-preview, 2024-05-15, 2024-05-15-preview, 2024-08-15, 2024-09-01-preview, 2024-11-15, 2024-12-01-preview.
+ * Other available API versions: 2023-04-15, 2024-12-01-preview.
  */
 export function getNotebookWorkspaceOutput(args: GetNotebookWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotebookWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

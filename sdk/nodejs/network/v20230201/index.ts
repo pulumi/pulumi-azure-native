@@ -70,11 +70,6 @@ export type DdosProtectionPlan = import("./ddosProtectionPlan").DdosProtectionPl
 export const DdosProtectionPlan: typeof import("./ddosProtectionPlan").DdosProtectionPlan = null as any;
 utilities.lazyLoad(exports, ["DdosProtectionPlan"], () => require("./ddosProtectionPlan"));
 
-export { DefaultAdminRuleArgs } from "./defaultAdminRule";
-export type DefaultAdminRule = import("./defaultAdminRule").DefaultAdminRule;
-export const DefaultAdminRule: typeof import("./defaultAdminRule").DefaultAdminRule = null as any;
-utilities.lazyLoad(exports, ["DefaultAdminRule"], () => require("./defaultAdminRule"));
-
 export { DscpConfigurationArgs } from "./dscpConfiguration";
 export type DscpConfiguration = import("./dscpConfiguration").DscpConfiguration;
 export const DscpConfiguration: typeof import("./dscpConfiguration").DscpConfiguration = null as any;
@@ -219,11 +214,6 @@ export { GetDdosProtectionPlanArgs, GetDdosProtectionPlanResult, GetDdosProtecti
 export const getDdosProtectionPlan: typeof import("./getDdosProtectionPlan").getDdosProtectionPlan = null as any;
 export const getDdosProtectionPlanOutput: typeof import("./getDdosProtectionPlan").getDdosProtectionPlanOutput = null as any;
 utilities.lazyLoad(exports, ["getDdosProtectionPlan","getDdosProtectionPlanOutput"], () => require("./getDdosProtectionPlan"));
-
-export { GetDefaultAdminRuleArgs, GetDefaultAdminRuleResult, GetDefaultAdminRuleOutputArgs } from "./getDefaultAdminRule";
-export const getDefaultAdminRule: typeof import("./getDefaultAdminRule").getDefaultAdminRule = null as any;
-export const getDefaultAdminRuleOutput: typeof import("./getDefaultAdminRule").getDefaultAdminRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getDefaultAdminRule","getDefaultAdminRuleOutput"], () => require("./getDefaultAdminRule"));
 
 export { GetDscpConfigurationArgs, GetDscpConfigurationResult, GetDscpConfigurationOutputArgs } from "./getDscpConfiguration";
 export const getDscpConfiguration: typeof import("./getDscpConfiguration").getDscpConfiguration = null as any;
@@ -1019,8 +1009,6 @@ const _module = {
                 return new DdosCustomPolicy(name, <any>undefined, { urn })
             case "azure-native:network/v20230201:DdosProtectionPlan":
                 return new DdosProtectionPlan(name, <any>undefined, { urn })
-            case "azure-native:network/v20230201:DefaultAdminRule":
-                return new DefaultAdminRule(name, <any>undefined, { urn })
             case "azure-native:network/v20230201:DscpConfiguration":
                 return new DscpConfiguration(name, <any>undefined, { urn })
             case "azure-native:network/v20230201:ExpressRouteCircuit":

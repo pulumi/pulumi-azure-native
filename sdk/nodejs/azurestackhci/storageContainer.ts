@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The storage container resource definition.
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 1.x: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2023-07-01-preview.
  */
 export class StorageContainer extends pulumi.CustomResource {
     /**
@@ -55,7 +55,7 @@ export class StorageContainer extends pulumi.CustomResource {
     /**
      * Path of the storage container on the disk
      */
-    public readonly path!: pulumi.Output<string | undefined>;
+    public readonly path!: pulumi.Output<string>;
     /**
      * Provisioning state of the storage container.
      */
@@ -88,6 +88,9 @@ export class StorageContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.path === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'path'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -114,7 +117,7 @@ export class StorageContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20221215preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230701preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240101:StorageContainer" }, { type: "azure-native:azurestackhci/v20240201preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240501preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240715preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240801preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20241001preview:StorageContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20221215preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230701preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20230901preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240101:StorageContainer" }, { type: "azure-native:azurestackhci/v20240201preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240501preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240715preview:StorageContainer" }, { type: "azure-native:azurestackhci/v20240801preview:StorageContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageContainer.__pulumiType, name, resourceInputs, opts);
     }
@@ -135,7 +138,7 @@ export interface StorageContainerArgs {
     /**
      * Path of the storage container on the disk
      */
-    path?: pulumi.Input<string>;
+    path: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

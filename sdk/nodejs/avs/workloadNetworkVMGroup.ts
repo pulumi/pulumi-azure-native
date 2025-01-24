@@ -2,13 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * NSX VM Group
- * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 1.x: 2022-05-01.
  *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Other available API versions: 2022-05-01.
  */
 export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
     /**
@@ -46,7 +49,7 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
      */
     public readonly members!: pulumi.Output<string[] | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -62,7 +65,11 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -92,6 +99,7 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["displayName"] = undefined /*out*/;
@@ -100,6 +108,7 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -134,7 +143,7 @@ export interface WorkloadNetworkVMGroupArgs {
      */
     revision?: pulumi.Input<number>;
     /**
-     * NSX VM Group identifier. Generally the same as the VM Group's display name
+     * ID of the VM group.
      */
     vmGroupId?: pulumi.Input<string>;
 }

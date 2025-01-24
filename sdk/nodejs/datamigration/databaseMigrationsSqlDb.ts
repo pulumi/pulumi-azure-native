@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Database Migration Resource for SQL Database.
- * Azure REST API version: 2022-03-30-preview. Prior API version in Azure Native 1.x: 2022-03-30-preview.
+ * Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 1.x: 2022-03-30-preview.
  *
- * Other available API versions: 2023-07-15-preview.
+ * Other available API versions: 2022-03-30-preview.
  */
 export class DatabaseMigrationsSqlDb extends pulumi.CustomResource {
     /**

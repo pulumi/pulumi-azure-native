@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a server.
- * Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01.
+ * Azure REST API version: 2023-12-30. Prior API version in Azure Native 1.x: 2022-01-01.
  *
- * Other available API versions: 2017-12-01, 2018-06-01-privatepreview, 2020-07-01-preview, 2020-07-01-privatepreview, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-02-01-preview, 2024-06-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2020-07-01-preview, 2020-07-01-privatepreview, 2022-01-01, 2022-09-30-preview, 2024-10-01-preview.
  */
 export class Server extends pulumi.CustomResource {
     /**
@@ -67,7 +67,11 @@ export class Server extends pulumi.CustomResource {
     /**
      * The cmk identity for the server.
      */
-    public readonly identity!: pulumi.Output<outputs.dbformysql.IdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.dbformysql.MySQLServerIdentityResponse | undefined>;
+    /**
+     * Source properties for import from storage.
+     */
+    public readonly importSourceProperties!: pulumi.Output<outputs.dbformysql.ImportSourcePropertiesResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -85,6 +89,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly network!: pulumi.Output<outputs.dbformysql.NetworkResponse | undefined>;
     /**
+     * PrivateEndpointConnections related properties of a server.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.dbformysql.PrivateEndpointConnectionResponse[]>;
+    /**
      * The maximum number of replicas that a primary server can have.
      */
     public /*out*/ readonly replicaCapacity!: pulumi.Output<number>;
@@ -95,7 +103,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * The SKU (pricing tier) of the server.
      */
-    public readonly sku!: pulumi.Output<outputs.dbformysql.SkuResponse | undefined>;
+    public readonly sku!: pulumi.Output<outputs.dbformysql.MySQLServerSkuResponse | undefined>;
     /**
      * The source MySQL server id.
      */
@@ -109,7 +117,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly storage!: pulumi.Output<outputs.dbformysql.StorageResponse | undefined>;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
     /**
@@ -147,6 +155,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["dataEncryption"] = args ? args.dataEncryption : undefined;
             resourceInputs["highAvailability"] = args ? args.highAvailability : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["importSourceProperties"] = args ? args.importSourceProperties : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["network"] = args ? args.network : undefined;
@@ -161,6 +170,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["replicaCapacity"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -173,10 +183,12 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["highAvailability"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["importSourceProperties"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["maintenanceWindow"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["network"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["replicaCapacity"] = undefined /*out*/;
             resourceInputs["replicationRole"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
@@ -230,7 +242,11 @@ export interface ServerArgs {
     /**
      * The cmk identity for the server.
      */
-    identity?: pulumi.Input<inputs.dbformysql.IdentityArgs>;
+    identity?: pulumi.Input<inputs.dbformysql.MySQLServerIdentityArgs>;
+    /**
+     * Source properties for import from storage.
+     */
+    importSourceProperties?: pulumi.Input<inputs.dbformysql.ImportSourcePropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -262,7 +278,7 @@ export interface ServerArgs {
     /**
      * The SKU (pricing tier) of the server.
      */
-    sku?: pulumi.Input<inputs.dbformysql.SkuArgs>;
+    sku?: pulumi.Input<inputs.dbformysql.MySQLServerSkuArgs>;
     /**
      * The source MySQL server id.
      */

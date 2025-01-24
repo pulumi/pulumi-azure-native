@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The L2IsolationDomain resource definition.
- * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+ * The L2 Isolation Domain resource definition.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-02-01-preview.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview.
  */
 export class L2IsolationDomain extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class L2IsolationDomain extends pulumi.CustomResource {
     }
 
     /**
-     * state. Example: Enabled | Disabled. It indicates administrative state of the isolationDomain, whether it is enabled or disabled. If enabled, the configuration is applied on the devices. If disabled, the configuration is removed from the devices
+     * Administrative state of the resource.
      */
     public /*out*/ readonly administrativeState!: pulumi.Output<string>;
     /**
@@ -49,15 +49,15 @@ export class L2IsolationDomain extends pulumi.CustomResource {
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
     /**
-     * List of resources the L2 Isolation Domain is disabled on. Can be either entire NetworkFabric or NetworkRack.
+     * Configuration state of the resource.
      */
-    public /*out*/ readonly disabledOnResources!: pulumi.Output<string[]>;
+    public /*out*/ readonly configurationState!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * maximum transmission unit. Default value is 1500.
+     * Maximum transmission unit. Default value is 1500.
      */
     public readonly mtu!: pulumi.Output<number | undefined>;
     /**
@@ -65,11 +65,11 @@ export class L2IsolationDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Network Fabric ARM resource id.
+     * ARM Resource ID of the Network Fabric.
      */
     public readonly networkFabricId!: pulumi.Output<string>;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -85,7 +85,7 @@ export class L2IsolationDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * vlanId. Example: 501.
+     * Vlan Identifier of the Network Fabric. Example: 501.
      */
     public readonly vlanId!: pulumi.Output<number>;
 
@@ -112,13 +112,13 @@ export class L2IsolationDomain extends pulumi.CustomResource {
             resourceInputs["annotation"] = args ? args.annotation : undefined;
             resourceInputs["l2IsolationDomainName"] = args ? args.l2IsolationDomainName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mtu"] = args ? args.mtu : undefined;
+            resourceInputs["mtu"] = (args ? args.mtu : undefined) ?? 1500;
             resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vlanId"] = args ? args.vlanId : undefined;
             resourceInputs["administrativeState"] = undefined /*out*/;
-            resourceInputs["disabledOnResources"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -126,7 +126,7 @@ export class L2IsolationDomain extends pulumi.CustomResource {
         } else {
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["annotation"] = undefined /*out*/;
-            resourceInputs["disabledOnResources"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["mtu"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -153,7 +153,7 @@ export interface L2IsolationDomainArgs {
      */
     annotation?: pulumi.Input<string>;
     /**
-     * Name of the L2 Isolation Domain
+     * Name of the L2 Isolation Domain.
      */
     l2IsolationDomainName?: pulumi.Input<string>;
     /**
@@ -161,11 +161,11 @@ export interface L2IsolationDomainArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * maximum transmission unit. Default value is 1500.
+     * Maximum transmission unit. Default value is 1500.
      */
     mtu?: pulumi.Input<number>;
     /**
-     * Network Fabric ARM resource id.
+     * ARM Resource ID of the Network Fabric.
      */
     networkFabricId: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface L2IsolationDomainArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * vlanId. Example: 501.
+     * Vlan Identifier of the Network Fabric. Example: 501.
      */
     vlanId: pulumi.Input<number>;
 }

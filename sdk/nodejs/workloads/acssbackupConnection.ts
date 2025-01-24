@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Define the backup connection resource of virtual instance for SAP..
- * Azure REST API version: 2023-10-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2023-10-01-preview.
  */
 export class ACSSBackupConnection extends pulumi.CustomResource {
     /**

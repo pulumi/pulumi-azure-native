@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified IoT Connector.
- * Azure REST API version: 2023-02-28.
+ * Azure REST API version: 2024-03-31.
  *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Other available API versions: 2023-02-28.
  */
 export function getIotConnector(args: GetIotConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -88,9 +88,9 @@ export interface GetIotConnectorResult {
 }
 /**
  * Gets the properties of the specified IoT Connector.
- * Azure REST API version: 2023-02-28.
+ * Azure REST API version: 2024-03-31.
  *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Other available API versions: 2023-02-28.
  */
 export function getIotConnectorOutput(args: GetIotConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIotConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

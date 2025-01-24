@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * Azure REST API version: 2021-11-30. Prior API version in Azure Native 1.x: 2018-10-31-preview.
+ * Azure REST API version: 2024-06-30-preview. Prior API version in Azure Native 1.x: 2021-11-30.
  *
- * Other available API versions: 2024-06-30-preview.
+ * Other available API versions: 2021-11-30.
  */
 export class DedicatedHsm extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class DedicatedHsm extends pulumi.CustomResource {
     }
 
     /**
-     * The supported Azure location where the dedicated HSM should be created.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -49,7 +49,7 @@ export class DedicatedHsm extends pulumi.CustomResource {
      */
     public readonly managementNetworkProfile!: pulumi.Output<outputs.hardwaresecuritymodules.NetworkProfileResponse | undefined>;
     /**
-     * The name of the dedicated HSM.
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -73,15 +73,15 @@ export class DedicatedHsm extends pulumi.CustomResource {
      */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.hardwaresecuritymodules.SystemDataResponse>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The resource type of the dedicated HSM.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -145,7 +145,7 @@ export class DedicatedHsm extends pulumi.CustomResource {
  */
 export interface DedicatedHsmArgs {
     /**
-     * The supported Azure location where the dedicated HSM should be created.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface DedicatedHsmArgs {
      */
     networkProfile?: pulumi.Input<inputs.hardwaresecuritymodules.NetworkProfileArgs>;
     /**
-     * The name of the Resource Group to which the resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -173,7 +173,7 @@ export interface DedicatedHsmArgs {
      */
     stampId?: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The DatabaseWatcherProviderHub resource.
- * Azure REST API version: 2023-09-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 1.x: 2023-09-01-preview.
  *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+ * Other available API versions: 2023-09-01-preview, 2025-01-02.
  */
 export class Watcher extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class Watcher extends pulumi.CustomResource {
      * The data store for collected monitoring data.
      */
     public readonly datastore!: pulumi.Output<outputs.databasewatcher.DatastoreResponse | undefined>;
+    /**
+     * The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+     */
+    public readonly defaultAlertRuleIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
@@ -92,6 +96,7 @@ export class Watcher extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["datastore"] = args ? args.datastore : undefined;
+            resourceInputs["defaultAlertRuleIdentityResourceId"] = args ? args.defaultAlertRuleIdentityResourceId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -104,6 +109,7 @@ export class Watcher extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["datastore"] = undefined /*out*/;
+            resourceInputs["defaultAlertRuleIdentityResourceId"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -128,6 +134,10 @@ export interface WatcherArgs {
      * The data store for collected monitoring data.
      */
     datastore?: pulumi.Input<inputs.databasewatcher.DatastoreArgs>;
+    /**
+     * The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+     */
+    defaultAlertRuleIdentityResourceId?: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Firmware analysis workspace.
- * Azure REST API version: 2023-02-08-preview.
+ * Azure REST API version: 2024-01-10. Prior API version in Azure Native 1.x: 2023-02-08-preview.
  *
- * Other available API versions: 2024-01-10.
+ * Other available API versions: 2023-02-08-preview.
  */
 export class Workspace extends pulumi.CustomResource {
     /**

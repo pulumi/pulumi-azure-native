@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * Azure REST API version: 2022-06-01.
+ * Azure REST API version: 2023-03-11.
  *
- * Other available API versions: 2023-03-11.
+ * Other available API versions: 2022-06-01.
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +37,10 @@ export interface GetDataCollectionRuleArgs {
  */
 export interface GetDataCollectionRuleResult {
     /**
+     * Agent settings used to modify agent behavior on a given host
+     */
+    readonly agentSettings?: outputs.insights.DataCollectionRuleResponseAgentSettings;
+    /**
      * The resource ID of the data collection endpoint that this rule can be used with.
      */
     readonly dataCollectionEndpointId?: string;
@@ -57,6 +61,10 @@ export interface GetDataCollectionRuleResult {
      * The specification of destinations.
      */
     readonly destinations?: outputs.insights.DataCollectionRuleResponseDestinations;
+    /**
+     * Defines the ingestion endpoints to send data to via this rule.
+     */
+    readonly endpoints: outputs.insights.DataCollectionRuleResponseEndpoints;
     /**
      * Resource entity tag (ETag).
      */
@@ -94,6 +102,10 @@ export interface GetDataCollectionRuleResult {
      */
     readonly provisioningState: string;
     /**
+     * Defines all the references that may be used in other sections of the DCR
+     */
+    readonly references?: outputs.insights.DataCollectionRuleResponseReferences;
+    /**
      * Declaration of custom streams used in this rule.
      */
     readonly streamDeclarations?: {[key: string]: outputs.insights.StreamDeclarationResponse};
@@ -112,9 +124,9 @@ export interface GetDataCollectionRuleResult {
 }
 /**
  * Definition of ARM tracked top level resource.
- * Azure REST API version: 2022-06-01.
+ * Azure REST API version: 2023-03-11.
  *
- * Other available API versions: 2023-03-11.
+ * Other available API versions: 2022-06-01.
  */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCollectionRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

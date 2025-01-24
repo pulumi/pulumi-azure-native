@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Durable Task Scheduler resource
- * Azure REST API version: 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 1.x: 2024-10-01-preview.
  */
 export class Scheduler extends pulumi.CustomResource {
     /**

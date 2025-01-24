@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * MQ mqttBridgeConnector resource
- * Azure REST API version: 2023-10-04-preview.
+ * Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 1.x: 2023-10-04-preview.
  */
 export class MqttBridgeConnector extends pulumi.CustomResource {
     /**

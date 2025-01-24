@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the Neighbor Group.
- * Azure REST API version: 2023-06-15.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-06-15.
  */
 export class NeighborGroup extends pulumi.CustomResource {
     /**

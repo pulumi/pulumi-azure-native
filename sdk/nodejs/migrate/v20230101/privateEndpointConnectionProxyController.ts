@@ -82,8 +82,6 @@ export class PrivateEndpointConnectionProxyController extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate:PrivateEndpointConnectionProxyController" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionProxyController.__pulumiType, name, resourceInputs, opts);
     }
 }

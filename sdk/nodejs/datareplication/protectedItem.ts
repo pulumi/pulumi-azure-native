@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Protected item model.
- * Azure REST API version: 2021-02-16-preview.
+ * Azure REST API version: 2021-02-16-preview. Prior API version in Azure Native 1.x: 2021-02-16-preview.
  */
 export class ProtectedItem extends pulumi.CustomResource {
     /**

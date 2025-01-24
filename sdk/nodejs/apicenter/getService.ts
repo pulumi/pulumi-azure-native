@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get service
- * Azure REST API version: 2023-07-01-preview.
+ * Returns details of the service.
+ * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-06-01-preview.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -27,7 +27,7 @@ export interface GetServiceArgs {
      */
     resourceGroupName: string;
     /**
-     * Service name
+     * The name of Azure API Center service.
      */
     serviceName: string;
 }
@@ -41,7 +41,7 @@ export interface GetServiceResult {
      */
     readonly id: string;
     /**
-     * The identity of the service.
+     * The managed service identities assigned to this resource.
      */
     readonly identity?: outputs.apicenter.ManagedServiceIdentityResponse;
     /**
@@ -53,7 +53,7 @@ export interface GetServiceResult {
      */
     readonly name: string;
     /**
-     * The status of the last operation.
+     * Provisioning state of the service.
      */
     readonly provisioningState: string;
     /**
@@ -70,10 +70,10 @@ export interface GetServiceResult {
     readonly type: string;
 }
 /**
- * Get service
- * Azure REST API version: 2023-07-01-preview.
+ * Returns details of the service.
+ * Azure REST API version: 2024-03-01.
  *
- * Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+ * Other available API versions: 2023-07-01-preview, 2024-06-01-preview.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +89,7 @@ export interface GetServiceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Service name
+     * The name of Azure API Center service.
      */
     serviceName: pulumi.Input<string>;
 }

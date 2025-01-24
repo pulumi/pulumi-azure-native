@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-09-01.
  *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01.
+ * Other available API versions: 2022-09-01.
  */
 export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**

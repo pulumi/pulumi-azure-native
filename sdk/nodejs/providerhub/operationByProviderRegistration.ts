@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2021-09-01-preview.
  *
  * Other available API versions: 2021-05-01-preview.
  */

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An integration space.
- * Azure REST API version: 2023-11-14-preview.
+ * Azure REST API version: 2023-11-14-preview. Prior API version in Azure Native 1.x: 2023-11-14-preview.
  */
 export class Space extends pulumi.CustomResource {
     /**

@@ -6,8 +6,6 @@ import * as v20200401preview from "./v20200401preview";
 import * as v20211015preview from "./v20211015preview";
 import * as v20220615 from "./v20220615";
 import * as v20230601preview from "./v20230601preview";
-import * as v20231215preview from "./v20231215preview";
-import * as v20240601preview from "./v20240601preview";
 import * as v20241215preview from "./v20241215preview";
 
 export {
@@ -15,8 +13,6 @@ export {
     v20211015preview,
     v20220615,
     v20230601preview,
-    v20231215preview,
-    v20240601preview,
     v20241215preview,
 };
 
@@ -55,6 +51,9 @@ export const AlternativeAuthenticationNameSource = {
     ClientCertificateEmail: "ClientCertificateEmail",
 } as const;
 
+/**
+ * Alternative authentication name sources related to client authentication settings for namespace resource.
+ */
 export type AlternativeAuthenticationNameSource = (typeof AlternativeAuthenticationNameSource)[keyof typeof AlternativeAuthenticationNameSource];
 
 export const ChannelProvisioningState = {
@@ -65,6 +64,7 @@ export const ChannelProvisioningState = {
     Canceled: "Canceled",
     Failed: "Failed",
     IdleDueToMirroredPartnerTopicDeletion: "IdleDueToMirroredPartnerTopicDeletion",
+    IdleDueToMirroredPartnerDestinationDeletion: "IdleDueToMirroredPartnerDestinationDeletion",
 } as const;
 
 /**
@@ -74,6 +74,7 @@ export type ChannelProvisioningState = (typeof ChannelProvisioningState)[keyof t
 
 export const ChannelType = {
     PartnerTopic: "PartnerTopic",
+    PartnerDestination: "PartnerDestination",
 } as const;
 
 /**
@@ -104,6 +105,37 @@ export const ClientState = {
  * Indicates if the client is enabled or not. Default value is Enabled.
  */
 export type ClientState = (typeof ClientState)[keyof typeof ClientState];
+
+export const CustomDomainIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+ */
+export type CustomDomainIdentityType = (typeof CustomDomainIdentityType)[keyof typeof CustomDomainIdentityType];
+
+export const CustomDomainValidationState = {
+    Pending: "Pending",
+    Approved: "Approved",
+    ErrorRetrievingDnsRecord: "ErrorRetrievingDnsRecord",
+} as const;
+
+/**
+ * Validation state for the custom domain. This is a read only property and is initially set to 'Pending' and will be updated to 'Approved' by Event Grid only after ownership of the domain name has been successfully validated.
+ */
+export type CustomDomainValidationState = (typeof CustomDomainValidationState)[keyof typeof CustomDomainValidationState];
+
+export const CustomJwtAuthenticationManagedIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+ */
+export type CustomJwtAuthenticationManagedIdentityType = (typeof CustomJwtAuthenticationManagedIdentityType)[keyof typeof CustomJwtAuthenticationManagedIdentityType];
 
 export const DataResidencyBoundary = {
     WithinGeopair: "WithinGeopair",
@@ -136,6 +168,7 @@ export type DeliveryAttributeMappingType = (typeof DeliveryAttributeMappingType)
 
 export const DeliveryMode = {
     Queue: "Queue",
+    Push: "Push",
 } as const;
 
 /**
@@ -160,6 +193,9 @@ export const EndpointType = {
     ServiceBusQueue: "ServiceBusQueue",
     ServiceBusTopic: "ServiceBusTopic",
     AzureFunction: "AzureFunction",
+    PartnerDestination: "PartnerDestination",
+    MonitorAlert: "MonitorAlert",
+    NamespaceTopic: "NamespaceTopic",
 } as const;
 
 /**
@@ -202,7 +238,7 @@ export const EventSubscriptionIdentityType = {
 } as const;
 
 /**
- * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+ * The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
  */
 export type EventSubscriptionIdentityType = (typeof EventSubscriptionIdentityType)[keyof typeof EventSubscriptionIdentityType];
 
@@ -274,6 +310,29 @@ export const IpActionType = {
  */
 export type IpActionType = (typeof IpActionType)[keyof typeof IpActionType];
 
+export const MonitorAlertSeverity = {
+    Sev0: "Sev0",
+    Sev1: "Sev1",
+    Sev2: "Sev2",
+    Sev3: "Sev3",
+    Sev4: "Sev4",
+} as const;
+
+/**
+ * The severity that will be attached to every Alert fired through this event subscription.
+ * This field must be provided.
+ */
+export type MonitorAlertSeverity = (typeof MonitorAlertSeverity)[keyof typeof MonitorAlertSeverity];
+
+export const PartnerClientAuthenticationType = {
+    AzureAD: "AzureAD",
+} as const;
+
+/**
+ * Type of client authentication
+ */
+export type PartnerClientAuthenticationType = (typeof PartnerClientAuthenticationType)[keyof typeof PartnerClientAuthenticationType];
+
 export const PartnerConfigurationProvisioningState = {
     Creating: "Creating",
     Updating: "Updating",
@@ -297,6 +356,15 @@ export const PartnerDestinationActivationState = {
  * Activation state of the partner destination.
  */
 export type PartnerDestinationActivationState = (typeof PartnerDestinationActivationState)[keyof typeof PartnerDestinationActivationState];
+
+export const PartnerEndpointType = {
+    WebHook: "WebHook",
+} as const;
+
+/**
+ * Type of the endpoint for the partner destination
+ */
+export type PartnerEndpointType = (typeof PartnerEndpointType)[keyof typeof PartnerEndpointType];
 
 export const PartnerTopicActivationState = {
     NeverActivated: "NeverActivated",
@@ -345,6 +413,7 @@ export type PersistedConnectionStatus = (typeof PersistedConnectionStatus)[keyof
 export const PublicNetworkAccess = {
     Enabled: "Enabled",
     Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
 } as const;
 
 /**
@@ -372,6 +441,16 @@ export const ReadinessState = {
  */
 export type ReadinessState = (typeof ReadinessState)[keyof typeof ReadinessState];
 
+export const ResourceKind = {
+    Azure: "Azure",
+    AzureArc: "AzureArc",
+} as const;
+
+/**
+ * Kind of the resource.
+ */
+export type ResourceKind = (typeof ResourceKind)[keyof typeof ResourceKind];
+
 export const ResourceProvisioningState = {
     Creating: "Creating",
     Updating: "Updating",
@@ -392,7 +471,20 @@ export const RoutingIdentityType = {
     UserAssigned: "UserAssigned",
 } as const;
 
+/**
+ * Routing identity type for topic spaces configuration.
+ */
 export type RoutingIdentityType = (typeof RoutingIdentityType)[keyof typeof RoutingIdentityType];
+
+export const Sku = {
+    Basic: "Basic",
+    Premium: "Premium",
+} as const;
+
+/**
+ * The Sku name of the resource. The possible values are: Basic or Premium.
+ */
+export type Sku = (typeof Sku)[keyof typeof Sku];
 
 export const SkuName = {
     Standard: "Standard",
@@ -419,7 +511,7 @@ export const TlsVersion = {
 } as const;
 
 /**
- * Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
+ * Minimum TLS version that should be supported by webhook endpoint
  */
 export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];
 

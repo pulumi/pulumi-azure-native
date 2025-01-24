@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-06-01-preview.
+ * Azure REST API version: 2024-11-01. Prior API version in Azure Native 1.x: 2023-02-01.
  *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Other available API versions: 2023-02-01, 2024-12-01-preview.
  */
 export class ManagedHsm extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class ManagedHsm extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedHsm.__pulumiType;
     }
 
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    public readonly identity!: pulumi.Output<outputs.keyvault.ManagedServiceIdentityResponse | undefined>;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */
@@ -83,6 +87,7 @@ export class ManagedHsm extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.keyvault.managedHsmPropertiesArgsProvideDefaults) : undefined) : undefined;
@@ -92,6 +97,7 @@ export class ManagedHsm extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -111,6 +117,10 @@ export class ManagedHsm extends pulumi.CustomResource {
  * The set of arguments for constructing a ManagedHsm resource.
  */
 export interface ManagedHsmArgs {
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    identity?: pulumi.Input<inputs.keyvault.ManagedServiceIdentityArgs>;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */

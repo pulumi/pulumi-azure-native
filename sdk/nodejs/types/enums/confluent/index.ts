@@ -2,13 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20230822 from "./v20230822";
-import * as v20240213 from "./v20240213";
 import * as v20240701 from "./v20240701";
 
 export {
-    v20230822,
-    v20240213,
     v20240701,
 };
 
@@ -102,3 +98,21 @@ export const PartnerConnectorType = {
  * The partner connector type.
  */
 export type PartnerConnectorType = (typeof PartnerConnectorType)[keyof typeof PartnerConnectorType];
+
+export const SaaSOfferStatus = {
+    Started: "Started",
+    PendingFulfillmentStart: "PendingFulfillmentStart",
+    InProgress: "InProgress",
+    Subscribed: "Subscribed",
+    Suspended: "Suspended",
+    Reinstated: "Reinstated",
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Unsubscribed: "Unsubscribed",
+    Updating: "Updating",
+} as const;
+
+/**
+ * SaaS Offer Status
+ */
+export type SaaSOfferStatus = (typeof SaaSOfferStatus)[keyof typeof SaaSOfferStatus];

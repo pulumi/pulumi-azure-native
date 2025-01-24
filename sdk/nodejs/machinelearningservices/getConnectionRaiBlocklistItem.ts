@@ -8,14 +8,13 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2024-04-01-preview.
- *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  */
 export function getConnectionRaiBlocklistItem(args: GetConnectionRaiBlocklistItemArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionRaiBlocklistItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:machinelearningservices:getConnectionRaiBlocklistItem", {
         "connectionName": args.connectionName,
+        "raiBlocklistItemName": args.raiBlocklistItemName,
         "raiBlocklistName": args.raiBlocklistName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -27,6 +26,10 @@ export interface GetConnectionRaiBlocklistItemArgs {
      * Friendly name of the workspace connection
      */
     connectionName: string;
+    /**
+     * Name of the RaiBlocklist Item
+     */
+    raiBlocklistItemName: string;
     /**
      * The name of the RaiBlocklist.
      */
@@ -51,9 +54,9 @@ export interface GetConnectionRaiBlocklistItemResult {
      */
     readonly name: string;
     /**
-     * RAI Custom Blocklist properties.
+     * RAI Custom Blocklist Item properties.
      */
-    readonly properties: outputs.machinelearningservices.RaiBlocklistPropertiesResponse;
+    readonly properties: outputs.machinelearningservices.RaiBlocklistItemPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -64,14 +67,13 @@ export interface GetConnectionRaiBlocklistItemResult {
     readonly type: string;
 }
 /**
- * Azure REST API version: 2024-04-01-preview.
- *
- * Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  */
 export function getConnectionRaiBlocklistItemOutput(args: GetConnectionRaiBlocklistItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionRaiBlocklistItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:machinelearningservices:getConnectionRaiBlocklistItem", {
         "connectionName": args.connectionName,
+        "raiBlocklistItemName": args.raiBlocklistItemName,
         "raiBlocklistName": args.raiBlocklistName,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
@@ -83,6 +85,10 @@ export interface GetConnectionRaiBlocklistItemOutputArgs {
      * Friendly name of the workspace connection
      */
     connectionName: pulumi.Input<string>;
+    /**
+     * Name of the RaiBlocklist Item
+     */
+    raiBlocklistItemName: pulumi.Input<string>;
     /**
      * The name of the RaiBlocklist.
      */

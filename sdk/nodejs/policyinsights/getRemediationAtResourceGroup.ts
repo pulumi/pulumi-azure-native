@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing remediation at resource group scope.
- * Azure REST API version: 2021-10-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2024-10-01.
+ * Other available API versions: 2021-10-01.
  */
 export function getRemediationAtResourceGroup(args: GetRemediationAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetRemediationAtResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,9 +107,9 @@ export interface GetRemediationAtResourceGroupResult {
 }
 /**
  * Gets an existing remediation at resource group scope.
- * Azure REST API version: 2021-10-01.
+ * Azure REST API version: 2024-10-01.
  *
- * Other available API versions: 2024-10-01.
+ * Other available API versions: 2021-10-01.
  */
 export function getRemediationAtResourceGroupOutput(args: GetRemediationAtResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemediationAtResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

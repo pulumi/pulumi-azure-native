@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The AzureKeyVaultSecretProviderClass resource.
- * Azure REST API version: 2024-08-21-preview.
+ * Azure REST API version: 2024-08-21-preview. Prior API version in Azure Native 1.x: 2024-08-21-preview.
  */
 export class AzureKeyVaultSecretProviderClass extends pulumi.CustomResource {
     /**

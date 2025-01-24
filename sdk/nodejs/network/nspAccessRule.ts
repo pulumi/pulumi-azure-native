@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The NSP access rule resource
- * Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
+ * Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Other available API versions: 2021-02-01-preview.
  */
 export class NspAccessRule extends pulumi.CustomResource {
     /**
@@ -77,6 +77,10 @@ export class NspAccessRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Inbound rules service tag names.
+     */
+    public readonly serviceTags!: pulumi.Output<string[] | undefined>;
+    /**
      * List of subscription ids
      */
     public readonly subscriptions!: pulumi.Output<outputs.network.SubscriptionIdResponse[] | undefined>;
@@ -121,6 +125,7 @@ export class NspAccessRule extends pulumi.CustomResource {
             resourceInputs["phoneNumbers"] = args ? args.phoneNumbers : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceTags"] = args ? args.serviceTags : undefined;
             resourceInputs["subscriptions"] = args ? args.subscriptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["networkSecurityPerimeters"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class NspAccessRule extends pulumi.CustomResource {
             resourceInputs["networkSecurityPerimeters"] = undefined /*out*/;
             resourceInputs["phoneNumbers"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceTags"] = undefined /*out*/;
             resourceInputs["subscriptions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -199,6 +205,10 @@ export interface NspAccessRuleArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Inbound rules service tag names.
+     */
+    serviceTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of subscription ids
      */

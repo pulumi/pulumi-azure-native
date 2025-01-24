@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The network interface resource definition.
- * Azure REST API version: 2022-12-15-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 1.x: 2022-12-15-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2022-12-15-preview, 2024-07-15-preview.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**
@@ -65,6 +65,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * NetworkSecurityGroup - Network Security Group attached to the network interface.
+     */
+    public readonly networkSecurityGroup!: pulumi.Output<outputs.azurestackhci.NetworkSecurityGroupArmReferenceResponse | undefined>;
+    /**
      * Provisioning state of the network interface.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["macAddress"] = args ? args.macAddress : undefined;
             resourceInputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
+            resourceInputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -119,6 +124,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["macAddress"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkSecurityGroup"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -126,7 +132,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20210901preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20221215preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20230701preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20230901preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240101:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240201preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240501preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240715preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240801preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20241001preview:NetworkInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20210901preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20221215preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20230701preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20230901preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240101:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240201preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240501preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240715preview:NetworkInterface" }, { type: "azure-native:azurestackhci/v20240801preview:NetworkInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkInterface.__pulumiType, name, resourceInputs, opts);
     }
@@ -160,6 +166,10 @@ export interface NetworkInterfaceArgs {
      * Name of the network interface
      */
     networkInterfaceName?: pulumi.Input<string>;
+    /**
+     * NetworkSecurityGroup - Network Security Group attached to the network interface.
+     */
+    networkSecurityGroup?: pulumi.Input<inputs.azurestackhci.NetworkSecurityGroupArmReferenceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * A provider instance associated with SAP monitor.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
+ * Azure REST API version: 2024-02-01-preview. Prior API version in Azure Native 1.x: 2023-04-01.
  *
- * Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-04-01, 2023-10-01-preview.
  */
 export class ProviderInstance extends pulumi.CustomResource {
     /**
@@ -43,11 +43,11 @@ export class ProviderInstance extends pulumi.CustomResource {
     /**
      * Defines the provider instance errors.
      */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.ProviderInstancePropertiesResponseErrors>;
+    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.ErrorDetailResponse>;
     /**
-     * [currently not in use] Managed service identity(user assigned identities)
+     * Resource health details
      */
-    public readonly identity!: pulumi.Output<outputs.workloads.UserAssignedServiceIdentityResponse | undefined>;
+    public /*out*/ readonly health!: pulumi.Output<outputs.workloads.HealthResponse>;
     /**
      * The name of the resource
      */
@@ -55,7 +55,7 @@ export class ProviderInstance extends pulumi.CustomResource {
     /**
      * Defines the provider specific properties.
      */
-    public readonly providerSettings!: pulumi.Output<outputs.workloads.DB2ProviderInstancePropertiesResponse | outputs.workloads.HanaDbProviderInstancePropertiesResponse | outputs.workloads.MsSqlServerProviderInstancePropertiesResponse | outputs.workloads.PrometheusHaClusterProviderInstancePropertiesResponse | outputs.workloads.PrometheusOSProviderInstancePropertiesResponse | outputs.workloads.SapNetWeaverProviderInstancePropertiesResponse | undefined>;
+    public readonly providerSettings!: pulumi.Output<outputs.workloads.Db2ProviderInstancePropertiesResponse | outputs.workloads.HanaDbProviderInstancePropertiesResponse | outputs.workloads.MsSqlServerProviderInstancePropertiesResponse | outputs.workloads.OracleProviderInstancePropertiesResponse | outputs.workloads.PrometheusHaClusterProviderInstancePropertiesResponse | outputs.workloads.PrometheusOsProviderInstancePropertiesResponse | outputs.workloads.SapNetWeaverProviderInstancePropertiesResponse | undefined>;
     /**
      * State of provisioning of the provider instance
      */
@@ -86,19 +86,19 @@ export class ProviderInstance extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["monitorName"] = args ? args.monitorName : undefined;
             resourceInputs["providerInstanceName"] = args ? args.providerInstanceName : undefined;
             resourceInputs["providerSettings"] = args ? args.providerSettings : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["errors"] = undefined /*out*/;
+            resourceInputs["health"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["errors"] = undefined /*out*/;
-            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["health"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["providerSettings"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -117,10 +117,6 @@ export class ProviderInstance extends pulumi.CustomResource {
  */
 export interface ProviderInstanceArgs {
     /**
-     * [currently not in use] Managed service identity(user assigned identities)
-     */
-    identity?: pulumi.Input<inputs.workloads.UserAssignedServiceIdentityArgs>;
-    /**
      * Name of the SAP monitor resource.
      */
     monitorName: pulumi.Input<string>;
@@ -131,7 +127,7 @@ export interface ProviderInstanceArgs {
     /**
      * Defines the provider specific properties.
      */
-    providerSettings?: pulumi.Input<inputs.workloads.DB2ProviderInstancePropertiesArgs | inputs.workloads.HanaDbProviderInstancePropertiesArgs | inputs.workloads.MsSqlServerProviderInstancePropertiesArgs | inputs.workloads.PrometheusHaClusterProviderInstancePropertiesArgs | inputs.workloads.PrometheusOSProviderInstancePropertiesArgs | inputs.workloads.SapNetWeaverProviderInstancePropertiesArgs>;
+    providerSettings?: pulumi.Input<inputs.workloads.Db2ProviderInstancePropertiesArgs | inputs.workloads.HanaDbProviderInstancePropertiesArgs | inputs.workloads.MsSqlServerProviderInstancePropertiesArgs | inputs.workloads.OracleProviderInstancePropertiesArgs | inputs.workloads.PrometheusHaClusterProviderInstancePropertiesArgs | inputs.workloads.PrometheusOsProviderInstancePropertiesArgs | inputs.workloads.SapNetWeaverProviderInstancePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

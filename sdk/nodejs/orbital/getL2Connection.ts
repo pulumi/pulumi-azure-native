@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the specified L2 connection in a specified resource group.
  * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-03-01.
  */
 export function getL2Connection(args: GetL2ConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetL2ConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +47,10 @@ export interface GetL2ConnectionResult {
      */
     readonly groundStation: outputs.orbital.L2ConnectionsPropertiesResponseGroundStation;
     /**
+     * The name of the partner router to establish a connection to within the ground station.
+     */
+    readonly groundStationPartnerRouter: outputs.orbital.L2ConnectionsPropertiesResponseGroundStationPartnerRouter;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -80,8 +82,6 @@ export interface GetL2ConnectionResult {
 /**
  * Gets the specified L2 connection in a specified resource group.
  * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-03-01.
  */
 export function getL2ConnectionOutput(args: GetL2ConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetL2ConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

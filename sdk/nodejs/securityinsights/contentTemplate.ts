@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Template resource definition.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 1.x: 2023-06-01-preview.
  *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview.
+ * Other available API versions: 2023-06-01-preview, 2024-10-01-preview.
  */
 export class ContentTemplate extends pulumi.CustomResource {
     /**
@@ -57,6 +57,10 @@ export class ContentTemplate extends pulumi.CustomResource {
      */
     public readonly contentKind!: pulumi.Output<string>;
     /**
+     * Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
+     */
+    public readonly contentProductId!: pulumi.Output<string>;
+    /**
      * Schema version of the content. Can be used to distinguish between different flow based on the schema version
      */
     public readonly contentSchemaVersion!: pulumi.Output<string | undefined>;
@@ -64,6 +68,10 @@ export class ContentTemplate extends pulumi.CustomResource {
      * The custom version of the content. A optional free text
      */
     public readonly customVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Dependant templates. Expandable.
+     */
+    public /*out*/ readonly dependantTemplates!: pulumi.Output<outputs.securityinsights.TemplatePropertiesResponse[]>;
     /**
      * Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
      */
@@ -85,11 +93,15 @@ export class ContentTemplate extends pulumi.CustomResource {
      */
     public readonly icon!: pulumi.Output<string | undefined>;
     /**
+     * Flag indicates if this template is deprecated
+     */
+    public /*out*/ readonly isDeprecated!: pulumi.Output<string>;
+    /**
      * last publish date for the content item
      */
     public readonly lastPublishDate!: pulumi.Output<string | undefined>;
     /**
-     * The JSON of the ARM template to deploy active content
+     * The JSON of the ARM template to deploy active content. Expandable.
      */
     public readonly mainTemplate!: pulumi.Output<any | undefined>;
     /**
@@ -108,6 +120,10 @@ export class ContentTemplate extends pulumi.CustomResource {
      * the name of the package contains this template
      */
     public readonly packageName!: pulumi.Output<string | undefined>;
+    /**
+     * Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
+     */
+    public readonly packageVersion!: pulumi.Output<string>;
     /**
      * preview image file names. These will be taken from the solution artifacts
      */
@@ -166,11 +182,17 @@ export class ContentTemplate extends pulumi.CustomResource {
             if ((!args || args.contentKind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentKind'");
             }
+            if ((!args || args.contentProductId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'contentProductId'");
+            }
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
             if ((!args || args.packageId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packageId'");
+            }
+            if ((!args || args.packageVersion === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'packageVersion'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -188,6 +210,7 @@ export class ContentTemplate extends pulumi.CustomResource {
             resourceInputs["categories"] = args ? args.categories : undefined;
             resourceInputs["contentId"] = args ? args.contentId : undefined;
             resourceInputs["contentKind"] = args ? args.contentKind : undefined;
+            resourceInputs["contentProductId"] = args ? args.contentProductId : undefined;
             resourceInputs["contentSchemaVersion"] = args ? args.contentSchemaVersion : undefined;
             resourceInputs["customVersion"] = args ? args.customVersion : undefined;
             resourceInputs["dependencies"] = args ? args.dependencies : undefined;
@@ -199,6 +222,7 @@ export class ContentTemplate extends pulumi.CustomResource {
             resourceInputs["packageId"] = args ? args.packageId : undefined;
             resourceInputs["packageKind"] = args ? args.packageKind : undefined;
             resourceInputs["packageName"] = args ? args.packageName : undefined;
+            resourceInputs["packageVersion"] = args ? args.packageVersion : undefined;
             resourceInputs["previewImages"] = args ? args.previewImages : undefined;
             resourceInputs["previewImagesDark"] = args ? args.previewImagesDark : undefined;
             resourceInputs["providers"] = args ? args.providers : undefined;
@@ -210,7 +234,9 @@ export class ContentTemplate extends pulumi.CustomResource {
             resourceInputs["threatAnalysisTechniques"] = args ? args.threatAnalysisTechniques : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["dependantTemplates"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["isDeprecated"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -219,19 +245,23 @@ export class ContentTemplate extends pulumi.CustomResource {
             resourceInputs["categories"] = undefined /*out*/;
             resourceInputs["contentId"] = undefined /*out*/;
             resourceInputs["contentKind"] = undefined /*out*/;
+            resourceInputs["contentProductId"] = undefined /*out*/;
             resourceInputs["contentSchemaVersion"] = undefined /*out*/;
             resourceInputs["customVersion"] = undefined /*out*/;
+            resourceInputs["dependantTemplates"] = undefined /*out*/;
             resourceInputs["dependencies"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["firstPublishDate"] = undefined /*out*/;
             resourceInputs["icon"] = undefined /*out*/;
+            resourceInputs["isDeprecated"] = undefined /*out*/;
             resourceInputs["lastPublishDate"] = undefined /*out*/;
             resourceInputs["mainTemplate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["packageId"] = undefined /*out*/;
             resourceInputs["packageKind"] = undefined /*out*/;
             resourceInputs["packageName"] = undefined /*out*/;
+            resourceInputs["packageVersion"] = undefined /*out*/;
             resourceInputs["previewImages"] = undefined /*out*/;
             resourceInputs["previewImagesDark"] = undefined /*out*/;
             resourceInputs["providers"] = undefined /*out*/;
@@ -271,6 +301,10 @@ export interface ContentTemplateArgs {
      */
     contentKind: pulumi.Input<string | enums.securityinsights.Kind>;
     /**
+     * Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
+     */
+    contentProductId: pulumi.Input<string>;
+    /**
      * Schema version of the content. Can be used to distinguish between different flow based on the schema version
      */
     contentSchemaVersion?: pulumi.Input<string>;
@@ -299,7 +333,7 @@ export interface ContentTemplateArgs {
      */
     lastPublishDate?: pulumi.Input<string>;
     /**
-     * The JSON of the ARM template to deploy active content
+     * The JSON of the ARM template to deploy active content. Expandable.
      */
     mainTemplate?: any;
     /**
@@ -314,6 +348,10 @@ export interface ContentTemplateArgs {
      * the name of the package contains this template
      */
     packageName?: pulumi.Input<string>;
+    /**
+     * Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
+     */
+    packageVersion: pulumi.Input<string>;
     /**
      * preview image file names. These will be taken from the solution artifacts
      */

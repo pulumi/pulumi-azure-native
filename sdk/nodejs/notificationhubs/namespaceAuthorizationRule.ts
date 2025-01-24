@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Response for POST requests that return single SharedAccessAuthorizationRule.
- * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2023-01-01-preview.
  *
- * Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+ * Other available API versions: 2017-04-01, 2023-01-01-preview, 2023-09-01.
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -41,17 +41,51 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     }
 
     /**
+     * Gets a string that describes the claim type
+     */
+    public /*out*/ readonly claimType!: pulumi.Output<string>;
+    /**
+     * Gets a string that describes the claim value
+     */
+    public /*out*/ readonly claimValue!: pulumi.Output<string>;
+    /**
+     * Gets the created time for this rule
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * Gets a string that describes the authorization rule.
+     */
+    public /*out*/ readonly keyName!: pulumi.Output<string>;
+    /**
      * Deprecated - only for compatibility.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the last modified time for this rule
+     */
+    public /*out*/ readonly modifiedTime!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * SharedAccessAuthorizationRule properties.
+     * Gets a base64-encoded 256-bit primary key for signing and
+     * validating the SAS token.
      */
-    public readonly properties!: pulumi.Output<outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse>;
+    public readonly primaryKey!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the revision number for the rule
+     */
+    public /*out*/ readonly revision!: pulumi.Output<number>;
+    /**
+     * Gets or sets the rights associated with the rule.
+     */
+    public readonly rights!: pulumi.Output<string[]>;
+    /**
+     * Gets a base64-encoded 256-bit primary key for signing and
+     * validating the SAS token.
+     */
+    public readonly secondaryKey!: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -82,19 +116,38 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.rights === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'rights'");
+            }
             resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rights"] = args ? args.rights : undefined;
+            resourceInputs["secondaryKey"] = args ? args.secondaryKey : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["claimType"] = undefined /*out*/;
+            resourceInputs["claimValue"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["keyName"] = undefined /*out*/;
+            resourceInputs["modifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["claimType"] = undefined /*out*/;
+            resourceInputs["claimValue"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["keyName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["modifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -123,13 +176,23 @@ export interface NamespaceAuthorizationRuleArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * SharedAccessAuthorizationRule properties.
+     * Gets a base64-encoded 256-bit primary key for signing and
+     * validating the SAS token.
      */
-    properties?: pulumi.Input<inputs.notificationhubs.SharedAccessAuthorizationRulePropertiesArgs>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets the rights associated with the rule.
+     */
+    rights: pulumi.Input<pulumi.Input<string | enums.notificationhubs.AccessRights>[]>;
+    /**
+     * Gets a base64-encoded 256-bit primary key for signing and
+     * validating the SAS token.
+     */
+    secondaryKey?: pulumi.Input<string>;
     /**
      * Deprecated - only for compatibility.
      */

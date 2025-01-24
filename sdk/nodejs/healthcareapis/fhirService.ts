@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Fhir Service
- * Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
+ * Azure REST API version: 2024-03-31. Prior API version in Azure Native 1.x: 2023-02-28.
  *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Other available API versions: 2023-02-28.
  */
 export class FhirService extends pulumi.CustomResource {
     /**
@@ -41,10 +41,6 @@ export class FhirService extends pulumi.CustomResource {
     }
 
     /**
-     * Fhir Service access policies.
-     */
-    public readonly accessPolicies!: pulumi.Output<outputs.healthcareapis.FhirServiceAccessPolicyEntryResponse[] | undefined>;
-    /**
      * Fhir Service Azure container registry configuration.
      */
     public readonly acrConfiguration!: pulumi.Output<outputs.healthcareapis.FhirServiceAcrConfigurationResponse | undefined>;
@@ -56,6 +52,10 @@ export class FhirService extends pulumi.CustomResource {
      * Fhir Service Cors configuration.
      */
     public readonly corsConfiguration!: pulumi.Output<outputs.healthcareapis.FhirServiceCorsConfigurationResponse | undefined>;
+    /**
+     * The encryption settings of the FHIR service
+     */
+    public readonly encryption!: pulumi.Output<outputs.healthcareapis.EncryptionResponse | undefined>;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -138,10 +138,10 @@ export class FhirService extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
             resourceInputs["acrConfiguration"] = args ? args.acrConfiguration : undefined;
             resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
             resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["exportConfiguration"] = args ? args.exportConfiguration : undefined;
             resourceInputs["fhirServiceName"] = args ? args.fhirServiceName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -162,10 +162,10 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["accessPolicies"] = undefined /*out*/;
             resourceInputs["acrConfiguration"] = undefined /*out*/;
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
             resourceInputs["corsConfiguration"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["eventState"] = undefined /*out*/;
             resourceInputs["exportConfiguration"] = undefined /*out*/;
@@ -195,10 +195,6 @@ export class FhirService extends pulumi.CustomResource {
  */
 export interface FhirServiceArgs {
     /**
-     * Fhir Service access policies.
-     */
-    accessPolicies?: pulumi.Input<pulumi.Input<inputs.healthcareapis.FhirServiceAccessPolicyEntryArgs>[]>;
-    /**
      * Fhir Service Azure container registry configuration.
      */
     acrConfiguration?: pulumi.Input<inputs.healthcareapis.FhirServiceAcrConfigurationArgs>;
@@ -210,6 +206,10 @@ export interface FhirServiceArgs {
      * Fhir Service Cors configuration.
      */
     corsConfiguration?: pulumi.Input<inputs.healthcareapis.FhirServiceCorsConfigurationArgs>;
+    /**
+     * The encryption settings of the FHIR service
+     */
+    encryption?: pulumi.Input<inputs.healthcareapis.EncryptionArgs>;
     /**
      * Fhir Service export configuration.
      */

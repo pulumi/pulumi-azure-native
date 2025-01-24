@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a orchestrator.
- * Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15.
+ * Azure REST API version: 2023-06-27-preview. Prior API version in Azure Native 1.x: 2021-03-15.
  *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Other available API versions: 2021-03-15.
  */
 export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     /**
@@ -40,6 +40,11 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
         return obj['__pulumiType'] === DelegatedSubnetServiceDetails.__pulumiType;
     }
 
+    /**
+     * Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
+     * Delegated subnet's prefix size should be smaller than this by a minimum of 3.
+     */
+    public readonly allocationBlockPrefixSize!: pulumi.Output<number | undefined>;
     /**
      * Properties of the controller.
      */
@@ -87,6 +92,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["allocationBlockPrefixSize"] = args ? args.allocationBlockPrefixSize : undefined;
             resourceInputs["controllerDetails"] = args ? args.controllerDetails : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -98,6 +104,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["allocationBlockPrefixSize"] = undefined /*out*/;
             resourceInputs["controllerDetails"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -118,6 +125,11 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
  * The set of arguments for constructing a DelegatedSubnetServiceDetails resource.
  */
 export interface DelegatedSubnetServiceDetailsArgs {
+    /**
+     * Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
+     * Delegated subnet's prefix size should be smaller than this by a minimum of 3.
+     */
+    allocationBlockPrefixSize?: pulumi.Input<number>;
     /**
      * Properties of the controller.
      */

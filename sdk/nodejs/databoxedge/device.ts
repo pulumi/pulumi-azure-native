@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2022-03-01.
  *
- * Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-03-01, 2022-04-01-preview, 2023-01-01-preview, 2023-12-01.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -101,6 +101,10 @@ export class Device extends pulumi.CustomResource {
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
+     * Kubernetes Workload Profile
+     */
+    public /*out*/ readonly kubernetesWorkloadProfile!: pulumi.Output<string>;
+    /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
     public readonly location!: pulumi.Output<string>;
@@ -179,6 +183,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["kubernetesWorkloadProfile"] = undefined /*out*/;
             resourceInputs["modelDescription"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodeCount"] = undefined /*out*/;
@@ -203,6 +208,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["kubernetesWorkloadProfile"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["modelDescription"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

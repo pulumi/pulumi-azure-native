@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Programmable Connectivity Operator API Connection resource
- * Azure REST API version: 2024-01-15-preview.
+ * Azure REST API version: 2024-01-15-preview. Prior API version in Azure Native 1.x: 2024-01-15-preview.
  */
 export class OperatorApiConnection extends pulumi.CustomResource {
     /**

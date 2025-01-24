@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A customer's reference to a global communications site site.
- * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-03-01.
+ * Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 1.x: 2024-03-01-preview.
  */
 export class EdgeSite extends pulumi.CustomResource {
     /**

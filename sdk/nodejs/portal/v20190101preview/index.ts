@@ -15,6 +15,16 @@ export const getDashboard: typeof import("./getDashboard").getDashboard = null a
 export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
 utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
 
+export { GetTenantConfigurationArgs, GetTenantConfigurationResult, GetTenantConfigurationOutputArgs } from "./getTenantConfiguration";
+export const getTenantConfiguration: typeof import("./getTenantConfiguration").getTenantConfiguration = null as any;
+export const getTenantConfigurationOutput: typeof import("./getTenantConfiguration").getTenantConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getTenantConfiguration","getTenantConfigurationOutput"], () => require("./getTenantConfiguration"));
+
+export { TenantConfigurationArgs } from "./tenantConfiguration";
+export type TenantConfiguration = import("./tenantConfiguration").TenantConfiguration;
+export const TenantConfiguration: typeof import("./tenantConfiguration").TenantConfiguration = null as any;
+utilities.lazyLoad(exports, ["TenantConfiguration"], () => require("./tenantConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,6 +32,8 @@ const _module = {
         switch (type) {
             case "azure-native:portal/v20190101preview:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "azure-native:portal/v20190101preview:TenantConfiguration":
+                return new TenantConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

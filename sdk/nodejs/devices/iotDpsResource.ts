@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the provisioning service.
- * Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01.
+ * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2022-12-12.
  *
- * Other available API versions: 2020-09-01-preview, 2023-03-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2020-09-01-preview, 2022-12-12, 2025-02-01-preview.
  */
 export class IotDpsResource extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class IotDpsResource extends pulumi.CustomResource {
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * The managed identities for a provisioning service.
+     */
+    public readonly identity!: pulumi.Output<outputs.devices.ManagedServiceIdentityResponse | undefined>;
     /**
      * The resource location.
      */
@@ -101,6 +105,7 @@ export class IotDpsResource extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
@@ -115,6 +120,7 @@ export class IotDpsResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -136,6 +142,10 @@ export class IotDpsResource extends pulumi.CustomResource {
  * The set of arguments for constructing a IotDpsResource resource.
  */
 export interface IotDpsResourceArgs {
+    /**
+     * The managed identities for a provisioning service.
+     */
+    identity?: pulumi.Input<inputs.devices.ManagedServiceIdentityArgs>;
     /**
      * The resource location.
      */

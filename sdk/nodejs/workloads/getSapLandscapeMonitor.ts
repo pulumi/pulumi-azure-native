@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-02-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-04-01, 2023-10-01-preview.
  */
 export function getSapLandscapeMonitor(args: GetSapLandscapeMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetSapLandscapeMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,9 +39,9 @@ export interface GetSapLandscapeMonitorResult {
     /**
      * Gets or sets the SID groupings by landscape and Environment.
      */
-    readonly grouping?: outputs.workloads.SapLandscapeMonitorPropertiesResponseGrouping;
+    readonly grouping?: outputs.workloads.SapLandscapeMonitorPropertiesGroupingResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -67,9 +67,9 @@ export interface GetSapLandscapeMonitorResult {
 }
 /**
  * Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
- * Azure REST API version: 2023-04-01.
+ * Azure REST API version: 2024-02-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+ * Other available API versions: 2023-04-01, 2023-10-01-preview.
  */
 export function getSapLandscapeMonitorOutput(args: GetSapLandscapeMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapLandscapeMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The NetworkPacketBroker resource definition.
- * Azure REST API version: 2023-06-15.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-06-15.
  */
 export class NetworkPacketBroker extends pulumi.CustomResource {
     /**

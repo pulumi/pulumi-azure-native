@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Details about environment name, metadata and environment id of an environment
- * Azure REST API version: 2024-07-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2024-07-01.
  */
 export class OrganizationEnvironmentById extends pulumi.CustomResource {
     /**

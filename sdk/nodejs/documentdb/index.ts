@@ -35,11 +35,6 @@ export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
 export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
 utilities.lazyLoad(exports, ["DatabaseAccount"], () => require("./databaseAccount"));
 
-export { FirewallRuleArgs } from "./firewallRule";
-export type FirewallRule = import("./firewallRule").FirewallRule;
-export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
-utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
-
 export { GetCassandraClusterArgs, GetCassandraClusterResult, GetCassandraClusterOutputArgs } from "./getCassandraCluster";
 export const getCassandraCluster: typeof import("./getCassandraCluster").getCassandraCluster = null as any;
 export const getCassandraClusterOutput: typeof import("./getCassandraCluster").getCassandraClusterOutput = null as any;
@@ -69,11 +64,6 @@ export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOut
 export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
 export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
-
-export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
-export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
-export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
 
 export { GetGraphResourceGraphArgs, GetGraphResourceGraphResult, GetGraphResourceGraphOutputArgs } from "./getGraphResourceGraph";
 export const getGraphResourceGraph: typeof import("./getGraphResourceGraph").getGraphResourceGraph = null as any;
@@ -340,46 +330,24 @@ utilities.lazyLoad(exports, ["ThroughputPoolAccount"], () => require("./throughp
 export * from "../types/enums/documentdb";
 
 // Export sub-modules:
-import * as v20210401preview from "./v20210401preview";
 import * as v20210701preview from "./v20210701preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230315preview from "./v20230315preview";
 import * as v20230415 from "./v20230415";
-import * as v20230915 from "./v20230915";
 import * as v20230915preview from "./v20230915preview";
-import * as v20231115 from "./v20231115";
 import * as v20231115preview from "./v20231115preview";
 import * as v20240215preview from "./v20240215preview";
-import * as v20240301preview from "./v20240301preview";
-import * as v20240515 from "./v20240515";
-import * as v20240515preview from "./v20240515preview";
-import * as v20240601preview from "./v20240601preview";
-import * as v20240701 from "./v20240701";
-import * as v20240815 from "./v20240815";
-import * as v20240901preview from "./v20240901preview";
-import * as v20241001preview from "./v20241001preview";
 import * as v20241115 from "./v20241115";
 import * as v20241201preview from "./v20241201preview";
 
 export {
-    v20210401preview,
     v20210701preview,
     v20230301preview,
     v20230315preview,
     v20230415,
-    v20230915,
     v20230915preview,
-    v20231115,
     v20231115preview,
     v20240215preview,
-    v20240301preview,
-    v20240515,
-    v20240515preview,
-    v20240601preview,
-    v20240701,
-    v20240815,
-    v20240901preview,
-    v20241001preview,
     v20241115,
     v20241201preview,
 };
@@ -400,8 +368,6 @@ const _module = {
                 return new CassandraResourceCassandraView(name, <any>undefined, { urn })
             case "azure-native:documentdb:DatabaseAccount":
                 return new DatabaseAccount(name, <any>undefined, { urn })
-            case "azure-native:documentdb:FirewallRule":
-                return new FirewallRule(name, <any>undefined, { urn })
             case "azure-native:documentdb:GraphResourceGraph":
                 return new GraphResourceGraph(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinDatabase":

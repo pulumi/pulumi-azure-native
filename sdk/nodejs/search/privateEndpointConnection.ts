@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
+ * Describes an existing private endpoint connection to the search service.
+ * Azure REST API version: 2023-11-01. Prior API version in Azure Native 1.x: 2022-09-01.
  *
- * Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+ * Other available API versions: 2022-09-01, 2024-06-01-preview.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -45,7 +45,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+     * Describes the properties of an existing private endpoint connection to the search service.
      */
     public readonly properties!: pulumi.Output<outputs.search.PrivateEndpointConnectionPropertiesResponse>;
     /**
@@ -82,7 +82,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:search/v20191001preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20200313:PrivateEndpointConnection" }, { type: "azure-native:search/v20200801:PrivateEndpointConnection" }, { type: "azure-native:search/v20200801preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20210401preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20220901:PrivateEndpointConnection" }, { type: "azure-native:search/v20231101:PrivateEndpointConnection" }, { type: "azure-native:search/v20240301preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20240601preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20250201preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:search/v20191001preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20200313:PrivateEndpointConnection" }, { type: "azure-native:search/v20200801:PrivateEndpointConnection" }, { type: "azure-native:search/v20200801preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20210401preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20220901:PrivateEndpointConnection" }, { type: "azure-native:search/v20231101:PrivateEndpointConnection" }, { type: "azure-native:search/v20240301preview:PrivateEndpointConnection" }, { type: "azure-native:search/v20240601preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -93,11 +93,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface PrivateEndpointConnectionArgs {
     /**
-     * The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
+     * The name of the private endpoint connection to the search service with the specified resource group.
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+     * Describes the properties of an existing private endpoint connection to the search service.
      */
     properties?: pulumi.Input<inputs.search.PrivateEndpointConnectionPropertiesArgs>;
     /**
@@ -105,7 +105,7 @@ export interface PrivateEndpointConnectionArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Azure Cognitive Search service associated with the specified resource group.
+     * The name of the search service associated with the specified resource group.
      */
     searchServiceName: pulumi.Input<string>;
 }

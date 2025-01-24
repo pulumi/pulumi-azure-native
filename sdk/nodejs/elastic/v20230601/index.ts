@@ -45,11 +45,6 @@ export const listVMHost: typeof import("./listVMHost").listVMHost = null as any;
 export const listVMHostOutput: typeof import("./listVMHost").listVMHostOutput = null as any;
 utilities.lazyLoad(exports, ["listVMHost","listVMHostOutput"], () => require("./listVMHost"));
 
-export { ListlistAssociatedTrafficFilterArgs, ListlistAssociatedTrafficFilterResult, ListlistAssociatedTrafficFilterOutputArgs } from "./listlistAssociatedTrafficFilter";
-export const listlistAssociatedTrafficFilter: typeof import("./listlistAssociatedTrafficFilter").listlistAssociatedTrafficFilter = null as any;
-export const listlistAssociatedTrafficFilterOutput: typeof import("./listlistAssociatedTrafficFilter").listlistAssociatedTrafficFilterOutput = null as any;
-utilities.lazyLoad(exports, ["listlistAssociatedTrafficFilter","listlistAssociatedTrafficFilterOutput"], () => require("./listlistAssociatedTrafficFilter"));
-
 export { MonitorArgs } from "./monitor";
 export type Monitor = import("./monitor").Monitor;
 export const Monitor: typeof import("./monitor").Monitor = null as any;

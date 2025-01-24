@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The data product resource.
- * Azure REST API version: 2023-11-15.
+ * Azure REST API version: 2023-11-15. Prior API version in Azure Native 1.x: 2023-11-15.
  */
 export class DataProduct extends pulumi.CustomResource {
     /**

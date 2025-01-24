@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
 
 /**
  * Maintenance configuration record type
- * Azure REST API version: 2022-11-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2022-11-01-preview.
  */
 export function getMaintenanceConfiguration(args: GetMaintenanceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetMaintenanceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,10 +73,6 @@ export interface GetMaintenanceConfigurationResult {
      */
     readonly namespace?: string;
     /**
-     * Override Properties for the maintenance Configuration.
-     */
-    readonly overrides?: outputs.maintenance.MaintenanceOverridePropertiesResponse[];
-    /**
      * Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
      */
     readonly recurEvery?: string;
@@ -107,9 +103,9 @@ export interface GetMaintenanceConfigurationResult {
 }
 /**
  * Maintenance configuration record type
- * Azure REST API version: 2022-11-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+ * Other available API versions: 2022-11-01-preview.
  */
 export function getMaintenanceConfigurationOutput(args: GetMaintenanceConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMaintenanceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -8,10 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The AccessControlList resource definition.
- * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+ * The Access Control List resource definition.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 1.x: 2023-02-01-preview.
  *
- * Other available API versions: 2023-06-15.
+ * Other available API versions: 2023-02-01-preview.
  */
 export class AccessControlList extends pulumi.CustomResource {
     /**
@@ -41,27 +41,51 @@ export class AccessControlList extends pulumi.CustomResource {
     }
 
     /**
-     * IP address family. Example: ipv4 | ipv6.
+     * Access Control List file URL.
      */
-    public readonly addressFamily!: pulumi.Output<string>;
+    public readonly aclsUrl!: pulumi.Output<string | undefined>;
+    /**
+     * Administrative state of the resource.
+     */
+    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
     /**
      * Switch configuration description.
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
     /**
-     * Access Control List conditions.
+     * Configuration state of the resource.
      */
-    public readonly conditions!: pulumi.Output<outputs.managednetworkfabric.AccessControlListConditionPropertiesResponse[]>;
+    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    /**
+     * Input method to configure Access Control List.
+     */
+    public readonly configurationType!: pulumi.Output<string>;
+    /**
+     * Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+     */
+    public readonly defaultAction!: pulumi.Output<string | undefined>;
+    /**
+     * List of dynamic match configurations.
+     */
+    public readonly dynamicMatchConfigurations!: pulumi.Output<outputs.managednetworkfabric.CommonDynamicMatchConfigurationResponse[] | undefined>;
+    /**
+     * The last synced timestamp.
+     */
+    public /*out*/ readonly lastSyncedTime!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * List of match configurations.
+     */
+    public readonly matchConfigurations!: pulumi.Output<outputs.managednetworkfabric.AccessControlListMatchConfigurationResponse[] | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -88,31 +112,40 @@ export class AccessControlList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addressFamily === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'addressFamily'");
-            }
-            if ((!args || args.conditions === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'conditions'");
+            if ((!args || args.configurationType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'configurationType'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accessControlListName"] = args ? args.accessControlListName : undefined;
-            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
+            resourceInputs["aclsUrl"] = args ? args.aclsUrl : undefined;
             resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["conditions"] = args ? args.conditions : undefined;
+            resourceInputs["configurationType"] = args ? args.configurationType : undefined;
+            resourceInputs["defaultAction"] = (args ? args.defaultAction : undefined) ?? "Permit";
+            resourceInputs["dynamicMatchConfigurations"] = args ? args.dynamicMatchConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["matchConfigurations"] = args ? args.matchConfigurations : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administrativeState"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
+            resourceInputs["lastSyncedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["addressFamily"] = undefined /*out*/;
+            resourceInputs["aclsUrl"] = undefined /*out*/;
+            resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["annotation"] = undefined /*out*/;
-            resourceInputs["conditions"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
+            resourceInputs["configurationType"] = undefined /*out*/;
+            resourceInputs["defaultAction"] = undefined /*out*/;
+            resourceInputs["dynamicMatchConfigurations"] = undefined /*out*/;
+            resourceInputs["lastSyncedTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["matchConfigurations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -131,25 +164,37 @@ export class AccessControlList extends pulumi.CustomResource {
  */
 export interface AccessControlListArgs {
     /**
-     * Name of the Access Control List
+     * Name of the Access Control List.
      */
     accessControlListName?: pulumi.Input<string>;
     /**
-     * IP address family. Example: ipv4 | ipv6.
+     * Access Control List file URL.
      */
-    addressFamily: pulumi.Input<string | enums.managednetworkfabric.AddressFamily>;
+    aclsUrl?: pulumi.Input<string>;
     /**
      * Switch configuration description.
      */
     annotation?: pulumi.Input<string>;
     /**
-     * Access Control List conditions.
+     * Input method to configure Access Control List.
      */
-    conditions: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.AccessControlListConditionPropertiesArgs>[]>;
+    configurationType: pulumi.Input<string | enums.managednetworkfabric.ConfigurationType>;
+    /**
+     * Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+     */
+    defaultAction?: pulumi.Input<string | enums.managednetworkfabric.CommunityActionTypes>;
+    /**
+     * List of dynamic match configurations.
+     */
+    dynamicMatchConfigurations?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.CommonDynamicMatchConfigurationArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * List of match configurations.
+     */
+    matchConfigurations?: pulumi.Input<pulumi.Input<inputs.managednetworkfabric.AccessControlListMatchConfigurationArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

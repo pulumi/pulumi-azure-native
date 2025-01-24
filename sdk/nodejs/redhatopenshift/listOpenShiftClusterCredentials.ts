@@ -6,9 +6,9 @@ import * as utilities from "../utilities";
 
 /**
  * The operation returns the credentials.
- * Azure REST API version: 2022-09-04.
+ * Azure REST API version: 2023-11-22.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+ * Other available API versions: 2022-09-04, 2023-07-01-preview, 2023-09-04.
  */
 export function listOpenShiftClusterCredentials(args: ListOpenShiftClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,9 +44,9 @@ export interface ListOpenShiftClusterCredentialsResult {
 }
 /**
  * The operation returns the credentials.
- * Azure REST API version: 2022-09-04.
+ * Azure REST API version: 2023-11-22.
  *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22, 2024-08-12-preview.
+ * Other available API versions: 2022-09-04, 2023-07-01-preview, 2023-09-04.
  */
 export function listOpenShiftClusterCredentialsOutput(args: ListOpenShiftClusterCredentialsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListOpenShiftClusterCredentialsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -8,9 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 1.x: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-10-01-preview, 2024-10-01-preview.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -88,7 +88,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The memory size of the virtual machine in GB.
+     * The memory size of the virtual machine. Allocations are measured in gibibytes.
      */
     public readonly memorySizeGB!: pulumi.Output<number>;
     /**
@@ -299,7 +299,7 @@ export interface VirtualMachineArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The memory size of the virtual machine in GB.
+     * The memory size of the virtual machine. Allocations are measured in gibibytes.
      */
     memorySizeGB: pulumi.Input<number>;
     /**

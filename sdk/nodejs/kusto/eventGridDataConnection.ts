@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an Event Grid data connection.
- * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+ * Azure REST API version: 2024-04-13. Prior API version in Azure Native 1.x: 2022-12-29.
  */
 export class EventGridDataConnection extends pulumi.CustomResource {
     /**
@@ -249,7 +249,7 @@ export interface EventGridDataConnectionArgs {
      */
     mappingRuleName?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

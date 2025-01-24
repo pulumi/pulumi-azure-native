@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A BgpPeer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
- * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2023-10-01-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 1.x: 2024-03-01.
  */
 export class BgpPeer extends pulumi.CustomResource {
     /**
