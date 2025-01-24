@@ -191,13 +191,21 @@ func NewVersionResources() VersionResources {
 
 type ModuleVersionList = map[ModuleName][]ApiVersion
 
+// A definition version is a resource or invoke version and its source information.
+type DefinitionVersion struct {
+	ApiVersion   ApiVersion `yaml:"ApiVersion,omitempty"`
+	SpecFilePath string     `yaml:"SpecFilePath,omitempty"`
+	ResourceUri  string     `yaml:"ResourceUri,omitempty"`
+	RpNamespace  string     `yaml:"RpNamespace,omitempty"`
+}
+
 // DefaultVersions is an amalgamation of multiple API versions, generated from a specification.
-type DefaultVersions map[ModuleName]map[DefinitionName]ApiVersion
+type DefaultVersions map[ModuleName]map[DefinitionName]DefinitionVersion
 
 func (defaultVersions DefaultVersions) IsAtVersion(moduleName ModuleName, typeName DefinitionName, version ApiVersion) bool {
 	if resources, ok := defaultVersions[moduleName]; ok {
 		if resourceVersion, ok := resources[typeName]; ok {
-			if resourceVersion == version {
+			if resourceVersion.ApiVersion == version {
 				return true
 			}
 		}
@@ -248,8 +256,7 @@ func ApplyTransformations(modules AzureModules, defaultVersions DefaultVersions,
 }
 
 func ApplyRemovals(modules map[ModuleName]ModuleVersions, removed ModuleVersionList) {
-	for _, moduleName := range util.SortedKeys(modules) {
-		versionMap := modules[moduleName]
+	for moduleName, versionMap := range util.MapOrdered(modules) {
 		if removedVersion, ok := removed[moduleName]; ok {
 			for _, versionToRemove := range removedVersion {
 				delete(versionMap, versionToRemove)
@@ -259,57 +266,58 @@ func ApplyRemovals(modules map[ModuleName]ModuleVersions, removed ModuleVersionL
 }
 
 func AddDefaultVersion(modules AzureModules, defaultVersions DefaultVersions, previousDefaultVersions DefaultVersions) {
-	for _, moduleName := range util.SortedKeys(modules) {
-		versionMap := modules[moduleName]
+	for moduleName, versionMap := range util.MapOrdered(modules) {
 		// Add a default version for each resource and invoke.
 		defaultResourceVersions := defaultVersions[moduleName]
 		versionMap[""] = buildDefaultVersion(versionMap, defaultResourceVersions, previousDefaultVersions[moduleName])
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)
-		for _, version := range util.SortedKeys(versionMap) {
-			items := versionMap[version]
-			for _, resourceName := range util.SortedKeys(items.Resources) {
-				r := items.Resources[resourceName]
+		for version, items := range util.MapOrdered(versionMap) {
+			for _, resource := range util.MapOrdered(items.Resources) {
 				var otherVersions []ApiVersion
-				normalisedPath := paths.NormalizePath(r.Path)
+				normalisedPath := paths.NormalizePath(resource.Path)
 				otherVersionsSorted := pathVersions[normalisedPath].SortedValues()
 				for _, otherVersion := range otherVersionsSorted {
 					if otherVersion != version {
 						otherVersions = append(otherVersions, otherVersion)
 					}
 				}
-				r.CompatibleVersions = otherVersions
+				resource.CompatibleVersions = otherVersions
 			}
 		}
 	}
 }
 
 func ApplyDeprecations(modules AzureModules, deprecated ModuleVersionList) AzureModules {
-	for _, moduleName := range util.SortedKeys(modules) {
-		versionMap := modules[moduleName]
-		for _, apiVersion := range deprecated[moduleName] {
-			resources := versionMap[apiVersion]
-			deprecateAll(resources.All(), apiVersion)
+	for moduleName, versionMap := range util.MapOrdered(modules) {
+		if deprecatedVersions, ok := deprecated[moduleName]; ok {
+			for _, apiVersion := range deprecatedVersions {
+				resources := versionMap[apiVersion]
+				deprecateAll(resources.All(), apiVersion)
+			}
 		}
 	}
 
 	return modules
 }
 
-func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[ResourceName]ApiVersion, previousResourceVersions map[ResourceName]ApiVersion) VersionResources {
+func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[ResourceName]DefinitionVersion, previousResourceVersions map[ResourceName]DefinitionVersion) VersionResources {
 	resources := map[string]*ResourceSpec{}
 	invokes := map[string]*ResourceSpec{}
-	for _, resourceName := range codegen.SortedKeys(defaultResourceVersions) {
-		apiVersion := defaultResourceVersions[resourceName]
-		if versionResources, ok := versionMap[apiVersion]; ok {
+	for resourceName, apiVersion := range util.MapOrdered(defaultResourceVersions) {
+		if versionResources, ok := versionMap[apiVersion.ApiVersion]; ok {
 			if resource, ok := versionResources.Resources[resourceName]; ok {
 				resourceCopy := *resource
-				resourceCopy.PreviousVersion = previousResourceVersions[resourceName]
+				if previousVersion, hasPreviousVersion := previousResourceVersions[resourceName]; hasPreviousVersion {
+					resourceCopy.PreviousVersion = previousVersion.ApiVersion
+				}
 				resources[resourceName] = &resourceCopy
 			} else if invoke, ok := versionResources.Invokes[resourceName]; ok {
 				invokeCopy := *invoke
-				invokeCopy.PreviousVersion = previousResourceVersions[resourceName]
+				if previousVersion, hasPreviousVersion := previousResourceVersions[resourceName]; hasPreviousVersion {
+					invokeCopy.PreviousVersion = previousVersion.ApiVersion
+				}
 				invokes[resourceName] = &invokeCopy
 			}
 		}
@@ -416,6 +424,7 @@ func IsPrivate(apiVersion string) bool {
 
 // Attempt to convert both versions to dates and compare them.
 // Fall back to string comparison if either version is not a date.
+// The result will be 0 if a == b, -1 if a < b, and +1 if a > b.
 func CompareApiVersions(a, b ApiVersion) int {
 	timeA, err := ApiVersionToDate(a)
 	if err != nil {

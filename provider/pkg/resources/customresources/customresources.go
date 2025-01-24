@@ -18,7 +18,6 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 
 	. "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
@@ -91,8 +90,7 @@ type ResourceDefinition struct {
 // These modifications should never overlap with each other, but we apply in a deterministic order to ensure
 // that the end result of the modifications is consistent.
 func ApplySchemas(pkg *schema.PackageSpec, meta *AzureAPIMetadata) error {
-	for _, path := range codegen.SortedKeys(featureLookup) {
-		r := featureLookup[path]
+	for _, r := range util.MapOrdered(featureLookup) {
 		if err := r.ApplySchema(pkg, meta); err != nil {
 			return fmt.Errorf("failed to apply schema modifications for resource %s: %w", r.tok, err)
 		}

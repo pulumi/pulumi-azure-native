@@ -57,8 +57,7 @@ type CurationViolation struct {
 
 func ValidateDefaultConfig(config Spec, curations Curations) []CurationViolation {
 	var violations []CurationViolation
-	for _, moduleName := range util.SortedKeys(config) {
-		moduleSpec := config[moduleName]
+	for moduleName, moduleSpec := range util.MapOrdered(config) {
 		moduleCuration := curations[moduleName]
 		expectedTracking := moduleCuration.ExpectTracking
 		if expectedTracking == "" {
@@ -116,9 +115,8 @@ func FindInactiveDefaultVersions(defaultVersions openapi.DefaultVersions, active
 	for moduleName, versions := range defaultVersions {
 		inactiveVersions := collections.NewOrderableSet[openapi.ApiVersion]()
 		for _, version := range versions {
-			// TODO: Use the original AZ namespace rather that our adjusted module name
-			if !activeVersions.HasProviderVersion(string(moduleName), version) {
-				inactiveVersions.Add(version)
+			if !activeVersions.HasProviderVersion(version.RpNamespace, version.ApiVersion) {
+				inactiveVersions.Add(version.ApiVersion)
 			}
 		}
 		if inactiveVersions.Count() > 0 {
@@ -132,7 +130,7 @@ func DefaultVersionsFromConfig(spec ModuleVersionResources, defaultConfig Spec) 
 	var err error
 	defaultVersions := openapi.DefaultVersions{}
 	for moduleName, versionResources := range spec {
-		definitions := map[openapi.DefinitionName]openapi.ApiVersion{}
+		definitions := map[openapi.DefinitionName]openapi.DefinitionVersion{}
 		moduleConfig, ok := defaultConfig[moduleName]
 		if !ok {
 			if len(versionResources) > 0 {
@@ -150,16 +148,27 @@ func DefaultVersionsFromConfig(spec ModuleVersionResources, defaultConfig Spec) 
 		}
 
 		if moduleConfig.Tracking != nil {
-			for _, resourceName := range versionResources[*moduleConfig.Tracking] {
-				definitions[resourceName] = *moduleConfig.Tracking
+			trackingDefinitions := versionResources[*moduleConfig.Tracking]
+			for definitionName, definition := range util.MapOrdered(trackingDefinitions) {
+				definitions[definitionName] = definition
 			}
 		}
 		if moduleConfig.Additions != nil {
-			for resourceName, apiVersion := range *moduleConfig.Additions {
-				if existingVersion, ok := definitions[resourceName]; ok {
-					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", moduleName, resourceName, apiVersion, existingVersion))
+			for definitionName, apiVersion := range *moduleConfig.Additions {
+				if existingVersion, ok := definitions[definitionName]; ok {
+					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", moduleName, definitionName, apiVersion, existingVersion))
 				} else {
-					definitions[resourceName] = apiVersion
+					versionDefinitions, ok := versionResources[apiVersion]
+					if !ok {
+						err = multierror.Append(err, fmt.Errorf("resource %s:%s not found in %s", moduleName, definitionName, apiVersion))
+						continue
+					}
+					versionDefinition, ok := versionDefinitions[definitionName]
+					if !ok {
+						err = multierror.Append(err, fmt.Errorf("resource %s:%s not found in %s", moduleName, definitionName, apiVersion))
+						continue
+					}
+					definitions[definitionName] = versionDefinition
 				}
 			}
 		}
@@ -189,7 +198,7 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 	var trackingResources codegen.StringSet
 	if existing.Tracking != nil {
 		trackingPtr = existing.Tracking
-		trackingResources = codegen.NewStringSet(versions[*trackingPtr]...)
+		trackingResources = codegen.NewStringSet(util.UnsortedKeys(versions[*trackingPtr])...)
 	} else if !moduleCuration.Explicit {
 		// Take the latest version as the new tracking version
 		maxVersion := maxKey(latestVersions)
@@ -200,7 +209,7 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 		}
 	}
 
-	sortedVersions := keys(versions)
+	sortedVersions := util.UnsortedKeys(versions)
 	openapi.SortApiVersions(sortedVersions)
 
 	existingAdditions := map[openapi.ResourceName]openapi.ApiVersion{}
@@ -211,33 +220,32 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 	// Loop through every version in order, skipping excluded and private versions
 	// and overwriting additions from previous versions.
 	for _, apiVersion := range sortedVersions {
-		resources := versions[apiVersion]
+		definitions := versions[apiVersion]
 		if !moduleCuration.Explicit && (trackingPtr == nil || apiVersion == *trackingPtr) {
 			continue
 		}
-		for _, resourceName := range resources {
-			isExcluded, exclusionErr := moduleCuration.IsExcluded(resourceName, apiVersion)
+		for definitionName, definition := range util.MapOrdered(definitions) {
+			isExcluded, exclusionErr := moduleCuration.IsExcluded(definitionName, apiVersion)
 			if exclusionErr != nil {
 				exclusionErrors = append(exclusionErrors, ExclusionError{
 					ModuleName:   b.moduleName,
-					ResourceName: resourceName,
+					ResourceName: definitionName,
 					Detail:       exclusionErr.Error(),
 				})
 			}
 			if isExcluded || openapi.IsPrivate(string(apiVersion)) {
 				continue
 			}
-			if existingVersion, ok := existingAdditions[resourceName]; ok {
-				additions[resourceName] = existingVersion
+			if existingVersion, ok := existingAdditions[definitionName]; ok {
+				additions[definitionName] = existingVersion
 				continue
 			}
-			// TODO: Use the original AZ namespace rather that our adjusted module name
-			if !b.activeVersionChecker.HasProviderVersion(string(b.moduleName), apiVersion) {
+			if !b.activeVersionChecker.HasProviderVersion(definition.RpNamespace, apiVersion) {
 				// Don't add if not marked as live
 				continue
 			}
-			if !trackingResources.Has(resourceName) {
-				additions[resourceName] = apiVersion
+			if !trackingResources.Has(definitionName) {
+				additions[definitionName] = apiVersion
 			}
 		}
 	}
@@ -282,11 +290,11 @@ func (b moduleSpecBuilder) findLatestResourceVersions(versions VersionResources,
 	latestResourceVersions := map[openapi.ResourceName]openapi.ApiVersion{}
 	for i := len(orderedVersions) - 1; i >= 0; i-- {
 		version := orderedVersions[i]
-		resources := minimalVersions[version]
-		for _, resourceName := range resources {
+		definitions := minimalVersions[version]
+		for _, definitionName := range util.SortedKeys(definitions) {
 			// Only add if not already exists
-			if _, ok := latestResourceVersions[resourceName]; !ok {
-				latestResourceVersions[resourceName] = version
+			if _, ok := latestResourceVersions[definitionName]; !ok {
+				latestResourceVersions[definitionName] = version
 			}
 		}
 	}
@@ -294,12 +302,11 @@ func (b moduleSpecBuilder) findLatestResourceVersions(versions VersionResources,
 	return latestResourceVersions
 }
 
-func filterVersionResources(versions VersionResources, filter []openapi.ApiVersion) VersionResources {
+func filterVersionResources(versions VersionResources, filter *collections.OrderableSet[openapi.ApiVersion]) VersionResources {
 	filtered := VersionResources{}
-	filterMap := collections.NewOrderableSet(filter...)
 
 	for apiVersion, resourceNames := range versions {
-		if filterMap.Has(apiVersion) {
+		if filter.Has(apiVersion) {
 			filtered[apiVersion] = resourceNames
 		}
 	}
@@ -308,18 +315,18 @@ func filterVersionResources(versions VersionResources, filter []openapi.ApiVersi
 
 // filterCandidateVersions returns a sorted list of versions which are the best upgrade options,
 // removing versions which have now been superseded by a newer or more stable version.
-func (b moduleSpecBuilder) filterCandidateVersions(versions VersionResources, previewPolicy string) []openapi.ApiVersion {
-	orderedVersions := make([]openapi.ApiVersion, 0, len(versions))
-	for _, version := range keys(versions) {
-		if version != "" { // Ignore default version placeholders
-			orderedVersions = append(orderedVersions, version)
-		}
-	}
+func (b moduleSpecBuilder) filterCandidateVersions(versions VersionResources, previewPolicy string) *collections.OrderableSet[openapi.ApiVersion] {
+	orderedVersions := util.UnsortedKeys(versions)
 	openapi.SortApiVersions(orderedVersions)
 	liveOrderedVersions := []openapi.ApiVersion{}
 	for _, version := range orderedVersions {
-		// TODO: Use the original AZ namespace rather that our adjusted module name
-		if b.activeVersionChecker.HasProviderVersion(string(b.moduleName), version) {
+		definitions := versions[version]
+		// Skip versions with no definitions
+		if len(definitions) == 0 {
+			continue
+		}
+		firstDefinition := definitions[util.SortedKeys(definitions)[0]]
+		if b.activeVersionChecker.HasProviderVersion(firstDefinition.RpNamespace, version) {
 			liveOrderedVersions = append(liveOrderedVersions, version)
 		}
 	}
@@ -363,7 +370,7 @@ func (b moduleSpecBuilder) filterCandidateVersions(versions VersionResources, pr
 		}
 	}
 
-	return candidateVersions.SortedValues()
+	return candidateVersions
 }
 
 func isMoreThanOneYearOld(version openapi.ApiVersion) (bool, error) {
@@ -396,20 +403,18 @@ func (b moduleSpecBuilder) containsRecentStable(orderedVersions []openapi.ApiVer
 }
 
 // findMinimalVersionSet returns the minimum set of versions required to produce all resources
-func findMinimalVersionSet(versions VersionResources) []openapi.ApiVersion {
-	orderedVersions := make([]openapi.ApiVersion, 0, len(versions))
-	for version := range versions {
-		orderedVersions = append(orderedVersions, version)
-	}
-	slices.Sort(orderedVersions)
+func findMinimalVersionSet(versions VersionResources) *collections.OrderableSet[openapi.ApiVersion] {
+	orderedVersions := util.UnsortedKeys(versions)
+	openapi.SortApiVersions(orderedVersions)
 
 	latestResourceVersions := map[openapi.ResourceName]openapi.ApiVersion{}
 	for _, version := range orderedVersions {
-		resourceNames := versions[version]
-		for _, resourceName := range resourceNames {
-			latestVersion := latestResourceVersions[resourceName]
-			if version > latestVersion {
-				latestResourceVersions[resourceName] = version
+		definitions := versions[version]
+		for _, definitionName := range util.SortedKeys(definitions) {
+			latestVersion, hasLatestVersion := latestResourceVersions[definitionName]
+			// Insert or update if newer
+			if !hasLatestVersion || openapi.CompareApiVersions(version, latestVersion) > 0 {
+				latestResourceVersions[definitionName] = version
 			}
 		}
 	}
@@ -419,8 +424,7 @@ func findMinimalVersionSet(versions VersionResources) []openapi.ApiVersion {
 		minimalVersions.Add(apiVersion)
 	}
 
-	result := minimalVersions.SortedValues()
-	return result
+	return minimalVersions
 }
 
 func timeBetweenVersions(from, to openapi.ApiVersion) (diff time.Duration, err error) {
@@ -439,19 +443,10 @@ func timeBetweenVersions(from, to openapi.ApiVersion) (diff time.Duration, err e
 }
 
 func maxKey[K cmp.Ordered, V any](m map[K]V) *K {
-	keys := keys(m)
+	keys := util.UnsortedKeys(m)
 	if len(keys) == 0 {
 		return nil
 	}
 	max := slices.Max(keys)
 	return &max
-}
-
-// Returns an unordered slice of keys from a map
-func keys[K comparable, V any](m map[K]V) []K {
-	keys := make([]K, 0, len(m))
-	for k := range m {
-		keys = append(keys, k)
-	}
-	return keys
 }

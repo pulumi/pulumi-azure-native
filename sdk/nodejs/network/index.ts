@@ -110,6 +110,11 @@ export type DnsSecurityRule = import("./dnsSecurityRule").DnsSecurityRule;
 export const DnsSecurityRule: typeof import("./dnsSecurityRule").DnsSecurityRule = null as any;
 utilities.lazyLoad(exports, ["DnsSecurityRule"], () => require("./dnsSecurityRule"));
 
+export { DnssecConfigArgs } from "./dnssecConfig";
+export type DnssecConfig = import("./dnssecConfig").DnssecConfig;
+export const DnssecConfig: typeof import("./dnssecConfig").DnssecConfig = null as any;
+utilities.lazyLoad(exports, ["DnssecConfig"], () => require("./dnssecConfig"));
+
 export { DscpConfigurationArgs } from "./dscpConfiguration";
 export type DscpConfiguration = import("./dscpConfiguration").DscpConfiguration;
 export const DscpConfiguration: typeof import("./dscpConfiguration").DscpConfiguration = null as any;
@@ -335,6 +340,11 @@ export const getDnsSecurityRule: typeof import("./getDnsSecurityRule").getDnsSec
 export const getDnsSecurityRuleOutput: typeof import("./getDnsSecurityRule").getDnsSecurityRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getDnsSecurityRule","getDnsSecurityRuleOutput"], () => require("./getDnsSecurityRule"));
 
+export { GetDnssecConfigArgs, GetDnssecConfigResult, GetDnssecConfigOutputArgs } from "./getDnssecConfig";
+export const getDnssecConfig: typeof import("./getDnssecConfig").getDnssecConfig = null as any;
+export const getDnssecConfigOutput: typeof import("./getDnssecConfig").getDnssecConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getDnssecConfig","getDnssecConfigOutput"], () => require("./getDnssecConfig"));
+
 export { GetDscpConfigurationArgs, GetDscpConfigurationResult, GetDscpConfigurationOutputArgs } from "./getDscpConfiguration";
 export const getDscpConfiguration: typeof import("./getDscpConfiguration").getDscpConfiguration = null as any;
 export const getDscpConfigurationOutput: typeof import("./getDscpConfiguration").getDscpConfigurationOutput = null as any;
@@ -559,6 +569,11 @@ export { GetNetworkVirtualApplianceArgs, GetNetworkVirtualApplianceResult, GetNe
 export const getNetworkVirtualAppliance: typeof import("./getNetworkVirtualAppliance").getNetworkVirtualAppliance = null as any;
 export const getNetworkVirtualApplianceOutput: typeof import("./getNetworkVirtualAppliance").getNetworkVirtualApplianceOutput = null as any;
 utilities.lazyLoad(exports, ["getNetworkVirtualAppliance","getNetworkVirtualApplianceOutput"], () => require("./getNetworkVirtualAppliance"));
+
+export { GetNetworkVirtualApplianceConnectionArgs, GetNetworkVirtualApplianceConnectionResult, GetNetworkVirtualApplianceConnectionOutputArgs } from "./getNetworkVirtualApplianceConnection";
+export const getNetworkVirtualApplianceConnection: typeof import("./getNetworkVirtualApplianceConnection").getNetworkVirtualApplianceConnection = null as any;
+export const getNetworkVirtualApplianceConnectionOutput: typeof import("./getNetworkVirtualApplianceConnection").getNetworkVirtualApplianceConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkVirtualApplianceConnection","getNetworkVirtualApplianceConnectionOutput"], () => require("./getNetworkVirtualApplianceConnection"));
 
 export { GetNetworkWatcherArgs, GetNetworkWatcherResult, GetNetworkWatcherOutputArgs } from "./getNetworkWatcher";
 export const getNetworkWatcher: typeof import("./getNetworkWatcher").getNetworkWatcher = null as any;
@@ -1185,6 +1200,11 @@ export type NetworkVirtualAppliance = import("./networkVirtualAppliance").Networ
 export const NetworkVirtualAppliance: typeof import("./networkVirtualAppliance").NetworkVirtualAppliance = null as any;
 utilities.lazyLoad(exports, ["NetworkVirtualAppliance"], () => require("./networkVirtualAppliance"));
 
+export { NetworkVirtualApplianceConnectionArgs } from "./networkVirtualApplianceConnection";
+export type NetworkVirtualApplianceConnection = import("./networkVirtualApplianceConnection").NetworkVirtualApplianceConnection;
+export const NetworkVirtualApplianceConnection: typeof import("./networkVirtualApplianceConnection").NetworkVirtualApplianceConnection = null as any;
+utilities.lazyLoad(exports, ["NetworkVirtualApplianceConnection"], () => require("./networkVirtualApplianceConnection"));
+
 export { NetworkWatcherArgs } from "./networkWatcher";
 export type NetworkWatcher = import("./networkWatcher").NetworkWatcher;
 export const NetworkWatcher: typeof import("./networkWatcher").NetworkWatcher = null as any;
@@ -1670,6 +1690,8 @@ const _module = {
                 return new DnsResolverPolicyVirtualNetworkLink(name, <any>undefined, { urn })
             case "azure-native:network:DnsSecurityRule":
                 return new DnsSecurityRule(name, <any>undefined, { urn })
+            case "azure-native:network:DnssecConfig":
+                return new DnssecConfig(name, <any>undefined, { urn })
             case "azure-native:network:DscpConfiguration":
                 return new DscpConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:Endpoint":
@@ -1758,6 +1780,8 @@ const _module = {
                 return new NetworkSecurityPerimeter(name, <any>undefined, { urn })
             case "azure-native:network:NetworkVirtualAppliance":
                 return new NetworkVirtualAppliance(name, <any>undefined, { urn })
+            case "azure-native:network:NetworkVirtualApplianceConnection":
+                return new NetworkVirtualApplianceConnection(name, <any>undefined, { urn })
             case "azure-native:network:NetworkWatcher":
                 return new NetworkWatcher(name, <any>undefined, { urn })
             case "azure-native:network:NspAccessRule":

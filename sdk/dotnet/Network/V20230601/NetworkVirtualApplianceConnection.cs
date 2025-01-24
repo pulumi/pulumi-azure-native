@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Network.V20230601
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:network:NetworkVirtualApplianceConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:NetworkVirtualApplianceConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:NetworkVirtualApplianceConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:NetworkVirtualApplianceConnection" },

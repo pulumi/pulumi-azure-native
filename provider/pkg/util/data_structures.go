@@ -2,6 +2,7 @@ package util
 
 import (
 	"cmp"
+	"iter"
 	"slices"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/slice"
@@ -31,11 +32,35 @@ func GetInnerMap(m map[string]any, keys ...string) (map[string]any, bool) {
 	return nil, false
 }
 
-func SortedKeys[K cmp.Ordered, V any](m map[K]V) []K {
+// UnsortedKeys returns the keys of a map in an arbitrary order.
+func UnsortedKeys[K comparable, V any](m map[K]V) []K {
 	keys := slice.Prealloc[K](len(m))
 	for key := range m {
 		keys = append(keys, key)
 	}
+	return keys
+}
+
+// SortedKeys returns the keys of a map in sorted order.
+func SortedKeys[K cmp.Ordered, V any](m map[K]V) []K {
+	keys := UnsortedKeys(m)
 	slices.Sort(keys)
 	return keys
+}
+
+// MapOrdered returns a sequence of key-value pairs from a map, ordered by key.
+// Example usage:
+//
+//	for key, value := range util.MapOrdered(m) {
+//	    ...
+//	}
+func MapOrdered[K cmp.Ordered, V any](m map[K]V) iter.Seq2[K, V] {
+	keys := SortedKeys(m)
+	return func(yield func(K, V) bool) {
+		for _, key := range keys {
+			if !yield(key, m[key]) {
+				return
+			}
+		}
+	}
 }

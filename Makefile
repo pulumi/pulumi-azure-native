@@ -308,6 +308,7 @@ dist/pulumi-azure-native_$(PROVIDER_VERSION)_checksums.txt: dist/$(PROVIDER)-v$(
 .make/provider_prebuild: .make/prebuild bin/schema-full.json bin/metadata-compact.json versions/v${MAJOR_VERSION}.yaml
 	cp bin/schema-full.json provider/cmd/$(PROVIDER)
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
+	cp -v versions/v${MAJOR_VERSION}.yaml provider/pkg/versionLookup/default-versions.yaml
 	@touch $@
 
 .make/prebuild: .pulumi/bin/pulumi

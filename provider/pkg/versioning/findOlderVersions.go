@@ -22,12 +22,12 @@ func findOlderVersions(specVersions ModuleVersionResources, defaultVersions open
 	return olderModuleVersions
 }
 
-func findMinDefaultVersion(resourceVersions map[openapi.DefinitionName]openapi.ApiVersion) openapi.ApiVersion {
+func findMinDefaultVersion(resourceVersions map[openapi.DefinitionName]openapi.DefinitionVersion) openapi.ApiVersion {
 	// TODO: Consider using a pointer instead of empty string for when there is no version
 	minVersion := openapi.ApiVersion("")
 	for _, version := range resourceVersions {
-		if minVersion == "" || version < minVersion {
-			minVersion = version
+		if minVersion == "" || version.ApiVersion < minVersion {
+			minVersion = version.ApiVersion
 		}
 	}
 	return minVersion

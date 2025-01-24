@@ -5,7 +5,7 @@ package pcl
 import (
 	"reflect"
 
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/hcl2/model"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/zclconf/go-cty/cty"
@@ -68,8 +68,8 @@ func RenderValue(node interface{}) (model.Expression, error) {
 			consItems[k.String()] = rendered
 		}
 		var items []model.ObjectConsItem
-		for _, k := range codegen.SortedKeys(consItems) {
-			items = append(items, ObjectConsItem(k, consItems[k]))
+		for k, v := range util.MapOrdered(consItems) {
+			items = append(items, ObjectConsItem(k, v))
 		}
 		return &model.ObjectConsExpression{
 			Items: items,
