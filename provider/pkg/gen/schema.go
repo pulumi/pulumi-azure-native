@@ -1252,7 +1252,7 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 	if g.sdkVersion == "" {
 		fmt.Fprintf(&b, "\nAzure REST API version: %s.", defaultVersion)
 		if previousDefaultVersion != "" {
-			fmt.Fprintf(&b, " Prior API version in Azure Native 1.x: %s.", previousDefaultVersion)
+			fmt.Fprintf(&b, " Prior API version in Azure Native %d.x: %s.", g.majorVersion - 1, previousDefaultVersion)
 		}
 
 		// List other available API versions, if any.
