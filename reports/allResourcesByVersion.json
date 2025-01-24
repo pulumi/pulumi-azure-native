@@ -7934,6 +7934,12 @@
       "IntegrationFabric",
       "ManagedPrivateEndpoint",
       "PrivateEndpointConnection"
+    ],
+    "2024-10-01": [
+      "Grafana",
+      "IntegrationFabric",
+      "ManagedPrivateEndpoint",
+      "PrivateEndpointConnection"
     ]
   },
   "DataBox": {
@@ -12880,7 +12886,10 @@
       "Workbook"
     ],
     "2021-09-01": [
-      "ActionGroup"
+      "ActionGroup",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope",
+      "PrivateLinkScopedResource"
     ],
     "2021-09-01-preview": [
       "DataCollectionEndpoint",
@@ -12932,6 +12941,11 @@
     ],
     "2023-06-01": [
       "Workbook"
+    ],
+    "2023-06-01-preview": [
+      "PrivateEndpointConnection",
+      "PrivateLinkScope",
+      "PrivateLinkScopedResource"
     ],
     "2023-09-01-preview": [
       "ActionGroup"
@@ -21515,6 +21529,11 @@
       "Secret",
       "SyncIdentityProvider",
       "SyncSet",
+      "listOpenShiftClusterAdminCredentials",
+      "listOpenShiftClusterCredentials"
+    ],
+    "2024-08-12-preview": [
+      "OpenShiftCluster",
       "listOpenShiftClusterAdminCredentials",
       "listOpenShiftClusterCredentials"
     ]
