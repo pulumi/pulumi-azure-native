@@ -47,6 +47,10 @@ var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 		"Component": codegen.NewStringSet(), // covered by x-ms-mutability
 	},
 	"Network": {
+		// https://github.com/pulumi/pulumi-azure-native/issues/3883
+		// https://stackoverflow.com/questions/78877433/arm-template-is-it-possible-to-change-subnets-of-private-endpoint
+		// https://learn.microsoft.com/en-us/answers/questions/1295954/how-to-migrate-a-keyvault-private-endpoint-to-a-ne
+		"PrivateEndpoint": codegen.NewStringSet("subnet"),
 		"PublicIPAddress": codegen.NewStringSet("location", "publicIPAddressVersion", "publicIPPrefix", "sku"),
 		"Subnet":          codegen.NewStringSet(), // no force-news
 		"VirtualNetwork":  codegen.NewStringSet("location"),

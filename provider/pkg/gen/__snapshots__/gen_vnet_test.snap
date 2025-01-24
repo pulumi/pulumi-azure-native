@@ -18446,7 +18446,8 @@
     "subnet": {
      "$ref": "#/types/azure-native:network/v20230201:Subnet",
      "description": "The ID of the subnet from which the private IP will be allocated.",
-     "type": "object"
+     "type": "object",
+     "willReplaceOnChanges": true
     },
     "tags": {
      "additionalProperties": {
@@ -65572,6 +65573,7 @@
         "containers": [
          "properties"
         ],
+        "forceNew": true,
         "type": "object"
        },
        "tags": {
