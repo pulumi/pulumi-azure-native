@@ -1044,23 +1044,29 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, previousDe
 		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
 	}
 
-	if g.majorVersion > 2 {
-		if previousDefaultVersion != nil && previousDefaultVersion.DefinitionName != resource.typeName {
-			addAlias(previousDefaultVersion.ModuleName, previousDefaultVersion.DefinitionName, "")
+	var previousModuleName *openapi.ModuleName
+	if previousDefaultVersion != nil {
+		if g.majorVersion > 2 {
+			// Add an alias for the name of the resource in the previous default version if different.
+			if previousDefaultVersion.DefinitionName != resource.typeName {
+				addAlias(previousDefaultVersion.ModuleName, previousDefaultVersion.DefinitionName, "")
+			}
+		}
+		if previousDefaultVersion.ModuleName != g.moduleName {
+			previousModuleName = &previousDefaultVersion.ModuleName
 		}
 	}
 
 	// Add an alias for the same version of the resource, but in its old module.
-	// TODO: Use the previous default version's module name and remove the module naming previous name.
-	if resource.ModuleNaming.PreviousName != nil {
-		addAlias(*resource.ModuleNaming.PreviousName, resource.typeName, g.sdkVersion)
+	if previousModuleName != nil {
+		addAlias(*previousModuleName, resource.typeName, g.sdkVersion)
 	}
 
 	for _, alias := range typeNameAliases {
 		addAlias(g.moduleName, alias, g.sdkVersion)
 		// Add an alias for the same alias, but in its old module.
-		if resource.ModuleNaming.PreviousName != nil {
-			addAlias(*resource.ModuleNaming.PreviousName, alias, g.sdkVersion)
+		if previousModuleName != nil {
+			addAlias(*previousModuleName, alias, g.sdkVersion)
 		}
 	}
 
@@ -1069,8 +1075,8 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, previousDe
 		addAlias(g.moduleName, resource.typeName, version.ToSdkVersion())
 
 		// Add an alias for the other versions, but from its old module.
-		if resource.ModuleNaming.PreviousName != nil {
-			addAlias(*resource.ModuleNaming.PreviousName, resource.typeName, version.ToSdkVersion())
+		if previousModuleName != nil {
+			addAlias(*previousModuleName, resource.typeName, version.ToSdkVersion())
 		}
 
 		// Add type name aliases for each compatible version.
@@ -1078,8 +1084,8 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, previousDe
 			addAlias(g.moduleName, alias, version.ToSdkVersion())
 
 			// Add an alias for the other version, with alias, from its old module.
-			if resource.ModuleNaming.PreviousName != nil {
-				addAlias(*resource.ModuleNaming.PreviousName, alias, version.ToSdkVersion())
+			if previousModuleName != nil {
+				addAlias(*previousModuleName, alias, version.ToSdkVersion())
 			}
 		}
 	}
