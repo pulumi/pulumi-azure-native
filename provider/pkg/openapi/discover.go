@@ -213,6 +213,52 @@ func (defaultVersions DefaultVersions) IsAtVersion(moduleName ModuleName, typeNa
 	return false
 }
 
+type PreviousVersionLookup struct {
+	defaultVersions         DefaultVersions
+	indexedByNormalizedPath map[string]DefaultResource
+}
+
+func (lookup PreviousVersionLookup) Find(moduleName ModuleName, definitionName DefinitionName, path string) (*DefaultResource, bool) {
+	// Try to match on module and definition name
+	if resources, ok := lookup.defaultVersions[moduleName]; ok {
+		if resource, ok := resources[definitionName]; ok {
+			return &DefaultResource{
+				ModuleName:     moduleName,
+				DefinitionName: definitionName,
+				ApiVersion:     resource.ApiVersion,
+			}, true
+		}
+	}
+	// Try to match on path
+	if resource, ok := lookup.indexedByNormalizedPath[paths.NormalizePath(path)]; ok {
+		return &resource, true
+	}
+	return nil, false
+}
+
+type DefaultResource struct {
+	ModuleName     ModuleName
+	DefinitionName DefinitionName
+	ApiVersion     ApiVersion
+}
+
+func (defaultVersions DefaultVersions) IndexForPreviousLookup() PreviousVersionLookup {
+	indexedByNormalizedPath := map[string]DefaultResource{}
+	for moduleName, definitions := range defaultVersions {
+		for definitionName, definition := range definitions {
+			indexedByNormalizedPath[paths.NormalizePath(definition.ResourceUri)] = DefaultResource{
+				ModuleName:     moduleName,
+				DefinitionName: definitionName,
+				ApiVersion:     definition.ApiVersion,
+			}
+		}
+	}
+	return PreviousVersionLookup{
+		defaultVersions:         defaultVersions,
+		indexedByNormalizedPath: indexedByNormalizedPath,
+	}
+}
+
 func (v VersionResources) All() map[string]*ResourceSpec {
 	specs := map[string]*ResourceSpec{}
 	for s, resourceSpec := range v.Invokes {
@@ -239,11 +285,11 @@ type ResourceSpec struct {
 	Swagger      *Spec
 	// CompatibleVersions is a list of other API versions that are compatible with this resource.
 	// These versions can be the default version, indicated by an empty string.
-	CompatibleVersions []ApiVersion
-	DefaultBody        map[string]interface{}
-	DeprecationMessage string
-	PreviousVersion    ApiVersion
-	ModuleNaming       resources.ModuleNaming
+	CompatibleVersions     []ApiVersion
+	DefaultBody            map[string]interface{}
+	DeprecationMessage     string
+	PreviousDefaultVersion *DefaultResource
+	ModuleNaming           resources.ModuleNaming
 }
 
 // ApplyTransformations adds the default version for each module and deprecates and removes specified API versions.
@@ -266,10 +312,11 @@ func ApplyRemovals(modules map[ModuleName]ModuleVersions, removed ModuleVersionL
 }
 
 func AddDefaultVersion(modules AzureModules, defaultVersions DefaultVersions, previousDefaultVersions DefaultVersions) {
+	previousVersionLookup := previousDefaultVersions.IndexForPreviousLookup()
 	for moduleName, versionMap := range util.MapOrdered(modules) {
 		// Add a default version for each resource and invoke.
 		defaultResourceVersions := defaultVersions[moduleName]
-		versionMap[""] = buildDefaultVersion(versionMap, defaultResourceVersions, previousDefaultVersions[moduleName])
+		versionMap[""] = buildDefaultVersion(moduleName, versionMap, defaultResourceVersions, previousVersionLookup)
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)
@@ -302,21 +349,21 @@ func ApplyDeprecations(modules AzureModules, deprecated ModuleVersionList) Azure
 	return modules
 }
 
-func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[ResourceName]DefinitionVersion, previousResourceVersions map[ResourceName]DefinitionVersion) VersionResources {
+func buildDefaultVersion(moduleName ModuleName, versionMap ModuleVersions, defaultResourceVersions map[ResourceName]DefinitionVersion, previousVersionLookup PreviousVersionLookup) VersionResources {
 	resources := map[string]*ResourceSpec{}
 	invokes := map[string]*ResourceSpec{}
 	for resourceName, apiVersion := range util.MapOrdered(defaultResourceVersions) {
 		if versionResources, ok := versionMap[apiVersion.ApiVersion]; ok {
 			if resource, ok := versionResources.Resources[resourceName]; ok {
 				resourceCopy := *resource
-				if previousVersion, hasPreviousVersion := previousResourceVersions[resourceName]; hasPreviousVersion {
-					resourceCopy.PreviousVersion = previousVersion.ApiVersion
+				if previousVersion, hasPreviousVersion := previousVersionLookup.Find(moduleName, resourceName, resource.Path); hasPreviousVersion {
+					resourceCopy.PreviousDefaultVersion = previousVersion
 				}
 				resources[resourceName] = &resourceCopy
 			} else if invoke, ok := versionResources.Invokes[resourceName]; ok {
 				invokeCopy := *invoke
-				if previousVersion, hasPreviousVersion := previousResourceVersions[resourceName]; hasPreviousVersion {
-					invokeCopy.PreviousVersion = previousVersion.ApiVersion
+				if previousVersion, hasPreviousVersion := previousVersionLookup.Find(moduleName, resourceName, invoke.Path); hasPreviousVersion {
+					invokeCopy.PreviousDefaultVersion = previousVersion
 				}
 				invokes[resourceName] = &invokeCopy
 			}

@@ -921,14 +921,14 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: g.formatDescription(resourceResponse.description, resource.typeName, openapi.ApiVersion(swagger.Info.Version), apiSpec.PreviousVersion, additionalDocs),
+			Description: g.formatDescription(resourceResponse.description, resource.typeName, openapi.ApiVersion(swagger.Info.Version), apiSpec.PreviousDefaultVersion, additionalDocs),
 			Type:        "object",
 			Properties:  resourceResponse.specs,
 			Required:    resourceResponse.requiredSpecs.SortedValues(),
 		},
 		InputProperties:    resourceRequest.specs,
 		RequiredInputs:     resourceRequest.requiredSpecs.SortedValues(),
-		Aliases:            g.generateAliases(resource, typeNameAliases...),
+		Aliases:            g.generateAliases(resource, apiSpec.PreviousDefaultVersion, typeNameAliases...),
 		DeprecationMessage: resource.deprecationMessage,
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
@@ -1036,7 +1036,7 @@ func isSingleton(resource *resourceVariant) bool {
 	return resource.PathItem.Delete == nil || customresources.IsSingleton(resource.Path)
 }
 
-func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
+func (g *packageGenerator) generateAliases(resource *resourceVariant, previousDefaultVersion *openapi.DefaultResource, typeNameAliases ...string) []pschema.AliasSpec {
 	var aliases []pschema.AliasSpec
 
 	addAlias := func(module openapi.ModuleName, typeName string, version openapi.SdkVersion) {
@@ -1044,7 +1044,14 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAl
 		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
 	}
 
+	if g.majorVersion > 2 {
+		if previousDefaultVersion != nil && previousDefaultVersion.DefinitionName != resource.typeName {
+			addAlias(previousDefaultVersion.ModuleName, previousDefaultVersion.DefinitionName, "")
+		}
+	}
+
 	// Add an alias for the same version of the resource, but in its old module.
+	// TODO: Use the previous default version's module name and remove the module naming previous name.
 	if resource.ModuleNaming.PreviousName != nil {
 		addAlias(*resource.ModuleNaming.PreviousName, resource.typeName, g.sdkVersion)
 	}
@@ -1234,17 +1241,17 @@ func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, typeNam
 	if op.Description != "" {
 		desc = op.Description
 	}
-	return g.formatDescription(desc, typeName, openapi.ApiVersion(info.Version), "", nil)
+	return g.formatDescription(desc, typeName, openapi.ApiVersion(info.Version), nil, nil)
 }
 
-func (g *packageGenerator) formatDescription(desc string, typeName string, defaultVersion, previousDefaultVersion openapi.ApiVersion, additionalDocs *string) string {
+func (g *packageGenerator) formatDescription(desc string, typeName string, defaultVersion openapi.ApiVersion, previousDefaultVersion *openapi.DefaultResource, additionalDocs *string) string {
 	var b strings.Builder
 	b.WriteString(desc)
 
 	if g.sdkVersion == "" {
 		fmt.Fprintf(&b, "\nAzure REST API version: %s.", defaultVersion)
-		if previousDefaultVersion != "" {
-			fmt.Fprintf(&b, " Prior API version in Azure Native 1.x: %s.", previousDefaultVersion)
+		if previousDefaultVersion != nil {
+			fmt.Fprintf(&b, " Prior API version in Azure Native 1.x: %s.", previousDefaultVersion.ApiVersion)
 		}
 
 		// List other available API versions, if any.
