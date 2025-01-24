@@ -209,7 +209,7 @@ func (b moduleSpecBuilder) buildSpec(versions VersionResources, curations Curati
 		}
 	}
 
-	sortedVersions := keys(versions)
+	sortedVersions := util.UnsortedKeys(versions)
 	openapi.SortApiVersions(sortedVersions)
 
 	existingAdditions := map[openapi.ResourceName]openapi.ApiVersion{}
@@ -316,12 +316,7 @@ func filterVersionResources(versions VersionResources, filter *collections.Order
 // filterCandidateVersions returns a sorted list of versions which are the best upgrade options,
 // removing versions which have now been superseded by a newer or more stable version.
 func (b moduleSpecBuilder) filterCandidateVersions(versions VersionResources, previewPolicy string) *collections.OrderableSet[openapi.ApiVersion] {
-	orderedVersions := make([]openapi.ApiVersion, 0, len(versions))
-	for _, version := range keys(versions) {
-		if version != "" { // Ignore default version placeholders
-			orderedVersions = append(orderedVersions, version)
-		}
-	}
+	orderedVersions := util.UnsortedKeys(versions)
 	openapi.SortApiVersions(orderedVersions)
 	liveOrderedVersions := []openapi.ApiVersion{}
 	for _, version := range orderedVersions {
@@ -448,19 +443,10 @@ func timeBetweenVersions(from, to openapi.ApiVersion) (diff time.Duration, err e
 }
 
 func maxKey[K cmp.Ordered, V any](m map[K]V) *K {
-	keys := keys(m)
+	keys := util.UnsortedKeys(m)
 	if len(keys) == 0 {
 		return nil
 	}
 	max := slices.Max(keys)
 	return &max
-}
-
-// Returns an unordered slice of keys from a map
-func keys[K comparable, V any](m map[K]V) []K {
-	keys := make([]K, 0, len(m))
-	for k := range m {
-		keys = append(keys, k)
-	}
-	return keys
 }
