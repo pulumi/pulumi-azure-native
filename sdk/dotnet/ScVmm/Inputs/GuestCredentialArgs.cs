@@ -18,14 +18,14 @@ namespace Pulumi.AzureNative.ScVmm.Inputs
         /// <summary>
         /// Gets or sets the password to connect with the guest.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        [Input("password", required: true)]
+        public Input<string> Password { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets username to connect with the guest.
         /// </summary>
-        [Input("username")]
-        public Input<string>? Username { get; set; }
+        [Input("username", required: true)]
+        public Input<string> Username { get; set; } = null!;
 
         public GuestCredentialArgs()
         {
