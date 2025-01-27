@@ -212,19 +212,17 @@ func getAzVersion() (*goversion.Version, error) {
 }
 
 func assertAzVersion(version *goversion.Version) error {
-	const versionHint = `Please make sure that the Azure CLI is installed in a version either
-between 2.0.81 and 2.33, or at least 2.37 but less than 3.x; or configure another authentication
-method. See https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials
+	const versionHint = `Please make sure that the Azure CLI is installed in a version of at least 2.37 but less than 
+3.x; or configure another authentication method. See 
+https://www.pulumi.com/registry/packages/azure-native/installation-configuration/#credentials 
 for more information.`
 
 	// We need this version because it doesn't print the error of #1565
-	lowerOkRange := goversion.MustConstraints(goversion.NewConstraint(">=2.0.81, <2.34"))
-	upperOkRange := goversion.MustConstraints(goversion.NewConstraint(">=2.37.0, <3"))
+	versionRange := goversion.MustConstraints(goversion.NewConstraint(">=2.37.0, <3"))
 
-	if !lowerOkRange.Check(version) && !upperOkRange.Check(version) {
+	if !versionRange.Check(version) {
 		return fmt.Errorf("found incompatible az version %s. %s", version, versionHint)
 	}
-
 	return nil
 }
 
