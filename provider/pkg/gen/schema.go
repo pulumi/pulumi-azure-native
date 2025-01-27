@@ -357,7 +357,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 	// When a resource maps to more than one API path, it's a conflict and we need to detect and report it. #2495
 	isReleaseBuild := len(providerVersion.Build) == 0
 	if providerVersion.Major >= 3 && isReleaseBuild && resourcesPathTracker.hasConflicts() {
-		return nil, fmt.Errorf("path conflicts detected. You probably need to add a case to schema.go/dedupResourceNameByPath.\n%+v", resourcesPathTracker.pathConflicts)
+		return nil, fmt.Errorf("path conflicts detected. You probably need to add a case to resources.go/ResourceName.\n%+v", resourcesPathTracker.pathConflicts)
 	}
 
 	err := genMixins(&pkg, &metadata)
