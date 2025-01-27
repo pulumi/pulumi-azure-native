@@ -884,7 +884,8 @@
   ],
   "ManagedIdentity": [
     "2023-01-31",
-    "2023-07-31-preview"
+    "2023-07-31-preview",
+    "2024-11-30"
   ],
   "ManagedNetwork": [],
   "ManagedNetworkFabric": [

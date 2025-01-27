@@ -15319,7 +15319,8 @@
     "FederatedIdentityCredential": [
       "2022-01-31-preview",
       "2023-01-31",
-      "2023-07-31-preview"
+      "2023-07-31-preview",
+      "2024-11-30"
     ],
     "UserAssignedIdentity": [
       "2015-08-31-preview",
@@ -15327,7 +15328,8 @@
       "2021-09-30-preview",
       "2022-01-31-preview",
       "2023-01-31",
-      "2023-07-31-preview"
+      "2023-07-31-preview",
+      "2024-11-30"
     ],
     "listUserAssignedIdentityAssociatedResources": [
       "2021-09-30-preview",
