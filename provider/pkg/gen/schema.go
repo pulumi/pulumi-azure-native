@@ -70,6 +70,7 @@ type GenerationResult struct {
 	// A map of module -> resource -> set of paths, to record resources that have conflicts where the same resource
 	// maps to more than one API path.
 	PathConflicts map[openapi.ModuleName]map[openapi.ResourceName]map[string][]openapi.ApiVersion
+	TokenPaths    map[string]string
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure modules and resources map.
@@ -405,6 +406,10 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		"packages": javaPackages,
 	})
 
+	tokenPaths := map[string]string{}
+	for token, resource := range metadata.Resources {
+		tokenPaths[token] = resource.Path
+	}
 	return &GenerationResult{
 		Schema:                     &pkg,
 		Metadata:                   &metadata,
@@ -413,6 +418,7 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		TypeCaseConflicts:          caseSensitiveTypes.findCaseConflicts(),
 		FlattenedPropertyConflicts: flattenedPropertyConflicts,
 		PathConflicts:              resourcesPathTracker.pathConflicts,
+		TokenPaths:                 tokenPaths,
 	}, nil
 }
 

@@ -48,6 +48,7 @@ type BuildSchemaReports struct {
 	AllEndpoints                  map[openapi.ModuleName]map[openapi.ResourceName]map[string]*openapi.Endpoint
 	InactiveDefaultVersions       map[openapi.ModuleName][]openapi.ApiVersion
 	OldApiVersions                map[openapi.ModuleName][]openapi.ApiVersion
+	TokenPaths                    map[string]string
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
@@ -67,6 +68,7 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 		"skippedPOSTEndpoints.json":          r.SkippedPOSTEndpoints,
 		"typeCaseConflicts.json":             r.TypeCaseConflicts,
 		"oldApiVersions.json":                r.OldApiVersions,
+		"tokenPaths.json":                    r.TokenPaths,
 	})
 }
 
@@ -142,6 +144,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	buildSchemaReports.TypeCaseConflicts = generationResult.TypeCaseConflicts
 	buildSchemaReports.FlattenedPropertyConflicts = generationResult.FlattenedPropertyConflicts
 	buildSchemaReports.PathConflicts = generationResult.PathConflicts
+	buildSchemaReports.TokenPaths = generationResult.TokenPaths
 
 	pkgSpec := generationResult.Schema
 	metadata := generationResult.Metadata
