@@ -47,6 +47,7 @@ type BuildSchemaReports struct {
 	FlattenedPropertyConflicts    map[string]map[string]any
 	AllEndpoints                  map[openapi.ModuleName]map[openapi.ResourceName]map[string]*openapi.Endpoint
 	InactiveDefaultVersions       map[openapi.ModuleName][]openapi.ApiVersion
+	OldApiVersions                map[openapi.ModuleName][]openapi.ApiVersion
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
@@ -65,6 +66,7 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 		"moduleNameErrors.json":              r.ModuleNameErrors,
 		"skippedPOSTEndpoints.json":          r.SkippedPOSTEndpoints,
 		"typeCaseConflicts.json":             r.TypeCaseConflicts,
+		"oldApiVersions.json":                r.OldApiVersions,
 	})
 }
 
@@ -122,6 +124,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		CurationViolations:            versionMetadata.CurationViolations,
 		AllEndpoints:                  diagnostics.Endpoints,
 		InactiveDefaultVersions:       versionMetadata.InactiveDefaultVersions,
+		OldApiVersions:                versionMetadata.GetOldApiVersionsPerModule(),
 	}
 
 	generationResult, err := gen.PulumiSchema(args.RootDir, modules, versionMetadata, providerVersion)

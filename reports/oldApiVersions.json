@@ -1,0 +1,232 @@
+{
+  "AadIam": [
+    "2017-04-01-preview"
+  ],
+  "AnalysisServices": [
+    "2017-08-01-beta"
+  ],
+  "ApiCenter": [
+    "2024-03-01",
+    "2024-03-15-preview",
+    "2024-06-01-preview"
+  ],
+  "App": [
+    "2022-01-01-preview"
+  ],
+  "AwsConnector": [
+    "2024-12-01"
+  ],
+  "AzureDataTransfer": [
+    "2024-09-27"
+  ],
+  "AzureFleet": [
+    "2023-11-01-preview",
+    "2024-05-01-preview",
+    "2024-11-01"
+  ],
+  "AzureLargeInstance": [
+    "2024-08-01-preview"
+  ],
+  "AzurePlaywrightService": [
+    "2023-10-01-preview",
+    "2024-02-01-preview",
+    "2024-08-01-preview",
+    "2024-12-01"
+  ],
+  "BareMetalInfrastructure": [
+    "2024-08-01-preview"
+  ],
+  "Cloudngfw": [
+    "2022-08-29-preview",
+    "2022-08-29",
+    "2023-09-01-preview",
+    "2023-09-01",
+    "2023-10-10-preview",
+    "2024-01-19-preview",
+    "2024-02-07-preview"
+  ],
+  "CodeSigning": [
+    "2024-02-05-preview",
+    "2024-09-30-preview"
+  ],
+  "Communication": [
+    "2020-08-20-preview"
+  ],
+  "Community": [
+    "2023-11-01"
+  ],
+  "Confluent": [
+    "2020-03-01-preview"
+  ],
+  "ConnectedCache": [
+    "2023-05-01-preview"
+  ],
+  "Contoso": [
+    "2021-10-01-preview"
+  ],
+  "DBforMariaDB": [
+    "2018-06-01-preview"
+  ],
+  "DBforMySQL": [
+    "2017-12-01-preview"
+  ],
+  "DBforPostgreSQL": [
+    "2017-12-01-preview"
+  ],
+  "Dashboard": [
+    "2021-09-01-preview"
+  ],
+  "DataReplication": [
+    "2021-02-16-preview"
+  ],
+  "DatabaseWatcher": [
+    "2023-09-01-preview",
+    "2024-07-19-preview",
+    "2024-10-01-preview",
+    "2025-01-02"
+  ],
+  "DesktopVirtualization": [
+    "2021-01-14-preview"
+  ],
+  "DevCenter": [
+    "2022-08-01-preview"
+  ],
+  "DevOpsInfrastructure": [
+    "2023-10-30-preview",
+    "2023-12-13-preview",
+    "2024-03-26-preview",
+    "2024-04-04-preview",
+    "2024-10-19"
+  ],
+  "DeviceRegistry": [
+    "2023-11-01-preview",
+    "2024-09-01-preview",
+    "2024-11-01"
+  ],
+  "DocumentDB": [
+    "2021-01-15"
+  ],
+  "DurableTask": [
+    "2024-10-01-preview"
+  ],
+  "Edge": [
+    "2024-02-01-preview"
+  ],
+  "EdgeMarketplace": [
+    "2023-08-01-preview",
+    "2023-08-01"
+  ],
+  "Elastic": [
+    "2020-07-01-preview"
+  ],
+  "Fabric": [
+    "2023-11-01"
+  ],
+  "HealthBot": [
+    "2020-12-08-preview"
+  ],
+  "HealthDataAIServices": [
+    "2024-02-28-preview",
+    "2024-09-20"
+  ],
+  "HealthcareApis": [
+    "2021-06-01-preview",
+    "2021-11-01",
+    "2022-01-31-preview"
+  ],
+  "HybridConnectivity": [
+    "2021-10-06-preview"
+  ],
+  "Impact": [
+    "2024-05-01-preview"
+  ],
+  "IntegrationSpaces": [
+    "2023-11-14-preview"
+  ],
+  "Intune": [
+    "2015-01-14-privatepreview"
+  ],
+  "IoTFirmwareDefense": [
+    "2023-02-08-preview",
+    "2024-01-10"
+  ],
+  "IoTOperations": [
+    "2024-07-01-preview"
+  ],
+  "IoTOperationsDataProcessor": [
+    "2023-10-04-preview"
+  ],
+  "IoTOperationsMQ": [
+    "2023-10-04-preview"
+  ],
+  "IoTOperationsOrchestrator": [
+    "2023-10-04-preview"
+  ],
+  "KubernetesRuntime": [
+    "2023-10-01-preview",
+    "2024-03-01"
+  ],
+  "Logz": [
+    "2020-10-01-preview"
+  ],
+  "MobileNetwork": [
+    "2022-03-01-preview"
+  ],
+  "NetworkAnalytics": [
+    "2023-11-15"
+  ],
+  "NetworkFunction": [
+    "2021-09-01-preview"
+  ],
+  "OffAzureSpringBoot": [
+    "2024-04-01-preview"
+  ],
+  "OpenEnergyPlatform": [
+    "2021-06-01-preview"
+  ],
+  "Orbital": [
+    "2022-03-01",
+    "2022-11-01"
+  ],
+  "Portal": [
+    "2018-10-01-preview"
+  ],
+  "PortalServices": [
+    "2024-04-01-preview"
+  ],
+  "ProgrammableConnectivity": [
+    "2024-01-15-preview"
+  ],
+  "Quota": [
+    "2023-06-01-preview",
+    "2024-10-15-preview",
+    "2024-12-18-preview",
+    "2025-03-01"
+  ],
+  "Scom": [
+    "2023-07-07-preview"
+  ],
+  "Search": [
+    "2020-08-01-preview"
+  ],
+  "SecretSyncController": [
+    "2024-08-21-preview"
+  ],
+  "SecurityAndCompliance": [
+    "2021-01-11"
+  ],
+  "StandbyPool": [
+    "2023-12-01-preview",
+    "2024-03-01-preview",
+    "2024-03-01"
+  ],
+  "Storage": [
+    "2021-01-01"
+  ],
+  "StorageActions": [
+    "2023-01-01"
+  ],
+  "VerifiedId": [
+    "2024-01-26-preview"
+  ]
+}
