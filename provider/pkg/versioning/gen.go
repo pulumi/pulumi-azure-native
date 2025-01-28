@@ -86,45 +86,6 @@ func (v VersionMetadata) GetAllVersions(moduleName openapi.ModuleName, resource 
 	return v.AllResourceVersionsByResource[moduleName][resource]
 }
 
-// Collect, for each resource, the API versions that are older than the _previous_ default version and that weren't
-// explicitly removed.
-func (v VersionMetadata) GetOldApiVersionsPerResource() map[openapi.ModuleName][]openapi.ApiVersion {
-	result := map[openapi.ModuleName][]openapi.ApiVersion{}
-	for moduleName, resourceVersions := range v.AllResourceVersionsByResource {
-		// Collect the explicitly removed versions in a set for easy lookup.
-		removedFromModule := map[openapi.ApiVersion]struct{}{}
-		for _, version := range v.RemovedVersions[moduleName] {
-			removedFromModule[version] = struct{}{}
-		}
-
-		// for resourceName := range resourceVersions {
-		// 	previousDefault := v.PreviousDefaultVersions[moduleName][resourceName].ApiVersion
-		// 	mustKeep[previousDefault] = struct{}{}
-		// 	currentDefault := v.DefaultVersions[moduleName][resourceName].ApiVersion
-		// 	mustKeep[currentDefault] = struct{}{}
-		// }
-
-		for resourceName, versions := range resourceVersions {
-			oldVersionsSet := map[openapi.ApiVersion]struct{}{}
-			previousDefault := v.PreviousDefaultVersions[moduleName][resourceName].ApiVersion
-			for _, version := range versions {
-				if _, ok := removedFromModule[version]; !ok && openapi.CompareApiVersions(version, previousDefault) < 0 {
-					oldVersionsSet[version] = struct{}{}
-				}
-			}
-			oldVersions := []openapi.ApiVersion{}
-			for version := range oldVersionsSet {
-				oldVersions = append(oldVersions, version)
-			}
-			slices.SortStableFunc(oldVersions, openapi.CompareApiVersions)
-			if len(oldVersions) > 0 {
-				// result[moduleName] = append(result[moduleName], oldVersions)
-			}
-		}
-	}
-	return result
-}
-
 // Collect, for each module, the API versions that are older than any _previous_ default version and that weren't
 // explicitly removed.
 func (v VersionMetadata) GetOldApiVersionsPerModule() map[openapi.ModuleName][]openapi.ApiVersion {
@@ -139,28 +100,34 @@ func (v VersionMetadata) GetOldApiVersionsPerModule() map[openapi.ModuleName][]o
 
 		// API versions can be removed by module, not by resource. Determine the oldest previous default version for
 		// this module. It's the cut-off below which we can safely remove versions.
-		oldestPreviousDefaultVersion := openapi.ApiVersion("2999-01-01")
+		previousDefaultVersions := []openapi.ApiVersion{}
 		for _, version := range v.PreviousDefaultVersions[moduleName] {
-			if openapi.CompareApiVersions(version.ApiVersion, oldestPreviousDefaultVersion) < 0 {
-				oldestPreviousDefaultVersion = version.ApiVersion
-			}
+			previousDefaultVersions = append(previousDefaultVersions, version.ApiVersion)
 		}
+		if len(previousDefaultVersions) == 0 {
+			continue
+		}
+		oldestPreviousDefaultVersion := slices.MinFunc(previousDefaultVersions, openapi.CompareApiVersions)
 
+		// With oldestPreviousDefaultVersion as cut-off, iterate over all resources and their versions and collect the
+		// versions that are older than the cut-off.
+		oldVersionsSet := map[openapi.ApiVersion]struct{}{}
 		for _, versions := range resourceVersions {
-			oldVersionsSet := map[openapi.ApiVersion]struct{}{}
 			for _, version := range versions {
 				if _, ok := removedFromModule[version]; !ok && openapi.CompareApiVersions(version, oldestPreviousDefaultVersion) < 0 {
 					oldVersionsSet[version] = struct{}{}
 				}
 			}
-			if len(oldVersionsSet) > 0 {
-				oldVersions := []openapi.ApiVersion{}
-				for version := range oldVersionsSet {
-					oldVersions = append(oldVersions, version)
-				}
-				slices.SortStableFunc(oldVersions, openapi.CompareApiVersions)
-				result[moduleName] = oldVersions
+		}
+
+		// If there are any old versions, sort them and add them to the result.
+		if len(oldVersionsSet) > 0 {
+			oldVersions := []openapi.ApiVersion{}
+			for version := range oldVersionsSet {
+				oldVersions = append(oldVersions, version)
 			}
+			slices.SortStableFunc(oldVersions, openapi.CompareApiVersions)
+			result[moduleName] = oldVersions
 		}
 	}
 	return result
