@@ -15,6 +15,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"gopkg.in/yaml.v3"
 )
 
@@ -122,10 +123,7 @@ func (v VersionMetadata) GetOldApiVersionsPerModule() map[openapi.ModuleName][]o
 
 		// If there are any old versions, sort them and add them to the result.
 		if len(oldVersionsSet) > 0 {
-			oldVersions := []openapi.ApiVersion{}
-			for version := range oldVersionsSet {
-				oldVersions = append(oldVersions, version)
-			}
+			oldVersions := util.UnsortedKeys(oldVersionsSet)
 			slices.SortStableFunc(oldVersions, openapi.CompareApiVersions)
 			result[moduleName] = oldVersions
 		}
