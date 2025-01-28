@@ -8,7 +8,6 @@ import (
 	"os"
 	"path"
 	"path/filepath"
-	"strings"
 	"text/template"
 
 	"github.com/segmentio/encoding/json"
@@ -19,6 +18,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/squeeze"
+	embeddedVersion "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/versioning"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -33,10 +33,18 @@ func main() {
 
 	languages := os.Args[1]
 
-	version := ""
+	// The third argument is the optional version.
+	// Exactly one of the CLI arg or embedded version must be set.
 	if len(os.Args) == 3 {
-		version = os.Args[2]
+		if embeddedVersion.Version != "" {
+			panic(fmt.Sprintf("embedded version already set to %s", embeddedVersion.Version))
+		}
+		embeddedVersion.Version = os.Args[2]
+	} else if embeddedVersion.Version == "" {
+		panic("no version provided via CLI argument or ldflags")
 	}
+	// Use the one true version everywhere.
+	version := embeddedVersion.GetVersion()
 
 	wd, err := os.Getwd()
 	if err != nil {
@@ -70,7 +78,7 @@ func main() {
 			VersionsFilter:  apiVersions,
 		},
 		RootDir: wd,
-		Version: version,
+		Version: version.String(),
 	}
 
 	switch languages {
@@ -104,7 +112,7 @@ func main() {
 		if codegenSchemaOutputPath == "" {
 			codegenSchemaOutputPath = path.Join("bin", "schema-full.json")
 		}
-		if err = emitSchema(buildSchemaResult.PackageSpec, version, codegenSchemaOutputPath); err != nil {
+		if err = emitSchema(buildSchemaResult.PackageSpec, version.String(), codegenSchemaOutputPath); err != nil {
 			panic(err)
 		}
 		fmt.Printf("Emitted %s.\n", codegenSchemaOutputPath)
@@ -148,12 +156,12 @@ func main() {
 			panic(err)
 		}
 		squeezedInvokes := versioning.FindRemovedInvokesFromResources(buildSchemaResult.Modules, squeezedResources)
-		majorVersion := strings.Split(version, ".")[0]
-		err = gen.EmitFile(path.Join("versions", fmt.Sprintf("v%s-removed-resources.json", majorVersion)), squeezedResources)
+		majorVersion := version.Major
+		err = gen.EmitFile(path.Join("versions", fmt.Sprintf("v%d-removed-resources.json", majorVersion)), squeezedResources)
 		if err != nil {
 			panic(err)
 		}
-		err = gen.EmitFile(path.Join("versions", fmt.Sprintf("v%s-removed-invokes.yaml", majorVersion)), squeezedInvokes)
+		err = gen.EmitFile(path.Join("versions", fmt.Sprintf("v%d-removed-invokes.yaml", majorVersion)), squeezedInvokes)
 		if err != nil {
 			panic(err)
 		}
@@ -170,7 +178,7 @@ func main() {
 			panic(err)
 		}
 		outdir := path.Join(".", "sdk", "pulumi-azure-native-sdk")
-		pkgSpec.Version = version
+		pkgSpec.Version = version.String()
 		err = emitSplitPackage(&pkgSpec, "go", outdir)
 		if err != nil {
 			panic(err)

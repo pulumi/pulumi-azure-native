@@ -176,7 +176,7 @@ test_nodejs: provider install_nodejs_sdk
 
 .PHONY: schema_squeeze
 schema_squeeze: bin/$(CODEGEN)
-	bin/$(CODEGEN) squeeze $(PROVIDER_VERSION)
+	bin/$(CODEGEN) squeeze
 
 .PHONY: explode_schema
 explode_schema: dist/docs-schema.json
@@ -232,12 +232,12 @@ bin/$(CODEGEN): .make/prebuild .make/provider_mod_download provider/cmd/$(CODEGE
 # Writes schema-full.json and metadata-compact.json to bin/
 # Also re-calculates files in versions/ at same time
 bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) versions/az-provider-list.json versions/v${PREVIOUS_MAJOR_VERSION}.yaml versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-spec.yaml versions/v${MAJOR_VERSION}-removed.json versions/v${MAJOR_VERSION}-removed-resources.json versions/v${NEXT_MAJOR_VERSION}-removed-resources.json
-	bin/$(CODEGEN) schema $(PROVIDER_VERSION)
+	bin/$(CODEGEN) schema
 
 # Docs schema - treat as phony becasuse it's committed so we always need to rebuild it.
 .PHONY: provider/cmd/pulumi-resource-azure-native/schema.json
 provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v${PREVIOUS_MAJOR_VERSION}.yaml versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-removed-resources.json
-	bin/$(CODEGEN) docs $(PROVIDER_VERSION)
+	bin/$(CODEGEN) docs
 
 bin/$(LOCAL_PROVIDER_FILENAME): .make/prebuild .make/provider_mod_download provider/cmd/$(PROVIDER)/*.go .make/provider_prebuild $(PROVIDER_PKG)
 	cd provider && \
@@ -363,7 +363,7 @@ export FAKE_MODULE
 	@# Unmark this is as an up-to-date local build
 	rm -f .make/prepublish_go
 	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
-	bin/$(CODEGEN) go $(PROVIDER_VERSION)
+	bin/$(CODEGEN) go
 	@# Tidy up all go.mod files
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy" \;
 	@touch $@
