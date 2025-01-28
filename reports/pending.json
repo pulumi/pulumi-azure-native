@@ -544,7 +544,8 @@
     "2023-12-13-preview",
     "2024-03-26-preview",
     "2024-04-04-preview",
-    "2024-10-19"
+    "2024-10-19",
+    "2025-01-21"
   ],
   "DevSpaces": [],
   "DevTestLab": [],
@@ -884,7 +885,8 @@
   ],
   "ManagedIdentity": [
     "2023-01-31",
-    "2023-07-31-preview"
+    "2023-07-31-preview",
+    "2024-11-30"
   ],
   "ManagedNetwork": [],
   "ManagedNetworkFabric": [
