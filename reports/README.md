@@ -48,3 +48,7 @@ This, most likely very unelegant, `jq` query filters the endpoints to only those
 ```jq
 jq '[ keys[] as $rp | .[$rp] | keys[] as $path | .[$path][] ] | map(select(.HttpVerbs != null) | select(.HttpVerbs | contains(["POST"])))' allEndpoints.json
 ```
+
+## `oldApiVersions.json`
+
+This file contains a list of all API versions that are older than the oldest previous default version for each resource provider. These API versions are good candidates for removal. Versions that are already explicitly removed via `vN-removed.json` are not included.
