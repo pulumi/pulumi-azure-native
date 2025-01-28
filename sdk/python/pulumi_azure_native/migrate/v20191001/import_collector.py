@@ -163,7 +163,7 @@ class ImportCollector(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230315:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:ImportCollector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230315:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:ImportCollector"), pulumi.Alias(type_="azure-native:migrate:ImportCollector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ImportCollector, __self__).__init__(
             'azure-native:migrate/v20191001:ImportCollector',

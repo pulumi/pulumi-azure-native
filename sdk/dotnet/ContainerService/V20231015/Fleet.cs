@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.ContainerService.V20231015
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220602preview:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220702preview:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20220902preview:Fleet" },
@@ -98,6 +97,7 @@ namespace Pulumi.AzureNative.ContainerService.V20231015
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240202preview:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240401:Fleet" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240502preview:Fleet" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice:Fleet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

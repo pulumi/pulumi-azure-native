@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Network.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ServiceEndpointPolicyDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:ServiceEndpointPolicyDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181001:ServiceEndpointPolicyDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20181101:ServiceEndpointPolicyDefinition" },
@@ -114,6 +113,7 @@ namespace Pulumi.AzureNative.Network.V20180701
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:ServiceEndpointPolicyDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:ServiceEndpointPolicyDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ServiceEndpointPolicyDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:ServiceEndpointPolicyDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

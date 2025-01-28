@@ -177,7 +177,7 @@ class Plan(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Plan")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Plan"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Plan"), pulumi.Alias(type_="azure-native:devcenter:Plan")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Plan, __self__).__init__(
             'azure-native:devcenter/v20240601preview:Plan',

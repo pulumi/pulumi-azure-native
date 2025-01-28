@@ -111,7 +111,7 @@ export class PrefixListLocalRulestack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:PrefixListLocalRulestack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829preview:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20240119preview:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:PrefixListLocalRulestack" }, { type: "azure-native:cloudngfw:PrefixListLocalRulestack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrefixListLocalRulestack.__pulumiType, name, resourceInputs, opts);
     }

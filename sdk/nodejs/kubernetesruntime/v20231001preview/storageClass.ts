@@ -150,7 +150,7 @@ export class StorageClass extends pulumi.CustomResource {
             resourceInputs["volumeBindingMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesruntime:StorageClass" }, { type: "azure-native:kubernetesruntime/v20240301:StorageClass" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesruntime/v20240301:StorageClass" }, { type: "azure-native:kubernetesruntime:StorageClass" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageClass.__pulumiType, name, resourceInputs, opts);
     }

@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:PeriodicTimerEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:PeriodicTimerEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:PeriodicTimerEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:PeriodicTimerEventTrigger" },
@@ -107,6 +106,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:PeriodicTimerEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:PeriodicTimerEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:PeriodicTimerEventTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:PeriodicTimerEventTrigger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

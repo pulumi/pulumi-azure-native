@@ -146,7 +146,7 @@ export class WorkspaceBackend extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceBackend" }, { type: "azure-native:apimanagement/v20240501:WorkspaceBackend" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceBackend" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20240501:WorkspaceBackend" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceBackend" }, { type: "azure-native:apimanagement:WorkspaceBackend" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceBackend.__pulumiType, name, resourceInputs, opts);
     }

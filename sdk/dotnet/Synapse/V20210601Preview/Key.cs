@@ -64,13 +64,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20201201:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210301:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210501:Key" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601:Key" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:Key" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

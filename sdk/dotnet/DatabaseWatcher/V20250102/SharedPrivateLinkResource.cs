@@ -94,10 +94,10 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20250102
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databasewatcher:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource" },
                     new global::Pulumi.Alias { Type = "azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource" },
+                    new global::Pulumi.Alias { Type = "azure-native:databasewatcher:SharedPrivateLinkResource" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -221,7 +221,7 @@ class WorkspacePolicyFragment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspacePolicyFragment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:WorkspacePolicyFragment"), pulumi.Alias(type_="azure-native:apimanagement:WorkspacePolicyFragment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspacePolicyFragment, __self__).__init__(
             'azure-native:apimanagement/v20230501preview:WorkspacePolicyFragment',

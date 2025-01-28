@@ -114,7 +114,7 @@ export class AppResiliency extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:AppResiliency" }, { type: "azure-native:app/v20230801preview:AppResiliency" }, { type: "azure-native:app/v20231102preview:AppResiliency" }, { type: "azure-native:app/v20240202preview:AppResiliency" }, { type: "azure-native:app/v20240802preview:AppResiliency" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20230801preview:AppResiliency" }, { type: "azure-native:app/v20231102preview:AppResiliency" }, { type: "azure-native:app/v20240202preview:AppResiliency" }, { type: "azure-native:app/v20240802preview:AppResiliency" }, { type: "azure-native:app:AppResiliency" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppResiliency.__pulumiType, name, resourceInputs, opts);
     }

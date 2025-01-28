@@ -101,7 +101,7 @@ export class ArtifactManifest extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:ArtifactManifest" }, { type: "azure-native:hybridnetwork/v20230901:ArtifactManifest" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20230901:ArtifactManifest" }, { type: "azure-native:hybridnetwork:ArtifactManifest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArtifactManifest.__pulumiType, name, resourceInputs, opts);
     }

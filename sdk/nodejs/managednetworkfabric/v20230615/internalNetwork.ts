@@ -190,7 +190,7 @@ export class InternalNetwork extends pulumi.CustomResource {
             resourceInputs["vlanId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric:InternalNetwork" }, { type: "azure-native:managednetworkfabric/v20230201preview:InternalNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:InternalNetwork" }, { type: "azure-native:managednetworkfabric:InternalNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InternalNetwork.__pulumiType, name, resourceInputs, opts);
     }

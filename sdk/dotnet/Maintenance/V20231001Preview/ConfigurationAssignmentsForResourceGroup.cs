@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.Maintenance.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:maintenance:ConfigurationAssignmentsForResourceGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230401:ConfigurationAssignmentsForResourceGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForResourceGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:maintenance:ConfigurationAssignmentsForResourceGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

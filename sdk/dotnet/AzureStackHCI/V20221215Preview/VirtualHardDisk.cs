@@ -127,7 +127,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221215Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:VirtualHardDisk" },
@@ -138,6 +137,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221215Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240715preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:VirtualHardDisk" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

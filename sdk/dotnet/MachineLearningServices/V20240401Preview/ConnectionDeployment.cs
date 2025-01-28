@@ -61,9 +61,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ConnectionDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ConnectionDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ConnectionDeployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ConnectionDeployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

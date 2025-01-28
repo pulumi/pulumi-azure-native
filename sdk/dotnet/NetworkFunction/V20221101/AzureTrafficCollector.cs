@@ -94,10 +94,10 @@ namespace Pulumi.AzureNative.NetworkFunction.V20221101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkfunction:AzureTrafficCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:networkfunction/v20210901preview:AzureTrafficCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:networkfunction/v20220501:AzureTrafficCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:networkfunction/v20220801:AzureTrafficCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkfunction:AzureTrafficCollector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -126,7 +126,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:ArcAddon" },
@@ -139,6 +138,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:ArcAddon" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:ArcAddon" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:ArcAddon" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

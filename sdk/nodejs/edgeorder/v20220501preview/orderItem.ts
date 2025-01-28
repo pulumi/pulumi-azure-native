@@ -120,7 +120,7 @@ export class OrderItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder:OrderItem" }, { type: "azure-native:edgeorder/v20201201preview:OrderItem" }, { type: "azure-native:edgeorder/v20211201:OrderItem" }, { type: "azure-native:edgeorder/v20240201:OrderItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:OrderItem" }, { type: "azure-native:edgeorder/v20211201:OrderItem" }, { type: "azure-native:edgeorder/v20240201:OrderItem" }, { type: "azure-native:edgeorder:OrderItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OrderItem.__pulumiType, name, resourceInputs, opts);
     }

@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:DisasterRecoveryConfig" },
@@ -104,6 +103,7 @@ namespace Pulumi.AzureNative.EventHub.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:DisasterRecoveryConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:DisasterRecoveryConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:DisasterRecoveryConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.AlertsManagement.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement:PrometheusRuleGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement:PrometheusRuleGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

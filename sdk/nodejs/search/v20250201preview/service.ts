@@ -219,7 +219,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["upgradeAvailable"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:search:Service" }, { type: "azure-native:search/v20150819:Service" }, { type: "azure-native:search/v20191001preview:Service" }, { type: "azure-native:search/v20200313:Service" }, { type: "azure-native:search/v20200801:Service" }, { type: "azure-native:search/v20200801preview:Service" }, { type: "azure-native:search/v20210401preview:Service" }, { type: "azure-native:search/v20220901:Service" }, { type: "azure-native:search/v20231101:Service" }, { type: "azure-native:search/v20240301preview:Service" }, { type: "azure-native:search/v20240601preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:search/v20150819:Service" }, { type: "azure-native:search/v20191001preview:Service" }, { type: "azure-native:search/v20200313:Service" }, { type: "azure-native:search/v20200801:Service" }, { type: "azure-native:search/v20200801preview:Service" }, { type: "azure-native:search/v20210401preview:Service" }, { type: "azure-native:search/v20220901:Service" }, { type: "azure-native:search/v20231101:Service" }, { type: "azure-native:search/v20240301preview:Service" }, { type: "azure-native:search/v20240601preview:Service" }, { type: "azure-native:search:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

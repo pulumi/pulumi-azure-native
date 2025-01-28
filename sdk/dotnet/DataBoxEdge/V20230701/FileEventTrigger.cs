@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:FileEventTrigger" },
@@ -107,6 +106,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230701
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:FileEventTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:FileEventTrigger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

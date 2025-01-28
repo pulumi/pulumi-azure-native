@@ -176,7 +176,7 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devhub:Workflow"), pulumi.Alias(type_="azure-native:devhub/v20220401preview:Workflow"), pulumi.Alias(type_="azure-native:devhub/v20221011preview:Workflow"), pulumi.Alias(type_="azure-native:devhub/v20230801:Workflow"), pulumi.Alias(type_="azure-native:devhub/v20240501preview:Workflow")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devhub/v20220401preview:Workflow"), pulumi.Alias(type_="azure-native:devhub/v20221011preview:Workflow"), pulumi.Alias(type_="azure-native:devhub/v20230801:Workflow"), pulumi.Alias(type_="azure-native:devhub/v20240501preview:Workflow"), pulumi.Alias(type_="azure-native:devhub:Workflow")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workflow, __self__).__init__(
             'azure-native:devhub/v20240801preview:Workflow',

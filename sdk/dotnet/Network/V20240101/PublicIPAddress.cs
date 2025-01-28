@@ -184,7 +184,6 @@ namespace Pulumi.AzureNative.Network.V20240101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:PublicIPAddress" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20150501preview:PublicIPAddress" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20150615:PublicIPAddress" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20160330:PublicIPAddress" },
@@ -238,6 +237,7 @@ namespace Pulumi.AzureNative.Network.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:PublicIPAddress" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:PublicIPAddress" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:PublicIPAddress" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:PublicIPAddress" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

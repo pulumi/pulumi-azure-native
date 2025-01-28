@@ -58,7 +58,6 @@ namespace Pulumi.AzureNative.Search.V20220901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:search:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20191001preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20200313:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20200801:PrivateEndpointConnection" },
@@ -68,6 +67,7 @@ namespace Pulumi.AzureNative.Search.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:search/v20240301preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20240601preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20250201preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:search:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

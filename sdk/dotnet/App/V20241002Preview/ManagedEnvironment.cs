@@ -220,7 +220,6 @@ namespace Pulumi.AzureNative.App.V20241002Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:ManagedEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ManagedEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ManagedEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ManagedEnvironment" },
@@ -234,6 +233,7 @@ namespace Pulumi.AzureNative.App.V20241002Preview
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:ManagedEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ManagedEnvironment" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ManagedEnvironment" },
+                    new global::Pulumi.Alias { Type = "azure-native:app:ManagedEnvironment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

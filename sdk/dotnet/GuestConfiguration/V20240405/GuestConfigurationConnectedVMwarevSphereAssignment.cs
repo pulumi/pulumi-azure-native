@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20240405
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

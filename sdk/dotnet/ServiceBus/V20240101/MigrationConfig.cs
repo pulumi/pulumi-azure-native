@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20240101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:MigrationConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:MigrationConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:MigrationConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:MigrationConfig" },
@@ -103,6 +102,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20240101
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:MigrationConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:MigrationConfig" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20230101preview:MigrationConfig" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:MigrationConfig" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

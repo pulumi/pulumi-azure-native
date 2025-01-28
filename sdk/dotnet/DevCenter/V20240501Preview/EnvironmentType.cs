@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.DevCenter.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter:EnvironmentType" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220801preview:EnvironmentType" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:EnvironmentType" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:EnvironmentType" },
@@ -90,6 +89,7 @@ namespace Pulumi.AzureNative.DevCenter.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:EnvironmentType" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:EnvironmentType" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:EnvironmentType" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter:EnvironmentType" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

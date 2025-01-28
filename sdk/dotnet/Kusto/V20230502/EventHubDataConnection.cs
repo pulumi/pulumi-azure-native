@@ -144,7 +144,6 @@ namespace Pulumi.AzureNative.Kusto.V20230502
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:EventHubDataConnection" },
@@ -160,6 +159,7 @@ namespace Pulumi.AzureNative.Kusto.V20230502
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:EventHubDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:EventHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:EventHubDataConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

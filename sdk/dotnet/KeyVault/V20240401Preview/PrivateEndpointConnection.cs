@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.KeyVault.V20240401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:keyvault:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20180214:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20190901:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:PrivateEndpointConnection" },
@@ -103,6 +102,7 @@ namespace Pulumi.AzureNative.KeyVault.V20240401Preview
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20230701:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20241101:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:keyvault/v20241201preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:keyvault:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

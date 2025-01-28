@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20231101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:MonitoringSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:MonitoringSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:MonitoringSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:MonitoringSetting" },
@@ -84,6 +83,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20231101Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:MonitoringSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:MonitoringSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:MonitoringSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:MonitoringSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

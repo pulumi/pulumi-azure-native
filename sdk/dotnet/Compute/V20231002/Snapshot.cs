@@ -220,7 +220,6 @@ namespace Pulumi.AzureNative.Compute.V20231002
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20160430preview:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20170330:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20180401:Snapshot" },
@@ -241,6 +240,7 @@ namespace Pulumi.AzureNative.Compute.V20231002
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:Snapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240302:Snapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute:Snapshot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

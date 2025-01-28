@@ -80,7 +80,7 @@ export class Report extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appcomplianceautomation:Report" }, { type: "azure-native:appcomplianceautomation/v20240627:Report" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appcomplianceautomation/v20240627:Report" }, { type: "azure-native:appcomplianceautomation:Report" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Report.__pulumiType, name, resourceInputs, opts);
     }

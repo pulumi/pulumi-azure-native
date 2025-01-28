@@ -136,7 +136,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20230501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:SourceControlConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" },
@@ -147,6 +146,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:SourceControlConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

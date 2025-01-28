@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:maps:Creator" },
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Creator" },
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20210201:Creator" },
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Creator" },
@@ -85,6 +84,7 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20231201preview:Creator" },
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20240101preview:Creator" },
                     new global::Pulumi.Alias { Type = "azure-native:maps/v20240701preview:Creator" },
+                    new global::Pulumi.Alias { Type = "azure-native:maps:Creator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

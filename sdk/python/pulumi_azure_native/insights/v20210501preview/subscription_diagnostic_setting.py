@@ -233,7 +233,7 @@ class SubscriptionDiagnosticSetting(pulumi.CustomResource):
             __props__.__dict__["workspace_id"] = workspace_id
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:SubscriptionDiagnosticSetting"), pulumi.Alias(type_="azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting"), pulumi.Alias(type_="azure-native:insights:SubscriptionDiagnosticSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubscriptionDiagnosticSetting, __self__).__init__(
             'azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting',

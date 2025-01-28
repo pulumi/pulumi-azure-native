@@ -223,7 +223,7 @@ class ApiGateway(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["target_provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiGateway"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:ApiGateway"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:ApiGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:ApiGateway"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:ApiGateway"), pulumi.Alias(type_="azure-native:apimanagement:ApiGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiGateway, __self__).__init__(
             'azure-native:apimanagement/v20240501:ApiGateway',

@@ -373,7 +373,7 @@ class PrivateCloud(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["vcenter_certificate_thumbprint"] = None
             __props__.__dict__["vmotion_network"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20200320:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20200717preview:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20210101preview:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20210601:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20211201:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20230301:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20230901:PrivateCloud")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200320:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20200717preview:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20210101preview:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20210601:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20211201:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20230301:PrivateCloud"), pulumi.Alias(type_="azure-native:avs/v20230901:PrivateCloud"), pulumi.Alias(type_="azure-native:avs:PrivateCloud")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateCloud, __self__).__init__(
             'azure-native:avs/v20220501:PrivateCloud',

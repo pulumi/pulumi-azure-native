@@ -82,7 +82,7 @@ export class APICollection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security:APICollection" }, { type: "azure-native:security/v20231115:APICollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20231115:APICollection" }, { type: "azure-native:security:APICollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(APICollection.__pulumiType, name, resourceInputs, opts);
     }

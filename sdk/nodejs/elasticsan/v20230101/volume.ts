@@ -122,7 +122,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan:Volume" }, { type: "azure-native:elasticsan/v20211120preview:Volume" }, { type: "azure-native:elasticsan/v20221201preview:Volume" }, { type: "azure-native:elasticsan/v20240501:Volume" }, { type: "azure-native:elasticsan/v20240601preview:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elasticsan/v20211120preview:Volume" }, { type: "azure-native:elasticsan/v20221201preview:Volume" }, { type: "azure-native:elasticsan/v20240501:Volume" }, { type: "azure-native:elasticsan/v20240601preview:Volume" }, { type: "azure-native:elasticsan:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }

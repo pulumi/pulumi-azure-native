@@ -190,7 +190,6 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrder" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20180201:AppServiceCertificateOrder" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20190801:AppServiceCertificateOrder" },
@@ -206,6 +205,7 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20201001
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20230101:AppServiceCertificateOrder" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20231201:AppServiceCertificateOrder" },
                     new global::Pulumi.Alias { Type = "azure-native:certificateregistration/v20240401:AppServiceCertificateOrder" },
+                    new global::Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrder" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -103,7 +103,7 @@ export class PlanMember extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:PlanMember" }, { type: "azure-native:devcenter/v20240601preview:PlanMember" }, { type: "azure-native:devcenter/v20240701preview:PlanMember" }, { type: "azure-native:devcenter/v20240801preview:PlanMember" }, { type: "azure-native:devcenter/v20241001preview:PlanMember" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20240601preview:PlanMember" }, { type: "azure-native:devcenter/v20240701preview:PlanMember" }, { type: "azure-native:devcenter/v20240801preview:PlanMember" }, { type: "azure-native:devcenter/v20241001preview:PlanMember" }, { type: "azure-native:devcenter:PlanMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PlanMember.__pulumiType, name, resourceInputs, opts);
     }

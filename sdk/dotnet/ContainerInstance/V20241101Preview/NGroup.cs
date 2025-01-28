@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.ContainerInstance.V20241101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerinstance:NGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240901preview:NGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance:NGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

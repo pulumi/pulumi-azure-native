@@ -91,7 +91,7 @@ export class AuthorizationProvider extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20220401preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20220901preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230301preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230501preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230901preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20240501:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20240601preview:AuthorizationProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220401preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20220901preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230301preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230501preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20230901preview:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20240501:AuthorizationProvider" }, { type: "azure-native:apimanagement/v20240601preview:AuthorizationProvider" }, { type: "azure-native:apimanagement:AuthorizationProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AuthorizationProvider.__pulumiType, name, resourceInputs, opts);
     }

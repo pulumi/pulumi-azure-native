@@ -109,11 +109,9 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:NetworkinterfaceRetrieve" },
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:networkinterfaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:NetworkinterfaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:NetworkinterfaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:networkinterfaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:NetworkinterfaceRetrieve" },
@@ -132,6 +130,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240801preview:networkinterfaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:NetworkinterfaceRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241001preview:networkinterfaceRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:NetworkinterfaceRetrieve" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:networkinterfaceRetrieve" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

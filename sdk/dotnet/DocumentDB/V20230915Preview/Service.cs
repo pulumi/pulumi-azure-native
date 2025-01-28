@@ -58,7 +58,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20230915Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:Service" },
@@ -84,6 +83,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20230915Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240901preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241115:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241201preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

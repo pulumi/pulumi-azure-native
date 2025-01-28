@@ -323,7 +323,7 @@ class IotSecuritySolution(pulumi.CustomResource):
             __props__.__dict__["auto_discovered_resources"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security:IotSecuritySolution"), pulumi.Alias(type_="azure-native:security/v20190801:IotSecuritySolution")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190801:IotSecuritySolution"), pulumi.Alias(type_="azure-native:security:IotSecuritySolution")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotSecuritySolution, __self__).__init__(
             'azure-native:security/v20170801preview:IotSecuritySolution',

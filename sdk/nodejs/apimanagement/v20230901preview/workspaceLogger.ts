@@ -111,7 +111,7 @@ export class WorkspaceLogger extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceLogger" }, { type: "azure-native:apimanagement/v20240501:WorkspaceLogger" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceLogger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20240501:WorkspaceLogger" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceLogger" }, { type: "azure-native:apimanagement:WorkspaceLogger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceLogger.__pulumiType, name, resourceInputs, opts);
     }

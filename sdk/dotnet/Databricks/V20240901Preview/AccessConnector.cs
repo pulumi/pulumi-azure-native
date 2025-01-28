@@ -82,11 +82,11 @@ namespace Pulumi.AzureNative.Databricks.V20240901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databricks:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20221001preview:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230501:AccessConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:AccessConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:databricks:AccessConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

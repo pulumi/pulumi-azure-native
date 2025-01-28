@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.CodeSigning.V20240205Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:codesigning:CertificateProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:codesigning/v20240930preview:CertificateProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:codesigning:CertificateProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

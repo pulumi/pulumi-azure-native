@@ -118,7 +118,6 @@ namespace Pulumi.AzureNative.Compute.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:CapacityReservation" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:CapacityReservation" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210701:CapacityReservation" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211101:CapacityReservation" },
@@ -129,6 +128,7 @@ namespace Pulumi.AzureNative.Compute.V20230301
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:CapacityReservation" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:CapacityReservation" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:CapacityReservation" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute:CapacityReservation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

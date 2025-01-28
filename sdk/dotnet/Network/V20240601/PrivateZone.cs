@@ -118,10 +118,10 @@ namespace Pulumi.AzureNative.Network.V20240601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:PrivateZone" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180901:PrivateZone" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateZone" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateZone" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:PrivateZone" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Webhook" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Webhook" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Webhook" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Webhook" },
@@ -110,6 +109,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230601Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:Webhook" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:Webhook" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:Webhook" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Webhook" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

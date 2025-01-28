@@ -220,7 +220,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20250102:SharedPrivateLinkResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databasewatcher/v20240719preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20241001preview:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher/v20250102:SharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:databasewatcher:SharedPrivateLinkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SharedPrivateLinkResource, __self__).__init__(
             'azure-native:databasewatcher/v20230901preview:SharedPrivateLinkResource',

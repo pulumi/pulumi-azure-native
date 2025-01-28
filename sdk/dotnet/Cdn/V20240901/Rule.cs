@@ -97,7 +97,6 @@ namespace Pulumi.AzureNative.Cdn.V20240901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20200901:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Rule" },
@@ -107,6 +106,7 @@ namespace Pulumi.AzureNative.Cdn.V20240901
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240501preview:Rule" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:Rule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:Rule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

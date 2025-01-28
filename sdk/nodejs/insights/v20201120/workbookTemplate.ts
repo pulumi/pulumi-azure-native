@@ -117,7 +117,7 @@ export class WorkbookTemplate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:WorkbookTemplate" }, { type: "azure-native:insights/v20191017preview:WorkbookTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20191017preview:WorkbookTemplate" }, { type: "azure-native:insights:WorkbookTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkbookTemplate.__pulumiType, name, resourceInputs, opts);
     }

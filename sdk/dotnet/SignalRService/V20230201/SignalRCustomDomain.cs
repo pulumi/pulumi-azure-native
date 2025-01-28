@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.SignalRService.V20230201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalRCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRCustomDomain" },
@@ -87,6 +86,7 @@ namespace Pulumi.AzureNative.SignalRService.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20240401preview:SignalRCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20240801preview:SignalRCustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20241001preview:SignalRCustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRCustomDomain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

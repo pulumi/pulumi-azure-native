@@ -94,8 +94,8 @@ namespace Pulumi.AzureNative.Insights.V20201120
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:WorkbookTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20191017preview:WorkbookTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights:WorkbookTemplate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -99,7 +99,7 @@ export class ConfigurationAssignmentsForResourceGroup extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:maintenance:ConfigurationAssignmentsForResourceGroup" }, { type: "azure-native:maintenance/v20230401:ConfigurationAssignmentsForResourceGroup" }, { type: "azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForResourceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance/v20230401:ConfigurationAssignmentsForResourceGroup" }, { type: "azure-native:maintenance/v20230901preview:ConfigurationAssignmentsForResourceGroup" }, { type: "azure-native:maintenance:ConfigurationAssignmentsForResourceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationAssignmentsForResourceGroup.__pulumiType, name, resourceInputs, opts);
     }

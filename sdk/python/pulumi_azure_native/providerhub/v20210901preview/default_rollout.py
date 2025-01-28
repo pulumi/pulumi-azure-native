@@ -136,7 +136,7 @@ class DefaultRollout(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20201120:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:DefaultRollout")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:providerhub/v20201120:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub:DefaultRollout")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefaultRollout, __self__).__init__(
             'azure-native:providerhub/v20210901preview:DefaultRollout',

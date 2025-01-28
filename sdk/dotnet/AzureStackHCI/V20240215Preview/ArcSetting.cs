@@ -118,7 +118,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240215Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:ArcSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210101preview:ArcSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901:ArcSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:ArcSetting" },
@@ -139,6 +138,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20240215Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:ArcSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:ArcSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20241201preview:ArcSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:ArcSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

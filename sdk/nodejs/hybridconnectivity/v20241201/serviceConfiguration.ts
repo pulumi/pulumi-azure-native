@@ -142,7 +142,7 @@ export class ServiceConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity:ServiceConfiguration" }, { type: "azure-native:hybridconnectivity/v20230315:ServiceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity/v20230315:ServiceConfiguration" }, { type: "azure-native:hybridconnectivity:ServiceConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceConfiguration.__pulumiType, name, resourceInputs, opts);
     }

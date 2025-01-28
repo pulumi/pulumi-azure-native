@@ -70,11 +70,11 @@ namespace Pulumi.AzureNative.StorageMover.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storagemover:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20220701preview:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20230701preview:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20231001:Project" },
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20240701:Project" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagemover:Project" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.Network.V20230201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ApplicationSecurityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20170901:ApplicationSecurityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20171001:ApplicationSecurityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20171101:ApplicationSecurityGroup" },
@@ -127,6 +126,7 @@ namespace Pulumi.AzureNative.Network.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:ApplicationSecurityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:ApplicationSecurityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ApplicationSecurityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:ApplicationSecurityGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

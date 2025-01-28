@@ -179,7 +179,7 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:PrivateResolverVirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20230701preview:PrivateResolverVirtualNetworkLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200401preview:PrivateResolverVirtualNetworkLink"), pulumi.Alias(type_="azure-native:network/v20230701preview:PrivateResolverVirtualNetworkLink"), pulumi.Alias(type_="azure-native:network:PrivateResolverVirtualNetworkLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateResolverVirtualNetworkLink, __self__).__init__(
             'azure-native:network/v20220701:PrivateResolverVirtualNetworkLink',

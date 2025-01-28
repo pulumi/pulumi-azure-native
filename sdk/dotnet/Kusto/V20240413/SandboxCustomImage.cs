@@ -82,8 +82,8 @@ namespace Pulumi.AzureNative.Kusto.V20240413
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:SandboxCustomImage" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:SandboxCustomImage" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:SandboxCustomImage" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

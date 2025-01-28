@@ -58,7 +58,6 @@ namespace Pulumi.AzureNative.Web.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppDomainOwnershipIdentifier" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppDomainOwnershipIdentifier" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppDomainOwnershipIdentifier" },
@@ -75,6 +74,7 @@ namespace Pulumi.AzureNative.Web.V20181101
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppDomainOwnershipIdentifier" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppDomainOwnershipIdentifier" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppDomainOwnershipIdentifier" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppDomainOwnershipIdentifier" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

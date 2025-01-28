@@ -31,6 +31,7 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -1037,47 +1038,47 @@ func isSingleton(resource *resourceVariant) bool {
 }
 
 func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
-	var aliases []pschema.AliasSpec
-
-	addAlias := func(module openapi.ModuleName, typeName string, version openapi.SdkVersion) {
-		alias := generateTok(module, typeName, version)
-		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
-	}
+	typeAliases := collections.NewOrderableSet[string]()
 
 	// Add an alias for the same version of the resource, but in its old module.
 	if resource.ModuleNaming.PreviousName != nil {
-		addAlias(*resource.ModuleNaming.PreviousName, resource.typeName, g.sdkVersion)
+		typeAliases.Add(generateTok(*resource.ModuleNaming.PreviousName, resource.typeName, g.sdkVersion))
 	}
 
 	for _, alias := range typeNameAliases {
-		addAlias(g.moduleName, alias, g.sdkVersion)
+		typeAliases.Add(generateTok(g.moduleName, alias, g.sdkVersion))
 		// Add an alias for the same alias, but in its old module.
 		if resource.ModuleNaming.PreviousName != nil {
-			addAlias(*resource.ModuleNaming.PreviousName, alias, g.sdkVersion)
+			typeAliases.Add(generateTok(*resource.ModuleNaming.PreviousName, alias, g.sdkVersion))
 		}
 	}
 
 	// Add an alias for each API version that has the same path in it.
 	for _, version := range resource.CompatibleVersions {
-		addAlias(g.moduleName, resource.typeName, version.ToSdkVersion())
+		typeAliases.Add(generateTok(g.moduleName, resource.typeName, version.ToSdkVersion()))
 
 		// Add an alias for the other versions, but from its old module.
 		if resource.ModuleNaming.PreviousName != nil {
-			addAlias(*resource.ModuleNaming.PreviousName, resource.typeName, version.ToSdkVersion())
+			typeAliases.Add(generateTok(*resource.ModuleNaming.PreviousName, resource.typeName, version.ToSdkVersion()))
 		}
 
 		// Add type name aliases for each compatible version.
 		for _, alias := range typeNameAliases {
-			addAlias(g.moduleName, alias, version.ToSdkVersion())
+			typeAliases.Add(generateTok(g.moduleName, alias, version.ToSdkVersion()))
 
 			// Add an alias for the other version, with alias, from its old module.
 			if resource.ModuleNaming.PreviousName != nil {
-				addAlias(*resource.ModuleNaming.PreviousName, alias, version.ToSdkVersion())
+				typeAliases.Add(generateTok(*resource.ModuleNaming.PreviousName, alias, version.ToSdkVersion()))
 			}
 		}
 	}
 
-	return aliases
+	var aliasSpecs []pschema.AliasSpec
+	for _, v := range typeAliases.SortedValues() {
+		typeToken := v
+		aliasSpecs = append(aliasSpecs, pschema.AliasSpec{Type: &typeToken})
+	}
+	return aliasSpecs
 }
 
 func (g *packageGenerator) generateExampleReferences(resourceTok string, path *spec.PathItem, swagger *openapi.Spec) error {
@@ -1244,7 +1245,7 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 	if g.sdkVersion == "" {
 		fmt.Fprintf(&b, "\nAzure REST API version: %s.", defaultVersion)
 		if previousDefaultVersion != "" {
-			fmt.Fprintf(&b, " Prior API version in Azure Native %d.x: %s.", g.majorVersion - 1, previousDefaultVersion)
+			fmt.Fprintf(&b, " Prior API version in Azure Native %d.x: %s.", g.majorVersion-1, previousDefaultVersion)
 		}
 
 		// List other available API versions, if any.

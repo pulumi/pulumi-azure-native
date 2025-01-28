@@ -88,8 +88,8 @@ namespace Pulumi.AzureNative.AadIam.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:aadiam:DiagnosticSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:aadiam/v20170401preview:DiagnosticSetting" },
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam:DiagnosticSetting" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

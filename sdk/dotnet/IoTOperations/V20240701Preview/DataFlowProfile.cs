@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.IoTOperations.V20240701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations:DataFlowProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:DataFlowProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:DataFlowProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:DataFlowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations:DataFlowProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

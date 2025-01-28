@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime/v20231001preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesruntime:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

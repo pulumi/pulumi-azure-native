@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:IotSecuritySolution" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20190801:IotSecuritySolution" },
+                    new global::Pulumi.Alias { Type = "azure-native:security:IotSecuritySolution" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

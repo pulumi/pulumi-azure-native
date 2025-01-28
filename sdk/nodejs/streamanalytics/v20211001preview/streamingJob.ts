@@ -231,7 +231,7 @@ export class StreamingJob extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:StreamingJob" }, { type: "azure-native:streamanalytics/v20160301:StreamingJob" }, { type: "azure-native:streamanalytics/v20170401preview:StreamingJob" }, { type: "azure-native:streamanalytics/v20200301:StreamingJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics/v20160301:StreamingJob" }, { type: "azure-native:streamanalytics/v20170401preview:StreamingJob" }, { type: "azure-native:streamanalytics/v20200301:StreamingJob" }, { type: "azure-native:streamanalytics:StreamingJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingJob.__pulumiType, name, resourceInputs, opts);
     }

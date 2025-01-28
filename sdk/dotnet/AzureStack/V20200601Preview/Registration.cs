@@ -100,10 +100,10 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestack:Registration" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestack/v20160101:Registration" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestack/v20170601:Registration" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestack/v20220601:Registration" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestack:Registration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

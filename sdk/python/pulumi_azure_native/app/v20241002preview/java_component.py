@@ -155,7 +155,7 @@ class JavaComponent(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:JavaComponent"), pulumi.Alias(type_="azure-native:app/v20231102preview:JavaComponent"), pulumi.Alias(type_="azure-native:app/v20240202preview:JavaComponent"), pulumi.Alias(type_="azure-native:app/v20240802preview:JavaComponent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20231102preview:JavaComponent"), pulumi.Alias(type_="azure-native:app/v20240202preview:JavaComponent"), pulumi.Alias(type_="azure-native:app/v20240802preview:JavaComponent"), pulumi.Alias(type_="azure-native:app:JavaComponent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JavaComponent, __self__).__init__(
             'azure-native:app/v20241002preview:JavaComponent',

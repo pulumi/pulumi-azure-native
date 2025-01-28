@@ -94,7 +94,7 @@ export class PolicyFragment extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:PolicyFragment" }, { type: "azure-native:apimanagement/v20211201preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20220401preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20220801:PolicyFragment" }, { type: "azure-native:apimanagement/v20220901preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20230501preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20230901preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20240501:PolicyFragment" }, { type: "azure-native:apimanagement/v20240601preview:PolicyFragment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20211201preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20220401preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20220801:PolicyFragment" }, { type: "azure-native:apimanagement/v20220901preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20230501preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20230901preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20240501:PolicyFragment" }, { type: "azure-native:apimanagement/v20240601preview:PolicyFragment" }, { type: "azure-native:apimanagement:PolicyFragment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyFragment.__pulumiType, name, resourceInputs, opts);
     }

@@ -76,11 +76,11 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:portal:Dashboard" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20150801preview:Dashboard" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20181001preview:Dashboard" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20190101preview:Dashboard" },
                     new global::Pulumi.Alias { Type = "azure-native:portal/v20221201preview:Dashboard" },
+                    new global::Pulumi.Alias { Type = "azure-native:portal:Dashboard" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

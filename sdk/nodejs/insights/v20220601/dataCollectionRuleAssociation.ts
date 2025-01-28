@@ -111,7 +111,7 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:DataCollectionRuleAssociation" }, { type: "azure-native:insights/v20191101preview:DataCollectionRuleAssociation" }, { type: "azure-native:insights/v20210401:DataCollectionRuleAssociation" }, { type: "azure-native:insights/v20210901preview:DataCollectionRuleAssociation" }, { type: "azure-native:insights/v20230311:DataCollectionRuleAssociation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20191101preview:DataCollectionRuleAssociation" }, { type: "azure-native:insights/v20210401:DataCollectionRuleAssociation" }, { type: "azure-native:insights/v20210901preview:DataCollectionRuleAssociation" }, { type: "azure-native:insights/v20230311:DataCollectionRuleAssociation" }, { type: "azure-native:insights:DataCollectionRuleAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataCollectionRuleAssociation.__pulumiType, name, resourceInputs, opts);
     }

@@ -163,7 +163,7 @@ export class Migration extends pulumi.CustomResource {
             resourceInputs["userAssignedIdentityResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:Migration" }, { type: "azure-native:dbforpostgresql/v20220501preview:Migration" }, { type: "azure-native:dbforpostgresql/v20230301preview:Migration" }, { type: "azure-native:dbforpostgresql/v20230601preview:Migration" }, { type: "azure-native:dbforpostgresql/v20231201preview:Migration" }, { type: "azure-native:dbforpostgresql/v20240301preview:Migration" }, { type: "azure-native:dbforpostgresql/v20240801:Migration" }, { type: "azure-native:dbforpostgresql/v20241101preview:Migration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20220501preview:Migration" }, { type: "azure-native:dbforpostgresql/v20230301preview:Migration" }, { type: "azure-native:dbforpostgresql/v20230601preview:Migration" }, { type: "azure-native:dbforpostgresql/v20231201preview:Migration" }, { type: "azure-native:dbforpostgresql/v20240301preview:Migration" }, { type: "azure-native:dbforpostgresql/v20240801:Migration" }, { type: "azure-native:dbforpostgresql/v20241101preview:Migration" }, { type: "azure-native:dbforpostgresql:Migration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Migration.__pulumiType, name, resourceInputs, opts);
     }

@@ -136,7 +136,7 @@ class ProvisionedClusterInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:provisionedClusterInstance"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:ProvisionedClusterInstance"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:provisionedClusterInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:ProvisionedClusterInstance"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:provisionedClusterInstance"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:provisionedClusterInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProvisionedClusterInstance, __self__).__init__(
             'azure-native:hybridcontainerservice/v20240101:ProvisionedClusterInstance',

@@ -175,13 +175,13 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240119Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20220829:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20220829preview:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901preview:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20231010preview:LocalRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:LocalRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw:LocalRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

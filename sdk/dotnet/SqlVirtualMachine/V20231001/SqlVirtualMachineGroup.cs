@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20231001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:SqlVirtualMachineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup" },
@@ -120,6 +119,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20231001
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachineGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:SqlVirtualMachineGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -148,7 +148,6 @@ namespace Pulumi.AzureNative.Network.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ConnectionMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20171001:ConnectionMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20171101:ConnectionMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180101:ConnectionMonitor" },
@@ -192,6 +191,7 @@ namespace Pulumi.AzureNative.Network.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:ConnectionMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:ConnectionMonitor" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ConnectionMonitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:ConnectionMonitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

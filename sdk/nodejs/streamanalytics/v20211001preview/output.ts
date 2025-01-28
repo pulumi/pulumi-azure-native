@@ -121,7 +121,7 @@ export class Output extends pulumi.CustomResource {
             resourceInputs["watermarkSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Output" }, { type: "azure-native:streamanalytics/v20160301:Output" }, { type: "azure-native:streamanalytics/v20170401preview:Output" }, { type: "azure-native:streamanalytics/v20200301:Output" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics/v20160301:Output" }, { type: "azure-native:streamanalytics/v20170401preview:Output" }, { type: "azure-native:streamanalytics/v20200301:Output" }, { type: "azure-native:streamanalytics:Output" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Output.__pulumiType, name, resourceInputs, opts);
     }

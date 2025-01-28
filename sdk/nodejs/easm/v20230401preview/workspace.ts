@@ -99,7 +99,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:easm:Workspace" }, { type: "azure-native:easm/v20220401preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:easm/v20220401preview:Workspace" }, { type: "azure-native:easm:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GatewayHostnameConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration" },
@@ -104,6 +103,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:GatewayHostnameConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:GatewayHostnameConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:GatewayHostnameConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:GatewayHostnameConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

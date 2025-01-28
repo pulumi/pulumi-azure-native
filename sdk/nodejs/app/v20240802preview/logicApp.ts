@@ -79,7 +79,7 @@ export class LogicApp extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:LogicApp" }, { type: "azure-native:app/v20240202preview:LogicApp" }, { type: "azure-native:app/v20241002preview:LogicApp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20240202preview:LogicApp" }, { type: "azure-native:app/v20241002preview:LogicApp" }, { type: "azure-native:app:LogicApp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LogicApp.__pulumiType, name, resourceInputs, opts);
     }

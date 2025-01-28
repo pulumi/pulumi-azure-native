@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:Database" },
@@ -112,6 +111,7 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:Database" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:Database" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

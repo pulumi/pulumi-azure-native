@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:PrivateEndpointConnection" },
@@ -91,6 +90,7 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240501preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

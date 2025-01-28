@@ -107,7 +107,6 @@ namespace Pulumi.AzureNative.Web.V20231201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppHybridConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppHybridConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppHybridConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppHybridConnectionSlot" },
@@ -124,6 +123,7 @@ namespace Pulumi.AzureNative.Web.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppHybridConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppHybridConnectionSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppHybridConnectionSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppHybridConnectionSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

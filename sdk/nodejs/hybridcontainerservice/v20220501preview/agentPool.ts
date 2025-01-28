@@ -175,7 +175,7 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["vmSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:agentPool" }, { type: "azure-native:hybridcontainerservice:AgentPool" }, { type: "azure-native:hybridcontainerservice:agentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:AgentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:agentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:agentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:AgentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:agentPool" }, { type: "azure-native:hybridcontainerservice:AgentPool" }, { type: "azure-native:hybridcontainerservice:agentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentPool.__pulumiType, name, resourceInputs, opts);
     }

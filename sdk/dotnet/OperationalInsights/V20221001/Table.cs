@@ -130,9 +130,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20221001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20211201preview:Table" },
                     new global::Pulumi.Alias { Type = "azure-native:operationalinsights/v20230901:Table" },
+                    new global::Pulumi.Alias { Type = "azure-native:operationalinsights:Table" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Network.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:SubscriptionNetworkManagerConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:SubscriptionNetworkManagerConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection" },
@@ -93,6 +92,7 @@ namespace Pulumi.AzureNative.Network.V20240301
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:SubscriptionNetworkManagerConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:SubscriptionNetworkManagerConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SubscriptionNetworkManagerConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:SubscriptionNetworkManagerConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

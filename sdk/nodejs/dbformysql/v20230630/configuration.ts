@@ -145,7 +145,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql:Configuration" }, { type: "azure-native:dbformysql/v20200701preview:Configuration" }, { type: "azure-native:dbformysql/v20200701privatepreview:Configuration" }, { type: "azure-native:dbformysql/v20210501:Configuration" }, { type: "azure-native:dbformysql/v20210501preview:Configuration" }, { type: "azure-native:dbformysql/v20211201preview:Configuration" }, { type: "azure-native:dbformysql/v20220101:Configuration" }, { type: "azure-native:dbformysql/v20230601preview:Configuration" }, { type: "azure-native:dbformysql/v20231230:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:Configuration" }, { type: "azure-native:dbformysql/v20200701privatepreview:Configuration" }, { type: "azure-native:dbformysql/v20210501:Configuration" }, { type: "azure-native:dbformysql/v20210501preview:Configuration" }, { type: "azure-native:dbformysql/v20211201preview:Configuration" }, { type: "azure-native:dbformysql/v20220101:Configuration" }, { type: "azure-native:dbformysql/v20230601preview:Configuration" }, { type: "azure-native:dbformysql/v20231230:Configuration" }, { type: "azure-native:dbformysql:Configuration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);
     }

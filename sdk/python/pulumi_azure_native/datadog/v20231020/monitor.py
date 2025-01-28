@@ -194,7 +194,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datadog:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20200201preview:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20210301:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20220601:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20220801:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20230101:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20230707:Monitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datadog/v20200201preview:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20210301:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20220601:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20220801:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20230101:Monitor"), pulumi.Alias(type_="azure-native:datadog/v20230707:Monitor"), pulumi.Alias(type_="azure-native:datadog:Monitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Monitor, __self__).__init__(
             'azure-native:datadog/v20231020:Monitor',

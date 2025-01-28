@@ -202,7 +202,6 @@ namespace Pulumi.AzureNative.Search.V20250201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:search:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20150819:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20191001preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20200313:Service" },
@@ -213,6 +212,7 @@ namespace Pulumi.AzureNative.Search.V20250201Preview
                     new global::Pulumi.Alias { Type = "azure-native:search/v20231101:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20240301preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:search/v20240601preview:Service" },
+                    new global::Pulumi.Alias { Type = "azure-native:search:Service" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

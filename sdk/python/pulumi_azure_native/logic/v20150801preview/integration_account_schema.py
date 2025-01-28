@@ -334,7 +334,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             __props__.__dict__["changed_time"] = None
             __props__.__dict__["content_link"] = None
             __props__.__dict__["created_time"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic:IntegrationAccountSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountSchema, __self__).__init__(
             'azure-native:logic/v20150801preview:IntegrationAccountSchema',

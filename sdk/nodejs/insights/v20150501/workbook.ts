@@ -153,7 +153,7 @@ export class Workbook extends pulumi.CustomResource {
             resourceInputs["workbookId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:Workbook" }, { type: "azure-native:insights/v20180617preview:Workbook" }, { type: "azure-native:insights/v20201020:Workbook" }, { type: "azure-native:insights/v20210308:Workbook" }, { type: "azure-native:insights/v20210801:Workbook" }, { type: "azure-native:insights/v20220401:Workbook" }, { type: "azure-native:insights/v20230601:Workbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180617preview:Workbook" }, { type: "azure-native:insights/v20201020:Workbook" }, { type: "azure-native:insights/v20210308:Workbook" }, { type: "azure-native:insights/v20210801:Workbook" }, { type: "azure-native:insights/v20220401:Workbook" }, { type: "azure-native:insights/v20230601:Workbook" }, { type: "azure-native:insights:Workbook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workbook.__pulumiType, name, resourceInputs, opts);
     }

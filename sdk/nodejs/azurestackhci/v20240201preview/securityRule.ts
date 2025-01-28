@@ -157,7 +157,7 @@ export class SecurityRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:SecurityRule" }, { type: "azure-native:azurestackhci/v20240501preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20240715preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20240801preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20241001preview:SecurityRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20240501preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20240715preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20240801preview:SecurityRule" }, { type: "azure-native:azurestackhci/v20241001preview:SecurityRule" }, { type: "azure-native:azurestackhci:SecurityRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -94,13 +94,13 @@ namespace Pulumi.AzureNative.Cloudngfw.V20240119Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20220829:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20220829preview:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20230901preview:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20231010preview:CertificateObjectGlobalRulestack" },
                     new global::Pulumi.Alias { Type = "azure-native:cloudngfw/v20240207preview:CertificateObjectGlobalRulestack" },
+                    new global::Pulumi.Alias { Type = "azure-native:cloudngfw:CertificateObjectGlobalRulestack" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

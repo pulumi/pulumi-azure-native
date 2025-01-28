@@ -157,7 +157,7 @@ class Product(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere:Product"), pulumi.Alias(type_="azure-native:azuresphere/v20240401:Product")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuresphere/v20240401:Product"), pulumi.Alias(type_="azure-native:azuresphere:Product")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Product, __self__).__init__(
             'azure-native:azuresphere/v20220901preview:Product',

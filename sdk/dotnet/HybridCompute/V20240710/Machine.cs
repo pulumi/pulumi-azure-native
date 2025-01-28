@@ -274,7 +274,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20240710
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:Machine" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20190318preview:Machine" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20190802preview:Machine" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20191212:Machine" },
@@ -302,6 +301,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20240710
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240731preview:Machine" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20240910preview:Machine" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20241110preview:Machine" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute:Machine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

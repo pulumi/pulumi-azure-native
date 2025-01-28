@@ -144,7 +144,7 @@ export class NetworkDevice extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric:NetworkDevice" }, { type: "azure-native:managednetworkfabric/v20230615:NetworkDevice" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NetworkDevice" }, { type: "azure-native:managednetworkfabric:NetworkDevice" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkDevice.__pulumiType, name, resourceInputs, opts);
     }

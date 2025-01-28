@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20231115Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:MongoClusterFirewallRule" },
@@ -85,6 +84,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20231115Preview
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240601preview:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240701:MongoClusterFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241001preview:MongoClusterFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoClusterFirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

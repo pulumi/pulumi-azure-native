@@ -77,7 +77,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ThreatIntelligenceIndicator" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator" },
@@ -111,6 +110,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:ThreatIntelligenceIndicator" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:ThreatIntelligenceIndicator" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:ThreatIntelligenceIndicator" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:ThreatIntelligenceIndicator" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

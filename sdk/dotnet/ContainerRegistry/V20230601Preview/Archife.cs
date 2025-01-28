@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Archife" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:Archife" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20231101preview:Archife" },
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20241101preview:Archife" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry:Archife" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -177,7 +177,7 @@ class WebAppDiscoverySiteDataSourcesController(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure:WebAppDiscoverySiteDataSourcesController"), pulumi.Alias(type_="azure-native:offazure/v20230606:WebAppDiscoverySiteDataSourcesController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:WebAppDiscoverySiteDataSourcesController")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazure/v20230606:WebAppDiscoverySiteDataSourcesController"), pulumi.Alias(type_="azure-native:offazure/v20231001preview:WebAppDiscoverySiteDataSourcesController"), pulumi.Alias(type_="azure-native:offazure:WebAppDiscoverySiteDataSourcesController")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebAppDiscoverySiteDataSourcesController, __self__).__init__(
             'azure-native:offazure/v20240501preview:WebAppDiscoverySiteDataSourcesController',

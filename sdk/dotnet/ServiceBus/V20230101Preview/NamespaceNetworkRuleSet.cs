@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:NamespaceNetworkRuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceNetworkRuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet" },
@@ -103,6 +102,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:NamespaceNetworkRuleSet" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:NamespaceNetworkRuleSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:NamespaceNetworkRuleSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

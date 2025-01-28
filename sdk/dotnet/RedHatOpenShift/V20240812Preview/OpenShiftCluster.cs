@@ -142,7 +142,6 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20240812Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift:OpenShiftCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20200430:OpenShiftCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220401:OpenShiftCluster" },
@@ -151,6 +150,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20240812Preview
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230701preview:OpenShiftCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230904:OpenShiftCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20231122:OpenShiftCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift:OpenShiftCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

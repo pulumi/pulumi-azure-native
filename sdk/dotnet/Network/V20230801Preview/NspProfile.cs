@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.Network.V20230801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:NspProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -64,8 +64,8 @@ namespace Pulumi.AzureNative.Network.V20240101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ReachabilityAnalysisIntent" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ReachabilityAnalysisIntent" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:ReachabilityAnalysisIntent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

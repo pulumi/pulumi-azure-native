@@ -116,7 +116,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:DataMaskingPolicy" }, { type: "azure-native:sql/v20140401:DataMaskingPolicy" }, { type: "azure-native:sql/v20211101:DataMaskingPolicy" }, { type: "azure-native:sql/v20220201preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220501preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220801preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20221101preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20230201preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20230501preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20230801preview:DataMaskingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:DataMaskingPolicy" }, { type: "azure-native:sql/v20211101:DataMaskingPolicy" }, { type: "azure-native:sql/v20220201preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220501preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220801preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20221101preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20230201preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20230501preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20230801preview:DataMaskingPolicy" }, { type: "azure-native:sql:DataMaskingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataMaskingPolicy.__pulumiType, name, resourceInputs, opts);
     }

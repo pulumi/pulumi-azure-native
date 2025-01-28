@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20240701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:FirewallRule" },
@@ -73,6 +72,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240701
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240301preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240601preview:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241001preview:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

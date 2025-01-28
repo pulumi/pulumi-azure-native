@@ -109,7 +109,7 @@ export class HypervCollectorsOperation extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20191001:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230315:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:HypervCollectorsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230315:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:HypervCollectorsOperation" }, { type: "azure-native:migrate:HypervCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HypervCollectorsOperation.__pulumiType, name, resourceInputs, opts);
     }

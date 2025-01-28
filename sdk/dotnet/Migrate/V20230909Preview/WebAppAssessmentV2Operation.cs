@@ -230,9 +230,9 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:WebAppAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:WebAppAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:WebAppAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:WebAppAssessmentV2Operation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

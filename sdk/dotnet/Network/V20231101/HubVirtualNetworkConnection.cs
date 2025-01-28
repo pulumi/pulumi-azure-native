@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Network.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:HubVirtualNetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:HubVirtualNetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:HubVirtualNetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200701:HubVirtualNetworkConnection" },
@@ -111,6 +110,7 @@ namespace Pulumi.AzureNative.Network.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:HubVirtualNetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:HubVirtualNetworkConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:HubVirtualNetworkConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:HubVirtualNetworkConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

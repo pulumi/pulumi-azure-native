@@ -93,7 +93,7 @@ export class Ledger extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger:Ledger" }, { type: "azure-native:confidentialledger/v20201201preview:Ledger" }, { type: "azure-native:confidentialledger/v20210513preview:Ledger" }, { type: "azure-native:confidentialledger/v20220513:Ledger" }, { type: "azure-native:confidentialledger/v20220908preview:Ledger" }, { type: "azure-native:confidentialledger/v20230126preview:Ledger" }, { type: "azure-native:confidentialledger/v20230628preview:Ledger" }, { type: "azure-native:confidentialledger/v20240709preview:Ledger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:confidentialledger/v20201201preview:Ledger" }, { type: "azure-native:confidentialledger/v20210513preview:Ledger" }, { type: "azure-native:confidentialledger/v20220513:Ledger" }, { type: "azure-native:confidentialledger/v20220908preview:Ledger" }, { type: "azure-native:confidentialledger/v20230126preview:Ledger" }, { type: "azure-native:confidentialledger/v20230628preview:Ledger" }, { type: "azure-native:confidentialledger/v20240709preview:Ledger" }, { type: "azure-native:confidentialledger:Ledger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ledger.__pulumiType, name, resourceInputs, opts);
     }

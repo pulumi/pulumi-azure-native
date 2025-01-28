@@ -159,7 +159,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20230815preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20231015:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20240202preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20240401:FleetUpdateStrategy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20230815preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20231015:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20240202preview:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice/v20240401:FleetUpdateStrategy"), pulumi.Alias(type_="azure-native:containerservice:FleetUpdateStrategy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FleetUpdateStrategy, __self__).__init__(
             'azure-native:containerservice/v20240502preview:FleetUpdateStrategy',

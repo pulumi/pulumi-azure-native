@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:ManagedInstanceKey" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20171001preview:ManagedInstanceKey" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstanceKey" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstanceKey" },
@@ -93,6 +92,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:ManagedInstanceKey" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:ManagedInstanceKey" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:ManagedInstanceKey" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:ManagedInstanceKey" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

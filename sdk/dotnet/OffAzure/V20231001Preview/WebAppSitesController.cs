@@ -84,9 +84,9 @@ namespace Pulumi.AzureNative.OffAzure.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:offazure:WebAppSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:WebAppSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:WebAppSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:WebAppSitesController" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

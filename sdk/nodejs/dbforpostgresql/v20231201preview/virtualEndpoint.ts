@@ -97,7 +97,7 @@ export class VirtualEndpoint extends pulumi.CustomResource {
             resourceInputs["virtualEndpoints"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:VirtualEndpoint" }, { type: "azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint" }, { type: "azure-native:dbforpostgresql/v20240301preview:VirtualEndpoint" }, { type: "azure-native:dbforpostgresql/v20240801:VirtualEndpoint" }, { type: "azure-native:dbforpostgresql/v20241101preview:VirtualEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20230601preview:VirtualEndpoint" }, { type: "azure-native:dbforpostgresql/v20240301preview:VirtualEndpoint" }, { type: "azure-native:dbforpostgresql/v20240801:VirtualEndpoint" }, { type: "azure-native:dbforpostgresql/v20241101preview:VirtualEndpoint" }, { type: "azure-native:dbforpostgresql:VirtualEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualEndpoint.__pulumiType, name, resourceInputs, opts);
     }

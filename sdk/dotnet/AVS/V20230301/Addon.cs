@@ -58,13 +58,13 @@ namespace Pulumi.AzureNative.AVS.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:avs:Addon" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20200717preview:Addon" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Addon" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20210601:Addon" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20211201:Addon" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20220501:Addon" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:Addon" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs:Addon" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

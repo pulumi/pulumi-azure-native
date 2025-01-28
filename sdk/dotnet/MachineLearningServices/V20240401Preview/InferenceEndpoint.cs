@@ -91,10 +91,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:InferenceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230801preview:InferenceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:InferenceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:InferenceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:InferenceEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

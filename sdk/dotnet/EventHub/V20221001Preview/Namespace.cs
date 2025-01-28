@@ -184,7 +184,6 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:eventhub:Namespace" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20140901:Namespace" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20150801:Namespace" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20170401:Namespace" },
@@ -196,6 +195,7 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:Namespace" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240101:Namespace" },
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20240501preview:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub:Namespace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

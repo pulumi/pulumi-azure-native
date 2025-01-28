@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.Cache.V20240401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cache:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20160401:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20170201:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20171001:FirewallRule" },
@@ -80,6 +79,7 @@ namespace Pulumi.AzureNative.Cache.V20240401Preview
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20230801:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20240301:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20241101:FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:cache:FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

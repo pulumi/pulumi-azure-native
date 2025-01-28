@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement:ActionRuleByName" },
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName" },
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:ActionRuleByName" },
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:ActionRuleByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement:ActionRuleByName" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

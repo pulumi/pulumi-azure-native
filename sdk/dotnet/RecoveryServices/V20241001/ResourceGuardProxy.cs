@@ -73,7 +73,6 @@ namespace Pulumi.AzureNative.RecoveryServices.V20241001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210201preview:ResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ResourceGuardProxy" },
@@ -97,6 +96,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20241001
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240401:ResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240430preview:ResourceGuardProxy" },
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20240730preview:ResourceGuardProxy" },
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices:ResourceGuardProxy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

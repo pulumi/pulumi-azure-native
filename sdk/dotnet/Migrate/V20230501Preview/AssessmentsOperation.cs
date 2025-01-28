@@ -322,11 +322,11 @@ namespace Pulumi.AzureNative.Migrate.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

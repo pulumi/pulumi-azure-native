@@ -118,7 +118,6 @@ namespace Pulumi.AzureNative.StorageSync.V20220901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storagesync:CloudEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:CloudEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180402:CloudEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20180701:CloudEndpoint" },
@@ -130,6 +129,7 @@ namespace Pulumi.AzureNative.StorageSync.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200301:CloudEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20200901:CloudEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:storagesync/v20220601:CloudEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagesync:CloudEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -178,7 +178,7 @@ class PolicyRestriction(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:PolicyRestriction"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:PolicyRestriction"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:PolicyRestriction"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:PolicyRestriction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:PolicyRestriction"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:PolicyRestriction"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:PolicyRestriction"), pulumi.Alias(type_="azure-native:apimanagement:PolicyRestriction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PolicyRestriction, __self__).__init__(
             'azure-native:apimanagement/v20240501:PolicyRestriction',

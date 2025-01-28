@@ -160,7 +160,6 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:media:StreamingEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180330preview:StreamingEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:media/v20190501preview:StreamingEndpoint" },
@@ -169,6 +168,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
                     new global::Pulumi.Alias { Type = "azure-native:media/v20211101:StreamingEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:media/v20220801:StreamingEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:media/v20221101:StreamingEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:media:StreamingEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

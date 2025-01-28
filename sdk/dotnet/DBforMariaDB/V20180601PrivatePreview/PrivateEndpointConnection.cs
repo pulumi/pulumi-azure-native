@@ -70,8 +70,8 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformariadb:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

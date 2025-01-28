@@ -64,13 +64,13 @@ namespace Pulumi.AzureNative.DigitalTwins.V20230131
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins:DigitalTwinsEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20220531:DigitalTwinsEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:digitaltwins/v20221031:DigitalTwinsEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:digitaltwins:DigitalTwinsEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

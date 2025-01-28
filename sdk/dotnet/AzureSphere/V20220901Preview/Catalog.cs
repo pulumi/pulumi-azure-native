@@ -76,8 +76,8 @@ namespace Pulumi.AzureNative.AzureSphere.V20220901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azuresphere:Catalog" },
                     new global::Pulumi.Alias { Type = "azure-native:azuresphere/v20240401:Catalog" },
+                    new global::Pulumi.Alias { Type = "azure-native:azuresphere:Catalog" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

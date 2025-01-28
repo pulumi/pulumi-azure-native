@@ -163,7 +163,7 @@ export class MyWorkbook extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:MyWorkbook" }, { type: "azure-native:insights/v20150501:MyWorkbook" }, { type: "azure-native:insights/v20201020:MyWorkbook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20150501:MyWorkbook" }, { type: "azure-native:insights/v20201020:MyWorkbook" }, { type: "azure-native:insights:MyWorkbook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MyWorkbook.__pulumiType, name, resourceInputs, opts);
     }

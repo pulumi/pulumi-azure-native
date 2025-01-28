@@ -79,7 +79,7 @@ export class DatabaseMigrationsSqlDb extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration:DatabaseMigrationsSqlDb" }, { type: "azure-native:datamigration/v20230715preview:DatabaseMigrationsSqlDb" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20230715preview:DatabaseMigrationsSqlDb" }, { type: "azure-native:datamigration:DatabaseMigrationsSqlDb" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseMigrationsSqlDb.__pulumiType, name, resourceInputs, opts);
     }

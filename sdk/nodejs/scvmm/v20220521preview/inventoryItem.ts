@@ -117,7 +117,7 @@ export class InventoryItem extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm:InventoryItem" }, { type: "azure-native:scvmm/v20200605preview:InventoryItem" }, { type: "azure-native:scvmm/v20230401preview:InventoryItem" }, { type: "azure-native:scvmm/v20231007:InventoryItem" }, { type: "azure-native:scvmm/v20240601:InventoryItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:InventoryItem" }, { type: "azure-native:scvmm/v20230401preview:InventoryItem" }, { type: "azure-native:scvmm/v20231007:InventoryItem" }, { type: "azure-native:scvmm/v20240601:InventoryItem" }, { type: "azure-native:scvmm:InventoryItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InventoryItem.__pulumiType, name, resourceInputs, opts);
     }

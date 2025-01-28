@@ -145,7 +145,7 @@ export class SapDatabaseInstance extends pulumi.CustomResource {
             resourceInputs["vmDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads:SapDatabaseInstance" }, { type: "azure-native:workloads/v20211201preview:SapDatabaseInstance" }, { type: "azure-native:workloads/v20221101preview:SapDatabaseInstance" }, { type: "azure-native:workloads/v20230401:SapDatabaseInstance" }, { type: "azure-native:workloads/v20231001preview:SapDatabaseInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SapDatabaseInstance" }, { type: "azure-native:workloads/v20221101preview:SapDatabaseInstance" }, { type: "azure-native:workloads/v20230401:SapDatabaseInstance" }, { type: "azure-native:workloads/v20231001preview:SapDatabaseInstance" }, { type: "azure-native:workloads:SapDatabaseInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SapDatabaseInstance.__pulumiType, name, resourceInputs, opts);
     }

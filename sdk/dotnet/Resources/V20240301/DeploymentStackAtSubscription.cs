@@ -172,8 +172,8 @@ namespace Pulumi.AzureNative.Resources.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:resources:DeploymentStackAtSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20220801preview:DeploymentStackAtSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources:DeploymentStackAtSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

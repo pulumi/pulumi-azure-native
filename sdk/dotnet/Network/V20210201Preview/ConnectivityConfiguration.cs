@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ConnectivityConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:ConnectivityConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ConnectivityConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:ConnectivityConfiguration" },
@@ -130,6 +129,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:ConnectivityConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:ConnectivityConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ConnectivityConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:ConnectivityConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

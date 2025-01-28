@@ -94,7 +94,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic:IntegrationAccountBatchConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountBatchConfiguration.__pulumiType, name, resourceInputs, opts);
     }

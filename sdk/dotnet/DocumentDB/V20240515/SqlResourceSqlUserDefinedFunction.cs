@@ -67,7 +67,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20240515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlUserDefinedFunction" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20191212:SqlResourceSqlUserDefinedFunction" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction" },
@@ -106,6 +105,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240515
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240901preview:SqlResourceSqlUserDefinedFunction" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241115:SqlResourceSqlUserDefinedFunction" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241201preview:SqlResourceSqlUserDefinedFunction" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:SqlResourceSqlUserDefinedFunction" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

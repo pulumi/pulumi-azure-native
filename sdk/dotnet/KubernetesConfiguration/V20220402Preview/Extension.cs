@@ -154,7 +154,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210501preview:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210901:Extension" },
@@ -164,6 +163,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20221101:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20230501:Extension" },
+                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:Extension" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

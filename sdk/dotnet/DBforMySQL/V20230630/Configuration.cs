@@ -124,7 +124,6 @@ namespace Pulumi.AzureNative.DBforMySQL.V20230630
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Configuration" },
@@ -133,6 +132,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20230630
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230601preview:Configuration" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20231230:Configuration" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql:Configuration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

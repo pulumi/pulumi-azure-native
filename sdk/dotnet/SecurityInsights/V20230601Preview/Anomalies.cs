@@ -84,7 +84,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Anomalies" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Anomalies" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Anomalies" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Anomalies" },
@@ -111,6 +110,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230601Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:Anomalies" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:Anomalies" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Anomalies" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

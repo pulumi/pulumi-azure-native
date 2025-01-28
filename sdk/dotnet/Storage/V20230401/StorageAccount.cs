@@ -328,7 +328,6 @@ namespace Pulumi.AzureNative.Storage.V20230401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:storage:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20150501preview:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20150615:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20160101:StorageAccount" },
@@ -353,6 +352,7 @@ namespace Pulumi.AzureNative.Storage.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20220901:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230101:StorageAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:storage/v20230501:StorageAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:storage:StorageAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

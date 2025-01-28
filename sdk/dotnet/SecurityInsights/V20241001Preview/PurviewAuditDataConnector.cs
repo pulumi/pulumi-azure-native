@@ -108,7 +108,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20241001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:PurviewAuditDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:PurviewAuditDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:PurviewAuditDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:PurviewAuditDataConnector" },
@@ -143,6 +142,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20241001Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240301:PurviewAuditDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:PurviewAuditDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:PurviewAuditDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:PurviewAuditDataConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

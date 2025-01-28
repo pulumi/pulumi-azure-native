@@ -100,7 +100,6 @@ namespace Pulumi.AzureNative.Kusto.V20230815
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:ClusterPrincipalAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:ClusterPrincipalAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:ClusterPrincipalAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:ClusterPrincipalAssignment" },
@@ -113,6 +112,7 @@ namespace Pulumi.AzureNative.Kusto.V20230815
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:ClusterPrincipalAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:ClusterPrincipalAssignment" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ClusterPrincipalAssignment" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:ClusterPrincipalAssignment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

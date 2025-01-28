@@ -133,7 +133,7 @@ export class PacketCapture extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:PacketCapture" }, { type: "azure-native:mobilenetwork/v20230601:PacketCapture" }, { type: "azure-native:mobilenetwork/v20240201:PacketCapture" }, { type: "azure-native:mobilenetwork/v20240401:PacketCapture" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20230601:PacketCapture" }, { type: "azure-native:mobilenetwork/v20240201:PacketCapture" }, { type: "azure-native:mobilenetwork/v20240401:PacketCapture" }, { type: "azure-native:mobilenetwork:PacketCapture" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PacketCapture.__pulumiType, name, resourceInputs, opts);
     }

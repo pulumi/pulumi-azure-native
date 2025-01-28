@@ -120,11 +120,11 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobStorageAccountDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobStorageAccountDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobStorageAccountDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobStorageAccountDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobStorageAccountDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobStorageAccountDataSetMapping" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

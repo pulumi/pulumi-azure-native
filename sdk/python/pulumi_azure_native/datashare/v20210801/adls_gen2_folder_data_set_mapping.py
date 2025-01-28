@@ -308,7 +308,7 @@ class ADLSGen2FolderDataSetMapping(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20191101:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen2FolderDataSetMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20191101:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:ADLSGen2FolderDataSetMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ADLSGen2FolderDataSetMapping, __self__).__init__(
             'azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping',

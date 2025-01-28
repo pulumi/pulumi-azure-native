@@ -106,7 +106,6 @@ namespace Pulumi.AzureNative.Compute.V20240303
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:GalleryApplication" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20190301:GalleryApplication" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20190701:GalleryApplication" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20191201:GalleryApplication" },
@@ -117,6 +116,7 @@ namespace Pulumi.AzureNative.Compute.V20240303
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220303:GalleryApplication" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220803:GalleryApplication" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230703:GalleryApplication" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute:GalleryApplication" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

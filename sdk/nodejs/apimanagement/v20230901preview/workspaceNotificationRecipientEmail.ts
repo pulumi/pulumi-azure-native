@@ -83,7 +83,7 @@ export class WorkspaceNotificationRecipientEmail extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:WorkspaceNotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20220901preview:WorkspaceNotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceNotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceNotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20240501:WorkspaceNotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceNotificationRecipientEmail" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220901preview:WorkspaceNotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20230301preview:WorkspaceNotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20230501preview:WorkspaceNotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20240501:WorkspaceNotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20240601preview:WorkspaceNotificationRecipientEmail" }, { type: "azure-native:apimanagement:WorkspaceNotificationRecipientEmail" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceNotificationRecipientEmail.__pulumiType, name, resourceInputs, opts);
     }

@@ -292,7 +292,7 @@ class Gen2Environment(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:Gen2Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:timeseriesinsights/v20170228preview:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20171115:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20180815preview:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20200515:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights/v20210630preview:Gen2Environment"), pulumi.Alias(type_="azure-native:timeseriesinsights:Gen2Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gen2Environment, __self__).__init__(
             'azure-native:timeseriesinsights/v20210331preview:Gen2Environment',

@@ -147,7 +147,7 @@ export class LocalRulestack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw:LocalRulestack" }, { type: "azure-native:cloudngfw/v20220829:LocalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20230901:LocalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:LocalRulestack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cloudngfw/v20220829:LocalRulestack" }, { type: "azure-native:cloudngfw/v20220829preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20230901:LocalRulestack" }, { type: "azure-native:cloudngfw/v20230901preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20231010preview:LocalRulestack" }, { type: "azure-native:cloudngfw/v20240207preview:LocalRulestack" }, { type: "azure-native:cloudngfw:LocalRulestack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LocalRulestack.__pulumiType, name, resourceInputs, opts);
     }

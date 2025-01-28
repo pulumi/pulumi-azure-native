@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.Network.V20231101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:IpAllocation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200301:IpAllocation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401:IpAllocation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:IpAllocation" },
@@ -137,6 +136,7 @@ namespace Pulumi.AzureNative.Network.V20231101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:IpAllocation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:IpAllocation" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:IpAllocation" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:IpAllocation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

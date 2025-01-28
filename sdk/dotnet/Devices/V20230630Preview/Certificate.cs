@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.Devices.V20230630Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20170701:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20180122:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20180401:Certificate" },
@@ -90,6 +89,7 @@ namespace Pulumi.AzureNative.Devices.V20230630Preview
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20221115preview:Certificate" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230630:Certificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:devices:Certificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

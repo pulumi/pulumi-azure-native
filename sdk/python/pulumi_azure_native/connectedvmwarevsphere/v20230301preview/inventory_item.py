@@ -238,7 +238,7 @@ class InventoryItem(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere:InventoryItem"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231001:InventoryItem"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231201:InventoryItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231001:InventoryItem"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231201:InventoryItem"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere:InventoryItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InventoryItem, __self__).__init__(
             'azure-native:connectedvmwarevsphere/v20230301preview:InventoryItem',

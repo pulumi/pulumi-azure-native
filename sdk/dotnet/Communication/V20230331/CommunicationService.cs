@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.Communication.V20230331
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:communication:CommunicationService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20200820:CommunicationService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20200820preview:CommunicationService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:CommunicationService" },
@@ -121,6 +120,7 @@ namespace Pulumi.AzureNative.Communication.V20230331
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401:CommunicationService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:CommunicationService" },
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230601preview:CommunicationService" },
+                    new global::Pulumi.Alias { Type = "azure-native:communication:CommunicationService" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

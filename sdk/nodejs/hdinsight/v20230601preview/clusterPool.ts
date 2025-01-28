@@ -150,7 +150,7 @@ export class ClusterPool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight:ClusterPool" }, { type: "azure-native:hdinsight/v20231101preview:ClusterPool" }, { type: "azure-native:hdinsight/v20240501preview:ClusterPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20231101preview:ClusterPool" }, { type: "azure-native:hdinsight/v20240501preview:ClusterPool" }, { type: "azure-native:hdinsight:ClusterPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ClusterPool.__pulumiType, name, resourceInputs, opts);
     }

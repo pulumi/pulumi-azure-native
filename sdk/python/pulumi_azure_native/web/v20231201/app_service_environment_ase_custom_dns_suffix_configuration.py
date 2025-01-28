@@ -194,7 +194,7 @@ class AppServiceEnvironmentAseCustomDnsSuffixConfiguration(pulumi.CustomResource
             __props__.__dict__["provisioning_details"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"), pulumi.Alias(type_="azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"), pulumi.Alias(type_="azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"), pulumi.Alias(type_="azure-native:web/v20230101:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"), pulumi.Alias(type_="azure-native:web/v20240401:AppServiceEnvironmentAseCustomDnsSuffixConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"), pulumi.Alias(type_="azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"), pulumi.Alias(type_="azure-native:web/v20230101:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"), pulumi.Alias(type_="azure-native:web/v20240401:AppServiceEnvironmentAseCustomDnsSuffixConfiguration"), pulumi.Alias(type_="azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AppServiceEnvironmentAseCustomDnsSuffixConfiguration, __self__).__init__(
             'azure-native:web/v20231201:AppServiceEnvironmentAseCustomDnsSuffixConfiguration',

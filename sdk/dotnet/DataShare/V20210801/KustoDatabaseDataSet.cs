@@ -96,11 +96,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datashare:KustoDatabaseDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:KustoDatabaseDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:KustoDatabaseDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:KustoDatabaseDataSet" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoDatabaseDataSet" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:KustoDatabaseDataSet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

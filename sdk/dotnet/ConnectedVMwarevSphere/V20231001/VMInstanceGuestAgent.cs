@@ -112,9 +112,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20231001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VMInstanceGuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:VMInstanceGuestAgent" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20231201:VMInstanceGuestAgent" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VMInstanceGuestAgent" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

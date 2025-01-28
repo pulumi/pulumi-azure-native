@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.DocumentDB.V20240701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915preview:MongoCluster" },
@@ -85,6 +84,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20240701
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240301preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20240601preview:MongoCluster" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20241001preview:MongoCluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb:MongoCluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

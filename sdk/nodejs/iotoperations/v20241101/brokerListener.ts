@@ -98,7 +98,7 @@ export class BrokerListener extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations:BrokerListener" }, { type: "azure-native:iotoperations/v20240701preview:BrokerListener" }, { type: "azure-native:iotoperations/v20240815preview:BrokerListener" }, { type: "azure-native:iotoperations/v20240915preview:BrokerListener" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:BrokerListener" }, { type: "azure-native:iotoperations/v20240815preview:BrokerListener" }, { type: "azure-native:iotoperations/v20240915preview:BrokerListener" }, { type: "azure-native:iotoperations:BrokerListener" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BrokerListener.__pulumiType, name, resourceInputs, opts);
     }

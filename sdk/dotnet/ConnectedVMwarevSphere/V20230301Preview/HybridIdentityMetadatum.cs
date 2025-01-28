@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20230301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:HybridIdentityMetadatum" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:HybridIdentityMetadatum" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:HybridIdentityMetadatum" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

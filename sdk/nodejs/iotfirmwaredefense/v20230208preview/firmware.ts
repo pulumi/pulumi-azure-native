@@ -133,7 +133,7 @@ export class Firmware extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotfirmwaredefense:Firmware" }, { type: "azure-native:iotfirmwaredefense/v20240110:Firmware" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotfirmwaredefense/v20240110:Firmware" }, { type: "azure-native:iotfirmwaredefense:Firmware" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Firmware.__pulumiType, name, resourceInputs, opts);
     }

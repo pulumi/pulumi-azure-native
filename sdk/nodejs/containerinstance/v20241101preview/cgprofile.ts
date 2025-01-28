@@ -210,7 +210,7 @@ export class CGProfile extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance:CGProfile" }, { type: "azure-native:containerinstance/v20240501preview:CGProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20240501preview:CGProfile" }, { type: "azure-native:containerinstance:CGProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CGProfile.__pulumiType, name, resourceInputs, opts);
     }

@@ -107,7 +107,6 @@ namespace Pulumi.AzureNative.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20150801:WebAppVnetConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppVnetConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppVnetConnection" },
@@ -125,6 +124,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppVnetConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppVnetConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppVnetConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppVnetConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

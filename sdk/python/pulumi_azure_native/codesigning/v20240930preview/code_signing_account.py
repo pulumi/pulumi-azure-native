@@ -178,7 +178,7 @@ class CodeSigningAccount(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:codesigning:CodeSigningAccount"), pulumi.Alias(type_="azure-native:codesigning/v20240205preview:CodeSigningAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:codesigning/v20240205preview:CodeSigningAccount"), pulumi.Alias(type_="azure-native:codesigning:CodeSigningAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CodeSigningAccount, __self__).__init__(
             'azure-native:codesigning/v20240930preview:CodeSigningAccount',

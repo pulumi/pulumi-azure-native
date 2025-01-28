@@ -92,7 +92,7 @@ export class GraphQLApiResolver extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20220801:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20220901preview:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20230501preview:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20230901preview:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20240501:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20240601preview:GraphQLApiResolver" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20220801:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20220901preview:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20230501preview:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20230901preview:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20240501:GraphQLApiResolver" }, { type: "azure-native:apimanagement/v20240601preview:GraphQLApiResolver" }, { type: "azure-native:apimanagement:GraphQLApiResolver" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GraphQLApiResolver.__pulumiType, name, resourceInputs, opts);
     }

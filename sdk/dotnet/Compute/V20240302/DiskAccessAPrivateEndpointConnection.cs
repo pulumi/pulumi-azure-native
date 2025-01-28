@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.Compute.V20240302
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:compute:DiskAccessAPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection" },
@@ -81,6 +80,7 @@ namespace Pulumi.AzureNative.Compute.V20240302
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:DiskAccessAPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230402:DiskAccessAPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20231002:DiskAccessAPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute:DiskAccessAPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

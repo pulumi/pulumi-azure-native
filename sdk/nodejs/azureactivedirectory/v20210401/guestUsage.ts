@@ -93,7 +93,7 @@ export class GuestUsage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory:GuestUsage" }, { type: "azure-native:azureactivedirectory/v20200501preview:GuestUsage" }, { type: "azure-native:azureactivedirectory/v20230118preview:GuestUsage" }, { type: "azure-native:azureactivedirectory/v20230517preview:GuestUsage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azureactivedirectory/v20200501preview:GuestUsage" }, { type: "azure-native:azureactivedirectory/v20230118preview:GuestUsage" }, { type: "azure-native:azureactivedirectory/v20230517preview:GuestUsage" }, { type: "azure-native:azureactivedirectory:GuestUsage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestUsage.__pulumiType, name, resourceInputs, opts);
     }

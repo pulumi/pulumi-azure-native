@@ -99,7 +99,7 @@ export class StorageMover extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagemover:StorageMover" }, { type: "azure-native:storagemover/v20220701preview:StorageMover" }, { type: "azure-native:storagemover/v20230301:StorageMover" }, { type: "azure-native:storagemover/v20231001:StorageMover" }, { type: "azure-native:storagemover/v20240701:StorageMover" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:StorageMover" }, { type: "azure-native:storagemover/v20230301:StorageMover" }, { type: "azure-native:storagemover/v20231001:StorageMover" }, { type: "azure-native:storagemover/v20240701:StorageMover" }, { type: "azure-native:storagemover:StorageMover" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageMover.__pulumiType, name, resourceInputs, opts);
     }

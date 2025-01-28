@@ -58,7 +58,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:NotificationRecipientEmail" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:NotificationRecipientEmail" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:NotificationRecipientEmail" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:NotificationRecipientEmail" },
@@ -78,6 +77,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:NotificationRecipientEmail" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:NotificationRecipientEmail" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:NotificationRecipientEmail" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:NotificationRecipientEmail" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

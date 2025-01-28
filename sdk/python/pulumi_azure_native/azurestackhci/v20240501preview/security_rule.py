@@ -342,7 +342,7 @@ class SecurityRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:SecurityRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:SecurityRule"), pulumi.Alias(type_="azure-native:azurestackhci:SecurityRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityRule, __self__).__init__(
             'azure-native:azurestackhci/v20240501preview:SecurityRule',

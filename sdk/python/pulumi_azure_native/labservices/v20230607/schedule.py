@@ -241,7 +241,7 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["resource_operation_error"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices:Schedule"), pulumi.Alias(type_="azure-native:labservices/v20211001preview:Schedule"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:Schedule"), pulumi.Alias(type_="azure-native:labservices/v20220801:Schedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20211001preview:Schedule"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:Schedule"), pulumi.Alias(type_="azure-native:labservices/v20220801:Schedule"), pulumi.Alias(type_="azure-native:labservices:Schedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schedule, __self__).__init__(
             'azure-native:labservices/v20230607:Schedule',

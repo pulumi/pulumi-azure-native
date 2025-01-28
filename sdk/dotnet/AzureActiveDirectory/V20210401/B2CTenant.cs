@@ -85,10 +85,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory:B2CTenant" },
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20190101preview:B2CTenant" },
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230118preview:B2CTenant" },
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230517preview:B2CTenant" },
+                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory:B2CTenant" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

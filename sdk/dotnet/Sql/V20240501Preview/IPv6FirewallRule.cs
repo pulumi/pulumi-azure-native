@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:IPv6FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:IPv6FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:IPv6FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101preview:IPv6FirewallRule" },
@@ -75,6 +74,7 @@ namespace Pulumi.AzureNative.Sql.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:IPv6FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:IPv6FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:IPv6FirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:IPv6FirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

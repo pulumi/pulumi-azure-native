@@ -93,7 +93,7 @@ export class ConfigurationGroupValue extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:ConfigurationGroupValue" }, { type: "azure-native:hybridnetwork/v20240415:ConfigurationGroupValue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20240415:ConfigurationGroupValue" }, { type: "azure-native:hybridnetwork:ConfigurationGroupValue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationGroupValue.__pulumiType, name, resourceInputs, opts);
     }

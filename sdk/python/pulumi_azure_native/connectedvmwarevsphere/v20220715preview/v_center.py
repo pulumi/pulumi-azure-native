@@ -263,7 +263,7 @@ class VCenter(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20230301preview:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231001:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231201:VCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20230301preview:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231001:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20231201:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere:VCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VCenter, __self__).__init__(
             'azure-native:connectedvmwarevsphere/v20220715preview:VCenter',

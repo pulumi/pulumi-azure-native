@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.DataProtection.V20230401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dataprotection:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210101:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210201preview:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20210601preview:BackupVault" },
@@ -114,6 +113,7 @@ namespace Pulumi.AzureNative.DataProtection.V20230401Preview
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240201preview:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240301:BackupVault" },
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20240401:BackupVault" },
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection:BackupVault" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

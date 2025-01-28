@@ -202,7 +202,6 @@ namespace Pulumi.AzureNative.Insights.V20230315Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:insights:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20180416:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20200501preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20210201preview:ScheduledQueryRule" },
@@ -211,6 +210,7 @@ namespace Pulumi.AzureNative.Insights.V20230315Preview
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20220801preview:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20231201:ScheduledQueryRule" },
                     new global::Pulumi.Alias { Type = "azure-native:insights/v20240101preview:ScheduledQueryRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:insights:ScheduledQueryRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

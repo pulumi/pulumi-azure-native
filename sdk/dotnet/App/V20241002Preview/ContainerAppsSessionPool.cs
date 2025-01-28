@@ -148,9 +148,9 @@ namespace Pulumi.AzureNative.App.V20241002Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:ContainerAppsSessionPool" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:ContainerAppsSessionPool" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ContainerAppsSessionPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:app:ContainerAppsSessionPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

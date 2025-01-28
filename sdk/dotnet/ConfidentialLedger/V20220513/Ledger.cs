@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20220513
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:confidentialledger:Ledger" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20201201preview:Ledger" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20210513preview:Ledger" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20220908preview:Ledger" },
@@ -84,6 +83,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20220513
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20230628preview:Ledger" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20240709preview:Ledger" },
                     new global::Pulumi.Alias { Type = "azure-native:confidentialledger/v20240919preview:Ledger" },
+                    new global::Pulumi.Alias { Type = "azure-native:confidentialledger:Ledger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

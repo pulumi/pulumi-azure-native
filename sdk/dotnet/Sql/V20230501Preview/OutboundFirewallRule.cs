@@ -58,7 +58,6 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:OutboundFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210201preview:OutboundFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:OutboundFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:OutboundFirewallRule" },
@@ -71,6 +70,7 @@ namespace Pulumi.AzureNative.Sql.V20230501Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:OutboundFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:OutboundFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:OutboundFirewallRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:OutboundFirewallRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

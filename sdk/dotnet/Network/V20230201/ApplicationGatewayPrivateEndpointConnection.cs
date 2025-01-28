@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.Network.V20230201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:ApplicationGatewayPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection" },
@@ -105,6 +104,7 @@ namespace Pulumi.AzureNative.Network.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:ApplicationGatewayPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:ApplicationGatewayPrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:ApplicationGatewayPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:ApplicationGatewayPrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

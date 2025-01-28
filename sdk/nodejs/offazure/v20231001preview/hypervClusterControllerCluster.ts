@@ -133,7 +133,7 @@ export class HypervClusterControllerCluster extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure:HypervClusterControllerCluster" }, { type: "azure-native:offazure/v20230606:HypervClusterControllerCluster" }, { type: "azure-native:offazure/v20240501preview:HypervClusterControllerCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:HypervClusterControllerCluster" }, { type: "azure-native:offazure/v20240501preview:HypervClusterControllerCluster" }, { type: "azure-native:offazure:HypervClusterControllerCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HypervClusterControllerCluster.__pulumiType, name, resourceInputs, opts);
     }

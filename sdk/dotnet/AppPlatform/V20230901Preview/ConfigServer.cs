@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ConfigServer" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20200701:ConfigServer" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:ConfigServer" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:ConfigServer" },
@@ -84,6 +83,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20230901Preview
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20231201:ConfigServer" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240101preview:ConfigServer" },
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20240501preview:ConfigServer" },
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform:ConfigServer" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

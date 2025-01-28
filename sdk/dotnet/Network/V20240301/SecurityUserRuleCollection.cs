@@ -88,12 +88,12 @@ namespace Pulumi.AzureNative.Network.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:SecurityUserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserRuleCollection" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SecurityUserRuleCollection" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserRuleCollection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

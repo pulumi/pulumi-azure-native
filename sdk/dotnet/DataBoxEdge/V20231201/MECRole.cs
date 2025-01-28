@@ -96,7 +96,6 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:MECRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190301:MECRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190701:MECRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:MECRole" },
@@ -113,6 +112,7 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20231201
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:MECRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:MECRole" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:MECRole" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:MECRole" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

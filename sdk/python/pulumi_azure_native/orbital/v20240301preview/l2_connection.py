@@ -239,7 +239,7 @@ class L2Connection(pulumi.CustomResource):
             __props__.__dict__["circuit_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital:L2Connection"), pulumi.Alias(type_="azure-native:orbital/v20240301:L2Connection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20240301:L2Connection"), pulumi.Alias(type_="azure-native:orbital:L2Connection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(L2Connection, __self__).__init__(
             'azure-native:orbital/v20240301preview:L2Connection',

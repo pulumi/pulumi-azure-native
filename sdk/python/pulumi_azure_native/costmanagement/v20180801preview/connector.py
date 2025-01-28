@@ -278,7 +278,7 @@ class Connector(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provider_account_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement:Connector"), pulumi.Alias(type_="azure-native:costmanagement/v20190301preview:Connector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190301preview:Connector"), pulumi.Alias(type_="azure-native:costmanagement:Connector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Connector, __self__).__init__(
             'azure-native:costmanagement/v20180801preview:Connector',

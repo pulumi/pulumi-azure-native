@@ -131,7 +131,7 @@ export class DedicatedHsm extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hardwaresecuritymodules:DedicatedHsm" }, { type: "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm" }, { type: "azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm" }, { type: "azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm" }, { type: "azure-native:hardwaresecuritymodules:DedicatedHsm" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DedicatedHsm.__pulumiType, name, resourceInputs, opts);
     }

@@ -115,7 +115,7 @@ export class Video extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer:Video" }, { type: "azure-native:videoanalyzer/v20210501preview:Video" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer/v20210501preview:Video" }, { type: "azure-native:videoanalyzer:Video" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Video.__pulumiType, name, resourceInputs, opts);
     }

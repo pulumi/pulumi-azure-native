@@ -91,7 +91,7 @@ export class AccessPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20170228preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20210331preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20210630preview:AccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20210331preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20210630preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights:AccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessPolicy.__pulumiType, name, resourceInputs, opts);
     }

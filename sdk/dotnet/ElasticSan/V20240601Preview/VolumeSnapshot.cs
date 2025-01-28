@@ -82,9 +82,9 @@ namespace Pulumi.AzureNative.ElasticSan.V20240601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:elasticsan:VolumeSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20230101:VolumeSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20240501:VolumeSnapshot" },
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan:VolumeSnapshot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

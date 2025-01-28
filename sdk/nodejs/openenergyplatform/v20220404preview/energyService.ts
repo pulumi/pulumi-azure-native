@@ -87,7 +87,7 @@ export class EnergyService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:openenergyplatform:EnergyService" }, { type: "azure-native:openenergyplatform/v20210601preview:EnergyService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:openenergyplatform/v20210601preview:EnergyService" }, { type: "azure-native:openenergyplatform:EnergyService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnergyService.__pulumiType, name, resourceInputs, opts);
     }

@@ -117,7 +117,7 @@ export class IpExtendedCommunity extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric:IpExtendedCommunity" }, { type: "azure-native:managednetworkfabric/v20230615:IpExtendedCommunity" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:IpExtendedCommunity" }, { type: "azure-native:managednetworkfabric:IpExtendedCommunity" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IpExtendedCommunity.__pulumiType, name, resourceInputs, opts);
     }

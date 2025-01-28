@@ -118,7 +118,7 @@ export class InboundEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:InboundEndpoint" }, { type: "azure-native:network/v20200401preview:InboundEndpoint" }, { type: "azure-native:network/v20220701:InboundEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200401preview:InboundEndpoint" }, { type: "azure-native:network/v20220701:InboundEndpoint" }, { type: "azure-native:network:InboundEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InboundEndpoint.__pulumiType, name, resourceInputs, opts);
     }

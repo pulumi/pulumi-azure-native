@@ -106,7 +106,6 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:sql:DistributedAvailabilityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DistributedAvailabilityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20210801preview:DistributedAvailabilityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20211101:DistributedAvailabilityGroup" },
@@ -118,6 +117,7 @@ namespace Pulumi.AzureNative.Sql.V20230201Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230501preview:DistributedAvailabilityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20230801preview:DistributedAvailabilityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20240501preview:DistributedAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:sql:DistributedAvailabilityGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

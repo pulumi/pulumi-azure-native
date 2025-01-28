@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.Web.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppPublicCertificateSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20160801:WebAppPublicCertificateSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppPublicCertificateSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppPublicCertificateSlot" },
@@ -99,6 +98,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppPublicCertificateSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppPublicCertificateSlot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppPublicCertificateSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppPublicCertificateSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

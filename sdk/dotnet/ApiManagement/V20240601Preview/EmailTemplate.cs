@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:EmailTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:EmailTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180101:EmailTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:EmailTemplate" },
@@ -108,6 +107,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20240601Preview
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230501preview:EmailTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:EmailTemplate" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:EmailTemplate" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:EmailTemplate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

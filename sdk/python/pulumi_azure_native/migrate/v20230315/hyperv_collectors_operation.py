@@ -199,7 +199,7 @@ class HypervCollectorsOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20191001:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:HypervCollectorsOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:HypervCollectorsOperation"), pulumi.Alias(type_="azure-native:migrate:HypervCollectorsOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(HypervCollectorsOperation, __self__).__init__(
             'azure-native:migrate/v20230315:HypervCollectorsOperation',

@@ -94,7 +94,6 @@ namespace Pulumi.AzureNative.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:PacketCapture" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20160901:PacketCapture" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20161201:PacketCapture" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20170301:PacketCapture" },
@@ -144,6 +143,7 @@ namespace Pulumi.AzureNative.Network.V20200601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:PacketCapture" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:PacketCapture" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:PacketCapture" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:PacketCapture" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -100,11 +100,11 @@ namespace Pulumi.AzureNative.App.V20241002Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:Build" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230801preview:Build" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20231102preview:Build" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240202preview:Build" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:Build" },
+                    new global::Pulumi.Alias { Type = "azure-native:app:Build" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

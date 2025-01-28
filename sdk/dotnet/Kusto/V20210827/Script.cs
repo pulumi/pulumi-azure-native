@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.Kusto.V20210827
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:Script" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20210101:Script" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:Script" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:Script" },
@@ -91,6 +90,7 @@ namespace Pulumi.AzureNative.Kusto.V20210827
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:Script" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:Script" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:Script" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:Script" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

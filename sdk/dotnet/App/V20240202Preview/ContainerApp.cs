@@ -172,7 +172,6 @@ namespace Pulumi.AzureNative.App.V20240202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:app:ContainerApp" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ContainerApp" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerApp" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ContainerApp" },
@@ -186,6 +185,7 @@ namespace Pulumi.AzureNative.App.V20240202Preview
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240301:ContainerApp" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20240802preview:ContainerApp" },
                     new global::Pulumi.Alias { Type = "azure-native:app/v20241002preview:ContainerApp" },
+                    new global::Pulumi.Alias { Type = "azure-native:app:ContainerApp" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

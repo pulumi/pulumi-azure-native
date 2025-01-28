@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.ApiCenter.V20240601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apicenter:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240301:Workspace" },
                     new global::Pulumi.Alias { Type = "azure-native:apicenter/v20240315preview:Workspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:apicenter:Workspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

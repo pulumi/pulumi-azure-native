@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.Network.V20230601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:StaticMember" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:StaticMember" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:StaticMember" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:StaticMember" },
@@ -99,6 +98,7 @@ namespace Pulumi.AzureNative.Network.V20230601
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:StaticMember" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:StaticMember" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:StaticMember" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:StaticMember" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

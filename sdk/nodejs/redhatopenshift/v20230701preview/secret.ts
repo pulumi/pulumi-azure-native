@@ -85,7 +85,7 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift:Secret" }, { type: "azure-native:redhatopenshift/v20220904:Secret" }, { type: "azure-native:redhatopenshift/v20230401:Secret" }, { type: "azure-native:redhatopenshift/v20230904:Secret" }, { type: "azure-native:redhatopenshift/v20231122:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:Secret" }, { type: "azure-native:redhatopenshift/v20230401:Secret" }, { type: "azure-native:redhatopenshift/v20230904:Secret" }, { type: "azure-native:redhatopenshift/v20231122:Secret" }, { type: "azure-native:redhatopenshift:Secret" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);
     }

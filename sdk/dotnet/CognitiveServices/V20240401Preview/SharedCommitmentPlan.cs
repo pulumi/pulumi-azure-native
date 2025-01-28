@@ -94,12 +94,12 @@ namespace Pulumi.AzureNative.CognitiveServices.V20240401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:SharedCommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:SharedCommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:SharedCommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20231001preview:SharedCommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20240601preview:SharedCommitmentPlan" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20241001:SharedCommitmentPlan" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices:SharedCommitmentPlan" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -238,7 +238,6 @@ namespace Pulumi.AzureNative.Kusto.V20230815
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kusto:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:Cluster" },
@@ -256,6 +255,7 @@ namespace Pulumi.AzureNative.Kusto.V20230815
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:Cluster" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:Cluster" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -121,11 +121,11 @@ namespace Pulumi.AzureNative.NetworkCloud.V20240701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:Console" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230701:Console" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:Console" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:Console" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:Console" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud:Console" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

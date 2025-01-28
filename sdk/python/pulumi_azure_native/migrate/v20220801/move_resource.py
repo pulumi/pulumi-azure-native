@@ -157,7 +157,7 @@ class MoveResource(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:MoveResource"), pulumi.Alias(type_="azure-native:migrate/v20191001preview:MoveResource"), pulumi.Alias(type_="azure-native:migrate/v20210101:MoveResource"), pulumi.Alias(type_="azure-native:migrate/v20210801:MoveResource"), pulumi.Alias(type_="azure-native:migrate/v20230801:MoveResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001preview:MoveResource"), pulumi.Alias(type_="azure-native:migrate/v20210101:MoveResource"), pulumi.Alias(type_="azure-native:migrate/v20210801:MoveResource"), pulumi.Alias(type_="azure-native:migrate/v20230801:MoveResource"), pulumi.Alias(type_="azure-native:migrate:MoveResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MoveResource, __self__).__init__(
             'azure-native:migrate/v20220801:MoveResource',

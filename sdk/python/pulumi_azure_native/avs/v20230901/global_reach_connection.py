@@ -207,7 +207,7 @@ class GlobalReachConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20200717preview:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20210101preview:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20210601:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20211201:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20220501:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20230301:GlobalReachConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20210101preview:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20210601:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20211201:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20220501:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs/v20230301:GlobalReachConnection"), pulumi.Alias(type_="azure-native:avs:GlobalReachConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GlobalReachConnection, __self__).__init__(
             'azure-native:avs/v20230901:GlobalReachConnection',

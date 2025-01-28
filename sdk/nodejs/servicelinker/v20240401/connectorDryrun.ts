@@ -104,7 +104,7 @@ export class ConnectorDryrun extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicelinker:ConnectorDryrun" }, { type: "azure-native:servicelinker/v20221101preview:ConnectorDryrun" }, { type: "azure-native:servicelinker/v20230401preview:ConnectorDryrun" }, { type: "azure-native:servicelinker/v20240701preview:ConnectorDryrun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicelinker/v20221101preview:ConnectorDryrun" }, { type: "azure-native:servicelinker/v20230401preview:ConnectorDryrun" }, { type: "azure-native:servicelinker/v20240701preview:ConnectorDryrun" }, { type: "azure-native:servicelinker:ConnectorDryrun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectorDryrun.__pulumiType, name, resourceInputs, opts);
     }

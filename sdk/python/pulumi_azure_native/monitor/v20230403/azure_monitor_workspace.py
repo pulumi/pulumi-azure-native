@@ -181,7 +181,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20210603preview:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20231001preview:AzureMonitorWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:monitor/v20210603preview:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor/v20231001preview:AzureMonitorWorkspace"), pulumi.Alias(type_="azure-native:monitor:AzureMonitorWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureMonitorWorkspace, __self__).__init__(
             'azure-native:monitor/v20230403:AzureMonitorWorkspace',

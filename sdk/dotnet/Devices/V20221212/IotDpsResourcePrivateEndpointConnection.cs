@@ -64,13 +64,13 @@ namespace Pulumi.AzureNative.Devices.V20221212
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:devices:IotDpsResourcePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20250201preview:IotDpsResourcePrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:devices:IotDpsResourcePrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

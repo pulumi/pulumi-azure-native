@@ -227,10 +227,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine" },
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:VirtualMachine" },
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere:VirtualMachine" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

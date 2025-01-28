@@ -91,7 +91,6 @@ namespace Pulumi.AzureNative.Network.V20180701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualWAN" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180401:VirtualWAN" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180601:VirtualWAN" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:VirtualWAN" },
@@ -131,6 +130,7 @@ namespace Pulumi.AzureNative.Network.V20180701
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:VirtualWAN" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:VirtualWAN" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:VirtualWAN" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualWAN" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

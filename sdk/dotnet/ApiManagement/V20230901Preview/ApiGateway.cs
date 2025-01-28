@@ -124,9 +124,9 @@ namespace Pulumi.AzureNative.ApiManagement.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiGateway" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:ApiGateway" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:ApiGateway" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:ApiGateway" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

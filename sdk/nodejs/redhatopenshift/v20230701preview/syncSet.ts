@@ -85,7 +85,7 @@ export class SyncSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift:SyncSet" }, { type: "azure-native:redhatopenshift/v20220904:SyncSet" }, { type: "azure-native:redhatopenshift/v20230401:SyncSet" }, { type: "azure-native:redhatopenshift/v20230904:SyncSet" }, { type: "azure-native:redhatopenshift/v20231122:SyncSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:SyncSet" }, { type: "azure-native:redhatopenshift/v20230401:SyncSet" }, { type: "azure-native:redhatopenshift/v20230904:SyncSet" }, { type: "azure-native:redhatopenshift/v20231122:SyncSet" }, { type: "azure-native:redhatopenshift:SyncSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncSet.__pulumiType, name, resourceInputs, opts);
     }

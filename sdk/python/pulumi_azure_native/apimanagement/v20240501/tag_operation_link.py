@@ -175,7 +175,7 @@ class TagOperationLink(pulumi.CustomResource):
             __props__.__dict__["tag_id"] = tag_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:TagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:TagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:TagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:TagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:TagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:TagOperationLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:TagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:TagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:TagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:TagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:TagOperationLink"), pulumi.Alias(type_="azure-native:apimanagement:TagOperationLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagOperationLink, __self__).__init__(
             'azure-native:apimanagement/v20240501:TagOperationLink',

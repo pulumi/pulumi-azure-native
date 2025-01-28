@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.IoTOperations.V20241101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations:Broker" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:Broker" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:Broker" },
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:Broker" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations:Broker" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -142,7 +142,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20241201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:UpdateRun" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221201:UpdateRun" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:UpdateRun" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230201:UpdateRun" },
@@ -155,6 +154,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20241201Preview
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240215preview:UpdateRun" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240401:UpdateRun" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20240901preview:UpdateRun" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:UpdateRun" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

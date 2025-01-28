@@ -102,7 +102,7 @@ export class HybridUseBenefit extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:softwareplan:HybridUseBenefit" }, { type: "azure-native:softwareplan/v20190601preview:HybridUseBenefit" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:softwareplan/v20190601preview:HybridUseBenefit" }, { type: "azure-native:softwareplan:HybridUseBenefit" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridUseBenefit.__pulumiType, name, resourceInputs, opts);
     }

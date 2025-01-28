@@ -217,7 +217,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Queue" }, { type: "azure-native:servicebus/v20140901:Queue" }, { type: "azure-native:servicebus/v20150801:Queue" }, { type: "azure-native:servicebus/v20170401:Queue" }, { type: "azure-native:servicebus/v20180101preview:Queue" }, { type: "azure-native:servicebus/v20210101preview:Queue" }, { type: "azure-native:servicebus/v20210601preview:Queue" }, { type: "azure-native:servicebus/v20211101:Queue" }, { type: "azure-native:servicebus/v20221001preview:Queue" }, { type: "azure-native:servicebus/v20230101preview:Queue" }, { type: "azure-native:servicebus/v20240101:Queue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20140901:Queue" }, { type: "azure-native:servicebus/v20150801:Queue" }, { type: "azure-native:servicebus/v20170401:Queue" }, { type: "azure-native:servicebus/v20180101preview:Queue" }, { type: "azure-native:servicebus/v20210101preview:Queue" }, { type: "azure-native:servicebus/v20210601preview:Queue" }, { type: "azure-native:servicebus/v20211101:Queue" }, { type: "azure-native:servicebus/v20221001preview:Queue" }, { type: "azure-native:servicebus/v20230101preview:Queue" }, { type: "azure-native:servicebus/v20240101:Queue" }, { type: "azure-native:servicebus:Queue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
     }

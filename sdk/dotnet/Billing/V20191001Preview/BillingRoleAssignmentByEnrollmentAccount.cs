@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:billing:BillingRoleAssignmentByEnrollmentAccount" },
                     new global::Pulumi.Alias { Type = "azure-native:billing/v20240401:BillingRoleAssignmentByEnrollmentAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:billing:BillingRoleAssignmentByEnrollmentAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

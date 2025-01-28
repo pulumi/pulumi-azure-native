@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.Orbital.V20240301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:orbital:GroundStation" },
                     new global::Pulumi.Alias { Type = "azure-native:orbital/v20240301preview:GroundStation" },
+                    new global::Pulumi.Alias { Type = "azure-native:orbital:GroundStation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

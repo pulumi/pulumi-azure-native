@@ -180,7 +180,7 @@ export class PacketCoreControlPlane extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20230601:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20230901:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20240201:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20240401:PacketCoreControlPlane" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20230601:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20230901:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20240201:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork/v20240401:PacketCoreControlPlane" }, { type: "azure-native:mobilenetwork:PacketCoreControlPlane" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PacketCoreControlPlane.__pulumiType, name, resourceInputs, opts);
     }

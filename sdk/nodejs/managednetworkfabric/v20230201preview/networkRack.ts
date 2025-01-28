@@ -123,7 +123,7 @@ export class NetworkRack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric:NetworkRack" }, { type: "azure-native:managednetworkfabric/v20230615:NetworkRack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230615:NetworkRack" }, { type: "azure-native:managednetworkfabric:NetworkRack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkRack.__pulumiType, name, resourceInputs, opts);
     }

@@ -87,7 +87,6 @@ namespace Pulumi.AzureNative.Web.V20160901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web:AppServicePlanRouteForVnet" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20150801:AppServicePlanRouteForVnet" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20180201:AppServicePlanRouteForVnet" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:AppServicePlanRouteForVnet" },
@@ -104,6 +103,7 @@ namespace Pulumi.AzureNative.Web.V20160901
                     new global::Pulumi.Alias { Type = "azure-native:web/v20230101:AppServicePlanRouteForVnet" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20231201:AppServicePlanRouteForVnet" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20240401:AppServicePlanRouteForVnet" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:AppServicePlanRouteForVnet" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

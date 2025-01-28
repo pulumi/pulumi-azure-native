@@ -70,7 +70,7 @@ export class VMwareCollector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate:VMwareCollector" }, { type: "azure-native:migrate/v20230315:VMwareCollector" }, { type: "azure-native:migrate/v20230401preview:VMwareCollector" }, { type: "azure-native:migrate/v20230501preview:VMwareCollector" }, { type: "azure-native:migrate/v20230909preview:VMwareCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:VMwareCollector" }, { type: "azure-native:migrate/v20230401preview:VMwareCollector" }, { type: "azure-native:migrate/v20230501preview:VMwareCollector" }, { type: "azure-native:migrate/v20230909preview:VMwareCollector" }, { type: "azure-native:migrate:VMwareCollector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VMwareCollector.__pulumiType, name, resourceInputs, opts);
     }

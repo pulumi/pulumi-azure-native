@@ -197,7 +197,7 @@ export class RecordSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:RecordSet" }, { type: "azure-native:network/v20150504preview:RecordSet" }, { type: "azure-native:network/v20160401:RecordSet" }, { type: "azure-native:network/v20170901:RecordSet" }, { type: "azure-native:network/v20171001:RecordSet" }, { type: "azure-native:network/v20180301preview:RecordSet" }, { type: "azure-native:network/v20180501:RecordSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20150504preview:RecordSet" }, { type: "azure-native:network/v20160401:RecordSet" }, { type: "azure-native:network/v20170901:RecordSet" }, { type: "azure-native:network/v20171001:RecordSet" }, { type: "azure-native:network/v20180301preview:RecordSet" }, { type: "azure-native:network/v20180501:RecordSet" }, { type: "azure-native:network:RecordSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RecordSet.__pulumiType, name, resourceInputs, opts);
     }

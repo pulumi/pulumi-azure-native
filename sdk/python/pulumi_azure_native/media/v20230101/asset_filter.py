@@ -218,7 +218,7 @@ class AssetFilter(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:AssetFilter"), pulumi.Alias(type_="azure-native:media/v20180701:AssetFilter"), pulumi.Alias(type_="azure-native:media/v20200501:AssetFilter"), pulumi.Alias(type_="azure-native:media/v20210601:AssetFilter"), pulumi.Alias(type_="azure-native:media/v20211101:AssetFilter"), pulumi.Alias(type_="azure-native:media/v20220801:AssetFilter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20180701:AssetFilter"), pulumi.Alias(type_="azure-native:media/v20200501:AssetFilter"), pulumi.Alias(type_="azure-native:media/v20210601:AssetFilter"), pulumi.Alias(type_="azure-native:media/v20211101:AssetFilter"), pulumi.Alias(type_="azure-native:media/v20220801:AssetFilter"), pulumi.Alias(type_="azure-native:media:AssetFilter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssetFilter, __self__).__init__(
             'azure-native:media/v20230101:AssetFilter',

@@ -139,7 +139,6 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:workloads:monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:Monitor" },
@@ -152,6 +151,7 @@ namespace Pulumi.AzureNative.Workloads
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20231201preview:monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:Monitor" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240201preview:monitor" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:monitor" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

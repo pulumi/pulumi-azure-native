@@ -122,7 +122,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:automation:Certificate" }, { type: "azure-native:automation/v20151031:Certificate" }, { type: "azure-native:automation/v20190601:Certificate" }, { type: "azure-native:automation/v20200113preview:Certificate" }, { type: "azure-native:automation/v20220808:Certificate" }, { type: "azure-native:automation/v20231101:Certificate" }, { type: "azure-native:automation/v20241023:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Certificate" }, { type: "azure-native:automation/v20190601:Certificate" }, { type: "azure-native:automation/v20200113preview:Certificate" }, { type: "azure-native:automation/v20220808:Certificate" }, { type: "azure-native:automation/v20231101:Certificate" }, { type: "azure-native:automation/v20241023:Certificate" }, { type: "azure-native:automation:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

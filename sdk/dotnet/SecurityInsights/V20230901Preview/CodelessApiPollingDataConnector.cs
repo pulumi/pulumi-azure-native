@@ -90,7 +90,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:CodelessApiPollingDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:CodelessApiPollingDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:CodelessApiPollingDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:CodelessApiPollingDataConnector" },
@@ -125,6 +124,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230901Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:CodelessApiPollingDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:CodelessApiPollingDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:CodelessApiPollingDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:CodelessApiPollingDataConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

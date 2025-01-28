@@ -150,7 +150,7 @@ export class AssetEndpointProfile extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry:AssetEndpointProfile" }, { type: "azure-native:deviceregistry/v20231101preview:AssetEndpointProfile" }, { type: "azure-native:deviceregistry/v20240901preview:AssetEndpointProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20231101preview:AssetEndpointProfile" }, { type: "azure-native:deviceregistry/v20240901preview:AssetEndpointProfile" }, { type: "azure-native:deviceregistry:AssetEndpointProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssetEndpointProfile.__pulumiType, name, resourceInputs, opts);
     }

@@ -82,10 +82,10 @@ namespace Pulumi.AzureNative.ElasticSan.V20240501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:elasticsan:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20221201preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20230101:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20240601preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

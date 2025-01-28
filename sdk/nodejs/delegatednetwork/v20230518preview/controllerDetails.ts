@@ -117,7 +117,7 @@ export class ControllerDetails extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20200808preview:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20210315:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20230627preview:ControllerDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork/v20200808preview:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20210315:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20230627preview:ControllerDetails" }, { type: "azure-native:delegatednetwork:ControllerDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ControllerDetails.__pulumiType, name, resourceInputs, opts);
     }

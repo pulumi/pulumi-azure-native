@@ -90,7 +90,7 @@ export class EdgeDevice extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:EdgeDevice" }, { type: "azure-native:azurestackhci/v20231101preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240101:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240215preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240401:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240901preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20241201preview:EdgeDevice" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20231101preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240101:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240215preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240401:EdgeDevice" }, { type: "azure-native:azurestackhci/v20240901preview:EdgeDevice" }, { type: "azure-native:azurestackhci/v20241201preview:EdgeDevice" }, { type: "azure-native:azurestackhci:EdgeDevice" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EdgeDevice.__pulumiType, name, resourceInputs, opts);
     }

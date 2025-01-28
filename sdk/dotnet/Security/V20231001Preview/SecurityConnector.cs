@@ -112,7 +112,6 @@ namespace Pulumi.AzureNative.Security.V20231001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:security:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20210701preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20211201preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20220501preview:SecurityConnector" },
@@ -121,6 +120,7 @@ namespace Pulumi.AzureNative.Security.V20231001Preview
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240301preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240701preview:SecurityConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240801preview:SecurityConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:security:SecurityConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

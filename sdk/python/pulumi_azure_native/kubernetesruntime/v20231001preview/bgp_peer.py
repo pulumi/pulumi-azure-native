@@ -178,7 +178,7 @@ class BgpPeer(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesruntime:BgpPeer"), pulumi.Alias(type_="azure-native:kubernetesruntime/v20240301:BgpPeer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesruntime/v20240301:BgpPeer"), pulumi.Alias(type_="azure-native:kubernetesruntime:BgpPeer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BgpPeer, __self__).__init__(
             'azure-native:kubernetesruntime/v20231001preview:BgpPeer',

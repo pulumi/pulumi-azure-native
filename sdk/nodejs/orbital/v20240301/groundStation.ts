@@ -141,7 +141,7 @@ export class GroundStation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:orbital:GroundStation" }, { type: "azure-native:orbital/v20240301preview:GroundStation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20240301preview:GroundStation" }, { type: "azure-native:orbital:GroundStation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GroundStation.__pulumiType, name, resourceInputs, opts);
     }

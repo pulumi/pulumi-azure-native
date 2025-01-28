@@ -123,7 +123,7 @@ export class TrafficControllerInterface extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20221001preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20230501preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20231101:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20240501preview:TrafficControllerInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20221001preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20230501preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20231101:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20240501preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking:TrafficControllerInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrafficControllerInterface.__pulumiType, name, resourceInputs, opts);
     }

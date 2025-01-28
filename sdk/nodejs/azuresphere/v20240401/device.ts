@@ -129,7 +129,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere:Device" }, { type: "azure-native:azuresphere/v20220901preview:Device" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azuresphere/v20220901preview:Device" }, { type: "azure-native:azuresphere:Device" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Device.__pulumiType, name, resourceInputs, opts);
     }

@@ -123,7 +123,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:ActivityLogAlert" }, { type: "azure-native:insights/v20170401:ActivityLogAlert" }, { type: "azure-native:insights/v20201001:ActivityLogAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20170401:ActivityLogAlert" }, { type: "azure-native:insights/v20201001:ActivityLogAlert" }, { type: "azure-native:insights:ActivityLogAlert" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActivityLogAlert.__pulumiType, name, resourceInputs, opts);
     }

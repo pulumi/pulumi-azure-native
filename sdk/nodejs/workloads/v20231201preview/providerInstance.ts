@@ -103,7 +103,7 @@ export class ProviderInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads:ProviderInstance" }, { type: "azure-native:workloads/v20211201preview:ProviderInstance" }, { type: "azure-native:workloads/v20221101preview:ProviderInstance" }, { type: "azure-native:workloads/v20230401:ProviderInstance" }, { type: "azure-native:workloads/v20231001preview:ProviderInstance" }, { type: "azure-native:workloads/v20240201preview:ProviderInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:ProviderInstance" }, { type: "azure-native:workloads/v20221101preview:ProviderInstance" }, { type: "azure-native:workloads/v20230401:ProviderInstance" }, { type: "azure-native:workloads/v20231001preview:ProviderInstance" }, { type: "azure-native:workloads/v20240201preview:ProviderInstance" }, { type: "azure-native:workloads:ProviderInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProviderInstance.__pulumiType, name, resourceInputs, opts);
     }

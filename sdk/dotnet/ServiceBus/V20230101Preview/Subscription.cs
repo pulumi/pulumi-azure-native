@@ -178,7 +178,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:Subscription" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Subscription" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Subscription" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:Subscription" },
@@ -189,6 +188,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:Subscription" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:Subscription" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:Subscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:Subscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

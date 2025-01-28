@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20240101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate" },
@@ -92,6 +91,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20240101Preview
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240401preview:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20240801preview:WebPubSubCustomCertificate" },
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20241001preview:WebPubSubCustomCertificate" },
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSubCustomCertificate" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

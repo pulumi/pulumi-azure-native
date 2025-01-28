@@ -82,7 +82,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:PrivateEndpointConnection" },
@@ -90,6 +89,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

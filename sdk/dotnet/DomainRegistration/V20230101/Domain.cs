@@ -158,7 +158,6 @@ namespace Pulumi.AzureNative.DomainRegistration.V20230101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:domainregistration:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20150401:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20180201:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20190801:Domain" },
@@ -174,6 +173,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20220901:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20231201:Domain" },
                     new global::Pulumi.Alias { Type = "azure-native:domainregistration/v20240401:Domain" },
+                    new global::Pulumi.Alias { Type = "azure-native:domainregistration:Domain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

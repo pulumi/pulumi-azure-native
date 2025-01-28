@@ -100,7 +100,6 @@ namespace Pulumi.AzureNative.Cdn.V20240501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:cdn:CustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20150601:CustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20160402:CustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20161002:CustomDomain" },
@@ -121,6 +120,7 @@ namespace Pulumi.AzureNative.Cdn.V20240501Preview
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240201:CustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240601preview:CustomDomain" },
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20240901:CustomDomain" },
+                    new global::Pulumi.Alias { Type = "azure-native:cdn:CustomDomain" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -106,7 +106,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Backend" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20160707:Backend" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20161010:Backend" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20170301:Backend" },
@@ -128,6 +127,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230901preview:Backend" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240501:Backend" },
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20240601preview:Backend" },
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement:Backend" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

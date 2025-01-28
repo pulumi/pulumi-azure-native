@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:servicebus:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20140901:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20150801:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20170401:NamespaceAuthorizationRule" },
@@ -81,6 +80,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20221001preview:NamespaceAuthorizationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:servicebus/v20240101:NamespaceAuthorizationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:servicebus:NamespaceAuthorizationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

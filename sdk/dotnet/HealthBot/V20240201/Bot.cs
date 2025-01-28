@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.HealthBot.V20240201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:healthbot:Bot" },
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201020:Bot" },
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201020preview:Bot" },
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20201208:Bot" },
@@ -97,6 +96,7 @@ namespace Pulumi.AzureNative.HealthBot.V20240201
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210824:Bot" },
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20220808:Bot" },
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20230501:Bot" },
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot:Bot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

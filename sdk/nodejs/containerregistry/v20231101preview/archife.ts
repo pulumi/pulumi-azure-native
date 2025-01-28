@@ -107,7 +107,7 @@ export class Archife extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Archife" }, { type: "azure-native:containerregistry/v20230601preview:Archife" }, { type: "azure-native:containerregistry/v20230801preview:Archife" }, { type: "azure-native:containerregistry/v20241101preview:Archife" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230601preview:Archife" }, { type: "azure-native:containerregistry/v20230801preview:Archife" }, { type: "azure-native:containerregistry/v20241101preview:Archife" }, { type: "azure-native:containerregistry:Archife" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Archife.__pulumiType, name, resourceInputs, opts);
     }

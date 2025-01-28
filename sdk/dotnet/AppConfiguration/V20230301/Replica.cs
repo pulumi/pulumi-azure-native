@@ -76,11 +76,11 @@ namespace Pulumi.AzureNative.AppConfiguration.V20230301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration:Replica" },
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20220301preview:Replica" },
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230801preview:Replica" },
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20230901preview:Replica" },
                     new global::Pulumi.Alias { Type = "azure-native:appconfiguration/v20240501:Replica" },
+                    new global::Pulumi.Alias { Type = "azure-native:appconfiguration:Replica" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

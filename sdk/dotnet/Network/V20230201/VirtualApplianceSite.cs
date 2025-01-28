@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.Network.V20230201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualApplianceSite" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualApplianceSite" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200601:VirtualApplianceSite" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualApplianceSite" },
@@ -99,6 +98,7 @@ namespace Pulumi.AzureNative.Network.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:VirtualApplianceSite" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:VirtualApplianceSite" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:VirtualApplianceSite" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:VirtualApplianceSite" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
