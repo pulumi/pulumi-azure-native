@@ -647,6 +647,8 @@ func TestCustomCreate(t *testing.T) {
 func TestCheckpointObject(t *testing.T) {
 	t.Parallel()
 
+	res, _ := setUpResourceWithRefAndProviderWithTypeLookup()
+
 	t.Run("stores inputs in v2", func(t *testing.T) {
 		t.Parallel()
 
@@ -655,7 +657,7 @@ func TestCheckpointObject(t *testing.T) {
 		}
 		outputs := map[string]any{}
 
-		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("2.0.0"))
+		checkpoint := checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("2.0.0"))
 		assert.Contains(t, checkpoint, resource.PropertyKey("__inputs"))
 	})
 
@@ -667,7 +669,7 @@ func TestCheckpointObject(t *testing.T) {
 		}
 		outputs := map[string]any{}
 
-		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("3.0.0"))
+		checkpoint := checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("3.0.0"))
 		assert.NotContains(t, checkpoint, resource.PropertyKey("__inputs"))
 	})
 
@@ -681,11 +683,11 @@ func TestCheckpointObject(t *testing.T) {
 			customresources.OriginalStateKey: resource.NewStringProperty("original state"),
 		}
 
-		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("2.0.0"))
+		checkpoint := checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("2.0.0"))
 		assert.Contains(t, checkpoint, resource.PropertyKey(customresources.OriginalStateKey))
 		assert.True(t, checkpoint.ContainsSecrets())
 
-		checkpoint = checkpointObjectVersioned(inputs, outputs, semver.MustParse("3.0.0"))
+		checkpoint = checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("3.0.0"))
 		assert.Contains(t, checkpoint, resource.PropertyKey(customresources.OriginalStateKey))
 		assert.True(t, checkpoint.ContainsSecrets())
 	})
