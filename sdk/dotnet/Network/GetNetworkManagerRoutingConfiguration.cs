@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves a network manager routing configuration.
-        /// Azure REST API version: 2024-03-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Task<GetNetworkManagerRoutingConfigurationResult> InvokeAsync(GetNetworkManagerRoutingConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerRoutingConfigurationResult>("azure-native:network:getNetworkManagerRoutingConfiguration", args ?? new GetNetworkManagerRoutingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager routing configuration.
-        /// Azure REST API version: 2024-03-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<GetNetworkManagerRoutingConfigurationResult> Invoke(GetNetworkManagerRoutingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerRoutingConfigurationResult>("azure-native:network:getNetworkManagerRoutingConfiguration", args ?? new GetNetworkManagerRoutingConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager routing configuration.
-        /// Azure REST API version: 2024-03-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2024-05-01.
+        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<GetNetworkManagerRoutingConfigurationResult> Invoke(GetNetworkManagerRoutingConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerRoutingConfigurationResult>("azure-native:network:getNetworkManagerRoutingConfiguration", args ?? new GetNetworkManagerRoutingConfigurationInvokeArgs(), options.WithDefaults());

@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Automation.Outputs
         /// </summary>
         public readonly Outputs.ContentHashResponse? ContentHash;
         /// <summary>
-        /// Gets or sets the uri of the runbook content.
+        /// Gets or sets the uri of content.
         /// </summary>
         public readonly string? Uri;
         /// <summary>

@@ -115,6 +115,43 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+    /// </summary>
+    [EnumType]
+    public readonly struct JsonMapperElement : IEquatable<JsonMapperElement>
+    {
+        private readonly string _value;
+
+        private JsonMapperElement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Read or write the json array from or to the body of the message.
+        /// </summary>
+        public static JsonMapperElement Body { get; } = new JsonMapperElement("body");
+        /// <summary>
+        /// Read or write the json array from or to the attributes of the message.
+        /// </summary>
+        public static JsonMapperElement Attributes { get; } = new JsonMapperElement("attributes");
+
+        public static bool operator ==(JsonMapperElement left, JsonMapperElement right) => left.Equals(right);
+        public static bool operator !=(JsonMapperElement left, JsonMapperElement right) => !left.Equals(right);
+
+        public static explicit operator string(JsonMapperElement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JsonMapperElement other && Equals(other);
+        public bool Equals(JsonMapperElement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of pipeline
     /// </summary>
     [EnumType]
@@ -130,7 +167,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Pipeline for logs telemetry.
         /// </summary>
-        public static PipelineType Logs { get; } = new PipelineType("logs");
+        public static PipelineType Logs { get; } = new PipelineType("Logs");
 
         public static bool operator ==(PipelineType left, PipelineType right) => left.Equals(right);
         public static bool operator !=(PipelineType left, PipelineType right) => !left.Equals(right);
@@ -173,37 +210,6 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProcessorType other && Equals(other);
         public bool Equals(ProcessorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
-    /// </summary>
-    [EnumType]
-    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
-    {
-        private readonly string _value;
-
-        private PublicNetworkAccess(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
-        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
-
-        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
-        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
-
-        public static explicit operator string(PublicNetworkAccess value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
-        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

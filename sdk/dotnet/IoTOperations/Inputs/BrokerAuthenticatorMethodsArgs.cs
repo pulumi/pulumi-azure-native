@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         /// <summary>
         /// Custom authentication configuration.
         /// </summary>
-        [Input("custom")]
-        public Input<Inputs.BrokerAuthenticatorMethodCustomArgs>? Custom { get; set; }
+        [Input("customSettings")]
+        public Input<Inputs.BrokerAuthenticatorMethodCustomArgs>? CustomSettings { get; set; }
 
         /// <summary>
         /// Custom authentication configuration.
@@ -30,14 +30,14 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         /// <summary>
         /// ServiceAccountToken authentication configuration.
         /// </summary>
-        [Input("serviceAccountToken")]
-        public Input<Inputs.BrokerAuthenticatorMethodSatArgs>? ServiceAccountToken { get; set; }
+        [Input("serviceAccountTokenSettings")]
+        public Input<Inputs.BrokerAuthenticatorMethodSatArgs>? ServiceAccountTokenSettings { get; set; }
 
         /// <summary>
         /// X.509 authentication configuration.
         /// </summary>
-        [Input("x509Credentials")]
-        public Input<Inputs.BrokerAuthenticatorMethodX509Args>? X509Credentials { get; set; }
+        [Input("x509Settings")]
+        public Input<Inputs.BrokerAuthenticatorMethodX509Args>? X509Settings { get; set; }
 
         public BrokerAuthenticatorMethodsArgs()
         {

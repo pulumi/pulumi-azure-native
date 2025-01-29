@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
 {
     /// <summary>
     /// Describes an identity resource.
-    /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2018-11-30.
+    /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
     /// 
     /// Other available API versions: 2023-07-31-preview.
     /// </summary>

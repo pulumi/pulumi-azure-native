@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class DaprComponentResiliencyPolicyConfigurationResponse
     {
         /// <summary>
+        /// The optional circuit breaker policy configuration
+        /// </summary>
+        public readonly Outputs.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationResponse? CircuitBreakerPolicy;
+        /// <summary>
         /// The optional HTTP retry policy configuration
         /// </summary>
         public readonly Outputs.DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse? HttpRetryPolicy;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private DaprComponentResiliencyPolicyConfigurationResponse(
+            Outputs.DaprComponentResiliencyPolicyCircuitBreakerPolicyConfigurationResponse? circuitBreakerPolicy,
+
             Outputs.DaprComponentResiliencyPolicyHttpRetryPolicyConfigurationResponse? httpRetryPolicy,
 
             Outputs.DaprComponentResiliencyPolicyTimeoutPolicyConfigurationResponse? timeoutPolicy)
         {
+            CircuitBreakerPolicy = circuitBreakerPolicy;
             HttpRetryPolicy = httpRetryPolicy;
             TimeoutPolicy = timeoutPolicy;
         }

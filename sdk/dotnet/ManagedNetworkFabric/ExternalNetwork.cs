@@ -10,16 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// Defines the ExternalNetwork item.
-    /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
+    /// Defines the External Network resource.
+    /// Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
     /// 
-    /// Other available API versions: 2023-06-15.
+    /// Other available API versions: 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:ExternalNetwork")]
     public partial class ExternalNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// AdministrativeState of the externalNetwork. Example: Enabled | Disabled.
+        /// Administrative state of the resource.
         /// </summary>
         [Output("administrativeState")]
         public Output<string> AdministrativeState { get; private set; } = null!;
@@ -31,19 +31,31 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
-        /// List of resources the externalNetwork is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        /// Configuration state of the resource.
         /// </summary>
-        [Output("disabledOnResources")]
-        public Output<ImmutableArray<string>> DisabledOnResources { get; private set; } = null!;
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
 
         /// <summary>
-        /// ARM resource ID of exportRoutePolicy.
+        /// Export Route Policy either IPv4 or IPv6.
+        /// </summary>
+        [Output("exportRoutePolicy")]
+        public Output<Outputs.ExportRoutePolicyResponse?> ExportRoutePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         /// </summary>
         [Output("exportRoutePolicyId")]
         public Output<string?> ExportRoutePolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// ARM resource ID of importRoutePolicy.
+        /// Import Route Policy either IPv4 or IPv6.
+        /// </summary>
+        [Output("importRoutePolicy")]
+        public Output<Outputs.ImportRoutePolicyResponse?> ImportRoutePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         /// </summary>
         [Output("importRoutePolicyId")]
         public Output<string?> ImportRoutePolicyId { get; private set; } = null!;
@@ -55,10 +67,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the networkToNetworkInterconnectId of the resource.
+        /// ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
         /// </summary>
         [Output("networkToNetworkInterconnectId")]
-        public Output<string> NetworkToNetworkInterconnectId { get; private set; } = null!;
+        public Output<string?> NetworkToNetworkInterconnectId { get; private set; } = null!;
 
         /// <summary>
         /// option A properties object
@@ -70,7 +82,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// option B properties object
         /// </summary>
         [Output("optionBProperties")]
-        public Output<Outputs.OptionBPropertiesResponse?> OptionBProperties { get; private set; } = null!;
+        public Output<Outputs.L3OptionBPropertiesResponse?> OptionBProperties { get; private set; } = null!;
 
         /// <summary>
         /// Peering option list.
@@ -79,7 +91,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> PeeringOption { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -153,28 +165,46 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Annotation { get; set; }
 
         /// <summary>
-        /// ARM resource ID of exportRoutePolicy.
+        /// Export Route Policy either IPv4 or IPv6.
+        /// </summary>
+        [Input("exportRoutePolicy")]
+        public Input<Inputs.ExportRoutePolicyArgs>? ExportRoutePolicy { get; set; }
+
+        /// <summary>
+        /// ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         /// </summary>
         [Input("exportRoutePolicyId")]
         public Input<string>? ExportRoutePolicyId { get; set; }
 
         /// <summary>
-        /// Name of the ExternalNetwork
+        /// Name of the External Network.
         /// </summary>
         [Input("externalNetworkName")]
         public Input<string>? ExternalNetworkName { get; set; }
 
         /// <summary>
-        /// ARM resource ID of importRoutePolicy.
+        /// Import Route Policy either IPv4 or IPv6.
+        /// </summary>
+        [Input("importRoutePolicy")]
+        public Input<Inputs.ImportRoutePolicyArgs>? ImportRoutePolicy { get; set; }
+
+        /// <summary>
+        /// ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         /// </summary>
         [Input("importRoutePolicyId")]
         public Input<string>? ImportRoutePolicyId { get; set; }
 
         /// <summary>
-        /// Name of the L3IsolationDomain
+        /// Name of the L3 Isolation Domain.
         /// </summary>
         [Input("l3IsolationDomainName", required: true)]
         public Input<string> L3IsolationDomainName { get; set; } = null!;
+
+        /// <summary>
+        /// ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
+        /// </summary>
+        [Input("networkToNetworkInterconnectId")]
+        public Input<string>? NetworkToNetworkInterconnectId { get; set; }
 
         /// <summary>
         /// option A properties object
@@ -186,7 +216,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// option B properties object
         /// </summary>
         [Input("optionBProperties")]
-        public Input<Inputs.OptionBPropertiesArgs>? OptionBProperties { get; set; }
+        public Input<Inputs.L3OptionBPropertiesArgs>? OptionBProperties { get; set; }
 
         /// <summary>
         /// Peering option list.

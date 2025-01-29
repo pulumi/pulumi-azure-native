@@ -16,10 +16,28 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The cluster load balancer profile.
+        /// </summary>
+        [Input("loadBalancerProfile")]
+        public Input<Inputs.LoadBalancerProfileArgs>? LoadBalancerProfile { get; set; }
+
+        /// <summary>
+        /// The OutboundType used for egress traffic.
+        /// </summary>
+        [Input("outboundType")]
+        public InputUnion<string, Pulumi.AzureNative.RedHatOpenShift.OutboundType>? OutboundType { get; set; }
+
+        /// <summary>
         /// The CIDR used for OpenShift/Kubernetes Pods.
         /// </summary>
         [Input("podCidr")]
         public Input<string>? PodCidr { get; set; }
+
+        /// <summary>
+        /// Specifies whether subnets are pre-attached with an NSG
+        /// </summary>
+        [Input("preconfiguredNSG")]
+        public InputUnion<string, Pulumi.AzureNative.RedHatOpenShift.PreconfiguredNSG>? PreconfiguredNSG { get; set; }
 
         /// <summary>
         /// The CIDR used for OpenShift/Kubernetes Services.

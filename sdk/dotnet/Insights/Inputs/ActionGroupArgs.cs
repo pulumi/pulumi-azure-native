@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.Insights.Inputs
         [Input("actionGroupId", required: true)]
         public Input<string> ActionGroupId { get; set; } = null!;
 
+        [Input("actionProperties")]
+        private InputMap<string>? _actionProperties;
+
+        /// <summary>
+        /// Predefined list of properties and configuration items for the action group.
+        /// </summary>
+        public InputMap<string> ActionProperties
+        {
+            get => _actionProperties ?? (_actionProperties = new InputMap<string>());
+            set => _actionProperties = value;
+        }
+
         [Input("webhookProperties")]
         private InputMap<string>? _webhookProperties;
 

@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2023-05-01, 2024-06-01-preview.
         /// </summary>
         public static Task<GetAFDCustomDomainResult> InvokeAsync(GetAFDCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDCustomDomainResult>("azure-native:cdn:getAFDCustomDomain", args ?? new GetAFDCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2023-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetAFDCustomDomainResult> Invoke(GetAFDCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDCustomDomainResult>("azure-native:cdn:getAFDCustomDomain", args ?? new GetAFDCustomDomainInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-        /// Azure REST API version: 2023-05-01.
+        /// Azure REST API version: 2024-09-01.
         /// 
-        /// Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Other available API versions: 2023-05-01, 2024-06-01-preview.
         /// </summary>
         public static Output<GetAFDCustomDomainResult> Invoke(GetAFDCustomDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDCustomDomainResult>("azure-native:cdn:getAFDCustomDomain", args ?? new GetAFDCustomDomainInvokeArgs(), options.WithDefaults());

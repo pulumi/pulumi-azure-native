@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class VirtualMachineScaleSetNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether the Auxiliary mode is enabled for the Network Interface resource.
+        /// </summary>
+        [Input("auxiliaryMode")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.NetworkInterfaceAuxiliaryMode>? AuxiliaryMode { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Auxiliary sku is enabled for the Network Interface resource.
+        /// </summary>
+        [Input("auxiliarySku")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.NetworkInterfaceAuxiliarySku>? AuxiliarySku { get; set; }
+
+        /// <summary>
         /// Specify what happens to the network interface when the VM is deleted
         /// </summary>
         [Input("deleteOption")]

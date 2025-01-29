@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// A single Redis item in List or Get Operation.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01.
+    /// Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// 
-    /// Other available API versions: 2020-06-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview, 2024-11-01.
+    /// Other available API versions: 2020-06-01, 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:Redis")]
     public partial class Redis : global::Pulumi.CustomResource
@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("accessKeys")]
         public Output<Outputs.RedisAccessKeysResponse> AccessKeys { get; private set; } = null!;
+
+        /// <summary>
+        /// Authentication to Redis through access keys is disabled when set as true. Default value is false.
+        /// </summary>
+        [Output("disableAccessKeyAuthentication")]
+        public Output<bool?> DisableAccessKeyAuthentication { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the non-ssl Redis server port (6379) is enabled.
@@ -91,13 +97,13 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
+        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         /// </summary>
         [Output("redisConfiguration")]
         public Output<Outputs.RedisCommonPropertiesResponseRedisConfiguration?> RedisConfiguration { get; private set; } = null!;
@@ -167,6 +173,18 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
+        /// </summary>
+        [Output("updateChannel")]
+        public Output<string?> UpdateChannel { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
+        /// </summary>
+        [Output("zonalAllocationPolicy")]
+        public Output<string?> ZonalAllocationPolicy { get; private set; } = null!;
 
         /// <summary>
         /// A list of availability zones denoting where the resource needs to come from.
@@ -240,6 +258,12 @@ namespace Pulumi.AzureNative.Cache
     public sealed class RedisArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authentication to Redis through access keys is disabled when set as true. Default value is false.
+        /// </summary>
+        [Input("disableAccessKeyAuthentication")]
+        public Input<bool>? DisableAccessKeyAuthentication { get; set; }
+
+        /// <summary>
         /// Specifies whether the non-ssl Redis server port (6379) is enabled.
         /// </summary>
         [Input("enableNonSslPort")]
@@ -270,13 +294,13 @@ namespace Pulumi.AzureNative.Cache
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
+        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.Cache.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         /// </summary>
         [Input("redisConfiguration")]
         public Input<Inputs.RedisCommonPropertiesRedisConfigurationArgs>? RedisConfiguration { get; set; }
@@ -300,7 +324,7 @@ namespace Pulumi.AzureNative.Cache
         public Input<int>? ReplicasPerPrimary { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -353,6 +377,18 @@ namespace Pulumi.AzureNative.Cache
             set => _tenantSettings = value;
         }
 
+        /// <summary>
+        /// Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
+        /// </summary>
+        [Input("updateChannel")]
+        public InputUnion<string, Pulumi.AzureNative.Cache.UpdateChannel>? UpdateChannel { get; set; }
+
+        /// <summary>
+        /// Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
+        /// </summary>
+        [Input("zonalAllocationPolicy")]
+        public InputUnion<string, Pulumi.AzureNative.Cache.ZonalAllocationPolicy>? ZonalAllocationPolicy { get; set; }
+
         [Input("zones")]
         private InputList<string>? _zones;
 
@@ -367,6 +403,7 @@ namespace Pulumi.AzureNative.Cache
 
         public RedisArgs()
         {
+            DisableAccessKeyAuthentication = false;
             EnableNonSslPort = false;
             PublicNetworkAccess = "Enabled";
         }

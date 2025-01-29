@@ -156,6 +156,7 @@ namespace Pulumi.AzureNative.Insights
         public static ConditionOperator GreaterThanOrEqual { get; } = new ConditionOperator("GreaterThanOrEqual");
         public static ConditionOperator LessThan { get; } = new ConditionOperator("LessThan");
         public static ConditionOperator LessThanOrEqual { get; } = new ConditionOperator("LessThanOrEqual");
+        public static ConditionOperator GreaterOrLessThan { get; } = new ConditionOperator("GreaterOrLessThan");
 
         public static bool operator ==(ConditionOperator left, ConditionOperator right) => left.Equals(right);
         public static bool operator !=(ConditionOperator left, ConditionOperator right) => !left.Equals(right);
@@ -392,6 +393,36 @@ namespace Pulumi.AzureNative.Insights
     }
 
     /// <summary>
+    /// The incident management service type
+    /// </summary>
+    [EnumType]
+    public readonly struct IncidentManagementService : IEquatable<IncidentManagementService>
+    {
+        private readonly string _value;
+
+        private IncidentManagementService(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IncidentManagementService Icm { get; } = new IncidentManagementService("Icm");
+
+        public static bool operator ==(IncidentManagementService left, IncidentManagementService right) => left.Equals(right);
+        public static bool operator !=(IncidentManagementService left, IncidentManagementService right) => !left.Equals(right);
+
+        public static explicit operator string(IncidentManagementService value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IncidentManagementService other && Equals(other);
+        public bool Equals(IncidentManagementService other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the flow of the ingestion.
     /// </summary>
     [EnumType]
@@ -501,6 +532,7 @@ namespace Pulumi.AzureNative.Insights
         }
 
         public static Kind LogAlert { get; } = new Kind("LogAlert");
+        public static Kind EventLogAlert { get; } = new Kind("EventLogAlert");
         public static Kind LogToMetric { get; } = new Kind("LogToMetric");
 
         public static bool operator ==(Kind left, Kind right) => left.Equals(right);
@@ -511,6 +543,38 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Kind other && Equals(other);
         public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the setting. 
+    /// Must be part of the list of supported settings
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownAgentSettingName : IEquatable<KnownAgentSettingName>
+    {
+        private readonly string _value;
+
+        private KnownAgentSettingName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownAgentSettingName MaxDiskQuotaInMB { get; } = new KnownAgentSettingName("MaxDiskQuotaInMB");
+        public static KnownAgentSettingName UseTimeReceivedForForwardedEvents { get; } = new KnownAgentSettingName("UseTimeReceivedForForwardedEvents");
+
+        public static bool operator ==(KnownAgentSettingName left, KnownAgentSettingName right) => left.Equals(right);
+        public static bool operator !=(KnownAgentSettingName left, KnownAgentSettingName right) => !left.Equals(right);
+
+        public static explicit operator string(KnownAgentSettingName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownAgentSettingName other && Equals(other);
+        public bool Equals(KnownAgentSettingName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -729,6 +793,7 @@ namespace Pulumi.AzureNative.Insights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static KnownLogFilesDataSourceFormat Json { get; } = new KnownLogFilesDataSourceFormat("json");
         public static KnownLogFilesDataSourceFormat Text { get; } = new KnownLogFilesDataSourceFormat("text");
 
         public static bool operator ==(KnownLogFilesDataSourceFormat left, KnownLogFilesDataSourceFormat right) => left.Equals(right);
@@ -833,6 +898,37 @@ namespace Pulumi.AzureNative.Insights
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of lookup to perform on the blob
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownStorageBlobLookupType : IEquatable<KnownStorageBlobLookupType>
+    {
+        private readonly string _value;
+
+        private KnownStorageBlobLookupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownStorageBlobLookupType String { get; } = new KnownStorageBlobLookupType("String");
+        public static KnownStorageBlobLookupType Cidr { get; } = new KnownStorageBlobLookupType("Cidr");
+
+        public static bool operator ==(KnownStorageBlobLookupType left, KnownStorageBlobLookupType right) => left.Equals(right);
+        public static bool operator !=(KnownStorageBlobLookupType left, KnownStorageBlobLookupType right) => !left.Equals(right);
+
+        public static explicit operator string(KnownStorageBlobLookupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownStorageBlobLookupType other && Equals(other);
+        public bool Equals(KnownStorageBlobLookupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct KnownSyslogDataSourceFacilityNames : IEquatable<KnownSyslogDataSourceFacilityNames>
     {
@@ -843,6 +939,7 @@ namespace Pulumi.AzureNative.Insights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static KnownSyslogDataSourceFacilityNames Asterisk { get; } = new KnownSyslogDataSourceFacilityNames("*");
         public static KnownSyslogDataSourceFacilityNames Alert { get; } = new KnownSyslogDataSourceFacilityNames("alert");
         public static KnownSyslogDataSourceFacilityNames Audit { get; } = new KnownSyslogDataSourceFacilityNames("audit");
         public static KnownSyslogDataSourceFacilityNames Auth { get; } = new KnownSyslogDataSourceFacilityNames("auth");
@@ -852,6 +949,14 @@ namespace Pulumi.AzureNative.Insights
         public static KnownSyslogDataSourceFacilityNames Daemon { get; } = new KnownSyslogDataSourceFacilityNames("daemon");
         public static KnownSyslogDataSourceFacilityNames Ftp { get; } = new KnownSyslogDataSourceFacilityNames("ftp");
         public static KnownSyslogDataSourceFacilityNames Kern { get; } = new KnownSyslogDataSourceFacilityNames("kern");
+        public static KnownSyslogDataSourceFacilityNames Local0 { get; } = new KnownSyslogDataSourceFacilityNames("local0");
+        public static KnownSyslogDataSourceFacilityNames Local1 { get; } = new KnownSyslogDataSourceFacilityNames("local1");
+        public static KnownSyslogDataSourceFacilityNames Local2 { get; } = new KnownSyslogDataSourceFacilityNames("local2");
+        public static KnownSyslogDataSourceFacilityNames Local3 { get; } = new KnownSyslogDataSourceFacilityNames("local3");
+        public static KnownSyslogDataSourceFacilityNames Local4 { get; } = new KnownSyslogDataSourceFacilityNames("local4");
+        public static KnownSyslogDataSourceFacilityNames Local5 { get; } = new KnownSyslogDataSourceFacilityNames("local5");
+        public static KnownSyslogDataSourceFacilityNames Local6 { get; } = new KnownSyslogDataSourceFacilityNames("local6");
+        public static KnownSyslogDataSourceFacilityNames Local7 { get; } = new KnownSyslogDataSourceFacilityNames("local7");
         public static KnownSyslogDataSourceFacilityNames Lpr { get; } = new KnownSyslogDataSourceFacilityNames("lpr");
         public static KnownSyslogDataSourceFacilityNames Mail { get; } = new KnownSyslogDataSourceFacilityNames("mail");
         public static KnownSyslogDataSourceFacilityNames Mark { get; } = new KnownSyslogDataSourceFacilityNames("mark");
@@ -861,15 +966,6 @@ namespace Pulumi.AzureNative.Insights
         public static KnownSyslogDataSourceFacilityNames Syslog { get; } = new KnownSyslogDataSourceFacilityNames("syslog");
         public static KnownSyslogDataSourceFacilityNames User { get; } = new KnownSyslogDataSourceFacilityNames("user");
         public static KnownSyslogDataSourceFacilityNames Uucp { get; } = new KnownSyslogDataSourceFacilityNames("uucp");
-        public static KnownSyslogDataSourceFacilityNames Local0 { get; } = new KnownSyslogDataSourceFacilityNames("local0");
-        public static KnownSyslogDataSourceFacilityNames Local1 { get; } = new KnownSyslogDataSourceFacilityNames("local1");
-        public static KnownSyslogDataSourceFacilityNames Local2 { get; } = new KnownSyslogDataSourceFacilityNames("local2");
-        public static KnownSyslogDataSourceFacilityNames Local3 { get; } = new KnownSyslogDataSourceFacilityNames("local3");
-        public static KnownSyslogDataSourceFacilityNames Local4 { get; } = new KnownSyslogDataSourceFacilityNames("local4");
-        public static KnownSyslogDataSourceFacilityNames Local5 { get; } = new KnownSyslogDataSourceFacilityNames("local5");
-        public static KnownSyslogDataSourceFacilityNames Local6 { get; } = new KnownSyslogDataSourceFacilityNames("local6");
-        public static KnownSyslogDataSourceFacilityNames Local7 { get; } = new KnownSyslogDataSourceFacilityNames("local7");
-        public static KnownSyslogDataSourceFacilityNames Asterisk { get; } = new KnownSyslogDataSourceFacilityNames("*");
 
         public static bool operator ==(KnownSyslogDataSourceFacilityNames left, KnownSyslogDataSourceFacilityNames right) => left.Equals(right);
         public static bool operator !=(KnownSyslogDataSourceFacilityNames left, KnownSyslogDataSourceFacilityNames right) => !left.Equals(right);
@@ -969,6 +1065,35 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KnownWindowsEventLogDataSourceStreams other && Equals(other);
         public bool Equals(KnownWindowsEventLogDataSourceStreams other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnownWindowsFirewallLogsDataSourceProfileFilter : IEquatable<KnownWindowsFirewallLogsDataSourceProfileFilter>
+    {
+        private readonly string _value;
+
+        private KnownWindowsFirewallLogsDataSourceProfileFilter(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownWindowsFirewallLogsDataSourceProfileFilter Domain { get; } = new KnownWindowsFirewallLogsDataSourceProfileFilter("Domain");
+        public static KnownWindowsFirewallLogsDataSourceProfileFilter Private { get; } = new KnownWindowsFirewallLogsDataSourceProfileFilter("Private");
+        public static KnownWindowsFirewallLogsDataSourceProfileFilter Public { get; } = new KnownWindowsFirewallLogsDataSourceProfileFilter("Public");
+
+        public static bool operator ==(KnownWindowsFirewallLogsDataSourceProfileFilter left, KnownWindowsFirewallLogsDataSourceProfileFilter right) => left.Equals(right);
+        public static bool operator !=(KnownWindowsFirewallLogsDataSourceProfileFilter left, KnownWindowsFirewallLogsDataSourceProfileFilter right) => !left.Equals(right);
+
+        public static explicit operator string(KnownWindowsFirewallLogsDataSourceProfileFilter value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownWindowsFirewallLogsDataSourceProfileFilter other && Equals(other);
+        public bool Equals(KnownWindowsFirewallLogsDataSourceProfileFilter other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1396,6 +1521,37 @@ namespace Pulumi.AzureNative.Insights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScaleType other && Equals(other);
         public bool Equals(ScaleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of scoped Azure monitor resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScopedResourceKind : IEquatable<ScopedResourceKind>
+    {
+        private readonly string _value;
+
+        private ScopedResourceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScopedResourceKind Resource { get; } = new ScopedResourceKind("Resource");
+        public static ScopedResourceKind Metrics { get; } = new ScopedResourceKind("Metrics");
+
+        public static bool operator ==(ScopedResourceKind left, ScopedResourceKind right) => left.Equals(right);
+        public static bool operator !=(ScopedResourceKind left, ScopedResourceKind right) => !left.Equals(right);
+
+        public static explicit operator string(ScopedResourceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScopedResourceKind other && Equals(other);
+        public bool Equals(ScopedResourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

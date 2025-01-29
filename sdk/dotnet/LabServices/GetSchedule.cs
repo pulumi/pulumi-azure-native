@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Returns the properties of a lab Schedule.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2023-06-07.
+        /// Other available API versions: 2022-08-01.
         /// </summary>
         public static Task<GetScheduleResult> InvokeAsync(GetScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduleResult>("azure-native:labservices:getSchedule", args ?? new GetScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab Schedule.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2023-06-07.
+        /// Other available API versions: 2022-08-01.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab Schedule.
-        /// Azure REST API version: 2022-08-01.
+        /// Azure REST API version: 2023-06-07.
         /// 
-        /// Other available API versions: 2023-06-07.
+        /// Other available API versions: 2022-08-01.
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("azure-native:labservices:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
@@ -117,6 +117,10 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public readonly Outputs.RecurrencePatternResponse? RecurrencePattern;
         /// <summary>
+        /// Error details of last operation done on schedule.
+        /// </summary>
+        public readonly Outputs.ResourceOperationErrorResponse ResourceOperationError;
+        /// <summary>
         /// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
         /// </summary>
         public readonly string? StartAt;
@@ -149,6 +153,8 @@ namespace Pulumi.AzureNative.LabServices
 
             Outputs.RecurrencePatternResponse? recurrencePattern,
 
+            Outputs.ResourceOperationErrorResponse resourceOperationError,
+
             string? startAt,
 
             string stopAt,
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNative.LabServices
             Notes = notes;
             ProvisioningState = provisioningState;
             RecurrencePattern = recurrencePattern;
+            ResourceOperationError = resourceOperationError;
             StartAt = startAt;
             StopAt = stopAt;
             SystemData = systemData;

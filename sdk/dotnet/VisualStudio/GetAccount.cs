@@ -13,21 +13,27 @@ namespace Pulumi.AzureNative.VisualStudio
     {
         /// <summary>
         /// Gets the Visual Studio Team Services account resource details.
-        /// Azure REST API version: 2017-11-01-preview.
+        /// Azure REST API version: 2014-04-01-preview.
+        /// 
+        /// Other available API versions: 2017-11-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:visualstudio:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Visual Studio Team Services account resource details.
-        /// Azure REST API version: 2017-11-01-preview.
+        /// Azure REST API version: 2014-04-01-preview.
+        /// 
+        /// Other available API versions: 2017-11-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:visualstudio:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Visual Studio Team Services account resource details.
-        /// Azure REST API version: 2017-11-01-preview.
+        /// Azure REST API version: 2014-04-01-preview.
+        /// 
+        /// Other available API versions: 2017-11-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:visualstudio:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());

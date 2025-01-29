@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Web.Inputs
         public Input<string>? MountPath { get; set; }
 
         /// <summary>
+        /// Mounting protocol to use for the storage account.
+        /// </summary>
+        [Input("protocol")]
+        public InputUnion<string, Pulumi.AzureNative.Web.AzureStorageProtocol>? Protocol { get; set; }
+
+        /// <summary>
         /// Name of the file share (container name, for Blob storage).
         /// </summary>
         [Input("shareName")]

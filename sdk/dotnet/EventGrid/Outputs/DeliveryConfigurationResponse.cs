@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         /// </summary>
         public readonly string? DeliveryMode;
         /// <summary>
+        /// This property should be populated when deliveryMode is push and represents information about the push subscription.
+        /// </summary>
+        public readonly Outputs.PushInfoResponse? Push;
+        /// <summary>
         /// This property should be populated when deliveryMode is queue and represents information about the queue subscription.
         /// </summary>
         public readonly Outputs.QueueInfoResponse? Queue;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         private DeliveryConfigurationResponse(
             string? deliveryMode,
 
+            Outputs.PushInfoResponse? push,
+
             Outputs.QueueInfoResponse? queue)
         {
             DeliveryMode = deliveryMode;
+            Push = push;
             Queue = queue;
         }
     }

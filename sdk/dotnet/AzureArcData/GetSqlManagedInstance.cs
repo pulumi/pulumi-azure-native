@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.AzureArcData
     {
         /// <summary>
         /// Retrieves a SQL Managed Instance resource
-        /// Azure REST API version: 2023-01-15-preview.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2023-01-15-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetSqlManagedInstanceResult> InvokeAsync(GetSqlManagedInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure-native:azurearcdata:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a SQL Managed Instance resource
-        /// Azure REST API version: 2023-01-15-preview.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2023-01-15-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetSqlManagedInstanceResult> Invoke(GetSqlManagedInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlManagedInstanceResult>("azure-native:azurearcdata:getSqlManagedInstance", args ?? new GetSqlManagedInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a SQL Managed Instance resource
-        /// Azure REST API version: 2023-01-15-preview.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2023-01-15-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetSqlManagedInstanceResult> Invoke(GetSqlManagedInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlManagedInstanceResult>("azure-native:azurearcdata:getSqlManagedInstance", args ?? new GetSqlManagedInstanceInvokeArgs(), options.WithDefaults());

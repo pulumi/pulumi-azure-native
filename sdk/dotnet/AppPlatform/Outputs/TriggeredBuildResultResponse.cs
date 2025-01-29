@@ -20,11 +20,47 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// The unique build id of this build result
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The container image of this build result
+        /// </summary>
+        public readonly string? Image;
+        /// <summary>
+        /// The last transition reason of this build result
+        /// </summary>
+        public readonly string? LastTransitionReason;
+        /// <summary>
+        /// The last transition status of this build result
+        /// </summary>
+        public readonly string? LastTransitionStatus;
+        /// <summary>
+        /// The last transition time of this build result
+        /// </summary>
+        public readonly string? LastTransitionTime;
+        /// <summary>
+        /// The provisioning state of this build result
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
-        private TriggeredBuildResultResponse(string? id)
+        private TriggeredBuildResultResponse(
+            string? id,
+
+            string? image,
+
+            string? lastTransitionReason,
+
+            string? lastTransitionStatus,
+
+            string? lastTransitionTime,
+
+            string provisioningState)
         {
             Id = id;
+            Image = image;
+            LastTransitionReason = lastTransitionReason;
+            LastTransitionStatus = lastTransitionStatus;
+            LastTransitionTime = lastTransitionTime;
+            ProvisioningState = provisioningState;
         }
     }
 }

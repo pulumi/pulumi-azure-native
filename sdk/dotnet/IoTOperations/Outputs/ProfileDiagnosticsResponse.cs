@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlowProfile Diagnostics properties
+    /// DataflowProfile Diagnostics properties
     /// </summary>
     [OutputType]
     public sealed class ProfileDiagnosticsResponse

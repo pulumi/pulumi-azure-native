@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
     public sealed class SqlDatabaseResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enum to indicate the mode of resource creation.
+        /// </summary>
+        [Input("createMode")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.CreateMode>? CreateMode { get; set; }
+
+        /// <summary>
         /// Name of the Cosmos DB SQL database
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Parameters to indicate the information about the restore
+        /// </summary>
+        [Input("restoreParameters")]
+        public Input<Inputs.ResourceRestoreParametersArgs>? RestoreParameters { get; set; }
 
         public SqlDatabaseResourceArgs()
         {

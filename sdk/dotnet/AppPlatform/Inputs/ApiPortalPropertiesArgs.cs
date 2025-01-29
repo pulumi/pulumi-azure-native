@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// </summary>
     public sealed class ApiPortalPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.
+        /// </summary>
+        [Input("apiTryOutEnabledState")]
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.ApiPortalApiTryOutEnabledState>? ApiTryOutEnabledState { get; set; }
+
         [Input("gatewayIds")]
         private InputList<string>? _gatewayIds;
 
@@ -59,6 +65,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
 
         public ApiPortalPropertiesArgs()
         {
+            ApiTryOutEnabledState = "Enabled";
             HttpsOnly = false;
             Public = false;
         }

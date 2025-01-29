@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
         /// <summary>
+        /// Enum to indicate the mode of resource creation.
+        /// </summary>
+        [Input("createMode")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.CreateMode>? CreateMode { get; set; }
+
+        /// <summary>
         /// Name of the Cosmos DB MongoDB collection
         /// </summary>
         [Input("id", required: true)]
@@ -38,6 +44,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
             get => _indexes ?? (_indexes = new InputList<Inputs.MongoIndexArgs>());
             set => _indexes = value;
         }
+
+        /// <summary>
+        /// Parameters to indicate the information about the restore
+        /// </summary>
+        [Input("restoreParameters")]
+        public Input<Inputs.ResourceRestoreParametersArgs>? RestoreParameters { get; set; }
 
         [Input("shardKey")]
         private InputMap<string>? _shardKey;

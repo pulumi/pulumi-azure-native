@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
         public StorageArgs()
         {
             AutoGrow = "Disabled";
-            AutoIoScaling = "Disabled";
+            AutoIoScaling = "Enabled";
             LogOnDisk = "Disabled";
         }
         public static new StorageArgs Empty => new StorageArgs();

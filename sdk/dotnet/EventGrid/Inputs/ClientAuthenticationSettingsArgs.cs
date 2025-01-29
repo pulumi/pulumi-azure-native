@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
             set => _alternativeAuthenticationNameSources = value;
         }
 
+        /// <summary>
+        /// Custom JWT authentication settings for namespace resource.
+        /// </summary>
+        [Input("customJwtAuthentication")]
+        public Input<Inputs.CustomJwtAuthenticationSettingsArgs>? CustomJwtAuthentication { get; set; }
+
         public ClientAuthenticationSettingsArgs()
         {
         }

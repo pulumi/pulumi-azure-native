@@ -22,7 +22,13 @@ namespace Pulumi.AzureNative.Resources.Inputs
         public Input<Inputs.KeyVaultParameterReferenceArgs>? Reference { get; set; }
 
         /// <summary>
-        /// Input value to the parameter .
+        /// Type of the value.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Input value to the parameter.
         /// </summary>
         [Input("value")]
         public Input<object>? Value { get; set; }

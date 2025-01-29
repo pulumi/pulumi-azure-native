@@ -21,10 +21,10 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         }
 
         [Input("static")]
-        private InputList<Inputs.StaticRoutingEnrichmentArgs>? _static;
-        public InputList<Inputs.StaticRoutingEnrichmentArgs> Static
+        private InputList<Inputs.StaticStringRoutingEnrichmentArgs>? _static;
+        public InputList<Inputs.StaticStringRoutingEnrichmentArgs> Static
         {
-            get => _static ?? (_static = new InputList<Inputs.StaticRoutingEnrichmentArgs>());
+            get => _static ?? (_static = new InputList<Inputs.StaticStringRoutingEnrichmentArgs>());
             set => _static = value;
         }
 

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// An API collection as represented by Defender for APIs.
-    /// Azure REST API version: 2022-11-20-preview.
+    /// Azure REST API version: 2022-11-20-preview. Prior API version in Azure Native 2.x: 2022-11-20-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:APICollection")]
     public partial class APICollection : global::Pulumi.CustomResource

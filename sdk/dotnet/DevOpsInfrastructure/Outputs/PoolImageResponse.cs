@@ -27,7 +27,11 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
         /// <summary>
         /// The resource id of the image.
         /// </summary>
-        public readonly string ResourceId;
+        public readonly string? ResourceId;
+        /// <summary>
+        /// The image to use from a well-known set of images made available to customers.
+        /// </summary>
+        public readonly string? WellKnownImageName;
 
         [OutputConstructor]
         private PoolImageResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
 
             string? buffer,
 
-            string resourceId)
+            string? resourceId,
+
+            string? wellKnownImageName)
         {
             Aliases = aliases;
             Buffer = buffer;
             ResourceId = resourceId;
+            WellKnownImageName = wellKnownImageName;
         }
     }
 }

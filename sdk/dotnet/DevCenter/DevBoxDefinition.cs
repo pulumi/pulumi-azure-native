@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a definition for a Developer Machine.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
+    /// Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// 
-    /// Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2022-11-11-preview, 2023-04-01, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:DevBoxDefinition")]
     public partial class DevBoxDefinition : global::Pulumi.CustomResource
@@ -95,6 +95,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Validation status for the Dev Box Definition.
+        /// </summary>
+        [Output("validationStatus")]
+        public Output<string> ValidationStatus { get; private set; } = null!;
 
 
         /// <summary>

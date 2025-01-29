@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         public readonly string? ServiceResourceId;
         public readonly bool? SparkEnabled;
         /// <summary>
-        /// Status of a managed network Outbound Rule of a machine learning workspace.
+        /// Type of a managed network Outbound Rule of a machine learning workspace.
         /// </summary>
         public readonly string? SparkStatus;
         public readonly string? SubresourceTarget;

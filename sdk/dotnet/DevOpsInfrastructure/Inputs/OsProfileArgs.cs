@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
     public sealed class OsProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines how the service should be run. By default, this will be set to Service.
+        /// </summary>
+        [Input("logonType")]
+        public InputUnion<string, Pulumi.AzureNative.DevOpsInfrastructure.LogonType>? LogonType { get; set; }
+
+        /// <summary>
         /// The secret management settings of the machines in the pool.
         /// </summary>
-        [Input("secretsManagementSettings", required: true)]
-        public Input<Inputs.SecretsManagementSettingsArgs> SecretsManagementSettings { get; set; } = null!;
+        [Input("secretsManagementSettings")]
+        public Input<Inputs.SecretsManagementSettingsArgs>? SecretsManagementSettings { get; set; }
 
         public OsProfileArgs()
         {

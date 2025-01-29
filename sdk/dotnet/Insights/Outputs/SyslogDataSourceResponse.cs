@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LogLevels;
         /// <summary>
-        /// A friendly name for the data source. 
+        /// A friendly name for the data source.
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
         public readonly string? Name;
@@ -35,6 +35,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         /// </summary>
         public readonly ImmutableArray<string> Streams;
+        /// <summary>
+        /// The KQL query to transform the data source.
+        /// </summary>
+        public readonly string? TransformKql;
 
         [OutputConstructor]
         private SyslogDataSourceResponse(
@@ -44,12 +48,15 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
             string? name,
 
-            ImmutableArray<string> streams)
+            ImmutableArray<string> streams,
+
+            string? transformKql)
         {
             FacilityNames = facilityNames;
             LogLevels = logLevels;
             Name = name;
             Streams = streams;
+            TransformKql = transformKql;
         }
     }
 }

@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         [Input("sourcePattern", required: true)]
         public Input<string> SourcePattern { get; set; } = null!;
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleUrlRewriteActionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

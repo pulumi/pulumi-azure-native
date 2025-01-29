@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
     public sealed class NetworkPropertiesResponse
     {
         /// <summary>
+        /// A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
+        /// </summary>
+        public readonly string? OutboundDependenciesManagedType;
+        /// <summary>
         /// Indicates whether or not private link is enabled.
         /// </summary>
         public readonly string? PrivateLink;
+        /// <summary>
+        /// Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
+        /// </summary>
+        public readonly Outputs.IpTagResponse? PublicIpTag;
         /// <summary>
         /// The direction for the resource provider connection.
         /// </summary>
@@ -27,11 +35,17 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
 
         [OutputConstructor]
         private NetworkPropertiesResponse(
+            string? outboundDependenciesManagedType,
+
             string? privateLink,
+
+            Outputs.IpTagResponse? publicIpTag,
 
             string? resourceProviderConnection)
         {
+            OutboundDependenciesManagedType = outboundDependenciesManagedType;
             PrivateLink = privateLink;
+            PublicIpTag = publicIpTag;
             ResourceProviderConnection = resourceProviderConnection;
         }
     }

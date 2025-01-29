@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string> RuleId { get; set; } = null!;
 
         /// <summary>
+        /// Describes the override sensitivity to be applied when rule matches.
+        /// </summary>
+        [Input("sensitivity")]
+        public InputUnion<string, Pulumi.AzureNative.Network.SensitivityType>? Sensitivity { get; set; }
+
+        /// <summary>
         /// The state of the managed rule. Defaults to Disabled if not specified.
         /// </summary>
         [Input("state")]

@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// The storage container resource definition.
-    /// Azure REST API version: 2022-12-15-preview.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
     /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2022-12-15-preview, 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:StorageContainer")]
     public partial class StorageContainer : global::Pulumi.CustomResource
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Path of the storage container on the disk
         /// </summary>
         [Output("path")]
-        public Output<string?> Path { get; private set; } = null!;
+        public Output<string> Path { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the storage container.
@@ -145,8 +145,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Path of the storage container on the disk
         /// </summary>
-        [Input("path")]
-        public Input<string>? Path { get; set; }
+        [Input("path", required: true)]
+        public Input<string> Path { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
     public sealed class ClusterPoolResourcePropertiesResponseComputeProfile
     {
         /// <summary>
+        /// The list of Availability zones to use for AKS VMSS nodes.
+        /// </summary>
+        public readonly ImmutableArray<string> AvailabilityZones;
+        /// <summary>
         /// The number of virtual machines.
         /// </summary>
         public readonly int Count;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.HDInsight.Outputs
 
         [OutputConstructor]
         private ClusterPoolResourcePropertiesResponseComputeProfile(
+            ImmutableArray<string> availabilityZones,
+
             int count,
 
             string vmSize)
         {
+            AvailabilityZones = availabilityZones;
             Count = count;
             VmSize = vmSize;
         }

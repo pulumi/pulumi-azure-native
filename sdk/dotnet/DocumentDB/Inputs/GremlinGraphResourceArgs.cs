@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public Input<Inputs.ConflictResolutionPolicyArgs>? ConflictResolutionPolicy { get; set; }
 
         /// <summary>
+        /// Enum to indicate the mode of resource creation.
+        /// </summary>
+        [Input("createMode")]
+        public InputUnion<string, Pulumi.AzureNative.DocumentDB.CreateMode>? CreateMode { get; set; }
+
+        /// <summary>
         /// Default time to live
         /// </summary>
         [Input("defaultTtl")]
@@ -50,6 +56,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         /// </summary>
         [Input("partitionKey")]
         public Input<Inputs.ContainerPartitionKeyArgs>? PartitionKey { get; set; }
+
+        /// <summary>
+        /// Parameters to indicate the information about the restore
+        /// </summary>
+        [Input("restoreParameters")]
+        public Input<Inputs.ResourceRestoreParametersArgs>? RestoreParameters { get; set; }
 
         /// <summary>
         /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.

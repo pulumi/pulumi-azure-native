@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// Azure REST API version: 2023-03-01-preview.
+    /// Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2023-03-01-preview.
     /// 
-    /// Other available API versions: 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01.
+    /// Other available API versions: 2023-03-01-preview, 2023-10-01-preview, 2024-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:EnterprisePrivateEndpointConnection")]
     public partial class EnterprisePrivateEndpointConnection : global::Pulumi.CustomResource
@@ -41,12 +41,6 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -119,7 +113,7 @@ namespace Pulumi.AzureNative.Cache
     public sealed class EnterprisePrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the RedisEnterprise cluster.
+        /// The name of the Redis Enterprise cluster.
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;

@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// SAS URI of Azure Storage Account Container.
         /// </summary>
-        public readonly string SasUri;
+        public readonly string? SasUri;
 
         [OutputConstructor]
-        private BlobShareResponse(string sasUri)
+        private BlobShareResponse(string? sasUri)
         {
             SasUri = sasUri;
         }

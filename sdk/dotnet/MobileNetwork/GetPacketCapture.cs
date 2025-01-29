@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets information about the specified packet capture session.
-        /// Azure REST API version: 2023-06-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:mobilenetwork:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified packet capture session.
-        /// Azure REST API version: 2023-06-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:mobilenetwork:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified packet capture session.
-        /// Azure REST API version: 2023-06-01.
+        /// Azure REST API version: 2024-04-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:mobilenetwork:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
@@ -117,6 +117,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly ImmutableArray<string> NetworkInterfaces;
         /// <summary>
+        /// The list of output files of a packet capture session.
+        /// </summary>
+        public readonly ImmutableArray<string> OutputFiles;
+        /// <summary>
         /// The provisioning state of the packet capture session resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -157,6 +161,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             ImmutableArray<string> networkInterfaces,
 
+            ImmutableArray<string> outputFiles,
+
             string provisioningState,
 
             string reason,
@@ -176,6 +182,7 @@ namespace Pulumi.AzureNative.MobileNetwork
             Id = id;
             Name = name;
             NetworkInterfaces = networkInterfaces;
+            OutputFiles = outputFiles;
             ProvisioningState = provisioningState;
             Reason = reason;
             Status = status;

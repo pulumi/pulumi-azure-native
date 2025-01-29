@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("schedulePolicy")]
         public object? SchedulePolicy { get; set; }
 
+        /// <summary>
+        /// Snapshot Backup related fields for WorkloadType SaPHanaSystem
+        /// </summary>
+        [Input("snapshotBackupAdditionalDetails")]
+        public Input<Inputs.SnapshotBackupAdditionalDetailsArgs>? SnapshotBackupAdditionalDetails { get; set; }
+
         [Input("tieringPolicy")]
         private InputMap<Inputs.TieringPolicyArgs>? _tieringPolicy;
 

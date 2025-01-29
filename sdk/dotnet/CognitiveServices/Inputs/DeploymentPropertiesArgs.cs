@@ -16,10 +16,28 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     public sealed class DeploymentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Internal use only.
+        /// </summary>
+        [Input("capacitySettings")]
+        public Input<Inputs.DeploymentCapacitySettingsArgs>? CapacitySettings { get; set; }
+
+        /// <summary>
+        /// The current capacity.
+        /// </summary>
+        [Input("currentCapacity")]
+        public Input<int>? CurrentCapacity { get; set; }
+
+        /// <summary>
         /// Properties of Cognitive Services account deployment model.
         /// </summary>
         [Input("model")]
         public Input<Inputs.DeploymentModelArgs>? Model { get; set; }
+
+        /// <summary>
+        /// The name of parent deployment.
+        /// </summary>
+        [Input("parentDeploymentName")]
+        public Input<string>? ParentDeploymentName { get; set; }
 
         /// <summary>
         /// The name of RAI policy.
@@ -28,7 +46,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
         public Input<string>? RaiPolicyName { get; set; }
 
         /// <summary>
-        /// Properties of Cognitive Services account deployment model.
+        /// Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         /// </summary>
         [Input("scaleSettings")]
         public Input<Inputs.DeploymentScaleSettingsArgs>? ScaleSettings { get; set; }

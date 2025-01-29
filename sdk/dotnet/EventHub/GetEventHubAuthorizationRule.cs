@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets an AuthorizationRule for an Event Hub by rule name.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetEventHubAuthorizationRuleResult> InvokeAsync(GetEventHubAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubAuthorizationRuleResult>("azure-native:eventhub:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an AuthorizationRule for an Event Hub by rule name.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetEventHubAuthorizationRuleResult> Invoke(GetEventHubAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubAuthorizationRuleResult>("azure-native:eventhub:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an AuthorizationRule for an Event Hub by rule name.
-        /// Azure REST API version: 2022-10-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Other available API versions: 2022-10-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetEventHubAuthorizationRuleResult> Invoke(GetEventHubAuthorizationRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubAuthorizationRuleResult>("azure-native:eventhub:getEventHubAuthorizationRule", args ?? new GetEventHubAuthorizationRuleInvokeArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
     /// The integration account session.
-    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountSession")]
     public partial class IntegrationAccountSession : global::Pulumi.CustomResource

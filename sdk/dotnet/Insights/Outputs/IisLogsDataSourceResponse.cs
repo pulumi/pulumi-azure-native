@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly ImmutableArray<string> LogDirectories;
         /// <summary>
-        /// A friendly name for the data source. 
+        /// A friendly name for the data source.
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
         public readonly string? Name;
@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// IIS streams
         /// </summary>
         public readonly ImmutableArray<string> Streams;
+        /// <summary>
+        /// The KQL query to transform the data source.
+        /// </summary>
+        public readonly string? TransformKql;
 
         [OutputConstructor]
         private IisLogsDataSourceResponse(
@@ -36,11 +40,14 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
             string? name,
 
-            ImmutableArray<string> streams)
+            ImmutableArray<string> streams,
+
+            string? transformKql)
         {
             LogDirectories = logDirectories;
             Name = name;
             Streams = streams;
+            TransformKql = transformKql;
         }
     }
 }

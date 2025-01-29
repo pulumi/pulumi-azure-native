@@ -16,16 +16,16 @@ namespace Pulumi.AzureNative.NetApp.Inputs
     public sealed class VolumeBackupPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Backup Enabled
-        /// </summary>
-        [Input("backupEnabled")]
-        public Input<bool>? BackupEnabled { get; set; }
-
-        /// <summary>
         /// Backup Policy Resource ID
         /// </summary>
         [Input("backupPolicyId")]
         public Input<string>? BackupPolicyId { get; set; }
+
+        /// <summary>
+        /// Backup Vault Resource ID
+        /// </summary>
+        [Input("backupVaultId")]
+        public Input<string>? BackupVaultId { get; set; }
 
         /// <summary>
         /// Policy Enforced

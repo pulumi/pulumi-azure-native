@@ -24,6 +24,9 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// Defines the type of central server VM.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The virtual machine id.
+        /// </summary>
         public readonly string VirtualMachineId;
 
         [OutputConstructor]

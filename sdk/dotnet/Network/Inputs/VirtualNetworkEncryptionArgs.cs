@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// If the encrypted VNet allows VM that does not support encryption
+        /// If the encrypted VNet allows VM that does not support encryption. This field is for future support, AllowUnencrypted is the only supported value at general availability.
         /// </summary>
         [Input("enforcement")]
         public InputUnion<string, Pulumi.AzureNative.Network.VirtualNetworkEncryptionEnforcement>? Enforcement { get; set; }

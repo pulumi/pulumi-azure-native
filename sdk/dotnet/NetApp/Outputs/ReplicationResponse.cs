@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string RemoteVolumeResourceId;
         /// <summary>
+        /// UUID v4 used to identify the replication.
+        /// </summary>
+        public readonly string ReplicationId;
+        /// <summary>
         /// Schedule
         /// </summary>
         public readonly string? ReplicationSchedule;
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string remoteVolumeResourceId,
 
+            string replicationId,
+
             string? replicationSchedule)
         {
             EndpointType = endpointType;
             RemoteVolumeRegion = remoteVolumeRegion;
             RemoteVolumeResourceId = remoteVolumeResourceId;
+            ReplicationId = replicationId;
             ReplicationSchedule = replicationSchedule;
         }
     }

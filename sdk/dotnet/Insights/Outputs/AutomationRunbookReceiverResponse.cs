@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly bool IsGlobalRunbook;
         /// <summary>
+        /// The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        /// </summary>
+        public readonly string? ManagedIdentity;
+        /// <summary>
         /// Indicates name of the webhook.
         /// </summary>
         public readonly string? Name;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
             bool isGlobalRunbook,
 
+            string? managedIdentity,
+
             string? name,
 
             string runbookName,
@@ -63,6 +69,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
         {
             AutomationAccountId = automationAccountId;
             IsGlobalRunbook = isGlobalRunbook;
+            ManagedIdentity = managedIdentity;
             Name = name;
             RunbookName = runbookName;
             ServiceUri = serviceUri;

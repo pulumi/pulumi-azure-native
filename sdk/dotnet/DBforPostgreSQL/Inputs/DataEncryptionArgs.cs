@@ -11,27 +11,54 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Data encryption properties of a server
+    /// The data encryption properties of a cluster.
     /// </summary>
     public sealed class DataEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// URI for the key for data encryption for primary server.
+        /// Geo-backup encryption key status for Data encryption enabled server.
+        /// </summary>
+        [Input("geoBackupEncryptionKeyStatus")]
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.KeyStatusEnum>? GeoBackupEncryptionKeyStatus { get; set; }
+
+        /// <summary>
+        /// URI for the key in keyvault for data encryption for geo-backup of server.
+        /// </summary>
+        [Input("geoBackupKeyURI")]
+        public Input<string>? GeoBackupKeyURI { get; set; }
+
+        /// <summary>
+        /// Resource Id for the User assigned identity to be used for data encryption for geo-backup of server.
+        /// </summary>
+        [Input("geoBackupUserAssignedIdentityId")]
+        public Input<string>? GeoBackupUserAssignedIdentityId { get; set; }
+
+        /// <summary>
+        /// Primary encryption key status for Data encryption enabled server.
+        /// </summary>
+        [Input("primaryEncryptionKeyStatus")]
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.KeyStatusEnum>? PrimaryEncryptionKeyStatus { get; set; }
+
+        /// <summary>
+        /// URI for the key in keyvault for data encryption of the primary server.
         /// </summary>
         [Input("primaryKeyURI")]
         public Input<string>? PrimaryKeyURI { get; set; }
 
         /// <summary>
-        /// Resource Id for the User assigned identity to be used for data encryption for primary server.
+        /// URI for the key in keyvault for data encryption of the primary server.
+        /// </summary>
+        [Input("primaryKeyUri")]
+        public Input<string>? PrimaryKeyUri { get; set; }
+
+        /// <summary>
+        /// Resource Id for the User assigned identity to be used for data encryption of the primary server.
         /// </summary>
         [Input("primaryUserAssignedIdentityId")]
         public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
 
-        /// <summary>
-        /// Data encryption type to depict if it is System Managed vs Azure Key vault.
-        /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ArmServerKeyType>? Type { get; set; }
+        public object? Type { get; set; }
 
         public DataEncryptionArgs()
         {

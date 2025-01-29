@@ -33,10 +33,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string? Comments;
         /// <summary>
-        /// The device streams properties of iothub.
-        /// </summary>
-        public readonly Outputs.IotHubPropertiesResponseDeviceStreams? DeviceStreams;
-        /// <summary>
         /// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
         /// </summary>
         public readonly bool? DisableDeviceSAS;
@@ -56,10 +52,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// If True, file upload notifications are enabled.
         /// </summary>
         public readonly bool? EnableFileUploadNotifications;
-        /// <summary>
-        /// The encryption properties for the IoT hub.
-        /// </summary>
-        public readonly Outputs.EncryptionPropertiesDescriptionResponse? Encryption;
         /// <summary>
         /// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
         /// </summary>
@@ -109,10 +101,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly bool? RestrictOutboundNetworkAccess;
         /// <summary>
-        /// This property store root certificate related information
-        /// </summary>
-        public readonly Outputs.RootCertificatePropertiesResponse? RootCertificate;
-        /// <summary>
         /// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         /// </summary>
         public readonly Outputs.RoutingPropertiesResponse? Routing;
@@ -135,8 +123,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             string? comments,
 
-            Outputs.IotHubPropertiesResponseDeviceStreams? deviceStreams,
-
             bool? disableDeviceSAS,
 
             bool? disableLocalAuth,
@@ -146,8 +132,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
             bool? enableDataResidency,
 
             bool? enableFileUploadNotifications,
-
-            Outputs.EncryptionPropertiesDescriptionResponse? encryption,
 
             ImmutableDictionary<string, Outputs.EventHubPropertiesResponse>? eventHubEndpoints,
 
@@ -173,8 +157,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             bool? restrictOutboundNetworkAccess,
 
-            Outputs.RootCertificatePropertiesResponse? rootCertificate,
-
             Outputs.RoutingPropertiesResponse? routing,
 
             string state,
@@ -185,13 +167,11 @@ namespace Pulumi.AzureNative.Devices.Outputs
             AuthorizationPolicies = authorizationPolicies;
             CloudToDevice = cloudToDevice;
             Comments = comments;
-            DeviceStreams = deviceStreams;
             DisableDeviceSAS = disableDeviceSAS;
             DisableLocalAuth = disableLocalAuth;
             DisableModuleSAS = disableModuleSAS;
             EnableDataResidency = enableDataResidency;
             EnableFileUploadNotifications = enableFileUploadNotifications;
-            Encryption = encryption;
             EventHubEndpoints = eventHubEndpoints;
             Features = features;
             HostName = hostName;
@@ -204,7 +184,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             RestrictOutboundNetworkAccess = restrictOutboundNetworkAccess;
-            RootCertificate = rootCertificate;
             Routing = routing;
             State = state;
             StorageEndpoints = storageEndpoints;

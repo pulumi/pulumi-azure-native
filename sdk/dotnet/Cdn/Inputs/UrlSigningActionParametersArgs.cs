@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Cdn.Inputs
             set => _parameterNameOverride = value;
         }
 
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleUrlSigningActionParameters'.
+        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

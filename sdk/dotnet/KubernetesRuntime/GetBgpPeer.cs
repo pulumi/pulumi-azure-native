@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// Get a BgpPeer
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetBgpPeerResult> InvokeAsync(GetBgpPeerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBgpPeerResult>("azure-native:kubernetesruntime:getBgpPeer", args ?? new GetBgpPeerArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// Get a BgpPeer
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetBgpPeerResult> Invoke(GetBgpPeerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBgpPeerResult>("azure-native:kubernetesruntime:getBgpPeer", args ?? new GetBgpPeerInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// Get a BgpPeer
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetBgpPeerResult> Invoke(GetBgpPeerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBgpPeerResult>("azure-native:kubernetesruntime:getBgpPeer", args ?? new GetBgpPeerInvokeArgs(), options.WithDefaults());

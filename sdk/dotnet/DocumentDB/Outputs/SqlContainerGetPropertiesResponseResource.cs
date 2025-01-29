@@ -22,9 +22,17 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly Outputs.ClientEncryptionPolicyResponse? ClientEncryptionPolicy;
         /// <summary>
+        /// List of computed properties
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ComputedPropertyResponse> ComputedProperties;
+        /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
         public readonly Outputs.ConflictResolutionPolicyResponse? ConflictResolutionPolicy;
+        /// <summary>
+        /// Enum to indicate the mode of resource creation.
+        /// </summary>
+        public readonly string? CreateMode;
         /// <summary>
         /// Default time to live
         /// </summary>
@@ -46,6 +54,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly Outputs.ContainerPartitionKeyResponse? PartitionKey;
         /// <summary>
+        /// Parameters to indicate the information about the restore
+        /// </summary>
+        public readonly Outputs.ResourceRestoreParametersResponse? RestoreParameters;
+        /// <summary>
         /// A system generated property. A unique identifier.
         /// </summary>
         public readonly string Rid;
@@ -57,6 +69,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         /// </summary>
         public readonly Outputs.UniqueKeyPolicyResponse? UniqueKeyPolicy;
+        /// <summary>
+        /// The vector embedding policy for the container.
+        /// </summary>
+        public readonly Outputs.VectorEmbeddingPolicyResponse? VectorEmbeddingPolicy;
 
         [OutputConstructor]
         private SqlContainerGetPropertiesResponseResource(
@@ -64,7 +80,11 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             Outputs.ClientEncryptionPolicyResponse? clientEncryptionPolicy,
 
+            ImmutableArray<Outputs.ComputedPropertyResponse> computedProperties,
+
             Outputs.ConflictResolutionPolicyResponse? conflictResolutionPolicy,
+
+            string? createMode,
 
             int? defaultTtl,
 
@@ -76,23 +96,31 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             Outputs.ContainerPartitionKeyResponse? partitionKey,
 
+            Outputs.ResourceRestoreParametersResponse? restoreParameters,
+
             string rid,
 
             double ts,
 
-            Outputs.UniqueKeyPolicyResponse? uniqueKeyPolicy)
+            Outputs.UniqueKeyPolicyResponse? uniqueKeyPolicy,
+
+            Outputs.VectorEmbeddingPolicyResponse? vectorEmbeddingPolicy)
         {
             AnalyticalStorageTtl = analyticalStorageTtl;
             ClientEncryptionPolicy = clientEncryptionPolicy;
+            ComputedProperties = computedProperties;
             ConflictResolutionPolicy = conflictResolutionPolicy;
+            CreateMode = createMode;
             DefaultTtl = defaultTtl;
             Etag = etag;
             Id = id;
             IndexingPolicy = indexingPolicy;
             PartitionKey = partitionKey;
+            RestoreParameters = restoreParameters;
             Rid = rid;
             Ts = ts;
             UniqueKeyPolicy = uniqueKeyPolicy;
+            VectorEmbeddingPolicy = vectorEmbeddingPolicy;
         }
     }
 }

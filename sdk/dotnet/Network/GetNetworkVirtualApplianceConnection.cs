@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of specified NVA connection.
-        /// Azure REST API version: 2023-06-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Task<GetNetworkVirtualApplianceConnectionResult> InvokeAsync(GetNetworkVirtualApplianceConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceConnectionResult>("azure-native:network:getNetworkVirtualApplianceConnection", args ?? new GetNetworkVirtualApplianceConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of specified NVA connection.
-        /// Azure REST API version: 2023-06-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceConnectionResult> Invoke(GetNetworkVirtualApplianceConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceConnectionResult>("azure-native:network:getNetworkVirtualApplianceConnection", args ?? new GetNetworkVirtualApplianceConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of specified NVA connection.
-        /// Azure REST API version: 2023-06-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2023-06-01.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceConnectionResult> Invoke(GetNetworkVirtualApplianceConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceConnectionResult>("azure-native:network:getNetworkVirtualApplianceConnection", args ?? new GetNetworkVirtualApplianceConnectionInvokeArgs(), options.WithDefaults());
@@ -97,18 +97,6 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNetworkVirtualApplianceConnectionResult
     {
         /// <summary>
-        /// Network Virtual Appliance ASN.
-        /// </summary>
-        public readonly double? Asn;
-        /// <summary>
-        /// List of bgpPeerAddresses for the NVA instances
-        /// </summary>
-        public readonly ImmutableArray<string> BgpPeerAddress;
-        /// <summary>
-        /// Enable internet security.
-        /// </summary>
-        public readonly bool? EnableInternetSecurity;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -117,44 +105,21 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The provisioning state of the NetworkVirtualApplianceConnection resource.
+        /// Properties of the express route connection.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// The Routing Configuration indicating the associated and propagated route tables on this connection.
-        /// </summary>
-        public readonly Outputs.RoutingConfigurationResponse? RoutingConfiguration;
-        /// <summary>
-        /// Unique identifier for the connection.
-        /// </summary>
-        public readonly double? TunnelIdentifier;
+        public readonly Outputs.NetworkVirtualApplianceConnectionPropertiesResponse Properties;
 
         [OutputConstructor]
         private GetNetworkVirtualApplianceConnectionResult(
-            double? asn,
-
-            ImmutableArray<string> bgpPeerAddress,
-
-            bool? enableInternetSecurity,
-
             string? id,
 
             string? name,
 
-            string provisioningState,
-
-            Outputs.RoutingConfigurationResponse? routingConfiguration,
-
-            double? tunnelIdentifier)
+            Outputs.NetworkVirtualApplianceConnectionPropertiesResponse properties)
         {
-            Asn = asn;
-            BgpPeerAddress = bgpPeerAddress;
-            EnableInternetSecurity = enableInternetSecurity;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            RoutingConfiguration = routingConfiguration;
-            TunnelIdentifier = tunnelIdentifier;
+            Properties = properties;
         }
     }
 }

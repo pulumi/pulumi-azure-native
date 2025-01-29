@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.Batch.Outputs
     public sealed class TaskContainerSettingsResponse
     {
         /// <summary>
+        /// If this array is null or be not present, container task will mount entire temporary disk drive in windows (or AZ_BATCH_NODE_ROOT_DIR in Linux). It won't' mount any data paths into container if this array is set as empty.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerHostBatchBindMountEntryResponse> ContainerHostBatchBindMounts;
+        /// <summary>
         /// These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
         /// </summary>
         public readonly string? ContainerRunOptions;
@@ -29,6 +33,8 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
         [OutputConstructor]
         private TaskContainerSettingsResponse(
+            ImmutableArray<Outputs.ContainerHostBatchBindMountEntryResponse> containerHostBatchBindMounts,
+
             string? containerRunOptions,
 
             string imageName,
@@ -37,6 +43,7 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
             string? workingDirectory)
         {
+            ContainerHostBatchBindMounts = containerHostBatchBindMounts;
             ContainerRunOptions = containerRunOptions;
             ImageName = imageName;
             Registry = registry;

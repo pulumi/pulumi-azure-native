@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.Insights.Outputs
     public sealed class ConditionResponse
     {
         /// <summary>
+        /// The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        /// </summary>
+        public readonly string? AlertSensitivity;
+        /// <summary>
+        /// Specifies the type of threshold criteria
+        /// </summary>
+        public readonly string? CriterionType;
+        /// <summary>
         /// List of Dimensions conditions
         /// </summary>
         public readonly ImmutableArray<Outputs.DimensionResponse> Dimensions;
@@ -24,6 +32,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
         /// </summary>
         public readonly Outputs.ConditionResponseFailingPeriods? FailingPeriods;
+        /// <summary>
+        /// Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
+        /// </summary>
+        public readonly string? IgnoreDataBefore;
         /// <summary>
         /// The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
         /// </summary>
@@ -45,7 +57,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string? ResourceIdColumn;
         /// <summary>
-        /// the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert.
+        /// the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
         /// </summary>
         public readonly double? Threshold;
         /// <summary>
@@ -55,9 +67,15 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
         [OutputConstructor]
         private ConditionResponse(
+            string? alertSensitivity,
+
+            string? criterionType,
+
             ImmutableArray<Outputs.DimensionResponse> dimensions,
 
             Outputs.ConditionResponseFailingPeriods? failingPeriods,
+
+            string? ignoreDataBefore,
 
             string? metricMeasureColumn,
 
@@ -73,8 +91,11 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
             string? timeAggregation)
         {
+            AlertSensitivity = alertSensitivity;
+            CriterionType = criterionType;
             Dimensions = dimensions;
             FailingPeriods = failingPeriods;
+            IgnoreDataBefore = ignoreDataBefore;
             MetricMeasureColumn = metricMeasureColumn;
             MetricName = metricName;
             Operator = @operator;

@@ -28,6 +28,32 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("credentials")]
         public Input<Inputs.WorkspaceConnectionManagedIdentityArgs>? Credentials { get; set; }
 
+        [Input("expiryTime")]
+        public Input<string>? ExpiryTime { get; set; }
+
+        [Input("isSharedToAll")]
+        public Input<bool>? IsSharedToAll { get; set; }
+
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
+        /// <summary>
+        /// Store user metadata for this connection
+        /// </summary>
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
+
+        [Input("sharedUserList")]
+        private InputList<string>? _sharedUserList;
+        public InputList<string> SharedUserList
+        {
+            get => _sharedUserList ?? (_sharedUserList = new InputList<string>());
+            set => _sharedUserList = value;
+        }
+
         [Input("target")]
         public Input<string>? Target { get; set; }
 

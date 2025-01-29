@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.HealthcareApis
     {
         /// <summary>
         /// Gets the properties of the specified DICOM Service.
-        /// Azure REST API version: 2023-02-28.
+        /// Azure REST API version: 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Other available API versions: 2023-02-28.
         /// </summary>
         public static Task<GetDicomServiceResult> InvokeAsync(GetDicomServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified DICOM Service.
-        /// Azure REST API version: 2023-02-28.
+        /// Azure REST API version: 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Other available API versions: 2023-02-28.
         /// </summary>
         public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified DICOM Service.
-        /// Azure REST API version: 2023-02-28.
+        /// Azure REST API version: 2024-03-31.
         /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Other available API versions: 2023-02-28.
         /// </summary>
         public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
@@ -105,6 +105,14 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public readonly Outputs.CorsConfigurationResponse? CorsConfiguration;
         /// <summary>
+        /// If data partitions is enabled or not.
+        /// </summary>
+        public readonly bool? EnableDataPartitions;
+        /// <summary>
+        /// The encryption settings of the DICOM service
+        /// </summary>
+        public readonly Outputs.EncryptionResponse? Encryption;
+        /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
         /// </summary>
         public readonly string? Etag;
@@ -145,6 +153,10 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public readonly string ServiceUrl;
         /// <summary>
+        /// The configuration of external storage account
+        /// </summary>
+        public readonly Outputs.StorageConfigurationResponse? StorageConfiguration;
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -162,6 +174,10 @@ namespace Pulumi.AzureNative.HealthcareApis
             Outputs.DicomServiceAuthenticationConfigurationResponse? authenticationConfiguration,
 
             Outputs.CorsConfigurationResponse? corsConfiguration,
+
+            bool? enableDataPartitions,
+
+            Outputs.EncryptionResponse? encryption,
 
             string? etag,
 
@@ -183,6 +199,8 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string serviceUrl,
 
+            Outputs.StorageConfigurationResponse? storageConfiguration,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -191,6 +209,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         {
             AuthenticationConfiguration = authenticationConfiguration;
             CorsConfiguration = corsConfiguration;
+            EnableDataPartitions = enableDataPartitions;
+            Encryption = encryption;
             Etag = etag;
             EventState = eventState;
             Id = id;
@@ -201,6 +221,7 @@ namespace Pulumi.AzureNative.HealthcareApis
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             ServiceUrl = serviceUrl;
+            StorageConfiguration = storageConfiguration;
             SystemData = systemData;
             Tags = tags;
             Type = type;

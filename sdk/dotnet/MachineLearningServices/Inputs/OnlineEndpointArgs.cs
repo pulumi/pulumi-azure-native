@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class OnlineEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        /// [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         /// </summary>
         [Input("authMode", required: true)]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.EndpointAuthMode> AuthMode { get; set; } = null!;

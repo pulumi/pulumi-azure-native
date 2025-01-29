@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataReplication
 {
     /// <summary>
     /// Replication extension model.
-    /// Azure REST API version: 2021-02-16-preview.
+    /// Azure REST API version: 2021-02-16-preview. Prior API version in Azure Native 2.x: 2021-02-16-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:datareplication:ReplicationExtension")]
     public partial class ReplicationExtension : global::Pulumi.CustomResource

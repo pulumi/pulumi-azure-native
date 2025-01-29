@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Chaos
     {
         /// <summary>
         /// Execution details of an experiment resource.
-        /// Azure REST API version: 2023-11-01.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-03-22-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-11-01, 2024-03-22-preview, 2024-11-01-preview.
         /// </summary>
         public static Task<GetExperimentExecutionDetailsResult> InvokeAsync(GetExperimentExecutionDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperimentExecutionDetailsResult>("azure-native:chaos:getExperimentExecutionDetails", args ?? new GetExperimentExecutionDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Execution details of an experiment resource.
-        /// Azure REST API version: 2023-11-01.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-03-22-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-11-01, 2024-03-22-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetExperimentExecutionDetailsResult> Invoke(GetExperimentExecutionDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentExecutionDetailsResult>("azure-native:chaos:getExperimentExecutionDetails", args ?? new GetExperimentExecutionDetailsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Execution details of an experiment resource.
-        /// Azure REST API version: 2023-11-01.
+        /// Azure REST API version: 2024-01-01.
         /// 
-        /// Other available API versions: 2024-01-01, 2024-03-22-preview, 2024-11-01-preview.
+        /// Other available API versions: 2023-11-01, 2024-03-22-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetExperimentExecutionDetailsResult> Invoke(GetExperimentExecutionDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentExecutionDetailsResult>("azure-native:chaos:getExperimentExecutionDetails", args ?? new GetExperimentExecutionDetailsInvokeArgs(), options.WithDefaults());

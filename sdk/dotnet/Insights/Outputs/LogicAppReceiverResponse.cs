@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string CallbackUrl;
         /// <summary>
+        /// The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        /// </summary>
+        public readonly string? ManagedIdentity;
+        /// <summary>
         /// The name of the logic app receiver. Names must be unique across all receivers within an action group.
         /// </summary>
         public readonly string Name;
@@ -37,6 +41,8 @@ namespace Pulumi.AzureNative.Insights.Outputs
         private LogicAppReceiverResponse(
             string callbackUrl,
 
+            string? managedIdentity,
+
             string name,
 
             string resourceId,
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
             bool? useCommonAlertSchema)
         {
             CallbackUrl = callbackUrl;
+            ManagedIdentity = managedIdentity;
             Name = name;
             ResourceId = resourceId;
             UseCommonAlertSchema = useCommonAlertSchema;

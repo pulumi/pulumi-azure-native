@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
+        /// DedicatedGatewayType for the service.
+        /// </summary>
+        public readonly string? DedicatedGatewayType;
+        /// <summary>
         /// Instance count for the service.
         /// </summary>
         public readonly int? InstanceCount;
@@ -50,6 +54,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         private SqlDedicatedGatewayServiceResourcePropertiesResponse(
             string creationTime,
 
+            string? dedicatedGatewayType,
+
             int? instanceCount,
 
             string? instanceSize,
@@ -63,6 +69,7 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             string status)
         {
             CreationTime = creationTime;
+            DedicatedGatewayType = dedicatedGatewayType;
             InstanceCount = instanceCount;
             InstanceSize = instanceSize;
             Locations = locations;

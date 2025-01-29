@@ -7,66 +7,6 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
 {
-    [EnumType]
-    public readonly struct AccessRights : IEquatable<AccessRights>
-    {
-        private readonly string _value;
-
-        private AccessRights(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AccessRights Manage { get; } = new AccessRights("Manage");
-        public static AccessRights Send { get; } = new AccessRights("Send");
-        public static AccessRights Listen { get; } = new AccessRights("Listen");
-
-        public static bool operator ==(AccessRights left, AccessRights right) => left.Equals(right);
-        public static bool operator !=(AccessRights left, AccessRights right) => !left.Equals(right);
-
-        public static explicit operator string(AccessRights value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AccessRights other && Equals(other);
-        public bool Equals(AccessRights other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Default Action for Network Rule Set
-    /// </summary>
-    [EnumType]
-    public readonly struct DefaultAction : IEquatable<DefaultAction>
-    {
-        private readonly string _value;
-
-        private DefaultAction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DefaultAction Allow { get; } = new DefaultAction("Allow");
-        public static DefaultAction Deny { get; } = new DefaultAction("Deny");
-
-        public static bool operator ==(DefaultAction left, DefaultAction right) => left.Equals(right);
-        public static bool operator !=(DefaultAction left, DefaultAction right) => !left.Equals(right);
-
-        public static explicit operator string(DefaultAction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DefaultAction other && Equals(other);
-        public bool Equals(DefaultAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     /// <summary>
     /// Provisioning state of the Private Endpoint Connection.
     /// </summary>
@@ -95,75 +35,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EndPointProvisioningState other && Equals(other);
         public bool Equals(EndPointProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Enumerates the possible values for the status of a messaging entity.
-    /// </summary>
-    [EnumType]
-    public readonly struct EntityStatus : IEquatable<EntityStatus>
-    {
-        private readonly string _value;
-
-        private EntityStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EntityStatus Active { get; } = new EntityStatus("Active");
-        public static EntityStatus Disabled { get; } = new EntityStatus("Disabled");
-        public static EntityStatus Restoring { get; } = new EntityStatus("Restoring");
-        public static EntityStatus SendDisabled { get; } = new EntityStatus("SendDisabled");
-        public static EntityStatus ReceiveDisabled { get; } = new EntityStatus("ReceiveDisabled");
-        public static EntityStatus Creating { get; } = new EntityStatus("Creating");
-        public static EntityStatus Deleting { get; } = new EntityStatus("Deleting");
-        public static EntityStatus Renaming { get; } = new EntityStatus("Renaming");
-        public static EntityStatus Unknown { get; } = new EntityStatus("Unknown");
-
-        public static bool operator ==(EntityStatus left, EntityStatus right) => left.Equals(right);
-        public static bool operator !=(EntityStatus left, EntityStatus right) => !left.Equals(right);
-
-        public static explicit operator string(EntityStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EntityStatus other && Equals(other);
-        public bool Equals(EntityStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Filter type that is evaluated against a BrokeredMessage.
-    /// </summary>
-    [EnumType]
-    public readonly struct FilterType : IEquatable<FilterType>
-    {
-        private readonly string _value;
-
-        private FilterType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static FilterType SqlFilter { get; } = new FilterType("SqlFilter");
-        public static FilterType CorrelationFilter { get; } = new FilterType("CorrelationFilter");
-
-        public static bool operator ==(FilterType left, FilterType right) => left.Equals(right);
-        public static bool operator !=(FilterType left, FilterType right) => !left.Equals(right);
-
-        public static explicit operator string(FilterType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is FilterType other && Equals(other);
-        public bool Equals(FilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -266,36 +137,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
     }
 
     /// <summary>
-    /// The IP Filter Action
-    /// </summary>
-    [EnumType]
-    public readonly struct NetworkRuleIPAction : IEquatable<NetworkRuleIPAction>
-    {
-        private readonly string _value;
-
-        private NetworkRuleIPAction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static NetworkRuleIPAction Allow { get; } = new NetworkRuleIPAction("Allow");
-
-        public static bool operator ==(NetworkRuleIPAction left, NetworkRuleIPAction right) => left.Equals(right);
-        public static bool operator !=(NetworkRuleIPAction left, NetworkRuleIPAction right) => !left.Equals(right);
-
-        public static explicit operator string(NetworkRuleIPAction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is NetworkRuleIPAction other && Equals(other);
-        public bool Equals(NetworkRuleIPAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Status of the connection.
     /// </summary>
     [EnumType]
@@ -353,37 +194,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20230101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
         public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// This determines if traffic is allowed over public network. By default it is enabled.
-    /// </summary>
-    [EnumType]
-    public readonly struct PublicNetworkAccessFlag : IEquatable<PublicNetworkAccessFlag>
-    {
-        private readonly string _value;
-
-        private PublicNetworkAccessFlag(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PublicNetworkAccessFlag Enabled { get; } = new PublicNetworkAccessFlag("Enabled");
-        public static PublicNetworkAccessFlag Disabled { get; } = new PublicNetworkAccessFlag("Disabled");
-
-        public static bool operator ==(PublicNetworkAccessFlag left, PublicNetworkAccessFlag right) => left.Equals(right);
-        public static bool operator !=(PublicNetworkAccessFlag left, PublicNetworkAccessFlag right) => !left.Equals(right);
-
-        public static explicit operator string(PublicNetworkAccessFlag value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublicNetworkAccessFlag other && Equals(other);
-        public bool Equals(PublicNetworkAccessFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

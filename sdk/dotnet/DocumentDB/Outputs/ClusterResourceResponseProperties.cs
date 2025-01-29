@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly string? AuthenticationMethod;
         /// <summary>
+        /// How to connect to the azure services needed for running the cluster
+        /// </summary>
+        public readonly string? AzureConnectionMethod;
+        /// <summary>
         /// Whether Cassandra audit logging is enabled
         /// </summary>
         public readonly bool? CassandraAuditLoggingEnabled;
@@ -61,6 +65,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly int? HoursBetweenBackups;
         /// <summary>
+        /// If the Connection Method is VPN, this is the Id of the private link resource that the datacenters need to connect to.
+        /// </summary>
+        public readonly string PrivateLinkResourceId;
+        /// <summary>
         /// Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.
         /// </summary>
         public readonly Outputs.SeedNodeResponse? PrometheusEndpoint;
@@ -85,6 +93,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         private ClusterResourceResponseProperties(
             string? authenticationMethod,
 
+            string? azureConnectionMethod,
+
             bool? cassandraAuditLoggingEnabled,
 
             string? cassandraVersion,
@@ -105,6 +115,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             int? hoursBetweenBackups,
 
+            string privateLinkResourceId,
+
             Outputs.SeedNodeResponse? prometheusEndpoint,
 
             Outputs.CassandraErrorResponse? provisionError,
@@ -116,6 +128,7 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             ImmutableArray<Outputs.SeedNodeResponse> seedNodes)
         {
             AuthenticationMethod = authenticationMethod;
+            AzureConnectionMethod = azureConnectionMethod;
             CassandraAuditLoggingEnabled = cassandraAuditLoggingEnabled;
             CassandraVersion = cassandraVersion;
             ClientCertificates = clientCertificates;
@@ -126,6 +139,7 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             ExternalSeedNodes = externalSeedNodes;
             GossipCertificates = gossipCertificates;
             HoursBetweenBackups = hoursBetweenBackups;
+            PrivateLinkResourceId = privateLinkResourceId;
             PrometheusEndpoint = prometheusEndpoint;
             ProvisionError = provisionError;
             ProvisioningState = provisioningState;

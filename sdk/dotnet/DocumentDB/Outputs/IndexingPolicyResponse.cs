@@ -40,6 +40,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// List of spatial specifics
         /// </summary>
         public readonly ImmutableArray<Outputs.SpatialSpecResponse> SpatialIndexes;
+        /// <summary>
+        /// List of paths to include in the vector indexing
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VectorIndexResponse> VectorIndexes;
 
         [OutputConstructor]
         private IndexingPolicyResponse(
@@ -53,7 +57,9 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             string? indexingMode,
 
-            ImmutableArray<Outputs.SpatialSpecResponse> spatialIndexes)
+            ImmutableArray<Outputs.SpatialSpecResponse> spatialIndexes,
+
+            ImmutableArray<Outputs.VectorIndexResponse> vectorIndexes)
         {
             Automatic = automatic;
             CompositeIndexes = compositeIndexes;
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             IncludedPaths = includedPaths;
             IndexingMode = indexingMode;
             SpatialIndexes = spatialIndexes;
+            VectorIndexes = vectorIndexes;
         }
     }
 }

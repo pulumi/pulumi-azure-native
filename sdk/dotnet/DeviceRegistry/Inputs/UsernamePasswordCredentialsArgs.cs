@@ -16,16 +16,16 @@ namespace Pulumi.AzureNative.DeviceRegistry.Inputs
     public sealed class UsernamePasswordCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A reference to secret containing the password.
+        /// The name of the secret containing the password.
         /// </summary>
-        [Input("passwordReference", required: true)]
-        public Input<string> PasswordReference { get; set; } = null!;
+        [Input("passwordSecretName", required: true)]
+        public Input<string> PasswordSecretName { get; set; } = null!;
 
         /// <summary>
-        /// A reference to secret containing the username.
+        /// The name of the secret containing the username.
         /// </summary>
-        [Input("usernameReference", required: true)]
-        public Input<string> UsernameReference { get; set; } = null!;
+        [Input("usernameSecretName", required: true)]
+        public Input<string> UsernameSecretName { get; set; } = null!;
 
         public UsernamePasswordCredentialsArgs()
         {

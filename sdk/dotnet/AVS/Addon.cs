@@ -11,27 +11,39 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// An addon resource
-    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
     /// 
-    /// Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+    /// Other available API versions: 2021-01-01-preview, 2022-05-01, 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Addon")]
     public partial class Addon : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource name.
+        /// Addon type
+        /// </summary>
+        [Output("addonType")]
+        public Output<string> AddonType { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of an addon resource
+        /// The state of the addon provisioning
         /// </summary>
-        [Output("properties")]
-        public Output<object> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -92,22 +104,22 @@ namespace Pulumi.AzureNative.AVS
     public sealed class AddonArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the addon for the private cloud
+        /// Name of the addon.
         /// </summary>
         [Input("addonName")]
         public Input<string>? AddonName { get; set; }
 
         /// <summary>
-        /// The name of the private cloud.
+        /// Addon type
+        /// </summary>
+        [Input("addonType", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.AVS.AddonType> AddonType { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the private cloud
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of an addon resource
-        /// </summary>
-        [Input("properties")]
-        public object? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

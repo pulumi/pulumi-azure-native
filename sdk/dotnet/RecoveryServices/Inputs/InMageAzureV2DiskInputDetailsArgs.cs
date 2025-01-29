@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? DiskId { get; set; }
 
         /// <summary>
-        /// The DiskType.
+        /// The disk type.
         /// </summary>
         [Input("diskType")]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.DiskAccountType>? DiskType { get; set; }

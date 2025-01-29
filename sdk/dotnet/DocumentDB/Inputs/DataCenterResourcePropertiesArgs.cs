@@ -82,6 +82,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public Input<int>? NodeCount { get; set; }
 
         /// <summary>
+        /// Ip of the VPN Endpoint for this data center.
+        /// </summary>
+        [Input("privateEndpointIpAddress")]
+        public Input<string>? PrivateEndpointIpAddress { get; set; }
+
+        /// <summary>
         /// Error related to resource provisioning.
         /// </summary>
         [Input("provisionError")]

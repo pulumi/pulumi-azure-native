@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified authorization from the specified express route port.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2023-02-01.
         /// </summary>
         public static Task<GetExpressRoutePortAuthorizationResult> InvokeAsync(GetExpressRoutePortAuthorizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortAuthorizationResult>("azure-native:network:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified authorization from the specified express route port.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2023-02-01.
         /// </summary>
         public static Output<GetExpressRoutePortAuthorizationResult> Invoke(GetExpressRoutePortAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortAuthorizationResult>("azure-native:network:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified authorization from the specified express route port.
-        /// Azure REST API version: 2023-02-01.
+        /// Azure REST API version: 2024-05-01.
         /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Other available API versions: 2023-02-01.
         /// </summary>
         public static Output<GetExpressRoutePortAuthorizationResult> Invoke(GetExpressRoutePortAuthorizationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortAuthorizationResult>("azure-native:network:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationInvokeArgs(), options.WithDefaults());

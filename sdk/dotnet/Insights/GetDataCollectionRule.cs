@@ -13,27 +13,27 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2023-03-11.
         /// 
-        /// Other available API versions: 2023-03-11.
+        /// Other available API versions: 2022-06-01.
         /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2023-03-11.
         /// 
-        /// Other available API versions: 2023-03-11.
+        /// Other available API versions: 2022-06-01.
         /// </summary>
         public static Output<GetDataCollectionRuleResult> Invoke(GetDataCollectionRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of ARM tracked top level resource.
-        /// Azure REST API version: 2022-06-01.
+        /// Azure REST API version: 2023-03-11.
         /// 
-        /// Other available API versions: 2023-03-11.
+        /// Other available API versions: 2022-06-01.
         /// </summary>
         public static Output<GetDataCollectionRuleResult> Invoke(GetDataCollectionRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure-native:insights:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithDefaults());
@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetDataCollectionRuleResult
     {
         /// <summary>
+        /// Agent settings used to modify agent behavior on a given host
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleResponseAgentSettings? AgentSettings;
+        /// <summary>
         /// The resource ID of the data collection endpoint that this rule can be used with.
         /// </summary>
         public readonly string? DataCollectionEndpointId;
@@ -105,6 +109,10 @@ namespace Pulumi.AzureNative.Insights
         /// The specification of destinations.
         /// </summary>
         public readonly Outputs.DataCollectionRuleResponseDestinations? Destinations;
+        /// <summary>
+        /// Defines the ingestion endpoints to send data to via this rule.
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleResponseEndpoints Endpoints;
         /// <summary>
         /// Resource entity tag (ETag).
         /// </summary>
@@ -142,6 +150,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Defines all the references that may be used in other sections of the DCR
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleResponseReferences? References;
+        /// <summary>
         /// Declaration of custom streams used in this rule.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.StreamDeclarationResponse>? StreamDeclarations;
@@ -160,6 +172,8 @@ namespace Pulumi.AzureNative.Insights
 
         [OutputConstructor]
         private GetDataCollectionRuleResult(
+            Outputs.DataCollectionRuleResponseAgentSettings? agentSettings,
+
             string? dataCollectionEndpointId,
 
             ImmutableArray<Outputs.DataFlowResponse> dataFlows,
@@ -169,6 +183,8 @@ namespace Pulumi.AzureNative.Insights
             string? description,
 
             Outputs.DataCollectionRuleResponseDestinations? destinations,
+
+            Outputs.DataCollectionRuleResponseEndpoints endpoints,
 
             string etag,
 
@@ -188,6 +204,8 @@ namespace Pulumi.AzureNative.Insights
 
             string provisioningState,
 
+            Outputs.DataCollectionRuleResponseReferences? references,
+
             ImmutableDictionary<string, Outputs.StreamDeclarationResponse>? streamDeclarations,
 
             Outputs.DataCollectionRuleResourceResponseSystemData systemData,
@@ -196,11 +214,13 @@ namespace Pulumi.AzureNative.Insights
 
             string type)
         {
+            AgentSettings = agentSettings;
             DataCollectionEndpointId = dataCollectionEndpointId;
             DataFlows = dataFlows;
             DataSources = dataSources;
             Description = description;
             Destinations = destinations;
+            Endpoints = endpoints;
             Etag = etag;
             Id = id;
             Identity = identity;
@@ -210,6 +230,7 @@ namespace Pulumi.AzureNative.Insights
             Metadata = metadata;
             Name = name;
             ProvisioningState = provisioningState;
+            References = references;
             StreamDeclarations = streamDeclarations;
             SystemData = systemData;
             Tags = tags;

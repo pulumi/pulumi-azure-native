@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.HealthcareApis.Outputs
         /// </summary>
         public readonly string? Authority;
         /// <summary>
+        /// The array of identity provider configurations for SMART on FHIR authentication.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SmartIdentityProviderConfigurationResponse> SmartIdentityProviders;
+        /// <summary>
         /// If the SMART on FHIR proxy is enabled
         /// </summary>
         public readonly bool? SmartProxyEnabled;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.HealthcareApis.Outputs
 
             string? authority,
 
+            ImmutableArray<Outputs.SmartIdentityProviderConfigurationResponse> smartIdentityProviders,
+
             bool? smartProxyEnabled)
         {
             Audience = audience;
             Authority = authority;
+            SmartIdentityProviders = smartIdentityProviders;
             SmartProxyEnabled = smartProxyEnabled;
         }
     }

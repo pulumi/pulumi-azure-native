@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
         /// <summary>
         /// The IP of the cluster API server.
         /// </summary>
-        public readonly string? Ip;
+        public readonly string Ip;
         /// <summary>
         /// The URL to access the cluster API server.
         /// </summary>
-        public readonly string? Url;
+        public readonly string Url;
         /// <summary>
         /// API server visibility.
         /// </summary>
@@ -31,9 +31,9 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
 
         [OutputConstructor]
         private APIServerProfileResponse(
-            string? ip,
+            string ip,
 
-            string? url,
+            string url,
 
             string? visibility)
         {

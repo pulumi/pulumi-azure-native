@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// The Connector model definition
-    /// Azure REST API version: 2018-08-01-preview.
+    /// Azure REST API version: 2018-08-01-preview. Prior API version in Azure Native 2.x: 2018-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

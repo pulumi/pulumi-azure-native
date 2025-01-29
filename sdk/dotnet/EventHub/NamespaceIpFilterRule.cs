@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single item in a List or Get IpFilterRules operation
-    /// Azure REST API version: 2018-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview.
+    /// Azure REST API version: 2018-01-01-preview. Prior API version in Azure Native 2.x: 2018-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:NamespaceIpFilterRule")]
     public partial class NamespaceIpFilterRule : global::Pulumi.CustomResource

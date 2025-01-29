@@ -17,15 +17,27 @@ namespace Pulumi.AzureNative.AVS.Outputs
     public sealed class EndpointsResponse
     {
         /// <summary>
-        /// Endpoint for the HCX Cloud Manager
+        /// Endpoint FQDN for the HCX Cloud Manager
         /// </summary>
         public readonly string HcxCloudManager;
         /// <summary>
-        /// Endpoint for the NSX-T Data Center manager
+        /// Endpoint IP for the HCX Cloud Manager
+        /// </summary>
+        public readonly string HcxCloudManagerIp;
+        /// <summary>
+        /// Endpoint FQDN for the NSX-T Data Center manager
         /// </summary>
         public readonly string NsxtManager;
         /// <summary>
-        /// Endpoint for Virtual Center Server Appliance
+        /// Endpoint IP for the NSX-T Data Center manager
+        /// </summary>
+        public readonly string NsxtManagerIp;
+        /// <summary>
+        /// Endpoint IP for Virtual Center Server Appliance
+        /// </summary>
+        public readonly string VcenterIp;
+        /// <summary>
+        /// Endpoint FQDN for Virtual Center Server Appliance
         /// </summary>
         public readonly string Vcsa;
 
@@ -33,12 +45,21 @@ namespace Pulumi.AzureNative.AVS.Outputs
         private EndpointsResponse(
             string hcxCloudManager,
 
+            string hcxCloudManagerIp,
+
             string nsxtManager,
+
+            string nsxtManagerIp,
+
+            string vcenterIp,
 
             string vcsa)
         {
             HcxCloudManager = hcxCloudManager;
+            HcxCloudManagerIp = hcxCloudManagerIp;
             NsxtManager = nsxtManager;
+            NsxtManagerIp = nsxtManagerIp;
+            VcenterIp = vcenterIp;
             Vcsa = vcsa;
         }
     }

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string Format;
         /// <summary>
-        /// A friendly name for the data source. 
+        /// A friendly name for the data source.
         /// This name should be unique across all data sources (regardless of type) within the data collection rule.
         /// </summary>
         public readonly string? Name;
@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// A stream indicates what schema will be used for this data source
         /// </summary>
         public readonly ImmutableArray<string> Streams;
+        /// <summary>
+        /// The KQL query to transform the data source.
+        /// </summary>
+        public readonly string? TransformKql;
 
         [OutputConstructor]
         private LogFilesDataSourceResponse(
@@ -49,13 +53,16 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
             Outputs.LogFilesDataSourceResponseSettings? settings,
 
-            ImmutableArray<string> streams)
+            ImmutableArray<string> streams,
+
+            string? transformKql)
         {
             FilePatterns = filePatterns;
             Format = format;
             Name = name;
             Settings = settings;
             Streams = streams;
+            TransformKql = transformKql;
         }
     }
 }

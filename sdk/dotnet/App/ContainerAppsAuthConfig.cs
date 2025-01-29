@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
     /// 
-    /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    /// Other available API versions: 2022-01-01-preview, 2022-10-01, 2024-10-02-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerAppsAuthConfig")]
     public partial class ContainerAppsAuthConfig : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
+        /// </summary>
+        [Output("encryptionSettings")]
+        public Output<Outputs.EncryptionSettingsResponse?> EncryptionSettings { get; private set; } = null!;
+
         /// <summary>
         /// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         /// </summary>
@@ -139,6 +145,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("containerAppName", required: true)]
         public Input<string> ContainerAppName { get; set; } = null!;
+
+        /// <summary>
+        /// The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
+        /// </summary>
+        [Input("encryptionSettings")]
+        public Input<Inputs.EncryptionSettingsArgs>? EncryptionSettings { get; set; }
 
         /// <summary>
         /// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.

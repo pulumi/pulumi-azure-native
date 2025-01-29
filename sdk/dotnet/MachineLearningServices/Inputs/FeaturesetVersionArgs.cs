@@ -11,16 +11,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     /// <summary>
-    /// Dto object representing feature set version
+    /// DTO object representing feature set version
     /// </summary>
     public sealed class FeaturesetVersionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the lifecycle setting of managed data asset.
-        /// </summary>
-        [Input("autoDeleteSetting")]
-        public Input<Inputs.AutoDeleteSettingArgs>? AutoDeleteSetting { get; set; }
-
         /// <summary>
         /// The asset description text.
         /// </summary>
@@ -40,13 +34,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         }
 
         /// <summary>
-        /// If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        /// If the name version are system generated (anonymous registration).
         /// </summary>
         [Input("isAnonymous")]
         public Input<bool>? IsAnonymous { get; set; }
 
         /// <summary>
-        /// Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        /// Is the asset archived?
         /// </summary>
         [Input("isArchived")]
         public Input<bool>? IsArchived { get; set; }
