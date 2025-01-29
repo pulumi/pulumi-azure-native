@@ -942,7 +942,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		},
 		InputProperties:    resourceRequest.specs,
 		RequiredInputs:     resourceRequest.requiredSpecs.SortedValues(),
-		Aliases:            g.generateAliases(resource, typeNameAliases...),
+		Aliases:            g.generateAliases(resourceTok, resource, typeNameAliases...),
 		DeprecationMessage: resource.deprecationMessage,
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
@@ -1050,7 +1050,7 @@ func isSingleton(resource *resourceVariant) bool {
 	return resource.PathItem.Delete == nil || customresources.IsSingleton(resource.Path)
 }
 
-func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
+func (g *packageGenerator) generateAliases(resourceTok string, resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
 	typeAliases := collections.NewOrderableSet[string]()
 
 	previousCompatibleTokens := g.previousCompatibleTokensLookup.FindCompatibleTokens(resource.ModuleNaming.ResolvedName, resource.typeName, resource.Path)
@@ -1093,7 +1093,10 @@ func (g *packageGenerator) generateAliases(resource *resourceVariant, typeNameAl
 
 	var aliasSpecs []pschema.AliasSpec
 	for _, v := range typeAliases.SortedValues() {
-		aliasSpecs = append(aliasSpecs, pschema.AliasSpec{Type: &v})
+		// Skip aliasing to itself.
+		if v != resourceTok {
+			aliasSpecs = append(aliasSpecs, pschema.AliasSpec{Type: &v})
+		}
 	}
 	return aliasSpecs
 }
