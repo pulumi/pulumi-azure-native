@@ -89,10 +89,17 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:AssessmentProjectsHypervCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:HyperVCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsHypervCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsHypervCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsHypervCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:HypervCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:HypervCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentProjectsHypervCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:HyperVCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:HypervCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -64,7 +64,9 @@ namespace Pulumi.AzureNative.Migrate.V20230101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:Solution" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:SolutionsControllerSolution" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:Solution" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:SolutionsControllerSolution" },
                 },
             };

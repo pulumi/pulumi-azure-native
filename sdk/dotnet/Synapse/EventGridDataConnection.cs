@@ -135,6 +135,10 @@ namespace Pulumi.AzureNative.Synapse
                 {
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:EventGridDataConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:EventGridDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:EventHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IotHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:EventHubDataConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:IotHubDataConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

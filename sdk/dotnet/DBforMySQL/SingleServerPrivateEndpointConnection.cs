@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601:SingleServerPrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20180601privatepreview:SingleServerPrivateEndpointConnection" },
                 },
             };

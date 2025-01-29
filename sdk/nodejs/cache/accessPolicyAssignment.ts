@@ -106,7 +106,7 @@ export class AccessPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20230501preview:AccessPolicyAssignment" }, { type: "azure-native:cache/v20230801:AccessPolicyAssignment" }, { type: "azure-native:cache/v20240301:AccessPolicyAssignment" }, { type: "azure-native:cache/v20240401preview:AccessPolicyAssignment" }, { type: "azure-native:cache/v20241101:AccessPolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20230501preview:AccessPolicyAssignment" }, { type: "azure-native:cache/v20230801:AccessPolicyAssignment" }, { type: "azure-native:cache/v20240301:AccessPolicyAssignment" }, { type: "azure-native:cache/v20240401preview:AccessPolicyAssignment" }, { type: "azure-native:cache/v20240901preview:AccessPolicyAssignment" }, { type: "azure-native:cache/v20241101:AccessPolicyAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessPolicyAssignment.__pulumiType, name, resourceInputs, opts);
     }

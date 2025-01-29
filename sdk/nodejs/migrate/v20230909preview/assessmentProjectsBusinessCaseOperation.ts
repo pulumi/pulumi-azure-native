@@ -103,7 +103,7 @@ export class AssessmentProjectsBusinessCaseOperation extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate:AssessmentProjectsBusinessCaseOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230401preview:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate/v20230401preview:BusinessCaseOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate/v20230501preview:BusinessCaseOperation" }, { type: "azure-native:migrate/v20230909preview:BusinessCaseOperation" }, { type: "azure-native:migrate:AssessmentProjectsBusinessCaseOperation" }, { type: "azure-native:migrate:BusinessCaseOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsBusinessCaseOperation.__pulumiType, name, resourceInputs, opts);
     }

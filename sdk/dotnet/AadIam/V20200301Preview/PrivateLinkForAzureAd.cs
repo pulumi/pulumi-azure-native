@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.AadIam.V20200301Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200301:PrivateLinkForAzureAd" },
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam:PrivateLinkForAzureAd" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

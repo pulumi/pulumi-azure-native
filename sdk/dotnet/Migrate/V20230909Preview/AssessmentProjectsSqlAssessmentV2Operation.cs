@@ -292,9 +292,14 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsSqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:SqlAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsSqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:SqlAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsSqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:SqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:SqlAssessmentV2Operation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentProjectsSqlAssessmentV2Operation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:SqlAssessmentV2Operation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

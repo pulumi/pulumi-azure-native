@@ -224,7 +224,7 @@ class Address(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20220501preview:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20240201:Address")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:AddressByName"), pulumi.Alias(type_="azure-native:edgeorder/v20220501preview:Address"), pulumi.Alias(type_="azure-native:edgeorder/v20240201:Address"), pulumi.Alias(type_="azure-native:edgeorder:AddressByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Address, __self__).__init__(
             'azure-native:edgeorder:Address',

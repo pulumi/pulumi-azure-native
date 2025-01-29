@@ -136,11 +136,18 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:Sim" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:Sim" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:SimGroupSim" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:Sim" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:SimGroupSim" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:Sim" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230901:SimGroupSim" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:Sim" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240201:SimGroupSim" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240401:Sim" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20240401:SimGroupSim" },
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:Sim" },
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork:SimGroupSim" },
                 },
             };

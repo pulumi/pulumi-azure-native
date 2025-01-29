@@ -126,7 +126,7 @@ export class PolicyAssignmentArtifact extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact" }, { type: "azure-native:blueprint/v20181101preview:RoleAssignmentArtifact" }, { type: "azure-native:blueprint/v20181101preview:TemplateArtifact" }, { type: "azure-native:blueprint:RoleAssignmentArtifact" }, { type: "azure-native:blueprint:TemplateArtifact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyAssignmentArtifact.__pulumiType, name, resourceInputs, opts);
     }

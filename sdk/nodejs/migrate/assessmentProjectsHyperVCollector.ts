@@ -73,7 +73,7 @@ export class AssessmentProjectsHyperVCollector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsHyperVCollector" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsHyperVCollector" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsHyperVCollector" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsHyperVCollector" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsHyperVCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsHyperVCollector" }, { type: "azure-native:migrate/v20191001:HyperVCollector" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsHyperVCollector" }, { type: "azure-native:migrate/v20230315:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsHyperVCollector" }, { type: "azure-native:migrate/v20230401preview:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsHyperVCollector" }, { type: "azure-native:migrate/v20230501preview:HypervCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsHyperVCollector" }, { type: "azure-native:migrate/v20230909preview:HypervCollectorsOperation" }, { type: "azure-native:migrate:HyperVCollector" }, { type: "azure-native:migrate:HypervCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsHyperVCollector.__pulumiType, name, resourceInputs, opts);
     }

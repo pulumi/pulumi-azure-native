@@ -181,7 +181,7 @@ export class SAPApplicationServerInstance extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20221101preview:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20230401:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20231001preview:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20240901:SAPApplicationServerInstance" }, { type: "azure-native:workloads:SAPApplicationServerInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20221101preview:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20230401:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20231001preview:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20240901:SAPApplicationServerInstance" }, { type: "azure-native:workloads/v20240901:SapApplicationServerInstance" }, { type: "azure-native:workloads:SAPApplicationServerInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SAPApplicationServerInstance.__pulumiType, name, resourceInputs, opts);
     }

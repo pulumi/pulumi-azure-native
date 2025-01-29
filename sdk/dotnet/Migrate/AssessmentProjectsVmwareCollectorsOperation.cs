@@ -90,10 +90,17 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:AssessmentProjectsVmwareCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:VMwareCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsVmwareCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:VmwareCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsVmwareCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:VmwareCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsVmwareCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:VmwareCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsVmwareCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:VmwareCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:VMwareCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:VmwareCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -178,7 +178,7 @@ class DataFlowProfile(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:DataFlowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:DataFlowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:DataFlowProfile"), pulumi.Alias(type_="azure-native:iotoperations:DataFlowProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:DataFlowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20240815preview:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:DataFlowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20240915preview:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:DataFlowProfile"), pulumi.Alias(type_="azure-native:iotoperations/v20241101:DataflowProfile"), pulumi.Alias(type_="azure-native:iotoperations:DataFlowProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataFlowProfile, __self__).__init__(
             'azure-native:iotoperations/v20240701preview:DataFlowProfile',

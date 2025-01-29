@@ -89,8 +89,11 @@ namespace Pulumi.AzureNative.EdgeOrder.V20211201
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:AddressByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:Address" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20220501preview:AddressByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20240201:Address" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder/v20240201:AddressByName" },
+                    new global::Pulumi.Alias { Type = "azure-native:edgeorder:Address" },
                     new global::Pulumi.Alias { Type = "azure-native:edgeorder:AddressByName" },
                 },
             };

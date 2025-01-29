@@ -49,11 +49,18 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:ImportCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ImportCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentProjectsImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:ImportCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:ImportCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

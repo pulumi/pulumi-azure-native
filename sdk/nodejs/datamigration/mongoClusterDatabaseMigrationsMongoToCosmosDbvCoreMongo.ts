@@ -162,7 +162,7 @@ export class MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo extends pul
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20230715preview:MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20230715preview:DatabaseMigrationsMongoToCosmosDbvCoreMongo" }, { type: "azure-native:datamigration/v20230715preview:MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo" }, { type: "azure-native:datamigration:DatabaseMigrationsMongoToCosmosDbvCoreMongo" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo.__pulumiType, name, resourceInputs, opts);
     }

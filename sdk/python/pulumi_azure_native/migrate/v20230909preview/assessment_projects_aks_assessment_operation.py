@@ -181,7 +181,7 @@ class AssessmentProjectsAksAssessmentOperation(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsAksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsAksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate:AssessmentProjectsAksAssessmentOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230401preview:AksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsAksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsAksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate:AksAssessmentOperation"), pulumi.Alias(type_="azure-native:migrate:AssessmentProjectsAksAssessmentOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsAksAssessmentOperation, __self__).__init__(
             'azure-native:migrate/v20230909preview:AssessmentProjectsAksAssessmentOperation',

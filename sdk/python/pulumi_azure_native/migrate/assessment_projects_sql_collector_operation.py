@@ -201,7 +201,7 @@ class AssessmentProjectsSqlCollectorOperation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsSqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsSqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsSqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsSqlCollectorOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsSqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230315:SqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsSqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:SqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsSqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:SqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:AssessmentProjectsSqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:SqlCollectorOperation"), pulumi.Alias(type_="azure-native:migrate:SqlCollectorOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsSqlCollectorOperation, __self__).__init__(
             'azure-native:migrate:AssessmentProjectsSqlCollectorOperation',

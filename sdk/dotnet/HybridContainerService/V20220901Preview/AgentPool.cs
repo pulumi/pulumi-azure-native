@@ -155,6 +155,8 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220901Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:AgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:AgentPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:AgentPool" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:AgentPool" },
                 },
             };

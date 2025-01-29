@@ -130,7 +130,7 @@ export class APICollectionByAzureApiManagementService extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20221120preview:APICollectionByAzureApiManagementService" }, { type: "azure-native:security:APICollectionByAzureApiManagementService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20221120preview:APICollection" }, { type: "azure-native:security/v20221120preview:APICollectionByAzureApiManagementService" }, { type: "azure-native:security:APICollection" }, { type: "azure-native:security:APICollectionByAzureApiManagementService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(APICollectionByAzureApiManagementService.__pulumiType, name, resourceInputs, opts);
     }

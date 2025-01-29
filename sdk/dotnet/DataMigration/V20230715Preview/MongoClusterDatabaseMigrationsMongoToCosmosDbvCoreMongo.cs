@@ -144,6 +144,8 @@ namespace Pulumi.AzureNative.DataMigration.V20230715Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration/v20230715preview:DatabaseMigrationsMongoToCosmosDbvCoreMongo" },
+                    new global::Pulumi.Alias { Type = "azure-native:datamigration:DatabaseMigrationsMongoToCosmosDbvCoreMongo" },
                     new global::Pulumi.Alias { Type = "azure-native:datamigration:MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo" },
                 },
             };

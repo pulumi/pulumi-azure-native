@@ -123,6 +123,8 @@ namespace Pulumi.AzureNative.Synapse
                 {
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:ReadWriteDatabase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

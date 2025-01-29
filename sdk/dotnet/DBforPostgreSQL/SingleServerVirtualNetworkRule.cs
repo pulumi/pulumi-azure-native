@@ -74,7 +74,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:SingleServerVirtualNetworkRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:VirtualNetworkRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:SingleServerVirtualNetworkRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:VirtualNetworkRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

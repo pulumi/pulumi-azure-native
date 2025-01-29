@@ -70,7 +70,7 @@ export class AssessmentProjectsServerCollector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AssessmentProjectsServerCollector" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsServerCollector" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsServerCollector" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsServerCollector" }, { type: "azure-native:migrate:AssessmentProjectsServerCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:ServerCollector" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsServerCollector" }, { type: "azure-native:migrate/v20230315:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsServerCollector" }, { type: "azure-native:migrate/v20230401preview:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsServerCollector" }, { type: "azure-native:migrate/v20230501preview:ServerCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsServerCollector" }, { type: "azure-native:migrate/v20230909preview:ServerCollectorsOperation" }, { type: "azure-native:migrate:AssessmentProjectsServerCollector" }, { type: "azure-native:migrate:ServerCollector" }, { type: "azure-native:migrate:ServerCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsServerCollector.__pulumiType, name, resourceInputs, opts);
     }

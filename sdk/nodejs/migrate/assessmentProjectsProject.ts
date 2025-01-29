@@ -94,7 +94,7 @@ export class AssessmentProjectsProject extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsProject" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsProject" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsProject" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsProject" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsProject" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:AssessmentProjectsProject" }, { type: "azure-native:migrate/v20191001:Project" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsProject" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsProject" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsProject" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsProject" }, { type: "azure-native:migrate:AssessmentProjectsOperation" }, { type: "azure-native:migrate:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsProject.__pulumiType, name, resourceInputs, opts);
     }

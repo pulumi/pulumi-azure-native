@@ -166,7 +166,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:SingleServer" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:SingleServer" },
                 },
             };

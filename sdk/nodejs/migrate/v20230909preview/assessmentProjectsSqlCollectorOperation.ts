@@ -109,7 +109,7 @@ export class AssessmentProjectsSqlCollectorOperation extends pulumi.CustomResour
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate:AssessmentProjectsSqlCollectorOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230315:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230401preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate/v20230501preview:SqlCollectorOperation" }, { type: "azure-native:migrate/v20230909preview:SqlCollectorOperation" }, { type: "azure-native:migrate:AssessmentProjectsSqlCollectorOperation" }, { type: "azure-native:migrate:SqlCollectorOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsSqlCollectorOperation.__pulumiType, name, resourceInputs, opts);
     }

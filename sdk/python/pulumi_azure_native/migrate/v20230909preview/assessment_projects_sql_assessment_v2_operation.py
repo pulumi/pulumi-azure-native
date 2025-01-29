@@ -819,7 +819,7 @@ class AssessmentProjectsSqlAssessmentV2Operation(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsSqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsSqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsSqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate:AssessmentProjectsSqlAssessmentV2Operation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20230315:AssessmentProjectsSqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate/v20230315:SqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:AssessmentProjectsSqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate/v20230401preview:SqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:AssessmentProjectsSqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate/v20230501preview:SqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate/v20230909preview:SqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate:AssessmentProjectsSqlAssessmentV2Operation"), pulumi.Alias(type_="azure-native:migrate:SqlAssessmentV2Operation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AssessmentProjectsSqlAssessmentV2Operation, __self__).__init__(
             'azure-native:migrate/v20230909preview:AssessmentProjectsSqlAssessmentV2Operation',

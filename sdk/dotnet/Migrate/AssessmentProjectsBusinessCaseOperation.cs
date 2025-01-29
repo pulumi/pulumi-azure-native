@@ -84,8 +84,12 @@ namespace Pulumi.AzureNative.Migrate
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsBusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:BusinessCaseOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsBusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:BusinessCaseOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:AssessmentProjectsBusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:BusinessCaseOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:BusinessCaseOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

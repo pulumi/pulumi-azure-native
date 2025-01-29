@@ -108,7 +108,7 @@ export class SingleServerServerAdministrator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:SingleServerServerAdministrator" }, { type: "azure-native:dbformysql/v20171201preview:SingleServerServerAdministrator" }, { type: "azure-native:dbformysql:SingleServerServerAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:ServerAdministrator" }, { type: "azure-native:dbformysql/v20171201:SingleServerServerAdministrator" }, { type: "azure-native:dbformysql/v20171201preview:SingleServerServerAdministrator" }, { type: "azure-native:dbformysql/v20180601privatepreview:ServerAdministrator" }, { type: "azure-native:dbformysql:SingleServerServerAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SingleServerServerAdministrator.__pulumiType, name, resourceInputs, opts);
     }

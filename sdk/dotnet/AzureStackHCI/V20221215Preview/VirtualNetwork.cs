@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20221215Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:VirtualNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci:VirtualNetwork" },
                 },

@@ -94,7 +94,7 @@ export class SingleServerVirtualNetworkRule extends pulumi.CustomResource {
             resourceInputs["virtualNetworkSubnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:SingleServerVirtualNetworkRule" }, { type: "azure-native:dbformysql/v20171201preview:SingleServerVirtualNetworkRule" }, { type: "azure-native:dbformysql/v20180601privatepreview:SingleServerVirtualNetworkRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:SingleServerVirtualNetworkRule" }, { type: "azure-native:dbformysql/v20171201:VirtualNetworkRule" }, { type: "azure-native:dbformysql/v20171201preview:SingleServerVirtualNetworkRule" }, { type: "azure-native:dbformysql/v20180601privatepreview:SingleServerVirtualNetworkRule" }, { type: "azure-native:dbformysql/v20180601privatepreview:VirtualNetworkRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SingleServerVirtualNetworkRule.__pulumiType, name, resourceInputs, opts);
     }

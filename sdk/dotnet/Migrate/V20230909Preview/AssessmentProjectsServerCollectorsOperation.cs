@@ -89,10 +89,17 @@ namespace Pulumi.AzureNative.Migrate.V20230909Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:AssessmentProjectsServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001:ServerCollector" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:AssessmentProjectsServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230315:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:AssessmentProjectsServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230401preview:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:AssessmentProjectsServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230501preview:ServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230909preview:ServerCollectorsOperation" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate:AssessmentProjectsServerCollectorsOperation" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:ServerCollector" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:ServerCollectorsOperation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

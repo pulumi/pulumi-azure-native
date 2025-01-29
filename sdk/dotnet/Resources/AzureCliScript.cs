@@ -182,8 +182,12 @@ namespace Pulumi.AzureNative.Resources
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzureCliScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzurePowerShellScript" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:AzureCliScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:AzurePowerShellScript" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20230801:AzureCliScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20230801:AzurePowerShellScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources:AzurePowerShellScript" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

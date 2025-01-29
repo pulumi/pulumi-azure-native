@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:FirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:SingleServerFirewallRule" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:SingleServerFirewallRule" },
                 },

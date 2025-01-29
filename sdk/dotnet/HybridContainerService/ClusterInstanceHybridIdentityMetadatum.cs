@@ -78,7 +78,9 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:ClusterInstanceHybridIdentityMetadatum" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20231115preview:HybridIdentityMetadatum" },
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:ClusterInstanceHybridIdentityMetadatum" },
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20240101:HybridIdentityMetadatum" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -140,11 +140,15 @@ namespace Pulumi.AzureNative.Kusto
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:ReadOnlyFollowingDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:ReadOnlyFollowingDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200614:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200918:ReadOnlyFollowingDatabase" },
@@ -154,9 +158,14 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:ReadOnlyFollowingDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:ReadOnlyFollowingDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:ReadOnlyFollowingDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ReadOnlyFollowingDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:ReadWriteDatabase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

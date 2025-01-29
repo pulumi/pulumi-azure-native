@@ -128,6 +128,7 @@ namespace Pulumi.AzureNative.Workloads.V20231001Preview
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:SAPDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:SAPDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SAPDatabaseInstance" },
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20240901:SapDatabaseInstance" },
                     new global::Pulumi.Alias { Type = "azure-native:workloads:SAPDatabaseInstance" },
                 },
             };

@@ -455,7 +455,7 @@ class AzurePowerShellScript(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20191001preview:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources/v20201001:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources/v20230801:AzurePowerShellScript")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20191001preview:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20191001preview:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources/v20201001:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20201001:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources/v20230801:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20230801:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources:AzureCliScript")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzurePowerShellScript, __self__).__init__(
             'azure-native:resources:AzurePowerShellScript',

@@ -91,7 +91,7 @@ export class SingleServerFirewallRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:SingleServerFirewallRule" }, { type: "azure-native:dbforpostgresql/v20171201preview:SingleServerFirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:FirewallRule" }, { type: "azure-native:dbforpostgresql/v20171201:SingleServerFirewallRule" }, { type: "azure-native:dbforpostgresql/v20171201preview:SingleServerFirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SingleServerFirewallRule.__pulumiType, name, resourceInputs, opts);
     }

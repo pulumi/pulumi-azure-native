@@ -70,7 +70,7 @@ export class AssessmentProjectsVMwareCollector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AssessmentProjectsVMwareCollector" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsVMwareCollector" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsVMwareCollector" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsVMwareCollector" }, { type: "azure-native:migrate:AssessmentProjectsVMwareCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:VMwareCollector" }, { type: "azure-native:migrate/v20230315:AssessmentProjectsVMwareCollector" }, { type: "azure-native:migrate/v20230315:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsVMwareCollector" }, { type: "azure-native:migrate/v20230401preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsVMwareCollector" }, { type: "azure-native:migrate/v20230501preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsVMwareCollector" }, { type: "azure-native:migrate/v20230909preview:VmwareCollectorsOperation" }, { type: "azure-native:migrate:AssessmentProjectsVMwareCollector" }, { type: "azure-native:migrate:VMwareCollector" }, { type: "azure-native:migrate:VmwareCollectorsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsVMwareCollector.__pulumiType, name, resourceInputs, opts);
     }

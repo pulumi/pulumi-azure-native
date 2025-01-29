@@ -396,7 +396,7 @@ export class AssessmentProjectsAvsAssessmentsOperation extends pulumi.CustomReso
             resourceInputs["vcpuOversubscription"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AssessmentProjectsAvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsAvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsAvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsAvsAssessmentsOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20230315:AssessmentProjectsAvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230315:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AssessmentProjectsAvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230401preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:AssessmentProjectsAvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230501preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AssessmentProjectsAvsAssessmentsOperation" }, { type: "azure-native:migrate/v20230909preview:AvsAssessmentsOperation" }, { type: "azure-native:migrate:AvsAssessmentsOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentProjectsAvsAssessmentsOperation.__pulumiType, name, resourceInputs, opts);
     }

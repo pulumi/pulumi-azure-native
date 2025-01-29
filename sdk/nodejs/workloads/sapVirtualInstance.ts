@@ -163,7 +163,7 @@ export class SapVirtualInstance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SapVirtualInstance" }, { type: "azure-native:workloads/v20221101preview:SapVirtualInstance" }, { type: "azure-native:workloads/v20230401:SapVirtualInstance" }, { type: "azure-native:workloads/v20231001preview:SapVirtualInstance" }, { type: "azure-native:workloads/v20240901:SapVirtualInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:SapVirtualInstance" }, { type: "azure-native:workloads/v20221101preview:SapVirtualInstance" }, { type: "azure-native:workloads/v20230401:SAPVirtualInstance" }, { type: "azure-native:workloads/v20230401:SapVirtualInstance" }, { type: "azure-native:workloads/v20231001preview:SAPVirtualInstance" }, { type: "azure-native:workloads/v20231001preview:SapVirtualInstance" }, { type: "azure-native:workloads/v20240901:SapVirtualInstance" }, { type: "azure-native:workloads:SAPVirtualInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SapVirtualInstance.__pulumiType, name, resourceInputs, opts);
     }
